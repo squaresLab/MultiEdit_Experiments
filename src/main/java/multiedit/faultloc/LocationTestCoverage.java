@@ -21,8 +21,6 @@ import util.TestCase;
 
 public class LocationTestCoverage {
 
-    private ExecutionDataStore executionData = null;
-
     // possible TODO: assert that passing tests pass and failing tests fail
     public CoverageCalculator getCoverageAllTests(Collection<String> passingTests, Collection<String> failingTests, String pathToSubjectClasses, String pathToTestClasses) {
         CoverageCalculator coverageCalculator = new CoverageCalculator();
@@ -66,9 +64,7 @@ public class LocationTestCoverage {
     public Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, String pathToSubjectClasses) throws IOException {
         Map<String, Set<Integer>> classCoverage = new HashMap<String, Set<Integer>>();
 
-        if (executionData == null) {
-            executionData = new ExecutionDataStore();
-        }
+        ExecutionDataStore executionData = new ExecutionDataStore();
 
         final FileInputStream in = new FileInputStream(jacocoFile);
         final ExecutionDataReader reader = new ExecutionDataReader(in);

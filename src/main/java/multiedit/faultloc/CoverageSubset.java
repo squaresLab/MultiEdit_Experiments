@@ -24,8 +24,28 @@ public class CoverageSubset {
         coverageInfo.keySet().forEach(k -> this.addClass(k, coverageInfo.get(k)));
     }
 
+    public CoverageSubset intersection(CoverageSubset other) {
+        return this.intersection(other, "intersection");
+    }
+
+    public CoverageSubset intersection(CoverageSubset other, String description) {
+        CoverageSubset intersect = new CoverageSubset(description);
+        Set<String> allClasses = this.classCoverageMap.keySet();
+        allClasses.addAll(other.classCoverageMap.keySet());
+
+        for (String c : allClasses) {
+            Set<Integer> thisClassCoverage = this.classCoverageMap.getOrDefault(c, new HashSet<>());
+            Set<Integer> otherClassCoverage = other.classCoverageMap.getOrDefault(c, new HashSet<>());
+            thisClassCoverage.retainAll(otherClassCoverage);
+
+            intersect.addClass(c, thisClassCoverage);
+        }
+
+        return intersect;
+    }
+
     public Map<String, Set<Integer>> getClassCoverageMap() {
-        return classCoverageMap;
+        return new HashMap<>(classCoverageMap);
     }
 
     public String getDescription() {

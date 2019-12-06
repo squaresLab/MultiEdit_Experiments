@@ -12,8 +12,8 @@ public class CoverageCalculator {
     private Set<CoverageSubset> negativeTests;
 
     public CoverageCalculator() {
-        this.positiveTests = new HashSet<CoverageSubset>();
-        this.negativeTests = new HashSet<CoverageSubset>();
+        this.positiveTests = new HashSet<>();
+        this.negativeTests = new HashSet<>();
     }
 
     public void addTestCoverage(TestCase testCase, Map<String, Set<Integer>> coverageInfo) {
@@ -41,6 +41,20 @@ public class CoverageCalculator {
             negTests.addAllClasses(cov.getClassCoverageMap());
         }
         return negTests;
+    }
+
+    public CoverageSubset getIntersectionNegTests() {
+        CoverageSubset intersection = null;
+
+        for (CoverageSubset cov : negativeTests) {
+            if (intersection == null) {
+                intersection = cov;
+            } else {
+                intersection = intersection.intersection(cov, "Intersection of Neg Tests");
+            }
+        }
+
+        return intersection;
     }
 
 }
