@@ -10,8 +10,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MultiEdit_Experiments" target="1.5" />
-      <module name="SmallTestSystem" target="1.5" />
+      <module name="MultiEdit_Experiments" target="8" />
+      <module name="SmallTestSystem" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -40,7 +40,10 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunListener;
 
-/** JUnitTestRunner is the main file for the utility that
+/**
+ * This is also shamelessly stolen from GenProg
+ *
+ * JUnitTestRunner is the main file for the utility that
  * actually calls the junit tests; this must be compiled separately into a jar
  * and placed into a ./libs or similar that must be included in the classpath argument
  * to a genprog run.  I'd think hard about changing this, if I
