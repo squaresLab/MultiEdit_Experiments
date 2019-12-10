@@ -75,9 +75,6 @@ import org.junit.runner.Request;
 
 import clegoues.genprog4java.main.Configuration;
 import clegoues.genprog4java.main.Main;
-import clegoues.genprog4java.mut.Mutation;
-import clegoues.genprog4java.mut.WeightedMutation;
-import clegoues.genprog4java.rep.Representation;
 import clegoues.util.ConfigurationBuilder;
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -433,26 +430,69 @@ public class Fitness {
 		Collections.sort(testModel,Collections.reverseOrder());
 	}
 
-	private boolean singleTestCasePass(Representation rep, TestCase test) {
-		HashMap<TestCase, FitnessValue> thisVariantsFitness = null;
-		// FIXME: things would be better if the fitness cache were actually keyed on rep and not integers.  Also why on earth
-		// is the following "containsKey" typesafe without the hashCode()??? I hate Java.
-		if(fitnessCache.containsKey(rep.hashCode())) {
-			thisVariantsFitness = fitnessCache.get(rep.hashCode());
-			if (thisVariantsFitness.containsKey(test)) {
-				return thisVariantsFitness.get(test).isAllPassed();
-			}
-		} else {
-			thisVariantsFitness = new HashMap<TestCase, FitnessValue>();
-			fitnessCache.put(rep.hashCode(), thisVariantsFitness);
+	
+	
+	public boolean singleTestCasePass( TestCase test) {
+		String classp = ".:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
+		CommandLine command2 = CommandLine.parse("java -cp .:"+classp+" clegoues.genprog4java.fitness.JUnitTestRunner " + test.getTestName());
+		//System.out.println(command2.toString());
+		ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
+		DefaultExecutor executor = new DefaultExecutor();
+		String workingDirectory = System.getProperty("user.dir");
+		executor.setWorkingDirectory(new File(workingDirectory));
+		executor.setWatchdog(watchdog);
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		executor.setExitValue(0);
+		executor.setStreamHandler(new PumpStreamHandler(out));
+		try {
+			executor.execute(command2);
+			out.flush();
+		}catch(Throwable e) {
+			
+			e.printStackTrace();
+			//System.out.println(out.toString());
+			return false;
 		}
-		FitnessValue thisTest = rep.testCase(test);
-		thisVariantsFitness.put(test, thisTest);
-		return thisTest.isAllPassed();
+		return parseTestResults(out.toString()).isAllPassed();
 	}
 	
-	public List<String> myowntest(Representation rep, TestCase test) {
-		String classp = ".:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:tmp/"+rep.variantFolder+"/:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
+	private static FitnessValue parseTestResults(
+			String output) {
+		String[] lines = output.split("\n");
+		FitnessValue ret = new FitnessValue();
+		ret.setTestClassName("aba");
+		for (String line : lines) {
+			try {
+				if (line.startsWith("[SUCCESS]:")) {
+					String[] tokens = line.split("[:\\s]+");
+					ret.setAllPassed(Boolean.parseBoolean(tokens[1]));
+				}
+			} catch (Exception e) {
+				ret.setAllPassed(false);
+			}
+
+			try {
+				if (line.startsWith("[TOTAL]:")) {
+					String[] tokens = line.split("[:\\s]+");
+					ret.setNumberTests(Integer.parseInt(tokens[1]));
+				}
+			} catch (NumberFormatException e) {
+			}
+
+			try {
+				if (line.startsWith("[FAILURE]:")) {
+					String[] tokens = line.split("[:\\s]+");
+					ret.setNumTestsFailed(Integer.parseInt(tokens[1]));
+				}
+			} catch (NumberFormatException e) {
+			}
+		}
+
+		return ret;
+	}
+	
+	public List<String> myowntest( TestCase test) {
+		String classp = ".:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
 		CommandLine command2 = CommandLine.parse("java -cp .:"+classp+" clegoues.genprog4java.fitness.JUnitTestRunner2 " + test.getTestName());
 		//System.out.println(command2.toString());
 		ExecuteWatchdog watchdog = new ExecuteWatchdog(200000);
@@ -487,11 +527,10 @@ public class Fitness {
 	public static Map<String, Double> assertionPassed = new HashMap<String, Double>();
 	public static Map<String, Double> partialAssertionPassed = new HashMap<String, Double>();
 	
-	public double assertDistance(Representation rep, TestCase test) {
-		if(!rep.compile(rep.variantFolder, rep.variantFolder))return 0;
+	public double assertDistance(TestCase test) {
 		if(Configuration.ASSERT_MODE==0)return 0;
 		
-		List<String> list = myowntest(rep, test);
+		List<String> list = myowntest( test);
 		if(list==null)return 0;
 		if(list.size()<1) {
 			System.out.println("weirdest thing ever");
@@ -506,7 +545,7 @@ public class Fitness {
 		list.remove(0);
 		methodPassed.put(test.getTestName(), totaltests-list.size());
 		for(String testmethod : list) {
-			String classp = ".:"+Configuration.fakeJunitDir+"/target/classes:tmp/"+rep.variantFolder+"/:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
+			String classp = ".:"+Configuration.fakeJunitDir+"/target/classes:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
 			CommandLine command2 = CommandLine.parse("java -cp .:"+classp+" clegoues.genprog4java.fitness.JUnitTestRunner " + test.getTestName()+"::"+testmethod);
 			//System.out.println(command2.toString());
 			ExecuteWatchdog watchdog = new ExecuteWatchdog(100000);
@@ -558,118 +597,10 @@ public class Fitness {
 		}
 	}
 
-	/** try all tests
-	 *
-	 * @param rep variant to test
-	 * @param shortCircuit whether to quit when first failure is reached
-	 * @param tests tests to run
-	 * @return number of tests in the input test list that the variant passed
-	 */
-	private double testPassCount(Representation rep, boolean shortCircuit, List<TestCase> tests) {
-		double numPassed = 0;
-		for (TestCase thisTest : tests) {
-			if (!singleTestCasePass(rep, thisTest)) {
-				numPassed += assertDistance(rep,thisTest); 
-				rep.cleanup();
-				if(shortCircuit) {
-					return numPassed;
-				}
-			} else {
-				numPassed+=1;
-			}
-		}
-		return numPassed;
-	}
-
-	/**
-	 * Test a variant sequentially on all tests, starting with the negative tests.
-	 * Quits as soon as a failed test is found.  Uses the test model @see {@link clegoues.genprog4java.Search.TrpAutoRepair}
-	 * if specified. Does not sample.
-	 * @param rep variant to be tested
-	 * @param withModel whether to use the testModel
-	 * @returns boolean, whether the rep passed all tests.
-	 */
-	int totalVariantsTried = 0;
-	public boolean testToFirstFailure(Representation rep, boolean withModel) {
-		double fac = Fitness.numPositiveTests * Fitness.negativeTestWeight
-				/ Fitness.numNegativeTests;
-
-		double maxFitness = Fitness.numPositiveTests
-				+ ((Fitness.numNegativeTests * fac));
-		double curFit = rep.getFitness();
-		if (curFit > -1.0) {
-			logger.info("\t passed" + curFit + " tests, " + rep.getName() + " (stored at: " + rep.getVariantFolder() + ")");
-			logger.info("Total variants tried: " + ++totalVariantsTried);
-			return !(curFit < maxFitness);
-		}
-
-		if(withModel) {
-			boolean foundFail = false;
-			int numPassed = 0;
-			for(TestCase thisTest : testModel) {
-				if (!singleTestCasePass(rep, thisTest)) {
-					rep.cleanup();
-					thisTest.incrementPatchesKilled();
-					foundFail = true;
-					break;
-				} else {
-					numPassed ++;
-				}
-			}
-			if(foundFail) {
-				Collections.sort(testModel,Collections.reverseOrder());
-				logger.info("\t passed " + numPassed + " tests, " + rep.getName()+ " (stored at: " + rep.getVariantFolder() + ")");
-				logger.info("Total variants tried: " + ++totalVariantsTried);
-				return false;
-			}
-			return true;
-		} else {
-			double numNegativePassed = this.testPassCount(rep, true, Fitness.negativeTests);
-			if(numNegativePassed < Fitness.numNegativeTests) {
-				logger.info("\t passed " + numNegativePassed + " tests, " + rep.getName()+ " (stored at: " + rep.getVariantFolder() + ")");
-				logger.info("Total variants tried: " + ++totalVariantsTried);
-				return false;
-			}
-			double numPositivePassed = this.testPassCount(rep,  true, Fitness.positiveTests);
-			if(numPositivePassed < Fitness.numPositiveTests) {
-				double totalPassed = numNegativePassed + numPositivePassed;
-				logger.info("\t passed " + totalPassed + " tests, " + rep.getName()+ " (stored at: " + rep.getVariantFolder() + ")");
-				logger.info("Total variants tried: " + ++totalVariantsTried);
-				return false;
-			}
-			double totalPassed = numNegativePassed + numPositivePassed;
-			logger.info("\t passed " + totalPassed + " (ALL) tests, " + rep.getName()+ " (stored at: " + rep.getVariantFolder() + ")");
-			logger.info("Total variants tried: " + ++totalVariantsTried);
-			return true;
-		}
-	}
+	
+	
 
 
-	/** performs sampled fitness.  If variant passes everything in the sample,
-	 * tests on the rest as well.
-	 * @param rep variant to test
-	 * @param fac weight to give to negative tests passed for fitness
-	 * @return Pair<sample fitness, total fitness>; returns both mostly so we can track fitness
-	 * behavior if desired.
-	 */
-	private Pair<Double,Double> testFitnessSample(Representation rep, double fac) {
-		double numNegPassed = this.testPassCount(rep,false, Fitness.negativeTests);
-		double numPosPassed = this.testPassCount(rep,false, Fitness.testSample);
-                System.out.println("NumNegPassed: "+numNegPassed +" NumPosPassed: "+numPosPassed);
-		double numRestPassed = 0;
-		if((numNegPassed == (double)Fitness.numNegativeTests) &&
-				(numPosPassed == (double)testSample.size())) {
-			if(Fitness.sample < 1.0) { // restSample won't be null by definition here
-				numRestPassed = this.testPassCount(rep, false, Fitness.restSample);
-				System.out.println("numRestPassed: "+numRestPassed);
-			}
-		}
-		double sampleFitness = fac * numNegPassed + numPosPassed;
-		double totalFitness = sampleFitness + numRestPassed;
-		System.out.println("Fac: "+fac);
-		System.out.println("S "+sampleFitness+" T "+totalFitness);
-		return Pair.of(totalFitness,sampleFitness);
-	}
 
 	/** unsampled fitness.  Just test everything
 	 *
@@ -677,24 +608,24 @@ public class Fitness {
 	 * @param fac weight to give the negative tests
 	 * @return Pair, where both elements of the pair are the same (full fitness)
 	 */
-	private Pair<Double, Double> testFitnessFull(Representation rep,
+	private Pair<Double, Double> testFitnessFull(
 			double fac) {
 		double fitness = 0.0;
 		for (TestCase thisTest : Fitness.positiveTests) {
-			if (singleTestCasePass(rep, thisTest)) {
+			if (singleTestCasePass( thisTest)) {
 				fitness += 1.0;
 			}
 			else {
-				fitness += assertDistance(rep, thisTest);
+				fitness += assertDistance( thisTest);
 			}
 		}
 		for (TestCase thisTest : Fitness.negativeTests) {
-			if (singleTestCasePass(rep, thisTest)) {
+			if (singleTestCasePass( thisTest)) {
 				
 				fitness += fac;
 			}
 			else {
-				fitness += assertDistance(rep, thisTest);
+				fitness += assertDistance( thisTest);
 			}
 		}
 		return  Pair.of(fitness, fitness);
@@ -709,7 +640,7 @@ public class Fitness {
 	 * @param rep variant to test
 	 * @return true if variant passes all test cases, false otherwise.
 	 */
-	public boolean testFitness(int generation, Representation rep) {
+	public double testFitness(int generation) {
 
 		/*
 		 * Find the relative weight of positive and negative tests If
@@ -722,13 +653,10 @@ public class Fitness {
 				/ Fitness.numNegativeTests;
 		double maxFitness = Fitness.numPositiveTests
 				+ ((Fitness.numNegativeTests * fac));
-		double curFit = rep.getFitness();
-		if (curFit > -1.0) {
-			logger.info("\t gen: " + generation + " " + curFit + " " + rep.getName() + " (stored at: " + rep.getVariantFolder() + ")");
-			return !(curFit < maxFitness);
-		}
+		double curFit = 0;
+		
 		Pair<Double, Double> fitnessPair =  Pair.of(-1.0, -1.0);
-		fitnessPair = this.testFitnessFull(rep, 1);
+		fitnessPair = this.testFitnessFull(1);
 		/*if (Fitness.sample < 1.0) {
 			if (((Fitness.sampleStrategy == "generation") && (Fitness.generation != generation)) ||
 					(Fitness.sampleStrategy == "variant")) {
@@ -739,10 +667,8 @@ public class Fitness {
 		} else {
 			fitnessPair = this.testFitnessFull(rep, fac);
 		}*/
-		logger.info("\t gen: " + generation + " " + fitnessPair.getLeft() + " " + rep.getName()+ " (stored at: " + rep.getVariantFolder() + ")");
-		rep.setFitness(fitnessPair.getRight());
-		rep.cleanup();
-		return !(fitnessPair.getLeft() < maxFitness);
+		
+		return fitnessPair.getRight();
 
 	}
 

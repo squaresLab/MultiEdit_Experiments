@@ -39,45 +39,21 @@ import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-import clegoues.genprog4java.Search.BruteForce;
-import clegoues.genprog4java.Search.GeneticProgramming;
-import clegoues.genprog4java.Search.OracleSearch;
-import clegoues.genprog4java.Search.Population;
-import clegoues.genprog4java.Search.RandomSingleEdit;
-import clegoues.genprog4java.Search.Search;
+
 import clegoues.genprog4java.fitness.Fitness;
-import clegoues.genprog4java.localization.DefaultLocalization;
-import clegoues.genprog4java.localization.Localization;
-import clegoues.genprog4java.localization.UnexpectedCoverageResultException;
-import clegoues.genprog4java.mut.edits.java.JavaEditOperation;
-import clegoues.genprog4java.rep.CachingRepresentation;
-import clegoues.genprog4java.rep.JavaRepresentation;
-import clegoues.genprog4java.rep.Representation;
 import clegoues.util.ConfigurationBuilder;
 
 public class Main {
 
 	protected static Logger logger = Logger.getLogger(Main.class);
 
-	public static void main(String[] args) throws IOException,
-	UnexpectedCoverageResultException {
-		Search searchEngine = null;
-		Representation baseRep = null;
+	public static void main(String[] args) throws IOException {
 		Fitness fitnessEngine = null;
-		Population incomingPopulation = null;
 		assert (args.length > 0);
-		long startTime = System.currentTimeMillis();
 		BasicConfigurator.configure();
 
 		ConfigurationBuilder.register( Configuration.token );
 		ConfigurationBuilder.register( Fitness.token );
-		ConfigurationBuilder.register( CachingRepresentation.token );
-		ConfigurationBuilder.register( JavaRepresentation.token );
-		ConfigurationBuilder.register( Population.token );
-		ConfigurationBuilder.register( Search.token );
-		ConfigurationBuilder.register( OracleSearch.token );
-		ConfigurationBuilder.register( RandomSingleEdit.token );
-		ConfigurationBuilder.register( DefaultLocalization.token );
 
 		ConfigurationBuilder.parseArgs( args );
 		Configuration.saveOrLoadTargetFiles();
@@ -89,12 +65,10 @@ public class Main {
 		logger.info("Configuration file loaded");
 
 		fitnessEngine = new Fitness();  // Fitness must be created before rep!
-		baseRep = (Representation) new JavaRepresentation();
-		baseRep.load(Configuration.targetClassNames);
 		//Localization localization = new DefaultLocalization(baseRep);
-		fitnessEngine.testFitness(0, baseRep);
+		
 		System.out.println("Classes passed: ");
-		System.out.println(baseRep.getFitness());
+		System.out.println(fitnessEngine.testFitness(0));
 		for(String key : Fitness.methodPassed.keySet()) {
 			System.out.println(key+" "+Fitness.methodPassed.get(key));
 		}
@@ -105,7 +79,7 @@ public class Main {
 			System.out.println(key+" "+Fitness.partialAssertionPassed.get(key));
 		}
 		System.exit(0);
-		
+		/*
 		switch(Search.searchStrategy.trim()) {
 
 		case "brute": searchEngine = new BruteForce<JavaEditOperation>(fitnessEngine);
@@ -127,7 +101,7 @@ public class Main {
 		}
 		int elapsed = getElapsedTime(startTime);
 		logger.info("\nTotal elapsed time: " + elapsed + "\n");
-		Runtime.getRuntime().exit(0);
+		Runtime.getRuntime().exit(0);*/
 	}
 
 	private static int getElapsedTime(long start) {

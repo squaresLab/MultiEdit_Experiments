@@ -59,8 +59,6 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.log4j.Logger;
-
-import clegoues.genprog4java.mut.WeightedMutation;
 import clegoues.util.ConfigurationBuilder.LexicalCast;
 
 /**
