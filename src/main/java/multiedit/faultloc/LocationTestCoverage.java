@@ -17,22 +17,23 @@ import org.jacoco.core.data.ExecutionDataStore;
 import org.jacoco.core.data.IExecutionDataVisitor;
 import org.jacoco.core.data.ISessionInfoVisitor;
 import org.jacoco.core.data.SessionInfo;
+import projects.Project;
 import util.TestCase;
 
 public class LocationTestCoverage {
 
     // possible TODO: assert that passing tests pass and failing tests fail
-    public CoverageCalculator getCoverageAllTests(Collection<String> passingTests, Collection<String> failingTests, String pathToSubjectClasses, String pathToTestClasses) {
+    public CoverageCalculator getCoverageAllTests(Project project) {
         CoverageCalculator coverageCalculator = new CoverageCalculator();
 
-        for (String t : passingTests) {
+        for (String t : project.getPassingTests()) {
             TestCase tc = new TestCase(TestCase.TestType.POSITIVE, t);
-            internalTestCase(tc, pathToSubjectClasses, pathToTestClasses);
+            internalTestCase(tc, project);
 
             Map<String, Set<Integer>> coverageInfo;
             try {
                 File jacocoFile = new File("jacoco.exec");
-                coverageInfo = getCoverageInfo(jacocoFile, pathToSubjectClasses);
+                coverageInfo = getCoverageInfo(jacocoFile, project);
                 jacocoFile.delete();
             } catch (IOException e) {
                 throw new RuntimeException("Could not get coverage for " + t, e);
@@ -41,14 +42,14 @@ public class LocationTestCoverage {
             coverageCalculator.addTestCoverage(tc, coverageInfo);
         }
 
-        for (String t : failingTests) {
+        for (String t : project.getFailingTests()) {
             TestCase tc = new TestCase(TestCase.TestType.NEGATIVE, t);
-            internalTestCase(tc, pathToSubjectClasses, pathToTestClasses);
+            internalTestCase(tc, project);
 
             Map<String, Set<Integer>> coverageInfo;
             try {
                 File jacocoFile = new File("jacoco.exec");
-                coverageInfo = getCoverageInfo(jacocoFile, pathToSubjectClasses);
+                coverageInfo = getCoverageInfo(jacocoFile, project);
                 jacocoFile.delete();
             } catch (IOException e) {
                 throw new RuntimeException("Could not get coverage for " + t, e);
@@ -61,7 +62,7 @@ public class LocationTestCoverage {
     }
 
     // code copied from genprog4java DefaultLocalization.getCoverageInfo()
-    public Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, String pathToSubjectClasses) throws IOException {
+    public Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, Project project) throws IOException {
         Map<String, Set<Integer>> classCoverage = new HashMap<String, Set<Integer>>();
 
         ExecutionDataStore executionData = new ExecutionDataStore();
@@ -84,7 +85,7 @@ public class LocationTestCoverage {
         final CoverageBuilder coverageBuilder = new CoverageBuilder();
         final Analyzer analyzer = new Analyzer(executionData,
                 coverageBuilder);
-        File file = new File(pathToSubjectClasses);
+        File file = new File(project.getPathToSubjectClasses());
         analyzer.analyzeAll(file);
 
         for (final IClassCoverage cc : coverageBuilder.getClasses()) {
@@ -117,10 +118,10 @@ public class LocationTestCoverage {
 
     }
 
-    public void internalTestCase(TestCase thisTest, String pathToSubjectClasses, String pathToTestClasses) {
+    public void internalTestCase(TestCase thisTest, Project project) {
 
         CommandLine command = internalTestCaseCommand(
-                thisTest, pathToSubjectClasses, pathToTestClasses);
+                thisTest, project);
         System.out.println(command);
         ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
         DefaultExecutor executor = new DefaultExecutor();
@@ -157,7 +158,7 @@ public class LocationTestCoverage {
         }
     }
 
-    public CommandLine internalTestCaseCommand(TestCase test, String pathToSubjectClasses, String pathToTestClasses) {
+    public CommandLine internalTestCaseCommand(TestCase test, Project project) {
         // read in the test files to get a list of test class names
         // store it in the testcase object, which will be the name
         // this is a little strange because each test class has multiple
@@ -170,10 +171,9 @@ public class LocationTestCoverage {
         String outputDir = "target/classes";
 
         String classPath = outputDir + System.getProperty("path.separator")
-                + pathToSubjectClasses + System.getProperty("path.separator")
-                + pathToTestClasses + System.getProperty("path.separator")
-                + "lib/junit-4.13-rc-2.jar" + System.getProperty("path.separator")
-                + "lib/hamcrest-all-1.3.jar";
+                + project.getPathToSubjectClasses() + System.getProperty("path.separator")
+                + project.getPathToTestClasses() + System.getProperty("path.separator")
+                + project.getClassPath();
 
         // Positive tests
         command.addArgument("-classpath");

@@ -2,23 +2,119 @@ package multiedit.faultloc;
 
 
 import org.junit.jupiter.api.Test;
+import projects.Project;
 import util.TestCase;
 
 import java.io.File;
 import java.io.IOException;
+
 import java.util.*;
 
 import static org.junit.Assert.*;
 
 class LocationTestCoverageTest {
 
+    private Project smallSystemBuggy = new Project(){
+
+        @Override
+        public Collection<String> getPassingTests() {
+            List<String> passingTests = Arrays.asList(
+                    "broken.TriangleTest::test00",
+                    "broken.TriangleTest::test01",
+                    "broken.TriangleTest::test02",
+                    "broken.TriangleTest::test03",
+                    "broken.TriangleTest::test04",
+                    "broken.TriangleTest::test08",
+                    "broken.TriangleTest::test09",
+                    "broken.TriangleTest::test10",
+                    "broken.TriangleTest::test11",
+                    "broken.TriangleTest::test12",
+                    "broken.TriangleTest::test13",
+                    "broken.TriangleTest::test14",
+                    "broken.TriangleTest::test15",
+                    "broken.TriangleTest::test16",
+                    "broken.TriangleTest::test19");
+            return passingTests;
+        }
+
+        @Override
+        public Collection<String> getFailingTests() {
+            List<String> failingTests = Arrays.asList(
+                    "broken.TriangleTest::test05",
+                    "broken.TriangleTest::test06",
+                    "broken.TriangleTest::test07",
+                    "broken.TriangleTest::test17",
+                    "broken.TriangleTest::test18",
+                    "broken.TriangleTest::test20",
+                    "broken.TriangleTest::testCustom0",
+                    "broken.TriangleTest::testCustom1",
+                    "broken.TriangleTest::testCustom2",
+                    "broken.TriangleTest::testCustom3",
+                    "broken.TriangleTest::testCustom4");
+            return failingTests;
+        }
+
+        @Override
+        public String getPathToSubjectClasses() {
+            return "SmallTestSystem/target/classes";
+        }
+
+        @Override
+        public String getPathToTestClasses() {
+            return "SmallTestSystem/target/test-classes";
+        }
+
+        @Override
+        public String getClassPath() {
+            return "lib/junit-4.13-rc-2.jar" + System.getProperty("path.separator")
+                    + "lib/hamcrest-all-1.3.jar";
+        }
+    };
+
+    private Project smallSystemCorrect = new Project() {
+        @Override
+        public Collection<String> getPassingTests() {
+            List<String> passingTests = new ArrayList<>();
+            for (int i = 0; i <= 20; i++) {
+                passingTests.add(String.format("triangle.TriangleTest::test%02d", i));
+            }
+            passingTests.add("triangle.TriangleTest::testCustom0");
+            passingTests.add("triangle.TriangleTest::testCustom1");
+            passingTests.add("triangle.TriangleTest::testCustom2");
+            passingTests.add("triangle.TriangleTest::testCustom3");
+            passingTests.add("triangle.TriangleTest::testCustom4");
+            return passingTests;
+        }
+
+        @Override
+        public Collection<String> getFailingTests() {
+            return new ArrayList<>();
+        }
+
+        @Override
+        public String getPathToSubjectClasses() {
+            return "SmallTestSystem/target/classes";
+        }
+
+        @Override
+        public String getPathToTestClasses() {
+            return "SmallTestSystem/target/test-classes";
+        }
+
+        @Override
+        public String getClassPath() {
+            return "lib/junit-4.13-rc-2.jar" + System.getProperty("path.separator")
+                    + "lib/hamcrest-all-1.3.jar";
+        }
+    };
+
     @Test
     public void smallSystemTest() throws IOException {
         LocationTestCoverage locationTestCoverage = new LocationTestCoverage();
-        locationTestCoverage.internalTestCase(new TestCase(TestCase.TestType.POSITIVE, "triangle.TriangleTest::test00"), "SmallTestSystem/target/classes", "SmallTestSystem/target/test-classes");
+        locationTestCoverage.internalTestCase(new TestCase(TestCase.TestType.POSITIVE, "triangle.TriangleTest::test00"), smallSystemCorrect);
 
         File jacocoFile = new File("jacoco.exec");
-        Map<String, Set<Integer>> coverage = locationTestCoverage.getCoverageInfo(jacocoFile, "SmallTestSystem/target/classes");
+        Map<String, Set<Integer>> coverage = locationTestCoverage.getCoverageInfo(jacocoFile, smallSystemCorrect);
         jacocoFile.delete();
 
         TreeSet<Integer> expectedOutput = new TreeSet<Integer>();
@@ -33,17 +129,9 @@ class LocationTestCoverageTest {
     @Test
     public void testCoverageCalculatorAllPassing() {
         LocationTestCoverage locationTestCoverage = new LocationTestCoverage();
-        List<String> passingTests = new ArrayList<>();
-        for (int i = 0; i <= 20; i++) {
-            passingTests.add(String.format("triangle.TriangleTest::test%02d", i));
-        }
-        passingTests.add("triangle.TriangleTest::testCustom0");
-        passingTests.add("triangle.TriangleTest::testCustom1");
-        passingTests.add("triangle.TriangleTest::testCustom2");
-        passingTests.add("triangle.TriangleTest::testCustom3");
-        passingTests.add("triangle.TriangleTest::testCustom4");
 
-        CoverageCalculator coverageCalculator = locationTestCoverage.getCoverageAllTests(passingTests, new ArrayList<String>(), "SmallTestSystem/target/classes", "SmallTestSystem/target/test-classes");
+
+        CoverageCalculator coverageCalculator = locationTestCoverage.getCoverageAllTests(smallSystemCorrect);
 
         assertNotNull(coverageCalculator);
 
@@ -62,39 +150,9 @@ class LocationTestCoverageTest {
     public void testCoverageCalculatorSeededFault() {
         LocationTestCoverage locationTestCoverage = new LocationTestCoverage();
 
-        List<String> failingTests = Arrays.asList(
-            "broken.TriangleTest::test05",
-            "broken.TriangleTest::test06",
-            "broken.TriangleTest::test07",
-            "broken.TriangleTest::test17",
-            "broken.TriangleTest::test18",
-            "broken.TriangleTest::test20",
-            "broken.TriangleTest::testCustom0",
-            "broken.TriangleTest::testCustom1",
-            "broken.TriangleTest::testCustom2",
-            "broken.TriangleTest::testCustom3",
-            "broken.TriangleTest::testCustom4");
+        System.out.println((smallSystemBuggy.getFailingTests().size() + smallSystemBuggy.getPassingTests().size())+" tests");
 
-        List<String> passingTests = Arrays.asList(
-                "broken.TriangleTest::test00",
-                "broken.TriangleTest::test01",
-                "broken.TriangleTest::test02",
-                "broken.TriangleTest::test03",
-                "broken.TriangleTest::test04",
-                "broken.TriangleTest::test08",
-                "broken.TriangleTest::test09",
-                "broken.TriangleTest::test10",
-                "broken.TriangleTest::test11",
-                "broken.TriangleTest::test12",
-                "broken.TriangleTest::test13",
-                "broken.TriangleTest::test14",
-                "broken.TriangleTest::test15",
-                "broken.TriangleTest::test16",
-                "broken.TriangleTest::test19");
-
-        System.out.println((failingTests.size() + passingTests.size())+" tests");
-
-        CoverageCalculator coverageCalculator = locationTestCoverage.getCoverageAllTests(passingTests, failingTests, "SmallTestSystem/target/classes", "SmallTestSystem/target/test-classes");
+        CoverageCalculator coverageCalculator = locationTestCoverage.getCoverageAllTests(smallSystemBuggy);
 
         assertNotNull(coverageCalculator);
 
