@@ -8,16 +8,16 @@ import java.io.*;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class Defects4JProject implements Project {
+public class Defects4JPatch implements Patch {
 
     private D4JName projectName;
     private int bugNumber;
     private String d4jWorkingDir;
-    private Collection<String> passingTests, failingTests;
-    private String pathToSubjectClasses, pathToTestClasses;
-    private String classPath;
+    private Collection<String> passingTests, failingTests, relevantTests;
+    private String pathToBuggySubjectClasses, pathToBuggyTestClasses, pathToPatchedSubjectClasses, pathToPatchedTestClasses;
+    private String buggyClassPath, patchedClassPath;
 
-    public Defects4JProject(D4JName projectName, int bugNumber) {
+    public Defects4JPatch(D4JName projectName, int bugNumber) {
         if (bugNumber <= 0 || bugNumber > projectName.numBugs) {
             throw new IllegalArgumentException("Invalid bug number " + bugNumber + " for " + projectName);
         }
@@ -63,12 +63,17 @@ public class Defects4JProject implements Project {
             properties.put(prop[0], prop[1]);
         });
 
-        this.pathToSubjectClasses = properties.get("classFolder");
-        this.pathToTestClasses = properties.get("testFolder");
-        this.classPath = properties.get("srcClassPath") + System.getProperty("path.separator") + properties.get("testClassPath");
+        this.pathToBuggySubjectClasses = properties.get("buggyClassFolder");
+        this.pathToBuggyTestClasses = properties.get("buggyTestFolder");
+        this.pathToPatchedSubjectClasses = properties.get("patchedClassFolder");
+        this.pathToPatchedTestClasses = properties.get("patchedTestFolder");
+        this.buggyClassPath = properties.get("buggySrcClassPath") + System.getProperty("path.separator") + properties.get("buggyTestClassPath");
+        this.patchedClassPath = properties.get("patchedSrcClassPath") + System.getProperty("path.separator") + properties.get("patchedTestClassPath");
 
         this.passingTests = new ArrayList<>();
-        lineIterator(new File(properties.get("relevantTests")), s -> passingTests.add(s));
+
+        this.relevantTests = new ArrayList<>();
+        lineIterator(new File(properties.get("relevantTests")), s -> relevantTests.add(s));
 
         this.failingTests = new ArrayList<>();
         lineIterator(new File(properties.get("negativeTests")), s -> failingTests.add(s));
@@ -87,10 +92,14 @@ public class Defects4JProject implements Project {
     @Override
     public Collection<String> getPassingTests() {
         // TODO: maybe this should do the right thing one day
-        // the contents of `this.passingTests` is all the tests that load the affected classes,
-        // both passing and failing tests
+        // the contents of `this.passingTests` is empty
         // there is no way to get only passing tests out of the box in D4J, apparently
-        return new ArrayList<>();
+        return this.passingTests;
+    }
+
+    @Override
+    public Collection<String> getRelevantTests() {
+        return relevantTests;
     }
 
     @Override
@@ -99,17 +108,32 @@ public class Defects4JProject implements Project {
     }
 
     @Override
-    public String getPathToSubjectClasses() {
-        return pathToSubjectClasses;
+    public String getPathToBuggySubjectClasses() {
+        return pathToBuggySubjectClasses;
     }
 
     @Override
-    public String getPathToTestClasses() {
-        return pathToTestClasses;
+    public String getPathToBuggyTestClasses() {
+        return pathToBuggyTestClasses;
     }
 
     @Override
-    public String getClassPath() {
-        return classPath;
+    public String getPathToPatchedSubjectClasses() {
+        return pathToPatchedSubjectClasses;
+    }
+
+    @Override
+    public String getPathToPatchedTestClasses() {
+        return pathToPatchedTestClasses;
+    }
+
+    @Override
+    public String getBuggyClassPath() {
+        return buggyClassPath;
+    }
+
+    @Override
+    public String getPatchedClassPath() {
+        return patchedClassPath;
     }
 }

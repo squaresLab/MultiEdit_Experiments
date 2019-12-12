@@ -17,52 +17,55 @@ import org.jacoco.core.data.ExecutionDataStore;
 import org.jacoco.core.data.IExecutionDataVisitor;
 import org.jacoco.core.data.ISessionInfoVisitor;
 import org.jacoco.core.data.SessionInfo;
-import projects.Project;
+import projects.Patch;
 import util.TestCase;
 
-public class LocationTestCoverage {
+public class JacocoCoverage {
 
-    // possible TODO: assert that passing tests pass and failing tests fail
-    public CoverageCalculator getCoverageAllTests(Project project) {
-        CoverageCalculator coverageCalculator = new CoverageCalculator();
+    public Collection<CoverageSubset> getCoveragePassingTests(Patch patch, Patch.Version whichVersion) {
+        return getCoverageSomeTests(patch, patch.getPassingTests(), whichVersion);
+    }
 
-        for (String t : project.getPassingTests()) {
+    public Collection<CoverageSubset> getCoverageFailingTests(Patch patch, Patch.Version whichVersion) {
+        return getCoverageSomeTests(patch, patch.getFailingTests(), whichVersion);
+    }
+
+    public Collection<CoverageSubset> getCoverageRelevantTests(Patch patch, Patch.Version whichVersion) {
+        return getCoverageSomeTests(patch, patch.getRelevantTests(), whichVersion);
+    }
+
+    public Collection<CoverageSubset> getCoverageSomeTests(Patch p, Collection<String> whichTests, Patch.Version whichVersion) {
+        List<CoverageSubset> testCaseCoverage = new ArrayList<>();
+
+        for (String t : whichTests) {
             TestCase tc = new TestCase(TestCase.TestType.POSITIVE, t);
-            internalTestCase(tc, project);
+            CoverageSubset coverageInfo = getCoverageForTest(p, tc, whichVersion);
+            testCaseCoverage.add(coverageInfo);
 
-            Map<String, Set<Integer>> coverageInfo;
-            try {
-                File jacocoFile = new File("jacoco.exec");
-                coverageInfo = getCoverageInfo(jacocoFile, project);
-                jacocoFile.delete();
-            } catch (IOException e) {
-                throw new RuntimeException("Could not get coverage for " + t, e);
-            }
-
-            coverageCalculator.addTestCoverage(tc, coverageInfo);
         }
 
-        for (String t : project.getFailingTests()) {
-            TestCase tc = new TestCase(TestCase.TestType.NEGATIVE, t);
-            internalTestCase(tc, project);
+        return testCaseCoverage;
+    }
 
-            Map<String, Set<Integer>> coverageInfo;
-            try {
-                File jacocoFile = new File("jacoco.exec");
-                coverageInfo = getCoverageInfo(jacocoFile, project);
-                jacocoFile.delete();
-            } catch (IOException e) {
-                throw new RuntimeException("Could not get coverage for " + t, e);
-            }
+    public CoverageSubset getCoverageForTest(Patch patch, TestCase tc, Patch.Version whichVersion) {
+        internalTestCase(tc, patch, whichVersion);
 
-            coverageCalculator.addTestCoverage(tc, coverageInfo);
+        Map<String, Set<Integer>> coverageInfo;
+        try {
+            File jacocoFile = new File("jacoco.exec");
+            coverageInfo = getCoverageInfo(jacocoFile, patch);
+            jacocoFile.delete();
+        } catch (IOException e) {
+            throw new RuntimeException("Could not get coverage for " + tc.getTestName(), e);
         }
+        CoverageSubset testCase = new CoverageSubset(tc.getTestName());
+        testCase.addAllClasses(coverageInfo);
+        return testCase;
 
-        return coverageCalculator;
     }
 
     // code copied from genprog4java DefaultLocalization.getCoverageInfo()
-    public Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, Project project) throws IOException {
+    protected Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, Patch patch) throws IOException {
         Map<String, Set<Integer>> classCoverage = new HashMap<String, Set<Integer>>();
 
         ExecutionDataStore executionData = new ExecutionDataStore();
@@ -85,7 +88,7 @@ public class LocationTestCoverage {
         final CoverageBuilder coverageBuilder = new CoverageBuilder();
         final Analyzer analyzer = new Analyzer(executionData,
                 coverageBuilder);
-        File file = new File(project.getPathToSubjectClasses());
+        File file = new File(patch.getPathToBuggySubjectClasses());
         analyzer.analyzeAll(file);
 
         for (final IClassCoverage cc : coverageBuilder.getClasses()) {
@@ -118,10 +121,10 @@ public class LocationTestCoverage {
 
     }
 
-    public void internalTestCase(TestCase thisTest, Project project) {
+    protected void internalTestCase(TestCase thisTest, Patch patch, Patch.Version whichVersion) {
 
         CommandLine command = internalTestCaseCommand(
-                thisTest, project);
+                thisTest, patch, whichVersion);
         System.out.println(command);
         ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
         DefaultExecutor executor = new DefaultExecutor();
@@ -158,7 +161,7 @@ public class LocationTestCoverage {
         }
     }
 
-    public CommandLine internalTestCaseCommand(TestCase test, Project project) {
+    protected CommandLine internalTestCaseCommand(TestCase test, Patch patch, Patch.Version whichVersion) {
         // read in the test files to get a list of test class names
         // store it in the testcase object, which will be the name
         // this is a little strange because each test class has multiple
@@ -170,12 +173,20 @@ public class LocationTestCoverage {
         CommandLine command = CommandLine.parse("java");
         String outputDir = "target/classes";
 
-        String classPath = outputDir + System.getProperty("path.separator")
-                + project.getPathToSubjectClasses() + System.getProperty("path.separator")
-                + project.getPathToTestClasses() + System.getProperty("path.separator")
-                + project.getClassPath();
+        String classPath = outputDir;
 
-        // Positive tests
+        if (whichVersion == Patch.Version.BUGGY) {
+            classPath += System.getProperty("path.separator")
+                    + patch.getPathToBuggySubjectClasses() + System.getProperty("path.separator")
+                    + patch.getPathToBuggyTestClasses() + System.getProperty("path.separator")
+                    + patch.getBuggyClassPath();
+        } else if (whichVersion == Patch.Version.PATCHED) {
+            classPath += System.getProperty("path.separator")
+                    + patch.getPathToPatchedSubjectClasses() + System.getProperty("path.separator")
+                    + patch.getPathToPatchedTestClasses()+ System.getProperty("path.separator")
+                    + patch.getPatchedClassPath();
+        }
+
         command.addArgument("-classpath");
         command.addArgument(classPath);
 

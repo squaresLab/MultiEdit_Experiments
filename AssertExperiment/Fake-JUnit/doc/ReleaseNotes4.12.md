@@ -602,7 +602,7 @@ Implementation-Vendor-Id: junit
 ```
 
 
-### [Pull request #511:](https://github.com/junit-team/junit4/pull/511) Maven project junit:junit:jar
+### [Pull request #511:](https://github.com/junit-team/junit4/pull/511) Maven patch junit:junit:jar
 
 
 #### How to install Maven
@@ -611,15 +611,15 @@ Download the Maven binary [http://www.us.apache.org/dist/maven/maven-3/3.0.4/bin
 
 (wget http://www.us.apache.org/dist/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.tar.gz)
 
-If you are in the project root, extract the archive (tar xvzf apache-maven-3.0.4-bin.tar.gz).
+If you are in the patch root, extract the archive (tar xvzf apache-maven-3.0.4-bin.tar.gz).
 Create directory _.m2_ in your _user home_. Then the artifacts and plugins are stored in `~/.m2/repository`.
 ( _~_ stands for user home)
 
 
 #### How to launch the build from the command line
 
-Clone the project (git clone https://github.com/junit-team/junit4.git) and navigate to the project root on your local system (cd junit).
-Clean the previous build in _target_ directory, build the project, and install new artifacts in your local repository:
+Clone the patch (git clone https://github.com/junit-team/junit4.git) and navigate to the patch root on your local system (cd junit).
+Clean the previous build in _target_ directory, build the patch, and install new artifacts in your local repository:
 
 `apache-maven-3.0.4/bin/mvn clean install`
 
@@ -630,30 +630,30 @@ Set the environment variables `M2_HOME` and `PATH` when frequently building via 
 [http://maven.apache.org/guides/development/guide-building-m2.html#Building_Maven_Without_Maven_Installed](http://maven.apache.org/guides/development/guide-building-m2.html#Building_Maven_Without_Maven_Installed)
 
 
-#### How to install and build the Maven project in Eclipse
+#### How to install and build the Maven patch in Eclipse
 
-I made a clone of JUnit project from GitHub to local folder `C:\cygwin\usr\local\etc\junit`.
+I made a clone of JUnit patch from GitHub to local folder `C:\cygwin\usr\local\etc\junit`.
 
 In menu go to _File -> Import..._
 
-In the popup menu open section _Maven_, click on _Existing Maven Projects_ and click on _Next_. In _Import Maven Projects_ specify the project root, and next proceed further with installing maven support plugin in Eclipse.
+In the popup menu open section _Maven_, click on _Existing Maven Projects_ and click on _Next_. In _Import Maven Projects_ specify the patch root, and next proceed further with installing maven support plugin in Eclipse.
 
-You have created the Maven project, and now build the project.
+You have created the Maven patch, and now build the patch.
 
-In the Package Explorer click on _pom.xml_. In the menu _Run -> Run As -> 2 Maven build..._ open the popup _Edit Configuration_ and specify the build phase _clean install_ in section _Goals_. Click on _Run_ and build the project.
+In the Package Explorer click on _pom.xml_. In the menu _Run -> Run As -> 2 Maven build..._ open the popup _Edit Configuration_ and specify the build phase _clean install_ in section _Goals_. Click on _Run_ and build the patch.
 
-#### How to install and build the Maven project in IntelliJ IDEA
+#### How to install and build the Maven patch in IntelliJ IDEA
 
-In IDEA menu create a new project _File -> New Project..._.
+In IDEA menu create a new patch _File -> New Project..._.
 
-Select _Create Java project from existing sources_, then click on Next and specify _Project file location_.
+Select _Create Java patch from existing sources_, then click on Next and specify _Project file location_.
 
-On the right-hand side is the _Maven Projects_ tab. Click on + and add _pom.xml_ into the project. Then click on the icon _Maven Settings_, and set _Maven home directory_ as the location of extracted Maven archive on your system. Click on the green triangle and launch the build.
+On the right-hand side is the _Maven Projects_ tab. Click on + and add _pom.xml_ into the patch. Then click on the icon _Maven Settings_, and set _Maven home directory_ as the location of extracted Maven archive on your system. Click on the green triangle and launch the build.
 
 See the IntelliJ IDEA Web help
 [http://www.jetbrains.com/idea/webhelp/maven-2.html](http://www.jetbrains.com/idea/webhelp/maven-2.html)
 
-#### How to install the Maven project with documentation
+#### How to install the Maven patch with documentation
 Use the profile `generate-docs` to build _sources.jar_ and _javadoc.jar_. Building Maven site is not yeat supported.
 
 Example: `mvn -Pgenerate-docs install`

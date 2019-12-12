@@ -5,25 +5,43 @@ NUMBER="$2"
 WORKINGDIR="$3"
 
 mkdir -p "$WORKINGDIR"
-defects4j checkout -p "$PROJECT" -v "$NUMBER"b -w "$WORKINGDIR"
-cd "$WORKINGDIR" || exit
+defects4j checkout -p "$PROJECT" -v "$NUMBER"b -w "$WORKINGDIR"/buggy
+defects4j checkout -p "$PROJECT" -v "$NUMBER"f -w "$WORKINGDIR"/patched
+
+
+cd "$WORKINGDIR"/buggy || exit
 defects4j compile
 
 defects4j export -p tests.trigger > neg.tests
-defects4j export -p tests.relevant > all.tests
+defects4j export -p tests.relevant > rel.tests
 
-TESTWD=$(defects4j export -p dir.src.tests)
-TARGETCLASS=$(defects4j export -p dir.bin.classes)
-TARGETTEST=$(defects4j export -p dir.bin.tests)
-COMPILECP=$(defects4j export -p cp.compile)
-TESTCP=$(defects4j export -p cp.test)
+MODIFIED=$(defects4j export -p classes.modified)
+BUGGYSOURCE=$(defects4j export -p dir.src.classes)
+TARGETCLASSB=$(defects4j export -p dir.bin.classes)
+TARGETTESTB=$(defects4j export -p dir.bin.tests)
+COMPILECPB=$(defects4j export -p cp.compile)
+TESTCPB=$(defects4j export -p cp.test)
+
+
+cd ../patched || exit
+defects4j compile
+PATCHEDSOURCE=$(defects4j export -p dir.src.classes)
+TARGETCLASSP=$(defects4j export -p dir.bin.classes)
+TARGETTESTP=$(defects4j export -p dir.bin.tests)
+
+cd ..
 
 FILE=defects4j.config
 /bin/cat <<EOM >$FILE
-classFolder=$WORKINGDIR/$TARGETCLASS
-testFolder=$WORKINGDIR/$TARGETTEST
-relevantTests=$WORKINGDIR/all.tests
-negativeTests=$WORKINGDIR/neg.tests
-testClassPath=$TESTCP
-srcClassPath=$COMPILECP
+buggyClassFolder=$WORKINGDIR/buggy/$TARGETCLASSB
+buggyTestFolder=$WORKINGDIR/buggy/$TARGETTESTB
+patchedClassFolder=$WORKINGDIR/patched/$TARGETCLASSP
+patchedTestFolder=$WORKINGDIR/patched/$TARGETTESTP
+relevantTests=$WORKINGDIR/buggy/rel.tests
+negativeTests=$WORKINGDIR/buggy/neg.tests
+buggyTestClassPath=$TESTCPB
+buggySrcClassPath=$COMPILECPB
+modifiedClasses=$MODIFIED
+buggySource=$WORKINGDIR/buggy/$BUGGYSOURCE
+patchedSource=$WORKINGDIR/patched/$PATCHEDSOURCE
 EOM

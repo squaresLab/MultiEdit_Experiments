@@ -2,7 +2,7 @@ package multiedit.faultloc;
 
 
 import org.junit.jupiter.api.Test;
-import projects.Project;
+import projects.Patch;
 import util.TestCase;
 
 import java.io.File;
@@ -12,9 +12,20 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
-class LocationTestCoverageTest {
+class JacocoCoverageTest {
+    private static final List<String> allTests = new ArrayList<>();
+    static {
+        for (int i = 0; i <= 20; i++) {
+            allTests.add(String.format("triangle.TriangleTest::test%02d", i));
+        }
+        allTests.add("triangle.TriangleTest::testCustom0");
+        allTests.add("triangle.TriangleTest::testCustom1");
+        allTests.add("triangle.TriangleTest::testCustom2");
+        allTests.add("triangle.TriangleTest::testCustom3");
+        allTests.add("triangle.TriangleTest::testCustom4");
+    }
 
-    private Project smallSystemBuggy = new Project(){
+    private Patch smallSystemBuggy = new Patch(){
 
         @Override
         public Collection<String> getPassingTests() {
@@ -38,6 +49,11 @@ class LocationTestCoverageTest {
         }
 
         @Override
+        public Collection<String> getRelevantTests() {
+            return allTests;
+        }
+
+        @Override
         public Collection<String> getFailingTests() {
             List<String> failingTests = Arrays.asList(
                     "broken.TriangleTest::test05",
@@ -55,66 +71,44 @@ class LocationTestCoverageTest {
         }
 
         @Override
-        public String getPathToSubjectClasses() {
+        public String getPathToBuggySubjectClasses() {
             return "SmallTestSystem/target/classes";
         }
 
         @Override
-        public String getPathToTestClasses() {
+        public String getPathToBuggyTestClasses() {
             return "SmallTestSystem/target/test-classes";
         }
 
         @Override
-        public String getClassPath() {
-            return "lib/junit-4.13-rc-2.jar" + System.getProperty("path.separator")
-                    + "lib/hamcrest-all-1.3.jar";
-        }
-    };
-
-    private Project smallSystemCorrect = new Project() {
-        @Override
-        public Collection<String> getPassingTests() {
-            List<String> passingTests = new ArrayList<>();
-            for (int i = 0; i <= 20; i++) {
-                passingTests.add(String.format("triangle.TriangleTest::test%02d", i));
-            }
-            passingTests.add("triangle.TriangleTest::testCustom0");
-            passingTests.add("triangle.TriangleTest::testCustom1");
-            passingTests.add("triangle.TriangleTest::testCustom2");
-            passingTests.add("triangle.TriangleTest::testCustom3");
-            passingTests.add("triangle.TriangleTest::testCustom4");
-            return passingTests;
-        }
-
-        @Override
-        public Collection<String> getFailingTests() {
-            return new ArrayList<>();
-        }
-
-        @Override
-        public String getPathToSubjectClasses() {
+        public String getPathToPatchedSubjectClasses() {
             return "SmallTestSystem/target/classes";
         }
 
         @Override
-        public String getPathToTestClasses() {
+        public String getPathToPatchedTestClasses() {
             return "SmallTestSystem/target/test-classes";
         }
 
         @Override
-        public String getClassPath() {
+        public String getBuggyClassPath() {
             return "lib/junit-4.13-rc-2.jar" + System.getProperty("path.separator")
                     + "lib/hamcrest-all-1.3.jar";
+        }
+
+        @Override
+        public String getPatchedClassPath() {
+            return getBuggyClassPath();
         }
     };
 
     @Test
     public void smallSystemTest() throws IOException {
-        LocationTestCoverage locationTestCoverage = new LocationTestCoverage();
-        locationTestCoverage.internalTestCase(new TestCase(TestCase.TestType.POSITIVE, "triangle.TriangleTest::test00"), smallSystemCorrect);
+        JacocoCoverage jacocoCoverage = new JacocoCoverage();
+        jacocoCoverage.internalTestCase(new TestCase(TestCase.TestType.POSITIVE, "triangle.TriangleTest::test00"), smallSystemBuggy, Patch.Version.PATCHED);
 
         File jacocoFile = new File("jacoco.exec");
-        Map<String, Set<Integer>> coverage = locationTestCoverage.getCoverageInfo(jacocoFile, smallSystemCorrect);
+        Map<String, Set<Integer>> coverage = jacocoCoverage.getCoverageInfo(jacocoFile, smallSystemBuggy);
         jacocoFile.delete();
 
         TreeSet<Integer> expectedOutput = new TreeSet<Integer>();
@@ -127,42 +121,37 @@ class LocationTestCoverageTest {
     }
 
     @Test
-    public void testCoverageCalculatorAllPassing() {
-        LocationTestCoverage locationTestCoverage = new LocationTestCoverage();
+    public void testCoverageAllPassing() {
+        JacocoCoverage jacocoCoverage = new JacocoCoverage();
 
 
-        CoverageCalculator coverageCalculator = locationTestCoverage.getCoverageAllTests(smallSystemCorrect);
-
-        assertNotNull(coverageCalculator);
-
-        CoverageSubset positiveTestCoverage = coverageCalculator.getPositiveTestCoverage();
-        CoverageSubset negativeTestCoverage = coverageCalculator.getNegativeTestCoverage();
-
-        assertEquals(0, negativeTestCoverage.getClassCoverageMap().size());
+        Collection<CoverageSubset> relevantTests = jacocoCoverage.getCoverageRelevantTests(smallSystemBuggy, Patch.Version.PATCHED);
+        assertEquals(26, relevantTests.size());
+        CoverageSubset relevantTestCoverage = CoverageUtils.aggregate("All Tests", relevantTests);
 
         // no method signatures, ending brackets, elses
         //but it does include the class signature thing
         Set<Integer> allImportantLinesInTriangle = new HashSet<>(Arrays.asList(3, 10, 11, 13, 14, 15, 17, 18, 20, 21, 23, 24, 25, 27, 30, 31, 32, 33, 34, 38));
-        assertEquals(allImportantLinesInTriangle, positiveTestCoverage.getClassCoverageMap().get("triangle/Triangle"));
+        assertEquals(allImportantLinesInTriangle, relevantTestCoverage.getClassCoverageMap().get("triangle/Triangle"));
     }
 
     @Test
-    public void testCoverageCalculatorSeededFault() {
-        LocationTestCoverage locationTestCoverage = new LocationTestCoverage();
+    public void testCoverageSeededFault() {
+        JacocoCoverage jacocoCoverage = new JacocoCoverage();
 
         System.out.println((smallSystemBuggy.getFailingTests().size() + smallSystemBuggy.getPassingTests().size())+" tests");
 
-        CoverageCalculator coverageCalculator = locationTestCoverage.getCoverageAllTests(smallSystemBuggy);
+        Collection<CoverageSubset> passing = jacocoCoverage.getCoveragePassingTests(smallSystemBuggy, Patch.Version.BUGGY);
+        Collection<CoverageSubset> failing = jacocoCoverage.getCoverageFailingTests(smallSystemBuggy, Patch.Version.BUGGY);
 
-        assertNotNull(coverageCalculator);
-
-        CoverageSubset positiveTestCoverage = coverageCalculator.getPositiveTestCoverage();
-        CoverageSubset negativeTestCoverage = coverageCalculator.getNegativeTestCoverage();
+        CoverageSubset positiveTestCoverage = CoverageUtils.aggregate("All Positive Tests", passing);
+        CoverageSubset negativeTestCoverage = CoverageUtils.aggregate("All Negative Tests", failing);
 
         Set<Integer> passingLinesInTriangle = new HashSet<>(Arrays.asList(3, 10, 13, 14, 15, 17, 18, 20, 21, 23, 24, 25, 27, 30, 31, 32, 33, 34, 38));
         assertEquals(passingLinesInTriangle, positiveTestCoverage.getClassCoverageMap().get("broken/Triangle"));
 
         Set<Integer> failingLinesInTriangle = new HashSet<>(Arrays.asList(3, 10, 11));
         assertEquals(failingLinesInTriangle, negativeTestCoverage.getClassCoverageMap().get("broken/Triangle"));
+        assertEquals(failingLinesInTriangle, CoverageUtils.intersect("Intersect neg tests", failing).getClassCoverageMap().get("broken/Triangle"));
     }
 }

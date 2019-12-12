@@ -30,7 +30,7 @@ public class CoverageSubset {
 
     public CoverageSubset intersection(CoverageSubset other, String description) {
         CoverageSubset intersect = new CoverageSubset(description);
-        Set<String> allClasses = this.classCoverageMap.keySet();
+        Set<String> allClasses = new HashSet<>(this.classCoverageMap.keySet());
         allClasses.addAll(other.classCoverageMap.keySet());
 
         for (String c : allClasses) {
@@ -55,7 +55,9 @@ public class CoverageSubset {
     public String toString() {
         String s = description + "\n";
         for (String c : classCoverageMap.keySet()) {
-            s += c + ": " + classCoverageMap.get(c) + "\n";
+            if (classCoverageMap.get(c).size() != 0) {
+                s += c + ": " + classCoverageMap.get(c) + "\n";
+            }
         }
         return s;
     }
