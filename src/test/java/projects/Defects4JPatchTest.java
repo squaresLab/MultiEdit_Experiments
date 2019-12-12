@@ -19,4 +19,16 @@ class Defects4JPatchTest {
 //        System.out.println(p.getFailingTests());
     }
 
+    @Test
+    public void testChart14() {
+        Defects4JPatch p = new Defects4JPatch(D4JName.CHART, 14);
+
+    }
+
+    @Test
+    public void testMath6() {
+        Defects4JPatch p = new Defects4JPatch(D4JName.MATH, 6);
+
+    }
+
 }

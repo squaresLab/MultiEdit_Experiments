@@ -16,6 +16,8 @@ defects4j export -p tests.trigger > neg.tests
 defects4j export -p tests.relevant > rel.tests
 
 MODIFIED=$(defects4j export -p classes.modified)
+MODIFIED=$(echo $MODIFIED | sed 's/ /:/g')
+
 BUGGYSOURCE=$(defects4j export -p dir.src.classes)
 TARGETCLASSB=$(defects4j export -p dir.bin.classes)
 TARGETTESTB=$(defects4j export -p dir.bin.tests)
@@ -45,3 +47,4 @@ modifiedClasses=$MODIFIED
 buggySource=$WORKINGDIR/buggy/$BUGGYSOURCE
 patchedSource=$WORKINGDIR/patched/$PATCHEDSOURCE
 EOM
+

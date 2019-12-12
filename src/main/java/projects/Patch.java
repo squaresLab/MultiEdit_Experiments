@@ -1,5 +1,7 @@
 package projects;
 
+import multiedit.faultloc.CoverageSubset;
+
 import java.util.Collection;
 
 public interface Patch {
@@ -19,4 +21,6 @@ public interface Patch {
     String getPathToPatchedTestClasses();
     String getBuggyClassPath();
     String getPatchedClassPath();
+
+    CoverageSubset getPatchLocations();
 }

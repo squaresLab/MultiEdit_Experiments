@@ -100,6 +100,14 @@ class JacocoCoverageTest {
         public String getPatchedClassPath() {
             return getBuggyClassPath();
         }
+
+        @Override
+        public CoverageSubset getPatchLocations() {
+            CoverageSubset patch = new CoverageSubset("Patch");
+            patch.addClass("triangle/Triangle", Collections.singleton(11));
+            return patch;
+        }
+
     };
 
     @Test

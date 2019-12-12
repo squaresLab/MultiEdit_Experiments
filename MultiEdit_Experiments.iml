@@ -32,5 +32,6 @@
     <orderEntry type="library" name="Maven: org.junit:junit-launcher:5.0.0-ALPHA" level="project" />
     <orderEntry type="library" name="Maven: org.junit:junit-engine-api:5.0.0-ALPHA" level="project" />
     <orderEntry type="library" name="Maven: org.junit:junit-commons:5.0.0-ALPHA" level="project" />
+    <orderEntry type="library" name="Maven: io.github.java-diff-utils:java-diff-utils:4.5" level="project" />
   </component>
 </module>
