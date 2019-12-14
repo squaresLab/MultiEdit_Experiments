@@ -2,7 +2,7 @@ package projects;
 
 public enum D4JName {
     CHART(26),
-    CLOSURE(176),
+    CLOSURE(133),
     LANG(65),
     MATH(106),
     MOCKITO(38),

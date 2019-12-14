@@ -28,6 +28,11 @@ class JacocoCoverageTest {
     private Patch smallSystemBuggy = new Patch(){
 
         @Override
+        public String getPatchName() {
+            return "Triangle";
+        }
+
+        @Override
         public Collection<String> getPassingTests() {
             List<String> passingTests = Arrays.asList(
                     "broken.TriangleTest::test00",
@@ -116,7 +121,7 @@ class JacocoCoverageTest {
         jacocoCoverage.internalTestCase(new TestCase(TestCase.TestType.POSITIVE, "triangle.TriangleTest::test00"), smallSystemBuggy, Patch.Version.PATCHED);
 
         File jacocoFile = new File("jacoco.exec");
-        Map<String, Set<Integer>> coverage = jacocoCoverage.getCoverageInfo(jacocoFile, smallSystemBuggy);
+        Map<String, Set<Integer>> coverage = jacocoCoverage.getCoverageInfo(jacocoFile, smallSystemBuggy, Patch.Version.PATCHED);
         jacocoFile.delete();
 
         TreeSet<Integer> expectedOutput = new TreeSet<Integer>();

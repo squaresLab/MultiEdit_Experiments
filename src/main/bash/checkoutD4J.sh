@@ -30,6 +30,8 @@ defects4j compile
 PATCHEDSOURCE=$(defects4j export -p dir.src.classes)
 TARGETCLASSP=$(defects4j export -p dir.bin.classes)
 TARGETTESTP=$(defects4j export -p dir.bin.tests)
+COMPILECPP=$(defects4j export -p cp.compile)
+TESTCPP=$(defects4j export -p cp.test)
 
 cd ..
 
@@ -43,6 +45,8 @@ relevantTests=$WORKINGDIR/buggy/rel.tests
 negativeTests=$WORKINGDIR/buggy/neg.tests
 buggyTestClassPath=$TESTCPB
 buggySrcClassPath=$COMPILECPB
+patchedTestClassPath=$TESTCPP
+patchedSrcClassPath=$COMPILECPP
 modifiedClasses=$MODIFIED
 buggySource=$WORKINGDIR/buggy/$BUGGYSOURCE
 patchedSource=$WORKINGDIR/patched/$PATCHEDSOURCE

@@ -32,7 +32,7 @@ public class PatchDiffUtils {
             List<Integer> lineNumbers = new ArrayList<>();
             for (AbstractDelta<String> delta : patch.getDeltas()) {
                 int start = delta.getTarget().getPosition();
-                for (int i = 0; i < delta.getTarget().size(); i++) {
+                for (int i = 1; i <= delta.getTarget().size(); i++) {
                     lineNumbers.add(start + i);
                 }
             }

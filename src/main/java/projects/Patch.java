@@ -11,6 +11,8 @@ public interface Patch {
         PATCHED
     }
 
+    String getPatchName();
+
     Collection<String> getPassingTests();
     Collection<String> getRelevantTests();
     Collection<String> getFailingTests();

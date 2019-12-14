@@ -40,6 +40,11 @@ public class Defects4JPatch implements Patch {
     }
 
     @Override
+    public String getPatchName() {
+        return String.format("%s:%03d", projectName, bugNumber);
+    }
+
+    @Override
     public Collection<String> getPassingTests() {
         // TODO: maybe this should do the right thing one day
         // the contents of `this.passingTests` is empty
@@ -92,23 +97,21 @@ public class Defects4JPatch implements Patch {
         return patchLocations;
     }
 
-    private void checkoutD4JProject() throws IOException {
-        String workingDirectory = System.getProperty("user.dir");
+    public void deleteDirectories() throws IOException {
+        CommandLine command = new CommandLine("rm");
+        command.addArgument("-rf");
+        command.addArgument(d4jWorkingDir);
+        System.out.println(command);
+        runCommand(command);
+    }
 
+    private void checkoutD4JProject() throws IOException {
         CommandLine command = new CommandLine("src/main/bash/checkoutD4J.sh");
         command.addArgument(projectName.getID());
         command.addArgument(String.valueOf(bugNumber));
         command.addArgument(d4jWorkingDir);
         System.out.println(command);
-
-        ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
-        DefaultExecutor executor = new DefaultExecutor();
-        executor.setWorkingDirectory(new File(workingDirectory));
-        executor.setWatchdog(watchdog);
-
-        executor.setExitValue(0);
-
-        executor.execute(command);
+        runCommand(command);
     }
 
     private void parseFields() throws Exception {
@@ -124,8 +127,12 @@ public class Defects4JPatch implements Patch {
         this.pathToBuggyTestClasses = properties.get("buggyTestFolder");
         this.pathToPatchedSubjectClasses = properties.get("patchedClassFolder");
         this.pathToPatchedTestClasses = properties.get("patchedTestFolder");
-        this.buggyClassPath = properties.get("buggySrcClassPath") + System.getProperty("path.separator") + properties.get("buggyTestClassPath");
-        this.patchedClassPath = properties.get("patchedSrcClassPath") + System.getProperty("path.separator") + properties.get("patchedTestClassPath");
+        this.buggyClassPath = properties.get("buggySrcClassPath") + System.getProperty("path.separator")
+                + properties.get("buggyTestClassPath") + System.getProperty("path.separator")
+                + "lib/junit-4.13-rc-2.jar";
+        this.patchedClassPath = properties.get("patchedSrcClassPath") + System.getProperty("path.separator")
+                + properties.get("patchedTestClassPath") + System.getProperty("path.separator")
+                + "lib/junit-4.13-rc-2.jar";
 
         // test names
         this.passingTests = new ArrayList<>();
@@ -140,6 +147,19 @@ public class Defects4JPatch implements Patch {
         Collection<String> modifiedClasses = Arrays.asList(properties.get("modifiedClasses").split(":"));
         this.patchLocations = PatchDiffUtils.getPatchLineNumbers(properties.get("buggySource"), properties.get("patchedSource"), modifiedClasses);
 
+    }
+
+    private void runCommand(CommandLine commandLine) throws IOException {
+        String workingDirectory = System.getProperty("user.dir");
+
+        ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
+        DefaultExecutor executor = new DefaultExecutor();
+        executor.setWorkingDirectory(new File(workingDirectory));
+        executor.setWatchdog(watchdog);
+
+        executor.setExitValue(0);
+
+        executor.execute(commandLine);
     }
 
     private void lineIterator(File f, Consumer<String> eachLine) throws IOException {

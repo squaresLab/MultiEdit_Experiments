@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import org.apache.commons.exec.*;
 import org.jacoco.core.analysis.Analyzer;
@@ -53,7 +54,7 @@ public class JacocoCoverage {
         Map<String, Set<Integer>> coverageInfo;
         try {
             File jacocoFile = new File("jacoco.exec");
-            coverageInfo = getCoverageInfo(jacocoFile, patch);
+            coverageInfo = getCoverageInfo(jacocoFile, patch, whichVersion);
             jacocoFile.delete();
         } catch (IOException e) {
             throw new RuntimeException("Could not get coverage for " + tc.getTestName(), e);
@@ -65,7 +66,7 @@ public class JacocoCoverage {
     }
 
     // code copied from genprog4java DefaultLocalization.getCoverageInfo()
-    protected Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, Patch patch) throws IOException {
+    protected Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, Patch patch, Patch.Version whichVersion) throws IOException {
         Map<String, Set<Integer>> classCoverage = new HashMap<String, Set<Integer>>();
 
         ExecutionDataStore executionData = new ExecutionDataStore();
@@ -88,7 +89,13 @@ public class JacocoCoverage {
         final CoverageBuilder coverageBuilder = new CoverageBuilder();
         final Analyzer analyzer = new Analyzer(executionData,
                 coverageBuilder);
-        File file = new File(patch.getPathToBuggySubjectClasses());
+        File file;
+
+        if (whichVersion == Patch.Version.PATCHED) {
+            file = new File(patch.getPathToPatchedSubjectClasses());
+        } else {
+            file = new File(patch.getPathToBuggySubjectClasses());
+        }
         analyzer.analyzeAll(file);
 
         for (final IClassCoverage cc : coverageBuilder.getClasses()) {

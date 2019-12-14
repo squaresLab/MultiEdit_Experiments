@@ -13,6 +13,9 @@ public class CoverageSubset {
     }
 
     public void addClass(String className, Set<Integer> lineNumbers) {
+        if (lineNumbers.size() == 0) {
+            return;
+        }
         if (this.classCoverageMap.containsKey(className)) {
             this.classCoverageMap.get(className).addAll(lineNumbers);
         } else {
@@ -34,8 +37,8 @@ public class CoverageSubset {
         allClasses.addAll(other.classCoverageMap.keySet());
 
         for (String c : allClasses) {
-            Set<Integer> thisClassCoverage = this.classCoverageMap.getOrDefault(c, new HashSet<>());
-            Set<Integer> otherClassCoverage = other.classCoverageMap.getOrDefault(c, new HashSet<>());
+            Set<Integer> thisClassCoverage = new HashSet<>(this.classCoverageMap.getOrDefault(c, new HashSet<>()));
+            Set<Integer> otherClassCoverage = new HashSet<>(other.classCoverageMap.getOrDefault(c, new HashSet<>()));
             thisClassCoverage.retainAll(otherClassCoverage);
 
             intersect.addClass(c, thisClassCoverage);
