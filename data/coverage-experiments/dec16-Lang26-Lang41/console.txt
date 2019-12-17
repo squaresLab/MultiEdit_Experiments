@@ -1,0 +1,1580 @@
+[src/main/bash/checkoutD4J.sh, Lang, 26, tmp/Lang-026]
+Check out 75d5b74a to /home/serenach/MultiEdit_Experiments/tmp/Lang-026/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 75d5b74a:e67792f8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-26b........................................ OK
+Check out 75d5b74a to /home/serenach/MultiEdit_Experiments/tmp/Lang-026/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 75d5b74a:e67792f8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-26f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-026/patched/target/classes:tmp/Lang-026/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-026/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-026/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-026/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.time.FastDateFormatTest::testLang645]
+OUTPUT: org.apache.commons.lang3.time.FastDateFormatTest::testLang645
+Test Class: org.apache.commons.lang3.time.FastDateFormatTest::testLang645
+class org.apache.commons.lang3.time.FastDateFormatTest
+testLang645
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-026]
+[src/main/bash/checkoutD4J.sh, Lang, 27, tmp/Lang-027]
+Check out c2560c02 to /home/serenach/MultiEdit_Experiments/tmp/Lang-027/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c2560c02:7c915333..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-27b........................................ OK
+Check out c2560c02 to /home/serenach/MultiEdit_Experiments/tmp/Lang-027/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c2560c02:7c915333..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-27f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-027/patched/target/classes:tmp/Lang-027/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-027/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-027/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-027/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+OUTPUT: org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+Test Class: org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+class org.apache.commons.lang3.math.NumberUtilsTest
+testCreateNumber
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-027]
+[src/main/bash/checkoutD4J.sh, Lang, 28, tmp/Lang-028]
+Check out 3e1afecc to /home/serenach/MultiEdit_Experiments/tmp/Lang-028/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3e1afecc:8da5fb28..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-28b........................................ OK
+Check out 3e1afecc to /home/serenach/MultiEdit_Experiments/tmp/Lang-028/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3e1afecc:8da5fb28..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-28f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-028/patched/target/classes:tmp/Lang-028/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-028/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-028/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-028/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest::testSupplementaryUnescaping]
+OUTPUT: org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest::testSupplementaryUnescaping
+Test Class: org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest::testSupplementaryUnescaping
+class org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest
+testSupplementaryUnescaping
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-028]
+[src/main/bash/checkoutD4J.sh, Lang, 29, tmp/Lang-029]
+Check out 982e2950 to /home/serenach/MultiEdit_Experiments/tmp/Lang-029/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 982e2950:cbf8e4eb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-29b........................................ OK
+Check out 982e2950 to /home/serenach/MultiEdit_Experiments/tmp/Lang-029/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 982e2950:cbf8e4eb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-29f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-029/patched/target/classes:tmp/Lang-029/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-029/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-029/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-029/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.SystemUtilsTest::testJavaVersionAsInt]
+OUTPUT: org.apache.commons.lang3.SystemUtilsTest::testJavaVersionAsInt
+Test Class: org.apache.commons.lang3.SystemUtilsTest::testJavaVersionAsInt
+class org.apache.commons.lang3.SystemUtilsTest
+testJavaVersionAsInt
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-029]
+[src/main/bash/checkoutD4J.sh, Lang, 30, tmp/Lang-030]
+Check out 19b63720 to /home/serenach/MultiEdit_Experiments/tmp/Lang-030/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 19b63720:24f6517c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-30b........................................ OK
+Check out 19b63720 to /home/serenach/MultiEdit_Experiments/tmp/Lang-030/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 19b63720:24f6517c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-30f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_CharArrayWithSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_CharArrayWithSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_CharArrayWithSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testContainsNone_CharArrayWithSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_StringWithSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_StringWithSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_StringWithSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testContainsNone_StringWithSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAny_StringCharArrayWithBadSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAny_StringCharArrayWithBadSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAny_StringCharArrayWithBadSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testContainsAny_StringCharArrayWithBadSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAnyBut_StringStringWithSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAnyBut_StringStringWithSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAnyBut_StringStringWithSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testIndexOfAnyBut_StringStringWithSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAny_StringWithBadSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAny_StringWithBadSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAny_StringWithBadSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testContainsAny_StringWithBadSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAny_StringCharArrayWithSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAny_StringCharArrayWithSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAny_StringCharArrayWithSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testIndexOfAny_StringCharArrayWithSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAnyBut_StringCharArrayWithSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAnyBut_StringCharArrayWithSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAnyBut_StringCharArrayWithSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testIndexOfAnyBut_StringCharArrayWithSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_StringWithBadSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_StringWithBadSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_StringWithBadSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testContainsNone_StringWithBadSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAny_StringStringWithSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAny_StringStringWithSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testIndexOfAny_StringStringWithSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testIndexOfAny_StringStringWithSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-030/patched/target/classes:tmp/Lang-030/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-030/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_CharArrayWithBadSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_CharArrayWithBadSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsNone_CharArrayWithBadSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testContainsNone_CharArrayWithBadSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-030]
+[src/main/bash/checkoutD4J.sh, Lang, 31, tmp/Lang-031]
+Check out 38bf7048 to /home/serenach/MultiEdit_Experiments/tmp/Lang-031/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38bf7048:0cc451d5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-31b........................................ OK
+Check out 38bf7048 to /home/serenach/MultiEdit_Experiments/tmp/Lang-031/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38bf7048:0cc451d5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-31f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-031/patched/target/classes:tmp/Lang-031/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-031/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-031/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-031/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAnyCharArrayWithSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAnyCharArrayWithSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAnyCharArrayWithSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testContainsAnyCharArrayWithSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-031/patched/target/classes:tmp/Lang-031/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-031/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-031/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-031/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAnyStringWithSupplementaryChars]
+OUTPUT: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAnyStringWithSupplementaryChars
+Test Class: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest::testContainsAnyStringWithSupplementaryChars
+class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
+testContainsAnyStringWithSupplementaryChars
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-031]
+[src/main/bash/checkoutD4J.sh, Lang, 32, tmp/Lang-032]
+Check out 006fca88 to /home/serenach/MultiEdit_Experiments/tmp/Lang-032/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 006fca88:1c606c3d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-32b........................................ OK
+Check out 006fca88 to /home/serenach/MultiEdit_Experiments/tmp/Lang-032/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 006fca88:1c606c3d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-32f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-032/patched/target/classes:tmp/Lang-032/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-032/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-032/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-032/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+OUTPUT: org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+Test Class: org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+class org.apache.commons.lang3.builder.HashCodeBuilderTest
+testReflectionObjectCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-032]
+[src/main/bash/checkoutD4J.sh, Lang, 33, tmp/Lang-033]
+Check out 0603aef5 to /home/serenach/MultiEdit_Experiments/tmp/Lang-033/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0603aef5:575be164..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-33b........................................ OK
+Check out 0603aef5 to /home/serenach/MultiEdit_Experiments/tmp/Lang-033/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0603aef5:575be164..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-33f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-033/patched/target/classes:tmp/Lang-033/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-033/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-033/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-033/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+OUTPUT: org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+Test Class: org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+class org.apache.commons.lang3.ClassUtilsTest
+testToClass_object
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-033]
+[src/main/bash/checkoutD4J.sh, Lang, 34, tmp/Lang-034]
+Check out 496525b0 to /home/serenach/MultiEdit_Experiments/tmp/Lang-034/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 496525b0:3f900a73..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-34b........................................ OK
+Check out 496525b0 to /home/serenach/MultiEdit_Experiments/tmp/Lang-034/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 496525b0:3f900a73..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-34f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testObjectCycle]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testObjectCycle
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testObjectCycle
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testObjectCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionHierarchy]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionHierarchy
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionHierarchy
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionHierarchy
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testSelfInstanceTwoVarsReflectionObjectCycle]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testSelfInstanceTwoVarsReflectionObjectCycle
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testSelfInstanceTwoVarsReflectionObjectCycle
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testSelfInstanceTwoVarsReflectionObjectCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayCycle]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayCycle
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayCycle
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionArrayCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionLongArrayArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionLongArrayArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionLongArrayArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionLongArrayArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayArrayCycle]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayArrayCycle
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayArrayCycle
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionArrayArrayCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionFloatArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionFloatArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionFloatArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionFloatArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionDoubleArrayArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionDoubleArrayArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionDoubleArrayArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionDoubleArrayArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionBooleanArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionBooleanArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionBooleanArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionBooleanArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionyteArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionyteArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionyteArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionyteArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionDoubleArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionDoubleArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionDoubleArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionDoubleArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionIntArrayArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionIntArrayArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionIntArrayArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionIntArrayArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionLongArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionLongArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionLongArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionLongArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionhortArrayArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionhortArrayArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionhortArrayArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionhortArrayArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionObjectArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionObjectArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionObjectArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionObjectArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionObjectCycle]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionObjectCycle
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionObjectCycle
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionObjectCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionBooleanArrayArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionBooleanArrayArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionBooleanArrayArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionBooleanArrayArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testSimpleReflectionObjectCycle]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testSimpleReflectionObjectCycle
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testSimpleReflectionObjectCycle
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testSimpleReflectionObjectCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionByteArrayArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionByteArrayArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionByteArrayArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionByteArrayArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayCycleLevel2]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayCycleLevel2
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayCycleLevel2
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionArrayCycleLevel2
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayAndObjectCycle]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayAndObjectCycle
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionArrayAndObjectCycle
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionArrayAndObjectCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionCharArrayArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionCharArrayArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionCharArrayArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionCharArrayArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionShortArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionShortArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionShortArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionShortArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testSelfInstanceVarReflectionObjectCycle]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testSelfInstanceVarReflectionObjectCycle
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testSelfInstanceVarReflectionObjectCycle
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testSelfInstanceVarReflectionObjectCycle
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionIntArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionIntArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionIntArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionIntArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionCharArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionCharArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionCharArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionCharArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-034/patched/target/classes:tmp/Lang-034/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-034/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionFloatArrayArray]
+OUTPUT: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionFloatArrayArray
+Test Class: org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionFloatArrayArray
+class org.apache.commons.lang3.builder.ToStringBuilderTest
+testReflectionFloatArrayArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-034]
+[src/main/bash/checkoutD4J.sh, Lang, 35, tmp/Lang-035]
+Check out 80bd78ea to /home/serenach/MultiEdit_Experiments/tmp/Lang-035/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 80bd78ea:48bf241d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-35b........................................ OK
+Check out 80bd78ea to /home/serenach/MultiEdit_Experiments/tmp/Lang-035/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 80bd78ea:48bf241d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-35f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-035/patched/target/classes:tmp/Lang-035/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-035/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/org/easymock/easymock/2.5.2/easymock-2.5.2.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-035/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-035/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+OUTPUT: org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+Test Class: org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+class org.apache.commons.lang3.ArrayUtilsAddTest
+testLANG571
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-035]
+[src/main/bash/checkoutD4J.sh, Lang, 36, tmp/Lang-036]
+Check out da0612b3 to /home/serenach/MultiEdit_Experiments/tmp/Lang-036/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff da0612b3:ec0c4e55..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-36b........................................ OK
+Check out da0612b3 to /home/serenach/MultiEdit_Experiments/tmp/Lang-036/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff da0612b3:ec0c4e55..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-36f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-036/patched/target/classes:tmp/Lang-036/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-036/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-036/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-036/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+OUTPUT: org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+Test Class: org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+class org.apache.commons.lang3.math.NumberUtilsTest
+testCreateNumber
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-036/patched/target/classes:tmp/Lang-036/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-036/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-036/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-036/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+OUTPUT: org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+Test Class: org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+class org.apache.commons.lang3.math.NumberUtilsTest
+testIsNumber
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-036]
+[src/main/bash/checkoutD4J.sh, Lang, 37, tmp/Lang-037]
+Check out ea140fb5 to /home/serenach/MultiEdit_Experiments/tmp/Lang-037/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ea140fb5:b5906d3f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-37b........................................ OK
+Check out ea140fb5 to /home/serenach/MultiEdit_Experiments/tmp/Lang-037/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ea140fb5:b5906d3f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-37f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-037/patched/target/classes:tmp/Lang-037/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-037/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-037/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-037/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+OUTPUT: org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+Test Class: org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+class org.apache.commons.lang3.ArrayUtilsAddTest
+testJira567
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-037]
+[src/main/bash/checkoutD4J.sh, Lang, 38, tmp/Lang-038]
+Check out a95e76ee to /home/serenach/MultiEdit_Experiments/tmp/Lang-038/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a95e76ee:e28c95ac..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-38b........................................ OK
+Check out a95e76ee to /home/serenach/MultiEdit_Experiments/tmp/Lang-038/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a95e76ee:e28c95ac..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-38f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-038/patched/target/classes:tmp/Lang-038/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-038/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-038/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-038/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.time.FastDateFormatTest::testLang538]
+OUTPUT: org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+Test Class: org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+class org.apache.commons.lang3.time.FastDateFormatTest
+testLang538
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-038]
+[src/main/bash/checkoutD4J.sh, Lang, 39, tmp/Lang-039]
+Check out cb40e35f to /home/serenach/MultiEdit_Experiments/tmp/Lang-039/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cb40e35f:0aa57f04..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-39b........................................ OK
+Check out cb40e35f to /home/serenach/MultiEdit_Experiments/tmp/Lang-039/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cb40e35f:0aa57f04..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-39f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-039/patched/target/classes:tmp/Lang-039/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-039/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-039/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-039/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang3.StringUtilsTest::testReplace_StringStringArrayStringArray]
+OUTPUT: org.apache.commons.lang3.StringUtilsTest::testReplace_StringStringArrayStringArray
+Test Class: org.apache.commons.lang3.StringUtilsTest::testReplace_StringStringArrayStringArray
+class org.apache.commons.lang3.StringUtilsTest
+testReplace_StringStringArrayStringArray
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-039]
+[src/main/bash/checkoutD4J.sh, Lang, 40, tmp/Lang-040]
+Check out 8b1a8e17 to /home/serenach/MultiEdit_Experiments/tmp/Lang-040/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8b1a8e17:c72adf1b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-40b........................................ OK
+Check out 8b1a8e17 to /home/serenach/MultiEdit_Experiments/tmp/Lang-040/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8b1a8e17:c72adf1b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-40f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-040/patched/target/classes:tmp/Lang-040/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-040/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-040/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-040/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+OUTPUT: org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+Test Class: org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+class org.apache.commons.lang.StringUtilsEqualsIndexOfTest
+testContainsIgnoreCase_LocaleIndependence
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-040]
+[src/main/bash/checkoutD4J.sh, Lang, 41, tmp/Lang-041]
+Check out 4d3629f3 to /home/serenach/MultiEdit_Experiments/tmp/Lang-041/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4d3629f3:ac58807e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-41b........................................ OK
+Check out 4d3629f3 to /home/serenach/MultiEdit_Experiments/tmp/Lang-041/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4d3629f3:ac58807e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-41f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+[java, -classpath, target/classes:tmp/Lang-041/patched/target/classes:tmp/Lang-041/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-041/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-041/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-041/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class]
+OUTPUT: org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+Test Class: org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+class org.apache.commons.lang.ClassUtilsTest
+test_getShortClassName_Class
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Lang-041/patched/target/classes:tmp/Lang-041/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-041/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/junit/junit/4.7/junit-4.7.jar:/home/serenach/MultiEdit_Experiments/tmp/Lang-041/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Lang-041/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/cglib.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/asm.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/easymock.jar:/home/serenach/tooling/defects4j/framework/projects/Lang/lib/commons-io.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+OUTPUT: org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+Test Class: org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+class org.apache.commons.lang.ClassUtilsTest
+test_getPackageName_Class
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Lang-041]
+[src/main/bash/checkoutD4J.sh, Lang, 42, tmp/Lang-042]
+Check out dd2ae757 to /home/serenach/MultiEdit_Experiments/tmp/Lang-042/bug OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dd2ae757:68217617..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-42b........................................ OK
+Check out dd2ae757 to /home/serenach/MultiEdit_Experiments/tmp/Lang-042/pat OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dd2ae757:68217617..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-42f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.tests.trigger)......................................... OK
+
+Running ant (export.tests.relevant)........................................ OK
+
+Running ant (export.classes.modified)...................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (export.dir.bin.tests)......................................... OK
+
+Running ant (export.cp.compile)............................................ OK
+
+Running ant (export.cp.test)............................................... OK
+
+Exception in thread "main" java.lang.RuntimeException: Failed to checkout D4J Project: LANG 42
+	at projects.Defects4JPatch.<init>(Defects4JPatch.java:38)
+	at multiedit.faultloc.DoCoverageExperiments.main(DoCoverageExperiments.java:35)
+Caused by: java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(CoderResult.java:281)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:339)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at java.nio.file.Files.readAllLines(Files.java:3205)
+	at java.nio.file.Files.readAllLines(Files.java:3242)
+	at util.PatchDiffUtils.getPatchLineNumbers(PatchDiffUtils.java:26)
+	at projects.Defects4JPatch.parseFields(Defects4JPatch.java:148)
+	at projects.Defects4JPatch.<init>(Defects4JPatch.java:36)
+	... 1 more

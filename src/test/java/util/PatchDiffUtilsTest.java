@@ -9,8 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PatchDiffUtilsTest {
     @Test
-    public void testGetPatchLineNumbers() {
-
+    public void testLang25() {
     }
 
 }
