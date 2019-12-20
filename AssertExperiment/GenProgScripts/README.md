@@ -15,7 +15,7 @@ The output is a folder created in the $D4J_HOME/5thParameter/1stParam2ndParam/ w
 
 ## Parameters:
 
-* 1st param is the patch in upper case (ex: Lang, Chart, Closure, Math, Time)
+* 1st param is the project in upper case (ex: Lang, Chart, Closure, Math, Time)
 * 2nd param is the bug number (ex: 1,2,3,4,...)
 * 3th param is the option of running the test suite (ex: allHuman, oneHuman, oneGenerated)
 * 4th param is the test suite sample size (ex: 1, 100)

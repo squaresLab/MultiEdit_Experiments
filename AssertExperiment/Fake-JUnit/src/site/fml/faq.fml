@@ -184,7 +184,7 @@
             <answer><p>
       The latest version of JUnit is available
       on <a
-      href="http://sourceforge.net/patch/showfiles.php?group_id=15278">SourceForge</a>.
+      href="http://sourceforge.net/project/showfiles.php?group_id=15278">SourceForge</a>.
     </p></answer>
         </faq>
         <faq id="started_2">
@@ -193,7 +193,7 @@
       <li>
     <p>
       First, <a
-            href="http://sourceforge.net/patch/showfiles.php?group_id=15278">download</a>
+            href="http://sourceforge.net/project/showfiles.php?group_id=15278">download</a>
       the
       latest version of JUnit, referred to below
       as <code>junit.zip</code>. 
@@ -1468,11 +1468,11 @@ a test failure, rather than the source file's line number?</question>
         <p>
           Use the <code>DirectorySuiteBuilder</code>
           and <code>ArchiveSuiteBuilder</code> (for jar/zip files)
-          classes provided by JUnit-addons patch:
+          classes provided by JUnit-addons project:
         </p>
 <pre class="prettyprint linenums">DirectorySuiteBuilder builder = new DirectorySuiteBuilder();
 builder.setSuffix("Test");
-Test suite = builder.suite("/home/patch/myproject/tests");</pre>
+Test suite = builder.suite("/home/project/myproject/tests");</pre>
         <p>
           Documentation and examples are at <a
                                                href="http://junit-addons.sourceforge.net/">http://junit-addons.sourceforge.net</a>.

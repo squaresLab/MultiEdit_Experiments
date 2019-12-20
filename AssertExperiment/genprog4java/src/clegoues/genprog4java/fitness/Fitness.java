@@ -450,7 +450,7 @@ public class Fitness {
 		}catch(Throwable e) {
 			
 			e.printStackTrace();
-			//System.out.println(out.toString());
+			System.out.println(out.toString());
 			return false;
 		}
 		return parseTestResults(out.toString()).isAllPassed();
@@ -458,6 +458,7 @@ public class Fitness {
 	
 	private static FitnessValue parseTestResults(
 			String output) {
+		//System.out.println(output);
 		String[] lines = output.split("\n");
 		FitnessValue ret = new FitnessValue();
 		ret.setTestClassName("aba");
@@ -465,6 +466,7 @@ public class Fitness {
 			try {
 				if (line.startsWith("[SUCCESS]:")) {
 					String[] tokens = line.split("[:\\s]+");
+		//			System.out.println(tokens[1]);
 					ret.setAllPassed(Boolean.parseBoolean(tokens[1]));
 				}
 			} catch (Exception e) {
@@ -547,7 +549,7 @@ public class Fitness {
 		for(String testmethod : list) {
 			String classp = ".:"+Configuration.fakeJunitDir+"/target/classes:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
 			CommandLine command2 = CommandLine.parse("java -cp .:"+classp+" clegoues.genprog4java.fitness.JUnitTestRunner " + test.getTestName()+"::"+testmethod);
-			//System.out.println(command2.toString());
+	//		System.out.println(command2.toString());
 			ExecuteWatchdog watchdog = new ExecuteWatchdog(100000);
 			DefaultExecutor executor = new DefaultExecutor();
 			String workingDirectory = System.getProperty("user.dir");

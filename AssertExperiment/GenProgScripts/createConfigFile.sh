@@ -87,8 +87,8 @@ positivePathWeight=0.35
 # trp for TrpAutoRepair, gp for GenProg and PAR 
 search=gp
 
-fakeJunitDir = /home/ylyu1/Fake-JUnit
-GP4J_HOME = /home/ylyu1/genprog/genprog4java/
+fakeJunitDir = $MULTIEDIT_HOME/AssertExperiment/Fake-JUnit/
+GP4J_HOME = $MULTIEDIT_HOME/AssertExperiment/genprog4java/
 skipFailedSanity = true
 
 
@@ -230,8 +230,8 @@ positivePathWeight=0.35
 # trp for TrpAutoRepair, gp for GenProg and PAR 
 search=gp
 
-fakeJunitDir = /home/ylyu1/Fake-JUnit
-GP4J_HOME = /home/ylyu1/genprog/genprog4java/
+fakeJunitDir = $MULTIEDIT_HOME/AssertExperiment/Fake-JUnit/
+GP4J_HOME = $MULTIEDIT_HOME/AssertExperiment/genprog4java/
 skipFailedSanity = true
 
 EOM

@@ -14,7 +14,7 @@ JarFly is in active development and changes often.
 
 This repository contains JaRFly, a Java Repair Framework for implementing
 automated repair tools for Java programs, such as GenProg, Par,
-TrpAutoRepair, and so on. The patch is called GenProg4Java because,
+TrpAutoRepair, and so on. The project is called GenProg4Java because,
 originally, it only implemented the GenProg algorithm, but today, it is an
 entire framework for many algorithms.
 
@@ -64,7 +64,7 @@ the VM; my VM arguments in my run configuration in Eclipse looks like:
 
 `-ea -Dlog4j.configuration=file:${workspace_loc:GenProg4Java}/src/log4j.properties`
 
-I also set the working directory to be the base directory for the patch I'm
+I also set the working directory to be the base directory for the project I'm
 trying to repair. Thus, for the Hello, World! example, the Working Directory
 is set as:
 

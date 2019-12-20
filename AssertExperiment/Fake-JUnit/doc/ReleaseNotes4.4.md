@@ -58,7 +58,7 @@ past, and how we can make them easier.
 
 [Download][]
 
-[Download]: http://sourceforge.net/patch/showfiles.php?group_id=15278
+[Download]: http://sourceforge.net/project/showfiles.php?group_id=15278
 
 ### assertThat ###
 
@@ -143,7 +143,7 @@ import static org.hamcrest.CoreMatchers.*;
 
 - To allow compatibility with a wide variety of possible matchers, 
   we have decided to include the classes from hamcrest-core,
-  from the [Hamcrest][] patch.  This is the first time that
+  from the [Hamcrest][] project.  This is the first time that
   third-party classes have been included in JUnit.  
 
 [Hamcrest]: http://code.google.com/p/hamcrest/
@@ -233,7 +233,7 @@ assumptions fail, the data point is silently ignored.  If all of the
 assumptions pass, but an assertion fails, the test fails.
 
 The support for Theories has been absorbed from the [Popper][]
-patch, and [more complete documentation][popper-docs] can be found
+project, and [more complete documentation][popper-docs] can be found
 there.
 
 [Popper]: http://popper.tigris.org

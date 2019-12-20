@@ -10,7 +10,7 @@
 #The output is a folder created in the $D4J_HOME/5thParameter/ where all the variants are stored including the patch, if any was found. 
 
 #Parameters:
-# 1st param is the patch in upper case (ex: Lang, Chart, Closure, Math, Time)
+# 1st param is the project in upper case (ex: Lang, Chart, Closure, Math, Time)
 # 2nd param is the bug number (ex: 1,2,3,4,...)
 # 3th param is the option of running the test suite (ex: allHuman, oneHuman, oneGenerated)
 # 4th param is the test suite sample size (ex: 1, 100)
@@ -31,7 +31,7 @@
 
 if [ "$#" -lt 15 ]; then
 	echo "This script should be run with 15 parameters:"
-	echo " 1st param is the patch in upper case (ex: Lang, Chart, Closure, Math, Time)"
+	echo " 1st param is the project in upper case (ex: Lang, Chart, Closure, Math, Time)"
 	echo " 2nd param is the bug number (ex: 1,2,3,4,...)"
 	echo " 3th param is the option of running the test suite (ex: allHuman, oneHuman, oneGenerated)"
 	echo " 4th param is the test suite sample size (ex: 1, 100)"
@@ -87,7 +87,7 @@ LOWERCASEPACKAGE=`echo $PROJECT | tr '[:upper:]' '[:lower:]'`
 #Add the path of defects4j so the defects4j's commands run 
 export PATH=$PATH:$D4J_HOME/framework/bin
 
-# directory with the checked out buggy patch
+# directory with the checked out buggy project
 BUGWD=$D4J_HOME/$BUGSFOLDER"/"$LOWERCASEPACKAGE"$BUGNUMBER"Buggy
 export JAVA_HOME=$DIROFJAVA8
 export JRE_HOME=$DIROFJAVA8/jre

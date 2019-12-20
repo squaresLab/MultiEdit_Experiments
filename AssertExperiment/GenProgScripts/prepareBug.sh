@@ -10,7 +10,7 @@
 #Output
 #The output is a txt file with the output of running the coverage analysis of the test suite on each of the folders indicated. 
 
-# 1st param: patch name, sentence case (ex: Lang, Chart, Closure, Math, Time)
+# 1st param: project name, sentence case (ex: Lang, Chart, Closure, Math, Time)
 # 2nd param: bug number (ex: 1,2,3,4,...)
 # 3th param: testing option (ex: humanMade, generated)
 # 4th param: test suite sample size (ex: 1, 100)
@@ -23,7 +23,7 @@
 
 if [ "$#" -ne 12 ]; then
     echo "This script should be run with 12 parameters:"
-	echo "1st param: patch name, sentence case (ex: Lang, Chart, Closure, Math, Time)"
+	echo "1st param: project name, sentence case (ex: Lang, Chart, Closure, Math, Time)"
 	echo "2nd param: bug number (ex: 1,2,3,4,...)"
 	echo "3th param: testing option (ex: humanMade, generated)"
 	echo "4th param: test suite sample size (ex: 1, 100)"
@@ -64,7 +64,7 @@ mkdir -p $D4J_HOME/$BUGSFOLDER
 
 LOWERCASEPACKAGE=`echo $PROJECT | tr '[:upper:]' '[:lower:]'`
 
-# directory with the checked out buggy patch
+# directory with the checked out buggy project
 BUGWD=$D4J_HOME/$BUGSFOLDER"/"$LOWERCASEPACKAGE"$BUGNUMBER"Buggy
 
 #Checkout the buggy and fixed versions of the code (latter to make second testsuite

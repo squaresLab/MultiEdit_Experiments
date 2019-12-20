@@ -79,13 +79,13 @@ public class JUnitTestRunner {
 			
 			System.out.println("Requested #: "
 					+ testRequest.getRunner().testCount());
-
+			//System.out.println("yoot");
 			JUnitCore runner = new JUnitCore();
 			Result r = runner.run(testRequest);
 
-			//System.out.println("[SUCCESS]:" + r.wasSuccessful());
-			//System.out.println("[TOTAL]:" + r.getRunCount());
-			//System.out.println("[FAILURE]:" + r.getFailureCount());
+			System.out.println("[SUCCESS]:" + r.wasSuccessful());
+			System.out.println("[TOTAL]:" + r.getRunCount());
+			System.out.println("[FAILURE]:" + r.getFailureCount());
 
 			for (Failure f : r.getFailures()) {
 				//System.out.println(f.toString());
