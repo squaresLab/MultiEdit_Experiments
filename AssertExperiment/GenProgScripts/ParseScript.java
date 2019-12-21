@@ -1,9 +1,11 @@
 import java.util.*;
 import java.io.*;
-
+import org.apache.commons.exec.CommandLine;
+import org.apache.commons.exec.DefaultExecutor;
+import org.apache.commons.exec.PumpStreamHandler;
 public class ParseScript{
   public static void main(String[] args) throws IOException{
-    Scanner input = new Scanner(new File("diff.txt"));
+    Scanner input = new Scanner(new File(args[0]+"/diff.diff"));
     ArrayList<String> fulltext = new ArrayList<String>();
     while(input.hasNextLine()){
       fulltext.add(input.nextLine());
@@ -13,24 +15,25 @@ public class ParseScript{
     ArrayList<ParseLineObject> changes = new ArrayList<ParseLineObject>();
     Set<Integer> validSet = new TreeSet<Integer>();
     
+    String filename = null;
     while(!pass){
     changes = new ArrayList<ParseLineObject>();
     validSet = new TreeSet<Integer>();
     validSet.add(0);
     Scanner inp = new Scanner(System.in);
-    String filename = null;
+    filename = null;
     int linenum = -1;
     int priocounter = 0;
     int delcounter = -1;
     for(int i = 0; i < fulltext.size(); i++){
       String line = fulltext.get(i);
-      if(line.substring(0,7).equals("diff -r")){
+      if(line.length()> 7 && line.substring(0,7).equals("diff -r")){
         String[] splitted = line.split(" ");
         filename = splitted[2];
       }
-      else if(line.substring(0,3).equals("---")) continue;
-      else if(line.substring(0,7).equals("Only in")) continue;
-      else if(line.charAt(0)=='<'){
+      else if(line.length()>= 3 && line.substring(0,3).equals("---")) continue;
+      else if(line.length()>= 7 && line.substring(0,7).equals("Only in")) continue;
+      else if(line.length()> 0 && line.charAt(0)=='<'){
         ParseLineObject plo = new ParseLineObject(filename, linenum+delcounter, priocounter, true, line.substring(2));
         delcounter++;
         priocounter++;
@@ -40,7 +43,7 @@ public class ParseScript{
         changes.add(plo);
       }
       else if(line.charAt(0)=='>'){
-        ParseLineObject plo = new ParseLineObject(filename, linenum+delcounter, priocounter, false, line.substring(2));
+        ParseLineObject plo = new ParseLineObject(filename, linenum, priocounter, false, line.substring(2));
         priocounter++;
         plo.prt();
         plo.group = inp.nextInt();
@@ -87,7 +90,9 @@ public class ParseScript{
     }
     */
     
-    Scanner input2 = new Scanner(new File("DatasetUtilities.java"));
+    
+
+    Scanner input2 = new Scanner(new File(filename));
     ArrayList<String> edittext = new ArrayList<String>();
     while(input2.hasNextLine()){
       edittext.add(input2.nextLine());
@@ -98,7 +103,9 @@ public class ParseScript{
       for(int a : pe.patches){
         nums += a;
       }
-      String newname = "DatasetUtilities"+nums+".java";
+      makebugcopy(nums, args[0]);
+      int splitindex = filename.indexOf("bugorig");
+      String newname = filename.substring(0,splitindex) + "bug"+nums+filename.substring(splitindex+7);
       PrintWriter writer = new PrintWriter( new BufferedWriter( new FileWriter( newname )));
       for(int i = 0; i < edittext.size(); i++){
         boolean del = false;
@@ -121,8 +128,42 @@ public class ParseScript{
         }
       }
       writer.close();
+      evalpartialrepair(nums, args[0], args[1], args[2], args[3]);
     }
     
+  }
+  public static void evalpartialrepair(String nums, String folder, String gp4jhome, String zemppath, String runcommand){
+    DefaultExecutor executor = new DefaultExecutor();
+    try{
+      ByteArrayOutputStream out = new ByteArrayOutputStream();
+      executor.setExitValue(0);
+      executor.setStreamHandler(new PumpStreamHandler(out));
+      try{executor.execute(CommandLine.parse("rm -rf "+zemppath));}catch(Throwable e){e.printStackTrace();}
+      executor.execute(CommandLine.parse("mv "+folder+"/bug"+nums+" "+zemppath));
+      //System.exit(0);
+      executor.setWorkingDirectory(new File(zemppath));
+      //executor.execute(CommandLine.parse("cat "+zemppath+"/src/java/org/apache/commons/lang/text/StrBuilder.java"));
+      executor.execute(CommandLine.parse("sh runCompile.sh"));
+      //executor.execute(CommandLine.parse("cat "+zemppath+"/src/java/org/apache/commons/lang/text/StrBuilder.java"));
+      //System.out.println("timeout -sHUP 200h java -ea -Dlog4j.configurationFile=file:"+gp4jhome+"/src/log4j.properties -Dfile.encoding=UTF-8 -classpath "+gp4jhome+"/target/uber-GenProg4Java-0.0.1-SNAPSHOT.jar clegoues.genprog4java.main.Main "+zemppath+"/defects4j.config");
+	//System.exit(0);
+      executor.execute(CommandLine.parse("timeout -sHUP 200h java -ea -Dlog4j.configurationFile=file:"+gp4jhome+"/src/log4j.properties -Dfile.encoding=UTF-8 -classpath "+gp4jhome+"/target/uber-GenProg4Java-0.0.1-SNAPSHOT.jar clegoues.genprog4java.main.Main "+zemppath+"/defects4j.config"));
+  //    executor.execute(CommandLine.parse("cat "+zemppath+"/src/main/java/org/apache/commons/lang3/math/NumberUtils.java"));
+      //executor.execute(CommandLine.parse("echo $(pwd)"));
+//	System.out.println(runcommand);
+  //    executor.execute(CommandLine.parse(runcommand));
+      //executor.execute(CommandLine.parse("cat "+zemppath+"/src/java/org/apache/commons/lang/text/StrBuilder.java"));
+      PrintWriter writer = new PrintWriter(new FileWriter(new File(folder+"/results/"+nums+".out")));
+      out.flush();
+      writer.println(out.toString());
+      writer.close();
+    }catch(Throwable e){System.out.println(e.toString());}
+  }
+  public static void makebugcopy(String nums, String folder){
+    DefaultExecutor executor = new DefaultExecutor();
+    try{
+      executor.execute(CommandLine.parse("cp -r "+folder+"/bugorig "+folder+"/bug"+nums));
+    }catch(Throwable e){System.out.println(e.toString());}
   }
   public static void powerpop(Set<PartialEdits> set, ArrayList<ParseLineObject> changes, Set<Integer> valid){
     int[] pows = new int[valid.size()];
@@ -130,7 +171,7 @@ public class ParseScript{
     for(int i =1; i < valid.size(); i++){
       pows[i] = pows[i-1]*2;
     }
-    for(int i = 1; i < pows[valid.size()-1]; i++){
+    for(int i = 1; i < pows[valid.size()-1]-1; i++){
       Set<Integer> tmpvalid = new TreeSet<Integer>();
       Set<ParseLineObject> subset = new HashSet<ParseLineObject>();
       tmpvalid.add(0);

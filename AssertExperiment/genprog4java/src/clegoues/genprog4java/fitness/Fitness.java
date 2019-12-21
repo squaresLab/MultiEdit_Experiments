@@ -549,7 +549,7 @@ public class Fitness {
 		for(String testmethod : list) {
 			String classp = ".:"+Configuration.fakeJunitDir+"/target/classes:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
 			CommandLine command2 = CommandLine.parse("java -cp .:"+classp+" clegoues.genprog4java.fitness.JUnitTestRunner " + test.getTestName()+"::"+testmethod);
-	//		System.out.println(command2.toString());
+			//System.out.println(command2.toString());
 			ExecuteWatchdog watchdog = new ExecuteWatchdog(100000);
 			DefaultExecutor executor = new DefaultExecutor();
 			String workingDirectory = System.getProperty("user.dir");
