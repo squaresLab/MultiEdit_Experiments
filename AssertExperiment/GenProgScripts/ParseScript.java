@@ -4,7 +4,9 @@ import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
 public class ParseScript{
+  public static AllLevelScore origals = null;
   public static void main(String[] args) throws IOException{
+    origals = dissect(new Scanner(new File(args[0]+"/results/orig.out")));
     Scanner input = new Scanner(new File(args[0]+"/diff.diff"));
     ArrayList<String> fulltext = new ArrayList<String>();
     while(input.hasNextLine()){
@@ -98,6 +100,7 @@ public class ParseScript{
       edittext.add(input2.nextLine());
     }
     
+    PrintWriter reporter = new PrintWriter(new FileWriter(new File(args[3])));
     for(PartialEdits pe : powerset){
       String nums = "";
       for(int a : pe.patches){
@@ -128,11 +131,81 @@ public class ParseScript{
         }
       }
       writer.close();
-      evalpartialrepair(nums, args[0], args[1], args[2], args[3]);
+      String evalresult = evalpartialrepair(nums, args[0], args[1], args[2], args[3]);
+      if(evalresult == null) continue;
+      Scanner input3 = new Scanner(evalresult);
+      reporter.println(compareALS(dissect(input3))+" "+nums);
     }
-    
+    reporter.close();
   }
-  public static void evalpartialrepair(String nums, String folder, String gp4jhome, String zemppath, String runcommand){
+
+  public static String compareALS(AllLevelScore als) {
+    if(origals.classscore > als.classscore+0.01) return "c-";
+    if(origals.classscore < als.classscore - 0.01) return "c+";
+    boolean methodinc = false;
+    boolean methoddec = false;
+    for(String m : origals.methodscores.keySet()){
+      if((!als.methodscores.keySet().contains(m)) || origals.methodscores.get(m) < als.methodscores.get(m))methodinc=true; 
+    }
+    for(String m : als.methodscores.keySet()){
+      if((!origals.methodscores.keySet().contains(m)) || als.methodscores.get(m) < origals.methodscores.get(m))methoddec=true; 
+    }
+    if(methodinc && methoddec) return "m~";
+    if(methodinc) return "m+";
+    if(methoddec) return "m-";
+    boolean inc = false;
+    boolean dec = false;
+    for(String m : origals.assertionscores.keySet()){
+      if((!als.assertionscores.keySet().contains(m)) || origals.assertionscores.get(m) < als.assertionscores.get(m) - 0.01)inc=true; 
+    }
+    for(String m : als.assertionscores.keySet()){
+      if((!origals.assertionscores.keySet().contains(m)) || als.assertionscores.get(m) < origals.assertionscores.get(m) - 0.01)dec=true; 
+    }
+    if(inc && dec) return "a~";
+    if(inc) return "a+";
+    if(dec) return "a-";
+    
+    for(String m : origals.subassertionscores.keySet()){
+      if((!als.subassertionscores.keySet().contains(m)) || origals.subassertionscores.get(m) < als.subassertionscores.get(m) - 0.00000001)inc=true; 
+    }
+    for(String m : als.assertionscores.keySet()){
+      if((!origals.subassertionscores.keySet().contains(m)) || als.subassertionscores.get(m) < origals.subassertionscores.get(m) - 0.00000001)dec=true; 
+    }
+    if(inc && dec) return "s~";
+    if(inc) return "s+";
+    if(dec) return "s-";
+    return "0";
+  }
+
+  public static AllLevelScore dissect(Scanner input){
+      char mode = 'n';
+      AllLevelScore als = new AllLevelScore();
+      while(input.hasNextLine()){
+        String line = input.nextLine();
+        if(mode == 'n'){
+           if(line.equals("Classes passed: "))mode='c';
+        }
+        else if(mode == 'c'){
+           if(line.equals("Methods passed: "))mode='m';
+           else als.classscore = Double.parseDouble(line);
+        }
+        else if(mode == 'm'){
+           if(line.equals("Assertions passed: "))mode='a';
+           else{
+             String[] splitted = line.split(" ");
+             als.methodscores.put(splitted[0],Integer.parseInt(splitted[1]));
+           } 
+        }
+        else{
+           if(line.equals("Assertions passed with partial: "))mode='s';
+           String[] splitted = line.split(" ");
+           if(mode == 'a') als.assertionscores.put(splitted[0],Double.parseDouble(splitted[1])); 
+           else als.subassertionscores.put(splitted[0],Double.parseDouble(splitted[1])); 
+        }
+      }
+      return als;
+  }
+  public static String evalpartialrepair(String nums, String folder, String gp4jhome, String zemppath, String target){
     DefaultExecutor executor = new DefaultExecutor();
     try{
       ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -157,7 +230,9 @@ public class ParseScript{
       out.flush();
       writer.println(out.toString());
       writer.close();
+      return out.toString();
     }catch(Throwable e){System.out.println(e.toString());}
+    return null;
   }
   public static void makebugcopy(String nums, String folder){
     DefaultExecutor executor = new DefaultExecutor();
@@ -227,4 +302,11 @@ class PartialEdits{
   public PartialEdits(Set<ParseLineObject> plo,Set<Integer> pa){
     edits=plo; patches = pa;
   }
+}
+
+class AllLevelScore{
+  public Map<String, Integer> methodscores = new HashMap<String, Integer>();
+  public Map<String, Double> assertionscores = new HashMap<String, Double>();
+  public Map<String, Double> subassertionscores = new HashMap<String, Double>();
+  public double classscore = -1;
 }

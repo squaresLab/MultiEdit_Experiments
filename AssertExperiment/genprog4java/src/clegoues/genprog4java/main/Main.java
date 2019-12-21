@@ -69,12 +69,15 @@ public class Main {
 		
 		System.out.println("Classes passed: ");
 		System.out.println(fitnessEngine.testFitness(0));
+		System.out.println("Methods passed: ");
 		for(String key : Fitness.methodPassed.keySet()) {
 			System.out.println(key+" "+Fitness.methodPassed.get(key));
 		}
+		System.out.println("Assertions passed: ");
 		for(String key : Fitness.assertionPassed.keySet()) {
 			System.out.println(key+" "+Fitness.assertionPassed.get(key));
 		}
+		System.out.println("Assertions passed with partial: ");
 		for(String key : Fitness.partialAssertionPassed.keySet()) {
 			System.out.println(key+" "+Fitness.partialAssertionPassed.get(key));
 		}
