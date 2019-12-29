@@ -433,7 +433,7 @@ public class Fitness {
 	
 	
 	public boolean singleTestCasePass( TestCase test) {
-		String classp = ".:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
+		String classp = ".:"+Configuration.GP4J_HOME+"/lib/junit-4.12.jar:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
 		CommandLine command2 = CommandLine.parse("java -cp .:"+classp+" clegoues.genprog4java.fitness.JUnitTestRunner " + test.getTestName());
 		//System.out.println(command2.toString());
 		ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
@@ -494,7 +494,7 @@ public class Fitness {
 	}
 	
 	public List<String> myowntest( TestCase test) {
-		String classp = ".:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
+		String classp = ".:"+Configuration.GP4J_HOME+"/lib/junit-4.12.jar:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
 		CommandLine command2 = CommandLine.parse("java -cp .:"+classp+" clegoues.genprog4java.fitness.JUnitTestRunner2 " + test.getTestName());
 		//System.out.println(command2.toString());
 		ExecuteWatchdog watchdog = new ExecuteWatchdog(200000);

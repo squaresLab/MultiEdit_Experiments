@@ -12,7 +12,7 @@ public class ParseScript{
     while(input.hasNextLine()){
       fulltext.add(input.nextLine());
     }
-    
+    Beeper.main(args); 
     boolean pass = false;
     ArrayList<ParseLineObject> changes = new ArrayList<ParseLineObject>();
     Set<Integer> validSet = new TreeSet<Integer>();
@@ -41,16 +41,20 @@ public class ParseScript{
         priocounter++;
         plo.prt();
         plo.group = inp.nextInt();
-        validSet.add(plo.group);
-        changes.add(plo);
+        if(plo.group>=0){
+          validSet.add(plo.group);
+          changes.add(plo);
+        }
       }
       else if(line.charAt(0)=='>'){
         ParseLineObject plo = new ParseLineObject(filename, linenum, priocounter, false, line.substring(2));
         priocounter++;
         plo.prt();
         plo.group = inp.nextInt();
-        validSet.add(plo.group);
-        changes.add(plo);
+        if(plo.group>=0){
+          validSet.add(plo.group);
+          changes.add(plo);
+        }
       }
       else{
         int firsta = line.indexOf("a");
@@ -137,6 +141,7 @@ public class ParseScript{
       reporter.println(compareALS(dissect(input3))+" "+nums);
     }
     reporter.close();
+    Beeper.main(args);
   }
 
   public static String compareALS(AllLevelScore als) {
@@ -198,9 +203,11 @@ public class ParseScript{
         }
         else{
            if(line.equals("Assertions passed with partial: "))mode='s';
-           String[] splitted = line.split(" ");
-           if(mode == 'a') als.assertionscores.put(splitted[0],Double.parseDouble(splitted[1])); 
-           else als.subassertionscores.put(splitted[0],Double.parseDouble(splitted[1])); 
+           else{
+             String[] splitted = line.split(" ");
+             if(mode == 'a') als.assertionscores.put(splitted[0],Double.parseDouble(splitted[1])); 
+             else als.subassertionscores.put(splitted[0],Double.parseDouble(splitted[1])); 
+           }
         }
       }
       return als;

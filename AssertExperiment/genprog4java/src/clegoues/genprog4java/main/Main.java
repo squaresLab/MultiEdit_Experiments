@@ -66,9 +66,9 @@ public class Main {
 
 		fitnessEngine = new Fitness();  // Fitness must be created before rep!
 		//Localization localization = new DefaultLocalization(baseRep);
-		
+		double classespassed = fitnessEngine.testFitness(0);
 		System.out.println("Classes passed: ");
-		System.out.println(fitnessEngine.testFitness(0));
+		System.out.println(classespassed);
 		System.out.println("Methods passed: ");
 		for(String key : Fitness.methodPassed.keySet()) {
 			System.out.println(key+" "+Fitness.methodPassed.get(key));
