@@ -1,0 +1,960 @@
+python: can't open file '/home/ylyu1/bears-benchmark//scripts/checkout_bug.py': [Errno 2] No such file or directory
+python: can't open file '/home/ylyu1/bears-benchmark//scripts/compile_bug.py': [Errno 2] No such file or directory
+0 [main] DEBUG clegoues.genprog4java.fitness.Fitness  - parsing granularity, value: class
+25 [main] DEBUG clegoues.genprog4java.fitness.Fitness  - parsing granularity, value: class
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/FileGenerator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/AbstractAnnotationProcessor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/AbstractProblemFixer.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/Processor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/FactoryAccessor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/ProcessorProperties.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/ProcessingManager.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/ProcessInterruption.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/AbstractProcessor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/ProblemFixer.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/AbstractManualProcessor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/AnnotationProcessor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/TraversalStrategy.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/SpoonTagger.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/processing/Property.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/processing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/refactoring/Refactoring.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/refactoring
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/CtVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/ModelConsistencyChecker.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/AccessibleVariablesFinder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/ReferenceQueryVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/Child.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/chain/CtQueryImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/chain
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/chain/CtQueryable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/chain
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/chain/QueryFailurePolicy.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/chain
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/chain/CtConsumer.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/chain
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/chain/CtQuery.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/chain
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/chain/CtFunction.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/chain
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/chain/CtConsumableFunction.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/chain
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/Root.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/TypeContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/Parent.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/ImportScannerImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/PrettyPrinter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/CtAbstractBiScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/printer/PrinterHelper.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/printer
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/printer/ElementPrinterHelper.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/printer
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/printer/CommentOffset.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/printer
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/ReferenceFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/CtScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/CtDequeScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/Query.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/PrintingContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/MinimalImportScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/CtVisitable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/CtInheritanceScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/JavaIdentifiers.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/CtAbstractVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/EarlyTerminatingScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/AstParentConsistencyChecker.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/Filter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/ImportScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/QueryVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/CompositeFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/InvocationFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/FieldAccessFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/AnnotationFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/TypeFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/DirectReferenceFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/FilteringOperator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/ReferenceTypeFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/AbstractFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/OverridingMethodFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/AbstractReferenceFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/OverriddenMethodFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/RegexFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/ReturnOrThrowFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/VariableAccessFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/LineFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/OverriddenMethodQuery.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/filter/NameFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor/filter
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/visitor/CtBiScannerDefault.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/eval/PartialEvaluator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/eval
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/cu/position/BodyHolderSourcePosition.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/cu/position
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/cu/position/DeclarationSourcePosition.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/cu/position
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/cu/position/NoSourcePosition.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/cu/position
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/cu/SourcePosition.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/cu
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/cu/CompilationUnit.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/cu
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/ModelElementContainerDefaultCapacities.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/ModelStreamer.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/Factory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/CompilationUnitFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/ExecutableFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/FactoryImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/PackageFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/ConstructorFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/InterfaceFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/AnnotationFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/FieldFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/CodeFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/EvalFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/EnumFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/MethodFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/SubFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/QueryFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/CoreFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/TypeFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/factory/ClassFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/factory
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/CtModel.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtTypeReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtCatchVariableReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtTypeParameterReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtIntersectionTypeReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtVariableReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtUnboundVariableReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtArrayTypeReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtPackageReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtParameterReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtExecutableReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtWildcardReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtActualTypeContainer.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtLocalVariableReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/reference/CtFieldReference.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/Changes.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtPackage.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtAnnotationType.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtShadowable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtEnumValue.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtMethod.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/ModifierKind.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtMultiTypedElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtConstructor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtTypeMember.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtVariable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/ParentNotInitializedException.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtNamedElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtTypedElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtFormalTypeDeclarer.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtTypeInformation.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtAnnotationMethod.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtEnum.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtAnonymousExecutable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtModifiable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtTypeParameter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtInterface.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtType.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtCodeSnippet.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtAnnotatedElementType.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtExecutable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtClass.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtParameter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtAnnotation.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtField.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/declaration/CtElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/CtModelImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/CtPathStringBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/CtPath.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/CtPathException.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/impl/CtPathElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path/impl
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/impl/CtTypedNameElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path/impl
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/impl/CtRolePathElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path/impl
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/impl/CtPathImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path/impl
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/impl/AbstractPathElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path/impl
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/impl/CtNamedPathElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path/impl
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/CtPathBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/path/CtPathRole.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/path
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtThrow.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtBreak.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtCodeElement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtInvocation.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtCodeSnippetStatement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtTry.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtCodeSnippetExpression.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtReturn.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtOperatorAssignment.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtSwitch.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtVariableAccess.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtContinue.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtLoop.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtExecutableReferenceExpression.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtLocalVariable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtIf.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtComment.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtArrayRead.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtWhile.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtAssert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtSuperAccess.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtAnnotationFieldAccess.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtCase.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtForEach.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtFieldWrite.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtStatement.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtNewClass.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtVariableWrite.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtTypeAccess.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtDo.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtArrayWrite.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtBinaryOperator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtStatementList.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtUnaryOperator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtArrayAccess.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtLiteral.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtConditional.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtCatchVariable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtCatch.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtFieldRead.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtBlock.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtRHSReceiver.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtTargetedExpression.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtAbstractInvocation.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtFor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtFieldAccess.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtNewArray.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtExpression.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/UnaryOperatorKind.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtCFlowBreak.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtVariableRead.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtAssignment.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtSynchronized.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtThisAccess.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtTryWithResource.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtBodyHolder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtLambda.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/CtConstructorCall.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/reflect/code/BinaryOperatorKind.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/SpoonAPI.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/Launcher.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/OutputType.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/clone/CloneVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/clone
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/clone/CloneBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/clone
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/reflect/RtParameter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/reflect
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/reflect/RtMethod.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/reflect
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/JavaReflectionVisitorImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/JavaReflectionVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/JavaReflectionTreeBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/internal/TypeReferenceRuntimeBuilderContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/internal
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/internal/VariableRuntimeBuilderContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/internal
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/internal/AnnotationRuntimeBuilderContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/internal
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/internal/RuntimeBuilderContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/internal
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/internal/ExecutableRuntimeBuilderContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/internal
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/internal/PackageRuntimeBuilderContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/internal
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/internal/AbstractRuntimeBuilderContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/internal
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/java/internal/TypeRuntimeBuilderContext.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/java/internal
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/SignaturePrinter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/TypeReferenceScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/equals/EqualsChecker.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/equals
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/equals/CloneHelper.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/equals
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/equals/EqualsVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/equals
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/HashcodeVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/ProcessingVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/visitor/replace/ReplacementVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/visitor/replace
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/UnsettableProperty.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/DefaultCoreFactory.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/RuntimeProcessingManager.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/QueueProcessingManager.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/gui/SpoonTreeBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/gui
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/gui/SpoonModelTree.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/gui
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/gui/SpoonObjectFieldsTable.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/gui
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/EmptyIterator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/ByteSerialization.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/EmptyClearableSet.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/Timer.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/SignatureBasedSortedSet.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/SortedList.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/EmptyClearableList.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/RtHelper.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/util/QualifiedNameBasedSortedSet.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/util
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/eval/VisitorPartialEvaluator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/eval
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/eval/InlinePartialEvaluator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/eval
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/cu/CompilationUnitImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/cu
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/cu/position/DeclarationSourcePositionImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/cu/position
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/cu/position/SourcePositionImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/cu/position
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/cu/position/BodyHolderSourcePositionImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/cu/position
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtCatchVariableReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtArrayTypeReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtUnboundVariableReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtVariableReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtExecutableReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtTypeReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtPackageReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtParameterReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtIntersectionTypeReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtFieldReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtWildcardReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/reference
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtAnonymousExecutableImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtFieldImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtElementImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtPackageImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtAnnotationTypeImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtInterfaceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtParameterImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtNamedElementImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtTypeParameterImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtEnumImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtAnnotationImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtMethodImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtEnumValueImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtTypeImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtAnnotationMethodImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtConstructorImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtExecutableImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/declaration/CtClassImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/declaration
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtLocalVariableImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtAssertImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtTryImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtVariableWriteImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtContinueImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtArrayWriteImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtBinaryOperatorImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtFieldReadImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtThrowImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtTargetedExpressionImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtSwitchImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtReturnImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtArrayAccessImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtCaseImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtForImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtExpressionImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtVariableAccessImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtFieldWriteImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtForEachImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtThisAccessImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtVariableReadImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtAnnotationFieldAccessImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtOperatorAssignmentImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtBreakImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtLiteralImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtUnaryOperatorImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtCodeSnippetExpressionImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtBlockImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtInvocationImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtLoopImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtCodeElementImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtTypeAccessImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtCodeSnippetStatementImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtIfImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtWhileImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtTryWithResourceImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtCatchVariableImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtCommentImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtAssignmentImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtSuperAccessImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtConditionalImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtExecutableReferenceExpressionImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtNewArrayImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtNewClassImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtCatchImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtFieldAccessImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtSynchronizedImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtArrayReadImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtStatementListImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtConstructorCallImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtStatementImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtDoImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/reflect/code/CtLambdaImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/reflect/code
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/SerializationModelStreamer.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/SpoonClassNotFoundException.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/JavaOutputProcessor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/DerivedProperty.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/SnippetCompilationError.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/FileSystemFile.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/VirtualFolder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/SnippetCompilationHelper.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/VirtualFile.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/ZipFolder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/FilteringFolder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/ZipFile.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/JDTTreeBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/ReferenceBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/JDTCommentBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/JDTSnippetCompiler.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/PositionBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/FactoryCompilerConfig.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/TreeBuilderCompiler.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/TreeBuilderRequestor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/FileCompilerConfig.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/ParentExiter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/ASTPair.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/JDTBatchCompiler.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/CompilationUnitWrapper.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/JDTTreeBuilderQuery.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/CompilationUnitFilter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/jdt/ContextBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler/jdt
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/compiler/FileSystemFolder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/StandardEnvironment.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/template/ParameterMatcher.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/template/Parameters.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/template/SubstitutionVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/template/DefaultParameterMatcher.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/template/UndefinedParameterException.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/comparator/CtLineElementComparator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/comparator
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/comparator/DeepRepresentationComparator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/comparator
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/comparator/SignatureComparator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/comparator
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/support/comparator/QualifiedNameComparator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/support/comparator
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/SpoonException.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/AbstractFileAssert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/utils/ProcessorUtils.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing/utils
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/utils/Check.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing/utils
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/utils/ModelUtils.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing/utils
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/AbstractAssert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/CtElementAssert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/FileAssert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/AbstractCtElementAssert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/CtPackageAssert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/Assert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/testing/AbstractCtPackageAssert.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/testing
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/SpoonResource.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/ModelBuildingException.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/SpoonResourceHelper.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/SpoonFolder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/Environment.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/SpoonFile.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/SpoonCompiler.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/builder/AdvancedOptions.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler/builder
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/builder/ComplianceOptions.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler/builder
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/builder/Options.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler/builder
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/builder/JDTBuilderImpl.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler/builder
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/builder/SourceOptions.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler/builder
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/builder/ClasspathOptions.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler/builder
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/builder/AnnotationProcessingOptions.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler/builder
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/builder/JDTBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler/builder
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/compiler/InvalidClassPathException.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/compiler
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/TypedBlockTemplateParameter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/TemplateMatcher.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/Parameter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/BlockTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/AbstractTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/ExtensionTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/Template.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/Local.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/TypedStatementListTemplateParameter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/Substitution.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/TemplateParameter.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/ExpressionTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/StatementTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/template/TemplateException.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/template
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/SpoonModelBuilder.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/SpoonTask.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/clone/GetterTemplateMatcher.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/clone
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/clone/CloneBuilderTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/clone
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/clone/SetterTemplateMatcher.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/clone
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/clone/CloneVisitorTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/clone
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/CloneVisitorGenerator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/ReplacementVisitorGenerator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/CtBiScannerGenerator.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/replace/ReplaceListener.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/replace
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/replace/ReplaceMapListener.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/replace
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/replace/CtListener.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/replace
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/replace/ReplaceScanner.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/replace
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/replace/ReplaceSetListener.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/replace
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/replace/ReplacementVisitor.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/replace
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/replace/ReplaceListListener.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/replace
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/scanner/PeekElementTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/scanner
+Command To Run: cp /home/ylyu1/bearsbugs//Bears-32/tmp/original/spoon/generating/scanner/CtBiScannerTemplate.java /home/ylyu1/bearsbugs//Bears-32/src/main/java/spoon/generating/scanner
+#Mon Sep 23 16:33:17 EDT 2019
+negativeTestWeight=2.0
+classSourceFolder=/home/ylyu1/bearsbugs//Bears-32/target/classes
+model=default
+sampleStrategy=variant
+srcClassPath=/home/ylyu1/bearsbugs//Bears-32/target/classes\:.\:/home/ylyu1/.m2/repository//org/eclipse/tycho/org.eclipse.jdt.core/3.12.0.v20160516-2131/org.eclipse.jdt.core-3.12.0.v20160516-2131.jar\:/home/ylyu1/.m2/repository//junit/junit/4.11/junit-4.11.jar\:/home/ylyu1/.m2/repository//org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar\:/home/ylyu1/.m2/repository//com/github/stefanbirkner/system-rules/1.9.0/system-rules-1.9.0.jar\:/home/ylyu1/.m2/repository//commons-io/commons-io/2.6/commons-io-2.6.jar\:/home/ylyu1/.m2/repository//org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar\:/home/ylyu1/.m2/repository//com/martiansoftware/jsap/2.1/jsap-2.1.jar\:/home/ylyu1/.m2/repository//ant/ant/1.6.5/ant-1.6.5.jar\:/home/ylyu1/.m2/repository//log4j/log4j/1.2.17/log4j-1.2.17.jar\:/home/ylyu1/.m2/repository//org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar
+sourceVersion=1.6
+popsize=40
+regenPaths=false
+posCoverageFile=coverage.path.pos
+continue=false
+edits=APPEND;DELETE;REPLACE;FUNREP;PARREP;PARADD;PARREM;EXPREP;EXPADD;EXPREM;NULLCHECK;OBJINIT;RANGECHECK;SIZECHECK;CASTCHECK;LBOUNDSET;UBOUNDSET;OFFBYONE;SEQEXCH;CASTERMUT;CASTEEMUT
+negCoverageFile=coverage.path.neg
+workingDir=/home/ylyu1/bearsbugs//Bears-32
+clearTestCache=false
+skipFailedSanity=true
+sample=0.1 
+oracleGenome=
+testGranularity=class
+justTestingFaultLoc=false
+faultLocStrategy=standardPathFile
+crossp=0.5
+pMutation=1
+generations=10
+positiveTests=/home/ylyu1/bearsbugs//Bears-32/pos.tests
+javaVM=/usr/bin/java
+seed=0
+negativePathWeight=0.65
+compileCommand=bash /home/ylyu1/bearsbugs//Bears-32/runCompile.sh
+fixStrategy=classScope
+allowCoverageFail=false
+targetClassName=/home/ylyu1/bearsbugs//Bears-32/allclasses.txt
+javaRuntime=java.lang.Runtime@5d099f62
+classTestFolder=/home/ylyu1/bearsbugs//Bears-32/target/test-classes
+modelPath=OVERALLModel.txt
+sanity=yes
+positivePathWeight=0.35
+jacocoPath=/home/ylyu1/genprog/genprog4java//lib/jacocoagent.jar
+negativeTests=/home/ylyu1/bearsbugs//Bears-32/neg.tests
+pathToFileHumanInjectedFaultLoc=fileHumanInjectedFaultLoc.txt
+outputDir=/home/ylyu1/bearsbugs//Bears-32/tmp
+testClassPath=/home/ylyu1/bearsbugs//Bears-32/target/classes\:/home/ylyu1/bearsbugs//Bears-32/target/test-classes\:.\:/home/ylyu1/.m2/repository//org/eclipse/tycho/org.eclipse.jdt.core/3.12.0.v20160516-2131/org.eclipse.jdt.core-3.12.0.v20160516-2131.jar\:/home/ylyu1/.m2/repository//junit/junit/4.11/junit-4.11.jar\:/home/ylyu1/.m2/repository//org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar\:/home/ylyu1/.m2/repository//com/github/stefanbirkner/system-rules/1.9.0/system-rules-1.9.0.jar\:/home/ylyu1/.m2/repository//commons-io/commons-io/2.6/commons-io-2.6.jar\:/home/ylyu1/.m2/repository//org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar\:/home/ylyu1/.m2/repository//com/martiansoftware/jsap/2.1/jsap-2.1.jar\:/home/ylyu1/.m2/repository//ant/ant/1.6.5/ant-1.6.5.jar\:/home/ylyu1/.m2/repository//log4j/log4j/1.2.17/log4j-1.2.17.jar\:/home/ylyu1/.m2/repository//org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar
+faultStrategy=classScope
+sourceDir=/src/main/java
+checkSpace=false
+search=gp
+globalExtension=.java
+maxVariants=50
+libs=/home/ylyu1/genprog/genprog4java//lib/junittestrunner.jar
+crossover=onepoint
+698 [main] INFO clegoues.genprog4java.main.Main  - Configuration file loaded
+1208 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@450a9db5
+1346 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@428e1b9f
+1375 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4fac92a3
+1414 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6189a990
+1458 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fbabda6f
+1500 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2129ac63
+1537 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@dba76a18
+1567 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@38b3f3d2
+1618 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@52f2ff8e
+1644 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fe9e9161
+1674 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e47737e8
+1702 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9621ab21
+1737 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@330e4f4f
+1762 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f5ba18e9
+1788 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f4007f13
+1819 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@17cabd53
+1870 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5d5b59dc
+1906 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@664ca0a5
+1952 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f9d2b106
+1977 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5e3f3890
+1999 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@240303b
+2234 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e8c96e0
+2302 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@32611230
+2347 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@326bd14a
+2387 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@786e84d
+2417 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7dc26c60
+2450 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@20646f70
+2473 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f1e95c42
+2494 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9a4fe285
+2558 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fe862041
+2594 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c5d75c34
+2622 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8c6f2009
+2680 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f8d7f378
+2704 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fcd581e3
+2732 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7f9a2063
+2782 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@537e281e
+2831 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5f3376c2
+2850 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ebbd1b88
+2868 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e102f5c2
+2958 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b3701b6c
+2985 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@60dc41ae
+3010 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@30b53e7
+3040 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9077d4f9
+3073 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@39a195d7
+3089 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8f039ad3
+3131 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@afc6784
+3161 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1c808087
+3189 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ff1a585a
+3209 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@930dd522
+3229 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6cef7888
+3247 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7bcce2d7
+3266 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@45e701b8
+3290 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7a0641e5
+3312 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@dcd42975
+3331 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@91d250fe
+3349 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d9c1e8ac
+3372 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f921105d
+3391 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fe6ed828
+3410 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@bb139810
+3430 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e543c4c4
+3447 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e33b7d93
+3467 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1f94db10
+3486 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@61294b8
+3504 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@429eb2b7
+3521 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d9929863
+3540 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f22a4735
+3556 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5cf76961
+3572 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fc40db6e
+3590 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@481a0562
+3650 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a06e82a9
+3673 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@26a842b9
+3767 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d468e47a
+3792 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2fd51ed3
+3813 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8f0d6ee9
+3832 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8cfd4935
+3851 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d6a43d7c
+3868 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6280cb77
+3884 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f8d44eba
+3900 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f4569f0f
+3914 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@77e265da
+3946 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b31f76b5
+3967 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@76c9cf0e
+3990 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ef79ab0b
+4051 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f8ffc7f5
+4092 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1090d3cf
+4127 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4de64d9b
+4153 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b68cab7c
+4180 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3a3ca886
+4204 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@614dfc9b
+4241 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7d645c08
+4255 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6f8ac679
+4272 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ca791674
+4291 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cb74694
+4305 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6e690c95
+4321 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@afbbc10d
+4360 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@99226e16
+4434 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@dea7da1b
+4462 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5bd20a5d
+4483 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@814f489c
+4506 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3e870d50
+4524 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9a0fb9d5
+4539 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e24d4d9d
+4555 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cba94ac7
+4570 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@986e44ce
+4586 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9fbfcaea
+4601 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9d015b0b
+4615 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@47c5eaf9
+4630 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@bc530586
+4645 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8cc73d43
+4661 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c6999b00
+4675 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cf94cb30
+4690 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f8a2e858
+4709 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1a543f25
+4732 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@93db9b92
+4756 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6dee8e27
+4778 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1f9d0870
+4800 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e78e9bf5
+4821 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c1af7be6
+4842 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3b06095a
+4864 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@bdfa2ecd
+4887 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f1d19d26
+4907 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3b653475
+4928 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fa13fca4
+4947 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9e9f2fe0
+4968 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e427f828
+5007 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@433e91f
+5042 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1616e2af
+5075 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@168dd85e
+5104 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@eb925b9d
+5128 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d817dabc
+5149 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1d5c2d9c
+5172 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@85663b2d
+5192 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f008f641
+5211 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@45d7a670
+5229 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4067fa79
+5247 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4b1771a3
+5279 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@856d3566
+5315 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a7f2eb1a
+5349 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d7e708ca
+5379 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1ea381b6
+5405 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@aea43d62
+5432 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a1a0b813
+5456 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a1cee89b
+5478 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@aecd34e4
+5505 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ec9af326
+5533 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8761d2dc
+5560 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a454b66
+5581 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@33a19e28
+5604 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@902b2e6b
+5626 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6e1b2351
+5652 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7ddcb763
+5678 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@37ae957b
+5752 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@77117521
+5785 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c1bd4f00
+5821 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9192265a
+5850 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8e52d837
+5875 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@266c77be
+5894 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5cf5788f
+5912 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5bfc2aa8
+5927 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6d1b56b8
+5941 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1384b3bb
+5953 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@90bd22ca
+5966 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@bdd74324
+5978 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5e73fcd1
+5991 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@73e5d8db
+6002 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@805c48bc
+6014 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@769352df
+6025 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b201c1ab
+6037 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ba379012
+6048 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@32ccaa8f
+6060 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b465bc42
+6071 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@264cedb0
+6083 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ba114948
+6097 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@35c10048
+6109 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8595adb8
+6120 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5d1f9cda
+6131 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@57a80ef1
+6142 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6b4bab28
+6153 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e1456bf8
+6165 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@32c85f1b
+6176 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d4a7e853
+6187 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cdd28e30
+6198 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5e3c6b98
+6211 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2c907723
+6222 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@15c3356c
+6233 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@37679869
+6244 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ba1148b6
+6255 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@632bc031
+6266 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5842270
+6278 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@deb77156
+6289 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@446c999c
+6301 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@11aa8f86
+6313 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7fb3298
+6324 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4e2700ef
+6337 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d2abad00
+6349 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5c02c064
+6361 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@25eda3d9
+6374 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5bf99636
+6386 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ee7a1875
+6398 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a3115ad3
+6410 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a4b63c7d
+6422 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@bdd70e32
+6434 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fbdd8167
+6447 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2c774004
+6485 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@40ddcdc3
+6514 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cfa67cc1
+6535 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@40ba0e79
+6558 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@dded251d
+6577 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e90dc1f8
+6595 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9cbca7ff
+6608 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6c4b3ccd
+6622 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@64f67b38
+6637 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8f9eed19
+6652 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@696cef72
+6666 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5d03ac61
+6685 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ca8820d3
+6707 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@884795c7
+6807 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a1cc741e
+6846 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1cb79059
+6919 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@679c9bd0
+6943 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@598e56fd
+6961 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1081e5bb
+6986 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@89a68437
+7016 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5086008f
+7032 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9fe9e2cf
+7065 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b6e542fe
+7082 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f8ed2c5b
+7097 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d6e7ebb0
+7112 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2be0d8dd
+7127 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@800ba8cc
+7145 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d8308ea2
+7159 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d99f1066
+7174 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c31df1ca
+7188 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@851721b2
+7205 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f9e7ad3b
+7222 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@65f34886
+7242 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@130e72f5
+7263 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5435076a
+7277 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2a1d7ae
+7291 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4b79ccac
+7309 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e025b294
+7515 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@dd42b5ce
+7530 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ecb03e78
+7577 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@df1ce6a8
+7596 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7f872f60
+7617 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7c9ae747
+7634 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@349f25e6
+7671 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fb08adf0
+7699 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b3def85f
+7715 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@88f06a24
+7733 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6941cd11
+7751 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5007f4f1
+7769 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c9c8fc8e
+7786 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e612213
+7808 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2f0b5284
+7831 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9be6a7a1
+7857 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@840a1a19
+7874 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b7bc2462
+7908 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@baba0461
+7923 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c1bd90cc
+7941 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8f5baeba
+7958 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@18eae335
+7985 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d1b0a85b
+8004 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a6490ee9
+8022 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3bc3e5a5
+8039 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@26e28855
+8057 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@be138779
+8071 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@29149e8b
+8087 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6ca0eece
+8117 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4bf1dc00
+8159 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@503da650
+8174 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9a469386
+8194 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@222ea4c3
+8210 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c54a06ea
+8227 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@de865047
+8249 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b03d4392
+8268 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6797430
+8293 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2b20f81d
+8322 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@45b55c41
+8340 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@75239164
+8377 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7d845ea6
+8417 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8b86bef0
+8446 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@11c907f5
+8470 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@347356a3
+8495 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ff13e513
+8513 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a0fb61af
+8533 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8a078479
+8557 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@afce4b2d
+8602 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e426919b
+8622 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cfff6ecd
+8636 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d7513ada
+8688 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2eb80e6
+8703 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9d976e1c
+8724 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ac407924
+8746 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@44832536
+8774 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@29262ae2
+8793 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b7384e30
+8808 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@97aee6f1
+8826 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2df2c9a4
+8839 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ee8c57ec
+8854 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3666ef92
+8868 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@eb77f831
+8883 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a4722f0
+8897 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@edcfc7d9
+8912 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fed2518f
+8927 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@33eb71d3
+8944 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@65a83df
+8960 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6ac1abdb
+8977 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@94a51506
+8996 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4c77121b
+9013 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@43da5db2
+9030 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5f64ecc3
+9045 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f41cacab
+9060 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e9f9aeb0
+9075 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@747f3f53
+9091 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@290fc6cd
+9105 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@abe5071d
+9120 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@29b86878
+9135 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@74cb433c
+9150 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d8904f28
+9165 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@dce9df18
+9184 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2488241c
+9199 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5910e4d1
+9221 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7db143b6
+9240 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@17b816bb
+9256 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d1c0838f
+9273 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@af1af338
+9289 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@111cf469
+9304 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@55f4664a
+9319 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d3b51dc8
+9334 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d96b585a
+9350 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@43cfd7b8
+9371 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@8c86e580
+9394 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f2b154c8
+9417 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c965be78
+9440 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@bb2b8fa8
+9462 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7148a9ef
+9483 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d84383c2
+9518 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@20895684
+9547 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@74e3e623
+9568 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a39da6e4
+9588 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@665a2e67
+9608 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9f9448ff
+9628 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c491ca38
+9649 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@69cc8ed6
+9680 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@221e4c61
+9712 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4de69818
+9733 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cbabb636
+9759 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@831d9ef2
+9785 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@69dc6ba4
+9807 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@62cd9577
+9845 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7a0df50d
+9865 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@99932610
+9887 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9b21963c
+9908 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d3807c21
+9934 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d8500053
+9959 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b892e8ee
+9979 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cb1c1021
+10005 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@babfe9
+10025 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b4b65f72
+10045 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f53dbd37
+10131 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f5ce04f4
+10219 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ed908381
+10261 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c024f6c7
+10287 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@733d60b3
+10312 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@92a667a3
+10364 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e5927768
+10388 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a6098ddc
+10433 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f9fcc34d
+10466 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d7d7c8c6
+10504 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@623f0f0e
+10577 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6c864946
+10597 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3be485ed
+10621 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@de4ab350
+10643 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c104265d
+10671 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@9bd92cb6
+10693 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@326221b0
+10736 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e42baa82
+10773 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ecebdc9d
+10797 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@59496c53
+10835 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@cf6de14
+10856 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f566a92a
+10894 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fcac55cb
+10971 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2d266252
+11005 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fffcb54b
+11036 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c26453b7
+11066 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@64efeda
+11087 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e9f8263c
+11108 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d627531b
+11129 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@1945d4ea
+11152 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@328ef8bc
+11175 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@436c5447
+11195 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5eddc00c
+11218 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@4f800995
+11243 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3f5ca7d5
+11268 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@68a0c0ab
+11289 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fa7272d4
+11309 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7aaea85
+11330 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6736d252
+11480 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@915de89e
+11496 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b9b025e9
+11514 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fe22481c
+11529 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@caba25f9
+11544 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e0c277cc
+11560 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@b91bce87
+11574 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@abdcce99
+11591 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@56e221cd
+11605 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@30b807e7
+11619 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@bb524e8a
+11634 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d5b29b12
+11649 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e3d4a0f9
+11667 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6a045594
+11686 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@84c2a4b7
+11705 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@3c0dd8f9
+11722 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a0d36d77
+11737 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@e11bbb92
+11754 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d78ca6f7
+11769 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@85d17523
+11785 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a3a0faad
+11821 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@64c691b9
+11837 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ac36760a
+11853 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@323eea88
+11868 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2a8fc55d
+11883 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6797803a
+11899 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@755ad31b
+11915 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c4a891cc
+11932 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@d202ba8d
+11959 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@fb4ef99e
+11974 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@982552b0
+11991 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@5d0a09d3
+12007 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7c495d6a
+12022 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7bf66f56
+12044 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@39950621
+12069 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@29fa0074
+12084 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2ed1c38c
+12098 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@23466317
+12113 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@c5fd4598
+12130 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a53824ea
+12167 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@ee9a93bb
+12185 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@92da9270
+12203 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f9381a6
+12220 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@6405ac9a
+12236 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@f864782e
+12251 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a3251d97
+12276 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@890401fc
+12292 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@97f82934
+12313 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@7a93af4e
+12327 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@2c0ac958
+12342 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@a322277f
+12359 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - loaded from source clegoues.genprog4java.java.ClassInfo@af700fa4
+12359 [main] INFO clegoues.genprog4java.rep.CachingRepresentation  - sanity checking begins
+Command To Run: bash /home/ylyu1/bearsbugs//Bears-32/runCompile.sh
+12550 [main] ERROR clegoues.util.GlobalUtils  - Command bash /home/ylyu1/bearsbugs//Bears-32/runCompile.sh exited abnormally with status 2
+12550 [main] ERROR clegoues.genprog4java.rep.CachingRepresentation  - sanity: repair.sanity does not compile.
+12551 [main] ERROR clegoues.genprog4java.rep.CachingRepresentation  - Sanity check failed, giving up
