@@ -1,7 +1,0 @@
-
-
-package spoon;
-
-
-class Spoon {}
-
