@@ -139,6 +139,9 @@ search=trp
 # used only for TrpAutoRepair. value=400
 maxVariants=400
 
+fakeJunitDir = $MULTIEDIT_HOME/AssertExperiment/Fake-JUnit/
+GP4J_HOME = $MULTIEDIT_HOME/AssertExperiment/genprog4java/
+skipFailedSanity = true
 
 EOM
 
@@ -183,6 +186,10 @@ positivePathWeight=0.1
 
 # trp for TrpAutoRepair, gp for GenProg and PAR 
 search=gp
+
+fakeJunitDir = $MULTIEDIT_HOME/AssertExperiment/Fake-JUnit/
+GP4J_HOME = $MULTIEDIT_HOME/AssertExperiment/genprog4java/
+skipFailedSanity = true
 
 EOM
 

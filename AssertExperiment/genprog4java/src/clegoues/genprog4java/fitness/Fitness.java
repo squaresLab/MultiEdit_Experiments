@@ -496,7 +496,7 @@ public class Fitness {
 	public List<String> myowntest( TestCase test) {
 		String classp = ".:"+Configuration.GP4J_HOME+"/lib/junit-4.12.jar:"+Configuration.GP4J_HOME+"/lib/hamcrest-core-1.3.jar:"+ Configuration.GP4J_HOME+"/target/classes/" + ":" + Configuration.classTestFolder+":"+Configuration.testClassPath+":"+Configuration.libs;
 		CommandLine command2 = CommandLine.parse("java -cp .:"+classp+" clegoues.genprog4java.fitness.JUnitTestRunner2 " + test.getTestName());
-		//System.out.println(command2.toString());
+		System.out.println(command2.toString());
 		ExecuteWatchdog watchdog = new ExecuteWatchdog(200000);
 		DefaultExecutor executor = new DefaultExecutor();
 		String workingDirectory = System.getProperty("user.dir");
@@ -519,7 +519,7 @@ public class Fitness {
 		}catch(Throwable e) {
 			
 			e.printStackTrace();
-			//System.out.println(out.toString());
+			System.out.println(out.toString());
 			return null;
 		}
 		return list;
