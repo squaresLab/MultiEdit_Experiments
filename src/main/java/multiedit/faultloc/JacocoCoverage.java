@@ -23,17 +23,17 @@ import util.TestCase;
 
 public class JacocoCoverage {
 
-    public Collection<CoverageSubset> getCoveragePassingTests(Patch patch, Patch.Version whichVersion) {
-        return getCoverageSomeTests(patch, patch.getPassingTests(), whichVersion);
-    }
+//    public Collection<CoverageSubset> getCoveragePassingTests(Patch patch, Patch.Version whichVersion) {
+//        return getCoverageSomeTests(patch, patch.getPassingTests(), whichVersion);
+//    }
 
     public Collection<CoverageSubset> getCoverageFailingTests(Patch patch, Patch.Version whichVersion) {
         return getCoverageSomeTests(patch, patch.getFailingTests(), whichVersion);
     }
 
-    public Collection<CoverageSubset> getCoverageRelevantTests(Patch patch, Patch.Version whichVersion) {
-        return getCoverageSomeTests(patch, patch.getRelevantTests(), whichVersion);
-    }
+//    public Collection<CoverageSubset> getCoverageRelevantTests(Patch patch, Patch.Version whichVersion) {
+//        return getCoverageSomeTests(patch, patch.getRelevantTests(), whichVersion);
+//    }
 
     public Collection<CoverageSubset> getCoverageSomeTests(Patch p, Collection<String> whichTests, Patch.Version whichVersion) {
         List<CoverageSubset> testCaseCoverage = new ArrayList<>();

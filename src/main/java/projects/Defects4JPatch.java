@@ -2,13 +2,11 @@ package projects;
 
 import multiedit.faultloc.CoverageSubset;
 import org.apache.commons.exec.CommandLine;
-import org.apache.commons.exec.DefaultExecutor;
-import org.apache.commons.exec.ExecuteWatchdog;
+import util.CommandLineRunner;
 import util.PatchDiffUtils;
 
 import java.io.*;
 import java.util.*;
-import java.util.function.Consumer;
 
 public class Defects4JPatch implements Patch {
 
@@ -102,7 +100,7 @@ public class Defects4JPatch implements Patch {
         command.addArgument("-rf");
         command.addArgument(d4jWorkingDir);
         System.out.println(command);
-        runCommand(command);
+        CommandLineRunner.runCommand(command);
     }
 
     private void checkoutD4JProject() throws IOException {
@@ -111,14 +109,14 @@ public class Defects4JPatch implements Patch {
         command.addArgument(String.valueOf(bugNumber));
         command.addArgument(d4jWorkingDir);
         System.out.println(command);
-        runCommand(command);
+        CommandLineRunner.runCommand(command);
     }
 
     private void parseFields() throws Exception {
         File configFile = new File(d4jWorkingDir + "/defects4j.config");
         Map<String, String> properties = new HashMap<>();
 
-        lineIterator(configFile, s -> {
+        CommandLineRunner.lineIterator(configFile, s -> {
             String[] prop = s.split("=");
             properties.put(prop[0], prop[1]);
         });
@@ -138,10 +136,10 @@ public class Defects4JPatch implements Patch {
         this.passingTests = new ArrayList<>();
 
         this.relevantTests = new ArrayList<>();
-        lineIterator(new File(properties.get("relevantTests")), s -> relevantTests.add(s));
+        CommandLineRunner.lineIterator(new File(properties.get("relevantTests")), s -> relevantTests.add(s));
 
         this.failingTests = new ArrayList<>();
-        lineIterator(new File(properties.get("negativeTests")), s -> failingTests.add(s));
+        CommandLineRunner.lineIterator(new File(properties.get("negativeTests")), s -> failingTests.add(s));
 
         // calculate diff
         Collection<String> modifiedClasses = Arrays.asList(properties.get("modifiedClasses").split(":"));
@@ -149,25 +147,4 @@ public class Defects4JPatch implements Patch {
 
     }
 
-    private void runCommand(CommandLine commandLine) throws IOException {
-        String workingDirectory = System.getProperty("user.dir");
-
-        ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
-        DefaultExecutor executor = new DefaultExecutor();
-        executor.setWorkingDirectory(new File(workingDirectory));
-        executor.setWatchdog(watchdog);
-
-        executor.setExitValue(0);
-
-        executor.execute(commandLine);
-    }
-
-    private void lineIterator(File f, Consumer<String> eachLine) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(f));
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            eachLine.accept(line);
-        }
-        bufferedReader.close();
-    }
 }
