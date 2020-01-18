@@ -1,4 +1,4 @@
-package multiedit.faultloc;
+package multiedit.coverage;
 
 import java.util.*;
 
@@ -63,6 +63,12 @@ public class CoverageSubset {
             }
         }
         return s;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        CoverageSubset cs = (CoverageSubset) other;
+        return cs.classCoverageMap.equals(this.classCoverageMap);
     }
 
 }

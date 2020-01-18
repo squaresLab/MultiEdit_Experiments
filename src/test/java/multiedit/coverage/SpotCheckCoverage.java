@@ -1,4 +1,4 @@
-package multiedit.faultloc;
+package multiedit.coverage;
 
 import org.junit.jupiter.api.Test;
 import projects.D4JName;

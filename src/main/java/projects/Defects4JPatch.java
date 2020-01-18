@@ -1,6 +1,6 @@
 package projects;
 
-import multiedit.faultloc.CoverageSubset;
+import multiedit.coverage.CoverageSubset;
 import org.apache.commons.exec.CommandLine;
 import util.CommandLineRunner;
 import util.PatchDiffUtils;
@@ -143,6 +143,7 @@ public class Defects4JPatch implements Patch {
 
         // calculate diff
         Collection<String> modifiedClasses = Arrays.asList(properties.get("modifiedClasses").split(":"));
+        
         this.patchLocations = PatchDiffUtils.getPatchLineNumbers(properties.get("buggySource"), properties.get("patchedSource"), modifiedClasses);
 
     }

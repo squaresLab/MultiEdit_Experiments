@@ -1,4 +1,4 @@
-package multiedit.faultloc;
+package multiedit.coverage;
 
 import java.util.Collection;
 

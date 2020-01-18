@@ -1,6 +1,6 @@
 package projects;
 
-import multiedit.faultloc.CoverageSubset;
+import multiedit.coverage.CoverageSubset;
 
 import java.util.Collection;
 

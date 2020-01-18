@@ -1,0 +1,8 @@
+#!/bin/bash
+
+BRANCH="$1"
+BEARSDIR="$2"
+
+cd $BEARSDIR || exit
+git checkout $BRANCH
+git checkout HEAD~2

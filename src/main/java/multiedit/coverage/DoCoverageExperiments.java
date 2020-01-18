@@ -1,4 +1,4 @@
-package multiedit.faultloc;
+package multiedit.coverage;
 
 import projects.D4JName;
 import projects.Defects4JPatch;
