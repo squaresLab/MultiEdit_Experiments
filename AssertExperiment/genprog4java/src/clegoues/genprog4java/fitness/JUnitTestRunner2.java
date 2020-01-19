@@ -92,6 +92,7 @@ public class JUnitTestRunner2 {
 			for (Failure f : r.getFailures()) {
 				String s = f.toString();
 				int first = s.indexOf("(");
+				if(first<0)first = s.indexOf(":");
 				writer.println(s.substring(0,first));
 			}
 			
@@ -99,6 +100,7 @@ public class JUnitTestRunner2 {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			Runtime.getRuntime().exit(1);
 		}
 		Runtime.getRuntime().exit(0);
 	}

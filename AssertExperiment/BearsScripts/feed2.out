@@ -1,0 +1,162 @@
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-201940544-203101555'
+Your branch is up-to-date with 'origin/INRIA-spoon-201940544-203101555'.
+Note: checking out '5f436d891ae85c13b837050cefe58cab26f14244'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5f436d8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/92cedf9af2909264092eff8d75069d74e9368ea6 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/203101555.
+Previous HEAD position was 5f436d8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/92cedf9af2909264092eff8d75069d74e9368ea6 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/203101555.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-40...
+Checking out the branch INRIA-spoon-201940544-203101555...
+The bug Bears-40 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-201940544-203101555'
+Your branch is up-to-date with 'origin/INRIA-spoon-201940544-203101555'.
+Note: checking out 'c153e18b26aea913ac2d23b7919b228674701869'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c153e18... End of the bug and patch reproduction process
+Previous HEAD position was c153e18... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-40...
+Checking out the branch INRIA-spoon-201940544-203101555...
+The bug Bears-40 was checked out.
+Switched to branch 'INRIA-spoon-201940544-203101555'
+Note: checking out '5f436d891ae85c13b837050cefe58cab26f14244'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5f436d8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/92cedf9af2909264092eff8d75069d74e9368ea6 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/203101555.
+Previous HEAD position was 5f436d8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/92cedf9af2909264092eff8d75069d74e9368ea6 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/203101555.
+Switched to branch 'master'
+266 > 	/**
+266 > 	 * Detects if this type is an code responsible for implementing of that type.<br>
+266 > 	 * In means it detects whether this type can access protected members of that type
+266 > 	 * @return true if this type or any declaring type recursively is subtype of type or directly is the type.
+266 > 	 */
+266 > 	private boolean isImplementationOf(CtTypeReference<?> type) {
+266 > 		CtTypeReference<?> impl = this;
+266 > 		while (impl != null) {
+266 > 			if (impl.isSubtypeOf(type)) {
+266 > 				return true;
+266 > 			}
+266 > 			impl = impl.getDeclaringType();
+266 > 		}
+266 > 		return false;
+266 > 	}
+266 > 
+624 < 				if (isSubtypeOf(type)) {
+625 < 					//is visible in subtypes
+624 > 				//the accessed type is protected in scope of declaring type.
+624 > 				CtTypeReference<?> declaringType = type.getDeclaringType();
+624 > 				if (declaringType == null) {
+624 > 					//top level type cannot be protected. So this is a model inconsistency.
+624 > 					throw new SpoonException("The protected class " + type.getQualifiedName() + " has no declaring class.");
+624 > 				}
+624 > 				if (isImplementationOf(declaringType)) {
+624 > 					//type is visible in code which implements declaringType
+627 > 				return isInSamePackage(type);
+633 < 			//package protected
+634 < 			if (type.getTopLevelType().getPackage().getSimpleName().equals(this.getTopLevelType().getPackage().getSimpleName())) {
+635 < 				//visible only in scope of the same package
+633 > 			/*
+633 > 			 * no modifier, we have to check if it is nested type and if yes, if parent is interface or class.
+633 > 			 * In case of no parent then implicit access is package protected
+633 > 			 * In case of parent is interface, then implicit access is PUBLIC
+633 > 			 * In case of parent is class, then implicit access is package protected
+633 > 			 */
+633 > 			CtTypeReference<?> declaringTypeRef = type.getDeclaringType();
+633 > 			if (declaringTypeRef != null && declaringTypeRef.isInterface()) {
+633 > 				//the declaring type is interface, then implicit access is PUBLIC
+638 < 			return false;
+638 > 			//package protected
+638 > 			//visible only in scope of the same package
+638 > 			return isInSamePackage(type);
+645 > 	private boolean isInSamePackage(CtTypeReference<?> type) {
+645 > 		return type.getTopLevelType().getPackage().getSimpleName().equals(this.getTopLevelType().getPackage().getSimpleName());
+645 > 	}
+645 > 
+662 < 			throw new SpoonException("The nestedType is expected, but it is: " + getQualifiedName());
+662 > 			throw new SpoonException("The declaring type is expected, but " + getQualifiedName() + " is top level type");
+0:
+266 > 	/**
+266 > 	 * Detects if this type is an code responsible for implementing of that type.<br>
+266 > 	 * In means it detects whether this type can access protected members of that type
+266 > 	 * @return true if this type or any declaring type recursively is subtype of type or directly is the type.
+266 > 	 */
+266 > 	private boolean isImplementationOf(CtTypeReference<?> type) {
+266 > 		CtTypeReference<?> impl = this;
+266 > 		while (impl != null) {
+266 > 			if (impl.isSubtypeOf(type)) {
+266 > 				return true;
+266 > 			}
+266 > 			impl = impl.getDeclaringType();
+266 > 		}
+266 > 		return false;
+266 > 	}
+266 > 
+645 > 	private boolean isInSamePackage(CtTypeReference<?> type) {
+645 > 		return type.getTopLevelType().getPackage().getSimpleName().equals(this.getTopLevelType().getPackage().getSimpleName());
+645 > 	}
+645 > 
+662 < 			throw new SpoonException("The nestedType is expected, but it is: " + getQualifiedName());
+662 > 			throw new SpoonException("The declaring type is expected, but " + getQualifiedName() + " is top level type");
+1:
+624 < 				if (isSubtypeOf(type)) {
+625 < 					//is visible in subtypes
+624 > 				//the accessed type is protected in scope of declaring type.
+624 > 				CtTypeReference<?> declaringType = type.getDeclaringType();
+624 > 				if (declaringType == null) {
+624 > 					//top level type cannot be protected. So this is a model inconsistency.
+624 > 					throw new SpoonException("The protected class " + type.getQualifiedName() + " has no declaring class.");
+624 > 				}
+624 > 				if (isImplementationOf(declaringType)) {
+624 > 					//type is visible in code which implements declaringType
+2:
+627 > 				return isInSamePackage(type);
+3:
+633 < 			//package protected
+634 < 			if (type.getTopLevelType().getPackage().getSimpleName().equals(this.getTopLevelType().getPackage().getSimpleName())) {
+635 < 				//visible only in scope of the same package
+633 > 			/*
+633 > 			 * no modifier, we have to check if it is nested type and if yes, if parent is interface or class.
+633 > 			 * In case of no parent then implicit access is package protected
+633 > 			 * In case of parent is interface, then implicit access is PUBLIC
+633 > 			 * In case of parent is class, then implicit access is package protected
+633 > 			 */
+633 > 			CtTypeReference<?> declaringTypeRef = type.getDeclaringType();
+633 > 			if (declaringTypeRef != null && declaringTypeRef.isInterface()) {
+633 > 				//the declaring type is interface, then implicit access is PUBLIC
+4:
+638 < 			return false;
+638 > 			//package protected
+638 > 			//visible only in scope of the same package
+638 > 			return isInSamePackage(type);
+0 for pass, 1 for fail:

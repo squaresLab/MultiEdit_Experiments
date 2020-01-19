@@ -5464,3 +5464,652 @@ ERROR	2019-12-31 15:44:31,696	43	clegoues.util.ConfigurationBuilder	[main]	java.
 
 ERROR	2019-12-31 15:44:31,697	44	clegoues.util.ConfigurationBuilder	[main]	missing required property javaVM
 ERROR	2019-12-31 15:44:31,697	44	clegoues.util.ConfigurationBuilder	[main]	missing required property libs
+DEBUG	2020-01-15 15:26:23,057	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 15:26:23,102	45	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 15:26:23,111	54	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+ERROR	2020-01-15 15:26:23,112	55	clegoues.genprog4java.fitness.Fitness	[main]	failed to read /home/ylyu1/AssertTestBox//Bears62/zemp/Bears-62/pos.tests giving up
+DEBUG	2020-01-15 15:27:10,263	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+ERROR	2020-01-15 15:27:10,267	4	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException: /home/ylyu1/AssertTestBox/Bears62/zemp/Bears-62/bears.config (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:616)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:573)
+	at clegoues.genprog4java.main.Main.main(Main.java:58)
+
+ERROR	2020-01-15 15:27:10,268	5	clegoues.util.ConfigurationBuilder	[main]	missing required property javaVM
+ERROR	2020-01-15 15:27:10,268	5	clegoues.util.ConfigurationBuilder	[main]	missing required property libs
+DEBUG	2020-01-15 15:28:12,038	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 15:28:12,043	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 15:28:12,732	694	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 15:32:07,304	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 15:32:07,309	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 15:32:07,918	614	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 15:33:12,789	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:33:12,872	83	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16258409176540971088.java]
+DEBUG	2020-01-15 15:33:13,220	431	spoon.Launcher	[main]	compiled in 430 ms
+DEBUG	2020-01-15 15:33:13,237	448	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@1786dec2]
+DEBUG	2020-01-15 15:33:13,238	449	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16725720092090466225.java]
+DEBUG	2020-01-15 15:33:13,303	514	spoon.Launcher	[main]	compiled in 66 ms
+DEBUG	2020-01-15 15:33:13,304	515	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@33c7e1bb]
+DEBUG	2020-01-15 15:33:13,304	515	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_190635917549303168.java]
+DEBUG	2020-01-15 15:33:13,352	563	spoon.Launcher	[main]	compiled in 48 ms
+DEBUG	2020-01-15 15:33:13,353	564	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@631330c]
+DEBUG	2020-01-15 15:33:13,354	565	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18049321518767062011.java]
+DEBUG	2020-01-15 15:33:13,399	610	spoon.Launcher	[main]	compiled in 46 ms
+DEBUG	2020-01-15 15:33:13,414	625	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@29b5cd00]
+DEBUG	2020-01-15 15:33:13,414	625	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_15531136673786377289.java]
+DEBUG	2020-01-15 15:33:13,457	668	spoon.Launcher	[main]	compiled in 43 ms
+DEBUG	2020-01-15 15:33:13,472	683	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@a38d7a3]
+DEBUG	2020-01-15 15:33:13,473	684	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16736578981063973666.java]
+DEBUG	2020-01-15 15:33:13,516	727	spoon.Launcher	[main]	compiled in 44 ms
+DEBUG	2020-01-15 15:34:42,585	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:34:42,669	84	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14300602260582278903.java]
+DEBUG	2020-01-15 15:34:43,030	445	spoon.Launcher	[main]	compiled in 444 ms
+DEBUG	2020-01-15 15:34:43,609	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@4f47d241]
+DEBUG	2020-01-15 15:34:43,726	117	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18766882559368625614.java]
+DEBUG	2020-01-15 15:34:44,054	445	spoon.Launcher	[main]	compiled in 444 ms
+DEBUG	2020-01-15 15:34:44,071	462	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@6acdbdf5]
+DEBUG	2020-01-15 15:34:44,071	462	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_15637899963182104305.java]
+DEBUG	2020-01-15 15:34:44,127	518	spoon.Launcher	[main]	compiled in 56 ms
+DEBUG	2020-01-15 15:34:44,142	533	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@17d677df]
+DEBUG	2020-01-15 15:34:44,143	534	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_12588635748410237778.java]
+DEBUG	2020-01-15 15:34:44,205	596	spoon.Launcher	[main]	compiled in 63 ms
+DEBUG	2020-01-15 15:34:44,220	611	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@fad74ee]
+DEBUG	2020-01-15 15:34:44,220	611	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18505356414017986185.java]
+DEBUG	2020-01-15 15:34:44,270	661	spoon.Launcher	[main]	compiled in 50 ms
+DEBUG	2020-01-15 15:34:44,283	674	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@12f41634]
+DEBUG	2020-01-15 15:34:44,283	674	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11799089075619249832.java]
+DEBUG	2020-01-15 15:34:44,321	712	spoon.Launcher	[main]	compiled in 38 ms
+DEBUG	2020-01-15 15:35:09,869	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:35:09,958	89	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11111688841785717914.java]
+DEBUG	2020-01-15 15:35:10,340	471	spoon.Launcher	[main]	compiled in 470 ms
+DEBUG	2020-01-15 15:35:10,340	471	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@59e5ddf]
+DEBUG	2020-01-15 15:35:10,341	472	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_15371189562289134574.java]
+DEBUG	2020-01-15 15:35:10,392	523	spoon.Launcher	[main]	compiled in 51 ms
+DEBUG	2020-01-15 15:35:10,393	524	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@bd8db5a]
+DEBUG	2020-01-15 15:35:10,394	525	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_13153211195986759441.java]
+DEBUG	2020-01-15 15:35:10,442	573	spoon.Launcher	[main]	compiled in 49 ms
+DEBUG	2020-01-15 15:35:10,443	574	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@32d2fa64]
+DEBUG	2020-01-15 15:35:10,443	574	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11752483260645691552.java]
+DEBUG	2020-01-15 15:35:10,491	622	spoon.Launcher	[main]	compiled in 48 ms
+DEBUG	2020-01-15 15:35:10,492	623	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@5f3a4b84]
+DEBUG	2020-01-15 15:35:10,492	623	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17201862089797840094.java]
+DEBUG	2020-01-15 15:35:10,541	672	spoon.Launcher	[main]	compiled in 49 ms
+DEBUG	2020-01-15 15:35:10,542	673	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@757942a1]
+DEBUG	2020-01-15 15:35:10,543	674	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_12362512864444491943.java]
+DEBUG	2020-01-15 15:35:10,587	718	spoon.Launcher	[main]	compiled in 45 ms
+DEBUG	2020-01-15 15:35:11,604	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:35:11,725	121	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17376706609629497739.java]
+DEBUG	2020-01-15 15:35:12,113	509	spoon.Launcher	[main]	compiled in 509 ms
+DEBUG	2020-01-15 15:35:12,113	509	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@59e5ddf]
+DEBUG	2020-01-15 15:35:12,114	510	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16880336119806828847.java]
+DEBUG	2020-01-15 15:35:12,165	561	spoon.Launcher	[main]	compiled in 52 ms
+DEBUG	2020-01-15 15:35:12,166	562	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@bd8db5a]
+DEBUG	2020-01-15 15:35:12,167	563	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1152816928730625563.java]
+DEBUG	2020-01-15 15:35:12,216	612	spoon.Launcher	[main]	compiled in 50 ms
+DEBUG	2020-01-15 15:35:12,216	612	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@32d2fa64]
+DEBUG	2020-01-15 15:35:12,217	613	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14980180193885181469.java]
+DEBUG	2020-01-15 15:35:12,262	658	spoon.Launcher	[main]	compiled in 46 ms
+DEBUG	2020-01-15 15:35:12,263	659	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@5f3a4b84]
+DEBUG	2020-01-15 15:35:12,263	659	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14105734771873296716.java]
+DEBUG	2020-01-15 15:35:12,310	706	spoon.Launcher	[main]	compiled in 47 ms
+DEBUG	2020-01-15 15:35:12,310	706	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@757942a1]
+DEBUG	2020-01-15 15:35:12,311	707	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18797940717516780508.java]
+DEBUG	2020-01-15 15:35:12,385	781	spoon.Launcher	[main]	compiled in 74 ms
+DEBUG	2020-01-15 15:37:25,675	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:37:25,816	141	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17779991619042666841.java]
+DEBUG	2020-01-15 15:37:26,272	597	spoon.Launcher	[main]	compiled in 596 ms
+DEBUG	2020-01-15 15:37:27,058	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:37:27,166	108	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11308004151393890374.java]
+DEBUG	2020-01-15 15:37:27,551	493	spoon.Launcher	[main]	compiled in 492 ms
+DEBUG	2020-01-15 15:38:27,445	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 15:38:27,446	1	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 15:38:27,446	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 15:38:27,446	1	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 15:38:27,451	6	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 15:38:27,451	6	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 15:38:27,451	6	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 15:38:27,451	6	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 15:38:27,950	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 15:38:27,950	0	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 15:38:27,951	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 15:38:27,951	1	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 15:38:27,955	5	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 15:38:27,955	5	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 15:38:27,955	5	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 15:38:27,955	5	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 15:38:29,092	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 15:38:29,093	1	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 15:38:29,093	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 15:38:29,093	1	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 15:38:29,523	1	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 15:38:29,523	1	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 15:38:29,523	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 15:38:29,523	1	spoon.Launcher	[main]	template classpath: []
+INFO	2020-01-15 15:38:40,815	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:40,815	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:40,815	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:40,893	78	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:40,894	79	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:40,894	79	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:40,896	81	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:40,896	81	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:40,896	81	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:40,898	83	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:40,898	83	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:40,898	83	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:40,900	85	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:40,900	85	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:40,900	85	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:40,902	87	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:40,902	87	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:40,902	87	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:40,904	89	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:40,904	89	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:40,904	89	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:41,423	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:41,424	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:41,424	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:41,502	79	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:41,503	80	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:41,503	80	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:41,505	82	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:41,505	82	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:41,505	82	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:41,507	84	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:41,507	84	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:41,507	84	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:41,509	86	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:41,509	86	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:41,509	86	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:41,511	88	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:41,511	88	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:41,511	88	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:41,513	90	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:41,513	90	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:41,513	90	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:42,000	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:42,001	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:42,001	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:42,633	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:42,633	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:42,633	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:43,146	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:43,147	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:43,147	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:43,749	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:43,750	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:43,750	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:44,301	1	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:44,301	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:44,301	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:44,816	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:44,816	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:44,816	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 15:38:45,386	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 15:38:45,387	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 15:38:45,387	1	spoon.Launcher	[main]	start processing...
+DEBUG	2020-01-15 15:38:58,252	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:38:58,333	81	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17418151120129232676.java]
+DEBUG	2020-01-15 15:38:58,686	434	spoon.Launcher	[main]	compiled in 433 ms
+DEBUG	2020-01-15 15:39:35,196	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:39:35,278	82	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18271310113783950559.java]
+DEBUG	2020-01-15 15:39:35,643	447	spoon.Launcher	[main]	compiled in 446 ms
+DEBUG	2020-01-15 15:39:36,252	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:39:36,330	78	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17013169843656157979.java]
+DEBUG	2020-01-15 15:39:36,690	438	spoon.Launcher	[main]	compiled in 437 ms
+DEBUG	2020-01-15 15:39:53,659	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 15:39:53,739	80	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17822935344218380204.java]
+DEBUG	2020-01-15 15:39:54,098	439	spoon.Launcher	[main]	compiled in 439 ms
+DEBUG	2020-01-15 15:39:54,115	456	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@51cdd8a]
+DEBUG	2020-01-15 15:39:54,116	457	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16190783634600575471.java]
+DEBUG	2020-01-15 15:39:54,171	512	spoon.Launcher	[main]	compiled in 56 ms
+DEBUG	2020-01-15 16:34:00,718	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 16:34:00,724	6	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 16:34:01,354	636	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 16:35:05,058	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:35:05,141	83	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_12073033427516432366.java]
+DEBUG	2020-01-15 16:35:05,555	497	spoon.Launcher	[main]	compiled in 496 ms
+DEBUG	2020-01-15 16:35:05,571	513	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@1786dec2]
+DEBUG	2020-01-15 16:35:05,572	514	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_15593241554841388979.java]
+DEBUG	2020-01-15 16:35:05,622	564	spoon.Launcher	[main]	compiled in 51 ms
+DEBUG	2020-01-15 16:35:05,623	565	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@33c7e1bb]
+DEBUG	2020-01-15 16:35:05,623	565	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_15424390744717005320.java]
+DEBUG	2020-01-15 16:35:05,671	613	spoon.Launcher	[main]	compiled in 48 ms
+DEBUG	2020-01-15 16:35:05,673	615	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@631330c]
+DEBUG	2020-01-15 16:35:05,673	615	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_12807998121345243839.java]
+DEBUG	2020-01-15 16:35:05,717	659	spoon.Launcher	[main]	compiled in 44 ms
+DEBUG	2020-01-15 16:35:05,730	672	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@29b5cd00]
+DEBUG	2020-01-15 16:35:05,730	672	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14723863315938581799.java]
+DEBUG	2020-01-15 16:35:05,772	714	spoon.Launcher	[main]	compiled in 42 ms
+DEBUG	2020-01-15 16:35:05,785	727	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@a38d7a3]
+DEBUG	2020-01-15 16:35:05,786	728	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14733729379674182053.java]
+DEBUG	2020-01-15 16:35:05,827	769	spoon.Launcher	[main]	compiled in 41 ms
+DEBUG	2020-01-15 16:36:34,403	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:36:34,482	79	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1928010763097406523.java]
+DEBUG	2020-01-15 16:36:34,825	422	spoon.Launcher	[main]	compiled in 422 ms
+DEBUG	2020-01-15 16:36:35,349	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@4f47d241]
+DEBUG	2020-01-15 16:36:35,448	99	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1101325254466532378.java]
+DEBUG	2020-01-15 16:36:35,781	432	spoon.Launcher	[main]	compiled in 432 ms
+DEBUG	2020-01-15 16:36:35,810	461	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@6acdbdf5]
+DEBUG	2020-01-15 16:36:35,811	462	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18884632760812436490.java]
+DEBUG	2020-01-15 16:36:35,874	525	spoon.Launcher	[main]	compiled in 64 ms
+DEBUG	2020-01-15 16:36:35,889	540	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@17d677df]
+DEBUG	2020-01-15 16:36:35,892	543	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18159419475436488734.java]
+DEBUG	2020-01-15 16:36:35,938	589	spoon.Launcher	[main]	compiled in 49 ms
+DEBUG	2020-01-15 16:36:35,956	607	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@fad74ee]
+DEBUG	2020-01-15 16:36:35,957	608	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_13370869867446255521.java]
+DEBUG	2020-01-15 16:36:36,041	692	spoon.Launcher	[main]	compiled in 85 ms
+DEBUG	2020-01-15 16:36:36,061	712	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@12f41634]
+DEBUG	2020-01-15 16:36:36,061	712	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18486241514757222891.java]
+DEBUG	2020-01-15 16:36:36,105	756	spoon.Launcher	[main]	compiled in 44 ms
+DEBUG	2020-01-15 16:37:01,557	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:37:01,647	90	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17466591397613872050.java]
+DEBUG	2020-01-15 16:37:02,114	557	spoon.Launcher	[main]	compiled in 556 ms
+DEBUG	2020-01-15 16:37:02,115	558	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@59e5ddf]
+DEBUG	2020-01-15 16:37:02,116	559	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1511269317770020650.java]
+DEBUG	2020-01-15 16:37:02,182	625	spoon.Launcher	[main]	compiled in 67 ms
+DEBUG	2020-01-15 16:37:02,184	627	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@bd8db5a]
+DEBUG	2020-01-15 16:37:02,184	627	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_15413218464815214174.java]
+DEBUG	2020-01-15 16:37:02,235	678	spoon.Launcher	[main]	compiled in 51 ms
+DEBUG	2020-01-15 16:37:02,235	678	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@32d2fa64]
+DEBUG	2020-01-15 16:37:02,236	679	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1872651464338202963.java]
+DEBUG	2020-01-15 16:37:02,277	720	spoon.Launcher	[main]	compiled in 42 ms
+DEBUG	2020-01-15 16:37:02,278	721	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@5f3a4b84]
+DEBUG	2020-01-15 16:37:02,278	721	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18275353935263941727.java]
+DEBUG	2020-01-15 16:37:02,321	764	spoon.Launcher	[main]	compiled in 43 ms
+DEBUG	2020-01-15 16:37:02,322	765	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@757942a1]
+DEBUG	2020-01-15 16:37:02,322	765	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11755179062101770959.java]
+DEBUG	2020-01-15 16:37:02,362	805	spoon.Launcher	[main]	compiled in 40 ms
+DEBUG	2020-01-15 16:37:03,373	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:37:03,489	116	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18760307209210225097.java]
+DEBUG	2020-01-15 16:37:03,895	522	spoon.Launcher	[main]	compiled in 521 ms
+DEBUG	2020-01-15 16:37:03,896	523	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@59e5ddf]
+DEBUG	2020-01-15 16:37:03,897	524	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18849219375626896990.java]
+DEBUG	2020-01-15 16:37:03,963	590	spoon.Launcher	[main]	compiled in 67 ms
+DEBUG	2020-01-15 16:37:03,965	592	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@bd8db5a]
+DEBUG	2020-01-15 16:37:03,966	593	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_149999582718868334.java]
+DEBUG	2020-01-15 16:37:04,024	651	spoon.Launcher	[main]	compiled in 59 ms
+DEBUG	2020-01-15 16:37:04,025	652	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@32d2fa64]
+DEBUG	2020-01-15 16:37:04,025	652	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16793334691510692460.java]
+DEBUG	2020-01-15 16:37:04,090	717	spoon.Launcher	[main]	compiled in 65 ms
+DEBUG	2020-01-15 16:37:04,091	718	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@5f3a4b84]
+DEBUG	2020-01-15 16:37:04,091	718	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16926256452077323577.java]
+DEBUG	2020-01-15 16:37:04,147	774	spoon.Launcher	[main]	compiled in 56 ms
+DEBUG	2020-01-15 16:37:04,147	774	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@757942a1]
+DEBUG	2020-01-15 16:37:04,148	775	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18019084147302851875.java]
+DEBUG	2020-01-15 16:37:04,185	812	spoon.Launcher	[main]	compiled in 38 ms
+DEBUG	2020-01-15 16:39:15,823	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:39:15,907	84	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_12783729931202463275.java]
+DEBUG	2020-01-15 16:39:16,237	414	spoon.Launcher	[main]	compiled in 413 ms
+DEBUG	2020-01-15 16:39:16,880	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:39:16,956	76	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_15007207356822960672.java]
+DEBUG	2020-01-15 16:39:17,271	391	spoon.Launcher	[main]	compiled in 390 ms
+DEBUG	2020-01-15 16:40:18,423	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:40:18,424	1	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:40:18,424	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:40:18,424	1	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:40:18,429	6	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:40:18,429	6	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:40:18,429	6	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:40:18,429	6	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:40:18,914	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:40:18,915	1	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:40:18,915	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:40:18,915	1	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:40:18,919	5	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:40:18,920	6	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:40:18,920	6	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:40:18,920	6	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:40:19,382	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:40:19,382	0	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:40:19,382	0	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:40:19,382	0	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:40:19,838	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:40:19,839	1	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:40:19,839	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:40:19,839	1	spoon.Launcher	[main]	template classpath: []
+INFO	2020-01-15 16:40:30,956	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:30,956	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:30,956	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,058	102	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,058	102	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,058	102	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,062	106	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,062	106	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,062	106	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,064	108	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,064	108	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,064	108	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,067	111	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,067	111	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,067	111	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,070	114	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,070	114	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,070	114	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,072	116	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,072	116	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,072	116	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,526	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,526	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,526	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,605	79	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,605	79	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,605	79	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,607	81	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,608	82	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,608	82	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,610	84	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,610	84	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,610	84	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,612	86	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,612	86	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,612	86	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,613	87	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,613	87	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,613	87	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:31,615	89	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:31,615	89	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:31,615	89	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:32,118	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:32,119	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:32,119	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:32,633	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:32,634	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:32,634	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:33,305	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:33,306	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:33,306	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:33,842	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:33,842	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:33,842	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:34,346	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:34,346	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:34,346	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:34,899	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:34,899	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:34,899	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:40:35,428	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:40:35,429	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:40:35,429	1	spoon.Launcher	[main]	start processing...
+DEBUG	2020-01-15 16:40:48,466	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:40:48,556	90	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16099736153130663510.java]
+DEBUG	2020-01-15 16:40:48,937	471	spoon.Launcher	[main]	compiled in 471 ms
+DEBUG	2020-01-15 16:41:25,785	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:41:25,865	80	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14524533762206639718.java]
+DEBUG	2020-01-15 16:41:26,274	489	spoon.Launcher	[main]	compiled in 488 ms
+DEBUG	2020-01-15 16:41:26,873	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:41:26,971	98	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1421698479056832638.java]
+DEBUG	2020-01-15 16:41:27,358	485	spoon.Launcher	[main]	compiled in 484 ms
+DEBUG	2020-01-15 16:41:45,046	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:41:45,163	117	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_157037250877288287.java]
+DEBUG	2020-01-15 16:41:45,550	504	spoon.Launcher	[main]	compiled in 503 ms
+DEBUG	2020-01-15 16:41:45,566	520	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@51cdd8a]
+DEBUG	2020-01-15 16:41:45,567	521	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18691198324674570201.java]
+DEBUG	2020-01-15 16:41:45,628	582	spoon.Launcher	[main]	compiled in 62 ms
+DEBUG	2020-01-15 16:46:22,266	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 16:46:22,272	6	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 16:46:22,928	662	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 16:47:25,250	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:47:25,350	100	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18956509879409101647.java]
+DEBUG	2020-01-15 16:47:25,737	487	spoon.Launcher	[main]	compiled in 487 ms
+DEBUG	2020-01-15 16:47:25,767	517	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@1786dec2]
+DEBUG	2020-01-15 16:47:25,768	518	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11089198807050891556.java]
+DEBUG	2020-01-15 16:47:25,854	604	spoon.Launcher	[main]	compiled in 87 ms
+DEBUG	2020-01-15 16:47:25,855	605	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@33c7e1bb]
+DEBUG	2020-01-15 16:47:25,855	605	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_12039200526891666419.java]
+DEBUG	2020-01-15 16:47:25,913	663	spoon.Launcher	[main]	compiled in 58 ms
+DEBUG	2020-01-15 16:47:25,916	666	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@631330c]
+DEBUG	2020-01-15 16:47:25,917	667	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17682352593357556772.java]
+DEBUG	2020-01-15 16:47:25,989	739	spoon.Launcher	[main]	compiled in 73 ms
+DEBUG	2020-01-15 16:47:26,010	760	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@29b5cd00]
+DEBUG	2020-01-15 16:47:26,010	760	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16815867983780958337.java]
+DEBUG	2020-01-15 16:47:26,061	811	spoon.Launcher	[main]	compiled in 51 ms
+DEBUG	2020-01-15 16:47:26,074	824	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@a38d7a3]
+DEBUG	2020-01-15 16:47:26,074	824	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14030178328977938257.java]
+DEBUG	2020-01-15 16:47:26,113	863	spoon.Launcher	[main]	compiled in 39 ms
+DEBUG	2020-01-15 16:48:52,425	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:48:52,504	79	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14868961726000600229.java]
+DEBUG	2020-01-15 16:48:52,881	456	spoon.Launcher	[main]	compiled in 456 ms
+DEBUG	2020-01-15 16:48:53,352	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@4f47d241]
+DEBUG	2020-01-15 16:48:53,433	81	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1755241831382565772.java]
+DEBUG	2020-01-15 16:48:53,783	431	spoon.Launcher	[main]	compiled in 430 ms
+DEBUG	2020-01-15 16:48:53,800	448	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@6acdbdf5]
+DEBUG	2020-01-15 16:48:53,801	449	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16156027671552238788.java]
+DEBUG	2020-01-15 16:48:53,862	510	spoon.Launcher	[main]	compiled in 61 ms
+DEBUG	2020-01-15 16:48:53,877	525	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@17d677df]
+DEBUG	2020-01-15 16:48:53,878	526	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_13820291162555838045.java]
+DEBUG	2020-01-15 16:48:53,924	572	spoon.Launcher	[main]	compiled in 47 ms
+DEBUG	2020-01-15 16:48:53,936	584	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@fad74ee]
+DEBUG	2020-01-15 16:48:53,937	585	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_13901701128511967423.java]
+DEBUG	2020-01-15 16:48:53,989	637	spoon.Launcher	[main]	compiled in 53 ms
+DEBUG	2020-01-15 16:48:54,003	651	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@12f41634]
+DEBUG	2020-01-15 16:48:54,003	651	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_12643786920444388621.java]
+DEBUG	2020-01-15 16:48:54,045	693	spoon.Launcher	[main]	compiled in 42 ms
+DEBUG	2020-01-15 16:49:19,742	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:49:19,827	85	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11831769371251820170.java]
+DEBUG	2020-01-15 16:49:20,198	456	spoon.Launcher	[main]	compiled in 455 ms
+DEBUG	2020-01-15 16:49:20,199	457	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@59e5ddf]
+DEBUG	2020-01-15 16:49:20,200	458	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18120134536178062214.java]
+DEBUG	2020-01-15 16:49:20,256	514	spoon.Launcher	[main]	compiled in 57 ms
+DEBUG	2020-01-15 16:49:20,257	515	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@bd8db5a]
+DEBUG	2020-01-15 16:49:20,258	516	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1346072167893037561.java]
+DEBUG	2020-01-15 16:49:20,307	565	spoon.Launcher	[main]	compiled in 50 ms
+DEBUG	2020-01-15 16:49:20,308	566	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@32d2fa64]
+DEBUG	2020-01-15 16:49:20,308	566	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16530824333118155253.java]
+DEBUG	2020-01-15 16:49:20,354	612	spoon.Launcher	[main]	compiled in 46 ms
+DEBUG	2020-01-15 16:49:20,355	613	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@5f3a4b84]
+DEBUG	2020-01-15 16:49:20,355	613	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18734773196628742478.java]
+DEBUG	2020-01-15 16:49:20,405	663	spoon.Launcher	[main]	compiled in 50 ms
+DEBUG	2020-01-15 16:49:20,405	663	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@757942a1]
+DEBUG	2020-01-15 16:49:20,406	664	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_13133414142197838940.java]
+DEBUG	2020-01-15 16:49:20,451	709	spoon.Launcher	[main]	compiled in 46 ms
+DEBUG	2020-01-15 16:49:21,484	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:49:21,580	96	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_15627851115302979170.java]
+DEBUG	2020-01-15 16:49:22,015	531	spoon.Launcher	[main]	compiled in 531 ms
+DEBUG	2020-01-15 16:49:22,016	532	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@59e5ddf]
+DEBUG	2020-01-15 16:49:22,017	533	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_18015842460575480423.java]
+DEBUG	2020-01-15 16:49:22,112	628	spoon.Launcher	[main]	compiled in 96 ms
+DEBUG	2020-01-15 16:49:22,113	629	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@bd8db5a]
+DEBUG	2020-01-15 16:49:22,113	629	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_13670826001851938900.java]
+DEBUG	2020-01-15 16:49:22,172	688	spoon.Launcher	[main]	compiled in 59 ms
+DEBUG	2020-01-15 16:49:22,172	688	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@32d2fa64]
+DEBUG	2020-01-15 16:49:22,173	689	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1191416355571163521.java]
+DEBUG	2020-01-15 16:49:22,219	735	spoon.Launcher	[main]	compiled in 47 ms
+DEBUG	2020-01-15 16:49:22,219	735	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@5f3a4b84]
+DEBUG	2020-01-15 16:49:22,220	736	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17507830054237162419.java]
+DEBUG	2020-01-15 16:49:22,269	785	spoon.Launcher	[main]	compiled in 50 ms
+DEBUG	2020-01-15 16:49:22,270	786	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@757942a1]
+DEBUG	2020-01-15 16:49:22,271	787	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11411890127634857668.java]
+DEBUG	2020-01-15 16:49:22,316	832	spoon.Launcher	[main]	compiled in 46 ms
+DEBUG	2020-01-15 16:51:34,391	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:51:34,491	100	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_17673962618511063861.java]
+DEBUG	2020-01-15 16:51:34,892	501	spoon.Launcher	[main]	compiled in 501 ms
+DEBUG	2020-01-15 16:51:35,728	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:51:35,809	81	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_11567811135853548995.java]
+DEBUG	2020-01-15 16:51:36,174	446	spoon.Launcher	[main]	compiled in 445 ms
+DEBUG	2020-01-15 16:52:35,357	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:52:35,358	1	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:52:35,358	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:52:35,358	1	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:52:35,363	6	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:52:35,363	6	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:52:35,363	6	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:52:35,363	6	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:52:35,929	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:52:35,929	0	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:52:35,930	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:52:35,930	1	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:52:35,935	6	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:52:35,935	6	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:52:35,935	6	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:52:35,935	6	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:52:36,378	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:52:36,379	1	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:52:36,379	1	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:52:36,379	1	spoon.Launcher	[main]	template classpath: []
+DEBUG	2020-01-15 16:52:36,849	0	spoon.Launcher	[main]	output: spooned
+DEBUG	2020-01-15 16:52:36,849	0	spoon.Launcher	[main]	destination: /home/ylyu1/MultiEdit_Experiments/AssertExperiment/BearsScripts/spooned-classes
+DEBUG	2020-01-15 16:52:36,849	0	spoon.Launcher	[main]	source classpath: null
+DEBUG	2020-01-15 16:52:36,849	0	spoon.Launcher	[main]	template classpath: []
+INFO	2020-01-15 16:52:47,992	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:47,992	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:47,992	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,074	82	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,074	82	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,074	82	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,076	84	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,076	84	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,076	84	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,078	86	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,078	86	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,079	87	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,080	88	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,081	89	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,081	89	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,082	90	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,082	90	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,082	90	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,084	92	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,084	92	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,084	92	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,503	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,504	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,504	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,632	129	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,632	129	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,632	129	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,636	133	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,636	133	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,636	133	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,639	136	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,639	136	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,639	136	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,642	139	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,642	139	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,642	139	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,644	141	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,645	142	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,645	142	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:48,647	144	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:48,647	144	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:48,647	144	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:49,138	1	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:49,138	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:49,138	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:49,782	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:49,783	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:49,783	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:50,503	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:50,504	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:50,504	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:51,077	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:51,077	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:51,077	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:51,627	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:51,628	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:51,628	1	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:52,179	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:52,179	0	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:52,179	0	spoon.Launcher	[main]	start processing...
+INFO	2020-01-15 16:52:52,825	0	spoon.Launcher	[main]	Spoon version 5.8.0-SNAPSHOT
+INFO	2020-01-15 16:52:52,826	1	spoon.Launcher	[main]	running Spoon...
+INFO	2020-01-15 16:52:52,826	1	spoon.Launcher	[main]	start processing...
+DEBUG	2020-01-15 16:53:05,711	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:53:05,792	81	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_13164239927189613349.java]
+DEBUG	2020-01-15 16:53:06,145	434	spoon.Launcher	[main]	compiled in 433 ms
+DEBUG	2020-01-15 16:53:43,814	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:53:43,909	95	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_1305195881892869870.java]
+DEBUG	2020-01-15 16:53:44,288	474	spoon.Launcher	[main]	compiled in 473 ms
+DEBUG	2020-01-15 16:53:44,891	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:53:44,973	82	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_16983148352784582692.java]
+DEBUG	2020-01-15 16:53:45,344	453	spoon.Launcher	[main]	compiled in 453 ms
+DEBUG	2020-01-15 16:54:02,413	0	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@68f7aae2]
+DEBUG	2020-01-15 16:54:02,499	86	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_12609892358447067272.java]
+DEBUG	2020-01-15 16:54:02,851	438	spoon.Launcher	[main]	compiled in 437 ms
+DEBUG	2020-01-15 16:54:02,867	454	spoon.Launcher	[main]	compiling sources: [spoon.support.compiler.VirtualFile@51cdd8a]
+DEBUG	2020-01-15 16:54:02,868	455	spoon.Launcher	[main]	snippet build args: [-1.7, -preserveAllLocals, -noExit, -enableJavadoc, /tmp/spoon.support.compiler.jdt.JDTSnippetCompiler_spoonSnippet_14601467925885614393.java]
+DEBUG	2020-01-15 16:54:02,930	517	spoon.Launcher	[main]	compiled in 63 ms
+DEBUG	2020-01-15 17:26:54,719	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 17:26:54,728	9	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 17:26:54,737	18	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 17:32:26,858	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 17:32:26,865	7	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 17:32:26,873	15	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 17:42:46,638	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 17:42:46,645	7	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 17:42:46,654	16	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 18:41:51,935	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 18:41:51,942	7	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 18:41:51,950	15	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 18:53:09,830	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 18:53:09,836	6	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 18:53:09,843	13	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 18:59:12,326	1	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 18:59:12,333	8	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 18:59:12,340	15	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 19:21:17,043	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 19:21:17,050	7	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 19:21:17,059	16	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:13:12,127	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:13:12,134	7	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:13:12,143	16	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:18:02,674	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:18:02,687	13	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:18:02,701	27	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:27:28,721	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:27:28,730	9	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:27:28,739	18	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:35:09,100	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:35:09,112	12	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:35:09,125	25	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:44:39,784	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:44:39,792	8	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:44:40,109	325	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:46:26,978	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:46:26,983	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:46:27,295	317	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:49:48,593	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:49:48,600	7	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:49:48,927	334	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:55:14,551	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:55:14,556	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:55:14,819	268	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:58:11,269	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:58:11,274	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:58:11,635	366	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:10:43,249	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:10:43,254	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:10:43,574	325	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:13:20,455	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:13:20,461	6	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:13:20,822	367	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:16:04,281	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:16:04,289	8	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:16:04,681	400	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:18:57,133	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:18:57,138	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:18:57,454	321	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:21:43,151	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:21:43,157	6	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:21:43,461	310	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:29:57,821	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+ERROR	2020-01-15 21:29:57,825	4	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException: /home/ylyu1/AssertTestBox/Bears231/zemp/Bears-231/bears.config (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:616)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:573)
+	at clegoues.genprog4java.main.Main.main(Main.java:58)
+
+ERROR	2020-01-15 21:29:57,826	5	clegoues.util.ConfigurationBuilder	[main]	missing required property javaVM
+ERROR	2020-01-15 21:29:57,826	5	clegoues.util.ConfigurationBuilder	[main]	missing required property libs
+DEBUG	2020-01-15 21:30:30,294	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:30:30,300	6	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:30:30,586	292	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:31:19,039	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:31:19,044	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:31:19,369	330	clegoues.genprog4java.main.Main	[main]	Configuration file loaded

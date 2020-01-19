@@ -1,0 +1,106 @@
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-228407512-228634633'
+Your branch is up-to-date with 'origin/INRIA-spoon-228407512-228634633'.
+Note: checking out '28b62328fd130795eb341d6b6788ffe571754559'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 28b6232... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/caafc7ec841dd072fc0478d328ab5bd94eb6fdbe The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/228634633.
+Previous HEAD position was 28b6232... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/caafc7ec841dd072fc0478d328ab5bd94eb6fdbe The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/228634633.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-51...
+Checking out the branch INRIA-spoon-228407512-228634633...
+The bug Bears-51 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-228407512-228634633'
+Your branch is up-to-date with 'origin/INRIA-spoon-228407512-228634633'.
+Note: checking out 'f5d1c7b3e1cf913ba56a4b02a27821407634371f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f5d1c7b... End of the bug and patch reproduction process
+Previous HEAD position was f5d1c7b... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-51...
+Checking out the branch INRIA-spoon-228407512-228634633...
+The bug Bears-51 was checked out.
+Switched to branch 'INRIA-spoon-228407512-228634633'
+Note: checking out '28b62328fd130795eb341d6b6788ffe571754559'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 28b6232... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/caafc7ec841dd072fc0478d328ab5bd94eb6fdbe The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/228634633.
+Previous HEAD position was 28b6232... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/caafc7ec841dd072fc0478d328ab5bd94eb6fdbe The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/228634633.
+Switched to branch 'master'
+21 > import spoon.reflect.declaration.CtMethod;
+24 > import spoon.reflect.reference.CtExecutableReference;
+175 > 		CtElement e = this;
+175 > 		CtElement parent = getParent();
+175 > 		if (parent instanceof CtExecutableReference) {
+175 > 			CtElement parent2 = parent.getParent();
+175 > 			if (parent2 instanceof CtMethod) {
+175 > 				e = parent2;
+175 > 			} else {
+175 > 				e = ((CtExecutableReference<?>) parent).getDeclaringType().getTypeDeclaration();
+175 > 			}
+175 > 		} else {
+175 > 			e = e.getParent(CtFormalTypeDeclarer.class);
+175 > 		}
+175 > 
+179 < 		CtElement e = this;
+180 < 		while ((e = e.getParent(CtFormalTypeDeclarer.class)) != null) {
+179 > 		while (e != null) {
+184 > 			e = e.getParent(CtFormalTypeDeclarer.class);
+0:
+21 > import spoon.reflect.declaration.CtMethod;
+24 > import spoon.reflect.reference.CtExecutableReference;
+1:
+175 > 		CtElement e = this;
+175 > 		CtElement parent = getParent();
+175 > 		if (parent instanceof CtExecutableReference) {
+175 > 			CtElement parent2 = parent.getParent();
+175 > 			if (parent2 instanceof CtMethod) {
+175 > 				e = parent2;
+175 > 			} else {
+175 > 				e = ((CtExecutableReference<?>) parent).getDeclaringType().getTypeDeclaration();
+175 > 			}
+175 > 		} else {
+175 > 			e = e.getParent(CtFormalTypeDeclarer.class);
+175 > 		}
+175 > 
+179 < 		CtElement e = this;
+2:
+180 < 		while ((e = e.getParent(CtFormalTypeDeclarer.class)) != null) {
+179 > 		while (e != null) {
+3:
+184 > 			e = e.getParent(CtFormalTypeDeclarer.class);
+0 for pass, 1 for fail:
+On: 01
+On: 02
+On: 013
+On: 023
+On: 012

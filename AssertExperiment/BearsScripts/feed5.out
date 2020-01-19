@@ -1,0 +1,364 @@
+mkdir: cannot create directory ‘/home/ylyu1/AssertTestBox//Bears83/’: File exists
+mkdir: cannot create directory ‘/home/ylyu1/AssertTestBox//Bears83/bugorig/’: File exists
+The bug Bears-83 has already been checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-277315604-277340707'
+Your branch is up-to-date with 'origin/INRIA-spoon-277315604-277340707'.
+Note: checking out '5030d837e922fda15be4b930305311201a14fa08'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5030d83... End of the bug and patch reproduction process
+Previous HEAD position was 5030d83... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-83...
+Checking out the branch INRIA-spoon-277315604-277340707...
+The bug Bears-83 was checked out.
+mkdir: cannot create directory ‘/home/ylyu1/AssertTestBox//Bears83/results’: File exists
+Switched to branch 'INRIA-spoon-277315604-277340707'
+Note: checking out '9f330978496c26b0abd7a5f33f44c0c0d689c902'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9f33097... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/770e4845b911a176cb092e574a93a46fb4327328 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/277340707.
+Previous HEAD position was 9f33097... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/770e4845b911a176cb092e574a93a46fb4327328 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/277340707.
+Switched to branch 'master'
+674 < 				// contract: if value, then the field type must be String
+675 < 				if (!f.getType().equals(c.getFactory().Type().STRING)) {
+676 < 					throw new TemplateException("proxy template parameter must be typed as String " +  f.getType().getQualifiedName());
+677 < 				}
+678 < 
+679 < 				// contract: the name of the template parameter must correspond to the name of the field
+680 < 				// as found, by Pavel, this is not good contract because it prevents easy refactoring of templates
+681 < 				// we remove it but keep th commented code in case somebody would come up with this bad idae
+682 < //				if (!f.getSimpleName().equals("_" + f.getAnnotation(Parameter.class).value())) {
+683 < //					throw new TemplateException("the field name of a proxy template parameter must be called _" + f.getSimpleName());
+684 < //				}
+674 > 				// contract: if value, then the field type must be String or CtTypeReference
+674 > 				String fieldTypeQName = f.getType().getQualifiedName();
+674 > 				if (fieldTypeQName.equals(String.class.getName())) {
+674 > 					// contract: the name of the template parameter must correspond to the name of the field
+674 > 					// as found, by Pavel, this is not good contract because it prevents easy refactoring of templates
+674 > 					// we remove it but keep th commented code in case somebody would come up with this bad idae
+674 > //					if (!f.getSimpleName().equals("_" + f.getAnnotation(Parameter.class).value())) {
+674 > //						throw new TemplateException("the field name of a proxy template parameter must be called _" + f.getSimpleName());
+674 > //					}
+686 < 				// contract: if a proxy parameter is declared and named "x" (@Parameter("x")), then a type member named "x" must exist.
+687 < 				boolean found = false;
+688 < 				for (CtTypeMember member: c.getTypeMembers()) {
+689 < 					if (member.getSimpleName().equals(proxyName)) {
+690 < 						found = true;
+686 > 					// contract: if a proxy parameter is declared and named "x" (@Parameter("x")), then a type member named "x" must exist.
+686 > 					boolean found = false;
+686 > 					for (CtTypeMember member: c.getTypeMembers()) {
+686 > 						if (member.getSimpleName().equals(proxyName)) {
+686 > 							found = true;
+686 > 						}
+691 > 					if (!found) {
+691 > 						throw new TemplateException("if a proxy parameter is declared and named \"" + proxyName + "\", then a type member named \"\" + proxyName + \"\" must exist.");
+691 > 					}
+691 > 				} else if (fieldTypeQName.equals(CtTypeReference.class.getName())) {
+691 > 					//OK it is CtTypeReference
+691 > 				} else {
+691 > 					throw new TemplateException("proxy template parameter must be typed as String or CtTypeReference, but it is " + fieldTypeQName);
+693 < 				if (!found) {
+694 < 					throw new TemplateException("if a proxy parameter is declared and named \"" + proxyName + "\", then a type member named \"\" + proxyName + \"\" must exist.");
+695 < 				}
+696 < 
+0:
+674 > 				String fieldTypeQName = f.getType().getQualifiedName();
+1:
+674 < 				// contract: if value, then the field type must be String
+675 < 				if (!f.getType().equals(c.getFactory().Type().STRING)) {
+676 < 					throw new TemplateException("proxy template parameter must be typed as String " +  f.getType().getQualifiedName());
+677 < 				}
+678 < 
+679 < 				// contract: the name of the template parameter must correspond to the name of the field
+680 < 				// as found, by Pavel, this is not good contract because it prevents easy refactoring of templates
+681 < 				// we remove it but keep th commented code in case somebody would come up with this bad idae
+682 < //				if (!f.getSimpleName().equals("_" + f.getAnnotation(Parameter.class).value())) {
+683 < //					throw new TemplateException("the field name of a proxy template parameter must be called _" + f.getSimpleName());
+684 < //				}
+674 > 				// contract: if value, then the field type must be String or CtTypeReference
+674 > 				if (fieldTypeQName.equals(String.class.getName())) {
+674 > 					// contract: the name of the template parameter must correspond to the name of the field
+674 > 					// as found, by Pavel, this is not good contract because it prevents easy refactoring of templates
+674 > 					// we remove it but keep th commented code in case somebody would come up with this bad idae
+674 > //					if (!f.getSimpleName().equals("_" + f.getAnnotation(Parameter.class).value())) {
+674 > //						throw new TemplateException("the field name of a proxy template parameter must be called _" + f.getSimpleName());
+674 > //					}
+686 < 				// contract: if a proxy parameter is declared and named "x" (@Parameter("x")), then a type member named "x" must exist.
+687 < 				boolean found = false;
+688 < 				for (CtTypeMember member: c.getTypeMembers()) {
+689 < 					if (member.getSimpleName().equals(proxyName)) {
+690 < 						found = true;
+686 > 					// contract: if a proxy parameter is declared and named "x" (@Parameter("x")), then a type member named "x" must exist.
+686 > 					boolean found = false;
+686 > 					for (CtTypeMember member: c.getTypeMembers()) {
+686 > 						if (member.getSimpleName().equals(proxyName)) {
+686 > 							found = true;
+686 > 						}
+2:
+691 > 					if (!found) {
+691 > 						throw new TemplateException("if a proxy parameter is declared and named \"" + proxyName + "\", then a type member named \"\" + proxyName + \"\" must exist.");
+691 > 					}
+691 > 				} else if (fieldTypeQName.equals(CtTypeReference.class.getName())) {
+691 > 					//OK it is CtTypeReference
+691 > 				} else {
+691 > 					throw new TemplateException("proxy template parameter must be typed as String or CtTypeReference, but it is " + fieldTypeQName);
+3:
+693 < 				if (!found) {
+694 < 					throw new TemplateException("if a proxy parameter is declared and named \"" + proxyName + "\", then a type member named \"\" + proxyName + \"\" must exist.");
+695 < 				}
+696 < 
+0 for pass, 1 for fail:
+org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at ParseScript.evalpartialrepair(ParseScript.java:226)
+	at ParseScript.main(ParseScript.java:138)
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Spoon Core 6.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven) @ spoon-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-bytecode-version) @ spoon-core ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.5.201505241946:prepare-agent (default) @ spoon-core ---
+[INFO] argLine set to -javaagent:/home/ylyu1/.m2/repository/org/jacoco/org.jacoco.agent/0.7.5.201505241946/org.jacoco.agent-0.7.5.201505241946-runtime.jar=destfile=/home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spoon-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ spoon-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 514 source files to /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/template/Substitution.java:[696,35] 'else' without 'if'
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.478 s
+[INFO] Finished at: 2020-01-03T16:32:22-05:00
+[INFO] Final Memory: 66M/1583M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project spoon-core: Compilation failure
+[ERROR] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/template/Substitution.java:[696,35] 'else' without 'if'
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at ParseScript.evalpartialrepair(ParseScript.java:226)
+	at ParseScript.main(ParseScript.java:138)
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Spoon Core 6.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven) @ spoon-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-bytecode-version) @ spoon-core ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.5.201505241946:prepare-agent (default) @ spoon-core ---
+[INFO] argLine set to -javaagent:/home/ylyu1/.m2/repository/org/jacoco/org.jacoco.agent/0.7.5.201505241946/org.jacoco.agent-0.7.5.201505241946-runtime.jar=destfile=/home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spoon-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ spoon-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 514 source files to /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java: Recompile with -Xlint:unchecked for details.
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/template/Substitution.java:[699,38] cannot find symbol
+  symbol:   variable found
+  location: class spoon.template.Substitution
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.770 s
+[INFO] Finished at: 2020-01-03T16:32:38-05:00
+[INFO] Final Memory: 35M/1542M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project spoon-core: Compilation failure
+[ERROR] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/template/Substitution.java:[699,38] cannot find symbol
+[ERROR] symbol:   variable found
+[ERROR] location: class spoon.template.Substitution
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at ParseScript.evalpartialrepair(ParseScript.java:226)
+	at ParseScript.main(ParseScript.java:138)
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Spoon Core 6.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven) @ spoon-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-bytecode-version) @ spoon-core ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.5.201505241946:prepare-agent (default) @ spoon-core ---
+[INFO] argLine set to -javaagent:/home/ylyu1/.m2/repository/org/jacoco/org.jacoco.agent/0.7.5.201505241946/org.jacoco.agent-0.7.5.201505241946-runtime.jar=destfile=/home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spoon-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ spoon-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 514 source files to /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/template/Substitution.java:[696,35] 'else' without 'if'
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.338 s
+[INFO] Finished at: 2020-01-03T16:32:45-05:00
+[INFO] Final Memory: 65M/1583M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project spoon-core: Compilation failure
+[ERROR] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/template/Substitution.java:[696,35] 'else' without 'if'
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at ParseScript.evalpartialrepair(ParseScript.java:226)
+	at ParseScript.main(ParseScript.java:138)
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Spoon Core 6.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven) @ spoon-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-bytecode-version) @ spoon-core ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.5.201505241946:prepare-agent (default) @ spoon-core ---
+[INFO] argLine set to -javaagent:/home/ylyu1/.m2/repository/org/jacoco/org.jacoco.agent/0.7.5.201505241946/org.jacoco.agent-0.7.5.201505241946-runtime.jar=destfile=/home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spoon-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ spoon-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 514 source files to /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java: Recompile with -Xlint:unchecked for details.
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/template/Substitution.java:[692,38] cannot find symbol
+  symbol:   variable found
+  location: class spoon.template.Substitution
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.683 s
+[INFO] Finished at: 2020-01-03T16:44:24-05:00
+[INFO] Final Memory: 33M/1565M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project spoon-core: Compilation failure
+[ERROR] /home/ylyu1/AssertTestBox/Bears83/zemp/Bears-83/src/main/java/spoon/template/Substitution.java:[692,38] cannot find symbol
+[ERROR] symbol:   variable found
+[ERROR] location: class spoon.template.Substitution
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+

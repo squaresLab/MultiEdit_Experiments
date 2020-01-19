@@ -197,16 +197,16 @@ public class ParseScript{
         else if(mode == 'm'){
            if(line.equals("Assertions passed: "))mode='a';
            else{
-             String[] splitted = line.split(" ");
-             als.methodscores.put(splitted[0],Integer.parseInt(splitted[1]));
+             int i = line.lastIndexOf(" ");
+             als.methodscores.put(line.substring(0,i),Integer.parseInt(line.substring(i+1)));
            } 
         }
         else{
            if(line.equals("Assertions passed with partial: "))mode='s';
            else{
-             String[] splitted = line.split(" ");
-             if(mode == 'a') als.assertionscores.put(splitted[0],Double.parseDouble(splitted[1])); 
-             else als.subassertionscores.put(splitted[0],Double.parseDouble(splitted[1])); 
+             int i = line.lastIndexOf(" ");
+             if(mode == 'a') als.assertionscores.put(line.substring(0,i),Double.parseDouble(line.substring(i+1))); 
+             else als.subassertionscores.put(line.substring(0,i),Double.parseDouble(line.substring(i+1))); 
            }
         }
       }
@@ -215,6 +215,7 @@ public class ParseScript{
   public static String evalpartialrepair(String nums, String folder, String gp4jhome, String zemppath, String target, String projname){
     DefaultExecutor executor = new DefaultExecutor();
       ByteArrayOutputStream out = new ByteArrayOutputStream();
+    System.out.println("On: "+nums);
     try{
       executor.setExitValue(0);
       executor.setStreamHandler(new PumpStreamHandler(out));
@@ -223,8 +224,8 @@ public class ParseScript{
       //System.exit(0);
       executor.setWorkingDirectory(new File(zemppath+projname));
       //executor.execute(CommandLine.parse("cat "+zemppath+"/src/java/org/apache/commons/lang/text/StrBuilder.java"));
-      executor.execute(CommandLine.parse("mvn compile"));
-      try{executor.execute(CommandLine.parse("mvn test compile"));}catch(Throwable e){}
+      executor.execute(CommandLine.parse("mvn compile -DskipTests=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true"));
+      try{executor.execute(CommandLine.parse("mvn test compile -DskipTests=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true"));}catch(Throwable e){}
       //executor.execute(CommandLine.parse("cat "+zemppath+"/src/java/org/apache/commons/lang/text/StrBuilder.java"));
       //System.out.println("timeout -sHUP 200h java -ea -Dlog4j.configurationFile=file:"+gp4jhome+"/src/log4j.properties -Dfile.encoding=UTF-8 -classpath "+gp4jhome+"/target/uber-GenProg4Java-0.0.1-SNAPSHOT.jar clegoues.genprog4java.main.Main "+zemppath+"/defects4j.config");
 	//System.exit(0);
