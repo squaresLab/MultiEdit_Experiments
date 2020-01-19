@@ -2,10 +2,12 @@ import json
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-folders = ["data/coverage-experiments/dec16-Chart1-Lang24", 
-			"data/coverage-experiments/dec16-Lang26-Lang41", 
-			"data/coverage-experiments/dec16-Lang43-Lang61", 
-			"data/coverage-experiments/dec16-Lang63-Time11"]
+# folders = ["data/coverage-experiments/dec16-Chart1-Lang24",
+# 			"data/coverage-experiments/dec16-Lang26-Lang41",
+# 			"data/coverage-experiments/dec16-Lang43-Lang61",
+# 			"data/coverage-experiments/dec16-Lang63-Time11"]
+
+folders = ["data/coverage-experiments/jan14"]
 
 with open("data/more_than_one_test.json") as f:
 	more_than_one_test = set(json.load(f))
@@ -129,10 +131,11 @@ mockito = 'MOCKITO'
 axes[2, 0].set_title(mockito)
 axes[2, 0].bar(["disjoint", "in between", "same"],
 	[multitest_disjoint_projects[mockito], multitest_inBetween_projects[mockito], multitest_same_projects[mockito]])
-# time = 'TIME'
-# axes[2, 1].set_title(time)
-# axes[2, 1].bar(["disjoint", "in between", "same"],
-# 	[multitest_disjoint_projects[time], multitest_inBetween_projects[time], multitest_same_projects[time]])
+
+time = 'TIME'
+axes[2, 1].set_title(time)
+axes[2, 1].bar(["disjoint", "in between", "same"],
+	[multitest_disjoint_projects[time], multitest_inBetween_projects[time], multitest_same_projects[time]])
 
 
 plt.show()

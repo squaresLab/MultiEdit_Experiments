@@ -19,13 +19,7 @@ public class DoCoverageExperiments {
              PrintWriter sameWriter = new PrintWriter(new File("data/coverage-experiments/same.data"));
              PrintWriter inBetweenWriter = new PrintWriter(new File("data/coverage-experiments/inBetween.data"))) {
             for (D4JName n : D4JName.values()) {
-                if (n != D4JName.TIME) {
-                    continue;
-                }
                 for (int i = 1; i <= n.numBugs; i++) {
-//                    if (i <= 11) {
-//                        continue;
-//                    }
 
                     Defects4JPatch p;
                     try {

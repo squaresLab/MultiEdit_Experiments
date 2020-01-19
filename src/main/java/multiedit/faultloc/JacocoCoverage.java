@@ -23,17 +23,17 @@ import util.TestCase;
 
 public class JacocoCoverage {
 
-    public Collection<CoverageSubset> getCoveragePassingTests(Patch patch, Patch.Version whichVersion) {
-        return getCoverageSomeTests(patch, patch.getPassingTests(), whichVersion);
-    }
+//    public Collection<CoverageSubset> getCoveragePassingTests(Patch patch, Patch.Version whichVersion) {
+//        return getCoverageSomeTests(patch, patch.getPassingTests(), whichVersion);
+//    }
 
     public Collection<CoverageSubset> getCoverageFailingTests(Patch patch, Patch.Version whichVersion) {
         return getCoverageSomeTests(patch, patch.getFailingTests(), whichVersion);
     }
 
-    public Collection<CoverageSubset> getCoverageRelevantTests(Patch patch, Patch.Version whichVersion) {
-        return getCoverageSomeTests(patch, patch.getRelevantTests(), whichVersion);
-    }
+//    public Collection<CoverageSubset> getCoverageRelevantTests(Patch patch, Patch.Version whichVersion) {
+//        return getCoverageSomeTests(patch, patch.getRelevantTests(), whichVersion);
+//    }
 
     public Collection<CoverageSubset> getCoverageSomeTests(Patch p, Collection<String> whichTests, Patch.Version whichVersion) {
         List<CoverageSubset> testCaseCoverage = new ArrayList<>();
@@ -122,7 +122,10 @@ public class JacocoCoverage {
 //            System.out.println("covered lines?");
 //            System.out.println(coveredLines);
 
-            classCoverage.put(cc.getName(), coveredLines);
+            String publicClassName = cc.getPackageName() + "/" + cc.getSourceFileName().split("\\.")[0];
+            Set<Integer> existing = classCoverage.getOrDefault(publicClassName, new HashSet<>());
+            existing.addAll(coveredLines);
+            classCoverage.put(publicClassName, existing);
         }
         return classCoverage;
 
