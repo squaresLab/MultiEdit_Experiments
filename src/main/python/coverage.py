@@ -1,4 +1,3 @@
-import json
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -9,133 +8,153 @@ import seaborn as sns
 
 folders = ["data/coverage-experiments/jan14"]
 
-with open("data/more_than_one_test.json") as f:
-	more_than_one_test = set(json.load(f))
+with open("data/more_than_one_test.txt") as f:
+    more_than_one_test = set([x.strip() for x in f.readlines()])
+
+with open("data/multi_edit.txt") as f:
+    multi_edit = set([x.strip() for x in f.readlines()])
 
 disjoint = 0
 same = 0
 inBetween = 0
 
-multitest_disjoint = 0
-multitest_same = 0
-multitest_inBetween = 0
+multichunk_disjoint = 0
+multichunk_same = 0
+multichunk_inBetween = 0
 
 disjoint_projects = {}
 same_projects = {}
 inBetween_projects = {}
 
-multitest_disjoint_projects = {}
-multitest_same_projects = {}
-multitest_inBetween_projects = {}
+multichunk_disjoint_projects = {}
+multichunk_same_projects = {}
+multichunk_inBetween_projects = {}
 
 for dir in folders:
-	with open(dir+"/disjoint.data") as f:
-		for line in f:
-			line = line.strip()
-			if len(line) > 0:
-				project, bugnum = line.split(":")
+    with open(dir+"/disjoint.data") as f:
+        for line in f:
+            line = line.strip()
+            if len(line) > 0:
+                project, bugnum = line.split(":")
 
-				disjoint+=1
-				disjoint_projects[project] = disjoint_projects.get(project, 0) + 1
-				if line in more_than_one_test:
-					multitest_disjoint += 1
-					multitest_disjoint_projects[project] = multitest_disjoint_projects.get(project, 0) + 1
-	with open(dir+"/same.data") as f:
-		for line in f:
-			line = line.strip()			
-			if len(line) > 0:
-				project, bugnum = line.split(":")
+                if line in more_than_one_test:
+                    disjoint+=1
+                    disjoint_projects[project] = disjoint_projects.get(project, 0) + 1
 
-				same+=1
-				same_projects[project] = same_projects.get(project, 0) + 1
-				if line in more_than_one_test:
-					multitest_same += 1
-					multitest_same_projects[project] = multitest_same_projects.get(project, 0) + 1
-	with open(dir+"/inBetween.data") as f:
-		for line in f:
-			line = line.strip()
-			if len(line) > 0:
-				project, bugnum = line.split(":")
+                    if line in multi_edit:
+                        multichunk_disjoint+=1
+                        multichunk_disjoint_projects[project] = disjoint_projects.get(project, 0) + 1
+                        print(f'disjoint {line}')
 
-				inBetween+=1
-				inBetween_projects[project] = inBetween_projects.get(project, 0) + 1
-				if line in more_than_one_test:
-					multitest_inBetween += 1
-					multitest_inBetween_projects[project] = multitest_inBetween_projects.get(project, 0) + 1
 
-print(f"Total projects: {disjoint + same + inBetween}")
-print(f"Total projects with multiple tests: {multitest_disjoint + multitest_same + multitest_inBetween}")
-print(f"Multiple tests disjoint: {multitest_disjoint}")
-print(f"Multiple tests same: {multitest_same}")
-print(f"Multiple tests inBetween: {multitest_inBetween}")
+    with open(dir+"/same.data") as f:
+        for line in f:
+            line = line.strip()
+            if len(line) > 0:
+                project, bugnum = line.split(":")
+
+                if line in more_than_one_test:
+                    same+=1
+                    same_projects[project] = same_projects.get(project, 0) + 1
+
+                    if line in multi_edit:
+                        multichunk_same+=1
+                        multichunk_same_projects[project] = disjoint_projects.get(project, 0) + 1
+                        print(f'same {line}')
+
+    with open(dir+"/inBetween.data") as f:
+        for line in f:
+            line = line.strip()
+            if len(line) > 0:
+                project, bugnum = line.split(":")
+
+                if line in more_than_one_test:
+                    inBetween+=1
+                    inBetween_projects[project] = inBetween_projects.get(project, 0) + 1
+
+                    if line in multi_edit:
+                        multichunk_inBetween+=1
+                        multichunk_inBetween_projects[project] = disjoint_projects.get(project, 0) + 1
+                        print(f'overlap {line}')
+
+
+print(f"Total projects with multiple tests: {disjoint + same + inBetween}")
+print(f"Multiple tests disjoint: {disjoint}")
+print(f"Multiple tests same: {same}")
+print(f"Multiple tests inBetween: {inBetween}")
+
+print(f"Total projects with multiple tests & multiple chunks: {multichunk_disjoint + multichunk_same + multichunk_inBetween}")
+print(f"Multitest/multichunk disjoint: {multichunk_disjoint}")
+print(f"Multitest/multichunk same: {multichunk_same}")
+print(f"Multitest/multichunk inBetween: {multichunk_inBetween}")
 
 
 plt.figure()
 plt.bar(["disjoint", "in between", "same"], [disjoint, inBetween, same])
-plt.title("Distribution of coverage, all patches")
+plt.title("Distribution of coverage, all multitest patches")
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
 
 plt.figure()
-plt.bar(["disjoint", "in between", "same"], [multitest_disjoint, multitest_inBetween, multitest_same])
-plt.title("Distribution of coverage, patches w/ multiple failing tests")
+plt.bar(["disjoint", "in between", "same"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])
+plt.title("Distribution of coverage, patches w/ multiple chunks")
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
 
 fig, axes = plt.subplots(3, 2)
-fig.suptitle("Distribution of coverage, all patches, by project")
+fig.suptitle("Distribution of coverage, all multitest patches, by project")
 chart = 'CHART'
 axes[0, 0].set_title(chart)
 axes[0, 0].bar(["disjoint", "in between", "same"],
-	[disjoint_projects[chart], inBetween_projects[chart], same_projects[chart]])
+    [disjoint_projects.get(chart, 0), inBetween_projects.get(chart, 0), same_projects.get(chart, 0)])
 closure = 'CLOSURE'
 axes[0, 1].set_title(closure)
 axes[0, 1].bar(["disjoint", "in between", "same"],
-	[disjoint_projects[closure], inBetween_projects[closure], same_projects[closure]])
+    [disjoint_projects.get(closure, 0), inBetween_projects.get(closure, 0), same_projects.get(closure, 0)])
 lang = 'LANG'
 axes[1, 0].set_title(lang)
 axes[1, 0].bar(["disjoint", "in between", "same"],
-	[disjoint_projects[lang], inBetween_projects[lang], same_projects[lang]])
+    [disjoint_projects.get(lang, 0), inBetween_projects.get(lang, 0), same_projects.get(lang, 0)])
 math = 'MATH'
 axes[1, 1].set_title(math)
 axes[1, 1].bar(["disjoint", "in between", "same"],
-	[disjoint_projects[math], inBetween_projects[math], same_projects[math]])
+    [disjoint_projects.get(math, 0), inBetween_projects.get(math, 0), same_projects.get(math, 0)])
 mockito = 'MOCKITO'
 axes[2, 0].set_title(mockito)
 axes[2, 0].bar(["disjoint", "in between", "same"],
-	[disjoint_projects[mockito], inBetween_projects[mockito], same_projects[mockito]])
+    [disjoint_projects.get(mockito, 0), inBetween_projects.get(mockito, 0), same_projects.get(mockito, 0)])
 time = 'TIME'
 axes[2, 1].set_title(time)
 axes[2, 1].bar(["disjoint", "in between", "same"],
-	[disjoint_projects[time], inBetween_projects[time], same_projects[time]])
+    [disjoint_projects.get(time, 0), inBetween_projects.get(time, 0), same_projects.get(time, 0)])
+
 
 fig, axes = plt.subplots(3, 2)
-fig.suptitle("Distribution of coverage, patches w/ multiple failing tests, by project")
+fig.suptitle("Distribution of coverage, patches w/ multiple cunks, by project")
 chart = 'CHART'
 axes[0, 0].set_title(chart)
 axes[0, 0].bar(["disjoint", "in between", "same"],
-	[multitest_disjoint_projects[chart], multitest_inBetween_projects[chart], multitest_same_projects[chart]])
+    [multichunk_disjoint_projects.get(chart, 0), multichunk_inBetween_projects.get(chart, 0), multichunk_same_projects.get(chart, 0)])
 closure = 'CLOSURE'
 axes[0, 1].set_title(closure)
 axes[0, 1].bar(["disjoint", "in between", "same"],
-	[multitest_disjoint_projects[closure], multitest_inBetween_projects[closure], multitest_same_projects[closure]])
+    [multichunk_disjoint_projects.get(closure, 0), multichunk_inBetween_projects.get(closure, 0), multichunk_same_projects.get(closure, 0)])
 lang = 'LANG'
 axes[1, 0].set_title(lang)
 axes[1, 0].bar(["disjoint", "in between", "same"],
-	[multitest_disjoint_projects[lang], multitest_inBetween_projects[lang], multitest_same_projects[lang]])
+    [multichunk_disjoint_projects.get(lang, 0), multichunk_inBetween_projects.get(lang, 0), multichunk_same_projects.get(lang, 0)])
 math = 'MATH'
 axes[1, 1].set_title(math)
 axes[1, 1].bar(["disjoint", "in between", "same"],
-	[multitest_disjoint_projects[math], multitest_inBetween_projects[math], multitest_same_projects[math]])
+    [multichunk_disjoint_projects.get(math, 0), multichunk_inBetween_projects.get(math, 0), multichunk_same_projects.get(math, 0)])
 mockito = 'MOCKITO'
 axes[2, 0].set_title(mockito)
 axes[2, 0].bar(["disjoint", "in between", "same"],
-	[multitest_disjoint_projects[mockito], multitest_inBetween_projects[mockito], multitest_same_projects[mockito]])
-
+    [multichunk_disjoint_projects.get(mockito, 0), multichunk_inBetween_projects.get(mockito, 0), multichunk_same_projects.get(mockito, 0)])
 time = 'TIME'
 axes[2, 1].set_title(time)
 axes[2, 1].bar(["disjoint", "in between", "same"],
-	[multitest_disjoint_projects[time], multitest_inBetween_projects[time], multitest_same_projects[time]])
+    [multichunk_disjoint_projects.get(time, 0), multichunk_inBetween_projects.get(time, 0), multichunk_same_projects.get(time, 0)])
 
 
 plt.show()
