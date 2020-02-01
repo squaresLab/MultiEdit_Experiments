@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.util.*;
 
 public class PatchDiffUtils {
@@ -21,8 +22,12 @@ public class PatchDiffUtils {
         for (String c : classes) {
             String pathToClass = c.replace('.', '/');
 
-            //build simple lists of the lines of the two testfiles
-            List<String> source = Files.readAllLines(new File(pathToSourceDir + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            List<String> source;
+            try {
+                source = Files.readAllLines(new File(pathToSourceDir + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            } catch (NoSuchFileException e) {
+                source = new ArrayList<>();
+            }
             sourceCode.put(c, source);
         }
         return sourceCode;
@@ -32,9 +37,12 @@ public class PatchDiffUtils {
         Map<String, List<String>> sourceCode = new HashMap<>();
 
         for (String p : paths) {
-
-            //build simple lists of the lines of the two testfiles
-            List<String> source = Files.readAllLines(new File(p).toPath(), StandardCharsets.ISO_8859_1);
+            List<String> source;
+            try {
+                 source = Files.readAllLines(new File(p).toPath(), StandardCharsets.ISO_8859_1);
+            } catch (NoSuchFileException e) {
+                source = new ArrayList<>();
+            }
             sourceCode.put(p, source);
         }
         return sourceCode;

@@ -61,33 +61,69 @@ public class Defects4JPatch implements Patch {
     }
 
     @Override
-    public String getPathToBuggySubjectClasses() {
+    public String getBuggyClasses() {
         return pathToBuggySubjectClasses;
     }
 
-    @Override
     public String getPathToBuggyTestClasses() {
         return pathToBuggyTestClasses;
     }
 
     @Override
-    public String getPathToPatchedSubjectClasses() {
+    public String getPatchedClasses() {
         return pathToPatchedSubjectClasses;
     }
 
-    @Override
     public String getPathToPatchedTestClasses() {
         return pathToPatchedTestClasses;
     }
 
-    @Override
     public String getBuggyClassPath() {
         return buggyClassPath;
     }
 
-    @Override
     public String getPatchedClassPath() {
         return patchedClassPath;
+    }
+
+    @Override
+    public CommandLine getTestCommand(String test, Version version) {
+        // read in the test files to get a list of test class names
+        // store it in the testcase object, which will be the name
+        // this is a little strange because each test class has multiple
+        // test cases in it. I think we can actually change this behavior
+        // through various
+        // hacks on StackOverflow, but for the time being I just want something
+        // that works at all
+        // rather than a perfect implementation. One thing at a time.
+        CommandLine command = CommandLine.parse("java");
+        String outputDir = "target/classes";
+
+        String classPath = outputDir;
+
+        if (version == Patch.Version.BUGGY) {
+            classPath += System.getProperty("path.separator")
+                    + this.getBuggyClasses() + System.getProperty("path.separator")
+                    + this.getPathToBuggyTestClasses() + System.getProperty("path.separator")
+                    + this.getBuggyClassPath();
+        } else if (version == Patch.Version.PATCHED) {
+            classPath += System.getProperty("path.separator")
+                    + this.getPatchedClasses() + System.getProperty("path.separator")
+                    + this.getPathToPatchedTestClasses()+ System.getProperty("path.separator")
+                    + this.getPatchedClassPath();
+        }
+
+        command.addArgument("-classpath");
+        command.addArgument(classPath);
+
+        command.addArgument("-Xmx1024m");
+        command.addArgument("-javaagent:" + "lib/jacocoagent.jar"
+                + "=excludes=org.junit.*,append=false");
+
+        command.addArgument("util.JUnitTestRunner");
+
+        command.addArgument(test);
+        return command;
     }
 
     @Override

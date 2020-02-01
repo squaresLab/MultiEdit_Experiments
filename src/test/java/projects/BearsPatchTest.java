@@ -39,4 +39,12 @@ class BearsPatchTest {
         assertEquals(actual, patchLocations);
     }
 
+    @Test
+    public void testBears39() {
+        BearsPatch bp = new BearsPatch(39);
+        CoverageSubset patchLocations = bp.getPatchLocations();
+        CoverageSubset actual = new CoverageSubset("actual");
+
+    }
+
 }

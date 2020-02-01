@@ -13,6 +13,7 @@ import java.util.function.Consumer;
 public class CommandLineRunner {
     public static void runCommand(CommandLine commandLine) throws IOException {
         String workingDirectory = System.getProperty("user.dir");
+        System.out.println(commandLine);
 
         ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
         DefaultExecutor executor = new DefaultExecutor();

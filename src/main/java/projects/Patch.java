@@ -1,6 +1,7 @@
 package projects;
 
 import multiedit.coverage.CoverageSubset;
+import org.apache.commons.exec.CommandLine;
 
 import java.util.Collection;
 
@@ -17,12 +18,12 @@ public interface Patch {
     Collection<String> getRelevantTests();
     Collection<String> getFailingTests();
 
-    String getPathToBuggySubjectClasses();
-    String getPathToBuggyTestClasses();
-    String getPathToPatchedSubjectClasses();
-    String getPathToPatchedTestClasses();
-    String getBuggyClassPath();
-    String getPatchedClassPath();
+    String getBuggyClasses();
+    String getPatchedClasses();
+
+
+
+    CommandLine getTestCommand(String test, Version version);
 
     CoverageSubset getPatchLocations();
 }

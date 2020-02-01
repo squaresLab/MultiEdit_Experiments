@@ -1,5 +1,6 @@
 package multiedit.coverage;
 
+import projects.BearsPatch;
 import projects.D4JName;
 import projects.Defects4JPatch;
 import projects.Patch;
@@ -18,68 +19,71 @@ public class DoCoverageExperiments {
              PrintWriter disjointWriter = new PrintWriter(new File("data/coverage-experiments/disjoint.data"));
              PrintWriter sameWriter = new PrintWriter(new File("data/coverage-experiments/same.data"));
              PrintWriter inBetweenWriter = new PrintWriter(new File("data/coverage-experiments/inBetween.data"))) {
-            for (D4JName n : D4JName.values()) {
-                for (int i = 1; i <= n.numBugs; i++) {
+//            for (D4JName n : D4JName.values()) {
+//                for (int i = 1; i <= n.numBugs; i++) {
+//
+//                    Defects4JPatch p;
+//                    try {
+//                        p = new Defects4JPatch(n, i);
+//                    } catch (Exception e) {
+//                        e.printStackTrace(System.err);
+//                        System.out.println("FAILED: " + n + " " + i);
+//                        continue;
+//                    }
+//                    Collection<CoverageSubset> coverageFailingTests = jacocoCoverage.getCoverageFailingTests(p, Patch.Version.PATCHED);
+//                    CoverageSubset patchLocation = p.getPatchLocations();
+//
+//                    Collection<CoverageSubset> intersectPatch = new ArrayList<>();
+//                    coverageFailingTests.forEach(cs -> intersectPatch.add(cs.intersection(patchLocation, cs.getDescription())));
+//
+//                    CoverageSubset intersectAll = CoverageUtils.intersect("intersect all failing tests", intersectPatch);
+//                    CoverageSubset aggregateAll = CoverageUtils.aggregate("aggregate all failing tests", intersectPatch);
+//
+//                    if (intersectAll.getClassCoverageMap().size() == 0) {
+//                        disjointWriter.println(p.getPatchName());
+//                    } else if (intersectAll.getClassCoverageMap().equals(aggregateAll.getClassCoverageMap())) {
+//                        sameWriter.println(p.getPatchName());
+//                    } else {
+//                        inBetweenWriter.println(p.getPatchName());
+//                    }
+//
+//                    coverageWriter.println(p.getPatchName() + "-" + getPercentCoverage(patchLocation, aggregateAll));
+//
+//                    p.deleteDirectories();
+//                }
+//            }
 
-                    Defects4JPatch p;
-                    try {
-                        p = new Defects4JPatch(n, i);
-                    } catch (Exception e) {
-                        e.printStackTrace(System.err);
-                        System.out.println("FAILED: " + n + " " + i);
-                        continue;
-                    }
-                    Collection<CoverageSubset> coverageFailingTests = jacocoCoverage.getCoverageFailingTests(p, Patch.Version.PATCHED);
-                    CoverageSubset patchLocation = p.getPatchLocations();
 
-                    Collection<CoverageSubset> intersectPatch = new ArrayList<>();
-                    coverageFailingTests.forEach(cs -> intersectPatch.add(cs.intersection(patchLocation, cs.getDescription())));
+            for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
+                BearsPatch b = new BearsPatch(i);
+                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" + b.getPatchName());
 
-                    CoverageSubset intersectAll = CoverageUtils.intersect("intersect all failing tests", intersectPatch);
-                    CoverageSubset aggregateAll = CoverageUtils.aggregate("aggregate all failing tests", intersectPatch);
+                Collection<CoverageSubset> coverageFailingTests = jacocoCoverage.getCoverageFailingTests(b, Patch.Version.PATCHED);
+                CoverageSubset patchLocation = b.getPatchLocations();
 
-                    if (intersectAll.getClassCoverageMap().size() == 0) {
-                        disjointWriter.println(p.getPatchName());
-                    } else if (intersectAll.getClassCoverageMap().equals(aggregateAll.getClassCoverageMap())) {
-                        sameWriter.println(p.getPatchName());
-                    } else {
-                        inBetweenWriter.println(p.getPatchName());
-                    }
+                Collection<CoverageSubset> intersectPatch = new ArrayList<>();
+                coverageFailingTests.forEach(cs -> intersectPatch.add(cs.intersection(patchLocation, cs.getDescription())));
 
-                    coverageWriter.println(p.getPatchName() + "-" + getPercentCoverage(patchLocation, aggregateAll));
+                CoverageSubset intersectAll = CoverageUtils.intersect("intersect all failing tests", intersectPatch);
+                CoverageSubset aggregateAll = CoverageUtils.aggregate("aggregate all failing tests", intersectPatch);
 
-                    p.deleteDirectories();
+                if (intersectAll.getClassCoverageMap().size() == 0) {
+                    disjointWriter.println(b.getPatchName());
+                } else if (intersectAll.getClassCoverageMap().equals(aggregateAll.getClassCoverageMap())) {
+                    sameWriter.println(b.getPatchName());
+                } else {
+                    inBetweenWriter.println(b.getPatchName());
                 }
+
+                coverageWriter.println(b.getPatchName() + "-" + getPercentCoverage(patchLocation, aggregateAll));
             }
+
         }
 
         try (PrintWriter writer = new PrintWriter("data/coverage-experiments/date.txt")) {
             writer.println(LocalDateTime.now().toString());
         }
 
-//        PrintWriter writer = new PrintWriter(new File("data/coverage-experiments/patchCoverage.data"));
-//        for (String name : patchCoverage.keySet()) {
-//            writer.println(name + "-" + patchCoverage.get(name));
-//        }
-//        writer.close();
-//
-//        writer = new PrintWriter(new File("data/coverage-experiments/disjoint.data"));
-//        for (String name : disjoint) {
-//            writer.println(name);
-//        }
-//        writer.close();
-//
-//        writer = new PrintWriter(new File("data/coverage-experiments/same.data"));
-//        for (String name : same) {
-//            writer.println(name);
-//        }
-//        writer.close();
-//
-//        writer = new PrintWriter(new File("data/coverage-experiments/inBetween.data"));
-//        for (String name : inBetween) {
-//            writer.println(name);
-//        }
-//        writer.close();
     }
 
     private static double getPercentCoverage(CoverageSubset all, CoverageSubset subset) {

@@ -11,7 +11,7 @@ class Defects4JPatchTest {
     @Test
     public void testMath2() throws IOException {
         Defects4JPatch p = new Defects4JPatch(D4JName.MATH, 2);
-        assertEquals("tmp/Math-002/buggy/target/classes", p.getPathToBuggySubjectClasses());
+        assertEquals("tmp/Math-002/buggy/target/classes", p.getBuggyClasses());
         assertEquals("tmp/Math-002/buggy/target/test-classes", p.getPathToBuggyTestClasses());
         assertFalse(p.getBuggyClassPath().contains("null"));
         assertEquals(1, p.getFailingTests().size());

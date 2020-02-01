@@ -72,7 +72,7 @@ for d in d4j_data:
     patch, chunks = parse_diff(diff)
     all_bug_patches.append({"bugId" : bug_name, "patch" : patch, "total_chunks" : chunks})
 
-with open("data/bears_patch_locs.json", "w") as f:
+with open("data/patch_locs.json", "w") as f:
     json.dump(all_bug_patches, f, indent=3)
 
 

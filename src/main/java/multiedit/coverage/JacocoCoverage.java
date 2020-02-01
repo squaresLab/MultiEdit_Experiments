@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import org.apache.commons.exec.*;
 import org.jacoco.core.analysis.Analyzer;
@@ -17,8 +18,8 @@ import org.jacoco.core.data.ExecutionDataStore;
 import org.jacoco.core.data.IExecutionDataVisitor;
 import org.jacoco.core.data.ISessionInfoVisitor;
 import org.jacoco.core.data.SessionInfo;
+import projects.BearsPatch;
 import projects.Patch;
-import util.TestCase;
 
 public class JacocoCoverage {
 
@@ -38,8 +39,7 @@ public class JacocoCoverage {
         List<CoverageSubset> testCaseCoverage = new ArrayList<>();
 
         for (String t : whichTests) {
-            TestCase tc = new TestCase(TestCase.TestType.POSITIVE, t);
-            CoverageSubset coverageInfo = getCoverageForTest(p, tc, whichVersion);
+            CoverageSubset coverageInfo = getCoverageForTest(p, t, whichVersion);
             testCaseCoverage.add(coverageInfo);
 
         }
@@ -47,7 +47,7 @@ public class JacocoCoverage {
         return testCaseCoverage;
     }
 
-    public CoverageSubset getCoverageForTest(Patch patch, TestCase tc, Patch.Version whichVersion) {
+    public CoverageSubset getCoverageForTest(Patch patch, String tc, Patch.Version whichVersion) {
         internalTestCase(tc, patch, whichVersion);
 
         Map<String, Set<Integer>> coverageInfo;
@@ -56,9 +56,9 @@ public class JacocoCoverage {
             coverageInfo = getCoverageInfo(jacocoFile, patch, whichVersion);
             jacocoFile.delete();
         } catch (IOException e) {
-            throw new RuntimeException("Could not get coverage for " + tc.getTestName(), e);
+            throw new RuntimeException("Could not get coverage for " + tc, e);
         }
-        CoverageSubset testCase = new CoverageSubset(tc.getTestName());
+        CoverageSubset testCase = new CoverageSubset(tc);
         testCase.addAllClasses(coverageInfo);
         return testCase;
 
@@ -91,17 +91,19 @@ public class JacocoCoverage {
         File file;
 
         if (whichVersion == Patch.Version.PATCHED) {
-            file = new File(patch.getPathToPatchedSubjectClasses());
+            file = new File(patch.getPatchedClasses());
         } else {
-            file = new File(patch.getPathToBuggySubjectClasses());
+            file = new File(patch.getBuggyClasses());
         }
         analyzer.analyzeAll(file);
+        System.out.println(executionData.getContents().stream().filter(ed -> ed.getName().startsWith("com/fasterxml")).collect(Collectors.toList()));
 
         for (final IClassCoverage cc : coverageBuilder.getClasses()) {
             TreeSet<Integer> coveredLines = new TreeSet<Integer>();
 
             for (int i = cc.getFirstLine(); i <= cc.getLastLine(); i++) {
                 boolean covered = false;
+                System.out.println(cc.getLine(i).getStatus());
                 switch (cc.getLine(i).getStatus()) {
                     case ICounter.PARTLY_COVERED:
                     case ICounter.FULLY_COVERED:
@@ -130,10 +132,9 @@ public class JacocoCoverage {
 
     }
 
-    protected void internalTestCase(TestCase thisTest, Patch patch, Patch.Version whichVersion) {
+    protected void internalTestCase(String thisTest, Patch patch, Patch.Version whichVersion) {
 
-        CommandLine command = internalTestCaseCommand(
-                thisTest, patch, whichVersion);
+        CommandLine command = patch.getTestCommand(thisTest, whichVersion);
         System.out.println(command);
         ExecuteWatchdog watchdog = new ExecuteWatchdog(96000);
         DefaultExecutor executor = new DefaultExecutor();
@@ -170,43 +171,4 @@ public class JacocoCoverage {
         }
     }
 
-    protected CommandLine internalTestCaseCommand(TestCase test, Patch patch, Patch.Version whichVersion) {
-        // read in the test files to get a list of test class names
-        // store it in the testcase object, which will be the name
-        // this is a little strange because each test class has multiple
-        // test cases in it. I think we can actually change this behavior
-        // through various
-        // hacks on StackOverflow, but for the time being I just want something
-        // that works at all
-        // rather than a perfect implementation. One thing at a time.
-        CommandLine command = CommandLine.parse("java");
-        String outputDir = "target/classes";
-
-        String classPath = outputDir;
-
-        if (whichVersion == Patch.Version.BUGGY) {
-            classPath += System.getProperty("path.separator")
-                    + patch.getPathToBuggySubjectClasses() + System.getProperty("path.separator")
-                    + patch.getPathToBuggyTestClasses() + System.getProperty("path.separator")
-                    + patch.getBuggyClassPath();
-        } else if (whichVersion == Patch.Version.PATCHED) {
-            classPath += System.getProperty("path.separator")
-                    + patch.getPathToPatchedSubjectClasses() + System.getProperty("path.separator")
-                    + patch.getPathToPatchedTestClasses()+ System.getProperty("path.separator")
-                    + patch.getPatchedClassPath();
-        }
-
-        command.addArgument("-classpath");
-        command.addArgument(classPath);
-
-        command.addArgument("-Xmx1024m");
-        command.addArgument("-javaagent:" + "lib/jacocoagent.jar"
-                + "=excludes=org.junit.*,append=false");
-
-        command.addArgument("util.JUnitTestRunner");
-
-        command.addArgument(test.toString());
-        return command;
-
-    }
 }

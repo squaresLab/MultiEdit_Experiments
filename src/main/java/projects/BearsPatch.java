@@ -12,15 +12,18 @@ import java.util.stream.Collectors;
 
 public class BearsPatch implements Patch {
 
-    private static final String pathToBears = System.getProperty("user.home") + "/bears-benchmark";
-    public static Map<Integer, String> allBugs = new HashMap<>();
-    public static Map<Integer, List<String[]>> patchFiles = new HashMap<>();
+    public static final String pathToBears = System.getProperty("user.home") + "/bears-benchmark";
+    private static Map<Integer, String> bugBranches = new HashMap<>();
+    private static Map<Integer, List<String[]>> patchFiles = new HashMap<>();
+    private static Map<Integer, List<String>> failingTests = new HashMap<>();
+    public static final int TOTAL_BUGS = 251;
     static {
         try {
             CommandLineRunner.lineIterator(new File("src/main/resources/bears/bug_id_and_branch.txt"), line -> {
                 String[] items = line.split(",");
-                allBugs.put(Integer.parseInt(items[0]), items[1]);
+                bugBranches.put(Integer.parseInt(items[0]), items[1]);
             });
+
             CommandLineRunner.lineIterator(new File("src/main/resources/bears/modifiedfiles.txt"), line -> {
                 String[] items = line.split(",");
                 List<String[]> gitDiffFiles = new ArrayList<>();
@@ -31,8 +34,13 @@ public class BearsPatch implements Patch {
                     String original = diffItems[3].substring(2); // lots of magic numbers; apologies :/
                     gitDiffFiles.add(new String[]{original, patched});
                 }
-
                 patchFiles.put(Integer.parseInt(items[0]), gitDiffFiles);
+            });
+
+            CommandLineRunner.lineIterator(new File("src/main/resources/bears/bearstests.txt"), line -> {
+                List<String> items = new ArrayList<>(Arrays.asList(line.split(",")));
+                int bugId = Integer.parseInt(items.remove(0));
+                failingTests.put(bugId, items);
             });
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -41,12 +49,11 @@ public class BearsPatch implements Patch {
 
     private int bugNumber;
     private String branchName;
-    List<String> failingTests;
     private CoverageSubset patchLocations;
 
     public BearsPatch(int bugNumber) {
         this.bugNumber = bugNumber;
-        this.branchName = allBugs.get(bugNumber);
+        this.branchName = bugBranches.get(bugNumber);
     }
 
     @Override
@@ -74,37 +81,79 @@ public class BearsPatch implements Patch {
 
     @Override
     public Collection<String> getFailingTests() {
-        return null;
+        return failingTests.get(bugNumber);
     }
 
     @Override
-    public String getPathToBuggySubjectClasses() {
-        return null;
+    public String getBuggyClasses() {
+        try {
+            checkoutBuggy();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return pathToBears + "/target/classes";
     }
 
     @Override
-    public String getPathToBuggyTestClasses() {
-        return null;
+    public String getPatchedClasses() {
+        try {
+            checkoutPatched();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return pathToBears + "/target/classes";
     }
 
     @Override
-    public String getPathToPatchedSubjectClasses() {
-        return null;
-    }
+    public CommandLine getTestCommand(String test, Version version) {
+//        try {
+//            checkoutPatched();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        CommandLine command = CommandLine.parse("java");
+//
+//        String classPath = "target/classes" + System.getProperty("path.separator")
+//                + pathToBears + "/target/classes" + System.getProperty("path.separator")
+//                + pathToBears + "/target/test-classes" + System.getProperty("path.separator")
+//                + System.getProperty("user.home") + "/.m2/repository";
+//
+////        if (version == Patch.Version.BUGGY) {
+////            classPath += System.getProperty("path.separator")
+////                    + this.getBuggyClasses() + System.getProperty("path.separator")
+////                    + this.getPathToBuggyTestClasses() + System.getProperty("path.separator")
+////                    + this.getBuggyClassPath();
+////        } else if (version == Patch.Version.PATCHED) {
+//
+////        }
+//
+//        command.addArgument("-classpath");
+//        command.addArgument(classPath);
+//
+//        command.addArgument("-Xmx1024m");
+//        command.addArgument("-javaagent:" + "lib/jacocoagent.jar"
+//                + "=excludes=org.junit.*,append=false");
+//
+//        command.addArgument("util.JUnitTestRunner");
+//
+//        test = test.replace("#", "::");
+//        command.addArgument(test);
+//        return command;
+//    }
+//
+//    public void help() {
+        try {
+            checkoutPatched();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-    @Override
-    public String getPathToPatchedTestClasses() {
-        return null;
-    }
+        CommandLine command = CommandLine.parse("sh");
 
-    @Override
-    public String getBuggyClassPath() {
-        return null;
-    }
-
-    @Override
-    public String getPatchedClassPath() {
-        return null;
+        command.addArgument("src/main/bash/runBears.sh");
+        command.addArgument(pathToBears);
+        command.addArgument(test);
+        return command;
     }
 
     @Override

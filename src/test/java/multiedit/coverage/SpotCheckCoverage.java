@@ -1,6 +1,7 @@
 package multiedit.coverage;
 
 import org.junit.jupiter.api.Test;
+import projects.BearsPatch;
 import projects.D4JName;
 import projects.Defects4JPatch;
 import projects.Patch;
@@ -19,7 +20,7 @@ public class SpotCheckCoverage {
      * @param projectName
      * @param patchNum
      */
-    public void coverage(D4JName projectName, int patchNum) {
+    public void d4jCoverage(D4JName projectName, int patchNum) {
         Defects4JPatch p;
         try {
             p = new Defects4JPatch(projectName, patchNum);
@@ -46,36 +47,55 @@ public class SpotCheckCoverage {
 
     @Test
     public void testClosure006() {
-        this.coverage(D4JName.CLOSURE, 6);
+        this.d4jCoverage(D4JName.CLOSURE, 6);
     }
 
     @Test
     public void testClosure011() {
-        this.coverage(D4JName.CLOSURE, 11);
+        this.d4jCoverage(D4JName.CLOSURE, 11);
     }
 
     @Test
     public void testClosure024() {
-        this.coverage(D4JName.CLOSURE, 24);
+        this.d4jCoverage(D4JName.CLOSURE, 24);
     }
 
     @Test
     public void testClosure103() {
-        this.coverage(D4JName.CLOSURE, 103);
+        this.d4jCoverage(D4JName.CLOSURE, 103);
     }
 
     @Test
     public void testTime004() {
-        this.coverage(D4JName.TIME, 4);
+        this.d4jCoverage(D4JName.TIME, 4);
     }
 
     @Test
     public void testChart013() {
-        this.coverage(D4JName.CHART, 13);
+        this.d4jCoverage(D4JName.CHART, 13);
     }
 
     @Test
     public void testMockito021() {
-        this.coverage(D4JName.MOCKITO, 21);
+        this.d4jCoverage(D4JName.MOCKITO, 21);
+    }
+
+    public void bearsCoverage(int i) {
+        BearsPatch b = new BearsPatch(i);
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" + b.getPatchName());
+
+        Collection<CoverageSubset> coverageFailingTests = jacocoCoverage.getCoverageFailingTests(b, Patch.Version.PATCHED);
+        CoverageSubset patchLocation = b.getPatchLocations();
+
+        Collection<CoverageSubset> intersectPatch = new ArrayList<>();
+        coverageFailingTests.forEach(cs -> intersectPatch.add(cs.intersection(patchLocation, cs.getDescription())));
+
+        CoverageSubset intersectAll = CoverageUtils.intersect("intersect all failing tests", intersectPatch);
+        CoverageSubset aggregateAll = CoverageUtils.aggregate("aggregate all failing tests", intersectPatch);
+    }
+
+    @Test
+    public void testBears001() {
+        this.bearsCoverage(1);
     }
 }
