@@ -1,0 +1,653 @@
+{
+   "CHART:007": {
+      " org.jfree.data.time.junit.TimePeriodValuesTests": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "CHART:005": {
+      " org.jfree.data.xy.junit.XYSeriesTests": [
+         "java.lang.IndexOutOfBoundsException"
+      ]
+   },
+   "CHART:002": {
+      " org.jfree.data.general.junit.DatasetUtilitiesTests": [
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException"
+      ]
+   },
+   "CHART:018": {
+      " org.jfree.data.category.junit.DefaultCategoryDatasetTests": [
+         "java.lang.IndexOutOfBoundsException"
+      ],
+      " org.jfree.data.junit.DefaultKeyedValues2DTests": [
+         "java.lang.IndexOutOfBoundsException"
+      ],
+      " org.jfree.data.junit.DefaultKeyedValuesTests": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "CHART:014": {
+      " org.jfree.chart.plot.junit.CategoryPlotTests": [
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException"
+      ],
+      " org.jfree.chart.plot.junit.XYPlotTests": [
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException"
+      ]
+   },
+   "CHART:021": {
+      " org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "CHART:015": {
+      " org.jfree.chart.plot.junit.PiePlot3DTests": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "CHART:016": {
+      " org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests": [
+         "java.lang.NullPointerException",
+         "junit.framework.AssertionFailedError",
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException"
+      ]
+   },
+   "CHART:019": {
+      " org.jfree.chart.plot.junit.CategoryPlotTests": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "CHART:022": {
+      " org.jfree.data.junit.KeyedObjects2DTests": [
+         "org.jfree.data.UnknownKeyException",
+         "junit.framework.AssertionFailedError",
+         "org.jfree.data.UnknownKeyException",
+         "org.jfree.data.UnknownKeyException",
+         "org.jfree.data.UnknownKeyException",
+         "java.lang.ArrayIndexOutOfBoundsException"
+      ]
+   },
+   "CHART:025": {
+      " org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:003": {
+      " org.apache.commons.lang3.math.NumberUtilsTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:001": {
+      " org.apache.commons.lang3.math.NumberUtilsTest": [
+         "java.lang.NumberFormatException"
+      ]
+   },
+   "LANG:007": {
+      " org.apache.commons.lang3.math.NumberUtilsTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:012": {
+      " org.apache.commons.lang3.RandomStringUtilsTest": [
+         "java.lang.ArrayIndexOutOfBoundsException",
+         "java.lang.ArrayIndexOutOfBoundsException"
+      ]
+   },
+   "LANG:017": {
+      " org.apache.commons.lang3.StringEscapeUtilsTest": [
+         "junit.framework.ComparisonFailure"
+      ]
+   },
+   "LANG:015": {
+      " org.apache.commons.lang3.reflect.TypeUtilsTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:019": {
+      " org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest": [
+         "java.lang.StringIndexOutOfBoundsException",
+         "java.lang.StringIndexOutOfBoundsException"
+      ]
+   },
+   "LANG:023": {
+      " org.apache.commons.lang3.text.ExtendedMessageFormatTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:022": {
+      " org.apache.commons.lang3.math.FractionTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:020": {
+      " org.apache.commons.lang3.StringUtilsTest": [
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException"
+      ]
+   },
+   "LANG:030": {
+      " org.apache.commons.lang3.StringUtilsEqualsIndexOfTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:027": {
+      " org.apache.commons.lang3.math.NumberUtilsTest": [
+         "java.lang.StringIndexOutOfBoundsException"
+      ]
+   },
+   "LANG:032": {
+      " org.apache.commons.lang3.builder.HashCodeBuilderTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:034": {
+      " org.apache.commons.lang3.builder.ToStringBuilderTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:035": {
+      " org.apache.commons.lang3.ArrayUtilsAddTest": [
+         "java.lang.ClassCastException"
+      ]
+   },
+   "LANG:042": {
+      " org.apache.commons.lang.StringEscapeUtilsTest": [
+         "junit.framework.ComparisonFailure"
+      ]
+   },
+   "LANG:036": {
+      " org.apache.commons.lang3.math.NumberUtilsTest": [
+         "java.lang.NumberFormatException",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:041": {
+      " org.apache.commons.lang.ClassUtilsTest": [
+         "junit.framework.ComparisonFailure",
+         "junit.framework.ComparisonFailure"
+      ]
+   },
+   "LANG:047": {
+      " org.apache.commons.lang.text.StrBuilderTest": [
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException"
+      ]
+   },
+   "LANG:053": {
+      " org.apache.commons.lang.time.DateUtilsTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:050": {
+      " org.apache.commons.lang.time.FastDateFormatTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:056": {
+      " org.apache.commons.lang.time.FastDateFormatTest": [
+         "org.apache.commons.lang.SerializationException"
+      ]
+   },
+   "LANG:062": {
+      " org.apache.commons.lang.EntitiesTest": [
+         "junit.framework.ComparisonFailure"
+      ]
+   },
+   "LANG:060": {
+      " org.apache.commons.lang.text.StrBuilderTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "LANG:063": {
+      " org.apache.commons.lang.time.DurationFormatUtilsTest": [
+         "junit.framework.ComparisonFailure"
+      ]
+   },
+   "LANG:065": {
+      " org.apache.commons.lang.time.DateUtilsTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:001": {
+      " org.apache.commons.math3.fraction.BigFractionTest": [
+         "org.apache.commons.math3.fraction.FractionConversionException"
+      ],
+      " org.apache.commons.math3.fraction.FractionTest": [
+         "org.apache.commons.math3.fraction.FractionConversionException"
+      ]
+   },
+   "MATH:007": {
+      " org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:004": {
+      " org.apache.commons.math3.geometry.euclidean.threed.SubLineTest": [
+         "java.lang.NullPointerException"
+      ],
+      " org.apache.commons.math3.geometry.euclidean.twod.SubLineTest": [
+         "java.lang.NullPointerException"
+      ]
+   },
+   "MATH:014": {
+      " org.apache.commons.math3.fitting.PolynomialFitterTest": [
+         "java.lang.OutOfMemoryError"
+      ]
+   },
+   "MATH:016": {
+      " org.apache.commons.math3.util.FastMathTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:018": {
+      " org.apache.commons.math3.optimization.direct.CMAESOptimizerTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:023": {
+      " org.apache.commons.math3.optimization.univariate.BrentOptimizerTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:021": {
+      " org.apache.commons.math3.linear.RectangularCholeskyDecompositionTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:024": {
+      " org.apache.commons.math3.optimization.univariate.BrentOptimizerTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:026": {
+      " org.apache.commons.math3.fraction.FractionTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:029": {
+      " org.apache.commons.math3.linear.SparseRealVectorTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:028": {
+      " org.apache.commons.math3.optimization.linear.SimplexSolverTest": [
+         "org.apache.commons.math3.exception.MaxCountExceededException"
+      ]
+   },
+   "MATH:035": {
+      " org.apache.commons.math3.genetics.ElitisticListPopulationTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:037": {
+      " org.apache.commons.math.complex.ComplexTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:040": {
+      " org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolverTest": [
+         "org.apache.commons.math.exception.TooManyEvaluationsException"
+      ]
+   },
+   "MATH:038": {
+      " org.apache.commons.math.optimization.direct.BOBYQAOptimizerTest": [
+         "org.apache.commons.math.optimization.direct.BOBYQAOptimizer$PathIsExploredException"
+      ]
+   },
+   "MATH:036": {
+      " org.apache.commons.math.fraction.BigFractionTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:044": {
+      " org.apache.commons.math.ode.events.EventStateTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:043": {
+      " org.apache.commons.math.stat.descriptive.SummaryStatisticsTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ],
+      " org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:047": {
+      " org.apache.commons.math.complex.ComplexTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:049": {
+      " org.apache.commons.math.linear.SparseRealVectorTest": [
+         "org.apache.commons.math.MathRuntimeException$6"
+      ]
+   },
+   "MATH:046": {
+      " org.apache.commons.math.complex.ComplexTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:051": {
+      " org.apache.commons.math.analysis.solvers.RegulaFalsiSolverTest": [
+         "org.apache.commons.math.exception.TooManyEvaluationsException"
+      ]
+   },
+   "MATH:055": {
+      " org.apache.commons.math.geometry.Vector3DTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:054": {
+      " org.apache.commons.math.dfp.DfpTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:052": {
+      " org.apache.commons.math.geometry.euclidean.threed.RotationTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:062": {
+      " org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:065": {
+      " org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:068": {
+      " org.apache.commons.math.optimization.general.MinpackTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:072": {
+      " org.apache.commons.math.analysis.solvers.BrentSolverTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:067": {
+      " org.apache.commons.math.optimization.MultiStartUnivariateRealOptimizerTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:074": {
+      " org.apache.commons.math.ode.nonstiff.AdamsMoultonIntegratorTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:076": {
+      " org.apache.commons.math.linear.SingularValueSolverTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:081": {
+      " org.apache.commons.math.linear.EigenDecompositionImplTest": [
+         "java.lang.ArrayIndexOutOfBoundsException"
+      ]
+   },
+   "MATH:083": {
+      " org.apache.commons.math.optimization.linear.SimplexSolverTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:086": {
+      " org.apache.commons.math.linear.CholeskyDecompositionImplTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:093": {
+      " org.apache.commons.math.util.MathUtilsTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:095": {
+      " org.apache.commons.math.distribution.FDistributionTest": [
+         "java.lang.IllegalArgumentException"
+      ]
+   },
+   "MATH:098": {
+      " org.apache.commons.math.linear.BigMatrixImplTest": [
+         "java.lang.ArrayIndexOutOfBoundsException"
+      ],
+      " org.apache.commons.math.linear.RealMatrixImplTest": [
+         "java.lang.ArrayIndexOutOfBoundsException"
+      ]
+   },
+   "MATH:100": {
+      " org.apache.commons.math.estimation.GaussNewtonEstimatorTest": [
+         "java.lang.ArrayIndexOutOfBoundsException"
+      ]
+   },
+   "MATH:102": {
+      " org.apache.commons.math.stat.inference.ChiSquareFactoryTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ],
+      " org.apache.commons.math.stat.inference.ChiSquareTestTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ],
+      " org.apache.commons.math.stat.inference.TestUtilsTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:099": {
+      " org.apache.commons.math.util.MathUtilsTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MATH:106": {
+      " org.apache.commons.math.fraction.FractionFormatTest": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MOCKITO:003": {
+      " org.mockito.internal.invocation.InvocationMatcherTest": [
+         "junit.framework.AssertionFailedError"
+      ],
+      " org.mockitousage.bugs.varargs.VarargsAndAnyObjectPicksUpExtraInvocationsTest": [
+         "java.lang.ArrayIndexOutOfBoundsException"
+      ],
+      " org.mockitousage.bugs.varargs.VarargsNotPlayingWithAnyObjectTest": [
+         "java.lang.ArrayIndexOutOfBoundsException"
+      ],
+      " org.mockitousage.matchers.CapturingArgumentsTest": [
+         "junit.framework.AssertionFailedError",
+         "java.lang.ArrayIndexOutOfBoundsException",
+         "junit.framework.AssertionFailedError",
+         "java.lang.ArrayIndexOutOfBoundsException",
+         "java.lang.ClassCastException",
+         "java.lang.ClassCastException"
+      ]
+   },
+   "MOCKITO:004": {
+      " org.mockito.exceptions.ReporterTest": [
+         "java.lang.Exception",
+         "java.lang.Exception",
+         "java.lang.Exception"
+      ],
+      " org.mockitousage.bugs.ClassCastExOnVerifyZeroInteractionsTest": [
+         "java.lang.Exception"
+      ]
+   },
+   "MOCKITO:011": {
+      " org.mockito.internal.creation.DelegatingMethodTest": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "MOCKITO:017": {
+      " org.mockitousage.basicapi.MocksSerializationTest": [
+         "java.io.NotSerializableException"
+      ]
+   },
+   "MOCKITO:020": {
+      " org.mockitousage.annotation.SpyAnnotationTest": [
+         "junit.framework.ComparisonFailure",
+         "junit.framework.AssertionFailedError"
+      ],
+      " org.mockitousage.constructor.CreatingMocksWithConstructorTest": [
+         "junit.framework.ComparisonFailure",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.ComparisonFailure",
+         "junit.framework.ComparisonFailure",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.ComparisonFailure"
+      ]
+   },
+   "MOCKITO:023": {
+      " org.mockitousage.stubbing.DeepStubsSerializableTest": [
+         "java.io.NotSerializableException"
+      ]
+   },
+   "MOCKITO:035": {
+      " org.mockitousage.bugs.NPEWithCertainMatchersTest": [
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException",
+         "java.lang.NullPointerException"
+      ]
+   },
+   "TIME:005": {
+      " org.joda.time.TestPeriod_Basics": [
+         "java.lang.UnsupportedOperationException",
+         "java.lang.UnsupportedOperationException",
+         "java.lang.UnsupportedOperationException"
+      ]
+   },
+   "TIME:008": {
+      " org.joda.time.TestDateTimeZone": [
+         "java.lang.IllegalArgumentException"
+      ]
+   },
+   "TIME:006": {
+      " org.joda.time.chrono.TestGJDate": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "org.joda.time.IllegalFieldValueException",
+         "junit.framework.AssertionFailedError",
+         "org.joda.time.IllegalFieldValueException"
+      ]
+   },
+   "TIME:009": {
+      " org.joda.time.TestDateTimeZone": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "TIME:012": {
+      " org.joda.time.TestLocalDateTime_Constructors": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ],
+      " org.joda.time.TestLocalDate_Constructors": [
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError",
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "TIME:013": {
+      " org.joda.time.format.TestISOPeriodFormat": [
+         "junit.framework.ComparisonFailure"
+      ]
+   },
+   "TIME:017": {
+      " org.joda.time.TestDateTimeZoneCutover": [
+         "junit.framework.AssertionFailedError"
+      ]
+   },
+   "TIME:020": {
+      " org.joda.time.format.TestDateTimeFormatterBuilder": [
+         "java.lang.IllegalArgumentException"
+      ]
+   },
+   "TIME:021": {
+      " org.joda.time.TestDateTimeZone": [
+         "junit.framework.ComparisonFailure",
+         "junit.framework.ComparisonFailure"
+      ]
+   },
+   "TIME:022": {
+      " org.joda.time.TestDuration_Basics": [
+         "junit.framework.AssertionFailedError"
+      ],
+      " org.joda.time.TestPeriod_Constructors": [
+         "junit.framework.AssertionFailedError"
+      ]
+   }
+}
