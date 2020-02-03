@@ -12,12 +12,12 @@ public class TestParser{
 		ArrayList<Boolean> testpass = new ArrayList<Boolean>();
 		while(input.hasNextLine()){
 			String line = input.nextLine();
-			if(line.equals(" T E S T S"))atTest=true;
+			if(line.indexOf(" T E S T S")>=0)atTest=true;
 			if(atTest){
-				if(line.length()>=8 && line.substring(0,8).equals("Running ")){
-					tests.add(line.substring(8));
+				if(line.length()>=8 && line.indexOf("Running ")>=0 && line.substring(line.indexOf("Running ")+8).indexOf(" ")<0){
+					tests.add(line.substring(line.indexOf("Running ")+8));
 					String line2 = input.nextLine();
-					while(line2.length() < 11 || !line2.substring(0,11).equals("Tests run: ")) line2 = input.nextLine();
+					while(line2.indexOf("Tests run: ")<0) line2 = input.nextLine();
 					if(line2.indexOf("Failures: 0")>=0 && line2.indexOf("Errors: 0")>=0)testpass.add(true);else testpass.add(false);
 				}
 			}

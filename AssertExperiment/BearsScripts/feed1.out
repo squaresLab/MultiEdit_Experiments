@@ -1,0 +1,216 @@
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-226666085-226673064'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-226666085-226673064'.
+Note: checking out '27771dc82425d75b9b92c5e8cb9e161585ba76b3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 27771dc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/029413a6e381bb04b7b0a420730d3119e9cc0961 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226673064.
+Previous HEAD position was 27771dc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/029413a6e381bb04b7b0a420730d3119e9cc0961 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226673064.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-18...
+Checking out the branch FasterXML-jackson-databind-226666085-226673064...
+The bug Bears-18 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-226666085-226673064'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-226666085-226673064'.
+Note: checking out 'e7da981a767d4cd25545e97f4e907d918bda9a18'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e7da981... End of the bug and patch reproduction process
+Previous HEAD position was e7da981... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-18...
+Checking out the branch FasterXML-jackson-databind-226666085-226673064...
+The bug Bears-18 was checked out.
+Switched to branch 'FasterXML-jackson-databind-226666085-226673064'
+Note: checking out '27771dc82425d75b9b92c5e8cb9e161585ba76b3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 27771dc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/029413a6e381bb04b7b0a420730d3119e9cc0961 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226673064.
+Previous HEAD position was 27771dc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/029413a6e381bb04b7b0a420730d3119e9cc0961 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226673064.
+Switched to branch 'master'
+763 >                     } else if (_primitiveAndWrapper(currRaw, serClass)) {
+763 >                         // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+763 >                         type = type.withStaticTyping();
+795 >                         } else if (_primitiveAndWrapper(currRaw, keyClass)) {
+795 >                             // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+795 >                             keyType = keyType.withStaticTyping();
+828 >                        } else if (_primitiveAndWrapper(currRaw, contentClass)) {
+828 >                            // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+828 >                            contentType = contentType.withStaticTyping();
+1116 <         if ((valueClass != null) && !type.hasRawClass(valueClass)) {
+1116 >         if ((valueClass != null) && !type.hasRawClass(valueClass)
+1116 >                 && !_primitiveAndWrapper(type, valueClass)) {
+1132 <             if (keyClass != null) {
+1132 >             if ((keyClass != null)
+1132 >                     && !_primitiveAndWrapper(keyType, keyClass)) {
+1148 <             if (contentClass != null) {
+1148 >             if ((contentClass != null)
+1148 >                     && !_primitiveAndWrapper(contentType, contentClass)) {
+1454 <     /*
+1455 <     /**********************************************************
+1456 <     /* Helper classes
+1457 <     /**********************************************************
+1458 <      */
+1454 >     private boolean _primitiveAndWrapper(Class<?> baseType, Class<?> refinement)
+1454 >     {
+1454 >         if (baseType.isPrimitive()) {
+1454 >             return baseType == ClassUtil.primitiveType(refinement);
+1454 >         }
+1454 >         if (refinement.isPrimitive()) {
+1454 >             return refinement == ClassUtil.primitiveType(baseType);
+1454 >         }
+1454 >         return false;
+1454 >     }
+1454 > 
+1454 >     private boolean _primitiveAndWrapper(JavaType baseType, Class<?> refinement)
+1454 >     {
+1454 >         if (baseType.isPrimitive()) {
+1454 >             return baseType.hasRawClass(ClassUtil.primitiveType(refinement));
+1454 >         }
+1454 >         if (refinement.isPrimitive()) {
+1454 >             return refinement == ClassUtil.primitiveType(baseType.getRawClass());
+1454 >         }
+1454 >         return false;
+1454 >     }
+0:
+1454 <     /*
+1455 <     /**********************************************************
+1456 <     /* Helper classes
+1457 <     /**********************************************************
+1458 <      */
+1454 >     private boolean _primitiveAndWrapper(Class<?> baseType, Class<?> refinement)
+1454 >     {
+1454 >         if (baseType.isPrimitive()) {
+1454 >             return baseType == ClassUtil.primitiveType(refinement);
+1454 >         }
+1454 >         if (refinement.isPrimitive()) {
+1454 >             return refinement == ClassUtil.primitiveType(baseType);
+1454 >         }
+1454 >         return false;
+1454 >     }
+1454 > 
+1454 >     private boolean _primitiveAndWrapper(JavaType baseType, Class<?> refinement)
+1454 >     {
+1454 >         if (baseType.isPrimitive()) {
+1454 >             return baseType.hasRawClass(ClassUtil.primitiveType(refinement));
+1454 >         }
+1454 >         if (refinement.isPrimitive()) {
+1454 >             return refinement == ClassUtil.primitiveType(baseType.getRawClass());
+1454 >         }
+1454 >         return false;
+1454 >     }
+1:
+763 >                     } else if (_primitiveAndWrapper(currRaw, serClass)) {
+763 >                         // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+763 >                         type = type.withStaticTyping();
+2:
+795 >                         } else if (_primitiveAndWrapper(currRaw, keyClass)) {
+795 >                             // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+795 >                             keyType = keyType.withStaticTyping();
+3:
+828 >                        } else if (_primitiveAndWrapper(currRaw, contentClass)) {
+828 >                            // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+828 >                            contentType = contentType.withStaticTyping();
+4:
+1116 <         if ((valueClass != null) && !type.hasRawClass(valueClass)) {
+1116 >         if ((valueClass != null) && !type.hasRawClass(valueClass)
+1116 >                 && !_primitiveAndWrapper(type, valueClass)) {
+5:
+1132 <             if (keyClass != null) {
+1132 >             if ((keyClass != null)
+1132 >                     && !_primitiveAndWrapper(keyType, keyClass)) {
+6:
+1148 <             if (contentClass != null) {
+1148 >             if ((contentClass != null)
+1148 >                     && !_primitiveAndWrapper(contentType, contentClass)) {
+0 for pass, 1 for fail:
+On: 01345
+On: 0145
+On: 0235
+On: 0134
+On: 035
+On: 012356
+On: 023456
+On: 03
+On: 04
+On: 012346
+On: 025
+On: 046
+On: 012
+On: 0234
+On: 026
+On: 0256
+On: 0236
+On: 01234
+On: 0136
+On: 013456
+On: 01456
+On: 015
+On: 036
+On: 06
+On: 03456
+On: 0245
+On: 023
+On: 024
+On: 0345
+On: 01236
+On: 056
+On: 0125
+On: 01256
+On: 0356
+On: 02346
+On: 01356
+On: 045
+On: 034
+On: 0146
+On: 012456
+On: 01245
+On: 0123
+On: 0246
+On: 02356
+On: 01
+On: 0135
+On: 01235
+On: 02345
+On: 01346
+On: 014
+On: 05
+On: 01246
+On: 016
+On: 0126
+On: 013
+On: 0346
+On: 02456
+On: 02
+On: 0456
+On: 0156
+On: 0124
+On: 012345

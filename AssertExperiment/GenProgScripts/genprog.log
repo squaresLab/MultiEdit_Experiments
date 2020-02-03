@@ -1,0 +1,23 @@
+DEBUG	2020-01-15 20:29:29,607	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:29:29,612	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:29:29,619	12	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+ERROR	2020-01-15 20:29:29,619	12	clegoues.genprog4java.fitness.Fitness	[main]	failed to read /home/ylyu1/genprog/defects4j//zemp/math14Buggy/pos.tests giving up
+DEBUG	2020-01-15 20:35:21,194	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:35:21,199	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:35:21,206	12	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+ERROR	2020-01-15 20:35:21,206	12	clegoues.genprog4java.fitness.Fitness	[main]	failed to read /home/ylyu1/genprog/defects4j//zemp/math14Buggy/pos.tests giving up
+DEBUG	2020-01-15 20:37:21,908	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:37:21,915	7	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:37:21,992	84	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:43:37,586	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:43:37,592	6	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:43:37,658	72	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 20:56:27,564	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 20:56:27,569	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 20:56:27,634	70	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:12:03,568	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:12:03,573	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:12:03,639	71	clegoues.genprog4java.main.Main	[main]	Configuration file loaded
+DEBUG	2020-01-15 21:21:57,588	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+DEBUG	2020-01-15 21:21:57,593	5	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+INFO	2020-01-15 21:21:57,663	75	clegoues.genprog4java.main.Main	[main]	Configuration file loaded

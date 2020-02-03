@@ -19,6 +19,8 @@ python $BEARSPATH/scripts/checkout_bug.py --bugId $BUGID --workspace $BUGPATH
 
 python $BEARSPATH/scripts/compile_bug.py --bugId $BUGID --workspace $BUGPATH
 
+cp $8 $9
+
 java FixClassPath $BUGPATH/$BUGID/classpath.info $MAVENREPO
 
 java TestParser $BUGPATH/$BUGID/repairnator.maven.testproject.log $BUGPATH/$BUGID

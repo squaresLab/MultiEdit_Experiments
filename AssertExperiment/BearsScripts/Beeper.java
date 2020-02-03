@@ -2,6 +2,6 @@ import java.awt.*;
 
 public class Beeper{
   public static void main(String[] args){
-    Toolkit.getDefaultToolkit().beep();
+    try{Toolkit.getDefaultToolkit().beep();}catch(Throwable e){}
   }
 }
