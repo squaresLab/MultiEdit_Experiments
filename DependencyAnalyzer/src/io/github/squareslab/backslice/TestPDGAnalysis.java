@@ -3,6 +3,7 @@ package io.github.squareslab.backslice;
 import soot.Body;
 import soot.BodyTransformer;
 import soot.SootMethod;
+import soot.toolkits.graph.BlockGraph;
 import soot.toolkits.graph.ExceptionalUnitGraph;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.graph.pdg.HashMutablePDG;
@@ -19,6 +20,9 @@ public class TestPDGAnalysis extends BodyTransformer
 		SootMethod method = body.getMethod();
 		UnitGraph unitGraph = new ExceptionalUnitGraph(body);
 		HashMutablePDG pdg = new HashMutablePDG(unitGraph);
+		BlockGraph blockGraph = pdg.getBlockGraph();
+
+		System.out.println("Done!");
 	}
 
 	private static TestPDGAnalysis theInstance = new TestPDGAnalysis();
