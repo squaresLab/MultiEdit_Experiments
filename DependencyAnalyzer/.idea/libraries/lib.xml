@@ -1,16 +1,10 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/soot-trunk-java8.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/soot-trunk-initialfix.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/junit-4.11.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/soot-trunk-orig.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/rt.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/hamcrest-core-1.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/jce.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/" />
+      <root url="file://$PROJECT_DIR$/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
   </library>
 </component>
