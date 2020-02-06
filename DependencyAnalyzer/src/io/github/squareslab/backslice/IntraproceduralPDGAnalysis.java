@@ -77,6 +77,6 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 
 		Collection<PDGNode> pdgNodesOfInterest = getPDGNodesOfInterest(pdg, this.lineNumsOfInterest);
 
-		System.out.printf("Done with %d, found %d nodes\n", method.getJavaSourceStartLineNumber(), pdgNodesOfInterest.size());
+		System.out.printf("Analyzed %s,\n\tfound %d nodes\n", method.getSignature(), pdgNodesOfInterest.size());
 	}
 }
