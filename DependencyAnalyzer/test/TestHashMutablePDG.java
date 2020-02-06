@@ -7,7 +7,7 @@ public class TestHashMutablePDG
 	@Test
 	public void test()
 	{
-		String[] args = {"test-resources", "org.apache.commons.math3.util.ContinuedFraction"};
+		String[] args = {"test-resources", "org.apache.commons.math3.util.ContinuedFraction", "163", "164"};
 		Main.main(args);
 	}
 }
