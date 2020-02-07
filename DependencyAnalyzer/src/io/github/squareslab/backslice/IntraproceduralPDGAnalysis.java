@@ -68,10 +68,10 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 
 		Map<Integer, Collection<PDGNode>> pdgNodesOfInterest = new HashMap<>();
 
-		for(int lineNum : lineNumbersOfInterest)
+		for(int lineNum : blocksOfInterest.keySet())
 		{
 			Collection<PDGNode> nodesAtLineNum = new ArrayList<>();
-			for(Block block : blocksOfInterest.getOrDefault(lineNum, Collections.emptyList()))
+			for(Block block : blocksOfInterest.get(lineNum))
 			{
 				PDGNode node = pdg.getPDGNode(block);
 				nodesAtLineNum.add(node);
@@ -80,6 +80,28 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		}
 
 		return pdgNodesOfInterest;
+	}
+
+	private static Map<Integer, Collection<PDGNode>> getDependentPDGNodes
+			(ProgramDependenceGraph pdg,
+			 Map<Integer, Collection<PDGNode>> pdgNodesOfInterest)
+	{
+		Map<Integer, Collection<PDGNode>> dependentPDGNodes = new HashMap<>();
+
+		for(Integer lineNum : pdgNodesOfInterest.keySet())
+		{
+			Collection<PDGNode> dependentsOfLineNum = new ArrayList<>();
+
+			for(PDGNode node : pdgNodesOfInterest.get(lineNum))
+			{
+				Collection<PDGNode> dependentsOfNode = pdg.getDependents(node);
+				dependentsOfLineNum.addAll(dependentsOfNode);
+			}
+
+			dependentPDGNodes.put(lineNum, dependentsOfLineNum);
+		}
+
+		return dependentPDGNodes;
 	}
 
 	@Override
@@ -91,6 +113,7 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		ProgramDependenceGraph pdg = new HashMutablePDG(unitGraph);
 
 		Map<Integer, Collection<PDGNode>> pdgNodesOfInterest = getPDGNodesOfInterest(pdg, this.lineNumsOfInterest);
+		Map<Integer, Collection<PDGNode>> nodeDependencies = getDependentPDGNodes(pdg, pdgNodesOfInterest);
 
 		System.out.printf("Analyzed %s,\n\tfound %d nodes\n", method.getSignature(), pdgNodesOfInterest.size());
 	}
