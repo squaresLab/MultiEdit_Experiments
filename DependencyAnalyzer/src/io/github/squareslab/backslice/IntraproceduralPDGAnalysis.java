@@ -28,58 +28,55 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 	/**
 	 *
 	 * @param blockGraph blockGraph of analysis target
-	 * @param lineNumbersOfInterest
-	 * @return a mapping of line numbers in lineNumbersOfInterest to their corresponding Blocks in blockGraph
+	 * @return a mapping of line numbers in the blockGraph to their corresponding Blocks
 	 */
-	private static Map<Integer, Collection<Block>> getBlocksOfInterest(BlockGraph blockGraph, Collection<Integer> lineNumbersOfInterest)
+	private static Map<Integer, Collection<Block>> getLineToBlocksMap(BlockGraph blockGraph)
 	{
-		Map<Integer, Collection<Block>> blocksOfInterest = new HashMap<>();
+		Map<Integer, Collection<Block>> map = new HashMap<>();
 
 		for (Block block : blockGraph)
 		{
 			for (Unit unit : block)
 			{
 				int unitLineNum = unit.getJavaSourceStartLineNumber();
-				if(lineNumbersOfInterest.contains(unitLineNum))
-				{
-					if(! blocksOfInterest.containsKey(unitLineNum))
-					{
-						Collection<Block> blocksForUnitLineNum = new ArrayList<>();
-						blocksOfInterest.put(unitLineNum, blocksForUnitLineNum);
-					}
 
-					blocksOfInterest.get(unitLineNum).add(block);
+				//if unitLineNum is previously unseen, add an empty value set to the map
+				if (!map.containsKey(unitLineNum))
+				{
+					Collection<Block> blocksForUnitLineNum = new ArrayList<>();
+					map.put(unitLineNum, blocksForUnitLineNum);
 				}
+
+				map.get(unitLineNum).add(block);
 			}
 		}
 
-		return blocksOfInterest;
+		return map;
 	}
 
 	/**
 	 *
 	 * @param pdg program dependence graph of analysis target
-	 * @param lineNumbersOfInterest
-	 * @return a mapping of line numbers in lineNumbersOfInterest to their corresponding PDGNodes
+	 * @return a mapping of line numbers in the pdg to their corresponding PDGNodes
 	 */
-	private static Map<Integer, Collection<PDGNode>> getPDGNodesOfInterest(ProgramDependenceGraph pdg, Collection<Integer> lineNumbersOfInterest)
+	private static Map<Integer, Collection<PDGNode>> getLineToPDGNodesMap(ProgramDependenceGraph pdg)
 	{
-		Map<Integer, Collection<Block>> blocksOfInterest = getBlocksOfInterest(pdg.getBlockGraph(), lineNumbersOfInterest);
+		Map<Integer, Collection<Block>> linesToBlocksMap = getLineToBlocksMap(pdg.getBlockGraph());
 
-		Map<Integer, Collection<PDGNode>> pdgNodesOfInterest = new HashMap<>();
+		Map<Integer, Collection<PDGNode>> linesToNodesMap = new HashMap<>();
 
-		for(int lineNum : blocksOfInterest.keySet())
+		for(int lineNum : linesToBlocksMap.keySet())
 		{
 			Collection<PDGNode> nodesAtLineNum = new ArrayList<>();
-			for(Block block : blocksOfInterest.get(lineNum))
+			for(Block block : linesToBlocksMap.get(lineNum))
 			{
 				PDGNode node = pdg.getPDGNode(block);
 				nodesAtLineNum.add(node);
 			}
-			pdgNodesOfInterest.put(lineNum, nodesAtLineNum);
+			linesToNodesMap.put(lineNum, nodesAtLineNum);
 		}
 
-		return pdgNodesOfInterest;
+		return linesToNodesMap;
 	}
 
 	private static Map<Integer, Collection<PDGNode>> getDependentPDGNodes
@@ -112,9 +109,9 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		UnitGraph unitGraph = new ExceptionalUnitGraph(body);
 		ProgramDependenceGraph pdg = new HashMutablePDG(unitGraph);
 
-		Map<Integer, Collection<PDGNode>> pdgNodesOfInterest = getPDGNodesOfInterest(pdg, this.lineNumsOfInterest);
-		Map<Integer, Collection<PDGNode>> nodeDependencies = getDependentPDGNodes(pdg, pdgNodesOfInterest);
+		Map<Integer, Collection<PDGNode>> linesToNodesMap = getLineToPDGNodesMap(pdg);
+		//Map<Integer, Collection<PDGNode>> nodeDependencies = getDependentPDGNodes(pdg, pdgNodesOfInterest);
 
-		System.out.printf("Analyzed %s,\n\tfound %d nodes\n", method.getSignature(), pdgNodesOfInterest.size());
+		System.out.printf("Analyzed %s,\n\tfound %d nodes\n", method.getSignature(), linesToNodesMap.size());
 	}
 }
