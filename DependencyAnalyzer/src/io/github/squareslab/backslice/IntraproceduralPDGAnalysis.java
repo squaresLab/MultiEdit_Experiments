@@ -40,6 +40,9 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 			{
 				int unitLineNum = unit.getJavaSourceStartLineNumber();
 
+				if (unitLineNum == -1)
+					continue;
+
 				//if unitLineNum is previously unseen, add an empty value set to the map
 				if (!map.containsKey(unitLineNum))
 				{
