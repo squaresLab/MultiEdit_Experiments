@@ -12,10 +12,7 @@ import soot.toolkits.graph.pdg.HashMutablePDG;
 import soot.toolkits.graph.pdg.PDGNode;
 import soot.toolkits.graph.pdg.ProgramDependenceGraph;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class IntraproceduralPDGAnalysis extends BodyTransformer
 {
@@ -28,9 +25,15 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		this.lineNumsOfInterest = lineNumbersOfInterest;
 	}
 
-	private static Collection<Block> getBlocksOfInterest(BlockGraph blockGraph, Collection<Integer> lineNumbersOfInterest)
+	/**
+	 *
+	 * @param blockGraph blockGraph of analysis target
+	 * @param lineNumbersOfInterest
+	 * @return a mapping of line numbers in lineNumbersOfInterest to their corresponding Blocks in blockGraph
+	 */
+	private static Map<Integer, Collection<Block>> getBlocksOfInterest(BlockGraph blockGraph, Collection<Integer> lineNumbersOfInterest)
 	{
-		Collection<Block> blocksOfInterest = new ArrayList<>();
+		Map<Integer, Collection<Block>> blocksOfInterest = new HashMap<>();
 
 		for (Block block : blockGraph)
 		{
@@ -39,7 +42,13 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 				int unitLineNum = unit.getJavaSourceStartLineNumber();
 				if(lineNumbersOfInterest.contains(unitLineNum))
 				{
-					blocksOfInterest.add(block);
+					if(! blocksOfInterest.containsKey(unitLineNum))
+					{
+						Collection<Block> blocksForUnitLineNum = new ArrayList<>();
+						blocksOfInterest.put(unitLineNum, blocksForUnitLineNum);
+					}
+
+					blocksOfInterest.get(unitLineNum).add(block);
 				}
 			}
 		}
@@ -47,24 +56,30 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		return blocksOfInterest;
 	}
 
-	private static Collection<PDGNode> getPDGNodesOfInterest(ProgramDependenceGraph pdg, Collection<Integer> lineNumbersOfInterest)
+	/**
+	 *
+	 * @param pdg program dependence graph of analysis target
+	 * @param lineNumbersOfInterest
+	 * @return a mapping of line numbers in lineNumbersOfInterest to their corresponding PDGNodes
+	 */
+	private static Map<Integer, Collection<PDGNode>> getPDGNodesOfInterest(ProgramDependenceGraph pdg, Collection<Integer> lineNumbersOfInterest)
 	{
-		Collection<Block> blocksOfInterest = getBlocksOfInterest(pdg.getBlockGraph(), lineNumbersOfInterest);
+		Map<Integer, Collection<Block>> blocksOfInterest = getBlocksOfInterest(pdg.getBlockGraph(), lineNumbersOfInterest);
 
-		Collection<PDGNode> pdgNodesOfInterest = new ArrayList<>();
+		Map<Integer, Collection<PDGNode>> pdgNodesOfInterest = new HashMap<>();
 
-		for(Block block : blocksOfInterest)
+		for(int lineNum : lineNumbersOfInterest)
 		{
-			PDGNode pdgNodeOfBlock = pdg.getPDGNode(block);
-			pdgNodesOfInterest.add(pdgNodeOfBlock);
+			Collection<PDGNode> nodesAtLineNum = new ArrayList<>();
+			for(Block block : blocksOfInterest.getOrDefault(lineNum, Collections.emptyList()))
+			{
+				PDGNode node = pdg.getPDGNode(block);
+				nodesAtLineNum.add(node);
+			}
+			pdgNodesOfInterest.put(lineNum, nodesAtLineNum);
 		}
 
 		return pdgNodesOfInterest;
-	}
-
-	protected void backslice(ProgramDependenceGraph pdg, PDGNode nodeOfInterest)
-	{
-		//TODO: implement
 	}
 
 	@Override
@@ -75,7 +90,7 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		UnitGraph unitGraph = new ExceptionalUnitGraph(body);
 		ProgramDependenceGraph pdg = new HashMutablePDG(unitGraph);
 
-		Collection<PDGNode> pdgNodesOfInterest = getPDGNodesOfInterest(pdg, this.lineNumsOfInterest);
+		Map<Integer, Collection<PDGNode>> pdgNodesOfInterest = getPDGNodesOfInterest(pdg, this.lineNumsOfInterest);
 
 		System.out.printf("Analyzed %s,\n\tfound %d nodes\n", method.getSignature(), pdgNodesOfInterest.size());
 	}
