@@ -82,26 +82,52 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		return linesToNodesMap;
 	}
 
-	private static Map<Integer, Collection<PDGNode>> getDependentPDGNodes
-			(ProgramDependenceGraph pdg,
-			 Map<Integer, Collection<PDGNode>> pdgNodesOfInterest)
+	/**
+	 * Converts the data structure for faster access.
+	 * @param linesToNodesMap map: line number -> PDGNodes at the line
+	 * @return map: PDGNode -> line number that corresponds with the node
+	 */
+	private static Map<PDGNode, Integer> getNodeToLineMap(Map<Integer, Collection<PDGNode>> linesToNodesMap)
 	{
-		Map<Integer, Collection<PDGNode>> dependentPDGNodes = new HashMap<>();
+		Map<PDGNode, Integer> nodeToLineMap = new HashMap<>();
 
-		for(Integer lineNum : pdgNodesOfInterest.keySet())
+		for(Integer line : linesToNodesMap.keySet())
 		{
-			Collection<PDGNode> dependentsOfLineNum = new ArrayList<>();
-
-			for(PDGNode node : pdgNodesOfInterest.get(lineNum))
+			for(PDGNode node : linesToNodesMap.get(line))
 			{
-				Collection<PDGNode> dependentsOfNode = pdg.getDependents(node);
-				dependentsOfLineNum.addAll(dependentsOfNode);
+				nodeToLineMap.put(node, line);
 			}
-
-			dependentPDGNodes.put(lineNum, dependentsOfLineNum);
 		}
 
-		return dependentPDGNodes;
+		return nodeToLineMap;
+	}
+
+	/**
+	 *
+	 * @param line line of interest
+	 * @param pdg
+	 * @param linesToNodesMap map: line number -> PDGNodes at the line
+	 * @return
+	 */
+	private static Collection<PDGNode> getDependents
+			(int line, ProgramDependenceGraph pdg, Map<Integer, Collection<PDGNode>> linesToNodesMap)
+	{
+		//if we don't have any pdg nodes for that line, return an empty collection
+		if( ! linesToNodesMap.keySet().contains(line))
+			return Collections.emptyList();
+
+		Collection<PDGNode> dependents = new ArrayList<>();
+
+		for (PDGNode node : linesToNodesMap.get(line))
+			dependents.addAll(node.getDependents());
+
+		return dependents;
+	}
+
+	private static Map<Integer, Collection<Integer>> getDependentLines
+			(Collection<Integer> lines, ProgramDependenceGraph pdg, Map<Integer, Collection<PDGNode>> linesToNodesMap)
+	{
+		return null;
 	}
 
 	@Override
@@ -113,7 +139,12 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		ProgramDependenceGraph pdg = new HashMutablePDG(unitGraph);
 
 		Map<Integer, Collection<PDGNode>> linesToNodesMap = getLineToPDGNodesMap(pdg);
-		//Map<Integer, Collection<PDGNode>> nodeDependencies = getDependentPDGNodes(pdg, pdgNodesOfInterest);
+
+		for(int line : this.lineNumsOfInterest)
+		{
+			Collection<PDGNode> dependents = getDependents(line, pdg, linesToNodesMap);
+			System.out.print(""); //no-op
+		}
 
 		System.out.printf("Analyzed %s,\n\tfound %d nodes\n", method.getSignature(), linesToNodesMap.size());
 	}
