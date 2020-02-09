@@ -10,6 +10,7 @@ import soot.toolkits.graph.ExceptionalUnitGraph;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.graph.pdg.HashMutablePDG;
 import soot.toolkits.graph.pdg.PDGNode;
+import soot.toolkits.graph.pdg.PDGRegion;
 import soot.toolkits.graph.pdg.ProgramDependenceGraph;
 
 import java.util.*;
@@ -113,7 +114,7 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 			(int line, ProgramDependenceGraph pdg, Map<Integer, Collection<PDGNode>> linesToNodesMap)
 	{
 		//if we don't have any pdg nodes for that line, return an empty collection
-		if( ! linesToNodesMap.keySet().contains(line))
+		if( ! linesToNodesMap.containsKey(line))
 			return Collections.emptyList();
 
 		Collection<PDGNode> dependents = new ArrayList<>();
@@ -124,10 +125,33 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		return dependents;
 	}
 
-	private static Map<Integer, Collection<Integer>> getDependentLines
-			(Collection<Integer> lines, ProgramDependenceGraph pdg, Map<Integer, Collection<PDGNode>> linesToNodesMap)
+	/**
+	 *
+	 * @param node PDGNode which may or may not be in the keys of nodeToLineMap
+	 * @param nodeToLineMap a mapping of known PDGNodes to line numbers
+	 */
+	private Collection<Integer> getLineNumbers(PDGNode node, Map<PDGNode, Integer> nodeToLineMap)
 	{
-		return null;
+		Collection<Integer> lineNumbers = new HashSet<>(); //don't count duplicates
+
+		//easy case: we already know its line number
+		if (nodeToLineMap.containsKey(node))
+		{
+			lineNumbers.add(nodeToLineMap.get(node));
+		}
+		else if (node.getNode() instanceof PDGRegion)
+		{
+			for (PDGNode subNode : (PDGRegion) node.getNode())
+			{
+				lineNumbers.addAll(getLineNumbers(subNode, nodeToLineMap));
+			}
+		}
+		else
+		{
+			//i don't know what to do
+		}
+
+		return lineNumbers;
 	}
 
 	@Override
@@ -139,11 +163,16 @@ public class IntraproceduralPDGAnalysis extends BodyTransformer
 		ProgramDependenceGraph pdg = new HashMutablePDG(unitGraph);
 
 		Map<Integer, Collection<PDGNode>> linesToNodesMap = getLineToPDGNodesMap(pdg);
+		Map<PDGNode, Integer> nodesToLinesMap = getNodeToLineMap(linesToNodesMap);
 
 		for(int line : this.lineNumsOfInterest)
 		{
 			Collection<PDGNode> dependents = getDependents(line, pdg, linesToNodesMap);
-			System.out.print(""); //no-op
+			for(PDGNode dep : dependents)
+			{
+				Collection<Integer> depLineNums = getLineNumbers(dep, nodesToLinesMap);
+				System.out.print(""); //no-op
+			}
 		}
 
 		System.out.printf("Analyzed %s,\n\tfound %d nodes\n", method.getSignature(), linesToNodesMap.size());
