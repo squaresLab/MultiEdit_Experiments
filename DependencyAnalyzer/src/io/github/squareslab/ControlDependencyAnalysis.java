@@ -17,6 +17,8 @@ import java.util.*;
 
 public class ControlDependencyAnalysis extends BodyTransformer
 {
+	public static final String ANALYSIS_NAME = "jap.ControlDependencyAnalysis";
+
 	private Collection<Integer> lineNumsOfInterest;
 
 	ControlDependencyAnalysis(Collection<Integer> lineNumbersOfInterest)

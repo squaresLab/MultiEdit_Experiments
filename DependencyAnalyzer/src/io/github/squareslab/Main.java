@@ -10,7 +10,6 @@ import java.util.Collection;
 
 public class Main
 {
-	private static final String ANALYSIS_NAME = "jap.pdg";
 
 	/**
 	 *
@@ -50,8 +49,9 @@ public class Main
 		String classToAnalyze = args[1];
 		Collection<Integer> lineNumsOfInterest = parseIntArgs(args, 2, args.length);
 
-		PackManager.v().getPack("jap").add(new Transform(ANALYSIS_NAME, new ControlDependencyAnalysis(lineNumsOfInterest)));
-		String[] sootArgs = Utils.getSootArgs(ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
+		PackManager.v().getPack("jap")
+				.add(new Transform(ControlDependencyAnalysis.ANALYSIS_NAME, new ControlDependencyAnalysis(lineNumsOfInterest)));
+		String[] sootArgs = Utils.getSootArgs(ControlDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
 		Utils.runSoot(sootArgs);
 	}
 }
