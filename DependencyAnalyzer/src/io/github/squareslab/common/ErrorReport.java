@@ -1,4 +1,4 @@
-package io.github.squareslab.backslice.common;
+package io.github.squareslab.common;
 
 import java.util.Objects;
 

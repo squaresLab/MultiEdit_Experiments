@@ -1,4 +1,4 @@
-package io.github.squareslab.backslice;
+package io.github.squareslab;
 
 import soot.Body;
 import soot.BodyTransformer;

@@ -1,7 +1,7 @@
-package io.github.squareslab.backslice;
+package io.github.squareslab;
 
 
-import io.github.squareslab.backslice.common.Utils;
+import io.github.squareslab.common.Utils;
 import soot.PackManager;
 import soot.Transform;
 

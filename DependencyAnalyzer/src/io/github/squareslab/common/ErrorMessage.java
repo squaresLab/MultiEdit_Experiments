@@ -1,4 +1,4 @@
-package io.github.squareslab.backslice.common;
+package io.github.squareslab.common;
 
 public enum ErrorMessage {
 	NEGATIVE_SHIFT("shifting by a negative value"),
