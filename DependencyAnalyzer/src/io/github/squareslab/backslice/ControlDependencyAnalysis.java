@@ -15,11 +15,11 @@ import soot.toolkits.graph.pdg.ProgramDependenceGraph;
 
 import java.util.*;
 
-public class IntraproceduralPDGAnalysis extends BodyTransformer
+public class ControlDependencyAnalysis extends BodyTransformer
 {
 	private Collection<Integer> lineNumsOfInterest;
 
-	IntraproceduralPDGAnalysis(Collection<Integer> lineNumbersOfInterest)
+	ControlDependencyAnalysis(Collection<Integer> lineNumbersOfInterest)
 	{
 		super();
 

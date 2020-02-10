@@ -50,7 +50,7 @@ public class Main
 		String classToAnalyze = args[1];
 		Collection<Integer> lineNumsOfInterest = parseIntArgs(args, 2, args.length);
 
-		PackManager.v().getPack("jap").add(new Transform(ANALYSIS_NAME, new IntraproceduralPDGAnalysis(lineNumsOfInterest)));
+		PackManager.v().getPack("jap").add(new Transform(ANALYSIS_NAME, new ControlDependencyAnalysis(lineNumsOfInterest)));
 		String[] sootArgs = Utils.getSootArgs(ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
 		Utils.runSoot(sootArgs);
 	}
