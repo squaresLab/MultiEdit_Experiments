@@ -15,22 +15,18 @@ class ReadWriteAnalyzer extends BackwardFlowAnalysis<Unit, Map<Unit, ReadWriteSe
 {
 	Unit sliceFrom;
 
-	Map<Unit, ReadWriteSets<Object>> cache;
-
 
 	/**
 	 *
 	 * @param graph
 	 * @param unitToSliceFrom
-	 * @param knownReadWrites
 	 */
 	public ReadWriteAnalyzer
-			(UnitGraph graph, Unit unitToSliceFrom, Map<Unit, ReadWriteSets<Object>> knownReadWrites)
+			(UnitGraph graph, Unit unitToSliceFrom)
 	{
 		super(graph);
 
 		this.sliceFrom = unitToSliceFrom;
-		this.cache = knownReadWrites;
 
 		doAnalysis();
 	}
