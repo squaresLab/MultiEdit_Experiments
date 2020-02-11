@@ -161,7 +161,8 @@ public class DataDependencySlicer
 		for(Unit unit : backsliceUnits)
 		{
 			int lineOfUnit = unitToLineMap.get(unit);
-			backsliceLinesSet.add(lineOfUnit);
+			if (lineOfUnit != lineToSliceFrom) //disregard intra-dependencies
+				backsliceLinesSet.add(lineOfUnit);
 		}
 
 		//sort lines from low to high
