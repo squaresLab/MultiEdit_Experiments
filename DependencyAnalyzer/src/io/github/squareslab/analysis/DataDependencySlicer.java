@@ -42,6 +42,31 @@ public class DataDependencySlicer
 		return unitToLineMap;
 	}
 
+	private void getCFGBackslice(Unit start, LinkedHashSet<Unit> partialSlice)
+	{
+		List<Unit> immediatePreds = graph.getPredsOf(start);
+
+		for (Unit pred : immediatePreds)
+		{
+			if (! partialSlice.contains(pred))
+			{
+				partialSlice.add(pred);
+				getCFGBackslice(pred, partialSlice); //depth-first search for backslices
+			}
+		}
+	}
+
+	private LinkedHashSet<Unit> getCFGBackslice(Unit start)
+	{
+		LinkedHashSet<Unit> slice = new LinkedHashSet<>();
+		getCFGBackslice(start, slice);
+
+		if (slice.contains(start))
+			slice.remove(start);
+
+		return slice;
+	}
+
 	private boolean isDependent
 			(Unit pred, Set<Object> alreadyRead, Set<Object> alreadyWritten)
 	{
@@ -91,9 +116,7 @@ public class DataDependencySlicer
 	 */
 	private LinkedHashSet<Unit> getBackslice(Unit start)
 	{
-		List<Unit> predecessorsList = graph.getPredsOf(start);
-		//deduplicate predecessors while maintaining order; a LinkedHashSet maintains insertion-order w/ a linked list
-		LinkedHashSet<Unit> predecessors = new LinkedHashSet<>(predecessorsList);
+		LinkedHashSet<Unit> predecessors = getCFGBackslice(start);
 
 		LinkedHashSet<Unit> dependencyBackslice = new LinkedHashSet<>();
 
