@@ -13,20 +13,13 @@ import java.util.*;
 
 class ReadWriteAnalyzer extends ForwardFlowAnalysis<Unit, Map<Unit, ReadWriteSets<Object>>>
 {
-	Unit sliceFrom;
-
-
 	/**
 	 *
 	 * @param graph
-	 * @param unitToSliceFrom
 	 */
-	public ReadWriteAnalyzer
-			(UnitGraph graph, Unit unitToSliceFrom)
+	public ReadWriteAnalyzer (UnitGraph graph)
 	{
 		super(graph);
-
-		this.sliceFrom = unitToSliceFrom;
 
 		doAnalysis();
 	}
