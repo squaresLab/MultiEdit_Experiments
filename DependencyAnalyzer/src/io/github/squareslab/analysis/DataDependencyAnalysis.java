@@ -12,12 +12,14 @@ public class DataDependencyAnalysis extends BodyTransformer
 	public static final String ANALYSIS_NAME = "jap.DataDependencyAnalysis";
 
 	private Collection<Integer> lineNumsOfInterest;
+	private Configuration config;
 
-	public DataDependencyAnalysis(Collection<Integer> lineNumbersOfInterest)
+	public DataDependencyAnalysis(Collection<Integer> lineNumbersOfInterest, Configuration configuration)
 	{
 		super();
 
 		this.lineNumsOfInterest = lineNumbersOfInterest;
+		this.config = configuration;
 	}
 
 	private Map<Integer, Collection<Unit>> getLinesToUnitsMap(Iterable<Unit> units)
@@ -53,6 +55,19 @@ public class DataDependencyAnalysis extends BodyTransformer
 		Map<Unit, ReadWriteSets<Object>> dataflowMap = ReadWriteAnalysis.getReadWriteSets(graph);
 
 		return;
+	}
+
+	//immutable
+	public static class Configuration
+	{
+		final boolean flowDependencies, antiDependencies, outputDependencies;
+
+		public Configuration(boolean flowDep, boolean antiDep, boolean outputDep)
+		{
+			this.flowDependencies = flowDep;
+			this.antiDependencies = antiDep;
+			this.outputDependencies = outputDep;
+		}
 	}
 }
 
