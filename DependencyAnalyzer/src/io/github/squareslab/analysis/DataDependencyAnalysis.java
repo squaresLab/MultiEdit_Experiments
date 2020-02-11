@@ -20,135 +20,62 @@ public class DataDependencyAnalysis extends BodyTransformer
 		this.lineNumsOfInterest = lineNumbersOfInterest;
 	}
 
-	private boolean isGetter(Value value)
-	{
-		if (value instanceof InvokeExpr)
-		{
-			SootMethod invokedMethod = ((InvokeExpr) value).getMethod();
-			String methodName = invokedMethod.getName();
-			return methodName.startsWith("get");
-		}
-		else
-			return false;
-	}
 
-	private boolean isSetter(Unit unit)
-	{
-		if (unit instanceof InvokeStmt)
-		{
-			InvokeExpr invokeExpr = ((InvokeStmt) unit).getInvokeExpr();
-			SootMethod invokedMethod = invokeExpr.getMethod();
-			String methodName = invokedMethod.getName();
-			return methodName.startsWith("set");
-		}
-		else
-			return false;
-	}
-
-	private String getGetterSetterHeuristicName(InvokeExpr invokeExpr)
-	{
-		SootMethod invokedMethod = invokeExpr.getMethod();
-
-		String className = invokedMethod.getDeclaringClass().getName();
-
-		String methodName = invokedMethod.getName();
-		assert methodName.length() >= 3;
-		String attributeName = methodName.substring(3);
-
-		return className + "." + attributeName;
-	}
-
-	/**
-	 * Adds values contained in value to reads
-	 * @param value
-	 * @param reads
-	 */
-	private void addUsedValuesToReadsSet(Value value, Set<Object> reads)
-	{
-		List<ValueBox> usedValueBoxes = value.getUseBoxes();
-		for(ValueBox valueBox : usedValueBoxes)
-		{
-			Value usedValue = valueBox.getValue();
-
-			if (isGetter(usedValue))
-			{
-				String heuristicName = getGetterSetterHeuristicName((InvokeExpr) usedValue);
-				reads.add(heuristicName);
-			}
-			//we don't track constants
-			else if( ! (usedValue instanceof Constant))
-			{
-				reads.add(usedValue);
-			}
-		}
-	}
 
 	/**
 	 *
-	 * @param unit unit
-	 * @return the read and write sets of the unit
+	 * @param graph
+	 * @param start
+	 * @param dataflowMap
+	 * @return
 	 */
-	private ReadWriteSets<Object> getReadWriteSets(Unit unit)
+	private List<Unit> getFlowDependencyBackslice
+			(UnitGraph graph,
+			 Unit start,
+			 Map<Unit, ReadWriteSets<Object>> dataflowMap)
 	{
-		Set<Object> reads = new HashSet<>();
-		Set<Object> writes = new HashSet<>();
+		List<Unit> predecessorsList = graph.getPredsOf(start);
+		//deduplicate predecessors while maintaining order; a LinkedHashSet maintains insertion-order w/ a linked list
+		LinkedHashSet<Unit> predecessors = new LinkedHashSet<>(predecessorsList);
 
+		List<Unit> dependencyBackslice = new ArrayList<>();
 
-		if (unit instanceof InvokeStmt)
+		//keep track of all read variables in the backslice (+ the starting unit)
+		Set<Object> alreadyRead = new HashSet<>();
+
+		//add starting unit's reads to the list of relevant reads
+		if (dataflowMap.containsKey(start))
 		{
-			InvokeExpr invokeExpr = ((InvokeStmt) unit).getInvokeExpr();
+			ReadWriteSets<Object> startDataflow = dataflowMap.get(start);
+			alreadyRead.add(startDataflow.readsIterator());
+		}
+		else
+		{
+			System.err.println("Slicing error: start unit not found in dataflowMap.");
+		}
 
-			if (isSetter(unit))
+		for (Unit pred : predecessors)
+		{
+			if (dataflowMap.containsKey(pred))
 			{
-				String heuristicNameOfSetVar = getGetterSetterHeuristicName(invokeExpr);
-				writes.add(heuristicNameOfSetVar);
+				ReadWriteSets<Object> predDataflow = dataflowMap.get(pred);
+				for (Object readVar : alreadyRead)
+				{
+					if (predDataflow.hasWrittenTo(readVar)) //write-before-read
+					{
+						dependencyBackslice.add(pred);
+						//reads of this predecessor unit are now relevant
+						alreadyRead.add(predDataflow.readsIterator());
+					}
+				}
 			}
-
-			//capture any arguments to method calls as reads
-			for (Value arg : invokeExpr.getArgs())
-				addUsedValuesToReadsSet(arg, reads);
-		}
-		else if (unit instanceof AssignStmt)
-		{
-			AssignStmt assignStmt = (AssignStmt) unit;
-
-			Value leftHandSide = assignStmt.getLeftOp();
-			writes.add(leftHandSide);
-
-			Value rightHandSide = assignStmt.getRightOp();
-			addUsedValuesToReadsSet(rightHandSide, reads);
-		}
-		else if (unit instanceof IfStmt)
-		{
-			Value ifCondition = ((IfStmt) unit).getCondition();
-			addUsedValuesToReadsSet(ifCondition, reads);
-		}
-		else if (unit instanceof SwitchStmt)
-		{
-			Value switchKey = ((SwitchStmt) unit).getKey();
-			addUsedValuesToReadsSet(switchKey, reads);
-
-			//switch cases in Java must be constants; therefore, we don't analyze them.
-		}
-		else if (unit instanceof ReturnStmt)
-		{
-			//treat returns as a special case of assignment where we don't know the LHS
-			Value returnValue = ((ReturnStmt) unit).getOp();
-			addUsedValuesToReadsSet(returnValue, reads);
+			else
+			{
+				System.err.println("Slicing error: predecessor unit not found in dataflowMap.");
+			}
 		}
 
-		return new ReadWriteSets<>(reads, writes);
-	}
-
-	private Map<Unit, ReadWriteSets<Object>> getReadWriteSets(Iterable<Unit> units)
-	{
-		Map<Unit, ReadWriteSets<Object>> map = new HashMap<>();
-		for(Unit unit : units)
-		{
-			map.put(unit, getReadWriteSets(unit));
-		}
-
-		return map;
+		return dependencyBackslice;
 	}
 
 	@Override
@@ -156,7 +83,7 @@ public class DataDependencyAnalysis extends BodyTransformer
 	{
 		UnitGraph graph = new ExceptionalUnitGraph(body);
 
-		Map<Unit, ReadWriteSets<Object>> readWriteMap = getReadWriteSets(graph);
+		Map<Unit, ReadWriteSets<Object>> dataflowMap = ReadWriteAnalysis.getReadWriteSets(graph);
 
 		return;
 	}
