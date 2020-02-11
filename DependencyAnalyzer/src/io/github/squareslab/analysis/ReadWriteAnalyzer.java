@@ -1,22 +1,17 @@
-package io.github.squareslab;
+package io.github.squareslab.analysis;
 
-import soot.*;
+import soot.SootMethod;
+import soot.Unit;
+import soot.Value;
+import soot.ValueBox;
 import soot.jimple.*;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.scalar.BackwardFlowAnalysis;
 
 import java.util.*;
 
-public class DataDependencyAnalysis extends BodyTransformer
-{
-	@Override
-	protected void internalTransform(Body body, String phaseName, Map<String, String> options)
-	{
-
-	}
-}
-
-class DataDependencyAnalyzer extends BackwardFlowAnalysis<Unit, Map<Unit, ReadWriteSets<Object>>>
+//this analysis could actually go in any direction
+class ReadWriteAnalyzer extends BackwardFlowAnalysis<Unit, Map<Unit, ReadWriteSets<Object>>>
 {
 	Unit sliceFrom;
 
@@ -29,7 +24,7 @@ class DataDependencyAnalyzer extends BackwardFlowAnalysis<Unit, Map<Unit, ReadWr
 	 * @param unitToSliceFrom
 	 * @param knownReadWrites
 	 */
-	public DataDependencyAnalyzer
+	public ReadWriteAnalyzer
 			(UnitGraph graph, Unit unitToSliceFrom, Map<Unit, ReadWriteSets<Object>> knownReadWrites)
 	{
 		super(graph);
@@ -215,101 +210,5 @@ class DataDependencyAnalyzer extends BackwardFlowAnalysis<Unit, Map<Unit, ReadWr
 		{
 			dest.put(key, source.get(key)); //ReadWriteSets are immutable; thus, copying references should be safe
 		}
-	}
-}
-
-/**
- * Immutable
- * @param <T> Representation for variables
- */
-class ReadWriteSets<T>
-{
-	private Set<T> readVariables;
-	private Set<T> writtenVariables;
-
-	/**
-	 Get an empty ReadWriteSets
-	 */
-	public ReadWriteSets()
-	{
-		readVariables = new HashSet<>();
-		writtenVariables = new HashSet<>();
-	}
-
-	public ReadWriteSets(Collection<T> reads, Collection<T> writes)
-	{
-		readVariables = new HashSet<>(reads);
-		writtenVariables = new HashSet<>(writes);
-	}
-
-	/**
-	 Clone constructor
-	 */
-	public ReadWriteSets(ReadWriteSets<T> readWriteSets)
-	{
-		this.readVariables = readWriteSets.readVariables;
-		this.writtenVariables = readWriteSets.writtenVariables;
-	}
-
-	/**
-	 * Clones itself and adds new reads and writes.
-	 * @param newReads
-	 * @param newWrites
-	 * @return
-	 */
-	public ReadWriteSets<T> addReadsAndWrites(Collection<T> newReads, Collection<T> newWrites)
-	{
-		ReadWriteSets<T> newSet = new ReadWriteSets<>(this);
-		newSet.readVariables.addAll(newReads);
-		newSet.writtenVariables.addAll(newWrites);
-		return newSet;
-	}
-
-	/**
-	 * Clones itself and unions read & written variable sets.
-	 * @param other
-	 * @return
-	 */
-	public ReadWriteSets<T> mergeWith(ReadWriteSets<T> other)
-	{
-		return addReadsAndWrites(other.readVariables, other.writtenVariables);
-	}
-
-	/**
-	 *
-	 * @return an iterator over readVariables
-	 */
-	public Iterator<T> readsIterator()
-	{
-		return readVariables.iterator();
-	}
-
-	/**
-	 *
-	 * @return an iterator over writtenVariables
-	 */
-	public Iterator<T> writesIterator()
-	{
-		return writtenVariables.iterator();
-	}
-
-	/**
-	 *
-	 * @param candidateRead
-	 * @return whether candidateRead is in the readVariables set
-	 */
-	public boolean hasRead(T candidateRead)
-	{
-		return readVariables.contains(candidateRead);
-	}
-
-	/**
-	 *
-	 * @param candidateWrite
-	 * @return whether candidateWrite is in the writtenVariables set
-	 */
-	public boolean hasWrittenTo(T candidateWrite)
-	{
-		return writtenVariables.contains(candidateWrite);
 	}
 }

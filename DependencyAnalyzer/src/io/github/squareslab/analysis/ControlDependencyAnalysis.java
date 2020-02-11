@@ -1,4 +1,4 @@
-package io.github.squareslab;
+package io.github.squareslab.analysis;
 
 import soot.Body;
 import soot.BodyTransformer;
