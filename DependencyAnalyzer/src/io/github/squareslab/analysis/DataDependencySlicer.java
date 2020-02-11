@@ -147,25 +147,42 @@ public class DataDependencySlicer
 	/**
 	 *
 	 * @param lineToSliceFrom line to slice from
-	 * @return lines in backwards dependency slice
+	 * @return lines in backwards dependency slice, sorted from low to high
 	 */
-	public Collection<Integer> getBackslice(int lineToSliceFrom)
+	public List<Integer> getBackslice(int lineToSliceFrom)
 	{
-		//todo implement
+		//deduplicate lines (a line can map to multiple units)
+		Set<Integer> backsliceLinesSet = new HashSet<>();
+
+		Collection<Unit> unitsAtLine = linesToUnitsMap.get(lineToSliceFrom);
+		Collection<Unit> backsliceUnits = getBacksliceUnits(unitsAtLine);
+
+		//map backslice units to their corresponding lines
+		for(Unit unit : backsliceUnits)
+		{
+			int lineOfUnit = unitToLineMap.get(unit);
+			backsliceLinesSet.add(lineOfUnit);
+		}
+
+		//sort lines from low to high
+		List<Integer> backsliceLinesList = new ArrayList<>(backsliceLinesSet);
+		Collections.sort(backsliceLinesList);
+
+		return backsliceLinesList;
 	}
 
 	/**
 	 *
 	 * @param linesToSliceFrom lines to slice from
-	 * @return map: line -> lines in backwards dependency slice
+	 * @return map: line -> (lines in backwards dependency slice, sorted from low to high)
 	 */
-	public Map<Integer, Collection<Integer>> getBackslices(Collection<Integer> linesToSliceFrom)
+	public Map<Integer, List<Integer>> getBackslices(Collection<Integer> linesToSliceFrom)
 	{
-		Map<Integer, Collection<Integer>> backslices = new HashMap<>();
+		Map<Integer, List<Integer>> backslices = new HashMap<>();
 
 		for (int line : linesToSliceFrom)
 		{
-			Collection<Integer> slice = getBackslice(line);
+			List<Integer> slice = getBackslice(line);
 			backslices.put(line, slice);
 		}
 
