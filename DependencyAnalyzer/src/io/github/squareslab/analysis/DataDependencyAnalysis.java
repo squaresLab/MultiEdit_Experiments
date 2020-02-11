@@ -93,11 +93,20 @@ public class DataDependencyAnalysis extends BodyTransformer
 		Set<Object> reads = new HashSet<>();
 		Set<Object> writes = new HashSet<>();
 
-		if (isSetter(unit))
+
+		if (unit instanceof InvokeStmt)
 		{
 			InvokeExpr invokeExpr = ((InvokeStmt) unit).getInvokeExpr();
-			String heuristicNameOfSetVar = getGetterSetterHeuristicName(invokeExpr);
-			writes.add(heuristicNameOfSetVar);
+
+			if (isSetter(unit))
+			{
+				String heuristicNameOfSetVar = getGetterSetterHeuristicName(invokeExpr);
+				writes.add(heuristicNameOfSetVar);
+			}
+
+			//capture any arguments to method calls as reads
+			for (Value arg : invokeExpr.getArgs())
+				addUsedValuesToReadsSet(arg, reads);
 		}
 		else if (unit instanceof AssignStmt)
 		{
