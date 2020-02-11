@@ -14,7 +14,7 @@ public class DataDependencyAnalysis extends BodyTransformer
 
 	private Collection<Integer> lineNumsOfInterest;
 
-	DataDependencyAnalysis(Collection<Integer> lineNumbersOfInterest)
+	public DataDependencyAnalysis(Collection<Integer> lineNumbersOfInterest)
 	{
 		super();
 

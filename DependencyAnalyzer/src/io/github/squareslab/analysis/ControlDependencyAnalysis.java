@@ -21,7 +21,7 @@ public class ControlDependencyAnalysis extends BodyTransformer
 
 	private Collection<Integer> lineNumsOfInterest;
 
-	ControlDependencyAnalysis(Collection<Integer> lineNumbersOfInterest)
+	public ControlDependencyAnalysis(Collection<Integer> lineNumbersOfInterest)
 	{
 		super();
 
