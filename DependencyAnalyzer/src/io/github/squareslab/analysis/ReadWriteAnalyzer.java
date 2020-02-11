@@ -7,11 +7,11 @@ import soot.ValueBox;
 import soot.jimple.*;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.scalar.BackwardFlowAnalysis;
+import soot.toolkits.scalar.ForwardFlowAnalysis;
 
 import java.util.*;
 
-//this analysis could actually go in any direction
-class ReadWriteAnalyzer extends BackwardFlowAnalysis<Unit, Map<Unit, ReadWriteSets<Object>>>
+class ReadWriteAnalyzer extends ForwardFlowAnalysis<Unit, Map<Unit, ReadWriteSets<Object>>>
 {
 	Unit sliceFrom;
 
