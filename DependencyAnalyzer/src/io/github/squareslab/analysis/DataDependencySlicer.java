@@ -105,8 +105,8 @@ public class DataDependencySlicer
 		if (dataflowMap.containsKey(start))
 		{
 			ReadWriteSets<Object> startDataflow = dataflowMap.get(start);
-			alreadyRead.add(startDataflow.readsIterator());
-			alreadyWritten.add(startDataflow.writesIterator());
+			alreadyRead.addAll(startDataflow.readsSet());
+			alreadyWritten.addAll(startDataflow.writesSet());
 		}
 		else
 		{
@@ -120,8 +120,8 @@ public class DataDependencySlicer
 				dependencyBackslice.add(pred);
 				ReadWriteSets<Object> predDataflow = dataflowMap.get(pred);
 				//reads & writes of this predecessor unit are now relevant
-				alreadyRead.add(predDataflow.readsIterator());
-				alreadyWritten.add(predDataflow.writesIterator());
+				alreadyRead.addAll(predDataflow.readsSet());
+				alreadyWritten.addAll(predDataflow.writesSet());
 			}
 		}
 
@@ -151,6 +151,10 @@ public class DataDependencySlicer
 	 */
 	public List<Integer> getBackslice(int lineToSliceFrom)
 	{
+		//if line is not found, return an empty slice
+		if( ! linesToUnitsMap.containsKey(lineToSliceFrom))
+			return Collections.emptyList();
+
 		//deduplicate lines (a line can map to multiple units)
 		Set<Integer> backsliceLinesSet = new HashSet<>();
 

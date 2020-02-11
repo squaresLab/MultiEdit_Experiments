@@ -64,20 +64,20 @@ class ReadWriteSets<T>
 
 	/**
 	 *
-	 * @return an iterator over readVariables
+	 * @return a copy of readVariables
 	 */
-	public Iterator<T> readsIterator()
+	public Set<T> readsSet()
 	{
-		return readVariables.iterator();
+		return new HashSet<>(readVariables);
 	}
 
 	/**
 	 *
-	 * @return an iterator over writtenVariables
+	 * @return a copy of writtenVariables
 	 */
-	public Iterator<T> writesIterator()
+	public Set<T> writesSet()
 	{
-		return writtenVariables.iterator();
+		return new HashSet<>(writtenVariables);
 	}
 
 	/**

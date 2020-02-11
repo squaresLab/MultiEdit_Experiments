@@ -49,9 +49,16 @@ public class DataDependencyAnalysis extends BodyTransformer
 	{
 		UnitGraph graph = new ExceptionalUnitGraph(body);
 
+		Map<Integer, Collection<Unit>> linesToUnitsMap = getLinesToUnitsMap(graph);
+
 		Map<Unit, ReadWriteSets<Object>> dataflowMap = ReadWriteAnalysis.getReadWriteSets(graph);
 
-		return;
+		DataDependencySlicer slicer = new DataDependencySlicer(linesToUnitsMap, graph, dataflowMap, config);
+
+		Map<Integer, List<Integer>> slices = slicer.getBackslices(lineNumsOfInterest);
+
+		for(int line : slices.keySet())
+			System.out.printf("Num of slice lines for line %d: %d\n", line, slices.get(line).size());
 	}
 
 	//immutable
