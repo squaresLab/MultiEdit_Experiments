@@ -13,6 +13,8 @@ import java.util.*;
 
 class ReadWriteAnalyzer extends ForwardFlowAnalysis<Unit, Map<Unit, ReadWriteSets<Object>>>
 {
+	private Map<Unit, ReadWriteSets<Object>> analysisResult;
+
 	/**
 	 *
 	 * @param graph
@@ -21,7 +23,14 @@ class ReadWriteAnalyzer extends ForwardFlowAnalysis<Unit, Map<Unit, ReadWriteSet
 	{
 		super(graph);
 
+		this.analysisResult = newInitialFlow();
+
 		doAnalysis();
+	}
+
+	public Map<Unit, ReadWriteSets<Object>> getAnalysisResult()
+	{
+		return this.analysisResult;
 	}
 
 	private boolean isGetter(Unit unit)
@@ -153,6 +162,11 @@ class ReadWriteAnalyzer extends ForwardFlowAnalysis<Unit, Map<Unit, ReadWriteSet
 		ReadWriteSets<Object> newLatticeValue = new ReadWriteSets<>(reads, writes);
 		//I don't think I need to worry about overwriting old values
 		out.put(unit, newLatticeValue);
+
+		//update analysis result (might or might not be redundant)
+		Map<Unit, ReadWriteSets<Object>> updatedAnalysisResult = new HashMap<>();
+		merge(out, this.analysisResult, updatedAnalysisResult);
+		this.analysisResult = updatedAnalysisResult;
 	}
 
 	@Override
