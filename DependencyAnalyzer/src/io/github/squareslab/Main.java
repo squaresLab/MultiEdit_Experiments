@@ -5,6 +5,7 @@ import io.github.squareslab.analysis.ControlDependencyAnalysis;
 import io.github.squareslab.analysis.DataDependencyAnalysis;
 import io.github.squareslab.common.Utils;
 import org.apache.commons.cli.*;
+import soot.Pack;
 import soot.PackManager;
 import soot.Transform;
 
@@ -41,7 +42,7 @@ public class Main
 		options.addOption(classpathToAnalysisTarget);
 
 		Option controlDependency = new Option("Dc", OPTION_CTRL_DEP, false,
-				"Find control dependencies.");
+				"Find control dependencies. Do not use in conjunction with data dependency analyses.");
 		controlDependency.setRequired(false);
 		options.addOption(controlDependency);
 
@@ -128,7 +129,6 @@ public class Main
 	public static void main(String[] args)
 	{
 		CommandLine cmdLine = parseArgs(args);
-
 		String classToAnalyze = cmdLine.getOptionValue(OPTION_TARGET);
 		String classpathToAnalysisTarget = cmdLine.getOptionValue(OPTION_TARGET_CP);
 		boolean runCtrlAnalysis = cmdLine.hasOption(OPTION_CTRL_DEP);
@@ -142,39 +142,40 @@ public class Main
 
 		boolean atLeastOneAnalysis = runCtrlAnalysis || runFlowAnalysis || runAntiAnalysis || runOutAnalysis;
 		boolean atLeastOneOutputType = outputMap || outputExistence;
-
-
 		if (! atLeastOneAnalysis || ! atLeastOneOutputType)
 		{
 			if (! atLeastOneAnalysis)
-			{
-				System.out.printf("Must choose to run at least one type of analysis: %s, %s, %s, and/or %s\n",
-						OPTION_CTRL_DEP, OPTION_FLOW_DEP, OPTION_ANTI_DEP, OPTION_OUT_DEP);
-			}
+				System.out.printf("Must choose to run at least one type of analysis: %s, %s, %s, and/or %s\n", OPTION_CTRL_DEP, OPTION_FLOW_DEP, OPTION_ANTI_DEP, OPTION_OUT_DEP);
 			if (! atLeastOneOutputType)
-			{
-				System.out.printf("Must choose to run at least one type of output: %s and/or %s\n",
-						OPTION_OUT_MAP, OPTION_OUT_EXIST);
-			}
+				System.out.printf("Must choose to run at least one type of output: %s and/or %s\n", OPTION_OUT_MAP, OPTION_OUT_EXIST);
 			showHelpAndExit();
 		}
 
+		boolean runDataDependencyAnalysis = runFlowAnalysis || runAntiAnalysis || runOutAnalysis;
+		if (runCtrlAnalysis && runDataDependencyAnalysis)
+			throw new UnsupportedOperationException("Simultaneously running control and data dependency analyses is " +
+					"currently unsupported.\nPlease run control and data dependency analyses separately.");
+
 		String[] sootArgs;
+		Pack pack = PackManager.v().getPack("jap");
 		if (runCtrlAnalysis)
 		{
+			Transform controlDepTransform = new Transform(ControlDependencyAnalysis.ANALYSIS_NAME,
+					new ControlDependencyAnalysis(lineNumsOfInterest));
 			PackManager.v().getPack("jap")
-					.add(new Transform(ControlDependencyAnalysis.ANALYSIS_NAME, new ControlDependencyAnalysis(lineNumsOfInterest)));
+					.add(controlDepTransform);
 			sootArgs = Utils.getSootArgs(ControlDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
 			Utils.runSoot(sootArgs);
 		}
 
-		boolean runDataDependencyAnalysis = runFlowAnalysis || runAntiAnalysis || runOutAnalysis;
 		if (runDataDependencyAnalysis)
 		{
 			DataDependencyAnalysis.Configuration config
 					= new DataDependencyAnalysis.Configuration(runFlowAnalysis, runAntiAnalysis, runOutAnalysis);
+			Transform dataDepTransform = new Transform(DataDependencyAnalysis.ANALYSIS_NAME,
+					new DataDependencyAnalysis(lineNumsOfInterest, config));
 			PackManager.v().getPack("jap")
-					.add(new Transform(DataDependencyAnalysis.ANALYSIS_NAME, new DataDependencyAnalysis(lineNumsOfInterest, config)));
+					.add(dataDepTransform);
 			sootArgs = Utils.getSootArgs(DataDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
 			Utils.runSoot(sootArgs);
 		}
