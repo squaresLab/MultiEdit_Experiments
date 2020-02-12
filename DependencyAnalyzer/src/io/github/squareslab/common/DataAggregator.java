@@ -4,13 +4,19 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
 
-public class OutputHandler
+/**
+ * A singleton for aggregating and writing data.
+ *
+ * Intended workflow:
+ * 1. One or more threads update the DataAggregator with new data on dependencies.
+ * 2. Once all analysis is finished, one thread flushes the data to a Writer.
+ */
+public class DataAggregator
 {
 	//TreeMap maintains order of keys, TreeSet maintains order of values for each key
 	TreeMap<Integer, TreeSet<Integer>> lineDependencyMap;
-	Writer writer = null;
 
-	private OutputHandler()
+	private DataAggregator()
 	{
 		lineDependencyMap = new TreeMap<>();
 	}
@@ -30,12 +36,8 @@ public class OutputHandler
 		}
 	}
 
-	public void registerWriter(Writer w)
-	{
-		writer = w;
-	}
 
-	public void flushDataToOutput() throws IOException
+	public void flushDataToWriter(Writer writer) throws IOException
 	{
 		for(int line : lineDependencyMap.keySet())
 		{
@@ -52,11 +54,9 @@ public class OutputHandler
 			//write a line of CSV
 			writer.append(lineAndDependencies);
 		}
-
-		writer.close();
 	}
 
 
-	private static OutputHandler instance = new OutputHandler();
-	public static OutputHandler getInstance() {return instance;}
+	private static DataAggregator instance = new DataAggregator();
+	public static DataAggregator getInstance() {return instance;}
 }
