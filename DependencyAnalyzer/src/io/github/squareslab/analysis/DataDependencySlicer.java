@@ -8,22 +8,20 @@ import java.util.*;
 
 public class DataDependencySlicer
 {
-	Map<Integer, Collection<Unit>> linesToUnitsMap;
 	UnitGraph graph;
-	Map<Unit, ReadWriteSets<Object>> dataflowMap;
 	Configuration config;
+
+	Map<Integer, Collection<Unit>> linesToUnitsMap;
+	Map<Unit, ReadWriteSets<Object>> dataflowMap;
 	Map<Unit, Integer> unitToLineMap;
 
-	public DataDependencySlicer(Map<Integer, Collection<Unit>> linesToUnitsMapping,
-								UnitGraph unitGraph,
-								Map<Unit, ReadWriteSets<Object>> dataflowMapping,
-								Configuration configuration)
+	public DataDependencySlicer(UnitGraph unitGraph, Configuration configuration)
 	{
-		this.linesToUnitsMap = linesToUnitsMapping;
 		this.graph = unitGraph;
-		this.dataflowMap = dataflowMapping;
 		this.config = configuration;
 
+		this.linesToUnitsMap = getLinesToUnitsMap(graph);
+		this.dataflowMap = ReadWriteAnalysis.getReadWriteSets(graph);
 		this.unitToLineMap = getUnitToLineMap(this.linesToUnitsMap);
 	}
 
@@ -40,6 +38,27 @@ public class DataDependencySlicer
 		}
 
 		return unitToLineMap;
+	}
+
+	private static Map<Integer, Collection<Unit>> getLinesToUnitsMap(Iterable<Unit> units)
+	{
+		Map<Integer, Collection<Unit>> map = new HashMap<>();
+
+		for (Unit unit : units)
+		{
+			int lineNum = unit.getJavaSourceStartLineNumber();
+
+			//if lineNum is previously unseen, add an empty value set to map
+			if (! map.containsKey(lineNum))
+			{
+				Collection<Unit> unitsForLineNum = new ArrayList<>();
+				map.put(lineNum, unitsForLineNum);
+			}
+
+			map.get(lineNum).add(unit);
+		}
+
+		return map;
 	}
 
 	private void getCFGBackslice(Unit start, LinkedHashSet<Unit> partialSlice)
