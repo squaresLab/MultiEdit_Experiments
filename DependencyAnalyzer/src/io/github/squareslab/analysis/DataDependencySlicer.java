@@ -170,9 +170,9 @@ public class DataDependencySlicer
 	/**
 	 *
 	 * @param lineToSliceFrom line to slice from
-	 * @return lines in backwards dependency slice, sorted from low to high
+	 * @return lines in backwards dependency slice
 	 */
-	public List<Integer> getBackslice(int lineToSliceFrom)
+	public Collection<Integer> getBackslice(int lineToSliceFrom)
 	{
 		//if line is not found, return an empty slice
 		if( ! linesToUnitsMap.containsKey(lineToSliceFrom))
@@ -192,25 +192,21 @@ public class DataDependencySlicer
 				backsliceLinesSet.add(lineOfUnit);
 		}
 
-		//sort lines from low to high
-		List<Integer> backsliceLinesList = new ArrayList<>(backsliceLinesSet);
-		Collections.sort(backsliceLinesList);
-
-		return backsliceLinesList;
+		return backsliceLinesSet;
 	}
 
 	/**
 	 *
 	 * @param linesToSliceFrom lines to slice from
-	 * @return map: line -> (lines in backwards dependency slice, sorted from low to high)
+	 * @return map: line -> lines in backwards dependency slice
 	 */
-	public Map<Integer, List<Integer>> getBackslices(Collection<Integer> linesToSliceFrom)
+	public Map<Integer, Collection<Integer>> getBackslices(Collection<Integer> linesToSliceFrom)
 	{
-		Map<Integer, List<Integer>> backslices = new HashMap<>();
+		Map<Integer, Collection<Integer>> backslices = new HashMap<>();
 
 		for (int line : linesToSliceFrom)
 		{
-			List<Integer> slice = getBackslice(line);
+			Collection<Integer> slice = getBackslice(line);
 			backslices.put(line, slice);
 		}
 

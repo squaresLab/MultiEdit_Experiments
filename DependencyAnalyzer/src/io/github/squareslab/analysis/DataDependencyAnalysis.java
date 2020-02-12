@@ -55,10 +55,7 @@ public class DataDependencyAnalysis extends BodyTransformer
 
 		DataDependencySlicer slicer = new DataDependencySlicer(linesToUnitsMap, graph, dataflowMap, config);
 
-		Map<Integer, List<Integer>> slices = slicer.getBackslices(lineNumsOfInterest);
-
-		for(int line : slices.keySet())
-			System.out.printf("Num of slice lines for line %d: %d\n", line, slices.get(line).size());
+		Map<Integer, Collection<Integer>> slices = slicer.getBackslices(lineNumsOfInterest);
 	}
 
 	//immutable
