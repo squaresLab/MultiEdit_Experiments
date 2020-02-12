@@ -18,12 +18,18 @@ public class Main
 	private static final String OPTION_CTRL_DEP =  "find-control-dependencies";
 	private static final String OPTION_FLOW_DEP = "find-flow-dependencies";
 	private static final String OPTION_ANTI_DEP = "find-anti-dependencies";
-	private static final String OPTION_OUTPUT_DEP = "find-output-dependencies";
+	private static final String OPTION_OUT_DEP = "find-output-dependencies";
 	private static final String OPTION_OUTPUT = "output";
 	private static final String OPTION_OUT_MAP = "output-dependency-map";
 	private static final String OPTION_OUT_EXIST = "output-dependency-existence";
 	private static final String OPTION_LINES = "lines-to-analyze";
 
+	private static final Options OPTIONS;
+
+	static
+	{
+		OPTIONS = defineOptions();
+	}
 
 	private static Options defineOptions()
 	{
@@ -54,7 +60,7 @@ public class Main
 		antiDataDependency.setRequired(false);
 		options.addOption(antiDataDependency);
 
-		Option outputDataDependency = new Option("Do", OPTION_OUTPUT_DEP, false,
+		Option outputDataDependency = new Option("Do", OPTION_OUT_DEP, false,
 				"Find output data dependencies (write-after-write).");
 		outputDataDependency.setRequired(false);
 		options.addOption(outputDataDependency);
@@ -83,38 +89,42 @@ public class Main
 		return options;
 	}
 
+	private static void showHelpAndExit()
+	{
+		//todo: use something more meaningful than empty string for cmdLineSyntax
+		new HelpFormatter().printHelp(" ", OPTIONS);
+		System.exit(1);
+	}
+
 	private static CommandLine parseArgs(String[] args)
 	{
-		Options options = defineOptions();
-
 		CommandLineParser parser = new DefaultParser();
 		HelpFormatter formatter = new HelpFormatter();
 		CommandLine cmd;
 
 		try {
-			cmd = parser.parse(options, args);
+			cmd = parser.parse(OPTIONS, args);
 
 			return cmd;
 		} catch (ParseException e) {
-			System.out.println(e.getMessage());
-			//todo: use something more meaningful than empty string for cmdLineSyntax
-			formatter.printHelp(" ", options);
-			System.exit(1);
-			return null;
+			System.err.println(e.getMessage());
+			System.err.flush();
+			showHelpAndExit();
+			return null; //not returned due to exit
 		}
 	}
 
-	private static Collection<Integer> parseIntOptions(String[] options)
+	private static Collection<Integer> parseIntOptions(String[] intOptions)
 	{
-		Collection<Integer> parseOutput = new ArrayList<>(options.length);
-		for(int i = 0; i < options.length; i++)
+		Collection<Integer> parseOutput = new ArrayList<>(intOptions.length);
+		for(int i = 0; i < intOptions.length; i++)
 		{
 			try
 			{
-				int parsedInt = Integer.parseInt(options[i]);
+				int parsedInt = Integer.parseInt(intOptions[i]);
 				parseOutput.add(parsedInt);
 			} catch (NumberFormatException e) {
-				System.err.printf("Skipping line %s since it's not a valid line number", options[i]);
+				System.err.printf("Skipping line %s since it's not a valid line number", intOptions[i]);
 			}
 		}
 
@@ -127,17 +137,38 @@ public class Main
 
 		String classToAnalyze = cmdLine.getOptionValue(OPTION_TARGET);
 		String classpathToAnalysisTarget = cmdLine.getOptionValue(OPTION_TARGET_CP);
-		boolean runControlDependencyAnalysis = cmdLine.hasOption(OPTION_CTRL_DEP);
-		boolean runFlowDependencyAnalysis = cmdLine.hasOption(OPTION_FLOW_DEP);
-		boolean runAntiDependencyAnalysis = cmdLine.hasOption(OPTION_ANTI_DEP);
-		boolean runOutputDependencyAnalysis = cmdLine.hasOption(OPTION_OUTPUT_DEP);
+		boolean runCtrlAnalysis = cmdLine.hasOption(OPTION_CTRL_DEP);
+		boolean runFlowAnalysis = cmdLine.hasOption(OPTION_FLOW_DEP);
+		boolean runAntiAnalysis = cmdLine.hasOption(OPTION_ANTI_DEP);
+		boolean runOutAnalysis = cmdLine.hasOption(OPTION_OUT_DEP);
 		String outputPath = cmdLine.getOptionValue(OPTION_OUTPUT);
 		boolean outputMap = cmdLine.hasOption(OPTION_OUT_MAP);
 		boolean outputExistence = cmdLine.hasOption(OPTION_OUT_EXIST);
 		Collection<Integer> lineNumsOfInterest = parseIntOptions(cmdLine.getOptionValues(OPTION_LINES));
 
+		boolean atLeastOneAnalysis = runCtrlAnalysis || runFlowAnalysis || runAntiAnalysis || runOutAnalysis;
+		boolean atLeastOneOutputType = outputMap || outputExistence;
+
+
+		if (! atLeastOneAnalysis || ! atLeastOneOutputType)
+		{
+			if (! atLeastOneAnalysis)
+			{
+				System.err.printf("Must choose to run at least one type of analysis: %s, %s, %s, and/or %s\n",
+						OPTION_CTRL_DEP, OPTION_FLOW_DEP, OPTION_ANTI_DEP, OPTION_OUT_DEP);
+				System.err.flush();
+			}
+			if (! atLeastOneOutputType)
+			{
+				System.err.printf("Must choose to run at least one type of output: %s and/or %s\n",
+						OPTION_OUT_MAP, OPTION_OUT_EXIST);
+				System.err.flush();
+			}
+			showHelpAndExit();
+		}
+
 		String[] sootArgs;
-		if (runControlDependencyAnalysis)
+		if (runCtrlAnalysis)
 		{
 			PackManager.v().getPack("jap")
 					.add(new Transform(ControlDependencyAnalysis.ANALYSIS_NAME, new ControlDependencyAnalysis(lineNumsOfInterest)));
@@ -145,10 +176,11 @@ public class Main
 			Utils.runSoot(sootArgs);
 		}
 
-		boolean runDataDependencyAnalysis = runFlowDependencyAnalysis || runAntiDependencyAnalysis || runOutputDependencyAnalysis;
+		boolean runDataDependencyAnalysis = runFlowAnalysis || runAntiAnalysis || runOutAnalysis;
 		if (runDataDependencyAnalysis)
 		{
-			DataDependencyAnalysis.Configuration config = new DataDependencyAnalysis.Configuration(runFlowDependencyAnalysis, runAntiDependencyAnalysis, runOutputDependencyAnalysis);
+			DataDependencyAnalysis.Configuration config
+					= new DataDependencyAnalysis.Configuration(runFlowAnalysis, runAntiAnalysis, runOutAnalysis);
 			PackManager.v().getPack("jap")
 					.add(new Transform(DataDependencyAnalysis.ANALYSIS_NAME, new DataDependencyAnalysis(lineNumsOfInterest, config)));
 			sootArgs = Utils.getSootArgs(DataDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
