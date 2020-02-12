@@ -4,54 +4,95 @@ package io.github.squareslab;
 import io.github.squareslab.analysis.ControlDependencyAnalysis;
 import io.github.squareslab.analysis.DataDependencyAnalysis;
 import io.github.squareslab.common.Utils;
+import org.apache.commons.cli.*;
 import soot.PackManager;
 import soot.Transform;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Main
 {
-	private static void printUsageMessage()
+	private static Options defineOptions()
 	{
-		System.err.println("Usage: 0th argument: classpath to the analysis target (containing the class to analyze)");
-		System.err.println("1st argument: the class to analyze, a .class file");
-		System.err.println("2nd argument: the analysis to run");
-			System.err.println("\t000 for control dependency analysis");
-			System.err.println("\t100 for data flow dependency analysis");
-			System.err.println("\t010 for data anti dependency analysis");
-			System.err.println("\t001 for data output dependency analysis");
-			System.err.println("\t110 for data flow+anti dependency analysis");
-			System.err.println("\t011 for data anti+output dependency analysis");
-			System.err.println("\t111 for data flow+anti+output dependency analysis");
-		System.err.println("subsequent argument(s): the source code line numbers to analyze");
+
+		Options options = new Options();
+
+		Option classToAnalyze = new Option("t", "target", true,
+				"Target class to analyze.");
+		classToAnalyze.setRequired(true);
+		options.addOption(classToAnalyze);
+
+		Option classpathToAnalysisTarget = new Option("tcp", "target-classpath", true,
+				"Classpath to the analysis target.");
+		classpathToAnalysisTarget.setRequired(true);
+		options.addOption(classpathToAnalysisTarget);
+
+		Option controlDependency = new Option("Dc", "find-control-dependencies", false,
+				"Find control dependencies.");
+		controlDependency.setRequired(false);
+		options.addOption(controlDependency);
+
+		Option flowDataDependency = new Option("Df", "find-flow-depencencies", false,
+				"Find flow data dependencies (read-after-write).");
+		flowDataDependency.setRequired(false);
+		options.addOption(flowDataDependency);
+
+		Option antiDataDependency = new Option("Da", "find-anti-depencencies", false,
+				"Find anti-data dependencies (write-after-read).");
+		antiDataDependency.setRequired(false);
+		options.addOption(antiDataDependency);
+
+		Option writeDataDependency = new Option("Dw", "find-write-depencencies", false,
+				"Find write data dependencies (write-after-write).");
+		writeDataDependency.setRequired(false);
+		options.addOption(writeDataDependency);
+
+		Option outputPath = new Option("o", "output", true,
+				"File to write output to.");
+		outputPath.setRequired(true);
+		options.addOption(outputPath);
+
+		Option outputDependencyMap = new Option("Om", "output-dependency-map", false,
+				"Output a line-to-lines mapping of dependencies.");
+		outputDependencyMap.setRequired(false);
+		options.addOption(outputDependencyMap);
+
+		Option outputDependencyExistence = new Option("Oe", "output-dependency-existence", false,
+				"Output whether there exists a dependency between specified lines");
+		outputDependencyExistence.setRequired(false);
+		options.addOption(outputDependencyExistence);
+
+		Option linesToAnalyze = new Option("lines", "lines-to-analyze", true,
+				"Line(s) to back-slice from.");
+		linesToAnalyze.setArgs(Option.UNLIMITED_VALUES);
+		linesToAnalyze.setRequired(true);
+		options.addOption(linesToAnalyze);
+
+		return options;
 	}
 
-	/**
-	 *
-	 * @param args source array
-	 * @param startIndex starting index (inclusive)
-	 * @param endIndex ending index (exclusive)
-	 * @return a collection of integers parsed from args from the starting index to the ending index
-	 */
-	private static Collection<Integer> parseIntArgs(String[] args, int startIndex, int endIndex)
+	private static CommandLine parseArgs(String[] args)
 	{
-		Collection<Integer> parseOutput = new ArrayList<>(endIndex - startIndex);
-		for(int i = startIndex; i < endIndex; i++)
-		{
-			try
-			{
-				int parsedInt = Integer.parseInt(args[i]);
-				parseOutput.add(parsedInt);
-			} catch (NumberFormatException e) {
-				System.err.printf("Skipping %s since it's not a valid line number", args[i]);
-			}
+		Options options = defineOptions();
+
+		CommandLineParser parser = new DefaultParser();
+		HelpFormatter formatter = new HelpFormatter();
+		CommandLine cmd;
+
+		try {
+			cmd = parser.parse(options, args);
+
+			return cmd;
+		} catch (ParseException e) {
+			System.out.println(e.getMessage());
+			//todo: use something more meaningful than empty string for cmdLineSyntax
+			formatter.printHelp(" ", options);
+			System.exit(1);
+			return null;
 		}
-
-		return parseOutput;
 	}
 
-	private static DataDependencyAnalysis.Configuration getConfiguration(String analysisToRunArg)
+	private static DataDependencyAnalysis.Configuration getDataDepConfiguration(String analysisToRunArg)
 	{
 		assert analysisToRunArg.length() == 3;
 		boolean flow   = analysisToRunArg.charAt(0) == '1';
@@ -62,17 +103,12 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		//todo: add option to select ctrl dependency or data dependency analysis
-		if (args.length < 4)
-		{
-			printUsageMessage();
-			System.exit(1);
-		}
+		CommandLine cmdLine = parseArgs(args);
 
 		String classpathToAnalysisTarget = args[0];
 		String classToAnalyze = args[1];
 		String analysisToRun = args[2];
-		Collection<Integer> lineNumsOfInterest = parseIntArgs(args, 3, args.length);
+		Collection<Integer> lineNumsOfInterest = null;
 
 		String[] sootArgs;
 		if(analysisToRun.equals("000"))
@@ -83,7 +119,7 @@ public class Main
 		}
 		else
 		{
-			DataDependencyAnalysis.Configuration config = getConfiguration(analysisToRun);
+			DataDependencyAnalysis.Configuration config = getDataDepConfiguration(analysisToRun);
 			PackManager.v().getPack("jap")
 					.add(new Transform(DataDependencyAnalysis.ANALYSIS_NAME, new DataDependencyAnalysis(lineNumsOfInterest, config)));
 			sootArgs = Utils.getSootArgs(DataDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);

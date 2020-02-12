@@ -13,6 +13,13 @@ import java.util.Collection;
 public class TestHashMutablePDG
 {
 	@Test
+	public void testUsageScreen()
+	{
+		String[] args = {};
+		Main.main(args);
+	}
+
+	@Test
 	public void testControlDependency()
 	{
 		String[] args = {"test-resources/Math31b", "org.apache.commons.math3.util.ContinuedFraction", "000", "170"};
