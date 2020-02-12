@@ -1,5 +1,6 @@
 package io.github.squareslab.analysis;
 
+import io.github.squareslab.common.DataAggregator;
 import soot.*;
 import soot.jimple.*;
 import soot.toolkits.graph.ExceptionalUnitGraph;
@@ -56,6 +57,8 @@ public class DataDependencyAnalysis extends BodyTransformer
 		DataDependencySlicer slicer = new DataDependencySlicer(linesToUnitsMap, graph, dataflowMap, config);
 
 		Map<Integer, Collection<Integer>> slices = slicer.getBackslices(lineNumsOfInterest);
+
+		DataAggregator.getInstance().addDependencies(slices);
 	}
 
 	//immutable
