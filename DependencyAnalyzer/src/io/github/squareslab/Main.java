@@ -24,12 +24,7 @@ public class Main
 	private static final String OPTION_OUT_EXIST = "output-dependency-existence";
 	private static final String OPTION_LINES = "lines-to-analyze";
 
-	private static final Options OPTIONS;
-
-	static
-	{
-		OPTIONS = defineOptions();
-	}
+	private static final Options OPTIONS = defineOptions();
 
 	private static Options defineOptions()
 	{
@@ -107,8 +102,7 @@ public class Main
 
 			return cmd;
 		} catch (ParseException e) {
-			System.err.println(e.getMessage());
-			System.err.flush();
+			System.out.println(e.getMessage());
 			showHelpAndExit();
 			return null; //not returned due to exit
 		}
@@ -124,7 +118,7 @@ public class Main
 				int parsedInt = Integer.parseInt(intOptions[i]);
 				parseOutput.add(parsedInt);
 			} catch (NumberFormatException e) {
-				System.err.printf("Skipping line %s since it's not a valid line number", intOptions[i]);
+				System.out.printf("Skipping line %s since it's not a valid line number", intOptions[i]);
 			}
 		}
 
@@ -154,15 +148,13 @@ public class Main
 		{
 			if (! atLeastOneAnalysis)
 			{
-				System.err.printf("Must choose to run at least one type of analysis: %s, %s, %s, and/or %s\n",
+				System.out.printf("Must choose to run at least one type of analysis: %s, %s, %s, and/or %s\n",
 						OPTION_CTRL_DEP, OPTION_FLOW_DEP, OPTION_ANTI_DEP, OPTION_OUT_DEP);
-				System.err.flush();
 			}
 			if (! atLeastOneOutputType)
 			{
-				System.err.printf("Must choose to run at least one type of output: %s and/or %s\n",
+				System.out.printf("Must choose to run at least one type of output: %s and/or %s\n",
 						OPTION_OUT_MAP, OPTION_OUT_EXIST);
-				System.err.flush();
 			}
 			showHelpAndExit();
 		}
