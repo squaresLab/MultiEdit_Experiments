@@ -3,12 +3,16 @@ package io.github.squareslab;
 
 import io.github.squareslab.analysis.ControlDependencyAnalysis;
 import io.github.squareslab.analysis.DataDependencyAnalysis;
+import io.github.squareslab.common.DataAggregator;
 import io.github.squareslab.common.Utils;
 import org.apache.commons.cli.*;
 import soot.Pack;
 import soot.PackManager;
 import soot.Transform;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -178,6 +182,18 @@ public class Main
 					.add(dataDepTransform);
 			sootArgs = Utils.getSootArgs(DataDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
 			Utils.runSoot(sootArgs);
+		}
+
+		Writer writer;
+		try
+		{
+			writer = new FileWriter(outputPath);
+			DataAggregator.getInstance().flushDataToWriter(writer);
+			writer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
 		}
 	}
 }
