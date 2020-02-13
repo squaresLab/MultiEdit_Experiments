@@ -6,10 +6,7 @@ import soot.toolkits.graph.BlockGraph;
 import soot.toolkits.graph.pdg.PDGNode;
 import soot.toolkits.graph.pdg.ProgramDependenceGraph;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class LineMappingAlgorithms
 {
@@ -124,5 +121,22 @@ public class LineMappingAlgorithms
 		}
 
 		return nodeToLineMap;
+	}
+
+	static <K, V> Map<V, Collection<K>> flipMap(Map<K, Collection<V>> map)
+	{
+		Map<V, Collection<K>> flip = new HashMap<>();
+		for (K key : map.keySet())
+		{
+			for (V value : map.get(key))
+			{
+				if (! flip.containsKey(value))
+					flip.put(value, new HashSet<>());
+
+				flip.get(value).add(key);
+			}
+		}
+
+		return flip;
 	}
 }

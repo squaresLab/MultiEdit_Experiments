@@ -5,6 +5,7 @@ import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.graph.pdg.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ControlDependencySlicer
 {
@@ -13,6 +14,9 @@ public class ControlDependencySlicer
 	private Map<PDGNode, Integer> nodeToLineMap;
 	private Map<Unit, Integer> unitToLineMap;
 
+	private Map<Integer, Collection<Integer>> forwardSlices;
+	private Map<Integer, Collection<Integer>> backSlices;
+
 	public ControlDependencySlicer(ProgramDependenceGraph programDependenceGraph, UnitGraph cfg)
 	{
 		pdg = programDependenceGraph;
@@ -20,6 +24,9 @@ public class ControlDependencySlicer
 		linesToNodesMap = LineMappingAlgorithms.getLineToPDGNodesMap(pdg);
 		nodeToLineMap = LineMappingAlgorithms.getPDGNodeToLineMap(linesToNodesMap);
 		unitToLineMap = LineMappingAlgorithms.getUnitToLineMap(LineMappingAlgorithms.getLinesToUnitsMap(cfg));
+
+		forwardSlices = generateAllForwardSlices();
+		backSlices = LineMappingAlgorithms.flipMap(forwardSlices);
 	}
 
 	/**
@@ -80,7 +87,7 @@ public class ControlDependencySlicer
 	 * @param lineToSliceFrom line to slice from
 	 * @return lines in backwards dependency slice
 	 */
-	public Collection<Integer> getBackslice(int lineToSliceFrom)
+	private Collection<Integer> generateForwardSlice(int lineToSliceFrom)
 	{
 		Collection<Integer> backsliceLines = new HashSet<>(); //don't count duplicates
 
@@ -99,21 +106,43 @@ public class ControlDependencySlicer
 	 * @param linesToSliceFrom lines to slice from
 	 * @return map: line -> lines in backwards dependency slice
 	 */
-	public Map<Integer, Collection<Integer>> getBackslices(Collection<Integer> linesToSliceFrom)
+	private Map<Integer, Collection<Integer>> generateForwardSlices(Collection<Integer> linesToSliceFrom)
 	{
 		Map<Integer, Collection<Integer>> backslices = new HashMap<>();
 
 		for (int line : linesToSliceFrom)
 		{
-			Collection<Integer> slice = getBackslice(line);
+			Collection<Integer> slice = generateForwardSlice(line);
 			backslices.put(line, slice);
 		}
 
 		return backslices;
 	}
 
+	private Map<Integer, Collection<Integer>> generateAllForwardSlices()
+	{
+		return generateForwardSlices(linesToNodesMap.keySet());
+	}
+
+	public Map<Integer, Collection<Integer>> getBackslices(Collection<Integer> linesToSliceFrom)
+	{
+		//map filtering code from https://beginnersbook.com/2017/10/java-8-filter-a-map-by-keys-and-values/
+		Map<Integer, Collection<Integer>> slices = this.backSlices.entrySet().stream()
+				.filter(map -> linesToSliceFrom.contains(map.getKey()))
+				.collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue()));
+
+		//ensure all lines of interest are present in the slices, even if the slice is empty
+		for (int line : linesToSliceFrom)
+		{
+			if (! slices.containsKey(line))
+				slices.put(line, Collections.emptySet());
+		}
+
+		return slices;
+	}
+
 	public Map<Integer, Collection<Integer>> getAllBackslices()
 	{
-		return getBackslices(linesToNodesMap.keySet());
+		return new HashMap<>(backSlices);
 	}
 }
