@@ -173,10 +173,10 @@ public class Main
 		{
 			Transform controlDepTransform = new Transform(ControlDependencyAnalysis.ANALYSIS_NAME,
 					new ControlDependencyAnalysis(lineNumsOfInterest));
-			PackManager.v().getPack("jap")
-					.add(controlDepTransform);
+			pack.add(controlDepTransform);
 			sootArgs = Utils.getSootArgs(ControlDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
 			Utils.runSoot(sootArgs);
+			pack.remove(ControlDependencyAnalysis.ANALYSIS_NAME);
 		}
 
 		if (runDataDependencyAnalysis)
@@ -185,10 +185,10 @@ public class Main
 					= new DataDependencyAnalysis.Configuration(runFlowAnalysis, runAntiAnalysis, runOutAnalysis);
 			Transform dataDepTransform = new Transform(DataDependencyAnalysis.ANALYSIS_NAME,
 					new DataDependencyAnalysis(lineNumsOfInterest, config));
-			PackManager.v().getPack("jap")
-					.add(dataDepTransform);
+			pack.add(dataDepTransform);
 			sootArgs = Utils.getSootArgs(DataDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
 			Utils.runSoot(sootArgs);
+			pack.remove(DataDependencyAnalysis.ANALYSIS_NAME);
 		}
 
 		Writer writer;
