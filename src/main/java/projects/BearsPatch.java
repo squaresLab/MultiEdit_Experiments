@@ -3,6 +3,14 @@ package projects;
 import org.apache.commons.exec.CommandLine;
 
 import multiedit.coverage.CoverageSubset;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.filter.Filters;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
+import org.jdom2.util.IteratorIterable;
 import util.CommandLineRunner;
 import util.PatchDiffUtils;
 
@@ -13,6 +21,7 @@ import java.util.stream.Collectors;
 public class BearsPatch implements Patch {
 
     public static final String pathToBears = System.getProperty("user.home") + "/bears-benchmark";
+    private static final Set<Integer> unconventionalBugs = new HashSet<>(Arrays.asList(142, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 210, 211, 212, 213, 214, 215, 216, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251));
     private static Map<Integer, String> bugBranches = new HashMap<>();
     private static Map<Integer, List<String[]>> patchFiles = new HashMap<>();
     private static Map<Integer, List<String>> failingTests = new HashMap<>();
@@ -50,6 +59,7 @@ public class BearsPatch implements Patch {
     private int bugNumber;
     private String branchName;
     private CoverageSubset patchLocations;
+    private final Scanner sysin = new Scanner(System.in);
 
     public BearsPatch(int bugNumber) {
         this.bugNumber = bugNumber;
@@ -91,6 +101,12 @@ public class BearsPatch implements Patch {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        if (unconventionalBugs.contains(this.bugNumber)) {
+            System.out.println("Bears Bug " + bugNumber);
+            System.out.print("Path to classes (Move jacoco file over): ");
+            System.out.flush();
+            return pathToBears + sysin.nextLine() + "/target/classes";
+        }
         return pathToBears + "/target/classes";
     }
 
@@ -101,50 +117,104 @@ public class BearsPatch implements Patch {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        if (unconventionalBugs.contains(this.bugNumber)) {
+            System.out.println("Bears Bug " + bugNumber);
+            System.out.print("Path to classes (Move jacoco file over): ");
+            System.out.flush();
+            return pathToBears + sysin.nextLine() + "/target/classes";
+        }
         return pathToBears + "/target/classes";
     }
 
     @Override
     public CommandLine getTestCommand(String test, Version version) {
-//        try {
-//            checkoutPatched();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        CommandLine command = CommandLine.parse("java");
-//
-//        String classPath = "target/classes" + System.getProperty("path.separator")
-//                + pathToBears + "/target/classes" + System.getProperty("path.separator")
-//                + pathToBears + "/target/test-classes" + System.getProperty("path.separator")
-//                + System.getProperty("user.home") + "/.m2/repository";
-//
-////        if (version == Patch.Version.BUGGY) {
-////            classPath += System.getProperty("path.separator")
-////                    + this.getBuggyClasses() + System.getProperty("path.separator")
-////                    + this.getPathToBuggyTestClasses() + System.getProperty("path.separator")
-////                    + this.getBuggyClassPath();
-////        } else if (version == Patch.Version.PATCHED) {
-//
-////        }
-//
-//        command.addArgument("-classpath");
-//        command.addArgument(classPath);
-//
-//        command.addArgument("-Xmx1024m");
-//        command.addArgument("-javaagent:" + "lib/jacocoagent.jar"
-//                + "=excludes=org.junit.*,append=false");
-//
-//        command.addArgument("util.JUnitTestRunner");
-//
-//        test = test.replace("#", "::");
-//        command.addArgument(test);
-//        return command;
-//    }
-//
-//    public void help() {
         try {
             checkoutPatched();
-        } catch (IOException e) {
+
+            SAXBuilder builder = new SAXBuilder();
+            File xmlFile = new File(pathToBears+"/pom.xml");
+
+            Document doc = builder.build(xmlFile);
+            Element rootNode = doc.getRootElement();
+
+            Element build = rootNode.getChild("build", rootNode.getNamespace());
+
+//            if (!buildDescendents.hasNext()) {
+//                throw new IllegalStateException("no build field");
+//            } else {
+//                Element build = buildDescendents.next();
+//                if (buildDescendents.hasNext()) {
+//                    throw new IllegalStateException("Should only be one build element");
+//                }
+
+                Element plugins = build.getChild("plugins", build.getNamespace());
+                if (plugins == null) {
+                    System.out.println("what");
+                    plugins = new Element("plugins", build.getNamespace());
+                    build.addContent(plugins);
+                }
+
+                /*
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.2</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+                        <!-- attached to Maven test phase -->
+                        <execution>
+                            <id>report</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                 */
+                Element jacocoPlugin = new Element("plugin", build.getNamespace());
+                jacocoPlugin.addContent(new Element("groupId", build.getNamespace()).setText("org.jacoco"));
+                jacocoPlugin.addContent(new Element("artifactId", build.getNamespace()).setText("jacoco-maven-plugin"));
+                jacocoPlugin.addContent(new Element("version", build.getNamespace()).setText("0.8.5"));
+                Element executions = new Element("executions", build.getNamespace());
+                executions.addContent(
+                        new Element("execution", build.getNamespace()).addContent(
+                                new Element("goals", build.getNamespace()).addContent(
+                                        new Element("goal", build.getNamespace()).setText("prepare-agent")
+                                )
+                        )
+                );
+                executions.addContent(
+                        new Element("execution", build.getNamespace())
+                                .addContent(new Element("id", build.getNamespace()).setText("report"))
+                                .addContent(new Element("phase", build.getNamespace()).setText("test"))
+                                .addContent(
+                                    new Element("goals", build.getNamespace()).addContent(
+                                            new Element("goal", build.getNamespace()).setText("report")
+                                    )
+                                )
+                );
+                jacocoPlugin.addContent(executions);
+
+                // I hate this solution
+                IteratorIterable<Element> groupIds = plugins.getDescendants(Filters.element("groupId", build.getNamespace()));
+                boolean[] hasJacoco = new boolean[]{false};
+                groupIds.forEach(e -> hasJacoco[0] = hasJacoco[0] | e.getText().equals("org.jacoco"));
+
+                if (!hasJacoco[0]) plugins.addContent(jacocoPlugin);
+
+                XMLOutputter xmlOutput = new XMLOutputter();
+
+                // display nice nice
+                xmlOutput.setFormat(Format.getPrettyFormat());
+                xmlOutput.output(doc, new FileWriter(pathToBears+"/pom.xml"));
+//            }
+
+        } catch (IOException | JDOMException e) {
             throw new RuntimeException(e);
         }
 

@@ -3,13 +3,15 @@
 BEARSDIR="$1"
 TEST="$2"
 
-cp lib/jacocoagent.jar $BEARSDIR/
+#cp lib/jacocoagent.jar $BEARSDIR/
 cd $BEARSDIR || exit
-rm -r target
-rm -r .mvn
+#rm -r target
+git clean -xdf
 mvn install -V -B -DskipTests=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true
-mkdir .mvn
-echo '-javaagent:jacocoagent.jar=excludes=org.junit.*,append=false' > .mvn/jvm.config
-mvn -Dtest=$TEST test
+mvn -Dtest=$TEST -DfailIfNoTests=false test
 cd - || exit
-mv $BEARSDIR/jacoco.exec .
+find $BEARSDIR -name jacoco.exec
+mv $(find $BEARSDIR -name jacoco.exec) ./ && echo "Moved Jacoco file" && exit 0
+exit 1
+#mv $BEARSDIR/target/jacoco.exec .
+#mv $BEARSDIR//modules/activiti-engine/target/jacoco.exec .

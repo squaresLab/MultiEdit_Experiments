@@ -98,4 +98,30 @@ public class SpotCheckCoverage {
     public void testBears001() {
         this.bearsCoverage(1);
     }
+
+    @Test
+    public void testBears005() {
+        this.bearsCoverage(5);
+    }
+
+    @Test
+    public void testBears050() {
+        this.bearsCoverage(50);
+    }
+
+    @Test
+    public void testBears142() {
+        // modules/activiti-engine/target
+        this.bearsCoverage(142);
+    }
+
+    @Test
+    public void testBears144() {
+        //
+        this.bearsCoverage(144);
+    }
+
+    public static void main(String[] args) {
+        new SpotCheckCoverage().testBears142();
+    }
 }

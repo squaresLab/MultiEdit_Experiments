@@ -68,6 +68,14 @@ public class JacocoCoverage {
     protected Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, Patch patch, Patch.Version whichVersion) throws IOException {
         Map<String, Set<Integer>> classCoverage = new HashMap<String, Set<Integer>>();
 
+        File classFiles;
+
+        if (whichVersion == Patch.Version.PATCHED) {
+            classFiles = new File(patch.getPatchedClasses());
+        } else {
+            classFiles = new File(patch.getBuggyClasses());
+        }
+
         ExecutionDataStore executionData = new ExecutionDataStore();
 
         final FileInputStream in = new FileInputStream(jacocoFile);
@@ -88,22 +96,13 @@ public class JacocoCoverage {
         final CoverageBuilder coverageBuilder = new CoverageBuilder();
         final Analyzer analyzer = new Analyzer(executionData,
                 coverageBuilder);
-        File file;
-
-        if (whichVersion == Patch.Version.PATCHED) {
-            file = new File(patch.getPatchedClasses());
-        } else {
-            file = new File(patch.getBuggyClasses());
-        }
-        analyzer.analyzeAll(file);
-        System.out.println(executionData.getContents().stream().filter(ed -> ed.getName().startsWith("com/fasterxml")).collect(Collectors.toList()));
+        analyzer.analyzeAll(classFiles);
 
         for (final IClassCoverage cc : coverageBuilder.getClasses()) {
             TreeSet<Integer> coveredLines = new TreeSet<Integer>();
 
             for (int i = cc.getFirstLine(); i <= cc.getLastLine(); i++) {
                 boolean covered = false;
-                System.out.println(cc.getLine(i).getStatus());
                 switch (cc.getLine(i).getStatus()) {
                     case ICounter.PARTLY_COVERED:
                     case ICounter.FULLY_COVERED:
@@ -128,6 +127,8 @@ public class JacocoCoverage {
             existing.addAll(coveredLines);
             classCoverage.put(publicClassName, existing);
         }
+        boolean noCoverage = classCoverage.entrySet().stream().allMatch(e -> e.getValue().isEmpty());
+        if (noCoverage) throw new IllegalStateException("No coverage was recorded for " + patch.toString());
         return classCoverage;
 
     }
@@ -151,18 +152,19 @@ public class JacocoCoverage {
             try {
                 executor.execute(command);
             } catch (ExecuteException exception) {
-                exception.printStackTrace();
+                throw new RuntimeException(exception);
+//                exception.printStackTrace();
             }
-            out.flush();
-            String output = out.toString();
-            out.reset();
-            System.out.println("OUTPUT: " + thisTest);
-            System.out.println(output);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             if (out != null)
                 try {
+                    out.flush();
+                    String output = out.toString();
+                    out.reset();
+                    System.out.println("OUTPUT: " + thisTest);
+                    System.out.println(output);
                     out.close();
                 } catch (IOException e) {
                     // you know, having to either catch or throw

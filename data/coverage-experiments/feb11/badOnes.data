@@ -1,0 +1,1408 @@
+Bears Bug 142
+java.lang.RuntimeException: Could not get coverage for org.activiti.engine.test.bpmn.event.timer.BoundaryTimerNonInterruptingEventTest#testTimerOnUserTask
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 144
+java.lang.RuntimeException: Could not get coverage for dk.alexandra.fresco.tools.cointossing.TestCoinTossing#testDoubleInit
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 145
+java.lang.RuntimeException: Could not get coverage for dk.alexandra.fresco.suite.spdz.storage.TestSpdzConfigurableDataSupplier#testGetNextTriple
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 146
+java.lang.RuntimeException: Could not get coverage for dk.alexandra.fresco.suite.spdz.TestSpdzBasicArithmetic3Parties#testInputFromAllMascot
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 147
+java.lang.RuntimeException: Could not get coverage for dk.alexandra.fresco.suite.dummy.arithmetic.TestDummyArithmeticProtocolSuite#testGenerateRandomBitMask
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 148
+java.lang.RuntimeException: Could not get coverage for dk.alexandra.fresco.suite.spdz2k.datatypes.TestCompUInt96#testConstruct
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 149
+java.lang.RuntimeException: Could not get coverage for com.alibaba.dubbo.rpc.cluster.router.condition.ConditionRouterTest#testRoute_matchFilter
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 150
+java.lang.RuntimeException: Could not get coverage for com.alibaba.com.caucho.hessian.io.LocaleSerializerTest#hessian2
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 151
+java.lang.RuntimeException: Could not get coverage for com.alibaba.dubbo.config.spring.util.PropertySourcesUtilsTest#testGetSubProperties
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 152
+java.lang.RuntimeException: Could not get coverage for com.alibaba.dubbo.rpc.protocol.dubbo.DubboInvokerAvilableTest#test_normal_channel_close_wait_gracefully
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 153
+java.lang.RuntimeException: Could not get coverage for org.apache.servicecomb.serviceregistry.api.registry.TestMicroserviceFactory#testSetDescription
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 154
+java.lang.RuntimeException: Could not get coverage for org.apache.servicecomb.config.TestConfigUtil#testCreateLocalConfigWithExtraConfig
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 155
+java.lang.RuntimeException: Could not get coverage for org.apache.jackrabbit.oak.plugins.document.DisableBranchesTest#backgroundWrite
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 156
+java.lang.RuntimeException: Could not get coverage for com.blazebit.persistence.testsuite.Issue519Test#subselectEntityTest
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 157
+java.lang.RuntimeException: Could not get coverage for org.corfudb.runtime.utils.NodeLocatorTest#testStringWithIdIsEqual
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 158
+java.lang.RuntimeException: Could not get coverage for slash.navigation.csv.ExcelFormatTest#testSetAndGetTime
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 159
+java.lang.RuntimeException: Could not get coverage for io.debezium.connector.postgresql.connection.wal2json.ISODateTimeFormatTest#testTimestamp
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 160
+java.lang.RuntimeException: Could not get coverage for io.debezium.connector.mysql.MySqlDdlParserTest#shouldParseAlterTableStatementWithColumnNamedColumnWithColumnWord
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 161
+java.lang.RuntimeException: Could not get coverage for io.debezium.connector.mysql.MySqlDdlParserTest#parsePartitionReorganize
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 162
+java.lang.RuntimeException: Could not get coverage for io.debezium.connector.mysql.MySqlDdlParserTest#parseDdlForUnscaledDecAndFixed
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 163
+java.lang.RuntimeException: Could not get coverage for io.debezium.connector.mysql.MySqlDdlParserTest#shouldParseAlterTableStatementAddConstraintUniqueKey
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 164
+java.lang.RuntimeException: Could not get coverage for io.debezium.connector.postgresql.connection.wal2json.ISODateTimeFormatTest#testDate
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 165
+java.lang.RuntimeException: java.io.FileNotFoundException: /home/serenach/bears-benchmark/pom.xml (No such file or directory)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:199)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: /home/serenach/bears-benchmark/pom.xml (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:623)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:148)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:806)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:217)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:277)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:264)
+	at org.jdom2.input.SAXBuilder.build(SAXBuilder.java:1116)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:124)
+	... 5 more
+Bears Bug 166
+java.lang.RuntimeException: Could not get coverage for io.enmasse.address.model.v1.address.AddressTest#testCopy
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 167
+java.lang.RuntimeException: Could not get coverage for io.enmasse.controller.api.v1.AddressApiHelperTest#testDuplicateAddresses
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 168
+java.lang.RuntimeException: Could not get coverage for io.enmasse.address.model.v1.address.SerializationTest#testDeserializeAddressSpaceMissingDefaults
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 169
+java.lang.RuntimeException: Could not get coverage for com.linkedin.pinot.core.data.manager.realtime.LLRealtimeSegmentDataManagerTest#testSegmentBuildException
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 170
+java.lang.RuntimeException: Could not get coverage for org.molgenis.semanticmapper.service.impl.AlgorithmServiceImplTest#testApplyWithInvalidScript
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 171
+java.lang.RuntimeException: Could not get coverage for org.molgenis.data.csv.CsvIteratorTest#testIteratorValueHeaderMismatchOneNonEmptyValue
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 172
+java.lang.RuntimeException: Could not get coverage for org.molgenis.data.security.owned.RowLevelSecurityRepositoryDecoratorTest#tearDownAfterMethod
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 173
+java.lang.RuntimeException: Could not get coverage for org.molgenis.data.excel.ExcelRepositoryTest#iteratorDuplicateSheetHeader
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 174
+java.lang.RuntimeException: Could not get coverage for org.molgenis.data.postgresql.PostgreSqlEntityFactoryTest#createRowMapperOneToManyIntegerIds
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 175
+java.lang.RuntimeException: Could not get coverage for org.molgenis.data.importer.DataPersisterImplTest#testPersistMetaNoneDataAddAbstractEntityType
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 176
+java.lang.RuntimeException: Could not get coverage for zipkin2.SpanTest#canUsePrimitiveOverloads
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 177
+java.lang.RuntimeException: Could not get coverage for net.bytebuddy.pool.TypePoolDefaultMethodDescriptionTest#testSyntethicParameter
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 178
+java.lang.RuntimeException: Could not get coverage for net.bytebuddy.implementation.MethodCallTest#testInstanceCallFromStaticMethod
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 179
+java.lang.RuntimeException: Could not get coverage for net.bytebuddy.implementation.bytecode.member.MethodInvocationTest#testExplicitlyVirtualMethodInvocationOfInterfaceOfObjectMethod[1]
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 180
+java.lang.RuntimeException: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:199)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at util.CommandLineRunner.runCommand(CommandLineRunner.java:25)
+	at projects.BearsPatch.checkoutPatched(BearsPatch.java:260)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:119)
+	... 5 more
+Bears Bug 181
+java.lang.RuntimeException: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:199)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at util.CommandLineRunner.runCommand(CommandLineRunner.java:25)
+	at projects.BearsPatch.checkoutPatched(BearsPatch.java:260)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:119)
+	... 5 more
+Bears Bug 182
+java.lang.RuntimeException: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:199)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at util.CommandLineRunner.runCommand(CommandLineRunner.java:25)
+	at projects.BearsPatch.checkoutPatched(BearsPatch.java:260)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:119)
+	... 5 more
+Bears Bug 183
+java.lang.RuntimeException: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:199)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at util.CommandLineRunner.runCommand(CommandLineRunner.java:25)
+	at projects.BearsPatch.checkoutPatched(BearsPatch.java:260)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:119)
+	... 5 more
+Bears Bug 184
+java.lang.RuntimeException: Could not get coverage for org.springframework.data.jpa.util.JpaMetamodelUnitTests#skipsEntityTypesWithoutJavaTypeForIdentifierLookup
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 185
+java.lang.RuntimeException: Could not get coverage for org.springframework.data.jpa.repository.query.JpaQueryLookupStrategyUnitTests#sholdThrowMorePreciseExceptionIfTryingToUsePaginationInNativeQueries
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 186
+java.lang.RuntimeException: Could not get coverage for io.swagger.codegen.languages.JavaJAXRSSpecServerCodegenTest#verify_that_interfaceOnly_is_removed_from_additional_properties_if_false
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 187
+java.lang.RuntimeException: Could not get coverage for io.swagger.codegen.swaggeryaml.SwaggerYamlGeneratorTest#testNumberAsStrings
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 190
+java.lang.RuntimeException: Could not get coverage for io.cassandrareaper.resources.view.NodesStatusTest#testParseEndpoint22WithHostnameStatusString
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 191
+java.lang.RuntimeException: Could not get coverage for io.cassandrareaper.resources.view.NodesStatusTest#testParseIPv6Endpoint21WithHostnameStatusString
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 192
+java.lang.RuntimeException: Could not get coverage for io.cassandrareaper.resources.view.RepairRunStatusTest#testAbortedRepairDuration
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 193
+java.lang.RuntimeException: Could not get coverage for org.activiti.cloud.app.ApplicationTest#contextLoads
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 194
+java.lang.RuntimeException: Could not get coverage for com.gdssecurity.pmd.SanitizersTest#testSanitizerParseInt
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 195
+java.lang.RuntimeException: Could not get coverage for com.alibaba.dubbo.config.AbstractInterfaceConfigTest#checkStubAndMock8
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 196
+java.lang.RuntimeException: Could not get coverage for org.apache.tamaya.spisupport.EnumConverterTest#testConvert_Nulls
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 197
+java.lang.RuntimeException: Could not get coverage for org.jasig.cas.client.util.CommonUtilsTests#testConstructServiceUrlWithServerNameContainingPathAndSchema
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 198
+java.lang.RuntimeException: Could not get coverage for com.amazonaws.encryptionsdk.model.DecryptionMaterialsRequestTest#build
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 199
+java.lang.RuntimeException: Could not get coverage for software.amazon.kinesis.retrieval.polling.PrefetchRecordsPublisherTest#testNoDeadlockOnFullQueue
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 200
+java.lang.RuntimeException: Could not get coverage for org.axonframework.axonserver.connector.event.axon.ErrorCodeTest#testConvertWithoutSource
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 201
+java.lang.RuntimeException: Could not get coverage for com.zaxxer.hikari.pool.TestConnections#testOldDriver
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 202
+java.lang.RuntimeException: Could not get coverage for io.github.classgraph.issues.issue277.Issue227Test#testNoArgsBlacklistLibOrExtJars
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 203
+java.lang.RuntimeException: Could not get coverage for slash.navigation.gpx.Gpx11ExtensionsTest#testWriteTemperature
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 204
+java.lang.RuntimeException: Could not get coverage for client.presenter.controller.util.ViewMessageFactoryTest#createUnregisterResponse
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 205
+java.lang.RuntimeException: Could not get coverage for com.ctrip.framework.apollo.adminservice.controller.ClusterControllerTest#testDeleteDefaultFail
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 206
+java.lang.RuntimeException: Could not get coverage for com.openhtmltopdf.visualregressiontests.VisualRegressionTest#testRtlPageOverflowTransform
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 207
+java.lang.RuntimeException: Could not get coverage for org.broadinstitute.dsde.consent.ontology.resources.SwaggerResourceTest#testNotFound
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 208
+java.lang.RuntimeException: Could not get coverage for io.debezium.connector.mysql.MysqlDefaultValueTest#parseDateDefaultValue
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 210
+java.lang.RuntimeException: Could not get coverage for org.joo.libra.test.TestSqlVariable#testVariable[40]
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 211
+java.lang.RuntimeException: Could not get coverage for com.fasterxml.jackson.dataformat.cbor.filter.StreamingDecoratorsTest#testOutputDecorators
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 212
+java.lang.RuntimeException: Could not get coverage for com.fasterxml.jackson.dataformat.yaml.deser.ParserAutoCloseTest#testParseReaderWithoutAutoClose
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 213
+java.lang.RuntimeException: Could not get coverage for org.springframework.data.ebean.repository.UserRepositoryIntegrationTest#findUserByEmailAddressEqualsOql_pageable
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 214
+java.lang.RuntimeException: Could not get coverage for com.hubspot.baragon.agent.PreferSameRackWeightingBalancedTest#test1d_null
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 215
+java.lang.RuntimeException: Could not get coverage for spoon.test.imports.ImportScannerTest#testImportByJavaDoc
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 216
+java.lang.RuntimeException: Could not get coverage for spoon.test.snippets.SnippetTest#testCompileSnippetWithContext
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 217
+java.lang.RuntimeException: Could not get coverage for spoon.test.signature.SignatureTest#testNullSignatureInUnboundVariable
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 218
+java.lang.RuntimeException: Could not get coverage for spoon.test.position.PositionTest#testPackageDeclaration
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 219
+java.lang.RuntimeException: Could not get coverage for spoon.MavenLauncherTest#spoonMavenLauncherTest
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 220
+java.lang.RuntimeException: Could not get coverage for com.github.underscore.lodash.StringTest#toXmlFromJson21
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 221
+java.lang.NullPointerException
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:137)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Bears Bug 222
+java.lang.RuntimeException: Could not get coverage for org.jgrapht.generate.WattsStrogatzGraphGeneratorTest#testNonIntegerVertices
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 223
+java.lang.RuntimeException: Could not get coverage for com.github.julianps.modelmapper.ValueConverterTest#testNormalListNull
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 224
+java.lang.RuntimeException: Could not get coverage for PipelineTests#basicUsage
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 225
+java.lang.RuntimeException: Could not get coverage for io.lettuce.core.dynamic.output.OutputRegistryCommandOutputFactoryResolverUnitTests#shouldResolveStreamingStringListOutput
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 226
+java.lang.RuntimeException: Could not get coverage for com.milaboratory.core.alignment.kaligner2.KAligner2Test#caseJ1
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 227
+java.lang.RuntimeException: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:199)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at util.CommandLineRunner.runCommand(CommandLineRunner.java:25)
+	at projects.BearsPatch.checkoutPatched(BearsPatch.java:260)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:119)
+	... 5 more
+Bears Bug 228
+java.lang.RuntimeException: Could not get coverage for org.openmrs.module.htmlformentry.RegressionTest#testEditShouldNotClearTimeComponentForm
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 229
+java.lang.RuntimeException: Could not get coverage for org.openmrs.module.webservices.rest.web.v1_0.controller.openmrs1_9.ObsController1_9Test#getObs_shouldCreateAnObsWhenTheQuestionConceptIsSetAsAMapContainingTheUuid
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 230
+java.lang.RuntimeException: Could not get coverage for io.opentracing.contrib.p6spy.JdbcTest#should_report_one_span_with_null_url
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 231
+java.lang.RuntimeException: Could not get coverage for org.jsapar.parse.bean.Bean2CellTest#assign_empty
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 232
+java.lang.RuntimeException: Could not get coverage for com.paritytrading.foundation.ByteArraysTest#shortRoundtrip
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 233
+java.lang.RuntimeException: Could not get coverage for ro.pippo.session.EncryptedSessionDataTranscoderTest#test
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 234
+java.lang.RuntimeException: Could not get coverage for org.cash.count.service.impl.TransferServiceTest#shouldNotExecuteTransfer_accountDisabled
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 235
+java.lang.RuntimeException: Could not get coverage for org.cash.count.service.impl.AccountManagerTest#shouldNotDisableAccount_accountHasChildrenEnabledAccounts
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 236
+java.lang.RuntimeException: Could not get coverage for net.bytebuddy.pool.TypePoolDefaultTypeDescriptionTest#testNonEnclosedAnonymousType
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 237
+java.lang.RuntimeException: Could not get coverage for net.bytebuddy.implementation.FieldAccessorOtherTest#testStaticFieldOfOtherClass
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 238
+java.lang.RuntimeException: Could not get coverage for com.json.ignore.JsonIgnoreFieldsTest#testConstructorMap
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 239
+java.lang.RuntimeException: Could not get coverage for com.shapesecurity.shift.es2017.parser.miscellaneous.AsyncAwaitTest#testAwait
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 240
+java.lang.RuntimeException: Could not get coverage for com.github.smallcreep.cucumber.seeds.suit.StDefaultTest#checkSystemPropertiesOverriddenInContext
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 241
+java.lang.RuntimeException: Could not get coverage for com.societegenerale.cidroid.tasks.consumer.services.ActionToPerformServiceTest#reuseBranchIfAlreadyExistWhenDoing_PULL_REQUEST
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 242
+java.lang.RuntimeException: Could not get coverage for org.sonar.cxx.checks.naming.MethodNameCheckTest#test
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 243
+java.lang.RuntimeException: Could not get coverage for gumtree.spoon.AstComparatorTest#test_t_209184_buggy_allopsNPE
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 244
+java.lang.RuntimeException: Could not get coverage for org.springframework.data.mapping.model.PersistentPropertyAccessorTests#shouldUseReflectionIfFrameworkTypesNotVisible[BeanWrapper]
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 245
+java.lang.RuntimeException: Could not get coverage for com.squareup.javapoet.ParameterSpecTest#addNonFinalModifier
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 246
+java.lang.NullPointerException
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:137)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Bears Bug 247
+java.lang.RuntimeException: Could not get coverage for io.vertx.ext.jdbc.JDBCClientTest#testInsertOneShot
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 248
+java.lang.NullPointerException
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:137)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Bears Bug 249
+java.lang.RuntimeException: Could not get coverage for org.imdea.vcd.queue.ConfQueueTest#testAdd2
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 250
+java.lang.RuntimeException: Could not get coverage for org.la4j.vector.sparse.CompressedVectorTest#testFromMap_unordered
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:59)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: jacoco.exec (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at multiedit.coverage.JacocoCoverage.getCoverageInfo(JacocoCoverage.java:73)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:56)
+	... 3 more
+Bears Bug 251
+java.lang.RuntimeException: java.io.FileNotFoundException: /home/serenach/bears-benchmark/pom.xml (No such file or directory)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:199)
+	at multiedit.coverage.JacocoCoverage.internalTestCase(JacocoCoverage.java:135)
+	at multiedit.coverage.JacocoCoverage.getCoverageForTest(JacocoCoverage.java:51)
+	at multiedit.coverage.JacocoCoverage.getCoverageSomeTests(JacocoCoverage.java:42)
+	at multiedit.coverage.JacocoCoverage.getCoverageFailingTests(JacocoCoverage.java:31)
+	at multiedit.coverage.DoCoverageExperiments.main(DoCoverageExperiments.java:65)
+Caused by: java.io.FileNotFoundException: /home/serenach/bears-benchmark/pom.xml (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:623)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:148)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:806)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:217)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:277)
+	at org.jdom2.input.sax.SAXBuilderEngine.build(SAXBuilderEngine.java:264)
+	at org.jdom2.input.SAXBuilder.build(SAXBuilder.java:1116)
+	at projects.BearsPatch.getTestCommand(BearsPatch.java:124)
+	... 5 more
