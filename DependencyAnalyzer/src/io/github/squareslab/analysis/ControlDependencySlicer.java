@@ -2,9 +2,7 @@ package io.github.squareslab.analysis;
 
 import soot.Unit;
 import soot.toolkits.graph.UnitGraph;
-import soot.toolkits.graph.pdg.PDGNode;
-import soot.toolkits.graph.pdg.PDGRegion;
-import soot.toolkits.graph.pdg.ProgramDependenceGraph;
+import soot.toolkits.graph.pdg.*;
 
 import java.util.*;
 
@@ -57,11 +55,16 @@ public class ControlDependencySlicer
 		{
 			lineNumbers.add(nodeToLineMap.get(node));
 		}
-		else if (node.getNode() instanceof PDGRegion)
+		else if (node.getNode() instanceof IRegion)
 		{
-			for (PDGNode subNode : (PDGRegion) node.getNode())
+			Collection<Unit> constituentUnits = ((IRegion) node.getNode()).getUnits();
+			for (Unit unitOfNode : constituentUnits)
 			{
-				lineNumbers.addAll(getLineNumbers(subNode));
+				if (unitToLineMap.containsKey(unitOfNode))
+					lineNumbers.add(unitToLineMap.get(unitOfNode));
+				else if (unitOfNode.getJavaSourceStartLineNumber() == -1); //we know this is a case to skip
+				else
+					System.out.println("I don't know what to do with " + unitOfNode.toString());
 			}
 		}
 		else
