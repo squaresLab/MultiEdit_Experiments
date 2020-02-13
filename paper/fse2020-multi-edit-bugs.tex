@@ -64,7 +64,106 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 \section{Introduction}
 
 \section{Background}
+\subsection{Automated Program Repair (APR)}
+Automated program repair (APR) techniques aim to find patches for broken programs. 
+Given a buggy program and an oracle for program correctness (e.g: test cases), APR 
+techniques attempt to produce a series of edits that causes the program to satisfy the 
+correctness oracle. 
 
+A popular search-based repair technique is to treat program repair as an optimization 
+problem, where the repair technique attempts uses a heuristic for patch quality to guide 
+the search for a high quality patch within the space of possible patches. A popular heuristic
+measure of patch quality is the number of passing test cases.
+
+\subsection{Fault Localization}
+
+
+\section{Fitness Experiment}
+
+When automatic program repair techniques attempt to generate a multi-edit repair to a buggy program, it is important to have some way to identify edits that are partial repairs (i.e. part of the multi-edit full repair). One popular way to do so is to run unit tests through the edited code and compare the result to the original buggy code's test results, and see if the edited code did better in tests. This approach assumes that making some (but not all) of the edits necessary in a multi-edit repair would improve the code's test performance, and we designed this experiment to further explore on this topic.
+
+
+\subsection{Partial Repairs}
+
+For each bug in Defects4j (excluding Clojure bugs) and Bears, we look at the provided correct patch and divide it into edit chunks using the following steps:
+
+1. Each consecutive block of edits (including both insertion and deletion) is labeled as one chunk.
+
+2. Discard all edits that does not actually affect the program (such as comment change, fixing spaces, etc)
+
+3. If a set of matched brackets that are both inserted or deleted in two different chunk, merge those two chunks into one; if a bracket is deleted in one chunk but inserted back in another chunk (matched to the same opposite bracket), merge these two chunks into one
+
+4. We introduce a new set of edits, Base, initially empty. If a variable declaration is deleted, discard the deletion edit; if a variable declaration is inserted, move this edit to Base; if a variable declaration is moved upwards in code, move the variable moving edits to Base; if a variable declaration is moved downwards in code, discard the moving edits. Declaration modifications (i.e. changing parts of the variable declaration, but not the variable name or the location of the declaration), however, does not belong to any of the cases above.
+
+5. Any insertion of imports or additional helper methods are moved to Base; any deletion of imports or helper methods is discarded
+
+After the steps above, we count the number of remaining chunks (not including Base) and call it the chunk number of the bug, label the chunks with positive numbers, and make a power set of the chunks excluding the empty set and the complete set. Then, for each subset of the chunks, we apply all edits in chunks in this subset and Base to the original buggy code, and we define this as a partial repair. For a bug with chunk number n, it should have $2^n-2$ partial repairs. 
+
+In this experiment, each edit chunk will be viewed as a single edit. Thus, only bugs with chunk number between 2 and 6 (inclusive) is selected, as bugs with chunk number more than 6 are rare but has too many partial repairs to evaluate.
+
+Note that the reason of steps 4 and 5 is to make sure that all declarations are present in all partial repairs such that the partial repairs compile (thus can be tested). Since there are almost no cases where a declaration in patch have side effects, it is okay to include redundant variable/method declarations in partial repairs, as they will not affect the program's performance in unit tests. 
+
+\subsection{Unit Testing Granularity}
+
+There are different ways to compare unit test results, and the most common ways are class-level granularity and method-level granularity. At Class-level granularity, we only look at which test classes passed and which failed; at method-level granularity, we look at which test methods passed and which failed.
+
+Here we introduce a third level of granularity: assertion-level granularity. For each test method $M$, let $A(M)$ be the set of all assert statements in $M$. When $M$ is run, if an assertion failed, the failure is recorded and the method is allowed to continue to run (as opposed to normally the test method throws an error and terminates). After running the method, for each assert statement $a\in A(M)$, let $b(a)$ be 1 if $a$ never failed once during the running of $M$, and 0 otherwise. We define the assertion score of $M$ to be $AS(M)=\frac{\Sigma_{a\in A(M)}b(a)}{|A(M)|}$. If $M$ failed to run to completion due to timeouts or exceptions that are not related to assertions, then we define $AS(M)=0$. Thus by definition, $AS(M)=1$ if $M$ passes. If a program passed more assertions in $M$, there should be an increase in $AS(M)$.
+
+\subsection{Test Result Notations}
+
+For each bug, run unit tests on all three levels of granularity on the original buggy code and all partial repairs. Then, the test results of each partial repair is compared to the test results of the original buggy code, and the comparison result is represented using one of the following labels (PR means partial repair, OBC means original buggy code):
+
+\begin{tabular}{| l | l |}
+\hline
+  Label & Meaning \\
+  
+  \hline
+  c+ & PR passed more test classes than OBC  \\\hline
+  c- & PR passed less test classes than OBC  \\\hline
+  m+ & PR and OBC passed same number of test classes, \\
+  & PR passed more methods than OBC and passed all methods that OBC passed\\\hline
+  m- & PR and OBC passed same number of test classes, \\
+  & OBC passed more methods than PR and passed all methods that PR passed\\\hline
+  m\~ & PR and OBC passed same number of test classes, \\
+  & PR passed some methods that OBC didn't, \\
+  & and OBC passed some methods that PR didn't \\\hline
+  a+ & PR and OBC passed exact same test methods, \\
+  & PR has higher assertion scores in some failed methods than OBC \\
+  & and has equal assertion scores in all other failed methods \\\hline
+  a- & PR and OBC passed exact same test methods, \\
+  & PR has lower assertion scores in some failed methods than OBC \\
+  & and has equal assertion scores in all other failed methods \\\hline
+  a\~ & PR and OBC passed exact same test methods, \\
+  & PR has higher assertion scores in some failed methods than OBC \\
+  & and has lower assertion scores in some other failed methods \\\hline
+  0 & PR and OBC passed exact same test methods \\
+  & and has same assertion score for all failed methods \\ \hline
+  NC & PR did not compile \\\hline
+ 
+  
+\end{tabular}
+
+
+\subsection{Unminimized Results}
+
+After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs in Bears that has chunk number between 2 and 6. 
+
+...(TODO: results of unminimized experiment)
+
+\subsection{Minimized Results}
+
+During the experiment, we found that sometimes not all edit chunks of a bug is necessary to pass all tests, because one or more of its partial repairs passed all tests. This means that some chunks in the provided correct patch is redundant. 
+
+Sicne we're only interested in edits that are necessary for the repair, we processed the data to ignore redundant chunks and all partial repairs that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears bugs are affected. Some bugs ends up with chunk number 1 after minimization, so they are not included in the Minimized results. The minimized results include 75 remaining bugs in defects4j and 38 remaining bugs of Bears.
+
+...(TODO: results of minimized experiment)
+
+\section{Related Work}
+Zhong and Su~\cite{zhong2015} did this and that.
+
+Wang et al.~\cite{wang2018} did this and that.
+
+Schulte et al.~\cite{schulte} did this and that.
 
 
 \bibliographystyle{ACM-Reference-Format}
