@@ -47,11 +47,11 @@ public class Utils {
 		}
 	}
 
-	private static class ExitTrappedException extends SecurityException { }
+	public static class ExitTrappedException extends SecurityException { }
 
 	/** forbids System.exit() calls in Soot */
 	// code courtesy of http://stackoverflow.com/questions/5401281/preventing-system-exit-from-api
-	private static void forbidSystemExitCall() {
+	public static void forbidSystemExitCall() {
 		final SecurityManager securityManager = new SecurityManager() {
 			public void checkPermission( Permission permission ) {
 				if( permission.getName().startsWith("exitVM") ) {
@@ -62,7 +62,7 @@ public class Utils {
 		System.setSecurityManager( securityManager ) ;
 	}
 
-	private static void enableSystemExitCall() {
+	public static void enableSystemExitCall() {
 		System.setSecurityManager( null ) ;
 	}
 }

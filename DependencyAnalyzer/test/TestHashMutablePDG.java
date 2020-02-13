@@ -2,24 +2,40 @@ import io.github.squareslab.Main;
 import io.github.squareslab.analysis.ControlDependencyAnalysis;
 import io.github.squareslab.analysis.DataDependencyAnalysis;
 import io.github.squareslab.common.Utils;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import soot.Pack;
 import soot.PackManager;
 import soot.Transform;
 
+import java.security.Permission;
 import java.util.ArrayList;
 import java.util.Collection;
 
 
 public class TestHashMutablePDG
 {
-	@Test
+	@Before
+	public void beforeTest()
+	{
+		Utils.forbidSystemExitCall();
+	}
+
+	@After
+	public void afterTest()
+	{
+		Utils.enableSystemExitCall();
+	}
+
+	@Test(expected = Utils.ExitTrappedException.class)
 	public void testUsageScreen()
 	{
 		String[] args = {};
 		Main.main(args);
 	}
 
-	@Test
+	@Test(expected = Utils.ExitTrappedException.class)
 	public void testNoAnalysisChosen()
 	{
 		String testCp = "test-resources/Math31b";
@@ -29,7 +45,7 @@ public class TestHashMutablePDG
 		Main.main(args);
 	}
 
-	@Test
+	@Test(expected = Utils.ExitTrappedException.class)
 	public void testNoOutputTypeChosen()
 	{
 		String testCp = "test-resources/Math31b";
@@ -39,7 +55,7 @@ public class TestHashMutablePDG
 		Main.main(args);
 	}
 
-	@Test
+	@Test(expected = Utils.ExitTrappedException.class)
 	public void testNoAnalysisOrOutputTypeChosen()
 	{
 		String testCp = "test-resources/Math31b";
@@ -55,7 +71,7 @@ public class TestHashMutablePDG
 		String testCp = "test-resources/Math31b";
 		String target = "org.apache.commons.math3.util.ContinuedFraction";
 		String output = "test-output/testControlDependency.out";
-		String[] args = {"-Dc", "-tcp", testCp, "-t", target, "-o", output, "-Om", "-lines", "172"};
+		String[] args = {"-Dc", "-tcp", testCp, "-t", target, "-o", output, "-Om", "-lines", "170"};
 		Main.main(args);
 	}
 
@@ -69,7 +85,7 @@ public class TestHashMutablePDG
 		Main.main(args);
 	}
 
-	@Test
+	@Test(expected = UnsupportedOperationException.class)
 	public void testSimultaneousControlAndDataDependency()
 	{
 		String testCp = "test-resources/Math31b";
