@@ -183,4 +183,9 @@ public class ControlDependencySlicer
 
 		return backslices;
 	}
+
+	public Map<Integer, Collection<Integer>> getAllBackslices()
+	{
+		return getBackslices(linesToNodesMap.keySet());
+	}
 }

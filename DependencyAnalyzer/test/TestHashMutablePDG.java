@@ -55,7 +55,7 @@ public class TestHashMutablePDG
 		String testCp = "test-resources/Math31b";
 		String target = "org.apache.commons.math3.util.ContinuedFraction";
 		String output = "test-output/testControlDependency.out";
-		String[] args = {"-Dc", "-tcp", testCp, "-t", target, "-o", output, "-Om", "-lines", "170"};
+		String[] args = {"-Dc", "-tcp", testCp, "-t", target, "-o", output, "-Om", "-lines", "172"};
 		Main.main(args);
 	}
 
@@ -76,6 +76,26 @@ public class TestHashMutablePDG
 		String target = "org.apache.commons.math3.util.ContinuedFraction";
 		String output = "test-output/testSimultaneousControlDataDependency.out";
 		String[] args = {"-Dc", "-Df", "-tcp", testCp, "-t", target, "-o", output, "-Om", "-lines", "170"};
+		Main.main(args);
+	}
+
+	@Test
+	public void testMultiLinesDependency()
+	{
+		String testCp = "test-resources/Math31b";
+		String target = "org.apache.commons.math3.util.ContinuedFraction";
+		String output = "test-output/testMultiLinesDependency.out";
+		String[] args = {"-Dc", "-tcp", testCp, "-t", target, "-o", output, "-Om", "-lines", "173", "139"};
+		Main.main(args);
+	}
+
+	@Test
+	public void testAllLinesDependency()
+	{
+		String testCp = "test-resources/Math31b";
+		String target = "org.apache.commons.math3.util.ContinuedFraction";
+		String output = "test-output/testAllLinesDependency.out";
+		String[] args = {"-Dc", "-tcp", testCp, "-t", target, "-o", output, "-Om"};
 		Main.main(args);
 	}
 }

@@ -1,6 +1,7 @@
 package io.github.squareslab.analysis;
 
 import io.github.squareslab.common.DataAggregator;
+import manifold.shade.org.jetbrains.annotations.Nullable;
 import soot.Body;
 import soot.BodyTransformer;
 import soot.SootMethod;
@@ -18,7 +19,7 @@ public class ControlDependencyAnalysis extends BodyTransformer
 
 	private Collection<Integer> lineNumsOfInterest;
 
-	public ControlDependencyAnalysis(Collection<Integer> lineNumbersOfInterest)
+	public ControlDependencyAnalysis(@Nullable Collection<Integer> lineNumbersOfInterest)
 	{
 		super();
 
@@ -35,7 +36,12 @@ public class ControlDependencyAnalysis extends BodyTransformer
 
 		ControlDependencySlicer slicer = new ControlDependencySlicer(pdg);
 
-		Map<Integer, Collection<Integer>> slices = slicer.getBackslices(lineNumsOfInterest);
+		Map<Integer, Collection<Integer>> slices;
+
+		if (lineNumsOfInterest == null)
+			slices = slicer.getAllBackslices();
+		else
+			slices = slicer.getBackslices(lineNumsOfInterest);
 
 		DataAggregator.getInstance().addDependencies(slices);
 	}

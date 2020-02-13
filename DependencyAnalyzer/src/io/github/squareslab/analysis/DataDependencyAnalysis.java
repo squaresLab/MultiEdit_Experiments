@@ -1,6 +1,7 @@
 package io.github.squareslab.analysis;
 
 import io.github.squareslab.common.DataAggregator;
+import manifold.shade.org.jetbrains.annotations.Nullable;
 import soot.*;
 import soot.toolkits.graph.ExceptionalUnitGraph;
 import soot.toolkits.graph.UnitGraph;
@@ -14,7 +15,7 @@ public class DataDependencyAnalysis extends BodyTransformer
 	private Collection<Integer> lineNumsOfInterest;
 	private Configuration config;
 
-	public DataDependencyAnalysis(Collection<Integer> lineNumbersOfInterest, Configuration configuration)
+	public DataDependencyAnalysis(@Nullable Collection<Integer> lineNumbersOfInterest, Configuration configuration)
 	{
 		super();
 
@@ -30,7 +31,12 @@ public class DataDependencyAnalysis extends BodyTransformer
 
 		DataDependencySlicer slicer = new DataDependencySlicer(graph, config);
 
-		Map<Integer, Collection<Integer>> slices = slicer.getBackslices(lineNumsOfInterest);
+		Map<Integer, Collection<Integer>> slices;
+
+		if (lineNumsOfInterest == null)
+			slices = slicer.getAllBackslices();
+		else
+			slices = slicer.getBackslices(lineNumsOfInterest);
 
 		DataAggregator.getInstance().addDependencies(slices);
 	}

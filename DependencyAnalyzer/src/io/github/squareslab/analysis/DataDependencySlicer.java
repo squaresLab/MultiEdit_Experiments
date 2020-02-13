@@ -231,4 +231,9 @@ public class DataDependencySlicer
 
 		return backslices;
 	}
+
+	public Map<Integer, Collection<Integer>> getAllBackslices()
+	{
+		return getBackslices(linesToUnitsMap.keySet());
+	}
 }

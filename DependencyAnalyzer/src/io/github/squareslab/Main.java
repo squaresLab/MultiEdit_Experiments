@@ -81,9 +81,9 @@ public class Main
 		options.addOption(outputDependencyExistence);
 
 		Option linesToAnalyze = new Option("lines", OPTION_LINES, true,
-				"Line(s) to back-slice from.");
+				"Line(s) to back-slice from. Default is to slice all lines (which might be slow).");
 		linesToAnalyze.setArgs(Option.UNLIMITED_VALUES);
-		linesToAnalyze.setRequired(true);
+		linesToAnalyze.setRequired(false);
 		options.addOption(linesToAnalyze);
 
 		return options;
@@ -142,7 +142,14 @@ public class Main
 		String outputPath = cmdLine.getOptionValue(OPTION_OUTPUT);
 		boolean outputMap = cmdLine.hasOption(OPTION_OUT_MAP);
 		boolean outputExistence = cmdLine.hasOption(OPTION_OUT_EXIST);
-		Collection<Integer> lineNumsOfInterest = parseIntOptions(cmdLine.getOptionValues(OPTION_LINES));
+		Collection<Integer> lineNumsOfInterest;
+		if (cmdLine.hasOption(OPTION_LINES))
+		{
+			String[] lineNumStrings = cmdLine.getOptionValues(OPTION_LINES);
+			lineNumsOfInterest = lineNumStrings.length > 0 ? parseIntOptions(lineNumStrings) : null;
+		}
+		else
+			lineNumsOfInterest = null;
 
 		boolean atLeastOneAnalysis = runCtrlAnalysis || runFlowAnalysis || runAntiAnalysis || runOutAnalysis;
 		boolean atLeastOneOutputType = outputMap || outputExistence;
