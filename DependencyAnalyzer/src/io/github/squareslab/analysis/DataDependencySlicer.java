@@ -20,45 +20,9 @@ public class DataDependencySlicer
 		this.graph = unitGraph;
 		this.config = configuration;
 
-		this.linesToUnitsMap = getLinesToUnitsMap(graph);
+		this.linesToUnitsMap = LineMappingAlgorithms.getLinesToUnitsMap(graph);
 		this.dataflowMap = ReadWriteAnalysis.getReadWriteSets(graph);
-		this.unitToLineMap = getUnitToLineMap(this.linesToUnitsMap);
-	}
-
-	private static Map<Unit, Integer> getUnitToLineMap(Map<Integer, Collection<Unit>> linesToUnitsMapping)
-	{
-		Map<Unit, Integer> unitToLineMap = new HashMap<>();
-
-		for(int line : linesToUnitsMapping.keySet())
-		{
-			for(Unit unit : linesToUnitsMapping.get(line))
-			{
-				unitToLineMap.put(unit, line);
-			}
-		}
-
-		return unitToLineMap;
-	}
-
-	private static Map<Integer, Collection<Unit>> getLinesToUnitsMap(Iterable<Unit> units)
-	{
-		Map<Integer, Collection<Unit>> map = new HashMap<>();
-
-		for (Unit unit : units)
-		{
-			int lineNum = unit.getJavaSourceStartLineNumber();
-
-			//if lineNum is previously unseen, add an empty value set to map
-			if (! map.containsKey(lineNum))
-			{
-				Collection<Unit> unitsForLineNum = new ArrayList<>();
-				map.put(lineNum, unitsForLineNum);
-			}
-
-			map.get(lineNum).add(unit);
-		}
-
-		return map;
+		this.unitToLineMap = LineMappingAlgorithms.getUnitToLineMap(this.linesToUnitsMap);
 	}
 
 	private void getCFGBackslice(Unit start, LinkedHashSet<Unit> partialSlice)

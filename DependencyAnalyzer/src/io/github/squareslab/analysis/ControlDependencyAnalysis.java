@@ -34,7 +34,7 @@ public class ControlDependencyAnalysis extends BodyTransformer
 		UnitGraph unitGraph = new ExceptionalUnitGraph(body);
 		ProgramDependenceGraph pdg = new HashMutablePDG(unitGraph);
 
-		ControlDependencySlicer slicer = new ControlDependencySlicer(pdg);
+		ControlDependencySlicer slicer = new ControlDependencySlicer(pdg, unitGraph);
 
 		Map<Integer, Collection<Integer>> slices;
 
