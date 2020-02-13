@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class TestHashMutablePDG
+public class Tests
 {
 	@Before
 	public void beforeTest()
