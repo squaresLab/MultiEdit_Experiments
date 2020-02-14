@@ -11,6 +11,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="systems.manifold:manifold:0.29-alpha" level="project" />
-    <orderEntry type="library" name="systems.manifold:manifold-all:2019.1.11" level="project" />
+    <orderEntry type="library" name="commons-cli:commons-cli:1.4" level="project" />
   </component>
 </module>

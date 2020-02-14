@@ -1,849 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29e79bf1-0f3c-4f16-8370-1670cf58d420" name="Default" comment="Add configurations for flow/anti/output dependencies">
+    <list default="true" id="29e79bf1-0f3c-4f16-8370-1670cf58d420" name="Default" comment="IDE files">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/DependencyAnalyzer_jar.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/Field.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/FieldElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/BivariateFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/DifferentiableMultivariateFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/DifferentiableMultivariateVectorFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/DifferentiableUnivariateFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/DifferentiableUnivariateMatrixFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/DifferentiableUnivariateVectorFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$10.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$2$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$4$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$6$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$7.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$8.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils$9.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/FunctionUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/MultivariateFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/MultivariateMatrixFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/MultivariateVectorFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/ParametricUnivariateFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/TrivariateFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/UnivariateFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/UnivariateMatrixFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/UnivariateVectorFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Abs.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Acos$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Acos.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Acosh$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Acosh.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Add.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Asin$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Asin.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Asinh$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Asinh.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Atan$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Atan.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Atan2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Atanh$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Atanh.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Cbrt$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Cbrt.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Ceil.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Constant.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Cos$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Cos.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Cosh.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Divide.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Exp$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Exp.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Expm1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Expm1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Floor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Gaussian$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Gaussian$Parametric.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Gaussian.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/HarmonicOscillator$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/HarmonicOscillator$Parametric.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/HarmonicOscillator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Identity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Inverse$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Inverse.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Log$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Log.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Log10$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Log10.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Log1p$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Log1p.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Logistic$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Logistic$Parametric.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Logistic.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Logit$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Logit$Parametric.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Logit.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Max.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Min.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Minus.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Multiply.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Pow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Power$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Power.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Rint.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sigmoid$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sigmoid$Parametric.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sigmoid.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Signum.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sin.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sinc$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sinc$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sinc.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sinh.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sqrt$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Sqrt.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/StepFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Subtract.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Tan$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Tan.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Tanh$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Tanh.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/Ulp.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/function/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/integration/BaseAbstractUnivariateIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/integration/LegendreGaussIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/integration/RombergIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/integration/SimpsonIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/integration/TrapezoidIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/integration/UnivariateIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/integration/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BicubicSplineFunction$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BicubicSplineFunction$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BicubicSplineFunction$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BicubicSplineFunction$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BicubicSplineFunction$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BicubicSplineFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatingFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/BivariateGridInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/DividedDifferenceInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/LinearInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction$MicrosphereSurfaceElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/MultivariateInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/NevilleInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/SmoothingPolynomialBicubicSplineInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/SplineInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/TricubicSplineFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatingFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/TrivariateGridInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/UnivariateInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/UnivariatePeriodicInterpolator$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/UnivariatePeriodicInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/interpolation/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialFunction$Parametric.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionNewtonForm.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialSplineFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils$JacobiKey.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils$RecurrenceCoefficientsGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/polynomials/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/AbstractDifferentiableUnivariateSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/AbstractPolynomialSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/AbstractUnivariateSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/AllowedSolution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BaseAbstractUnivariateSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BaseSecantSolver$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BaseSecantSolver$Method.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BaseSecantSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BaseUnivariateSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BisectionSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BracketedUnivariateSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BracketingNthOrderBrentSolver$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BracketingNthOrderBrentSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/BrentSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/DifferentiableUnivariateSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/IllinoisSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/LaguerreSolver$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/LaguerreSolver$ComplexSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/LaguerreSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/MullerSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/MullerSolver2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/NewtonSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/PegasusSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/PolynomialSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/RegulaFalsiSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/RiddersSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/SecantSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/UnivariateSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/UnivariateSolverUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/analysis/solvers/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/complex/Complex.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/complex/ComplexField$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/complex/ComplexField$LazyHolder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/complex/ComplexField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/complex/ComplexFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/complex/ComplexUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/complex/RootsOfUnity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/complex/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/Dfp$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/Dfp.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/DfpDec$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/DfpDec.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/DfpField$RoundingMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/DfpField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/DfpMath.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/UnivariateDfpFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/dfp/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/AbstractIntegerDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/AbstractRealDistribution$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/AbstractRealDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/BetaDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/BinomialDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/CauchyDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/ChiSquaredDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/ExponentialDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/FDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/GammaDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/HypergeometricDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/IntegerDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/KolmogorovSmirnovDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/LogNormalDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/NormalDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/PascalDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/PoissonDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/RealDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/SaddlePointExpansion.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/TDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/TriangularDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/UniformIntegerDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/UniformRealDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/WeibullDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/ZipfDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/distribution/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/ConvergenceException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/DimensionMismatchException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MathArithmeticException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MathIllegalArgumentException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MathIllegalNumberException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MathIllegalStateException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MathInternalError.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MathParseException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MathUnsupportedOperationException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MaxCountExceededException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/MultiDimensionMismatchException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NoBracketingException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NoDataException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NonMonotonicSequenceException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NotFiniteNumberException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NotPositiveException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NotStrictlyPositiveException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NullArgumentException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NumberIsTooLargeException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/NumberIsTooSmallException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/OutOfRangeException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/TooManyEvaluationsException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/ZeroException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/util/ArgUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/util/DummyLocalizable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/util/ExceptionContext.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/util/ExceptionContextProvider.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/util/Localizable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/util/LocalizedFormats.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/exception/util/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/filter/DefaultMeasurementModel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/filter/DefaultProcessModel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/filter/KalmanFilter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/filter/MeasurementModel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/filter/ProcessModel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/filter/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/AbstractFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/BigFraction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/BigFractionField$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/BigFractionField$LazyHolder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/BigFractionField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/BigFractionFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/Fraction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/FractionConversionException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/FractionField$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/FractionField$LazyHolder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/FractionField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/FractionFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/ProperBigFractionFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/ProperFractionFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/fraction/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/AbstractListChromosome.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/BinaryChromosome.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/BinaryMutation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/Chromosome.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/ChromosomePair.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/CrossoverPolicy.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/ElitisticListPopulation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/Fitness.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/FixedElapsedTime.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/FixedGenerationCount.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/GeneticAlgorithm.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/InvalidRepresentationException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/ListPopulation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/MutationPolicy.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/OnePointCrossover.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/PermutationChromosome.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/Population.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/RandomKey.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/RandomKeyMutation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/SelectionPolicy.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/StoppingCondition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/TournamentSelection$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/TournamentSelection.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/genetics/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/Space.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/Vector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/VectorFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/Euclidean1D$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/Euclidean1D$LazyHolder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/Euclidean1D.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/Interval.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/OrientedPoint.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/SubOrientedPoint.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/Vector1D.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/Vector1DFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/oned/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/CardanEulerSingularityException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Euclidean3D$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Euclidean3D$LazyHolder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Euclidean3D.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Line.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/NotARotationMatrixException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/OutlineExtractor$BoundaryProjector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/OutlineExtractor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Plane.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet$FacetsContributionVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet$RotationTransform.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet$TranslationTransform.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Rotation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/RotationOrder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Segment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/SubLine.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Vector3D.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/Vector3DFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/threed/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Euclidean2D$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Euclidean2D$LazyHolder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Euclidean2D.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Line$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Line$LineTransform.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Line.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/NestedLoops.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet$ComparableSegment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet$SegmentsBuilder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Segment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/SubLine.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Vector2D.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/Vector2DFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/euclidean/twod/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/AbstractRegion$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/AbstractRegion$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/AbstractRegion$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/AbstractRegion$Sides.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/AbstractRegion.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/AbstractSubHyperplane.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/BSPTree$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/BSPTree$LeafMerger.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/BSPTree.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/BSPTreeVisitor$Order.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/BSPTreeVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/BoundaryAttribute.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/BoundarySizeVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/Characterization.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/Embedding.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/Hyperplane.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/Region$Location.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/Region.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/RegionFactory$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/RegionFactory$DifferenceMerger.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/RegionFactory$IntersectionMerger.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/RegionFactory$NodesCleaner.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/RegionFactory$UnionMerger.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/RegionFactory$XorMerger.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/RegionFactory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/Side.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/SubHyperplane$SplitSubHyperplane.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/SubHyperplane.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/Transform.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree$Node.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree$Skew.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/geometry/partitioning/utilities/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractFieldMatrix$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractFieldMatrix$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractFieldMatrix$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractFieldMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractRealMatrix$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractRealMatrix$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractRealMatrix$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractRealMatrix$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractRealMatrix$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AbstractRealMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/AnyMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/Array2DRowFieldMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/Array2DRowRealMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/ArrayFieldVector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/ArrayRealVector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/BiDiagonalTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/BlockFieldMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/BlockRealMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/CholeskyDecomposition$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/CholeskyDecomposition$Solver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/CholeskyDecomposition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/ConjugateGradient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/DecompositionSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/DefaultFieldMatrixChangingVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/DefaultFieldMatrixPreservingVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/DefaultIterativeLinearSolverEvent.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/DefaultRealMatrixChangingVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/DefaultRealMatrixPreservingVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/EigenDecomposition$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/EigenDecomposition$Solver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/EigenDecomposition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/FieldDecompositionSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/FieldLUDecomposition$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/FieldLUDecomposition$Solver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/FieldLUDecomposition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/FieldMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/FieldMatrixChangingVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/FieldMatrixPreservingVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/FieldVector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/HessenbergTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/IllConditionedOperatorException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/IterativeLinearSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/IterativeLinearSolverEvent.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/JacobiPreconditioner$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/JacobiPreconditioner.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/LUDecomposition$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/LUDecomposition$Solver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/LUDecomposition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/MatrixDimensionMismatchException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/MatrixUtils$BigFractionMatrixConverter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/MatrixUtils$FractionMatrixConverter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/MatrixUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/NonPositiveDefiniteMatrixException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/NonPositiveDefiniteOperatorException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/NonSelfAdjointOperatorException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/NonSquareMatrixException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/NonSquareOperatorException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/NonSymmetricMatrixException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/OpenMapRealMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/OpenMapRealVector$OpenMapEntry.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/OpenMapRealVector$OpenMapSparseIterator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/OpenMapRealVector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/PreconditionedIterativeLinearSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/QRDecomposition$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/QRDecomposition$Solver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/QRDecomposition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealLinearOperator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealMatrixChangingVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealMatrixPreservingVisitor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVector$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVector$2$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVector$2$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVector$2$UnmodifiableEntry.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVector$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVector$Entry.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVector$SparseEntryIterator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RealVectorFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SchurTransformer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SchurTransformer$ShiftInfo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SchurTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SingularMatrixException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SingularOperatorException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SingularValueDecomposition$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SingularValueDecomposition$Solver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SingularValueDecomposition.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SparseFieldMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SparseFieldVector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SparseRealMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SparseRealVector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SymmLQ$State.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/SymmLQ.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/TriDiagonalTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/linear/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/AbstractIntegrator$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/AbstractIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/AbstractParameterizable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ContinuousOutputModel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/EquationsMapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ExpandableStatefulODE$SecondaryComponent.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ExpandableStatefulODE.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/FirstOrderConverter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/FirstOrderDifferentialEquations.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/FirstOrderIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/JacobianMatrices$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/JacobianMatrices$JacobiansSecondaryEquations.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/JacobianMatrices$MainStateJacobianWrapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/JacobianMatrices.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/MainStateJacobianProvider.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/MultistepIntegrator$CountingDifferentialEquations.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/MultistepIntegrator$InitializationCompletedMarkerException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/MultistepIntegrator$NordsieckInitializer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/MultistepIntegrator$NordsieckTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/MultistepIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ODEIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ParameterConfiguration.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ParameterJacobianProvider.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ParameterJacobianWrapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/Parameterizable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ParameterizedODE.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/ParameterizedWrapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/SecondOrderDifferentialEquations.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/SecondOrderIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/SecondaryEquations.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/events/EventHandler$Action.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/events/EventHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/events/EventState$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/events/EventState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/events/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/AdamsBashforthIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/AdamsIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/AdamsMoultonIntegrator$Corrector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/AdamsMoultonIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/AdamsNordsieckTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/AdaptiveStepsizeIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/ClassicalRungeKuttaIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/ClassicalRungeKuttaStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/DormandPrince54Integrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/DormandPrince54StepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/DormandPrince853Integrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/DormandPrince853StepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/EulerIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/EulerStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/GillIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/GillStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/HighamHall54Integrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/HighamHall54StepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/MidpointIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/MidpointStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/RungeKuttaIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/RungeKuttaStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/ThreeEighthesIntegrator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/ThreeEighthesStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/nonstiff/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/DummyStepHandler$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/DummyStepHandler$LazyHolder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/DummyStepHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/FixedStepHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/NordsieckStepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/StepHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/StepInterpolator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/StepNormalizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/StepNormalizerBounds.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/StepNormalizerMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/ode/sampling/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/AbstractConvergenceChecker.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/BaseMultivariateMultiStartOptimizer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/BaseMultivariateMultiStartOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/BaseMultivariateOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/BaseMultivariateSimpleBoundsOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/BaseMultivariateVectorMultiStartOptimizer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/BaseMultivariateVectorMultiStartOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/BaseMultivariateVectorOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/BaseOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/ConvergenceChecker.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/DifferentiableMultivariateMultiStartOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/DifferentiableMultivariateOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/DifferentiableMultivariateVectorMultiStartOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/DifferentiableMultivariateVectorOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/GoalType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/LeastSquaresConverter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/MultivariateMultiStartOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/MultivariateOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/PointValuePair$DataTransferObject.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/PointValuePair.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/PointVectorValuePair$DataTransferObject.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/PointVectorValuePair.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/SimplePointChecker.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/SimpleValueChecker.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/SimpleVectorValueChecker.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/AbstractSimplex.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer$PathIsExploredException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/BaseAbstractMultivariateOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/BaseAbstractMultivariateSimpleBoundsOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/BaseAbstractMultivariateVectorOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/CMAESOptimizer$DoubleIndex.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/CMAESOptimizer$FitnessFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/CMAESOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/MultiDirectionalSimplex.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/MultivariateFunctionMappingAdapter$LowerBoundMapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/MultivariateFunctionMappingAdapter$LowerUpperBoundMapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/MultivariateFunctionMappingAdapter$Mapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/MultivariateFunctionMappingAdapter$NoBoundsMapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/MultivariateFunctionMappingAdapter$UpperBoundMapper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/MultivariateFunctionMappingAdapter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/MultivariateFunctionPenaltyAdapter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/NelderMeadSimplex.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/PowellOptimizer$LineSearch$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/PowellOptimizer$LineSearch.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/PowellOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/SimplexOptimizer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/SimplexOptimizer$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/SimplexOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/direct/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/CurveFitter$TheoreticalValuesFunction$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/CurveFitter$TheoreticalValuesFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/CurveFitter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/GaussianFitter$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/GaussianFitter$ParameterGuesser$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/GaussianFitter$ParameterGuesser.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/GaussianFitter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/HarmonicFitter$ParameterGuesser.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/HarmonicFitter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/PolynomialFitter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/WeightedObservedPoint.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/fitting/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/AbstractScalarDifferentiableOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/ConjugateGradientFormula.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/GaussNewtonOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizer$IdentityPreconditioner.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizer$LineSearchFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/Preconditioner.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/general/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/AbstractLinearOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/LinearConstraint.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/LinearObjectiveFunction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/LinearOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/NoFeasibleSolutionException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/Relationship$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/Relationship.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/SimplexSolver.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/SimplexTableau.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/UnboundedSolutionException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/linear/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/BaseAbstractUnivariateOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/BaseUnivariateOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/BracketFinder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/BrentOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/SimpleUnivariateValueChecker.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/UnivariateMultiStartOptimizer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/UnivariateMultiStartOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/UnivariateOptimizer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/UnivariatePointValuePair.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/optimization/univariate/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/AbstractRandomGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/AbstractWell.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/BitsStreamGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/CorrelatedRandomVectorGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/EmpiricalDistribution$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/EmpiricalDistribution$ArrayDataAdapter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/EmpiricalDistribution$DataAdapter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/EmpiricalDistribution$DataAdapterFactory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/EmpiricalDistribution$StreamDataAdapter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/EmpiricalDistribution.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/GaussianRandomGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/ISAACRandom.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/JDKRandomGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/MersenneTwister.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/NormalizedRandomGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/RandomAdaptor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/RandomData.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/RandomDataImpl.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/RandomGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/RandomVectorGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/StableRandomGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/UncorrelatedRandomVectorGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/UniformRandomGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/UnitSphereRandomVectorGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/ValueServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/Well1024a.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/Well19937a.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/Well19937c.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/Well44497a.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/Well44497b.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/Well512a.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/random/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/special/Beta$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/special/Beta.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/special/Erf.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/special/Gamma$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/special/Gamma.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/special/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/Frequency$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/Frequency$NaturalComparator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/Frequency.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/StatUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/clustering/Cluster.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/clustering/Clusterable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/clustering/EuclideanIntegerPoint.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer$EmptyClusterStrategy.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/clustering/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/correlation/Covariance.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/correlation/PearsonsCorrelation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/correlation/StorelessBivariateCovariance.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/correlation/StorelessCovariance.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/correlation/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/AbstractStorelessUnivariateStatistic.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/AbstractUnivariateStatistic.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/AggregateSummaryStatistics$AggregatingSummaryStatistics.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/AggregateSummaryStatistics.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/DescriptiveStatistics.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/MultivariateSummaryStatistics.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/StatisticalMultivariateSummary.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/StatisticalSummary.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/StatisticalSummaryValues.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/StorelessUnivariateStatistic.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/SummaryStatistics.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/SynchronizedDescriptiveStatistics.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/SynchronizedMultivariateSummaryStatistics.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/SynchronizedSummaryStatistics.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/UnivariateStatistic.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/WeightedEvaluation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/FirstMoment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/FourthMoment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/GeometricMean.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/Kurtosis.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/Mean.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/SecondMoment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/SemiVariance$Direction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/SemiVariance.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/Skewness.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/StandardDeviation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/ThirdMoment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/Variance.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/VectorialCovariance.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/VectorialMean.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/moment/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/rank/Max.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/rank/Median.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/rank/Min.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/rank/Percentile.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/rank/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/summary/Product.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/summary/Sum.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/summary/SumOfLogs.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/summary/SumOfSquares.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/descriptive/summary/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/ChiSquareTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/MannWhitneyUTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/OneWayAnova$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/OneWayAnova$AnovaStats.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/OneWayAnova.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/TTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/TestUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/WilcoxonSignedRankTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/inference/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/ranking/NaNStrategy.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/ranking/NaturalRanking$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/ranking/NaturalRanking$IntDoublePair.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/ranking/NaturalRanking.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/ranking/RankingAlgorithm.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/ranking/TiesStrategy.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/ranking/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegression.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/ModelSpecificationException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/MultipleLinearRegression.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/OLSMultipleLinearRegression.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/RegressionResults.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/SimpleRegression.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/UpdatingMultipleLinearRegression.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/stat/regression/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/DctNormalization.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/DftNormalization.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/DstNormalization.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/FastCosineTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/FastFourierTransformer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/FastFourierTransformer$MultiDimensionalComplexMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/FastFourierTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/FastHadamardTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/FastSineTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/RealTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/TransformType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/TransformUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/transform/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/ArithmeticUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/BigReal.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/BigRealField$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/BigRealField$LazyHolder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/BigRealField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/CompositeFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/ContinuedFraction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/Decimal64.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/Decimal64Field.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/DefaultTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/DoubleArray.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/FastMath$ExpFracTable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/FastMath$ExpIntTable.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/FastMath$lnMant.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/FastMath.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/FastMathCalc.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/FastMathLiteralArrays.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/Incrementor$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/Incrementor$MaxCountExceededCallback.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/Incrementor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/IterationEvent.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/IterationListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/IterationManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/MathArrays$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/MathArrays$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/MathArrays$OrderDirection.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/MathArrays.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/MathUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/MultidimensionalCounter$Iterator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/MultidimensionalCounter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/NumberTransformer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/OpenIntToDoubleHashMap$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/OpenIntToDoubleHashMap$Iterator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/OpenIntToDoubleHashMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/OpenIntToFieldHashMap$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/OpenIntToFieldHashMap$Iterator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/OpenIntToFieldHashMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/Pair.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/Precision.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/ResizableDoubleArray.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/TransformerMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test-resources/org/apache/commons/math3/util/package-info.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test/TestHashMutablePDG.java" afterPath="$PROJECT_DIR$/test/TestHashMutablePDG.java" />
+      <change beforePath="$PROJECT_DIR$/DependencyAnalyzer.iml" afterPath="$PROJECT_DIR$/DependencyAnalyzer.iml" />
     </list>
+    <list id="87781141-bde9-4efd-b909-da915b9ae0ae" name="Reverse direction of control analysis" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -853,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1268">
-              <caret line="88" column="63" lean-forward="false" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
+            <state relative-caret-position="592">
+              <caret line="203" column="26" lean-forward="true" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -865,89 +31,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataDependencyAnalysis.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencyAnalysis.java">
+      <file leaf-file-name="LineMappingAlgorithms.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/LineMappingAlgorithms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadWriteAnalysis.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteAnalysis.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-349">
-              <caret line="96" column="60" lean-forward="false" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="60" />
+            <state relative-caret-position="625">
+              <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataDependencySlicer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencySlicer.java">
+      <file leaf-file-name="DataAggregator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/DataAggregator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadWriteSets.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteSets.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1485">
-              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-              <folding>
-                <element signature="e#1483#1484#0" expanded="true" />
-                <element signature="e#1525#1526#0" expanded="true" />
-                <element signature="e#1609#1610#0" expanded="true" />
-                <element signature="e#1654#1655#0" expanded="true" />
-                <element signature="e#1800#1801#0" expanded="true" />
-                <element signature="e#1851#1852#0" expanded="true" />
-                <element signature="e#2008#2009#0" expanded="true" />
-                <element signature="e#2063#2064#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControlDependencyAnalysis.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ControlDependencyAnalysis.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="358">
+              <caret line="73" column="36" lean-forward="false" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestHashMutablePDG.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/TestHashMutablePDG.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -970,6 +69,12 @@
       <find>keySet().</find>
       <find>invoke</find>
       <find>p</find>
+      <find>System.err</find>
+      <find>System.er</find>
+      <find>getDependents</find>
+      <find>getDepen</find>
+      <find>U</find>
+      <find>-1</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1000,20 +105,27 @@
         <option value="$PROJECT_DIR$/src/io/github/squareslab/backslice/DataDependencyAnalysis.java" />
         <option value="$PROJECT_DIR$/src/io/github/squareslab/ControlDependencyAnalysis.java" />
         <option value="$PROJECT_DIR$/src/io/github/squareslab/DataDependencyAnalysis.java" />
-        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/ControlDependencyAnalysis.java" />
         <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteAnalysis.java" />
-        <option value="$PROJECT_DIR$/src/io/github/squareslab/Main.java" />
-        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencyAnalysis.java" />
         <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteSets.java" />
-        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencySlicer.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/common/OutputFactory.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/common/OutputHandler.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencyAnalysis.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/GraphAlgorithms.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/ControlDependencyAnalysis.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/common/Utils.java" />
         <option value="$PROJECT_DIR$/test/TestHashMutablePDG.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/ControlDependencySlicer.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencySlicer.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/analysis/LineMappingAlgorithms.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/common/DataAggregator.java" />
+        <option value="$PROJECT_DIR$/test/Tests.java" />
+        <option value="$PROJECT_DIR$/src/io/github/squareslab/Main.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="101" />
-    <option name="y" value="-1057" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="947" />
   </component>
@@ -1049,24 +161,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
@@ -1094,33 +194,49 @@
             <path>
               <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="squareslab" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="test-resources" type="462c0819:PsiDirectoryNode" />
+              <item name="test-output" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="Repository.Attach.JavaDocs" value="true" />
+    <property name="Repository.Attach.Sources" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/io/github/squareslab" />
   </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="io.github.squareslab.analysis.GraphAlgorithms" />
+      <recent name="GraphAlgorithms" />
       <recent name="io.github.squareslab.analysis.DataDependencySlicer" />
+      <recent name="io.github.squareslab.analysis.ControlDependencySlicer" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="io.github.squareslab" />
@@ -1148,7 +264,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestHashMutablePDG.testControlDependency">
+  <component name="RunManager" selected="JUnit.Tests.testNotExistsDependency">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -1169,34 +285,14 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="TestHashMutablePDG" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.testAllLinesDependency" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="DependencyAnalyzer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestHashMutablePDG" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="TestHashMutablePDG.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="DependencyAnalyzer" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestHashMutablePDG" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="testAllLinesDependency" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1209,14 +305,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="TestHashMutablePDG.testControlDependency" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.testExistsDependency" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="DependencyAnalyzer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestHashMutablePDG" />
-      <option name="METHOD_NAME" value="testControlDependency" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="testExistsDependency" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1229,13 +325,13 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="TestHashMutablePDG.testFlowDependency" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.testFlowDependency" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="DependencyAnalyzer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestHashMutablePDG" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
       <option name="METHOD_NAME" value="testFlowDependency" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -1249,14 +345,34 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="TestHashMutablePDG.testReadWriteAnalyzer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.testNotExistsDependency" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="DependencyAnalyzer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestHashMutablePDG" />
-      <option name="METHOD_NAME" value="testReadWriteAnalyzer" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="testNotExistsDependency" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="Tests.testSimultaneousControlAndDataDependency" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="DependencyAnalyzer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <option name="METHOD_NAME" value="testSimultaneousControlAndDataDependency" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1330,19 +446,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG.test" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG.testReadWriteAnalyzer" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG.testControlDependency" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG.testFlowDependency" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.Tests.testAllLinesDependency" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.Tests.testSimultaneousControlAndDataDependency" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.Tests.testFlowDependency" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.Tests.testExistsDependency" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.Tests.testNotExistsDependency" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG.testControlDependency" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG.testFlowDependency" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG.test" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.TestHashMutablePDG.testReadWriteAnalyzer" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Tests.testNotExistsDependency" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Tests.testAllLinesDependency" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Tests.testExistsDependency" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.Tests.testFlowDependency" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.Tests.testSimultaneousControlAndDataDependency" />
       </list>
     </recent_temporary>
   </component>
@@ -1364,111 +480,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580587335054</updated>
-    </task>
-    <task id="LOCAL-00001" summary="remove old slicer">
-      <created>1580846408996</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1580846408996</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add version control settings for intellij">
-      <created>1580846451068</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1580846451068</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Get relevant PDG nodes from lines of interest">
-      <created>1581018131722</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1581018131722</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Prettier output">
-      <created>1581018352059</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1581018352059</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Change data structures for storing PDGs of interest.">
-      <created>1581094004317</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1581094004317</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Find dependencies">
-      <created>1581106464481</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1581106464481</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Analyze the entire graph instead">
-      <created>1581111417705</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1581111417705</updated>
-    </task>
-    <task id="LOCAL-00008" summary="ignore line -1">
-      <created>1581111643655</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1581111643655</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Get dependent PDG nodes; still need to decipher line numbers.">
-      <created>1581204902207</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1581204902208</updated>
-    </task>
-    <task id="LOCAL-00010" summary="handle case when PDGNode is of type Region">
-      <created>1581208205033</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1581208205033</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Refactor">
-      <created>1581368108350</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1581368108350</updated>
-    </task>
-    <task id="LOCAL-00012" summary="analyze data dependencie">
-      <created>1581375547461</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1581375547461</updated>
-    </task>
-    <task id="LOCAL-00013" summary="rename packages">
-      <created>1581375633112</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1581375633112</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Refactor">
-      <created>1581378924971</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1581378924971</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Refactor read/write analysis">
-      <created>1581380038782</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1581380038782</updated>
     </task>
     <task id="LOCAL-00016" summary="Change visibility due to package refactor">
       <created>1581380258253</created>
@@ -1596,39 +607,256 @@
       <option name="project" value="LOCAL" />
       <updated>1581450300325</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Start implementing better input parsing">
+      <created>1581520937718</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1581520937718</updated>
+    </task>
+    <task id="LOCAL-00035" summary="First functional version of new input options">
+      <created>1581525559102</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1581525559102</updated>
+    </task>
+    <task id="LOCAL-00036" summary="First functional version of new input options">
+      <created>1581525594782</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1581525594782</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Enforce requirement for selecting at least one analysis type and one output type.">
+      <created>1581526939722</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1581526939722</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Eliminate unused warning/error reporting mechanism from 17-355 code">
+      <created>1581537132121</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1581537132121</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Stick to stdout instead of stderr when something goes wrong during setup">
+      <created>1581537987098</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1581537987098</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Progress on handling output">
+      <created>1581541884339</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1581541884339</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Refactor">
+      <created>1581543256183</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1581543256183</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Stop maintaining line number ordering in data dependency slices; the DataAggregator handles ordering instead.">
+      <created>1581543689287</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1581543689287</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Write data dependency slices to DataAggregator">
+      <created>1581543836625</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1581543836625</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Refactor and output control dependency slicing">
+      <created>1581545312118</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1581545312118</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Refactor data dependency slicing">
+      <created>1581545529808</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1581545529808</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Refactor and refuse support for simultaneous control &amp; data dependency analysis">
+      <created>1581546932564</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1581546932564</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Write output to file">
+      <created>1581547344329</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1581547344329</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Fix bad output paths in tests">
+      <created>1581547370419</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1581547370419</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Reverse direction of control analysis">
+      <created>1581600542452</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1581600542454</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Add default option for slicing all lines">
+      <created>1581601070335</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1581601070335</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Probing changes to ControlDependencySlicer">
+      <created>1581629622899</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1581629622899</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Refactor">
+      <created>1581630827073</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1581630827073</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Fix handling of PDGRegion vs. Region">
+      <created>1581631560617</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1581631560617</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Reverse control dependency slices">
+      <created>1581633913733</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1581633913733</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Add entry/exit hooks for test">
+      <created>1581634673827</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1581634673827</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Deregister analyses after finishing (in order to not crash tests in JUnit)">
+      <created>1581634704756</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1581634704756</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Rename tests">
+      <created>1581634758280</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1581634758280</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Don't count intra-line dependencies">
+      <created>1581641582909</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1581641582911</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Change comment">
+      <created>1581641598108</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1581641598108</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Don't count line -1 when constructing line-&gt;units map">
+      <created>1581641909184</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1581641909185</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Don't count line -1 when constructing line-&gt;units map">
+      <created>1581641954257</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1581641954257</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Algo for whether there exists a dependency between relevant lines of interest">
+      <created>1581642121284</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1581642121284</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Output whether there exists a dependency between lines of interest">
+      <created>1581685792487</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1581685792490</updated>
+    </task>
+    <task id="LOCAL-00064" summary="refactor">
+      <created>1581686242957</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1581686242958</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestHashMutablePDG - 2020.02.11 at 14h 47m 47s.xml">
-      <configuration name="TestHashMutablePDG" configurationId="JUnit" />
+    <history-entry file="Tests_testAllLinesDependency - 2020.02.14 at 08h 06m 12s.xml">
+      <configuration name="Tests.testAllLinesDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testControlDependency - 2020.02.11 at 14h 48m 19s.xml">
-      <configuration name="TestHashMutablePDG.testControlDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testAllLinesDependency - 2020.02.14 at 08h 06m 33s.xml">
+      <configuration name="Tests.testAllLinesDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testFlowDependency - 2020.02.11 at 13h 34m 26s.xml">
-      <configuration name="TestHashMutablePDG.testFlowDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testAllLinesDependency - 2020.02.14 at 08h 07m 24s.xml">
+      <configuration name="Tests.testAllLinesDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testFlowDependency - 2020.02.11 at 13h 42m 23s.xml">
-      <configuration name="TestHashMutablePDG.testFlowDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testAllLinesDependency - 2020.02.14 at 08h 08m 14s.xml">
+      <configuration name="Tests.testAllLinesDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testFlowDependency - 2020.02.11 at 13h 43m 22s.xml">
-      <configuration name="TestHashMutablePDG.testFlowDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testExistsDependency - 2020.02.14 at 08h 07m 38s.xml">
+      <configuration name="Tests.testExistsDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testFlowDependency - 2020.02.11 at 14h 10m 53s.xml">
-      <configuration name="TestHashMutablePDG.testFlowDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testNotExistsDependency - 2020.02.14 at 08h 08m 35s.xml">
+      <configuration name="Tests.testNotExistsDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testFlowDependency - 2020.02.11 at 14h 40m 27s.xml">
-      <configuration name="TestHashMutablePDG.testFlowDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testNotExistsDependency - 2020.02.14 at 08h 08m 58s.xml">
+      <configuration name="Tests.testNotExistsDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testFlowDependency - 2020.02.11 at 14h 43m 57s.xml">
-      <configuration name="TestHashMutablePDG.testFlowDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testNotExistsDependency - 2020.02.14 at 08h 16m 41s.xml">
+      <configuration name="Tests.testNotExistsDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testFlowDependency - 2020.02.11 at 14h 47m 39s.xml">
-      <configuration name="TestHashMutablePDG.testFlowDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testNotExistsDependency - 2020.02.14 at 08h 17m 07s.xml">
+      <configuration name="Tests.testNotExistsDependency" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestHashMutablePDG_testFlowDependency - 2020.02.11 at 14h 48m 11s.xml">
-      <configuration name="TestHashMutablePDG.testFlowDependency" configurationId="JUnit" />
+    <history-entry file="Tests_testSimultaneousControlAndDataDependency - 2020.02.13 at 19h 54m 36s.xml">
+      <configuration name="Tests.testSimultaneousControlAndDataDependency" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -1641,8 +869,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="101" y="-1057" width="1680" height="947" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1680" height="947" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1650,16 +877,16 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3039906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33394384" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31684983" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25274727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42429793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39906102" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3981289" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1667,89 +894,71 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34389672" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35103786" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25274727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39906102" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Analyze the entire graph instead" />
-    <MESSAGE value="Get dependent PDG nodes; still need to decipher line numbers." />
-    <MESSAGE value="handle case when PDGNode is of type Region" />
-    <MESSAGE value="analyze data dependencie" />
-    <MESSAGE value="rename packages" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Stop maintaining line number ordering in data dependency slices; the DataAggregator handles ordering instead." />
+    <MESSAGE value="Write data dependency slices to DataAggregator" />
+    <MESSAGE value="Refactor and output control dependency slicing" />
+    <MESSAGE value="Refactor data dependency slicing" />
+    <MESSAGE value="Refactor and refuse support for simultaneous control &amp; data dependency analysis" />
+    <MESSAGE value="Write output to file" />
+    <MESSAGE value="Fix bad output paths in tests" />
+    <MESSAGE value="Reverse direction of control analysis" />
+    <MESSAGE value="Add default option for slicing all lines" />
+    <MESSAGE value="Probing changes to ControlDependencySlicer" />
     <MESSAGE value="Refactor" />
-    <MESSAGE value="Refactor read/write analysis" />
-    <MESSAGE value="Change visibility due to package refactor" />
-    <MESSAGE value="We don't actually need a cache for ReadWriteAnalyzer" />
-    <MESSAGE value="Change read/write analysis to a forward flowing analysis.&#10;This really shouldn't be a flow analysis at all anymore." />
-    <MESSAGE value="read/write analysis is not a slicer anymore" />
-    <MESSAGE value="keep track of total analysis results (might be redundant)" />
-    <MESSAGE value="Read args of InvokeStmt" />
-    <MESSAGE value="refactor read/write analysis again" />
-    <MESSAGE value="trace dependence graph for flow dependencies" />
-    <MESSAGE value="Add lines-&gt;units mapper." />
-    <MESSAGE value="refactor slicing into its own class" />
+    <MESSAGE value="Fix handling of PDGRegion vs. Region" />
+    <MESSAGE value="Reverse control dependency slices" />
+    <MESSAGE value="Add entry/exit hooks for test" />
+    <MESSAGE value="Deregister analyses after finishing (in order to not crash tests in JUnit)" />
+    <MESSAGE value="Rename tests" />
+    <MESSAGE value="Don't count intra-line dependencies" />
+    <MESSAGE value="Change comment" />
     <MESSAGE value="Add configurations for flow/anti/output dependencies" />
-    <MESSAGE value="More progress on Slicer" />
-    <MESSAGE value="more progress on slicing" />
-    <MESSAGE value="Update cmd line interface to allow specifying which analysis to run" />
-    <MESSAGE value="disregard intra-line dependencies" />
-    <MESSAGE value="ignore line -1" />
-    <MESSAGE value="Actually do the slicing" />
-    <MESSAGE value="Slice beyond the immediate predecessor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Slice beyond the immediate predecessor." />
+    <MESSAGE value="Don't count line -1 when constructing line-&gt;units map" />
+    <MESSAGE value="Algorithm for determining the existence of a dependency between lines" />
+    <MESSAGE value="Algo for whether there exists a dependency between relevant lines of interest" />
+    <MESSAGE value="Output whether there exists a dependency between lines of interest" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="IDE files" />
+    <option name="LAST_COMMIT_MESSAGE" value="IDE files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="49" />
+      <option name="time" value="92" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/ErrorMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/Main.class" />
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/backslice/UnitSet.java" />
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/backslice/slicer/ReadWriteSets.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/toolkits/scalar/BackwardFlowAnalysis.class" />
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/backslice/slicer/DataDependencyAnalyzer.java" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/DfpField$RoundingMode.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/DfpDec$1.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/Dfp$1.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/DfpDec.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/DfpMath.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/DfpField.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/package-info.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/UnivariateDfpFunction.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/BracketingNthOrderBrentSolverDFP.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/ode/events/package-info.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/ode/events/EventHandler.class" />
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/ode/events/EventState.class" />
     <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/Dfp.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/ca/mcgill/sable/soot/4.0.0/soot-4.0.0-sources.jar!/soot/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1787,20 +996,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/ErrorMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/ErrorReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/ErrorMessage.java" />
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/ErrorReport.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/io/PrintStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -1840,20 +1037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/toolkits/graph/pdg/HashMutablePDG.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="181" column="57" lean-forward="false" selection-start-line="181" selection-start-column="57" selection-end-line="181" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/toolkits/graph/pdg/PDGNode.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="64" column="17" lean-forward="false" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/toolkits/scalar/FlowAnalysis.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1869,16 +1052,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteAnalyzer.java" />
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DependencyAnalyzer.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1890,7 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12212">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1901,81 +1073,238 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1268">
-          <caret line="88" column="63" lean-forward="false" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ControlDependencyAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencySlicer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencyAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-349">
-          <caret line="96" column="60" lean-forward="false" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sootOutput/org.apache.commons.math3.util.ContinuedFraction.jimple">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1738">
           <caret line="329" column="15" lean-forward="false" selection-start-line="329" selection-start-column="15" selection-end-line="329" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteSets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
+        <state relative-caret-position="1305">
           <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="96" column="60" lean-forward="false" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/commons-cli-1.4-sources.jar!/org/apache/commons/cli/HelpFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5089">
+          <caret line="548" column="16" lean-forward="true" selection-start-line="548" selection-start-column="16" selection-end-line="548" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/commons-cli-1.4-sources.jar!/org/apache/commons/cli/Option.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="71" column="22" lean-forward="false" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/commons-cli-1.4-sources.jar!/org/apache/commons/cli/CommandLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="64" column="19" lean-forward="false" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/commons-cli-1.4-sources.jar!/org/apache/commons/cli/Options.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-94">
+          <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/rt.jar!/java/util/Properties.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/commons-cli-1.4-sources.jar!/org/apache/commons/cli/DefaultParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2368">
+          <caret line="73" column="72" lean-forward="false" selection-start-line="73" selection-start-column="72" selection-end-line="73" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/rt.jar!/sun/misc/Unsafe.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="347" column="23" lean-forward="false" selection-start-line="347" selection-start-column="23" selection-end-line="347" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="381" column="29" lean-forward="false" selection-start-line="381" selection-start-column="29" selection-end-line="381" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/PackManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-output/testFlowDependency.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-output/testMultiLinesFlowDependency.out" />
+    <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/toolkits/graph/pdg/PDGNode.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-740">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/toolkits/graph/pdg/HashMutablePDG.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="472" column="39" lean-forward="false" selection-start-line="472" selection-start-column="39" selection-end-line="472" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-output/testMultiLinesDependency.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="64" column="10" lean-forward="false" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ControlDependencyAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/soot-trunk.jar!/soot/Main.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-output/testSimultaneousControlDataDependency.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencyAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/DataDependencySlicer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2910">
+          <caret line="201" column="5" lean-forward="false" selection-start-line="201" selection-start-column="5" selection-end-line="201" selection-end-column="5" />
           <folding>
-            <element signature="e#1483#1484#0" expanded="true" />
-            <element signature="e#1525#1526#0" expanded="true" />
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1654#1655#0" expanded="true" />
-            <element signature="e#1800#1801#0" expanded="true" />
-            <element signature="e#1851#1852#0" expanded="true" />
-            <element signature="e#2008#2009#0" expanded="true" />
-            <element signature="e#2063#2064#0" expanded="true" />
+            <element signature="e#5144#5145#0" expanded="false" />
+            <element signature="e#5197#5198#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/TestHashMutablePDG.java">
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ControlDependencySlicer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="2085">
+          <caret line="146" column="36" lean-forward="false" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4379#4380#0" expanded="false" />
+            <element signature="e#4418#4419#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/LineMappingAlgorithms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/DataAggregator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="73" column="36" lean-forward="false" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-output/testControlDependency.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-output/testAllLinesDependency.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Tests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1396">
+          <caret line="133" column="103" lean-forward="false" selection-start-line="133" selection-start-column="103" selection-end-line="133" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-output/testNotExistsDependency.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="203" column="26" lean-forward="true" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1988,10 +1317,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>DependencyAnalyzer:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -2060,7 +1391,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lib</last-edited>
+          <last-edited>commons-cli:commons-cli:1.4</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
