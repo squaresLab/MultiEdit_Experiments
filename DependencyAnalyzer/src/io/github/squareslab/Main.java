@@ -130,6 +130,21 @@ public class Main
 		return parseOutput;
 	}
 
+	private static void writeData(String outputPath, boolean outputMap, boolean outputExistence)
+	{
+		Writer writer;
+		try
+		{
+			writer = new FileWriter(outputPath);
+			DataAggregator.getInstance().flushDataToWriter(writer, outputMap, outputExistence);
+			writer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args)
 	{
 		CommandLine cmdLine = parseArgs(args);
@@ -191,16 +206,6 @@ public class Main
 			pack.remove(DataDependencyAnalysis.ANALYSIS_NAME);
 		}
 
-		Writer writer;
-		try
-		{
-			writer = new FileWriter(outputPath);
-			DataAggregator.getInstance().flushDataToWriter(writer, outputMap, outputExistence);
-			writer.close();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
+		writeData(outputPath, outputMap, outputExistence);
 	}
 }
