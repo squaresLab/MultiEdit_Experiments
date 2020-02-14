@@ -111,7 +111,27 @@ public class Tests
 		String testCp = "test-resources/Math31b";
 		String target = "org.apache.commons.math3.util.ContinuedFraction";
 		String output = "test-output/testAllLinesDependency.out";
-		String[] args = {"-Dc", "-tcp", testCp, "-t", target, "-o", output, "-Om"};
+		String[] args = {"-Df", "-tcp", testCp, "-t", target, "-o", output, "-Om", "-Oe"};
+		Main.main(args);
+	}
+
+	@Test
+	public void testExistsDependency()
+	{
+		String testCp = "test-resources/Math31b";
+		String target = "org.apache.commons.math3.util.ContinuedFraction";
+		String output = "test-output/testExistsDependency.out";
+		String[] args = {"-Df", "-tcp", testCp, "-t", target, "-o", output, "-Oe"};
+		Main.main(args);
+	}
+
+	@Test
+	public void testNotExistsDependency()
+	{
+		String testCp = "test-resources/Math31b";
+		String target = "org.apache.commons.math3.util.ContinuedFraction";
+		String output = "test-output/testNotExistsDependency.out";
+		String[] args = {"-Df", "-tcp", testCp, "-t", target, "-o", output, "-Oe", "-lines", "45", "177"};
 		Main.main(args);
 	}
 }

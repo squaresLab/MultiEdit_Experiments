@@ -195,7 +195,7 @@ public class Main
 		try
 		{
 			writer = new FileWriter(outputPath);
-			DataAggregator.getInstance().flushDataToWriter(writer);
+			DataAggregator.getInstance().flushDataToWriter(writer, outputMap, outputExistence);
 			writer.close();
 		}
 		catch (IOException e)

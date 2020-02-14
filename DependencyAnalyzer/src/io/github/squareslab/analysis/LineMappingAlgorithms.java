@@ -148,7 +148,7 @@ public class LineMappingAlgorithms
 	 * @param slices
 	 * @return whether there exists a dependency among the keys in the slices map
 	 */
-	static boolean containsDependencyAmongKeys(Map<Integer, Collection<Integer>> slices)
+	public static boolean containsDependencyAmongKeys(Map<Integer, Collection<Integer>> slices)
 	{
 		Collection<Integer> lines = slices.keySet();
 		for (int line : lines)

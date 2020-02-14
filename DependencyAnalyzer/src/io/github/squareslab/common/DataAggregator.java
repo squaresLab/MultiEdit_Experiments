@@ -1,5 +1,7 @@
 package io.github.squareslab.common;
 
+import io.github.squareslab.analysis.LineMappingAlgorithms;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
@@ -14,7 +16,9 @@ import java.util.*;
 public class DataAggregator
 {
 	//TreeMap maintains order of keys, TreeSet maintains order of values for each key
-	TreeMap<Integer, TreeSet<Integer>> lineDependencyMap;
+	//I'm using Collection<Integer> as the value type argument instead because Java's Generic type inheritence is bad.
+	//TreeMap<Integer, TreeSet<Integer>> is the real type;
+	TreeMap<Integer, Collection<Integer>> lineDependencyMap;
 
 	private DataAggregator()
 	{
@@ -36,8 +40,15 @@ public class DataAggregator
 		}
 	}
 
+	private void outputDependencyExistece(Writer writer) throws IOException
+	{
+		if (LineMappingAlgorithms.containsDependencyAmongKeys(lineDependencyMap))
+			writer.append("true\n");
+		else
+			writer.append("false\n");
+	}
 
-	public void flushDataToWriter(Writer writer) throws IOException
+	private void flushMap(Writer writer) throws IOException
 	{
 		for(int line : lineDependencyMap.keySet())
 		{
@@ -54,6 +65,15 @@ public class DataAggregator
 			//write a line of CSV
 			writer.append(lineAndDependencies);
 		}
+	}
+
+
+	public void flushDataToWriter(Writer writer, boolean outputMap, boolean outputExistence) throws IOException
+	{
+		if (outputExistence)
+			outputDependencyExistece(writer);
+		if (outputMap)
+			flushMap(writer);
 	}
 
 
