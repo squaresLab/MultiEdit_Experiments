@@ -143,4 +143,20 @@ public class LineMappingAlgorithms
 
 		return flip;
 	}
+
+	/**
+	 * @param slices
+	 * @return whether there exists a dependency among the keys in the slices map
+	 */
+	static boolean containsDependencyAmongKeys(Map<Integer, Collection<Integer>> slices)
+	{
+		Collection<Integer> lines = slices.keySet();
+		for (int line : lines)
+		{
+			Collection<Integer> sliceOfLine = slices.get(line);
+			if (! Collections.disjoint(sliceOfLine, lines))
+				return true;
+		}
+		return false;
+	}
 }
