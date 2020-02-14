@@ -95,6 +95,7 @@ public class ControlDependencySlicer
 		for(PDGNode dep : dependents)
 		{
 			Collection<Integer> depLineNums = getLineNumbers(dep);
+			depLineNums.remove(lineToSliceFrom); //don't count intra-line dependencies
 			backsliceLines.addAll(depLineNums);
 		}
 
