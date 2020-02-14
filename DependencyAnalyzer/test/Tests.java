@@ -134,4 +134,13 @@ public class Tests
 		String[] args = {"-Df", "-tcp", testCp, "-t", target, "-o", output, "-Oe", "-lines", "45", "177"};
 		Main.main(args);
 	}
+
+	@Test
+	public void testPrintToStdOut()
+	{
+		String testCp = "test-resources/Math31b";
+		String target = "org.apache.commons.math3.util.ContinuedFraction";
+		String[] args = {"-Df", "-tcp", testCp, "-t", target, "-Om", "-Oe"};
+		Main.main(args);
+	}
 }

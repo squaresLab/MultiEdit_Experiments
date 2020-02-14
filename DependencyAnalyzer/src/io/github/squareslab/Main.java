@@ -12,6 +12,7 @@ import soot.Transform;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,6 +29,8 @@ public class Main
 	private static final String OPTION_OUT_MAP = "output-dependency-map";
 	private static final String OPTION_OUT_EXIST = "output-dependency-existence";
 	private static final String OPTION_LINES = "lines-to-analyze";
+
+	private static final String PRINT_TO_STD_OUT = "--STDOUT--";
 
 	private static final Options OPTIONS = defineOptions();
 
@@ -66,8 +69,8 @@ public class Main
 		options.addOption(outputDataDependency);
 
 		Option outputPath = new Option("o", OPTION_OUTPUT, true,
-				"File to write output to.");
-		outputPath.setRequired(true);
+				"File to write output to. Default is to print to stdout.");
+		outputPath.setRequired(false);
 		options.addOption(outputPath);
 
 		Option outputDependencyMap = new Option("Om", OPTION_OUT_MAP, false,
@@ -135,7 +138,10 @@ public class Main
 		Writer writer;
 		try
 		{
-			writer = new FileWriter(outputPath);
+			if (outputPath.equals(PRINT_TO_STD_OUT))
+				writer = new OutputStreamWriter(System.out);
+			else
+				writer = new FileWriter(outputPath);
 			DataAggregator.getInstance().flushDataToWriter(writer, outputMap, outputExistence);
 			writer.close();
 		}
@@ -154,7 +160,11 @@ public class Main
 		boolean runFlowAnalysis = cmdLine.hasOption(OPTION_FLOW_DEP);
 		boolean runAntiAnalysis = cmdLine.hasOption(OPTION_ANTI_DEP);
 		boolean runOutAnalysis = cmdLine.hasOption(OPTION_OUT_DEP);
-		String outputPath = cmdLine.getOptionValue(OPTION_OUTPUT);
+		String outputPath;
+		if (cmdLine.hasOption(OPTION_OUTPUT))
+			outputPath = cmdLine.getOptionValue(OPTION_OUTPUT);
+		else
+			outputPath = PRINT_TO_STD_OUT;
 		boolean outputMap = cmdLine.hasOption(OPTION_OUT_MAP);
 		boolean outputExistence = cmdLine.hasOption(OPTION_OUT_EXIST);
 		Collection<Integer> lineNumsOfInterest;
