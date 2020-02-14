@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DependencyAnalyzer:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="29e79bf1-0f3c-4f16-8370-1670cf58d420" name="Default" comment="IDE files">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/DependencyAnalyzer_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+    <list default="true" id="29e79bf1-0f3c-4f16-8370-1670cf58d420" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DependencyAnalyzer_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/DependencyAnalyzer_jar.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/DependencyAnalyzer.iml" afterPath="$PROJECT_DIR$/DependencyAnalyzer.iml" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
     </list>
-    <list id="87781141-bde9-4efd-b909-da915b9ae0ae" name="Reverse direction of control analysis" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="203" column="26" lean-forward="true" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
+            <state relative-caret-position="306">
+              <caret line="96" column="83" lean-forward="false" selection-start-line="96" selection-start-column="83" selection-end-line="96" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,10 +35,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="375">
+                <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LineMappingAlgorithms.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/LineMappingAlgorithms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
+            <state relative-caret-position="491">
               <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
               <folding />
             </state>
@@ -44,7 +61,7 @@
       <file leaf-file-name="DataAggregator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/DataAggregator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
+            <state relative-caret-position="333">
               <caret line="73" column="36" lean-forward="false" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
               <folding />
             </state>
@@ -121,10 +138,11 @@
         <option value="$PROJECT_DIR$/src/io/github/squareslab/common/DataAggregator.java" />
         <option value="$PROJECT_DIR$/test/Tests.java" />
         <option value="$PROJECT_DIR$/src/io/github/squareslab/Main.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="947" />
@@ -171,7 +189,7 @@
             <path>
               <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="sootOutput" type="462c0819:PsiDirectoryNode" />
+              <item name="jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
@@ -183,30 +201,6 @@
               <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="squareslab" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="squareslab" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="squareslab" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DependencyAnalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="test-output" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DependencyAnalyzer" type="b2602c69:ProjectViewProjectNode" />
@@ -216,9 +210,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,14 +236,15 @@
       <recent name="io.github.squareslab" />
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/test-resources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$/test-resources" />
       <recent name="$PROJECT_DIR$/test-resources/math3" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jar" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/test-resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -264,7 +259,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Tests.testNotExistsDependency">
+  <component name="RunManager" selected="JUnit.Tests.testPrintToStdOut">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -365,14 +360,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="Tests.testSimultaneousControlAndDataDependency" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.testPrintToStdOut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="DependencyAnalyzer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Tests" />
-      <option name="METHOD_NAME" value="testSimultaneousControlAndDataDependency" />
+      <option name="METHOD_NAME" value="testPrintToStdOut" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -447,18 +442,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.Tests.testAllLinesDependency" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.Tests.testSimultaneousControlAndDataDependency" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.Tests.testFlowDependency" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.Tests.testExistsDependency" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.Tests.testNotExistsDependency" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.Tests.testFlowDependency" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.Tests.testExistsDependency" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.Tests.testNotExistsDependency" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.Tests.testPrintToStdOut" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Tests.testNotExistsDependency" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Tests.testAllLinesDependency" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Tests.testExistsDependency" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.Tests.testFlowDependency" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.Tests.testSimultaneousControlAndDataDependency" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Tests.testPrintToStdOut" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Tests.testNotExistsDependency" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Tests.testAllLinesDependency" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.Tests.testExistsDependency" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.Tests.testFlowDependency" />
       </list>
     </recent_temporary>
   </component>
@@ -480,41 +475,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580587335054</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Change visibility due to package refactor">
-      <created>1581380258253</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1581380258253</updated>
-    </task>
-    <task id="LOCAL-00017" summary="We don't actually need a cache for ReadWriteAnalyzer">
-      <created>1581380751269</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1581380751269</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Change read/write analysis to a forward flowing analysis.&#10;This really shouldn't be a flow analysis at all anymore.">
-      <created>1581381012874</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1581381012874</updated>
-    </task>
-    <task id="LOCAL-00019" summary="read/write analysis is not a slicer anymore">
-      <created>1581381120856</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1581381120856</updated>
-    </task>
-    <task id="LOCAL-00020" summary="keep track of total analysis results (might be redundant)">
-      <created>1581381489581</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1581381489581</updated>
     </task>
     <task id="LOCAL-00021" summary="Read args of InvokeStmt">
       <created>1581392641330</created>
@@ -824,22 +784,45 @@
       <option name="project" value="LOCAL" />
       <updated>1581686242958</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="IDE files">
+      <created>1581686342931</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1581686342931</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Support print to stdout">
+      <created>1581687233754</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1581687233756</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Unsign jce.jar">
+      <created>1581688468933</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1581688468933</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Add executable jar">
+      <created>1581688629324</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1581688629324</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Print more useful usage">
+      <created>1581692929847</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1581692929847</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Tests_testAllLinesDependency - 2020.02.14 at 08h 06m 12s.xml">
-      <configuration name="Tests.testAllLinesDependency" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Tests_testAllLinesDependency - 2020.02.14 at 08h 06m 33s.xml">
-      <configuration name="Tests.testAllLinesDependency" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Tests_testAllLinesDependency - 2020.02.14 at 08h 07m 24s.xml">
-      <configuration name="Tests.testAllLinesDependency" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Tests_testAllLinesDependency - 2020.02.14 at 08h 08m 14s.xml">
-      <configuration name="Tests.testAllLinesDependency" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Tests_testExistsDependency - 2020.02.14 at 08h 07m 38s.xml">
       <configuration name="Tests.testExistsDependency" configurationId="JUnit" />
     </history-entry>
@@ -855,6 +838,18 @@
     <history-entry file="Tests_testNotExistsDependency - 2020.02.14 at 08h 17m 07s.xml">
       <configuration name="Tests.testNotExistsDependency" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Tests_testPrintToStdOut - 2020.02.14 at 08h 31m 01s.xml">
+      <configuration name="Tests.testPrintToStdOut" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests_testPrintToStdOut - 2020.02.14 at 08h 32m 40s.xml">
+      <configuration name="Tests.testPrintToStdOut" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests_testPrintToStdOut - 2020.02.14 at 08h 33m 17s.xml">
+      <configuration name="Tests.testPrintToStdOut" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Tests_testPrintToStdOut - 2020.02.14 at 08h 33m 38s.xml">
+      <configuration name="Tests.testPrintToStdOut" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="Tests_testSimultaneousControlAndDataDependency - 2020.02.13 at 19h 54m 36s.xml">
       <configuration name="Tests.testSimultaneousControlAndDataDependency" configurationId="JUnit" />
     </history-entry>
@@ -869,7 +864,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="947" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="947" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -881,8 +876,7 @@
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31684983" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32417583" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42429793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -893,6 +887,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -925,10 +920,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Stop maintaining line number ordering in data dependency slices; the DataAggregator handles ordering instead." />
-    <MESSAGE value="Write data dependency slices to DataAggregator" />
-    <MESSAGE value="Refactor and output control dependency slicing" />
-    <MESSAGE value="Refactor data dependency slicing" />
     <MESSAGE value="Refactor and refuse support for simultaneous control &amp; data dependency analysis" />
     <MESSAGE value="Write output to file" />
     <MESSAGE value="Fix bad output paths in tests" />
@@ -950,7 +941,11 @@
     <MESSAGE value="Output whether there exists a dependency between lines of interest" />
     <MESSAGE value="refactor" />
     <MESSAGE value="IDE files" />
-    <option name="LAST_COMMIT_MESSAGE" value="IDE files" />
+    <MESSAGE value="Support print to stdout" />
+    <MESSAGE value="Unsign jce.jar" />
+    <MESSAGE value="Add executable jar" />
+    <MESSAGE value="Print more useful usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Print more useful usage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -959,7 +954,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test-resources/math3/dfp/Dfp.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/ca/mcgill/sable/soot/4.0.0/soot-4.0.0-sources.jar!/soot/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -1002,10 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="869" column="23" lean-forward="false" selection-start-line="869" selection-start-column="23" selection-end-line="869" selection-end-column="23" />
-          <folding>
-            <element signature="e#29974#29975#0" expanded="false" />
-            <element signature="e#30017#30018#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1052,13 +1042,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/ReadWriteAnalyzer.java" />
-    <entry file="file://$PROJECT_DIR$/DependencyAnalyzer.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12212">
@@ -1147,7 +1130,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="381" column="29" lean-forward="false" selection-start-line="381" selection-start-column="29" selection-end-line="381" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1240,26 +1222,10 @@
         <state relative-caret-position="2085">
           <caret line="146" column="36" lean-forward="false" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="e#4379#4380#0" expanded="false" />
             <element signature="e#4418#4419#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/LineMappingAlgorithms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/DataAggregator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="73" column="36" lean-forward="false" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,7 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1275,25 +1240,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-output/testNotExistsDependency.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/common/DataAggregator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="73" column="36" lean-forward="false" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/analysis/LineMappingAlgorithms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1396">
-          <caret line="133" column="103" lean-forward="false" selection-start-line="133" selection-start-column="103" selection-end-line="133" selection-end-column="103" />
+        <state relative-caret-position="393">
+          <caret line="142" column="62" lean-forward="false" selection-start-line="142" selection-start-column="62" selection-end-line="142" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#489#490#0" expanded="false" />
+            <element signature="e#524#525#0" expanded="false" />
+            <element signature="e#561#562#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-output/testNotExistsDependency.out">
+    <entry file="file://$PROJECT_DIR$/DependencyAnalyzer.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1303,11 +1290,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/squareslab/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="203" column="26" lean-forward="true" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
+        <state relative-caret-position="306">
+          <caret line="96" column="83" lean-forward="false" selection-start-line="96" selection-start-column="83" selection-end-line="96" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="375">
+            <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
