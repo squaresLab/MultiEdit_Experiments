@@ -171,7 +171,7 @@ public class DataDependencySlicer
 		for(Unit unit : backsliceUnits)
 		{
 			int lineOfUnit = unitToLineMap.get(unit);
-			if (lineOfUnit != -1 && lineOfUnit != lineToSliceFrom) //disregard intra-dependencies
+			if (lineOfUnit != -1 && lineOfUnit != lineToSliceFrom) //disregard intra-line dependencies
 				backsliceLinesSet.add(lineOfUnit);
 		}
 
