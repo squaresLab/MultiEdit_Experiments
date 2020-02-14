@@ -94,8 +94,7 @@ public class Main
 
 	private static void showHelpAndExit()
 	{
-		//todo: use something more meaningful than empty string for cmdLineSyntax
-		new HelpFormatter().printHelp(" ", OPTIONS);
+		new HelpFormatter().printHelp("java -jar DependencyAnalyzer.jar", OPTIONS);
 		System.exit(1);
 	}
 
