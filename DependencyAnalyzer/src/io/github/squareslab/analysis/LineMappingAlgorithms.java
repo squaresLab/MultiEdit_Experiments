@@ -33,6 +33,10 @@ public class LineMappingAlgorithms
 		{
 			int lineNum = unit.getJavaSourceStartLineNumber();
 
+			//don't count line -1
+			if (lineNum == -1)
+				continue;
+
 			//if lineNum is previously unseen, add an empty value set to map
 			if (! map.containsKey(lineNum))
 			{
