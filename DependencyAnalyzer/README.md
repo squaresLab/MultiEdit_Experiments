@@ -67,3 +67,5 @@ The output is a CSV formatted as follows:
 line1,dependent1ofLine1,dependent2ofLine2, et cetera
 line2,dependent1ofLine2,dependent2ofLine2, et cetera
 ```
+The lines (`line1`, `line2`, ...) are sorted from lo to hi. 
+The dependents of each line are also sorted from lo to hi.
