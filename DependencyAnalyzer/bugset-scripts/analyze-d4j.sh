@@ -2,7 +2,7 @@
 
 #Preconditions:
 #The variable D4J_HOME should be directed to the folder where defects4j is installed.
-if [[ ! -v D4J_HOME ]]; then
+if [[ -z $D4J_HOME ]]; then
   echo "D4J_HOME is not set!"
   exit 1
 fi
@@ -10,6 +10,7 @@ fi
 ANALYZER=
 BUGWD=
 ANALYSIS_OPT_TARGET=
+OUTPUT_PATH=
 
 #set default values (absence of flag) for analysis flags
 ANALYSIS_OPT_Da=""
@@ -20,8 +21,6 @@ ANALYSIS_OPT_Oe=""
 ANALYSIS_OPT_Om=""
 #set default value (no -lines option) for -lines
 ANALYSIS_OPT_LINES=""
-
-OUTPUT_PATH=""
 
 parse_lines=0
 #bash args parsing: https://medium.com/@Drew_Stokes/bash-argument-parsing-54f3b81a6a8f
@@ -42,7 +41,7 @@ while (( "$#" )); do
       ANALYSIS_OPT_TARGET=$2
       shift 2
       ;;
-    -o|--output) #relative to BUGWD(-b, --bug-working-directory), optional
+    -o|--output)
       parse_lines=0
       OUTPUT_PATH=$2
       shift 2
@@ -95,20 +94,27 @@ while (( "$#" )); do
   esac
 done
 
-#rely on the Analyzer program to do error checking, rather than check params here
+#Convert inputted paths to absolute paths
+ANALYZER=$(realpath $ANALYZER)
+BUGWD=$(realpath $BUGWD)
+OUTPUT_PATH=$(realpath $OUTPUT_PATH)
 
 ANALYSIS_OPT_OUTPUT="" #default value is to have no -o option
 if [[ -n OUTPUT_PATH ]]; then
   #if OUTPUT_PATH is not an empty string, then set a non-default output option
-  ANALYSIS_OPT_OUTPUT="-o $BUGWD/$OUTPUT_PATH"
+  ANALYSIS_OPT_OUTPUT="-o $OUTPUT_PATH"
 fi
 
 old_starting_dir=$PWD
 
 cd $BUGWD
-defects4j compile
+
 
 ANALYSIS_OPT_TCP=$(defects4j export -p dir.bin.classes)
+
+if ! [[ -e $ANALYSIS_OPT_TCP ]]; then
+    defects4j compile
+fi
 
 java -jar $ANALYZER \
   -t $ANALYSIS_OPT_TARGET \
