@@ -14,6 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -29,6 +30,7 @@ public class Main
 	private static final String OPTION_OUT_MAP = "output-dependency-map";
 	private static final String OPTION_OUT_EXIST = "output-dependency-existence";
 	private static final String OPTION_LINES = "lines-to-analyze";
+	private static final String OPTION_LIB_PATH = "path-to-soot-libs";
 
 	private static final String PRINT_TO_STD_OUT = "--STDOUT--";
 
@@ -89,6 +91,14 @@ public class Main
 		linesToAnalyze.setRequired(false);
 		options.addOption(linesToAnalyze);
 
+		Option libPathForSoot = new Option("lib", OPTION_LIB_PATH, true,
+				"Path to Soot's libraries. " +
+						"If you're running DependencyAnalyzer.jar, then you don't need to use this option. " +
+						"Otherwise, use either jar/DependencyAnalyzer.jar (which contains all of Soot's dependencies) " +
+						"or all of the libs in lib/.");
+		libPathForSoot.setRequired(false);
+		options.addOption(libPathForSoot);
+
 		return options;
 	}
 
@@ -130,6 +140,17 @@ public class Main
 		}
 
 		return parseOutput;
+	}
+
+	private static String resolveLibPathForSoot()
+	{
+		Class self = Main.class;
+		String myLocation = self.getProtectionDomain().getCodeSource().getLocation().getPath();
+		if (myLocation.endsWith(".jar"))
+			return myLocation;
+		else
+			throw new RuntimeException("Unable to resolve location of Soot's libs. " +
+					"Please explicitly use the - "+OPTION_LIB_PATH + " option instead.");
 	}
 
 	private static void writeData(String outputPath, boolean outputMap, boolean outputExistence)
@@ -174,6 +195,11 @@ public class Main
 		}
 		else
 			lineNumsOfInterest = null;
+		String libPathForSoot;
+		if (cmdLine.hasOption(OPTION_LIB_PATH))
+			libPathForSoot = cmdLine.getOptionValue(OPTION_LIB_PATH);
+		else
+			libPathForSoot = resolveLibPathForSoot();
 
 		boolean atLeastOneAnalysis = runCtrlAnalysis || runFlowAnalysis || runAntiAnalysis || runOutAnalysis;
 		boolean atLeastOneOutputType = outputMap || outputExistence;
@@ -198,7 +224,7 @@ public class Main
 			Transform controlDepTransform = new Transform(ControlDependencyAnalysis.ANALYSIS_NAME,
 					new ControlDependencyAnalysis(lineNumsOfInterest));
 			pack.add(controlDepTransform);
-			sootArgs = Utils.getSootArgs(ControlDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
+			sootArgs = Utils.getSootArgs(ControlDependencyAnalysis.ANALYSIS_NAME, libPathForSoot, classpathToAnalysisTarget, classToAnalyze);
 			Utils.runSoot(sootArgs);
 			pack.remove(ControlDependencyAnalysis.ANALYSIS_NAME);
 		}
@@ -210,7 +236,7 @@ public class Main
 			Transform dataDepTransform = new Transform(DataDependencyAnalysis.ANALYSIS_NAME,
 					new DataDependencyAnalysis(lineNumsOfInterest, config));
 			pack.add(dataDepTransform);
-			sootArgs = Utils.getSootArgs(DataDependencyAnalysis.ANALYSIS_NAME, classpathToAnalysisTarget, classToAnalyze);
+			sootArgs = Utils.getSootArgs(DataDependencyAnalysis.ANALYSIS_NAME, libPathForSoot, classpathToAnalysisTarget, classToAnalyze);
 			Utils.runSoot(sootArgs);
 			pack.remove(DataDependencyAnalysis.ANALYSIS_NAME);
 		}

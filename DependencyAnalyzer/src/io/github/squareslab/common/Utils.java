@@ -23,13 +23,10 @@ public class Utils {
 	 * on classToAnalyze.  Mostly involves setting up a few command-line
 	 * options and the classpath.
 	 */
-	public static String[] getSootArgs(String analysisToRun, String classpathToAnalysisTarget, String classToAnalyze) {
+	public static String[] getSootArgs(String analysisToRun, String pathToSootLibs, String classpathToAnalysisTarget, String classToAnalyze) {
 		String separator = System.getProperty("file.separator");
 		String pathSeparator = System.getProperty("path.separator");
-		String rtJarPath = "lib" + separator + "rt.jar";
-		rtJarPath += pathSeparator + "lib" + separator + "jce.jar";
-		String sootClasspath = rtJarPath + pathSeparator + "out";
-		sootClasspath += pathSeparator + classpathToAnalysisTarget;
+		String sootClasspath = pathToSootLibs + pathSeparator + classpathToAnalysisTarget;
 		String [] args = { "-cp", sootClasspath, "-keep-line-number", "-f", "J", "-p", analysisToRun, "on", classToAnalyze };
 		return args;
 	}
