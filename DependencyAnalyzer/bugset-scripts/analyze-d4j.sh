@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# Usage: ./analyze-d4j.sh
+#            -a,--analyzer-jar-path <arg>        Path to DependencyAnalyzer.jar
+#            -b,--bug-working-directory <arg>    Path to wherever you exported your D4J bug
+#            -t,--target <arg>                   Target class to analyze.
+#            -o,--output <arg>                   File to write output to. Default is to print to stdout.
+#            -Da,--find-anti-dependencies
+#            -Dc,--find-control-dependencies
+#            -Df,--find-flow-dependencies
+#            -Do,--find-output-dependencies
+#            -Oe,--output-dependency-existence
+#            -Om,--output-dependency-map
+#            -lines,--lines-to-analyze <arg...>
+
 #Preconditions:
 #The variable D4J_HOME should be directed to the folder where defects4j is installed.
 if [[ -z $D4J_HOME ]]; then
@@ -71,7 +84,7 @@ while (( "$#" )); do
       ANALYSIS_OPT_Oe=$1
       shift 1
       ;;
-    -Om|--output-dependency-existence)
+    -Om|--output-dependency-map)
       parse_lines=0
       ANALYSIS_OPT_Om=$1
       shift 1
