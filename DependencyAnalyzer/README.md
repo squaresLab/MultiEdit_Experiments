@@ -11,17 +11,24 @@ Usage: java -jar DependencyAnalyzer.jar
                                      (read-after-write).
  -Do,--find-output-dependencies      Find output data dependencies
                                      (write-after-write).
- -lines,--lines-to-analyze <arg>     Line(s) to back-slice from. Default
+ -lib,--path-to-soot-libs <path>     Path to Soot's libraries. If you're
+                                     running DependencyAnalyzer.jar, then
+                                     you don't need to use this option.
+                                     Otherwise, use either
+                                     jar/DependencyAnalyzer.jar (which
+                                     contains all of Soot's dependencies)
+                                     or all of the libs in lib/.
+ -lines,--lines-to-analyze <line ...>Line(s) to back-slice from. Default
                                      is to slice all lines (which might be
                                      slow).
- -o,--output <arg>                   File to write output to. Default is
+ -o,--output <path>                  File to write output to. Default is
                                      to print to stdout.
  -Oe,--output-dependency-existence   Output whether there exists a
                                      dependency between specified lines
  -Om,--output-dependency-map         Output a line-to-lines mapping of
                                      dependencies.
- -t,--target <arg>                   Target class to analyze.
- -tcp,--target-classpath <arg>       Classpath to the analysis target.
+ -t,--target <class>                 Target class to analyze.
+ -tcp,--target-classpath <path>      Classpath to the analysis target.
 ```
 
 Example: `java -jar DependencyAnalyzer.jar -t my.pkg.Foo -tcp target/classes/ -Dc -o outputfile -Om -lines 1 2 3 4 5 9000`
@@ -45,6 +52,9 @@ To specify what type of output to generate, use `-Om` to generate a one-to-many 
 line to dependent lines. Use `-Oe` to output a boolean answer on whether there exists any 
 dependencies between the lines specified with `-lines`. If both options are selected, 
 then `-Oe` output will print before `-Om` output.
+
+You don't need to worry about `-lib` unless if you're running the analysis in ways other than 
+using the JAR (e.g: if you're writing test cases).
 
 Output formatting (`-Oe`):
 
