@@ -67,4 +67,24 @@ else
     D4J_SRC_DIR=$D4J_SRC_DIR_BUGGY
 fi
 
-python3 get-changed-lines.py $WD_BUGGY $WD_FIXED $D4J_SRC_DIR
+CHANGED_LINES_RAWOUT=$(python3 get-changed-lines.py $WD_BUGGY $WD_FIXED $D4J_SRC_DIR)
+
+#iterate over lines in $CHANGED_LINES_RAWOUT
+i=0
+class_name=
+buggy_lines=
+fixed_lines=
+while IFS= read -r line; do
+    if   [[ $i -eq 0 ]]; then
+        class_name=$line
+    elif [[ $i -eq 1 ]]; then
+        buggy_lines=${line#*Buggy: } #strip the "Buggy: " prefix
+    else
+        fixed_lines=${line#*Fixed: } #Strip the "Fixed: " prefix
+        echo $class_name
+        echo $buggy_lines
+        echo $fixed_lines
+    fi
+    let i++
+    let i=i%3
+done <<< "$CHANGED_LINES_RAWOUT"
