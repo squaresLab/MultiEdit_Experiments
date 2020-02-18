@@ -41,7 +41,7 @@ def get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative):
     changed_classes = list() #list of tuples (java.class.name, buggy file path, fixed file path)
 
     find_changed_files_cmd = ['diff', '-rqbB', dir_src_buggy, dir_src_fixed]
-    changed_files_rawout = subprocess.run(find_changed_files_cmd, capture_output=True).stdout.decode('utf-8').strip()
+    changed_files_rawout = subprocess.run(find_changed_files_cmd, stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
 
     capture_paths_from_rawout_regex=re.compile(r'^Files (.*) and (.*) differ$')
 
