@@ -50,7 +50,7 @@ def get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative):
         java_class_b = get_java_class(chg_file_b, dir_src_buggy)
         java_class_f = get_java_class(chg_file_f, dir_src_fixed)
         assert java_class_b == java_class_f
-        changed_classes.append((java_class_b, chg_file_b, chg_file_f)) #todo parse java classes
+        changed_classes.append((java_class_b, chg_file_b, chg_file_f))
 
     return changed_classes
 
