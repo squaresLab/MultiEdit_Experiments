@@ -63,6 +63,17 @@ def get_changed_lines(java_file_path_buggy, java_file_path_fixed):
 
     return changed_lines_buggy, changed_lines_fixed
 
+def get_changed_lines_mapping(changed_class_tuples):
+    changed_lines_mapping = dict() #maps java class name -> (changed lines buggy, changed lines fixed)
+    for changed_class_tuple in changed_class_tuples:
+        java_class_name = changed_class_tuple[0]
+        java_file_path_buggy = changed_class_tuple[1]
+        java_file_path_fixed = changed_class_tuple[2]
+        changed_lines_tuple = get_changed_lines(java_file_path_buggy, java_file_path_fixed)
+        changed_lines_mapping[java_class_name] = changed_lines_tuple
+
+    return changed_lines_mapping
+
 if __name__=='__main__':
     #define inpput
     parser = argparse.ArgumentParser()
@@ -85,9 +96,7 @@ if __name__=='__main__':
 
     changed_classes = get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative)
 
-    for changed_class in changed_classes:
-        java_class_name = changed_class[0]
-        java_file_path_buggy = changed_class[1]
-        java_file_path_fixed = changed_class[2]
-        changed_lines_buggy, changed_lines_fixed = get_changed_lines(java_file_path_buggy, java_file_path_fixed)
-        print(java_class_name, changed_lines_buggy, changed_lines_fixed)
+    java_class_to_changed_lines_map = get_changed_lines_mapping(changed_classes)
+
+    for java_class, changed_lines_tuple in java_class_to_changed_lines_map.items():
+        print(java_class, changed_lines_tuple)
