@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Executes dependency analysis on a single Java class in D4J with provided line numbers
+
 # Usage: ./analyze-single-class-d4j.sh
 #            -a,--analyzer-jar-path <arg>        Path to DependencyAnalyzer.jar
 #            -b,--bug-working-directory <arg>    Path to wherever you exported your D4J bug
@@ -23,7 +25,7 @@ fi
 ANALYZER=
 BUGWD=
 ANALYSIS_OPT_TARGET=
-OUTPUT_PATH=
+OUTPUT_PATH=""
 
 #set default values (absence of flag) for analysis flags
 ANALYSIS_OPT_Da=""
@@ -101,6 +103,8 @@ while (( "$#" )); do
     *) #anything else
       if [[ $parse_lines ]]; then
         ANALYSIS_OPT_LINES+="$1 "
+      else
+        echo "Ignoring unexpected argument $1"
       fi
       shift 1
       ;;
@@ -110,10 +114,12 @@ done
 #Convert inputted paths to absolute paths
 ANALYZER=$(realpath $ANALYZER)
 BUGWD=$(realpath $BUGWD)
-OUTPUT_PATH=$(realpath $OUTPUT_PATH)
+if [[ -n $OUTPUT_PATH ]]; then
+    OUTPUT_PATH=$(realpath $OUTPUT_PATH)
+fi
 
 ANALYSIS_OPT_OUTPUT="" #default value is to have no -o option
-if [[ -n OUTPUT_PATH ]]; then
+if [[ -n $OUTPUT_PATH ]]; then
   #if OUTPUT_PATH is not an empty string, then set a non-default output option
   ANALYSIS_OPT_OUTPUT="-o $OUTPUT_PATH"
 fi
