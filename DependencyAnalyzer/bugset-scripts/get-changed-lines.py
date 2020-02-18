@@ -41,7 +41,7 @@ def get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative):
     changed_classes = list() #list of tuples (java.class.name, buggy file path, fixed file path)
 
     find_changed_files_cmd = ['diff', '-rqbB', dir_src_buggy, dir_src_fixed]
-    changed_files_rawout = subprocess.run(find_changed_files_cmd, capture_output=True).stdout.decode('utf-8').strip()
+    changed_files_rawout = subprocess.run(find_changed_files_cmd, stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
 
     capture_paths_from_rawout_regex=re.compile(r'^Files (.*) and (.*) differ$')
 
@@ -50,7 +50,7 @@ def get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative):
         java_class_b = get_java_class(chg_file_b, dir_src_buggy)
         java_class_f = get_java_class(chg_file_f, dir_src_fixed)
         assert java_class_b == java_class_f
-        changed_classes.append((java_class_b, chg_file_b, chg_file_f)) #todo parse java classes
+        changed_classes.append((java_class_b, chg_file_b, chg_file_f))
 
     return changed_classes
 
@@ -60,7 +60,7 @@ def get_changed_lines(java_file_path_buggy, java_file_path_fixed):
     #run command through the shell, otherwise double quotes will go crazy
     find_changed_lines_cmd = 'diff --unchanged-line-format="" --old-line-format=";%dn;%L" --new-line-format=":%dn:%L" ' \
                              '-bB {} {}'.format(java_file_path_buggy, java_file_path_fixed)
-    changed_lines_rawout = subprocess.run(find_changed_lines_cmd, shell=True, capture_output=True).stdout.decode('utf-8').strip()
+    changed_lines_rawout = subprocess.run(find_changed_lines_cmd, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
 
     capture_linenum_buggy = re.compile(r'^;([0-9]+);')
     capture_linenum_fixed = re.compile(r'^:([0-9]+):')
