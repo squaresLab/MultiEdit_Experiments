@@ -15,13 +15,6 @@
 #            -Om,--output-dependency-map
 #            -lines,--lines-to-analyze <arg...>
 
-#Preconditions:
-#The variable D4J_HOME should be directed to the folder where defects4j is installed.
-if [[ -z $D4J_HOME ]]; then
-  echo "D4J_HOME is not set!"
-  exit 1
-fi
-
 ANALYZER=
 BUGWD=
 ANALYSIS_OPT_TARGET=
