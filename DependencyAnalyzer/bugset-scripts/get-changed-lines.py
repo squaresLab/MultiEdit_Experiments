@@ -60,7 +60,7 @@ def get_changed_lines(java_file_path_buggy, java_file_path_fixed):
     #run command through the shell, otherwise double quotes will go crazy
     find_changed_lines_cmd = 'diff --unchanged-line-format="" --old-line-format=";%dn;%L" --new-line-format=":%dn:%L" ' \
                              '-bB {} {}'.format(java_file_path_buggy, java_file_path_fixed)
-    changed_lines_rawout = subprocess.run(find_changed_lines_cmd, shell=True, capture_output=True).stdout.decode('utf-8').strip()
+    changed_lines_rawout = subprocess.run(find_changed_lines_cmd, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
 
     capture_linenum_buggy = re.compile(r'^;([0-9]+);')
     capture_linenum_fixed = re.compile(r'^:([0-9]+):')
