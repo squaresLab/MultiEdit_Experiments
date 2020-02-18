@@ -16,6 +16,8 @@ function analyze {
     f_analyze_target_classname=$2
     f_analyze_lines=$3
 
+    printf 'Analyzing %s in %s\n' $f_analyze_target_classname ${f_analyze_bugwd##*/} # ##*/ gets the innermost directory name
+
     #make output directory
     f_analyze_output_dir=${f_analyze_bugwd}/'dep-analysis-output'/
     mkdir -p $f_analyze_output_dir
@@ -46,10 +48,10 @@ function analyze {
     f_analyze_args_Do="$f_analyze_args -Do -o $f_analyze_outfile_Do"
 
     #run each analysis
-    bash $ANALYZE_SINGLE_CLASS_SHSCRIPT $f_analyze_args_Dc >& f_analyze_log_Dc
-    bash $ANALYZE_SINGLE_CLASS_SHSCRIPT $f_analyze_args_Df >& f_analyze_log_Df
-    bash $ANALYZE_SINGLE_CLASS_SHSCRIPT $f_analyze_args_Da >& f_analyze_log_Da
-    bash $ANALYZE_SINGLE_CLASS_SHSCRIPT $f_analyze_args_Do >& f_analyze_log_Do
+    bash $ANALYZE_SINGLE_CLASS_SHSCRIPT $f_analyze_args_Dc >& $f_analyze_log_Dc
+    bash $ANALYZE_SINGLE_CLASS_SHSCRIPT $f_analyze_args_Df >& $f_analyze_log_Df
+    bash $ANALYZE_SINGLE_CLASS_SHSCRIPT $f_analyze_args_Da >& $f_analyze_log_Da
+    bash $ANALYZE_SINGLE_CLASS_SHSCRIPT $f_analyze_args_Do >& $f_analyze_log_Do
 }
 
 D4J_PROJECT=
