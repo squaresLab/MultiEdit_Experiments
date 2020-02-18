@@ -117,7 +117,7 @@ fi
 ANALYZER=$(realpath $ANALYZER)
 BUGWD=$(realpath $BUGWD)
 if [[ -n $OUTPUT_PATH ]]; then
-    OUTPUT_PATH=$(realpath $OUTPUT_PATH)
+    OUTPUT_PATH=$(realpath -m $OUTPUT_PATH)
 fi
 
 ANALYSIS_OPT_OUTPUT="" #default value is to have no -o option
