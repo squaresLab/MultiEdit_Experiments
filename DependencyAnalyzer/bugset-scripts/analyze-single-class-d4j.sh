@@ -104,6 +104,15 @@ while (( "$#" )); do
   esac
 done
 
+if [[ -z $ANALYZER ]]; then
+    echo "Missing required parameter -a"
+    exit 1
+fi
+if [[ -z $BUGWD ]]; then
+    echo "Missing required parameter -b"
+    exit 1
+fi
+
 #Convert inputted paths to absolute paths
 ANALYZER=$(realpath $ANALYZER)
 BUGWD=$(realpath $BUGWD)
