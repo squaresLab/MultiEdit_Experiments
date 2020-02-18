@@ -1,3 +1,5 @@
+# Intended for both D4J and Bears
+
 # usage: get-changed-lines.py [-h] buggy fixed src
 #
 # positional arguments:
