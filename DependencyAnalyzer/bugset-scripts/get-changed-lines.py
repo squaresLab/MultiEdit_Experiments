@@ -8,6 +8,20 @@
 # optional arguments:
 # -h, --help  show this help message and exit
 
+# output format (to stdout):
+# output is grouped into 3-line chunks
+# 1st line: a modified Java class (notated.with.dot.Notation)
+# 2nd line: "Buggy: " followed by a space-separated list of line numbers present in Buggy but not present in Fixed
+# 3rd line: "Fixed: " followed by a space-separated list of line numbers present in Fixed but not present in Buggy
+#
+# Example output:
+# org.apache.commons.math3.fraction.BigFraction
+# Buggy:
+# Fixed: 306 307 308
+# org.apache.commons.math3.fraction.Fraction
+# Buggy:
+# Fixed: 215 216 217
+
 import argparse
 import subprocess
 import re
@@ -74,6 +88,19 @@ def get_changed_lines_mapping(changed_class_tuples):
 
     return changed_lines_mapping
 
+def get_output_string(java_class, changed_lines_buggy, changed_lines_fixed):
+    output = ''
+    output += java_class + '\n'
+    output += 'Buggy: '
+    for line in changed_lines_buggy:
+        output += line + ' '
+    output += '\n'
+    output += 'Fixed: '
+    for line in changed_lines_fixed:
+        output += line + ' '
+    output += '\n'
+    return output
+
 if __name__=='__main__':
     #define inpput
     parser = argparse.ArgumentParser()
@@ -99,4 +126,4 @@ if __name__=='__main__':
     java_class_to_changed_lines_map = get_changed_lines_mapping(changed_classes)
 
     for java_class, changed_lines_tuple in java_class_to_changed_lines_map.items():
-        print(java_class, changed_lines_tuple)
+        print(get_output_string(java_class, *changed_lines_tuple), end='')
