@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: ./analyze-d4j.sh
+# Usage: ./analyze-single-class-d4j.sh
 #            -a,--analyzer-jar-path <arg>        Path to DependencyAnalyzer.jar
 #            -b,--bug-working-directory <arg>    Path to wherever you exported your D4J bug
 #            -t,--target <arg>                   Target class to analyze.
