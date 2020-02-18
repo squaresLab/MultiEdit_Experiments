@@ -27,7 +27,7 @@ def get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative):
     find_changed_files_cmd = ['diff', '-rqbB', dir_src_buggy, dir_src_fixed]
     changed_files_rawout = subprocess.run(find_changed_files_cmd, capture_output=True).stdout.decode('utf-8').strip()
 
-    capture_paths_from_rawout_regex=re.compile(r'Files (.*) and (.*) differ')
+    capture_paths_from_rawout_regex=re.compile(r'^Files (.*) and (.*) differ$')
 
     for rawout_line in changed_files_rawout.splitlines():
         chg_file_b, chg_file_f = capture_paths_from_rawout_regex.search(rawout_line).groups()
@@ -37,6 +37,31 @@ def get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative):
         changed_classes.append((java_class_b, chg_file_b, chg_file_f)) #todo parse java classes
 
     return changed_classes
+
+def get_changed_lines(java_file_path_buggy, java_file_path_fixed):
+    changed_lines_buggy, changed_lines_fixed = list(), list()
+
+    #run command through the shell, otherwise double quotes will go crazy
+    find_changed_lines_cmd = 'diff --unchanged-line-format="" --old-line-format=";%dn;%L" --new-line-format=":%dn:%L" ' \
+                             '-bB {} {}'.format(java_file_path_buggy, java_file_path_fixed)
+    changed_lines_rawout = subprocess.run(find_changed_lines_cmd, shell=True, capture_output=True).stdout.decode('utf-8').strip()
+
+    capture_linenum_buggy = re.compile(r'^;([0-9]+);')
+    capture_linenum_fixed = re.compile(r'^:([0-9]+):')
+
+    for rawout_line in changed_lines_rawout.splitlines():
+        if len(rawout_line) == 0:
+            continue
+        if rawout_line[0] == ';': #old (buggy) line
+            linenum = capture_linenum_buggy.search(rawout_line).group() #linenum is a string
+            linenum = linenum[1:-1] #for some reason, the (semi)colons stay with the numbers
+            changed_lines_buggy.append(linenum)
+        elif rawout_line[0] == ':': #new (buggy) line
+            linenum = capture_linenum_fixed.search(rawout_line).group()
+            linenum = linenum[1:-1]
+            changed_lines_fixed.append(linenum)
+
+    return changed_lines_buggy, changed_lines_fixed
 
 if __name__=='__main__':
     #define inpput
@@ -58,9 +83,11 @@ if __name__=='__main__':
     dir_src_buggy = wd_buggy + os.sep + dir_src_relative
     dir_src_fixed = wd_fixed + os.sep + dir_src_relative
 
-    print(dir_src_buggy, dir_src_fixed)
-
     changed_classes = get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative)
-    print(changed_classes)
-    #find what line got changed
-    changed_lines = dict()
+
+    for changed_class in changed_classes:
+        java_class_name = changed_class[0]
+        java_file_path_buggy = changed_class[1]
+        java_file_path_fixed = changed_class[2]
+        changed_lines_buggy, changed_lines_fixed = get_changed_lines(java_file_path_buggy, java_file_path_fixed)
+        print(java_class_name, changed_lines_buggy, changed_lines_fixed)
