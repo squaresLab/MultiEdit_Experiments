@@ -1,0 +1,2041 @@
+nohup: ignoring input
+Checking out c0b655ac to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c0b655ac:ad5c90bb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-2b......................................... OK
+Checking out c0b655ac to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c0b655ac:ad5c90bb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-2f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.distribution.HypergeometricDistribution in Math2b
+Analyzing org.apache.commons.math3.distribution.HypergeometricDistribution in Math2f
+Checking out 92c46973 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 92c46973:de420954..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-3b......................................... OK
+Checking out 92c46973 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 92c46973:de420954..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-3f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.util.MathArrays in Math3b
+Analyzing org.apache.commons.math3.util.MathArrays in Math3f
+Checking out 277e6172 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 277e6172:d609e65f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-4b......................................... OK
+Checking out 277e6172 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 277e6172:d609e65f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-4f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.geometry.euclidean.twod.SubLine in Math4b
+Analyzing org.apache.commons.math3.geometry.euclidean.twod.SubLine in Math4f
+Analyzing org.apache.commons.math3.geometry.euclidean.threed.SubLine in Math4b
+Analyzing org.apache.commons.math3.geometry.euclidean.threed.SubLine in Math4f
+Checking out e54a1c92 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e54a1c92:f5bcba81..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-5b......................................... OK
+Checking out e54a1c92 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e54a1c92:f5bcba81..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-5f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.complex.Complex in Math5b
+Analyzing org.apache.commons.math3.complex.Complex in Math5f
+Checking out 419a052c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 419a052c:6c9d06a6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-6b......................................... OK
+Checking out 419a052c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 419a052c:6c9d06a6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-6f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optim.BaseOptimizer in Math6b
+Analyzing org.apache.commons.math3.optim.BaseOptimizer in Math6f
+Analyzing org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizer in Math6b
+Analyzing org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizer in Math6f
+Analyzing org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer in Math6b
+Analyzing org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer in Math6f
+Analyzing org.apache.commons.math3.optim.nonlinear.scalar.noderiv.PowellOptimizer in Math6b
+Analyzing org.apache.commons.math3.optim.nonlinear.scalar.noderiv.PowellOptimizer in Math6f
+Analyzing org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer in Math6b
+Analyzing org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer in Math6f
+Analyzing org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer in Math6b
+Analyzing org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer in Math6f
+Analyzing org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizer in Math6b
+Analyzing org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizer in Math6f
+Checking out 1cd68eed to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1cd68eed:96cd02e8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-7b......................................... OK
+Checking out 1cd68eed to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1cd68eed:96cd02e8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-7f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.ode.AbstractIntegrator in Math7b
+Analyzing org.apache.commons.math3.ode.AbstractIntegrator in Math7f
+Checking out 196e6317 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 196e6317:55046479..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-8b......................................... OK
+Checking out 196e6317 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 196e6317:55046479..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-8f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.distribution.DiscreteDistribution in Math8b
+Analyzing org.apache.commons.math3.distribution.DiscreteDistribution in Math8f
+Checking out de98c0f0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de98c0f0:c929aee1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-9b......................................... OK
+Checking out de98c0f0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de98c0f0:c929aee1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-9f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.geometry.euclidean.threed.Line in Math9b
+Analyzing org.apache.commons.math3.geometry.euclidean.threed.Line in Math9f
+Checking out 7e2ffcc9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7e2ffcc9:d2a916e3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-10b........................................ OK
+Checking out 7e2ffcc9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7e2ffcc9:d2a916e3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-10f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.analysis.differentiation.DSCompiler in Math10b
+Analyzing org.apache.commons.math3.analysis.differentiation.DSCompiler in Math10f
+Checking out aa2bd1d0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff aa2bd1d0:02f64e73..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-11b........................................ OK
+Checking out aa2bd1d0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff aa2bd1d0:02f64e73..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-11f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.distribution.MultivariateNormalDistribution in Math11b
+Analyzing org.apache.commons.math3.distribution.MultivariateNormalDistribution in Math11f
+Checking out cc82d38a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cc82d38a:67fc8709..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-12b........................................ OK
+Checking out cc82d38a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cc82d38a:67fc8709..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-12f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.random.BitsStreamGenerator in Math12b
+Analyzing org.apache.commons.math3.random.BitsStreamGenerator in Math12f
+Checking out 8079ea5b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8079ea5b:a6b2e992..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-13b........................................ OK
+Checking out 8079ea5b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8079ea5b:a6b2e992..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-13f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.general.AbstractLeastSquaresOptimizer in Math13b
+Analyzing org.apache.commons.math3.optimization.general.AbstractLeastSquaresOptimizer in Math13f
+Checking out a6b2e992 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6b2e992:0f37f872..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-14b........................................ OK
+Checking out a6b2e992 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6b2e992:0f37f872..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-14f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optim.nonlinear.vector.Weight in Math14b
+Analyzing org.apache.commons.math3.optim.nonlinear.vector.Weight in Math14f
+Analyzing org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer in Math14b
+Analyzing org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer in Math14f
+Checking out b221a734 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b221a734:efcf91bc..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-15b........................................ OK
+Checking out b221a734 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b221a734:efcf91bc..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-15f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.util.FastMath in Math15b
+Analyzing org.apache.commons.math3.util.FastMath in Math15f
+Checking out 875ed1f4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 875ed1f4:87324e56..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-16b........................................ OK
+Checking out 875ed1f4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 875ed1f4:87324e56..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-16f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.util.FastMath in Math16b
+Analyzing org.apache.commons.math3.util.FastMath in Math16f
+Checking out 621806b7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 621806b7:07611165..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-17b........................................ OK
+Checking out 621806b7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 621806b7:07611165..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-17f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.dfp.Dfp in Math17b
+Analyzing org.apache.commons.math3.dfp.Dfp in Math17f
+Checking out 7c7d7e8f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7c7d7e8f:6e62aefc..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-18b........................................ OK
+Checking out 7c7d7e8f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7c7d7e8f:6e62aefc..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-18f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.direct.CMAESOptimizer in Math18b
+Analyzing org.apache.commons.math3.optimization.direct.CMAESOptimizer in Math18f
+Checking out c73fad0a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c73fad0a:efa9de05..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-19b........................................ OK
+Checking out c73fad0a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c73fad0a:efa9de05..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-19f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.direct.CMAESOptimizer in Math19b
+Analyzing org.apache.commons.math3.optimization.direct.CMAESOptimizer in Math19f
+Checking out efa9de05 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff efa9de05:5a50073d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-20b........................................ OK
+Checking out efa9de05 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff efa9de05:5a50073d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-20f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.direct.CMAESOptimizer in Math20b
+Analyzing org.apache.commons.math3.optimization.direct.CMAESOptimizer in Math20f
+Checking out 468ed855 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 468ed855:dbb408e8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-21b........................................ OK
+Checking out 468ed855 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 468ed855:dbb408e8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-21f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.linear.RectangularCholeskyDecomposition in Math21b
+Analyzing org.apache.commons.math3.linear.RectangularCholeskyDecomposition in Math21f
+Checking out b0cba9a7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b0cba9a7:51461f1c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-22b........................................ OK
+Checking out b0cba9a7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b0cba9a7:51461f1c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-22f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.distribution.FDistribution in Math22b
+Analyzing org.apache.commons.math3.distribution.FDistribution in Math22f
+Analyzing org.apache.commons.math3.distribution.UniformRealDistribution in Math22b
+Analyzing org.apache.commons.math3.distribution.UniformRealDistribution in Math22f
+Checking out f1b04e99 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f1b04e99:2b4c1f87..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-23b........................................ OK
+Checking out f1b04e99 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f1b04e99:2b4c1f87..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-23f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.univariate.BrentOptimizer in Math23b
+Analyzing org.apache.commons.math3.optimization.univariate.BrentOptimizer in Math23f
+Checking out d5ff460b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d5ff460b:4e21bb6f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-24b........................................ OK
+Checking out d5ff460b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d5ff460b:4e21bb6f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-24f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.univariate.BrentOptimizer in Math24b
+Analyzing org.apache.commons.math3.optimization.univariate.BrentOptimizer in Math24f
+Checking out 996dd998 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 996dd998:33201599..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-25b........................................ OK
+Checking out 996dd998 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 996dd998:33201599..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-25f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.fitting.HarmonicFitter in Math25b
+Analyzing org.apache.commons.math3.optimization.fitting.HarmonicFitter in Math25f
+Checking out 1566dd33 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1566dd33:5f2077bb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-26b........................................ OK
+Checking out 1566dd33 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1566dd33:5f2077bb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-26f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.fraction.Fraction in Math26b
+Analyzing org.apache.commons.math3.fraction.Fraction in Math26f
+Checking out 5f2077bb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5f2077bb:d3fc5af3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-27b........................................ OK
+Checking out 5f2077bb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5f2077bb:d3fc5af3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-27f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.fraction.Fraction in Math27b
+Analyzing org.apache.commons.math3.fraction.Fraction in Math27f
+Checking out d3fc5af3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d3fc5af3:a55c951a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-28b........................................ OK
+Checking out d3fc5af3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d3fc5af3:a55c951a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-28f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.linear.SimplexSolver in Math28b
+Analyzing org.apache.commons.math3.optimization.linear.SimplexSolver in Math28f
+Checking out 7bbddc22 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7bbddc22:350b2b1a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-29b........................................ OK
+Checking out 7bbddc22 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7bbddc22:350b2b1a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-29f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.linear.OpenMapRealVector in Math29b
+Analyzing org.apache.commons.math3.linear.OpenMapRealVector in Math29f
+Checking out a25e7f7a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a25e7f7a:631c5bcb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-30b........................................ OK
+Checking out a25e7f7a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a25e7f7a:631c5bcb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-30f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.stat.inference.MannWhitneyUTest in Math30b
+Analyzing org.apache.commons.math3.stat.inference.MannWhitneyUTest in Math30f
+Checking out 2d846db3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2d846db3:6a5ef014..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-31b........................................ OK
+Checking out 2d846db3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2d846db3:6a5ef014..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-31f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.util.ContinuedFraction in Math31b
+Analyzing org.apache.commons.math3.util.ContinuedFraction in Math31f
+Checking out f81847d8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f81847d8:8d647834..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-32b........................................ OK
+Checking out f81847d8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f81847d8:8d647834..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-32f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet in Math32b
+Analyzing org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet in Math32f
+Checking out 3ef79313 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3ef79313:e5c7e405..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-33b........................................ OK
+Checking out 3ef79313 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3ef79313:e5c7e405..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-33f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.optimization.linear.SimplexTableau in Math33b
+Analyzing org.apache.commons.math3.optimization.linear.SimplexTableau in Math33f
+Checking out 520f36b4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 520f36b4:b91b3efb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-34b........................................ OK
+Checking out 520f36b4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 520f36b4:b91b3efb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-34f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.genetics.ListPopulation in Math34b
+Analyzing org.apache.commons.math3.genetics.ListPopulation in Math34f
+Checking out a5d8d115 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a5d8d115:88f944e1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-35b........................................ OK
+Checking out a5d8d115 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a5d8d115:88f944e1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-35f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math3.genetics.ElitisticListPopulation in Math35b
+Analyzing org.apache.commons.math3.genetics.ElitisticListPopulation in Math35f
+Checking out 1a15d5f4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1a15d5f4:966d2eee..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-36b........................................ OK
+Checking out 1a15d5f4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1a15d5f4:966d2eee..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-36f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.fraction.BigFraction in Math36b
+Analyzing org.apache.commons.math.fraction.BigFraction in Math36f
+Checking out 65ed08e1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 65ed08e1:de147e5c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-37b........................................ OK
+Checking out 65ed08e1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 65ed08e1:de147e5c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-37f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.complex.Complex in Math37b
+Analyzing org.apache.commons.math.complex.Complex in Math37f
+Checking out 91cc42ba to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 91cc42ba:74e00296..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-38b........................................ OK
+Checking out 91cc42ba to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 91cc42ba:74e00296..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-38f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.direct.BOBYQAOptimizer in Math38b
+Analyzing org.apache.commons.math.optimization.direct.BOBYQAOptimizer in Math38f
+Checking out 74e00296 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 74e00296:c23859f0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-39b........................................ OK
+Checking out 74e00296 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 74e00296:c23859f0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-39f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator in Math39b
+Analyzing org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator in Math39f
+Checking out c8becc7c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c8becc7c:efa78258..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-40b........................................ OK
+Checking out c8becc7c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c8becc7c:efa78258..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-40f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver in Math40b
+Analyzing org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver in Math40f
+Checking out 882556ea to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 882556ea:91e6ac58..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-41b........................................ OK
+Checking out 882556ea to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 882556ea:91e6ac58..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-41f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.descriptive.moment.Variance in Math41b
+Analyzing org.apache.commons.math.stat.descriptive.moment.Variance in Math41f
+Checking out e98a5000 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e98a5000:800943ec..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-42b........................................ OK
+Checking out e98a5000 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e98a5000:800943ec..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-42f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.linear.SimplexTableau in Math42b
+Analyzing org.apache.commons.math.optimization.linear.SimplexTableau in Math42f
+Checking out dcae84b2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dcae84b2:c282a044..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-43b........................................ OK
+Checking out dcae84b2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dcae84b2:c282a044..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-43f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.descriptive.SummaryStatistics in Math43b
+Analyzing org.apache.commons.math.stat.descriptive.SummaryStatistics in Math43f
+Checking out 53c8cec5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 53c8cec5:4d994702..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-44b........................................ OK
+Checking out 53c8cec5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 53c8cec5:4d994702..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-44f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.ode.AbstractIntegrator in Math44b
+Analyzing org.apache.commons.math.ode.AbstractIntegrator in Math44f
+Checking out bc4e9db0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bc4e9db0:4a702dbf..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-45b........................................ OK
+Checking out bc4e9db0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bc4e9db0:4a702dbf..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-45f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.linear.OpenMapRealMatrix in Math45b
+Analyzing org.apache.commons.math.linear.OpenMapRealMatrix in Math45f
+Checking out e6f27ebc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e6f27ebc:330f3fe1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-46b........................................ OK
+Checking out e6f27ebc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e6f27ebc:330f3fe1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-46f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.complex.Complex in Math46b
+Analyzing org.apache.commons.math.complex.Complex in Math46f
+Checking out 330f3fe1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 330f3fe1:bbb5e1e1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-47b........................................ OK
+Checking out 330f3fe1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 330f3fe1:bbb5e1e1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-47f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.complex.Complex in Math47b
+Analyzing org.apache.commons.math.complex.Complex in Math47f
+Checking out 13d22f45 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 13d22f45:2af72281..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-48b........................................ OK
+Checking out 13d22f45 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 13d22f45:2af72281..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-48f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.solvers.BaseSecantSolver in Math48b
+Analyzing org.apache.commons.math.analysis.solvers.BaseSecantSolver in Math48f
+Checking out 09e35881 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 09e35881:0b78d9ac..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-49b........................................ OK
+Checking out 09e35881 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 09e35881:0b78d9ac..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-49f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.linear.OpenMapRealVector in Math49b
+Analyzing org.apache.commons.math.linear.OpenMapRealVector in Math49f
+Checking out 39cf5e69 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 39cf5e69:ef028845..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-50b........................................ OK
+Checking out 39cf5e69 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 39cf5e69:ef028845..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-50f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.solvers.BaseSecantSolver in Math50b
+Analyzing org.apache.commons.math.analysis.solvers.BaseSecantSolver in Math50f
+Checking out 2f066a5b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2f066a5b:34fef656..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-51b........................................ OK
+Checking out 2f066a5b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2f066a5b:34fef656..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-51f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.solvers.BaseSecantSolver in Math51b
+Analyzing org.apache.commons.math.analysis.solvers.BaseSecantSolver in Math51f
+Checking out 3c319db4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3c319db4:def9fbf8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-52b........................................ OK
+Checking out 3c319db4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3c319db4:def9fbf8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-52f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.geometry.euclidean.threed.Rotation in Math52b
+Analyzing org.apache.commons.math.geometry.euclidean.threed.Rotation in Math52f
+Checking out 7707b0bb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7707b0bb:3eb3573c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-53b........................................ OK
+Checking out 7707b0bb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7707b0bb:3eb3573c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-53f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.complex.Complex in Math53b
+Analyzing org.apache.commons.math.complex.Complex in Math53f
+Checking out c00ac812 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c00ac812:804309e5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-54b........................................ OK
+Checking out c00ac812 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c00ac812:804309e5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-54f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.dfp.Dfp in Math54b
+Analyzing org.apache.commons.math.dfp.Dfp in Math54f
+Checking out 0c38504f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0c38504f:3114d4ed..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-55b........................................ OK
+Checking out 0c38504f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0c38504f:3114d4ed..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-55f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.geometry.Vector3D in Math55b
+Analyzing org.apache.commons.math.geometry.Vector3D in Math55f
+Checking out e06fe05e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e06fe05e:d773adb1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-56b........................................ OK
+Checking out e06fe05e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e06fe05e:d773adb1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-56f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.util.MultidimensionalCounter in Math56b
+Analyzing org.apache.commons.math.util.MultidimensionalCounter in Math56f
+Checking out 00fea9d8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 00fea9d8:d3892cb8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-57b........................................ OK
+Checking out 00fea9d8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 00fea9d8:d3892cb8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-57f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer in Math57b
+Analyzing org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer in Math57f
+Checking out 45add3a0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 45add3a0:b1392325..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-58b........................................ OK
+Checking out 45add3a0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 45add3a0:b1392325..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-58f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.fitting.GaussianFitter in Math58b
+Analyzing org.apache.commons.math.optimization.fitting.GaussianFitter in Math58f
+Checking out 5dcca480 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5dcca480:ffcaeb07..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-59b........................................ OK
+Checking out 5dcca480 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5dcca480:ffcaeb07..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-59f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.util.FastMath in Math59b
+Analyzing org.apache.commons.math.util.FastMath in Math59f
+Checking out 9054aac4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9054aac4:87430634..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-60b........................................ OK
+Checking out 9054aac4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9054aac4:87430634..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-60f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.distribution.NormalDistributionImpl in Math60b
+Analyzing org.apache.commons.math.distribution.NormalDistributionImpl in Math60f
+Checking out f76efe5f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f76efe5f:30bacfbe..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-61b........................................ OK
+Checking out f76efe5f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f76efe5f:30bacfbe..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-61f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.distribution.PoissonDistributionImpl in Math61b
+Analyzing org.apache.commons.math.distribution.PoissonDistributionImpl in Math61f
+Checking out 8de3eb54 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8de3eb54:6a07726a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-62b........................................ OK
+Checking out 8de3eb54 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8de3eb54:6a07726a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-62f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer in Math62b
+Analyzing org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer in Math62f
+Checking out d2a5bc02 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d2a5bc02:91b44a1e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-63b........................................ OK
+Checking out d2a5bc02 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d2a5bc02:91b44a1e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-63f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.util.MathUtils in Math63b
+Analyzing org.apache.commons.math.util.MathUtils in Math63f
+Checking out 7dadc2ab to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7dadc2ab:1909dbe0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-64b........................................ OK
+Checking out 7dadc2ab to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7dadc2ab:1909dbe0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-64f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer in Math64b
+Analyzing org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer in Math64f
+Checking out a4f9188a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a4f9188a:d4e5f1ce..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-65b........................................ OK
+Checking out a4f9188a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a4f9188a:d4e5f1ce..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-65f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer in Math65b
+Analyzing org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer in Math65f

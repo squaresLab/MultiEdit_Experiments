@@ -1,0 +1,2577 @@
+nohup: ignoring input
+Checking out 76fcbc83 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 76fcbc83:7bbad398..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-66b........................................ OK
+Checking out 76fcbc83 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 76fcbc83:7bbad398..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-66f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.univariate.BrentOptimizer in Math66b
+Analyzing org.apache.commons.math.optimization.univariate.BrentOptimizer in Math66f
+Checking out fc505bba to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fc505bba:28f28f18..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-67b........................................ OK
+Checking out fc505bba to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fc505bba:28f28f18..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-67f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.MultiStartUnivariateRealOptimizer in Math67b
+Analyzing org.apache.commons.math.optimization.MultiStartUnivariateRealOptimizer in Math67f
+Checking out 615ca9a0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 615ca9a0:103f1239..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-68b........................................ OK
+Checking out 615ca9a0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 615ca9a0:103f1239..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-68f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer in Math68b
+Analyzing org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer in Math68f
+Checking out a2711c18 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a2711c18:72728264..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-69b........................................ OK
+Checking out a2711c18 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a2711c18:72728264..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-69f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.correlation.PearsonsCorrelation in Math69b
+Analyzing org.apache.commons.math.stat.correlation.PearsonsCorrelation in Math69f
+Checking out f41fcd85 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f41fcd85:f184aeb7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-70b........................................ OK
+Checking out f41fcd85 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f41fcd85:f184aeb7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-70f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.solvers.BisectionSolver in Math70b
+Analyzing org.apache.commons.math.analysis.solvers.BisectionSolver in Math70f
+Checking out 6537e18a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6537e18a:fa959ca8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-71b........................................ OK
+Checking out 6537e18a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6537e18a:fa959ca8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-71f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator in Math71b
+Analyzing org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator in Math71f
+Analyzing org.apache.commons.math.ode.nonstiff.RungeKuttaIntegrator in Math71b
+Analyzing org.apache.commons.math.ode.nonstiff.RungeKuttaIntegrator in Math71f
+Checking out aa09ac7c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff aa09ac7c:29c3b75e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-72b........................................ OK
+Checking out aa09ac7c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff aa09ac7c:29c3b75e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-72f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.solvers.BrentSolver in Math72b
+Analyzing org.apache.commons.math.analysis.solvers.BrentSolver in Math72f
+Checking out 29c3b75e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 29c3b75e:1687372e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-73b........................................ OK
+Checking out 29c3b75e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 29c3b75e:1687372e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-73f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.solvers.BrentSolver in Math73b
+Analyzing org.apache.commons.math.analysis.solvers.BrentSolver in Math73f
+Checking out d06e7b7c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d06e7b7c:034b4d68..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-74b........................................ OK
+Checking out d06e7b7c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d06e7b7c:034b4d68..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-74f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator in Math74b
+Analyzing org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator in Math74f
+Checking out 523df0c1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 523df0c1:39e2ad8a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-75b........................................ OK
+Checking out 523df0c1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 523df0c1:39e2ad8a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-75f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.Frequency in Math75b
+Analyzing org.apache.commons.math.stat.Frequency in Math75f
+Checking out 39e2ad8a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 39e2ad8a:d607614a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-76b........................................ OK
+Checking out 39e2ad8a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 39e2ad8a:d607614a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-76f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.linear.SingularValueDecompositionImpl in Math76b
+Analyzing org.apache.commons.math.linear.SingularValueDecompositionImpl in Math76f
+Checking out d6555de7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d6555de7:b30bff01..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-77b........................................ OK
+Checking out d6555de7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d6555de7:b30bff01..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-77f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.linear.OpenMapRealVector in Math77b
+Analyzing org.apache.commons.math.linear.OpenMapRealVector in Math77f
+Analyzing org.apache.commons.math.linear.ArrayRealVector in Math77b
+Analyzing org.apache.commons.math.linear.ArrayRealVector in Math77f
+Checking out b3ed2415 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b3ed2415:cc7e3e7f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-78b........................................ OK
+Checking out b3ed2415 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b3ed2415:cc7e3e7f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-78f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.ode.events.EventState in Math78b
+Analyzing org.apache.commons.math.ode.events.EventState in Math78f
+Checking out 138baec1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 138baec1:ca1ca925..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-79b........................................ OK
+Checking out 138baec1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 138baec1:ca1ca925..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-79f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.util.MathUtils in Math79b
+Analyzing org.apache.commons.math.util.MathUtils in Math79f
+Checking out 3ced4f2a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3ced4f2a:7d903ca5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-80b........................................ OK
+Checking out 3ced4f2a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3ced4f2a:7d903ca5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-80f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.linear.EigenDecompositionImpl in Math80b
+Analyzing org.apache.commons.math.linear.EigenDecompositionImpl in Math80f
+Checking out 7d903ca5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7d903ca5:6e3ea685..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-81b........................................ OK
+Checking out 7d903ca5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7d903ca5:6e3ea685..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-81f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.linear.EigenDecompositionImpl in Math81b
+Analyzing org.apache.commons.math.linear.EigenDecompositionImpl in Math81f
+Checking out 4ece1884 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ece1884:f36be8e8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-82b........................................ OK
+Checking out 4ece1884 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ece1884:f36be8e8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-82f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.linear.SimplexSolver in Math82b
+Analyzing org.apache.commons.math.optimization.linear.SimplexSolver in Math82f
+Checking out f36be8e8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f36be8e8:0878ad4b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-83b........................................ OK
+Checking out f36be8e8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f36be8e8:0878ad4b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-83f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.linear.SimplexTableau in Math83b
+Analyzing org.apache.commons.math.optimization.linear.SimplexTableau in Math83f
+Checking out 317793ee to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 317793ee:6eeb2b31..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-84b........................................ OK
+Checking out 317793ee to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 317793ee:6eeb2b31..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-84f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.direct.MultiDirectional in Math84b
+Analyzing org.apache.commons.math.optimization.direct.MultiDirectional in Math84f
+Checking out 9be86f67 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9be86f67:8de8a3b6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-85b........................................ OK
+Checking out 9be86f67 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9be86f67:8de8a3b6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-85f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils in Math85b
+Analyzing org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils in Math85f
+Checking out bd8f05c4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bd8f05c4:75f5c92a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-86b........................................ OK
+Checking out bd8f05c4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bd8f05c4:75f5c92a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-86f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.linear.CholeskyDecompositionImpl in Math86b
+Analyzing org.apache.commons.math.linear.CholeskyDecompositionImpl in Math86f
+Checking out 75f5c92a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 75f5c92a:d0c52c49..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-87b........................................ OK
+Checking out 75f5c92a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 75f5c92a:d0c52c49..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-87f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.linear.SimplexTableau in Math87b
+Analyzing org.apache.commons.math.optimization.linear.SimplexTableau in Math87f
+Checking out 24a6a269 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 24a6a269:1b48dbab..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-88b........................................ OK
+Checking out 24a6a269 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 24a6a269:1b48dbab..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-88f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.optimization.linear.SimplexTableau in Math88b
+Analyzing org.apache.commons.math.optimization.linear.SimplexTableau in Math88f
+Checking out 62b3877f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 62b3877f:0c84b28c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-89b........................................ OK
+Checking out 62b3877f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 62b3877f:0c84b28c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-89f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.Frequency in Math89b
+Analyzing org.apache.commons.math.stat.Frequency in Math89f
+Checking out 0c84b28c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0c84b28c:43336b08..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-90b........................................ OK
+Checking out 0c84b28c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0c84b28c:43336b08..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-90f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.Frequency in Math90b
+Analyzing org.apache.commons.math.stat.Frequency in Math90f
+Checking out e1df5f54 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e1df5f54:9fb5d27f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-91b........................................ OK
+Checking out e1df5f54 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e1df5f54:9fb5d27f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-91f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.fraction.Fraction in Math91b
+Analyzing org.apache.commons.math.fraction.Fraction in Math91f
+Checking out 85a8ab2d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 85a8ab2d:63c7bc9d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-92b........................................ OK
+Checking out 85a8ab2d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 85a8ab2d:63c7bc9d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-92f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.util.MathUtils in Math92b
+Analyzing org.apache.commons.math.util.MathUtils in Math92f
+Checking out 7cd3d822 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7cd3d822:3112f69e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-93b........................................ OK
+Checking out 7cd3d822 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7cd3d822:3112f69e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-93f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.util.MathUtils in Math93b
+Analyzing org.apache.commons.math.util.MathUtils in Math93f
+Checking out a96e5978 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a96e5978:ee88057b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-94b........................................ OK
+Checking out a96e5978 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a96e5978:ee88057b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-94f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.util.MathUtils in Math94b
+Analyzing org.apache.commons.math.util.MathUtils in Math94f
+Checking out fbf87122 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fbf87122:e640d161..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-95b........................................ OK
+Checking out fbf87122 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fbf87122:e640d161..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-95f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.distribution.FDistributionImpl in Math95b
+Analyzing org.apache.commons.math.distribution.FDistributionImpl in Math95f
+Checking out e6449ccc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e6449ccc:704342d6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-96b........................................ OK
+Checking out e6449ccc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e6449ccc:704342d6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-96f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.complex.Complex in Math96b
+Analyzing org.apache.commons.math.complex.Complex in Math96f
+Checking out ed492bd0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ed492bd0:7cf0c980..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-97b........................................ OK
+Checking out ed492bd0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ed492bd0:7cf0c980..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-97f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.analysis.BrentSolver in Math97b
+Analyzing org.apache.commons.math.analysis.BrentSolver in Math97f
+Checking out a0f3e043 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a0f3e043:26cf6d54..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-98b........................................ OK
+Checking out a0f3e043 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a0f3e043:26cf6d54..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-98f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.linear.BigMatrixImpl in Math98b
+Analyzing org.apache.commons.math.linear.BigMatrixImpl in Math98f
+Analyzing org.apache.commons.math.linear.RealMatrixImpl in Math98b
+Analyzing org.apache.commons.math.linear.RealMatrixImpl in Math98f
+Checking out 58b5609f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 58b5609f:924b6d76..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-99b........................................ OK
+Checking out 58b5609f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 58b5609f:924b6d76..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-99f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.util.MathUtils in Math99b
+Analyzing org.apache.commons.math.util.MathUtils in Math99f
+Checking out 876d1333 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 876d1333:0e9b0001..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-100b....................................... OK
+Checking out 876d1333 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 876d1333:0e9b0001..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-100f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.estimation.AbstractEstimator in Math100b
+Analyzing org.apache.commons.math.estimation.AbstractEstimator in Math100f
+Checking out 32643d19 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 32643d19:29b732ce..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-101b....................................... OK
+Checking out 32643d19 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 32643d19:29b732ce..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-101f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.complex.ComplexFormat in Math101b
+Analyzing org.apache.commons.math.complex.ComplexFormat in Math101f
+Checking out a1bac127 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a1bac127:f9b16a4a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-102b....................................... OK
+Checking out a1bac127 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a1bac127:f9b16a4a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-102f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.inference.ChiSquareTestImpl in Math102b
+Analyzing org.apache.commons.math.stat.inference.ChiSquareTestImpl in Math102f
+Checking out 4ce05bcd to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ce05bcd:b8058233..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-103b....................................... OK
+Checking out 4ce05bcd to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ce05bcd:b8058233..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-103f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.distribution.NormalDistributionImpl in Math103b
+Analyzing org.apache.commons.math.distribution.NormalDistributionImpl in Math103f
+Checking out e39a7750 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e39a7750:c43fa5d5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-104b....................................... OK
+Checking out e39a7750 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e39a7750:c43fa5d5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-104f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.special.Gamma in Math104b
+Analyzing org.apache.commons.math.special.Gamma in Math104f
+Checking out fc21b26f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fc21b26f:ab1b9500..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-105b....................................... OK
+Checking out fc21b26f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fc21b26f:ab1b9500..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-105f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.stat.regression.SimpleRegression in Math105b
+Analyzing org.apache.commons.math.stat.regression.SimpleRegression in Math105f
+Checking out 41ba9e00 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 41ba9e00:5de83dca..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-106b....................................... OK
+Checking out 41ba9e00 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 41ba9e00:5de83dca..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-106f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.math.fraction.ProperFractionFormat in Math106b
+Analyzing org.apache.commons.math.fraction.ProperFractionFormat in Math106f
+Checking out 4e9d7607 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4e9d7607:837fd054..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-1b...................................... OK
+Checking out 4e9d7607 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4e9d7607:837fd054..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-1f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.invocation.InvocationMatcher in Mockito1b
+Analyzing org.mockito.internal.invocation.InvocationMatcher in Mockito1f
+Checking out 80452c7a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 80452c7a:d30450fa..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-2b...................................... OK
+Checking out 80452c7a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 80452c7a:d30450fa..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-2f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.util.Timer in Mockito2b
+Analyzing org.mockito.internal.util.Timer in Mockito2f
+Checking out 3eec7451 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3eec7451:4e9d7607..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-3b...................................... OK
+Checking out 3eec7451 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3eec7451:4e9d7607..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-3f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.invocation.InvocationMatcher in Mockito3b
+Analyzing org.mockito.internal.invocation.InvocationMatcher in Mockito3f
+Checking out 42b391d4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 42b391d4:c25cb6bf..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-4b...................................... OK
+Checking out 42b391d4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 42b391d4:c25cb6bf..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-4f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.exceptions.Reporter in Mockito4b
+Analyzing org.mockito.exceptions.Reporter in Mockito4f
+Checking out 42a24dde to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 42a24dde:fff76563..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-5b...................................... OK
+Checking out 42a24dde to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 42a24dde:fff76563..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-5f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.verification.VerificationOverTimeImpl in Mockito5b
+Analyzing org.mockito.internal.verification.VerificationOverTimeImpl in Mockito5f
+Checking out dc205824 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dc205824:a7ba6069..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-6b...................................... OK
+Checking out dc205824 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dc205824:a7ba6069..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-6f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.Matchers in Mockito6b
+Analyzing org.mockito.Matchers in Mockito6f
+Checking out 0aaa36ce to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0aaa36ce:3c8892b8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-7b...................................... OK
+Checking out 0aaa36ce to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0aaa36ce:3c8892b8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-7f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.util.reflection.GenericMetadataSupport in Mockito7b
+Analyzing org.mockito.internal.util.reflection.GenericMetadataSupport in Mockito7f
+Checking out 5a03bf5d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5a03bf5d:9fb7d8b6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-8b...................................... OK
+Checking out 5a03bf5d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5a03bf5d:9fb7d8b6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-8f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.util.reflection.GenericMetadataSupport in Mockito8b
+Analyzing org.mockito.internal.util.reflection.GenericMetadataSupport in Mockito8f
+Checking out 31f90802 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 31f90802:f45c2dc0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-9b...................................... OK
+Checking out 31f90802 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 31f90802:f45c2dc0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-9f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.stubbing.answers.CallsRealMethods in Mockito9b
+Analyzing org.mockito.internal.stubbing.answers.CallsRealMethods in Mockito9f
+Checking out 1beeae39 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1beeae39:b00a6d25..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-10b..................................... OK
+Checking out 1beeae39 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1beeae39:b00a6d25..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-10f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs in Mockito10b
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs in Mockito10f
+Checking out 1802cf79 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1802cf79:57be784e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-11b..................................... OK
+Checking out 1802cf79 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1802cf79:57be784e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-11f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.creation.DelegatingMethod in Mockito11b
+Analyzing org.mockito.internal.creation.DelegatingMethod in Mockito11f
+Checking out 7a647a70 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7a647a70:a154b66c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-12b..................................... OK
+Checking out 7a647a70 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7a647a70:a154b66c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-12f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.util.reflection.GenericMaster in Mockito12b
+Analyzing org.mockito.internal.util.reflection.GenericMaster in Mockito12f
+Checking out 2037361b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2037361b:88100667..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-13b..................................... OK
+Checking out 2037361b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2037361b:88100667..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-13f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.MockHandler in Mockito13b
+Analyzing org.mockito.internal.MockHandler in Mockito13f
+Checking out 9b2cf807 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9b2cf807:c478a880..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-14b..................................... OK
+Checking out 9b2cf807 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9b2cf807:c478a880..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-14f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.MockitoCore in Mockito14b
+Analyzing org.mockito.internal.MockitoCore in Mockito14f
+Analyzing org.mockito.internal.MockHandler in Mockito14b
+Analyzing org.mockito.internal.MockHandler in Mockito14f
+Checking out 81a38095 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 81a38095:77c6703f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-15b..................................... OK
+Checking out 81a38095 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 81a38095:77c6703f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-15f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.configuration.injection.FinalMockCandidateFilter in Mockito15b
+Analyzing org.mockito.internal.configuration.injection.FinalMockCandidateFilter in Mockito15f
+Checking out 620f8fae to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 620f8fae:188cbae7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-16b..................................... OK
+Checking out 620f8fae to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 620f8fae:188cbae7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-16f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.Mockito in Mockito16b
+Analyzing org.mockito.Mockito in Mockito16f
+Analyzing org.mockito.internal.MockitoCore in Mockito16b
+Analyzing org.mockito.internal.MockitoCore in Mockito16f
+Checking out 77cb2037 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 77cb2037:b6790ee3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-17b..................................... OK
+Checking out 77cb2037 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 77cb2037:b6790ee3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-17f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.util.MockUtil in Mockito17b
+Analyzing org.mockito.internal.util.MockUtil in Mockito17f
+Analyzing org.mockito.internal.creation.MockSettingsImpl in Mockito17b
+Analyzing org.mockito.internal.creation.MockSettingsImpl in Mockito17f
+Checking out 8ceb04ad to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8ceb04ad:6237bd6e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-18b..................................... OK
+Checking out 8ceb04ad to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8ceb04ad:6237bd6e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-18f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues in Mockito18b
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues in Mockito18f
+Checking out 110ffa80 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 110ffa80:03028f00..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-19b..................................... OK
+Checking out 110ffa80 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 110ffa80:03028f00..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-19f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter in Mockito19b
+Analyzing org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter in Mockito19f
+Analyzing org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter in Mockito19b
+Analyzing org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter in Mockito19f
+Analyzing org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter in Mockito19b
+Analyzing org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter in Mockito19f
+Analyzing org.mockito.internal.configuration.injection.PropertyAndSetterInjection in Mockito19b
+Analyzing org.mockito.internal.configuration.injection.PropertyAndSetterInjection in Mockito19f
+Analyzing org.mockito.internal.configuration.injection.filter.MockCandidateFilter in Mockito19b
+Analyzing org.mockito.internal.configuration.injection.filter.MockCandidateFilter in Mockito19f
+Checking out 7616cd17 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7616cd17:98610b68..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-20b..................................... OK
+Checking out 7616cd17 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7616cd17:98610b68..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-20f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker in Mockito20b
+Analyzing org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker in Mockito20f
+Checking out 8912aa17 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8912aa17:c03a47fb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-21b..................................... OK
+Checking out 8912aa17 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8912aa17:c03a47fb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-21f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.creation.instance.ConstructorInstantiator in Mockito21b
+Analyzing org.mockito.internal.creation.instance.ConstructorInstantiator in Mockito21f
+Checking out d0c872e4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d0c872e4:920ec4c3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-22b..................................... OK
+Checking out d0c872e4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d0c872e4:920ec4c3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-22f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.matchers.Equality in Mockito22b
+Analyzing org.mockito.internal.matchers.Equality in Mockito22f
+Checking out 82935114 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 82935114:c17169c2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-23b..................................... OK
+Checking out 82935114 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 82935114:c17169c2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-23f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs in Mockito23b
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs in Mockito23f
+Checking out c17169c2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c17169c2:585b06d8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-24b..................................... OK
+Checking out c17169c2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c17169c2:585b06d8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-24f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues in Mockito24b
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues in Mockito24f
+Checking out a6ccf070 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6ccf070:d8b18f2e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-25b..................................... OK
+Checking out a6ccf070 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6ccf070:d8b18f2e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-25f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs in Mockito25b
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs in Mockito25f
+Checking out af44738c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff af44738c:41441c6b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-26b..................................... OK
+Checking out af44738c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff af44738c:41441c6b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-26f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.util.Primitives in Mockito26b
+Analyzing org.mockito.internal.util.Primitives in Mockito26f
+Checking out a8ec4fa2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8ec4fa2:19ade1ff..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-27b..................................... OK
+Checking out a8ec4fa2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8ec4fa2:19ade1ff..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-27f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.util.MockUtil in Mockito27b
+Analyzing org.mockito.internal.util.MockUtil in Mockito27f
+Checking out 0464f565 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0464f565:7639f331..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-28b..................................... OK
+Checking out 0464f565 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0464f565:7639f331..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-28f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.configuration.DefaultInjectionEngine in Mockito28b
+Analyzing org.mockito.internal.configuration.DefaultInjectionEngine in Mockito28f
+Checking out 918f0a5a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 918f0a5a:df41fbe0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-29b..................................... OK
+Checking out 918f0a5a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 918f0a5a:df41fbe0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-29f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.matchers.Same in Mockito29b
+Analyzing org.mockito.internal.matchers.Same in Mockito29f
+Checking out 3c924f80 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3c924f80:62b6bdf4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-30b..................................... OK
+Checking out 3c924f80 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3c924f80:62b6bdf4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-30f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.exceptions.Reporter in Mockito30b
+Analyzing org.mockito.exceptions.Reporter in Mockito30f
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls in Mockito30b
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls in Mockito30f
+Checking out 62b6bdf4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 62b6bdf4:81a38095..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-31b..................................... OK
+Checking out 62b6bdf4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 62b6bdf4:81a38095..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-31f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls in Mockito31b
+Analyzing org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls in Mockito31f
+Checking out 4f7060cc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4f7060cc:d973b6f4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-32b..................................... OK
+Checking out 4f7060cc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4f7060cc:d973b6f4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-32f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.configuration.SpyAnnotationEngine in Mockito32b
+Analyzing org.mockito.internal.configuration.SpyAnnotationEngine in Mockito32f
+Checking out 5cb37751 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5cb37751:57bafd2c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-33b..................................... OK
+Checking out 5cb37751 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5cb37751:57bafd2c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-33f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.invocation.InvocationMatcher in Mockito33b
+Analyzing org.mockito.internal.invocation.InvocationMatcher in Mockito33f
+Checking out e8cebe01 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e8cebe01:0ebc2ea0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-34b..................................... OK
+Checking out e8cebe01 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e8cebe01:0ebc2ea0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-34f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.invocation.InvocationMatcher in Mockito34b
+Analyzing org.mockito.internal.invocation.InvocationMatcher in Mockito34f
+Checking out 27a2f515 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 27a2f515:bff7ae0f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-35b..................................... OK
+Checking out 27a2f515 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 27a2f515:bff7ae0f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-35f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.Matchers in Mockito35b
+Analyzing org.mockito.Matchers in Mockito35f
+Checking out 84c142f5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 84c142f5:ecbd9514..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-36b..................................... OK
+Checking out 84c142f5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 84c142f5:ecbd9514..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-36f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.invocation.Invocation in Mockito36b
+Analyzing org.mockito.internal.invocation.Invocation in Mockito36f
+Checking out c0222c2d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c0222c2d:3b603ebf..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-37b..................................... OK
+Checking out c0222c2d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c0222c2d:3b603ebf..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-37f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.stubbing.answers.AnswersValidator in Mockito37b
+Analyzing org.mockito.internal.stubbing.answers.AnswersValidator in Mockito37f
+Checking out c1f2c4e6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c1f2c4e6:a663d2fe..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-38b..................................... OK
+Checking out c1f2c4e6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c1f2c4e6:a663d2fe..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-38f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool in Mockito38b
+Analyzing org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool in Mockito38f

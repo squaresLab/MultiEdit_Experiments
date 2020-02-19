@@ -1,0 +1,2139 @@
+nohup: ignoring input
+Checking out 687b2e62 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 687b2e62:2c454a4c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-1b......................................... OK
+Checking out 687b2e62 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 687b2e62:2c454a4c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-1f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang1b
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang1f
+Version id does not exist: 2f! at /home/zhenyud/defects4j/framework/core/Vcs.pm line 177.
+Compilation failed in require at /home/zhenyud/defects4j/framework/bin/defects4j line 155.
+Version id does not exist: 2f! at /home/zhenyud/defects4j/framework/core/Vcs.pm line 177.
+Compilation failed in require at /home/zhenyud/defects4j/framework/bin/defects4j line 155.
+./find-patch-dependencies-d4j.sh: line 112: cd: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/Lang2b: No such file or directory
+Cannot open config file (/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/.defects4j.config): No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts is not a valid working directory!
+usage: defects4j export -p property_name [-o output_file] [-w work_dir]
+
+Properties:
+  classes.modified  Classes modified by the bug fix
+  classes.relevant  Classes loaded by the triggering tests
+  cp.compile        Classpath to compile the project
+  cp.test           Classpath to compile and run the developer-written tests
+  dir.bin.classes   Target directory of classes
+  dir.bin.tests     Target directory of test classes
+  dir.src.classes   Source directory of classes
+  dir.src.tests     Source directory of tests
+  tests.all         List of all developer-written tests
+  tests.relevant    Relevant tests that touch at least one of the modified sources
+  tests.trigger     Trigger tests that expose the bug
+./find-patch-dependencies-d4j.sh: line 114: cd: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/Lang2f: No such file or directory
+Cannot open config file (/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/.defects4j.config): No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts is not a valid working directory!
+usage: defects4j export -p property_name [-o output_file] [-w work_dir]
+
+Properties:
+  classes.modified  Classes modified by the bug fix
+  classes.relevant  Classes loaded by the triggering tests
+  cp.compile        Classpath to compile the project
+  cp.test           Classpath to compile and run the developer-written tests
+  dir.bin.classes   Target directory of classes
+  dir.bin.tests     Target directory of test classes
+  dir.src.classes   Source directory of classes
+  dir.src.tests     Source directory of tests
+  tests.all         List of all developer-written tests
+  tests.relevant    Relevant tests that touch at least one of the modified sources
+  tests.trigger     Trigger tests that expose the bug
+usage: get-changed-lines.py [-h] buggy fixed src
+get-changed-lines.py: error: the following arguments are required: src
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/Lang2b’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/Lang2f’: No such file or directory
+Checking out 2c9c8753 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2c9c8753:1f001d06..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-3b......................................... OK
+Checking out 2c9c8753 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2c9c8753:1f001d06..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-3f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang3b
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang3f
+Checking out fb47b96a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fb47b96a:4ddbd99c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-4b......................................... OK
+Checking out fb47b96a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fb47b96a:4ddbd99c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-4f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.text.translate.LookupTranslator in Lang4b
+Analyzing org.apache.commons.lang3.text.translate.LookupTranslator in Lang4f
+Checking out 75944e54 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 75944e54:379151ba..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-5b......................................... OK
+Checking out 75944e54 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 75944e54:379151ba..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-5f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.LocaleUtils in Lang5b
+Analyzing org.apache.commons.lang3.LocaleUtils in Lang5f
+Checking out cff0f1ae to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cff0f1ae:6823c374..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-6b......................................... OK
+Checking out cff0f1ae to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cff0f1ae:6823c374..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-6f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.text.translate.CharSequenceTranslator in Lang6b
+Analyzing org.apache.commons.lang3.text.translate.CharSequenceTranslator in Lang6f
+Checking out e71f6dd3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e71f6dd3:f0c7e60b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-7b......................................... OK
+Checking out e71f6dd3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e71f6dd3:f0c7e60b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-7f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang7b
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang7f
+Checking out a4a45505 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a4a45505:8d192d70..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-8b......................................... OK
+Checking out a4a45505 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a4a45505:8d192d70..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-8f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.time.FastDatePrinter in Lang8b
+Analyzing org.apache.commons.lang3.time.FastDatePrinter in Lang8f
+Checking out c45d5bff to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c45d5bff:afe5dff7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-9b......................................... OK
+Checking out c45d5bff to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c45d5bff:afe5dff7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-9f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.time.FastDateParser in Lang9b
+Analyzing org.apache.commons.lang3.time.FastDateParser in Lang9f
+Checking out afe5dff7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff afe5dff7:0afcd15e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-10b........................................ OK
+Checking out afe5dff7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff afe5dff7:0afcd15e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-10f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.time.FastDateParser in Lang10b
+Analyzing org.apache.commons.lang3.time.FastDateParser in Lang10f
+Checking out c821fafc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c821fafc:c9d786a4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-11b........................................ OK
+Checking out c821fafc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c821fafc:c9d786a4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-11f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.RandomStringUtils in Lang11b
+Analyzing org.apache.commons.lang3.RandomStringUtils in Lang11f
+Checking out c9d786a4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c9d786a4:9351ed93..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-12b........................................ OK
+Checking out c9d786a4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c9d786a4:9351ed93..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-12f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.RandomStringUtils in Lang12b
+Analyzing org.apache.commons.lang3.RandomStringUtils in Lang12f
+Checking out bd59a190 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bd59a190:d0cf0fdd..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-13b........................................ OK
+Checking out bd59a190 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bd59a190:d0cf0fdd..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-13f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.SerializationUtils in Lang13b
+Analyzing org.apache.commons.lang3.SerializationUtils in Lang13f
+Checking out cf7211f9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cf7211f9:c8afaa3e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-14b........................................ OK
+Checking out cf7211f9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cf7211f9:c8afaa3e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-14f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.StringUtils in Lang14b
+Analyzing org.apache.commons.lang3.StringUtils in Lang14f
+Checking out 8185a9e6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8185a9e6:76912e0d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-15b........................................ OK
+Checking out 8185a9e6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8185a9e6:76912e0d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-15f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.reflect.TypeUtils in Lang15b
+Analyzing org.apache.commons.lang3.reflect.TypeUtils in Lang15f
+Checking out 13c7f19a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 13c7f19a:a145b6d8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-16b........................................ OK
+Checking out 13c7f19a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 13c7f19a:a145b6d8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-16f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang16b
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang16f
+Checking out b4255e6d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b4255e6d:a7e90b2f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-17b........................................ OK
+Checking out b4255e6d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b4255e6d:a7e90b2f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-17f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.text.translate.CharSequenceTranslator in Lang17b
+Analyzing org.apache.commons.lang3.text.translate.CharSequenceTranslator in Lang17f
+Checking out 2aa9dca9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2aa9dca9:aefe0749..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-18b........................................ OK
+Checking out 2aa9dca9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2aa9dca9:aefe0749..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-18f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.time.FastDateFormat in Lang18b
+Analyzing org.apache.commons.lang3.time.FastDateFormat in Lang18f
+Checking out 0b3a8a31 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0b3a8a31:85481c8f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-19b........................................ OK
+Checking out 0b3a8a31 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0b3a8a31:85481c8f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-19f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.text.translate.NumericEntityUnescaper in Lang19b
+Analyzing org.apache.commons.lang3.text.translate.NumericEntityUnescaper in Lang19f
+Checking out f08213cc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f08213cc:0c01b4c4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-20b........................................ OK
+Checking out f08213cc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f08213cc:0c01b4c4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-20f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.StringUtils in Lang20b
+Analyzing org.apache.commons.lang3.StringUtils in Lang20f
+Checking out 55f64272 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 55f64272:a473984e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-21b........................................ OK
+Checking out 55f64272 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 55f64272:a473984e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-21f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.time.DateUtils in Lang21b
+Analyzing org.apache.commons.lang3.time.DateUtils in Lang21f
+Checking out 0b2b82ad to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0b2b82ad:1b708e34..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-22b........................................ OK
+Checking out 0b2b82ad to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0b2b82ad:1b708e34..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-22f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.math.Fraction in Lang22b
+Analyzing org.apache.commons.lang3.math.Fraction in Lang22f
+Checking out 46356183 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 46356183:458597c6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-23b........................................ OK
+Checking out 46356183 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 46356183:458597c6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-23f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.text.ExtendedMessageFormat in Lang23b
+Analyzing org.apache.commons.lang3.text.ExtendedMessageFormat in Lang23f
+Checking out 81903abb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 81903abb:d61f50a3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-24b........................................ OK
+Checking out 81903abb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 81903abb:d61f50a3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-24f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang24b
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang24f
+Checking out 2bae6878 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2bae6878:eb94e61a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-25b........................................ OK
+Checking out 2bae6878 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2bae6878:eb94e61a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-25f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Traceback (most recent call last):
+  File "/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/get-changed-lines.py", line 128, in <module>
+    java_class_to_changed_lines_map = get_changed_lines_mapping(changed_classes)
+  File "/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/get-changed-lines.py", line 88, in get_changed_lines_mapping
+    changed_lines_tuple = get_changed_lines(java_file_path_buggy, java_file_path_fixed)
+  File "/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/get-changed-lines.py", line 63, in get_changed_lines
+    changed_lines_rawout = subprocess.run(find_changed_lines_cmd, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xca in position 38: invalid continuation byte
+Checking out 75d5b74a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 75d5b74a:e67792f8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-26b........................................ OK
+Checking out 75d5b74a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 75d5b74a:e67792f8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-26f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.time.FastDateFormat in Lang26b
+Analyzing org.apache.commons.lang3.time.FastDateFormat in Lang26f
+Checking out c2560c02 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c2560c02:7c915333..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-27b........................................ OK
+Checking out c2560c02 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c2560c02:7c915333..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-27f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang27b
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang27f
+Checking out 3e1afecc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3e1afecc:8da5fb28..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-28b........................................ OK
+Checking out 3e1afecc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3e1afecc:8da5fb28..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-28f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.text.translate.NumericEntityUnescaper in Lang28b
+Analyzing org.apache.commons.lang3.text.translate.NumericEntityUnescaper in Lang28f
+Checking out 982e2950 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 982e2950:cbf8e4eb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-29b........................................ OK
+Checking out 982e2950 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 982e2950:cbf8e4eb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-29f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.SystemUtils in Lang29b
+Analyzing org.apache.commons.lang3.SystemUtils in Lang29f
+Checking out 19b63720 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 19b63720:24f6517c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-30b........................................ OK
+Checking out 19b63720 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 19b63720:24f6517c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-30f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.StringUtils in Lang30b
+Analyzing org.apache.commons.lang3.StringUtils in Lang30f
+Checking out 38bf7048 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38bf7048:0cc451d5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-31b........................................ OK
+Checking out 38bf7048 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38bf7048:0cc451d5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-31f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.StringUtils in Lang31b
+Analyzing org.apache.commons.lang3.StringUtils in Lang31f
+Checking out 006fca88 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 006fca88:1c606c3d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-32b........................................ OK
+Checking out 006fca88 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 006fca88:1c606c3d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-32f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.builder.HashCodeBuilder in Lang32b
+Analyzing org.apache.commons.lang3.builder.HashCodeBuilder in Lang32f
+Checking out 0603aef5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0603aef5:575be164..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-33b........................................ OK
+Checking out 0603aef5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0603aef5:575be164..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-33f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.ClassUtils in Lang33b
+Analyzing org.apache.commons.lang3.ClassUtils in Lang33f
+Checking out 496525b0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 496525b0:3f900a73..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-34b........................................ OK
+Checking out 496525b0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 496525b0:3f900a73..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-34f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.builder.ToStringStyle in Lang34b
+Analyzing org.apache.commons.lang3.builder.ToStringStyle in Lang34f
+Checking out 80bd78ea to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 80bd78ea:48bf241d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-35b........................................ OK
+Checking out 80bd78ea to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 80bd78ea:48bf241d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-35f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.ArrayUtils in Lang35b
+Analyzing org.apache.commons.lang3.ArrayUtils in Lang35f
+Checking out da0612b3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff da0612b3:ec0c4e55..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-36b........................................ OK
+Checking out da0612b3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff da0612b3:ec0c4e55..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-36f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang36b
+Analyzing org.apache.commons.lang3.math.NumberUtils in Lang36f
+Checking out ea140fb5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ea140fb5:b5906d3f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-37b........................................ OK
+Checking out ea140fb5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ea140fb5:b5906d3f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-37f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.ArrayUtils in Lang37b
+Analyzing org.apache.commons.lang3.ArrayUtils in Lang37f
+Checking out a95e76ee to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a95e76ee:e28c95ac..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-38b........................................ OK
+Checking out a95e76ee to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a95e76ee:e28c95ac..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-38f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.time.FastDateFormat in Lang38b
+Analyzing org.apache.commons.lang3.time.FastDateFormat in Lang38f
+Checking out cb40e35f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cb40e35f:0aa57f04..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-39b........................................ OK
+Checking out cb40e35f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff cb40e35f:0aa57f04..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-39f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang3.StringUtils in Lang39b
+Analyzing org.apache.commons.lang3.StringUtils in Lang39f
+Checking out 8b1a8e17 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8b1a8e17:c72adf1b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-40b........................................ OK
+Checking out 8b1a8e17 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8b1a8e17:c72adf1b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-40f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.StringUtils in Lang40b
+Analyzing org.apache.commons.lang.StringUtils in Lang40f
+Checking out 4d3629f3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4d3629f3:ac58807e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-41b........................................ OK
+Checking out 4d3629f3 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4d3629f3:ac58807e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-41f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.ClassUtils in Lang41b
+Analyzing org.apache.commons.lang.ClassUtils in Lang41f
+Checking out dd2ae757 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dd2ae757:68217617..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-42b........................................ OK
+Checking out dd2ae757 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dd2ae757:68217617..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-42f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.Entities in Lang42b
+Analyzing org.apache.commons.lang.Entities in Lang42f
+Checking out eb3e2ae1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff eb3e2ae1:ac2a39e9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-43b........................................ OK
+Checking out eb3e2ae1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff eb3e2ae1:ac2a39e9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-43f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.text.ExtendedMessageFormat in Lang43b
+Analyzing org.apache.commons.lang.text.ExtendedMessageFormat in Lang43f
+Checking out 81f10d7f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 81f10d7f:cf28c89d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-44b........................................ OK
+Checking out 81f10d7f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 81f10d7f:cf28c89d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-44f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.NumberUtils in Lang44b
+Analyzing org.apache.commons.lang.NumberUtils in Lang44f
+Checking out d95fcd8e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d95fcd8e:cfff06be..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-45b........................................ OK
+Checking out d95fcd8e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d95fcd8e:cfff06be..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-45f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.WordUtils in Lang45b
+Analyzing org.apache.commons.lang.WordUtils in Lang45f
+Checking out 916639bd to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 916639bd:229151ec..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-46b........................................ OK
+Checking out 916639bd to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 916639bd:229151ec..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-46f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.StringEscapeUtils in Lang46b
+Analyzing org.apache.commons.lang.StringEscapeUtils in Lang46f
+Checking out d5e34304 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d5e34304:19f33e4e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-47b........................................ OK
+Checking out d5e34304 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d5e34304:19f33e4e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-47f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.text.StrBuilder in Lang47b
+Analyzing org.apache.commons.lang.text.StrBuilder in Lang47f
+Checking out eb8f74ef to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff eb8f74ef:3cea4b2a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-48b........................................ OK
+Checking out eb8f74ef to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff eb8f74ef:3cea4b2a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-48f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.builder.EqualsBuilder in Lang48b
+Analyzing org.apache.commons.lang.builder.EqualsBuilder in Lang48f
+Checking out 0ac772a4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0ac772a4:39050718..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-49b........................................ OK
+Checking out 0ac772a4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0ac772a4:39050718..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-49f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.math.Fraction in Lang49b
+Analyzing org.apache.commons.lang.math.Fraction in Lang49f
+Checking out 659ef247 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 659ef247:b2f1757b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-50b........................................ OK
+Checking out 659ef247 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 659ef247:b2f1757b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-50f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.time.FastDateFormat in Lang50b
+Analyzing org.apache.commons.lang.time.FastDateFormat in Lang50f
+Checking out a5589b39 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a5589b39:3b46d611..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-51b........................................ OK
+Checking out a5589b39 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a5589b39:3b46d611..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-51f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.BooleanUtils in Lang51b
+Analyzing org.apache.commons.lang.BooleanUtils in Lang51f
+Checking out 868f6976 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 868f6976:5209cefa..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-52b........................................ OK
+Checking out 868f6976 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 868f6976:5209cefa..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-52f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.StringEscapeUtils in Lang52b
+Analyzing org.apache.commons.lang.StringEscapeUtils in Lang52f
+Checking out d3b11630 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d3b11630:b6f7a8a8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-53b........................................ OK
+Checking out d3b11630 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d3b11630:b6f7a8a8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-53f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.time.DateUtils in Lang53b
+Analyzing org.apache.commons.lang.time.DateUtils in Lang53f
+Checking out e89e8d62 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e89e8d62:5ccddb3f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-54b........................................ OK
+Checking out e89e8d62 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e89e8d62:5ccddb3f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-54f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.LocaleUtils in Lang54b
+Analyzing org.apache.commons.lang.LocaleUtils in Lang54f
+Checking out 3ef8a796 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3ef8a796:d8c22b8e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-55b........................................ OK
+Checking out 3ef8a796 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3ef8a796:d8c22b8e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-55f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.time.StopWatch in Lang55b
+Analyzing org.apache.commons.lang.time.StopWatch in Lang55f
+Checking out 672e3a8e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 672e3a8e:7d1b54b3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-56b........................................ OK
+Checking out 672e3a8e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 672e3a8e:7d1b54b3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-56f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.time.FastDateFormat in Lang56b
+Analyzing org.apache.commons.lang.time.FastDateFormat in Lang56f
+Checking out bbd990b8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bbd990b8:c7137304..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-57b........................................ OK
+Checking out bbd990b8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bbd990b8:c7137304..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-57f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.LocaleUtils in Lang57b
+Analyzing org.apache.commons.lang.LocaleUtils in Lang57f
+Checking out 1fd45a4f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1fd45a4f:8185a5f6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-58b........................................ OK
+Checking out 1fd45a4f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1fd45a4f:8185a5f6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-58f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.math.NumberUtils in Lang58b
+Analyzing org.apache.commons.lang.math.NumberUtils in Lang58f
+Checking out c04cd233 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c04cd233:38f8bcc6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-59b........................................ OK
+Checking out c04cd233 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c04cd233:38f8bcc6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-59f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.text.StrBuilder in Lang59b
+Analyzing org.apache.commons.lang.text.StrBuilder in Lang59f
+Checking out a8203b65 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8203b65:88c76d20..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-60b........................................ OK
+Checking out a8203b65 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8203b65:88c76d20..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-60f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.text.StrBuilder in Lang60b
+Analyzing org.apache.commons.lang.text.StrBuilder in Lang60f
+Checking out 88c76d20 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 88c76d20:1313a65c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-61b........................................ OK
+Checking out 88c76d20 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 88c76d20:1313a65c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-61f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.text.StrBuilder in Lang61b
+Analyzing org.apache.commons.lang.text.StrBuilder in Lang61f
+Checking out 1313a65c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1313a65c:cb7bfbc0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-62b........................................ OK
+Checking out 1313a65c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1313a65c:cb7bfbc0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-62f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.Entities in Lang62b
+Analyzing org.apache.commons.lang.Entities in Lang62f
+Checking out 0695c3f7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0695c3f7:3333dcc1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-63b........................................ OK
+Checking out 0695c3f7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0695c3f7:3333dcc1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-63f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.time.DurationFormatUtils in Lang63b
+Analyzing org.apache.commons.lang.time.DurationFormatUtils in Lang63f
+Checking out 8de71ae5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8de71ae5:df1653a8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-64b........................................ OK
+Checking out 8de71ae5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8de71ae5:df1653a8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-64f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.enums.ValuedEnum in Lang64b
+Analyzing org.apache.commons.lang.enums.ValuedEnum in Lang64f
+Checking out bb167166 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bb167166:c8fc5f3d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-65b........................................ OK
+Checking out bb167166 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff bb167166:c8fc5f3d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-65f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.apache.commons.lang.time.DateUtils in Lang65b
+Analyzing org.apache.commons.lang.time.DateUtils in Lang65f

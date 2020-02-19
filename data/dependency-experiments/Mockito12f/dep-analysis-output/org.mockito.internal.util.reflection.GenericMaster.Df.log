@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 18 20:54:02 EST 2020
+Transforming org.mockito.internal.util.reflection.GenericMaster... 
+Writing to sootOutput/org.mockito.internal.util.reflection.GenericMaster.jimple
+Soot finished on Tue Feb 18 20:54:03 EST 2020
+Soot has run for 0 min. 0 sec.

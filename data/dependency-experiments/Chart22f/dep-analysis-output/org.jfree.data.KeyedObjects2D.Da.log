@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 18 20:12:37 EST 2020
+Transforming org.jfree.data.KeyedObjects2D... 
+Writing to sootOutput/org.jfree.data.KeyedObjects2D.jimple
+Soot finished on Tue Feb 18 20:12:38 EST 2020
+Soot has run for 0 min. 0 sec.

@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 18 20:32:25 EST 2020
+Transforming org.apache.commons.math.stat.inference.ChiSquareTestImpl... 
+Writing to sootOutput/org.apache.commons.math.stat.inference.ChiSquareTestImpl.jimple
+Soot finished on Tue Feb 18 20:32:26 EST 2020
+Soot has run for 0 min. 0 sec.

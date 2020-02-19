@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 18 20:12:46 EST 2020
+Transforming org.apache.commons.math.linear.ArrayRealVector... 
+Writing to sootOutput/org.apache.commons.math.linear.ArrayRealVector.jimple
+Soot finished on Tue Feb 18 20:12:48 EST 2020
+Soot has run for 0 min. 1 sec.

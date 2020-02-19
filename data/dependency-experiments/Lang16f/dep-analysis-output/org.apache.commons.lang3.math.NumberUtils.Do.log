@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 18 20:07:02 EST 2020
+Transforming org.apache.commons.lang3.math.NumberUtils... 
+Writing to sootOutput/org.apache.commons.lang3.math.NumberUtils.jimple
+Soot finished on Tue Feb 18 20:07:03 EST 2020
+Soot has run for 0 min. 1 sec.

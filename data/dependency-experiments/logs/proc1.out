@@ -1,0 +1,1775 @@
+nohup: ignoring input
+Checking out 2266 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2266:2264............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-1b........................................ OK
+Checking out 2266 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2266:2264............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-1f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.renderer.category.AbstractCategoryItemRenderer in Chart1b
+Analyzing org.jfree.chart.renderer.category.AbstractCategoryItemRenderer in Chart1f
+Checking out 2242 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2242:2240............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-2b........................................ OK
+Checking out 2242 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2242:2240............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-2f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.general.DatasetUtilities in Chart2b
+Analyzing org.jfree.data.general.DatasetUtilities in Chart2f
+Checking out 2227 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2227:2225............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-3b........................................ OK
+Checking out 2227 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2227:2225............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-3f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.time.TimeSeries in Chart3b
+Analyzing org.jfree.data.time.TimeSeries in Chart3f
+Checking out 2183 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2183:2182............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-4b........................................ OK
+Checking out 2183 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2183:2182............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-4f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.plot.XYPlot in Chart4b
+Analyzing org.jfree.chart.plot.XYPlot in Chart4f
+Checking out 1696 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1696:1695............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-5b........................................ OK
+Checking out 1696 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1696:1695............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-5f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.xy.XYSeries in Chart5b
+Analyzing org.jfree.data.xy.XYSeries in Chart5f
+Checking out 1166 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1166:1164............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-6b........................................ OK
+Checking out 1166 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1166:1164............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-6f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.util.ShapeList in Chart6b
+Analyzing org.jfree.chart.util.ShapeList in Chart6f
+Checking out 1087 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1087:1086............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-7b........................................ OK
+Checking out 1087 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1087:1086............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-7f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.time.TimePeriodValues in Chart7b
+Analyzing org.jfree.data.time.TimePeriodValues in Chart7f
+Checking out 1085 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1085:1084............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-8b........................................ OK
+Checking out 1085 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1085:1084............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-8f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.time.Week in Chart8b
+Analyzing org.jfree.data.time.Week in Chart8f
+Checking out 1083 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1083:1082............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-9b........................................ OK
+Checking out 1083 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1083:1082............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-9f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.time.TimeSeries in Chart9b
+Analyzing org.jfree.data.time.TimeSeries in Chart9f
+Checking out 1065 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1065:1064............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-10b....................................... OK
+Checking out 1065 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1065:1064............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-10f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator in Chart10b
+Analyzing org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator in Chart10f
+Checking out 1025 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1025:1024............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-11b....................................... OK
+Checking out 1025 to /home/zhenyud/MultiEdit_Experiments/data/dependency-ex OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1025:1024............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-11f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.util.ShapeUtilities in Chart11b
+Analyzing org.jfree.chart.util.ShapeUtilities in Chart11f
+Checking out 852 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 852:846............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-12b....................................... OK
+Checking out 852 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 852:846............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-12f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.plot.MultiplePiePlot in Chart12b
+Analyzing org.jfree.chart.plot.MultiplePiePlot in Chart12f
+Checking out 822 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 822:817............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-13b....................................... OK
+Checking out 822 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 822:817............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-13f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.block.BorderArrangement in Chart13b
+Analyzing org.jfree.chart.block.BorderArrangement in Chart13f
+Checking out 811 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 811:809............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-14b....................................... OK
+Checking out 811 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 811:809............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-14f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.plot.XYPlot in Chart14b
+Analyzing org.jfree.chart.plot.XYPlot in Chart14f
+Analyzing org.jfree.chart.plot.CategoryPlot in Chart14b
+Analyzing org.jfree.chart.plot.CategoryPlot in Chart14f
+Checking out 749 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 749:747............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-15b....................................... OK
+Checking out 749 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 749:747............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-15f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.plot.PiePlot in Chart15b
+Analyzing org.jfree.chart.plot.PiePlot in Chart15f
+Checking out 743 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 743:741............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-16b....................................... OK
+Checking out 743 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 743:741............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-16f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.category.DefaultIntervalCategoryDataset in Chart16b
+Analyzing org.jfree.data.category.DefaultIntervalCategoryDataset in Chart16f
+Checking out 622 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 622:621............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-17b....................................... OK
+Checking out 622 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 622:621............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-17f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.time.TimeSeries in Chart17b
+Analyzing org.jfree.data.time.TimeSeries in Chart17f
+Checking out 621 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 621:620............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-18b....................................... OK
+Checking out 621 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 621:620............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-18f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.DefaultKeyedValues in Chart18b
+Analyzing org.jfree.data.DefaultKeyedValues in Chart18f
+Analyzing org.jfree.data.DefaultKeyedValues2D in Chart18b
+Analyzing org.jfree.data.DefaultKeyedValues2D in Chart18f
+Checking out 434 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 434:430............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-19b....................................... OK
+Checking out 434 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 434:430............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-19f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.plot.CategoryPlot in Chart19b
+Analyzing org.jfree.chart.plot.CategoryPlot in Chart19f
+Checking out 283 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 283:281............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-20b....................................... OK
+Checking out 283 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 283:281............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-20f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.plot.ValueMarker in Chart20b
+Analyzing org.jfree.chart.plot.ValueMarker in Chart20f
+Checking out 231 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 231:227............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-21b....................................... OK
+Checking out 231 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 231:227............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-21f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset in Chart21b
+Analyzing org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset in Chart21f
+Checking out 227 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 227:225............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-22b....................................... OK
+Checking out 227 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 227:225............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-22f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.data.KeyedObjects2D in Chart22b
+Analyzing org.jfree.data.KeyedObjects2D in Chart22f
+Checking out 210 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 210:209............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-23b....................................... OK
+Checking out 210 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 210:209............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-23f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.renderer.category.MinMaxCategoryRenderer in Chart23b
+Analyzing org.jfree.chart.renderer.category.MinMaxCategoryRenderer in Chart23f
+Checking out 190 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 190:188............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-24b....................................... OK
+Checking out 190 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 190:188............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-24f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.renderer.GrayPaintScale in Chart24b
+Analyzing org.jfree.chart.renderer.GrayPaintScale in Chart24f
+Checking out 164 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 164:162............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-25b....................................... OK
+Checking out 164 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 164:162............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-25f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.renderer.category.StatisticalBarRenderer in Chart25b
+Analyzing org.jfree.chart.renderer.category.StatisticalBarRenderer in Chart25f
+Checking out 103 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 103:102............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-26b....................................... OK
+Checking out 103 to /home/zhenyud/MultiEdit_Experiments/data/dependency-exp OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 103:102............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-26f....................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.jfree.chart.axis.Axis in Chart26b
+Analyzing org.jfree.chart.axis.Axis in Chart26f
+Checking out 9a62b06b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9a62b06b:8612f9e5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-1b......................................... OK
+Checking out 9a62b06b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9a62b06b:8612f9e5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-1f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.Partial in Time1b
+Analyzing org.joda.time.Partial in Time1f
+Analyzing org.joda.time.field.UnsupportedDurationField in Time1b
+Analyzing org.joda.time.field.UnsupportedDurationField in Time1f
+Checking out 8612f9e5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8612f9e5:8d109fe1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-2b......................................... OK
+Checking out 8612f9e5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8612f9e5:8d109fe1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-2f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.field.UnsupportedDurationField in Time2b
+Analyzing org.joda.time.field.UnsupportedDurationField in Time2f
+Analyzing org.joda.time.Partial in Time2b
+Analyzing org.joda.time.Partial in Time2f
+Checking out 8d109fe1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8d109fe1:3ba9ba79..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-3b......................................... OK
+Checking out 8d109fe1 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8d109fe1:3ba9ba79..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-3f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.MutableDateTime in Time3b
+Analyzing org.joda.time.MutableDateTime in Time3f
+Checking out 3ba9ba79 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3ba9ba79:bcb04466..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-4b......................................... OK
+Checking out 3ba9ba79 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3ba9ba79:bcb04466..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-4f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.Partial in Time4b
+Analyzing org.joda.time.Partial in Time4f
+Checking out a6cb59ed to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6cb59ed:a38b5e0c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-5b......................................... OK
+Checking out a6cb59ed to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6cb59ed:a38b5e0c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-5f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.Period in Time5b
+Analyzing org.joda.time.Period in Time5f
+Checking out 28aeba95 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 28aeba95:91b1ba4e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-6b......................................... OK
+Checking out 28aeba95 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 28aeba95:91b1ba4e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-6f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.chrono.GJChronology in Time6b
+Analyzing org.joda.time.chrono.GJChronology in Time6f
+Checking out 1adb1e69 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1adb1e69:6bf5bba0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-7b......................................... OK
+Checking out 1adb1e69 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1adb1e69:6bf5bba0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-7f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.format.DateTimeFormatter in Time7b
+Analyzing org.joda.time.format.DateTimeFormatter in Time7f
+Checking out 362ed178 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 362ed178:96f586cb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-8b......................................... OK
+Checking out 362ed178 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 362ed178:96f586cb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-8f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.DateTimeZone in Time8b
+Analyzing org.joda.time.DateTimeZone in Time8f
+Checking out 96f586cb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 96f586cb:08a3a0b9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-9b......................................... OK
+Checking out 96f586cb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 96f586cb:08a3a0b9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-9f......................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.DateTimeZone in Time9b
+Analyzing org.joda.time.DateTimeZone in Time9f
+Checking out 3a413d78 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3a413d78:efce9916..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-10b........................................ OK
+Checking out 3a413d78 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3a413d78:efce9916..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-10f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.base.BaseSingleFieldPeriod in Time10b
+Analyzing org.joda.time.base.BaseSingleFieldPeriod in Time10f
+Checking out 57eb4cbb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 57eb4cbb:6d510475..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-11b........................................ OK
+Checking out 57eb4cbb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 57eb4cbb:6d510475..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-11f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.tz.ZoneInfoCompiler in Time11b
+Analyzing org.joda.time.tz.ZoneInfoCompiler in Time11f
+Checking out 77a6b3a4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 77a6b3a4:f2f9c814..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-12b........................................ OK
+Checking out 77a6b3a4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 77a6b3a4:f2f9c814..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-12f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.LocalDate in Time12b
+Analyzing org.joda.time.LocalDate in Time12f
+Analyzing org.joda.time.LocalDateTime in Time12b
+Analyzing org.joda.time.LocalDateTime in Time12f
+Checking out 5d08a1cd to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5d08a1cd:6a1b24c5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-13b........................................ OK
+Checking out 5d08a1cd to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5d08a1cd:6a1b24c5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-13f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.format.PeriodFormatterBuilder in Time13b
+Analyzing org.joda.time.format.PeriodFormatterBuilder in Time13f
+Checking out 2ea85632 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2ea85632:cc3262ff..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-14b........................................ OK
+Checking out 2ea85632 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2ea85632:cc3262ff..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-14f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.chrono.BasicMonthOfYearDateTimeField in Time14b
+Analyzing org.joda.time.chrono.BasicMonthOfYearDateTimeField in Time14f
+Checking out 0cefc4c2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0cefc4c2:383354ad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-15b........................................ OK
+Checking out 0cefc4c2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0cefc4c2:383354ad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-15f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.field.FieldUtils in Time15b
+Analyzing org.joda.time.field.FieldUtils in Time15f
+Checking out 706513d5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 706513d5:dba7c37e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-16b........................................ OK
+Checking out 706513d5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 706513d5:dba7c37e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-16f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.format.DateTimeFormatter in Time16b
+Analyzing org.joda.time.format.DateTimeFormatter in Time16f
+Checking out a8913f5a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8913f5a:cdeacf09..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-17b........................................ OK
+Checking out a8913f5a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a8913f5a:cdeacf09..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-17f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.DateTimeZone in Time17b
+Analyzing org.joda.time.DateTimeZone in Time17f
+Checking out b609d7d6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b609d7d6:e16eb72a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-18b........................................ OK
+Checking out b609d7d6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b609d7d6:e16eb72a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-18f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.chrono.GJChronology in Time18b
+Analyzing org.joda.time.chrono.GJChronology in Time18f
+Checking out 82c5e4f9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 82c5e4f9:a92450e8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-19b........................................ OK
+Checking out 82c5e4f9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 82c5e4f9:a92450e8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-19f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.DateTimeZone in Time19b
+Analyzing org.joda.time.DateTimeZone in Time19f
+Checking out a92450e8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a92450e8:17a60c9a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-20b........................................ OK
+Checking out a92450e8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a92450e8:17a60c9a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-20f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.format.DateTimeFormatterBuilder in Time20b
+Analyzing org.joda.time.format.DateTimeFormatterBuilder in Time20f
+Version id does not exist: 21f! at /home/zhenyud/defects4j/framework/core/Vcs.pm line 177.
+Compilation failed in require at /home/zhenyud/defects4j/framework/bin/defects4j line 155.
+Version id does not exist: 21f! at /home/zhenyud/defects4j/framework/core/Vcs.pm line 177.
+Compilation failed in require at /home/zhenyud/defects4j/framework/bin/defects4j line 155.
+./find-patch-dependencies-d4j.sh: line 112: cd: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/Time21b: No such file or directory
+Cannot open config file (/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/.defects4j.config): No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts is not a valid working directory!
+usage: defects4j export -p property_name [-o output_file] [-w work_dir]
+
+Properties:
+  classes.modified  Classes modified by the bug fix
+  classes.relevant  Classes loaded by the triggering tests
+  cp.compile        Classpath to compile the project
+  cp.test           Classpath to compile and run the developer-written tests
+  dir.bin.classes   Target directory of classes
+  dir.bin.tests     Target directory of test classes
+  dir.src.classes   Source directory of classes
+  dir.src.tests     Source directory of tests
+  tests.all         List of all developer-written tests
+  tests.relevant    Relevant tests that touch at least one of the modified sources
+  tests.trigger     Trigger tests that expose the bug
+./find-patch-dependencies-d4j.sh: line 114: cd: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/Time21f: No such file or directory
+Cannot open config file (/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/.defects4j.config): No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts is not a valid working directory!
+usage: defects4j export -p property_name [-o output_file] [-w work_dir]
+
+Properties:
+  classes.modified  Classes modified by the bug fix
+  classes.relevant  Classes loaded by the triggering tests
+  cp.compile        Classpath to compile the project
+  cp.test           Classpath to compile and run the developer-written tests
+  dir.bin.classes   Target directory of classes
+  dir.bin.tests     Target directory of test classes
+  dir.src.classes   Source directory of classes
+  dir.src.tests     Source directory of tests
+  tests.all         List of all developer-written tests
+  tests.relevant    Relevant tests that touch at least one of the modified sources
+  tests.trigger     Trigger tests that expose the bug
+usage: get-changed-lines.py [-h] buggy fixed src
+get-changed-lines.py: error: the following arguments are required: src
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/Time21b’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/Time21f’: No such file or directory
+Checking out 57c8aaf9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 57c8aaf9:14dedcbc..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-22b........................................ OK
+Checking out 57c8aaf9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 57c8aaf9:14dedcbc..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-22f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.base.BasePeriod in Time22b
+Analyzing org.joda.time.base.BasePeriod in Time22f
+Checking out 14dedcbc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 14dedcbc:bfd37a81..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-23b........................................ OK
+Checking out 14dedcbc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 14dedcbc:bfd37a81..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-23f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.DateTimeZone in Time23b
+Analyzing org.joda.time.DateTimeZone in Time23f
+Checking out d50efdf7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d50efdf7:c3bec2cd..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-24b........................................ OK
+Checking out d50efdf7 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d50efdf7:c3bec2cd..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-24f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.format.DateTimeParserBucket in Time24b
+Analyzing org.joda.time.format.DateTimeParserBucket in Time24f
+Checking out 552be4b6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Fix broken build........................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 552be4b6:c7a581e5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-25b........................................ OK
+Checking out 552be4b6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Fix broken build........................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 552be4b6:c7a581e5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-25f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.DateTimeZone in Time25b
+Analyzing org.joda.time.DateTimeZone in Time25f
+Checking out c7a581e5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Fix broken build........................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c7a581e5:218a7fe9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-26b........................................ OK
+Checking out c7a581e5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Fix broken build........................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c7a581e5:218a7fe9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-26f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.chrono.ZonedChronology in Time26b
+Analyzing org.joda.time.chrono.ZonedChronology in Time26f
+Analyzing org.joda.time.DateTimeZone in Time26b
+Analyzing org.joda.time.DateTimeZone in Time26f
+Analyzing org.joda.time.field.LenientDateTimeField in Time26b
+Analyzing org.joda.time.field.LenientDateTimeField in Time26f
+Checking out e0559c50 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e0559c50:d090b642..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-27b........................................ OK
+Checking out e0559c50 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e0559c50:d090b642..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-27f........................................ OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing org.joda.time.format.PeriodFormatterBuilder in Time27b
+Analyzing org.joda.time.format.PeriodFormatterBuilder in Time27f

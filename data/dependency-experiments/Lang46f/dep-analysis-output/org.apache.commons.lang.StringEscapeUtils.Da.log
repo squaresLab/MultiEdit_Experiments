@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 18 20:24:44 EST 2020
+Transforming org.apache.commons.lang.StringEscapeUtils... 
+Writing to sootOutput/org.apache.commons.lang.StringEscapeUtils.jimple
+Soot finished on Tue Feb 18 20:24:45 EST 2020
+Soot has run for 0 min. 0 sec.

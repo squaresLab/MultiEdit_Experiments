@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 18 20:21:15 EST 2020
+Transforming org.apache.commons.math3.linear.RectangularCholeskyDecomposition... 
+Writing to sootOutput/org.apache.commons.math3.linear.RectangularCholeskyDecomposition.jimple
+Soot finished on Tue Feb 18 20:21:16 EST 2020
+Soot has run for 0 min. 0 sec.
