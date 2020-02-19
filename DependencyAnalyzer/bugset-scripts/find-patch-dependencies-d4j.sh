@@ -10,6 +10,10 @@ DEPENDENCY_ANALYZER_JAR=$(realpath "../jar/DependencyAnalyzer.jar")
 ANALYZE_SINGLE_CLASS_SHSCRIPT=$(realpath "analyze-single-class-d4j.sh")
 GET_CHANGED_LINES_PYSCRIPT=$(realpath "get-changed-lines.py")
 
+#don't add a slash at the end of this directory
+#the deletion operations at the end of the scripts relies on this fact
+ANALYSIS_OUTPUT_SUBDIR='dep-analysis-output'
+
 f_analyze_output_format="-Oe -Om"
 function analyze {
     f_analyze_bugwd=$1
@@ -19,7 +23,7 @@ function analyze {
     printf 'Analyzing %s in %s\n' $f_analyze_target_classname ${f_analyze_bugwd##*/} # ##*/ gets the innermost directory name
 
     #make output directory
-    f_analyze_output_dir=${f_analyze_bugwd}/'dep-analysis-output'/
+    f_analyze_output_dir=${f_analyze_bugwd}/$ANALYSIS_OUTPUT_SUBDIR/
     mkdir -p $f_analyze_output_dir
 
     #don't do anything further if there are no lines to analyze
@@ -96,6 +100,8 @@ D4J_WD=$(realpath $D4J_WD)
 
 D4J_VERSION_ID_BUGGY=${D4J_BUGNUM}'b'
 D4J_VERSION_ID_FIXED=${D4J_BUGNUM}'f'
+#don't add a slash at the end of these working directories
+#the deletion operations at the end of the scripts relies on this fact
 WD_BUGGY=${D4J_WD}/${D4J_PROJECT}${D4J_VERSION_ID_BUGGY}
 WD_FIXED=${D4J_WD}/${D4J_PROJECT}${D4J_VERSION_ID_FIXED}
 
@@ -137,3 +143,7 @@ while IFS= read -r line; do
     let i++
     let i=i%3
 done <<< "$CHANGED_LINES_RAWOUT"
+
+#remove non-analysis output files to clean up space
+find $WD_BUGGY -not -samefile $WD_BUGGY -not -wholename "$WD_BUGGY/$ANALYSIS_OUTPUT_SUBDIR*" -delete
+find $WD_FIXED -not -samefile $WD_FIXED -not -wholename "$WD_FIXED/$ANALYSIS_OUTPUT_SUBDIR*" -delete
