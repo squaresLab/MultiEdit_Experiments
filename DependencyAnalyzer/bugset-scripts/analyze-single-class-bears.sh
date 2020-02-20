@@ -20,7 +20,7 @@
 COMPILE_BEARS_BUG_PYSCRIPT=$(realpath "helpers/bears/compile_bears_bug.py")
 
 ANALYZER=
-BEARS_WORKPLACE=
+BEARS_WORKSPACE=
 BUGID=
 ANALYSIS_OPT_TARGET=
 OUTPUT_PATH=""
@@ -46,7 +46,7 @@ while (( "$#" )); do
       ;;
     -w|--workplace)
       parse_lines=0
-      BEARS_WORKPLACE=$2
+      BEARS_WORKSPACE=$2
       shift 2
       ;;
     -b|--bug-id)
@@ -118,7 +118,7 @@ if [[ -z $ANALYZER ]]; then
     echo "Missing required parameter -a"
     exit 1
 fi
-if [[ -z $BEARS_WORKPLACE ]]; then
+if [[ -z $BEARS_WORKSPACE ]]; then
     echo "Missing required parameter -w"
     exit 1
 fi
@@ -133,7 +133,7 @@ fi
 
 #Convert inputted paths to absolute paths
 ANALYZER=$(realpath $ANALYZER)
-BEARS_WORKPLACE=$(realpath $BEARS_WORKPLACE)
+BEARS_WORKSPACE=$(realpath $BEARS_WORKSPACE)
 if [[ -n $OUTPUT_PATH ]]; then
     OUTPUT_PATH=$(realpath -m $OUTPUT_PATH)
 fi
@@ -144,9 +144,9 @@ if [[ -n $OUTPUT_PATH ]]; then
   ANALYSIS_OPT_OUTPUT="-o $OUTPUT_PATH"
 fi
 
-TARGET_DIR=$BEARS_WORKPLACE/$BUGID/'target'/
+TARGET_DIR=$BEARS_WORKSPACE/$BUGID/'target'/
 
-python3 $COMPILE_BEARS_BUG_PYSCRIPT --bugId $BUGID --workspace $BEARS_WORKPLACE
+python3 $COMPILE_BEARS_BUG_PYSCRIPT --bugId $BUGID --workspace $BEARS_WORKSPACE
 
 #add dependencies of project
 DEPENDENCIES_DIR=$TARGET_DIR/'dependency'
