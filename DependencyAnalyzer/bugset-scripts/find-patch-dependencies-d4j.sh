@@ -8,7 +8,7 @@
 # Here are the hard path dependencies; I don't want to parameterize these, so they're hard coded
 DEPENDENCY_ANALYZER_JAR=$(realpath "../jar/DependencyAnalyzer.jar")
 ANALYZE_SINGLE_CLASS_SHSCRIPT=$(realpath "analyze-single-class-d4j.sh")
-GET_CHANGED_LINES_PYSCRIPT=$(realpath "get-changed-lines.py")
+GET_CHANGED_LINES_PYSCRIPT=$(realpath "helpers/get-changed-lines.py")
 
 #don't add a slash at the end of this directory
 #the deletion operations at the end of the scripts relies on this fact

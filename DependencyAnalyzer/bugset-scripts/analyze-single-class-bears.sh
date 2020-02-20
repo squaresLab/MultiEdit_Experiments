@@ -17,7 +17,7 @@
 #            -Om,--output-dependency-map
 #            -lines,--lines-to-analyze <arg...>
 
-COMPILE_BEARS_BUG_PYSCRIPT=$(realpath "compile_bears_bug.py")
+COMPILE_BEARS_BUG_PYSCRIPT=$(realpath "helpers/bears/compile_bears_bug.py")
 
 ANALYZER=
 BEARS_WORKPLACE=
