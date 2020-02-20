@@ -16,6 +16,8 @@
 #            -Om,--output-dependency-map
 #            -lines,--lines-to-analyze <arg...>
 
+COMPILE_BEARS_BUG_PYSCRIPT=$(realpath "compile_bears_bug.py")
+
 ANALYZER=
 BEARS_WORKPLACE=
 BUGID=
@@ -143,7 +145,7 @@ fi
 
 TARGET_DIR=$BEARS_WORKPLACE/$BUGID/'target'/
 
-python3 compile_bears_bug.py --bugId $BUGID --workspace $BEARS_WORKPLACE
+python3 $COMPILE_BEARS_BUG_PYSCRIPT --bugId $BUGID --workspace $BEARS_WORKPLACE
 
 #add dependencies of project
 DEPENDENCIES_DIR=$TARGET_DIR/'dependency'
