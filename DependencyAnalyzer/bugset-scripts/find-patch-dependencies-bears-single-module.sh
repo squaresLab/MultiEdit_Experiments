@@ -59,3 +59,19 @@ if ! [[ -e $CHECKOUT_FIX_PYSCRIPT ]]; then
     cp $LOCAL_CHECKOUT_FIX_PYSCRIPT $CHECKOUT_FIX_PYSCRIPT
 fi
 python2.7 $CHECKOUT_FIX_PYSCRIPT --bugId $BUGID --workspace $BEARS_WORKSPACE_FIXED
+
+WD_BUGGY=$BEARS_WORKSPACE_BUGGY/$BUGID
+WD_FIXED=$BEARS_WORKSPACE_FIXED/$BUGID
+
+BUGNUM=$(printf $BUGID | grep -Eo '[0-9]+$')
+SRC_DIR_RELATIVE=
+if [[ BUGNUM -ge 98 ]] && [[ BUGNUM -le 139 ]]; then
+    #traccar puts source code directly under src/
+    SRC_DIR_RELATIVE='src'/
+else
+    #almost everyone else uses the standard src/main/java/
+    SRC_DIR_RELATIVE='src'/'main'/'java'
+fi
+
+CHANGED_LINES_RAWOUT=$(python3 $GET_CHANGED_LINES_PYSCRIPT $WD_BUGGY $WD_FIXED $SRC_DIR_RELATIVE)
+
