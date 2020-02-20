@@ -7,10 +7,11 @@
 DEPENDENCY_ANALYZER_JAR=$(realpath "../jar/DependencyAnalyzer.jar")
 ANALYZE_SINGLE_CLASS_SHSCRIPT=$(realpath "analyze-single-class-bears.sh")
 GET_CHANGED_LINES_PYSCRIPT=$(realpath "helpers/get-changed-lines.py")
+LOCAL_CHECKOUT_FIX_PYSCRIPT=$(realpath "helpers/bears/checkout_fix.py")
 
 BEARS_BENCHMARK=
 BUGID=
-BEARS_WORKPLACE=
+BEARS_WORKSPACE=
 while (( "$#" )); do
     case "$1" in
         -B|--bears-benchmark) #wherever is the master branch of bears-benchmark/
@@ -22,7 +23,7 @@ while (( "$#" )); do
             shift 2
             ;;
         -d|--bears-output-bug-directory) #wherever to check out Bears bug samples to, must already exist
-            BEARS_WORKPLACE=$2
+            BEARS_WORKSPACE=$2
             shift 2
             ;;
         --) #end of parsing
@@ -36,7 +37,7 @@ while (( "$#" )); do
     esac
 done
 
-if [[ -z $BEARS_BENCHMARK ]] || [[ -z $BUGID ]] || [[ -z $BEARS_WORKPLACE ]]; then
+if [[ -z $BEARS_BENCHMARK ]] || [[ -z $BUGID ]] || [[ -z $BEARS_WORKSPACE ]]; then
     echo "Usage ./find-patch-dependencies-bears.sh -B bears-benchmark-dir -b bug-id -d bears-output-bug-directory"
     echo
     echo " E.g: ./find-patch-dependencies-bears.sh -B here/is/bears-benchmark/ -b Bears-1 -d here/is/where/I/want/to/dump/my/bears/bugs"
@@ -44,10 +45,17 @@ if [[ -z $BEARS_BENCHMARK ]] || [[ -z $BUGID ]] || [[ -z $BEARS_WORKPLACE ]]; th
 fi
 
 #BEARS_WORKPLACE must be an absolute path; the Bears checkout scripts don't mix well with relative paths
-BEARS_WORKPLACE=$(realpath $BEARS_WORKPLACE)
+BEARS_WORKSPACE=$(realpath $BEARS_WORKSPACE)
 
-BEARS_WORKPLACE_BUGGY=$BEARS_WORKPLACE/'Buggy'
-mkdir -p $BEARS_WORKPLACE_BUGGY
-BEARS_WORKPLACE_FIXED=$BEARS_WORKPLACE/'Fixed'
-mkdir -p $BEARS_WORKPLACE_FIXED
+BEARS_WORKSPACE_BUGGY=$BEARS_WORKSPACE/'Buggy'
+mkdir -p $BEARS_WORKSPACE_BUGGY
+BEARS_WORKSPACE_FIXED=$BEARS_WORKSPACE/'Fixed'
+mkdir -p $BEARS_WORKSPACE_FIXED
 
+CHECKOUT_BUG_PYSCRIPT=$BEARS_BENCHMARK/'scripts'/'checkout_bug.py'
+python2.7 $CHECKOUT_BUG_PYSCRIPT --bugId $BUGID --workspace $BEARS_WORKSPACE_BUGGY
+CHECKOUT_FIX_PYSCRIPT=$BEARS_BENCHMARK/'scripts'/'checkout_fix.py'
+if ! [[ -e $CHECKOUT_FIX_PYSCRIPT ]]; then
+    cp $LOCAL_CHECKOUT_FIX_PYSCRIPT $CHECKOUT_FIX_PYSCRIPT
+fi
+python2.7 $CHECKOUT_FIX_PYSCRIPT --bugId $BUGID --workspace $BEARS_WORKSPACE_FIXED
