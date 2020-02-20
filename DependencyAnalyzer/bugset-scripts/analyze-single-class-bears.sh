@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Must be run from bugset-scripts/; don't run from anywhere else; there are hard path dependencies in the script.
 # Executes dependency analysis on a single Java class in D4J with provided line numbers
 
 # Usage: ./analyze-single-class-d4j.sh
