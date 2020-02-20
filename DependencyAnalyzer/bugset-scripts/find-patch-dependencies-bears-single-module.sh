@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Usage ./find-patch-dependencies-bears.sh -B bears-benchmark-dir -b bug-id -d bears-output-bug-directory
-#  E.g: ./find-patch-dependencies-bears.sh -B here/is/bears-benchmark/ -b Bears-1 -d here/is/where/I/want/to/dump/my/bears/bugs
+# Usage ./find-patch-dependencies-bears-single-module.sh -B bears-benchmark-dir -b bug-id -d bears-output-bug-directory
+#  E.g: ./find-patch-dependencies-bears-single-module.sh -B here/is/bears-benchmark/ -b Bears-1 -d here/is/where/I/want/to/dump/my/bears/bugs
 
 # Here are the hard path dependencies; I don't want to parameterize these, so they're hard coded
 DEPENDENCY_ANALYZER_JAR=$(realpath "../jar/DependencyAnalyzer.jar")
@@ -38,9 +38,9 @@ while (( "$#" )); do
 done
 
 if [[ -z $BEARS_BENCHMARK ]] || [[ -z $BUGID ]] || [[ -z $BEARS_WORKSPACE ]]; then
-    echo "Usage ./find-patch-dependencies-bears.sh -B bears-benchmark-dir -b bug-id -d bears-output-bug-directory"
+    echo "Usage ./find-patch-dependencies-bears-single-module.sh -B bears-benchmark-dir -b bug-id -d bears-output-bug-directory"
     echo
-    echo " E.g: ./find-patch-dependencies-bears.sh -B here/is/bears-benchmark/ -b Bears-1 -d here/is/where/I/want/to/dump/my/bears/bugs"
+    echo " E.g: ./find-patch-dependencies-bears-single-module.sh -B here/is/bears-benchmark/ -b Bears-1 -d here/is/where/I/want/to/dump/my/bears/bugs"
     exit 1
 fi
 
