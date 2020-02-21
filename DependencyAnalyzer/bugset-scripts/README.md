@@ -5,3 +5,5 @@ Scripts intended for client use
 -
 * `find-patch-dependencies-d4j.sh`
 * `analyze-single-class-d4j.sh`
+* `find-patch-dependencies-bears-single-module.sh`
+* `analyze-single-class-bears.sh`
