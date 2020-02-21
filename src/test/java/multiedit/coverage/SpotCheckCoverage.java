@@ -1,5 +1,6 @@
 package multiedit.coverage;
 
+import junit.framework.TestCase;
 import org.junit.jupiter.api.Test;
 import projects.BearsPatch;
 import projects.D4JName;
@@ -105,8 +106,24 @@ public class SpotCheckCoverage {
     }
 
     @Test
+    public void testBears007() {
+        this.bearsCoverage(7);
+    }
+
+    @Test
+    public void testBears031() {
+        this.bearsCoverage(31);
+    }
+
+    @Test
     public void testBears050() {
         this.bearsCoverage(50);
+    }
+
+    @Test
+    public void testBears103() {
+        // modules/activiti-engine/target
+        this.bearsCoverage(103);
     }
 
     @Test
@@ -117,11 +134,36 @@ public class SpotCheckCoverage {
 
     @Test
     public void testBears144() {
-        //
+        // problem: flaky test with connecting to network
         this.bearsCoverage(144);
     }
 
+    @Test
+    public void testBears165() {
+        //
+        this.bearsCoverage(165);
+    }
+
+    @Test
+    public void testBears149() {
+        //
+        this.bearsCoverage(149);
+    }
+
+    @Test
+    public void testBears209() {
+        //
+        this.bearsCoverage(209);
+    }
+
+    @Test
+    public void testFail() {
+        TestCase.assertTrue(false);
+    }
+
     public static void main(String[] args) {
-        new SpotCheckCoverage().testBears142();
+        // main is necessary because part of the hack for some of
+        // the bears experiments requires user input
+        new SpotCheckCoverage().testBears165();
     }
 }

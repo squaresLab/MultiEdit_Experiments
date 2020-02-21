@@ -122,7 +122,13 @@ public class JacocoCoverage {
 //            System.out.println("covered lines?");
 //            System.out.println(coveredLines);
 
-            String publicClassName = cc.getPackageName() + "/" + cc.getSourceFileName().split("\\.")[0];
+            String publicClassName;
+            try {
+                publicClassName = cc.getPackageName() + "/" + cc.getSourceFileName().split("\\.")[0];
+            } catch (NullPointerException e) {
+                System.err.println("Unable to find class " + cc.toString());
+                continue;
+            }
             Set<Integer> existing = classCoverage.getOrDefault(publicClassName, new HashSet<>());
             existing.addAll(coveredLines);
             classCoverage.put(publicClassName, existing);

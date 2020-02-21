@@ -6,7 +6,7 @@ import seaborn as sns
 # 			"data/coverage-experiments/dec16-Lang43-Lang61",
 # 			"data/coverage-experiments/dec16-Lang63-Time11"]
 
-folders = ["data/coverage-experiments/jan14"]
+folders = ["data/coverage-experiments/all_bears"]
 
 with open("data/more_than_one_test.txt") as f:
     more_than_one_test = set([x.strip() for x in f.readlines()])
