@@ -1,0 +1,8 @@
+Compiling the bug Bears-52...
+The bug Bears-52 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:21:37 EST 2020
+Transforming spoon.reflect.visitor.filter.SuperInheritanceHierarchyFunction... 
+Writing to sootOutput/spoon.reflect.visitor.filter.SuperInheritanceHierarchyFunction.jimple
+Soot finished on Fri Feb 21 16:21:38 EST 2020
+Soot has run for 0 min. 0 sec.

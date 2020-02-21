@@ -1,0 +1,8 @@
+Compiling the bug Bears-198...
+The bug Bears-198 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:31:22 EST 2020
+Transforming com.amazonaws.encryptionsdk.model.DecryptionMaterialsRequest... 
+Writing to sootOutput/com.amazonaws.encryptionsdk.model.DecryptionMaterialsRequest.jimple
+Soot finished on Fri Feb 21 16:31:23 EST 2020
+Soot has run for 0 min. 0 sec.

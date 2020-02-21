@@ -1,0 +1,8 @@
+Compiling the bug Bears-15...
+The bug Bears-15 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:21:33 EST 2020
+Transforming com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector... 
+Writing to sootOutput/com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.jimple
+Soot finished on Fri Feb 21 16:21:34 EST 2020
+Soot has run for 0 min. 1 sec.

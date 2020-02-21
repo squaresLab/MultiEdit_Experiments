@@ -1,0 +1,948 @@
+nohup: ignoring input
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-255051210-255052458'
+Branch traccar-traccar-255051210-255052458 set up to track remote branch traccar-traccar-255051210-255052458 from origin.
+Note: checking out 'ef7e5ae214656aace0cc5aa6c1aa0c251eb1753b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at ef7e5ae... Bug commit from traccar/traccar This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/df53571ab09afb15888462dbbed2c3d58759c55a The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/255051210.
+Previous HEAD position was ef7e5ae... Bug commit from traccar/traccar This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/df53571ab09afb15888462dbbed2c3d58759c55a The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/255051210.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-121...
+Checking out the branch traccar-traccar-255051210-255052458...
+The bug Bears-121 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-255051210-255052458'
+Your branch is up-to-date with 'origin/traccar-traccar-255051210-255052458'.
+Note: checking out '5ad2c3cf61bfd4cbaae0978ff0a5b07f428df92c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5ad2c3c... End of the bug and patch reproduction process
+Previous HEAD position was 5ad2c3c... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-121...
+Checking out the branch traccar-traccar-255051210-255052458...
+The bug Bears-121 was checked out.
+Analyzing org.traccar.BaseProtocolDecoder in Bears-121
+Analyzing org.traccar.BaseProtocolDecoder in Bears-121
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-262940348-263330667'
+Branch traccar-traccar-262940348-263330667 set up to track remote branch traccar-traccar-262940348-263330667 from origin.
+Note: checking out 'd28bbf4e443bf38a7648d8adbec895601d2dad1e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d28bbf4... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/3562e0d927d539a1e9730c48ed376ee84ebc2b25 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/263330667.
+Previous HEAD position was d28bbf4... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/3562e0d927d539a1e9730c48ed376ee84ebc2b25 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/263330667.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-122...
+Checking out the branch traccar-traccar-262940348-263330667...
+The bug Bears-122 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-262940348-263330667'
+Your branch is up-to-date with 'origin/traccar-traccar-262940348-263330667'.
+Note: checking out '3e600c88b1e2c68c29a4b5cb86c7f9d33fd5a4c6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 3e600c8... End of the bug and patch reproduction process
+Previous HEAD position was 3e600c8... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-122...
+Checking out the branch traccar-traccar-262940348-263330667...
+The bug Bears-122 was checked out.
+Analyzing org.traccar.protocol.Gl200TextProtocolDecoder in Bears-122
+Analyzing org.traccar.protocol.Gl200TextProtocolDecoder in Bears-122
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-265439859-265542197'
+Branch traccar-traccar-265439859-265542197 set up to track remote branch traccar-traccar-265439859-265542197 from origin.
+Note: checking out '41c9cd23433854a410136eeee2e5e4b38c8cf9e5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 41c9cd2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/a1f7908769d296aed7766151340426e612883c6f The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/265542197.
+Previous HEAD position was 41c9cd2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/a1f7908769d296aed7766151340426e612883c6f The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/265542197.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-123...
+Checking out the branch traccar-traccar-265439859-265542197...
+The bug Bears-123 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-265439859-265542197'
+Your branch is up-to-date with 'origin/traccar-traccar-265439859-265542197'.
+Note: checking out '71efcb9d3bec2db9b8c61d04be127c75659bf0e1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 71efcb9... End of the bug and patch reproduction process
+Previous HEAD position was 71efcb9... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-123...
+Checking out the branch traccar-traccar-265439859-265542197...
+The bug Bears-123 was checked out.
+Analyzing org.traccar.reports.ReportUtils in Bears-123
+Analyzing org.traccar.reports.ReportUtils in Bears-123
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-267146704-267366528'
+Branch traccar-traccar-267146704-267366528 set up to track remote branch traccar-traccar-267146704-267366528 from origin.
+Note: checking out '0c08ddf976214ab06e4ebd40f9165c93ede6f558'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 0c08ddf... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/ebd193d4d5a98f7b53cc229f1c7287d05465b13e The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/267366528.
+Previous HEAD position was 0c08ddf... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/ebd193d4d5a98f7b53cc229f1c7287d05465b13e The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/267366528.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-124...
+Checking out the branch traccar-traccar-267146704-267366528...
+The bug Bears-124 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-267146704-267366528'
+Your branch is up-to-date with 'origin/traccar-traccar-267146704-267366528'.
+Note: checking out '5667ad4ebd2af46b6ea739f5d59ea1cf4c80744f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5667ad4... End of the bug and patch reproduction process
+Previous HEAD position was 5667ad4... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-124...
+Checking out the branch traccar-traccar-267146704-267366528...
+The bug Bears-124 was checked out.
+Analyzing org.traccar.protocol.EskyProtocolDecoder in Bears-124
+Analyzing org.traccar.protocol.EskyProtocolDecoder in Bears-124
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-267371558-268530427'
+Branch traccar-traccar-267371558-268530427 set up to track remote branch traccar-traccar-267371558-268530427 from origin.
+Note: checking out '578222a368172873c5709f45f490e47ca9d74be1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 578222a... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/819bca366f89f237f19e52b7a916895ed1761fb9 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/268530427.
+Previous HEAD position was 578222a... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/819bca366f89f237f19e52b7a916895ed1761fb9 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/268530427.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-125...
+Checking out the branch traccar-traccar-267371558-268530427...
+The bug Bears-125 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-267371558-268530427'
+Your branch is up-to-date with 'origin/traccar-traccar-267371558-268530427'.
+Note: checking out 'c7c8e1ae8a436e9fe41585443d8e91afb3714e80'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c7c8e1a... End of the bug and patch reproduction process
+Previous HEAD position was c7c8e1a... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-125...
+Checking out the branch traccar-traccar-267371558-268530427...
+The bug Bears-125 was checked out.
+Analyzing org.traccar.protocol.Gl200TextProtocolDecoder in Bears-125
+Analyzing org.traccar.protocol.Gl200TextProtocolDecoder in Bears-125
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-269449386-269490884'
+Branch traccar-traccar-269449386-269490884 set up to track remote branch traccar-traccar-269449386-269490884 from origin.
+Note: checking out 'cc2e8df6174ebd8a5b5ce8fb066240d98c7a14cd'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at cc2e8df... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/2ff8f21543727590a0f66adc9fc72b0dd6b5e2c9 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/269490884.
+Previous HEAD position was cc2e8df... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/2ff8f21543727590a0f66adc9fc72b0dd6b5e2c9 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/269490884.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-126...
+Checking out the branch traccar-traccar-269449386-269490884...
+The bug Bears-126 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-269449386-269490884'
+Your branch is up-to-date with 'origin/traccar-traccar-269449386-269490884'.
+Note: checking out '5b923bcf95a1a139910df2a71c7d0fb9d3a02f6e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5b923bc... End of the bug and patch reproduction process
+Previous HEAD position was 5b923bc... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-126...
+Checking out the branch traccar-traccar-269449386-269490884...
+The bug Bears-126 was checked out.
+Analyzing org.traccar.protocol.Gt06ProtocolDecoder in Bears-126
+Analyzing org.traccar.protocol.Gt06ProtocolDecoder in Bears-126
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-273118899-273136493'
+Branch traccar-traccar-273118899-273136493 set up to track remote branch traccar-traccar-273118899-273136493 from origin.
+Note: checking out '2972046ed84143bc7281c1731bc57c0b3632f2b7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2972046... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/3aebd92cc3781b417ded6260d1300434b1418e7e The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/273136493.
+Previous HEAD position was 2972046... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/3aebd92cc3781b417ded6260d1300434b1418e7e The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/273136493.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-127...
+Checking out the branch traccar-traccar-273118899-273136493...
+The bug Bears-127 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-273118899-273136493'
+Your branch is up-to-date with 'origin/traccar-traccar-273118899-273136493'.
+Note: checking out 'a482c00e021a9327c86cd9baf01e2a3c64ea964b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a482c00... End of the bug and patch reproduction process
+Previous HEAD position was a482c00... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-127...
+Checking out the branch traccar-traccar-273118899-273136493...
+The bug Bears-127 was checked out.
+Analyzing org.traccar.protocol.EelinkProtocolDecoder in Bears-127
+Analyzing org.traccar.protocol.EelinkProtocolDecoder in Bears-127
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-273236004-273269445'
+Branch traccar-traccar-273236004-273269445 set up to track remote branch traccar-traccar-273236004-273269445 from origin.
+Note: checking out 'b59086425f6b3d01c3bf8cd9a8b011c9e12c1222'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b590864... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/12586966b63f58e5a008b17f8689110fcd3f5809 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/273269445.
+Previous HEAD position was b590864... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/12586966b63f58e5a008b17f8689110fcd3f5809 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/273269445.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-128...
+Checking out the branch traccar-traccar-273236004-273269445...
+The bug Bears-128 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-273236004-273269445'
+Your branch is up-to-date with 'origin/traccar-traccar-273236004-273269445'.
+Note: checking out '3c09058bcb5e8512eea58efae95f52f0d83ef482'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 3c09058... End of the bug and patch reproduction process
+Previous HEAD position was 3c09058... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-128...
+Checking out the branch traccar-traccar-273236004-273269445...
+The bug Bears-128 was checked out.
+Analyzing org.traccar.protocol.H02ProtocolDecoder in Bears-128
+Analyzing org.traccar.protocol.H02ProtocolDecoder in Bears-128
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-274558862-274871026'
+Branch traccar-traccar-274558862-274871026 set up to track remote branch traccar-traccar-274558862-274871026 from origin.
+Note: checking out '42a131808e85219dfaef40d78b1c16da76f79e02'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 42a1318... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/e05f0b83a911c522123a5a2cd14d6c16bd2de027 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/274871026.
+Previous HEAD position was 42a1318... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/e05f0b83a911c522123a5a2cd14d6c16bd2de027 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/274871026.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-129...
+Checking out the branch traccar-traccar-274558862-274871026...
+The bug Bears-129 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-274558862-274871026'
+Your branch is up-to-date with 'origin/traccar-traccar-274558862-274871026'.
+Note: checking out 'c1b517d7ab15e419b224f4d13bfcb73640fa2f22'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c1b517d... End of the bug and patch reproduction process
+Previous HEAD position was c1b517d... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-129...
+Checking out the branch traccar-traccar-274558862-274871026...
+The bug Bears-129 was checked out.
+Analyzing org.traccar.protocol.Gl200TextProtocolDecoder in Bears-129
+Analyzing org.traccar.protocol.Gl200TextProtocolDecoder in Bears-129
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-275432141-275689407'
+Branch traccar-traccar-275432141-275689407 set up to track remote branch traccar-traccar-275432141-275689407 from origin.
+Note: checking out 'a094b969056a34a3bf77419c4121ffd65d6a2b96'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a094b96... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/c82fd979ad17ecfb7dd8f3e366c067b66f4cdabc The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/275689407.
+Previous HEAD position was a094b96... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/c82fd979ad17ecfb7dd8f3e366c067b66f4cdabc The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/275689407.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-130...
+Checking out the branch traccar-traccar-275432141-275689407...
+The bug Bears-130 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-275432141-275689407'
+Your branch is up-to-date with 'origin/traccar-traccar-275432141-275689407'.
+Note: checking out 'b69aad0bc368f63d94db0eae7f67110f902493c6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b69aad0... End of the bug and patch reproduction process
+Previous HEAD position was b69aad0... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-130...
+Checking out the branch traccar-traccar-275432141-275689407...
+The bug Bears-130 was checked out.
+Analyzing org.traccar.protocol.MeitrackProtocolDecoder in Bears-130
+Analyzing org.traccar.protocol.MeitrackProtocolDecoder in Bears-130
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-292295467-292405214'
+Branch traccar-traccar-292295467-292405214 set up to track remote branch traccar-traccar-292295467-292405214 from origin.
+Note: checking out '30de34cd9573405bd27f6d63104fc656313dda74'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 30de34c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/c72e261e92166c0f775ad2378637ee778e65564b The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/292405214.
+Previous HEAD position was 30de34c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/c72e261e92166c0f775ad2378637ee778e65564b The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/292405214.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-131...
+Checking out the branch traccar-traccar-292295467-292405214...
+The bug Bears-131 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-292295467-292405214'
+Your branch is up-to-date with 'origin/traccar-traccar-292295467-292405214'.
+Note: checking out 'e341d4ccd49a1cb38aae047ed268cc9358e8fe32'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e341d4c... End of the bug and patch reproduction process
+Previous HEAD position was e341d4c... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-131...
+Checking out the branch traccar-traccar-292295467-292405214...
+The bug Bears-131 was checked out.
+Analyzing org.traccar.protocol.MeitrackProtocolDecoder in Bears-131
+Analyzing org.traccar.protocol.MeitrackProtocolDecoder in Bears-131
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-301176898-301185806'
+Branch traccar-traccar-301176898-301185806 set up to track remote branch traccar-traccar-301176898-301185806 from origin.
+Note: checking out '54b483b1471dfb0bc9bb7469ca7fefd88ed18be6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 54b483b... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/0a8f30a572b1e64ff3e1d67281bf9fa3f40b9ccb The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/301185806.
+Previous HEAD position was 54b483b... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/0a8f30a572b1e64ff3e1d67281bf9fa3f40b9ccb The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/301185806.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-132...
+Checking out the branch traccar-traccar-301176898-301185806...
+The bug Bears-132 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-301176898-301185806'
+Your branch is up-to-date with 'origin/traccar-traccar-301176898-301185806'.
+Note: checking out '8bf9ffe5df484764860cb3617fca1af6f653752f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 8bf9ffe... End of the bug and patch reproduction process
+Previous HEAD position was 8bf9ffe... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-132...
+Checking out the branch traccar-traccar-301176898-301185806...
+The bug Bears-132 was checked out.
+Analyzing org.traccar.protocol.Gl200TextProtocolDecoder in Bears-132
+Analyzing org.traccar.protocol.Gl200TextProtocolDecoder in Bears-132
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-305623200-305713931'
+Branch traccar-traccar-305623200-305713931 set up to track remote branch traccar-traccar-305623200-305713931 from origin.
+Note: checking out '53dc7777dd00f454cf66076141ff72dcc9e9faa1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 53dc777... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/6c0fe165f72a998d447d0983c94e234681a6b680 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/305713931.
+Previous HEAD position was 53dc777... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/6c0fe165f72a998d447d0983c94e234681a6b680 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/305713931.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-133...
+Checking out the branch traccar-traccar-305623200-305713931...
+The bug Bears-133 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-305623200-305713931'
+Your branch is up-to-date with 'origin/traccar-traccar-305623200-305713931'.
+Note: checking out '7c6d934080286d461f5fab67a905d2f5b9eb494b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 7c6d934... End of the bug and patch reproduction process
+Previous HEAD position was 7c6d934... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-133...
+Checking out the branch traccar-traccar-305623200-305713931...
+The bug Bears-133 was checked out.
+Analyzing org.traccar.protocol.Jt600FrameDecoder in Bears-133
+Analyzing org.traccar.protocol.Jt600FrameDecoder in Bears-133
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-307668730-307760931'
+Branch traccar-traccar-307668730-307760931 set up to track remote branch traccar-traccar-307668730-307760931 from origin.
+Note: checking out 'b9c7e5f0d1a54a4d38454f35fbc5d487eb873d1a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b9c7e5f... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/4f772b76b08d7515cf27c7bfda819612aeea26f9 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/307760931.
+Previous HEAD position was b9c7e5f... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/4f772b76b08d7515cf27c7bfda819612aeea26f9 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/307760931.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-134...
+Checking out the branch traccar-traccar-307668730-307760931...
+The bug Bears-134 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-307668730-307760931'
+Your branch is up-to-date with 'origin/traccar-traccar-307668730-307760931'.
+Note: checking out 'a44ccf4c484d27ca6754a75e99a19476c2f9ba87'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a44ccf4... End of the bug and patch reproduction process
+Previous HEAD position was a44ccf4... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-134...
+Checking out the branch traccar-traccar-307668730-307760931...
+The bug Bears-134 was checked out.
+Analyzing org.traccar.protocol.TmgProtocolDecoder in Bears-134
+Analyzing org.traccar.protocol.TmgProtocolDecoder in Bears-134
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-308288525-308872339'
+Branch traccar-traccar-308288525-308872339 set up to track remote branch traccar-traccar-308288525-308872339 from origin.
+Note: checking out '950628ea7fbbcbea32140dcac176fe7a93669b3a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 950628e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/e12632548a71345acc0349ba9db1321cfa628911 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/308872339.
+Previous HEAD position was 950628e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/e12632548a71345acc0349ba9db1321cfa628911 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/308872339.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-135...
+Checking out the branch traccar-traccar-308288525-308872339...
+The bug Bears-135 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-308288525-308872339'
+Your branch is up-to-date with 'origin/traccar-traccar-308288525-308872339'.
+Note: checking out 'd11c041ed9d3e68db06b1888626825d770ee487d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d11c041... End of the bug and patch reproduction process
+Previous HEAD position was d11c041... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-135...
+Checking out the branch traccar-traccar-308288525-308872339...
+The bug Bears-135 was checked out.
+Analyzing org.traccar.protocol.TmgFrameDecoder in Bears-135
+Analyzing org.traccar.protocol.TmgFrameDecoder in Bears-135
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-309459456-309718203'
+Branch traccar-traccar-309459456-309718203 set up to track remote branch traccar-traccar-309459456-309718203 from origin.
+Note: checking out 'b93f71883eaf3a9cb95bffcaca3fd149823374d1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b93f718... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/56e496c728faede7a6b26a382e87081dec569f78 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/309718203.
+Previous HEAD position was b93f718... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/56e496c728faede7a6b26a382e87081dec569f78 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/309718203.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-136...
+Checking out the branch traccar-traccar-309459456-309718203...
+The bug Bears-136 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-309459456-309718203'
+Your branch is up-to-date with 'origin/traccar-traccar-309459456-309718203'.
+Note: checking out '805e544489d02041623d1a6e91d4a360462503d3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 805e544... End of the bug and patch reproduction process
+Previous HEAD position was 805e544... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-136...
+Checking out the branch traccar-traccar-309459456-309718203...
+The bug Bears-136 was checked out.
+Analyzing org.traccar.protocol.EelinkProtocolEncoder in Bears-136
+Analyzing org.traccar.protocol.EelinkProtocolEncoder in Bears-136
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-313257147-313260584'
+Branch traccar-traccar-313257147-313260584 set up to track remote branch traccar-traccar-313257147-313260584 from origin.
+Note: checking out '14f132ce125539d88a99a9768ca533a427c2c6bc'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 14f132c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/d3e39051984592f181b04256e38c2396d0cda78d The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/313260584.
+Previous HEAD position was 14f132c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/d3e39051984592f181b04256e38c2396d0cda78d The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/313260584.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-137...
+Checking out the branch traccar-traccar-313257147-313260584...
+The bug Bears-137 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-313257147-313260584'
+Your branch is up-to-date with 'origin/traccar-traccar-313257147-313260584'.
+Note: checking out '961fb8335adcdedd991d19bace3cf61169225fec'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 961fb83... End of the bug and patch reproduction process
+Previous HEAD position was 961fb83... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-137...
+Checking out the branch traccar-traccar-313257147-313260584...
+The bug Bears-137 was checked out.
+Analyzing org.traccar.protocol.TotemFrameDecoder in Bears-137
+Analyzing org.traccar.protocol.TotemFrameDecoder in Bears-137
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-316227226-316639485'
+Branch traccar-traccar-316227226-316639485 set up to track remote branch traccar-traccar-316227226-316639485 from origin.
+Note: checking out '2fcfe080f259270c799c682ac687f72f2011ae17'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2fcfe08... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/1771c22baca9c43556e5cfc4ec705d0a071a78e8 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/316639485.
+Previous HEAD position was 2fcfe08... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/1771c22baca9c43556e5cfc4ec705d0a071a78e8 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/316639485.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-138...
+Checking out the branch traccar-traccar-316227226-316639485...
+The bug Bears-138 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-316227226-316639485'
+Your branch is up-to-date with 'origin/traccar-traccar-316227226-316639485'.
+Note: checking out 'fef9bc47b36c8696d99b4e1ee43d93ea8720c53a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at fef9bc4... End of the bug and patch reproduction process
+Previous HEAD position was fef9bc4... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-138...
+Checking out the branch traccar-traccar-316227226-316639485...
+The bug Bears-138 was checked out.
+Analyzing org.traccar.protocol.Gt06ProtocolDecoder in Bears-138
+Analyzing org.traccar.protocol.Gt06ProtocolDecoder in Bears-138
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-322427143-322428590'
+Branch traccar-traccar-322427143-322428590 set up to track remote branch traccar-traccar-322427143-322428590 from origin.
+Note: checking out 'f9d2b5531def4d0023cff7a9603105afad3fefa3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f9d2b55... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/ee2fbc5cb8bb5dc017eed3db3785fb8c2166df67 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/322428590.
+Previous HEAD position was f9d2b55... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/ee2fbc5cb8bb5dc017eed3db3785fb8c2166df67 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/322428590.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-139...
+Checking out the branch traccar-traccar-322427143-322428590...
+The bug Bears-139 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-322427143-322428590'
+Your branch is up-to-date with 'origin/traccar-traccar-322427143-322428590'.
+Note: checking out '3ebd72dd2a368019556aa98479e5e46ad7037796'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 3ebd72d... End of the bug and patch reproduction process
+Previous HEAD position was 3ebd72d... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-139...
+Checking out the branch traccar-traccar-322427143-322428590...
+The bug Bears-139 was checked out.
+Analyzing org.traccar.protocol.MeitrackProtocolDecoder in Bears-139
+Analyzing org.traccar.protocol.MeitrackProtocolDecoder in Bears-139
+Removing scripts/config.pyc
+Switched to a new branch '2018swecapstone-h2ms-356638992-356666847'
+Branch 2018swecapstone-h2ms-356638992-356666847 set up to track remote branch 2018swecapstone-h2ms-356638992-356666847 from origin.
+Note: checking out '250aa4dc528c3dc50e22cf37e0a64fd4fcc7846d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 250aa4d... Changes in the tests This commit is based on the source code from the following commit: http://github.com/2018swecapstone/h2ms/commit/05577a3f1105af6c6ed55d1e05258de01a3d7d7b The mentioned commit triggered the following Travis build: http://travis-ci.org/2018swecapstone/h2ms/builds/356666847.
+Previous HEAD position was 250aa4d... Changes in the tests This commit is based on the source code from the following commit: http://github.com/2018swecapstone/h2ms/commit/05577a3f1105af6c6ed55d1e05258de01a3d7d7b The mentioned commit triggered the following Travis build: http://travis-ci.org/2018swecapstone/h2ms/builds/356666847.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-140...
+Checking out the branch 2018swecapstone-h2ms-356638992-356666847...
+The bug Bears-140 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch '2018swecapstone-h2ms-356638992-356666847'
+Your branch is up-to-date with 'origin/2018swecapstone-h2ms-356638992-356666847'.
+Note: checking out 'd3a2de22d5fcc295b19171e7f71f62f711fff0b9'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d3a2de2... End of the bug and patch reproduction process
+Previous HEAD position was d3a2de2... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-140...
+Checking out the branch 2018swecapstone-h2ms-356638992-356666847...
+The bug Bears-140 was checked out.
+Analyzing edu.harvard.h2ms.service.utils.H2msRestUtils in Bears-140
+Analyzing edu.harvard.h2ms.service.utils.H2msRestUtils in Bears-140
+Removing scripts/config.pyc
+Switched to a new branch '2018swecapstone-h2ms-363210218-363627522'
+Branch 2018swecapstone-h2ms-363210218-363627522 set up to track remote branch 2018swecapstone-h2ms-363210218-363627522 from origin.
+Note: checking out '6616eba1b77647d6ac1740e79931b71e580b4780'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 6616eba... Changes in the tests This commit is based on the source code from the following commit: http://github.com/2018swecapstone/h2ms/commit/ef42b1078bd7f6699a5c47d01627360e03fc1705 The mentioned commit triggered the following Travis build: http://travis-ci.org/2018swecapstone/h2ms/builds/363627522.
+Previous HEAD position was 6616eba... Changes in the tests This commit is based on the source code from the following commit: http://github.com/2018swecapstone/h2ms/commit/ef42b1078bd7f6699a5c47d01627360e03fc1705 The mentioned commit triggered the following Travis build: http://travis-ci.org/2018swecapstone/h2ms/builds/363627522.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-141...
+Checking out the branch 2018swecapstone-h2ms-363210218-363627522...
+The bug Bears-141 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch '2018swecapstone-h2ms-363210218-363627522'
+Your branch is up-to-date with 'origin/2018swecapstone-h2ms-363210218-363627522'.
+Note: checking out 'b2f2bce3612d451ce67ca49533514e57b745648e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b2f2bce... End of the bug and patch reproduction process
+Previous HEAD position was b2f2bce... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-141...
+Checking out the branch 2018swecapstone-h2ms-363210218-363627522...
+The bug Bears-141 was checked out.
+Analyzing edu.harvard.h2ms.service.UserDetailsServiceImpl in Bears-141
+Analyzing edu.harvard.h2ms.service.UserDetailsServiceImpl in Bears-141
+Analyzing edu.harvard.h2ms.domain.core.User in Bears-141
+Analyzing edu.harvard.h2ms.domain.core.User in Bears-141

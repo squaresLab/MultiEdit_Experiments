@@ -1,0 +1,8 @@
+Compiling the bug Bears-207...
+The bug Bears-207 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:36:46 EST 2020
+Transforming org.broadinstitute.dsde.consent.ontology.resources.SwaggerResource... 
+Writing to sootOutput/org.broadinstitute.dsde.consent.ontology.resources.SwaggerResource.jimple
+Soot finished on Fri Feb 21 16:36:47 EST 2020
+Soot has run for 0 min. 0 sec.

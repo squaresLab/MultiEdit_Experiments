@@ -1,0 +1,921 @@
+nohup: ignoring input
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-241044631-241063530'
+Branch FasterXML-jackson-databind-241044631-241063530 set up to track remote branch FasterXML-jackson-databind-241044631-241063530 from origin.
+Note: checking out '71cb3b195349bf653897dad1c32bdaa0f9a7e5b0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 71cb3b1... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/93f7e14d096181a251aae3355464d24bcd7677a5 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/241063530.
+Previous HEAD position was 71cb3b1... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/93f7e14d096181a251aae3355464d24bcd7677a5 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/241063530.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-21...
+Checking out the branch FasterXML-jackson-databind-241044631-241063530...
+The bug Bears-21 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-241044631-241063530'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-241044631-241063530'.
+Note: checking out 'a395257b048d1212de8b61801501f47c993d67f1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a395257... End of the bug and patch reproduction process
+Previous HEAD position was a395257... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-21...
+Checking out the branch FasterXML-jackson-databind-241044631-241063530...
+The bug Bears-21 was checked out.
+Analyzing com.fasterxml.jackson.databind.ser.std.DateTimeSerializerBase in Bears-21
+Analyzing com.fasterxml.jackson.databind.ser.std.DateTimeSerializerBase in Bears-21
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-241063530-241065840'
+Branch FasterXML-jackson-databind-241063530-241065840 set up to track remote branch FasterXML-jackson-databind-241063530-241065840 from origin.
+Note: checking out '9dc9cd830cb2aadc4cd258dcc0b001b757182758'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9dc9cd8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/3d743477e1531cd3c4c041941f047eee5b040924 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/241065840.
+Previous HEAD position was 9dc9cd8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/3d743477e1531cd3c4c041941f047eee5b040924 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/241065840.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-22...
+Checking out the branch FasterXML-jackson-databind-241063530-241065840...
+The bug Bears-22 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-241063530-241065840'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-241063530-241065840'.
+Note: checking out 'cd3fe2555d96f5689873d68eb29e858a191b9051'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at cd3fe25... End of the bug and patch reproduction process
+Previous HEAD position was cd3fe25... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-22...
+Checking out the branch FasterXML-jackson-databind-241063530-241065840...
+The bug Bears-22 was checked out.
+Analyzing com.fasterxml.jackson.databind.type.ResolvedRecursiveType in Bears-22
+Analyzing com.fasterxml.jackson.databind.type.ResolvedRecursiveType in Bears-22
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-242268513-242687710'
+Branch FasterXML-jackson-databind-242268513-242687710 set up to track remote branch FasterXML-jackson-databind-242268513-242687710 from origin.
+Note: checking out '052bea97c5b9b84a1b51b71b740d3fddb777ba46'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 052bea9... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/5a0ce57b5d3a6d30420267b56b3d2282c76df581 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/242687710.
+Previous HEAD position was 052bea9... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/5a0ce57b5d3a6d30420267b56b3d2282c76df581 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/242687710.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-23...
+Checking out the branch FasterXML-jackson-databind-242268513-242687710...
+The bug Bears-23 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-242268513-242687710'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-242268513-242687710'.
+Note: checking out '9bee8f90a4c28513d81a18b4e29fb5a214862017'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9bee8f9... End of the bug and patch reproduction process
+Previous HEAD position was 9bee8f9... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-23...
+Checking out the branch FasterXML-jackson-databind-242268513-242687710...
+The bug Bears-23 was checked out.
+Analyzing com.fasterxml.jackson.databind.util.StdDateFormat in Bears-23
+Analyzing com.fasterxml.jackson.databind.util.StdDateFormat in Bears-23
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-243509258-243861380'
+Branch FasterXML-jackson-databind-243509258-243861380 set up to track remote branch FasterXML-jackson-databind-243509258-243861380 from origin.
+Note: checking out '053437b7f1098db354c31c730c4be8c84801e714'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 053437b... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/075319dbf91d6c091c78a3b7c686b579569678e1 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/243861380.
+Previous HEAD position was 053437b... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/075319dbf91d6c091c78a3b7c686b579569678e1 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/243861380.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-24...
+Checking out the branch FasterXML-jackson-databind-243509258-243861380...
+The bug Bears-24 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-243509258-243861380'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-243509258-243861380'.
+Note: checking out '2ee3db8f0e561c21419ff7185d231a504d663229'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2ee3db8... End of the bug and patch reproduction process
+Previous HEAD position was 2ee3db8... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-24...
+Checking out the branch FasterXML-jackson-databind-243509258-243861380...
+The bug Bears-24 was checked out.
+Analyzing com.fasterxml.jackson.databind.type.ResolvedRecursiveType in Bears-24
+Analyzing com.fasterxml.jackson.databind.type.ResolvedRecursiveType in Bears-24
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-247621332-247674379'
+Branch FasterXML-jackson-databind-247621332-247674379 set up to track remote branch FasterXML-jackson-databind-247621332-247674379 from origin.
+Note: checking out '8ebf4333268c39bb1a043de4c2d2b5740d8bbb7f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 8ebf433... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/e20bcc877a8149a9c4ecd562209b3b3954b6dda2 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/247674379.
+Previous HEAD position was 8ebf433... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/e20bcc877a8149a9c4ecd562209b3b3954b6dda2 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/247674379.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-25...
+Checking out the branch FasterXML-jackson-databind-247621332-247674379...
+The bug Bears-25 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-247621332-247674379'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-247621332-247674379'.
+Note: checking out '3a7c449655d937d8e993271e22ab46b0cf77b066'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 3a7c449... End of the bug and patch reproduction process
+Previous HEAD position was 3a7c449... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-25...
+Checking out the branch FasterXML-jackson-databind-247621332-247674379...
+The bug Bears-25 was checked out.
+Analyzing com.fasterxml.jackson.databind.ser.std.StdKeySerializers in Bears-25
+Analyzing com.fasterxml.jackson.databind.ser.std.StdKeySerializers in Bears-25
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-318458719-318715551'
+Branch FasterXML-jackson-databind-318458719-318715551 set up to track remote branch FasterXML-jackson-databind-318458719-318715551 from origin.
+Note: checking out 'b2d9e753e1a0fde8dfef86015df08246f683e958'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b2d9e75... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/459107dccc9b3ea991af3e6ad0953e54b01ef7c1 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/318715551.
+Previous HEAD position was b2d9e75... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/459107dccc9b3ea991af3e6ad0953e54b01ef7c1 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/318715551.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-26...
+Checking out the branch FasterXML-jackson-databind-318458719-318715551...
+The bug Bears-26 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-318458719-318715551'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-318458719-318715551'.
+Note: checking out '9be4f67954db7128d94aae1872a575c3241f9880'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9be4f67... End of the bug and patch reproduction process
+Previous HEAD position was 9be4f67... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-26...
+Checking out the branch FasterXML-jackson-databind-318458719-318715551...
+The bug Bears-26 was checked out.
+Analyzing com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator in Bears-26
+Analyzing com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator in Bears-26
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-189186902-189233591'
+Branch INRIA-spoon-189186902-189233591 set up to track remote branch INRIA-spoon-189186902-189233591 from origin.
+Note: checking out '476dda8de9e7d4bf95635303f3e55b4a6c48d30e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 476dda8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/bf0652c5a3dddb0322ff2b471071ffecce7b7c70 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/189233591.
+Previous HEAD position was 476dda8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/bf0652c5a3dddb0322ff2b471071ffecce7b7c70 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/189233591.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-27...
+Checking out the branch INRIA-spoon-189186902-189233591...
+The bug Bears-27 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-189186902-189233591'
+Your branch is up-to-date with 'origin/INRIA-spoon-189186902-189233591'.
+Note: checking out '62c4b0a0022bd6a5e23860fbf4897b67bcda7086'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 62c4b0a... End of the bug and patch reproduction process
+Previous HEAD position was 62c4b0a... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-27...
+Checking out the branch INRIA-spoon-189186902-189233591...
+The bug Bears-27 was checked out.
+Analyzing spoon.support.compiler.jdt.ContextBuilder in Bears-27
+Analyzing spoon.support.compiler.jdt.ContextBuilder in Bears-27
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-189233636-189234660'
+Branch INRIA-spoon-189233636-189234660 set up to track remote branch INRIA-spoon-189233636-189234660 from origin.
+Note: checking out '9ce4479f04ba67ae48576f3645c7ec41efa60d9e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9ce4479... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/ce55bc43a9751081097121a5745d516cad2c5200 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/189234660.
+Previous HEAD position was 9ce4479... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/ce55bc43a9751081097121a5745d516cad2c5200 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/189234660.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-28...
+Checking out the branch INRIA-spoon-189233636-189234660...
+The bug Bears-28 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-189233636-189234660'
+Your branch is up-to-date with 'origin/INRIA-spoon-189233636-189234660'.
+Note: checking out 'abd1762fc864a19d12fe91492e99571dde6fcb8f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at abd1762... End of the bug and patch reproduction process
+Previous HEAD position was abd1762... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-28...
+Checking out the branch INRIA-spoon-189233636-189234660...
+The bug Bears-28 was checked out.
+Analyzing spoon.reflect.visitor.printer.ElementPrinterHelper in Bears-28
+Analyzing spoon.reflect.visitor.printer.ElementPrinterHelper in Bears-28
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-28
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-28
+Analyzing spoon.support.compiler.jdt.JDTCommentBuilder in Bears-28
+Analyzing spoon.support.compiler.jdt.JDTCommentBuilder in Bears-28
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-190241093-190241752'
+Branch INRIA-spoon-190241093-190241752 set up to track remote branch INRIA-spoon-190241093-190241752 from origin.
+Note: checking out 'c7598f2aacd43e353c1dbad8eef2d37a5a61c46e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c7598f2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/669bcc077b462157d1e14fb771e10ae86075f59d The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/190241752.
+Previous HEAD position was c7598f2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/669bcc077b462157d1e14fb771e10ae86075f59d The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/190241752.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-29...
+Checking out the branch INRIA-spoon-190241093-190241752...
+The bug Bears-29 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-190241093-190241752'
+Your branch is up-to-date with 'origin/INRIA-spoon-190241093-190241752'.
+Note: checking out '4093b3fba9c0b9c6eeeca40e438333afbc7a6387'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4093b3f... End of the bug and patch reproduction process
+Previous HEAD position was 4093b3f... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-29...
+Checking out the branch INRIA-spoon-190241093-190241752...
+The bug Bears-29 was checked out.
+Analyzing spoon.reflect.factory.ExecutableFactory in Bears-29
+Analyzing spoon.reflect.factory.ExecutableFactory in Bears-29
+Analyzing spoon.support.compiler.jdt.ParentExiter in Bears-29
+Analyzing spoon.support.compiler.jdt.ParentExiter in Bears-29
+Analyzing spoon.support.compiler.jdt.ReferenceBuilder in Bears-29
+Analyzing spoon.support.compiler.jdt.ReferenceBuilder in Bears-29
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-190241752-190558172'
+Branch INRIA-spoon-190241752-190558172 set up to track remote branch INRIA-spoon-190241752-190558172 from origin.
+Note: checking out '71cb829985a44505da3206a291d368eb623fec26'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 71cb829... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/e60e3ab92d706a87e3475645f312675fc278c9f1 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/190558172.
+Previous HEAD position was 71cb829... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/e60e3ab92d706a87e3475645f312675fc278c9f1 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/190558172.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-30...
+Checking out the branch INRIA-spoon-190241752-190558172...
+The bug Bears-30 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-190241752-190558172'
+Your branch is up-to-date with 'origin/INRIA-spoon-190241752-190558172'.
+Note: checking out 'b5347214fa5b1a8ee721d6025a1de36a20296eee'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b534721... End of the bug and patch reproduction process
+Previous HEAD position was b534721... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-30...
+Checking out the branch INRIA-spoon-190241752-190558172...
+The bug Bears-30 was checked out.
+Analyzing spoon.support.compiler.jdt.JDTTreeBuilderHelper in Bears-30
+Analyzing spoon.support.compiler.jdt.JDTTreeBuilderHelper in Bears-30
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-191511078-191595944'
+Branch INRIA-spoon-191511078-191595944 set up to track remote branch INRIA-spoon-191511078-191595944 from origin.
+Note: checking out 'f6d9cd554f3b475af9744840931c00d3c297a091'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f6d9cd5... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/551f0fb28c49f4b1eeab93f7748c04ef82cfde39 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/191595944.
+Previous HEAD position was f6d9cd5... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/551f0fb28c49f4b1eeab93f7748c04ef82cfde39 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/191595944.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-31...
+Checking out the branch INRIA-spoon-191511078-191595944...
+The bug Bears-31 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-191511078-191595944'
+Your branch is up-to-date with 'origin/INRIA-spoon-191511078-191595944'.
+Note: checking out '4b9fced915b83b8894143ef2798d79393ed417da'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4b9fced... End of the bug and patch reproduction process
+Previous HEAD position was 4b9fced... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-31...
+Checking out the branch INRIA-spoon-191511078-191595944...
+The bug Bears-31 was checked out.
+Analyzing spoon.support.reflect.reference.CtTypeReferenceImpl in Bears-31
+Analyzing spoon.support.reflect.reference.CtTypeReferenceImpl in Bears-31
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-192604168-192969999'
+Branch INRIA-spoon-192604168-192969999 set up to track remote branch INRIA-spoon-192604168-192969999 from origin.
+Note: checking out '32f9d98e73eaf084a9946986fa9d74512855c229'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 32f9d98... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/b0b3d09fe50fa25f8d204e44816ff0c62f0b30ac The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/192969999.
+Previous HEAD position was 32f9d98... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/b0b3d09fe50fa25f8d204e44816ff0c62f0b30ac The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/192969999.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-32...
+Checking out the branch INRIA-spoon-192604168-192969999...
+The bug Bears-32 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-192604168-192969999'
+Your branch is up-to-date with 'origin/INRIA-spoon-192604168-192969999'.
+Note: checking out 'cbea993bcadb792649c25f0e2d34c7b55b7af7f4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at cbea993... End of the bug and patch reproduction process
+Previous HEAD position was cbea993... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-32...
+Checking out the branch INRIA-spoon-192604168-192969999...
+The bug Bears-32 was checked out.
+Analyzing spoon.reflect.visitor.chain.CtQueryImpl in Bears-32
+Analyzing spoon.reflect.visitor.chain.CtQueryImpl in Bears-32
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-192969999-193004144'
+Branch INRIA-spoon-192969999-193004144 set up to track remote branch INRIA-spoon-192969999-193004144 from origin.
+Note: checking out '2a72c2749e8c73d4c072e095492d0aaf0218660d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2a72c27... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/5b21903b4f51c530d58c33e1a8db419287469747 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/193004144.
+Previous HEAD position was 2a72c27... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/5b21903b4f51c530d58c33e1a8db419287469747 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/193004144.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-33...
+Checking out the branch INRIA-spoon-192969999-193004144...
+The bug Bears-33 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-192969999-193004144'
+Your branch is up-to-date with 'origin/INRIA-spoon-192969999-193004144'.
+Note: checking out '57a875f4c8a5df8a471670796f4f5e9157698b57'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 57a875f... End of the bug and patch reproduction process
+Previous HEAD position was 57a875f... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-33...
+Checking out the branch INRIA-spoon-192969999-193004144...
+The bug Bears-33 was checked out.
+Analyzing spoon.support.reflect.reference.CtTypeReferenceImpl in Bears-33
+Analyzing spoon.support.reflect.reference.CtTypeReferenceImpl in Bears-33
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-193004144-193023299'
+Branch INRIA-spoon-193004144-193023299 set up to track remote branch INRIA-spoon-193004144-193023299 from origin.
+Note: checking out 'b2e20a079ddefc2713b7f4c03fd9b9ca9be42519'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b2e20a0... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/dd5ff12d4c3ad1859224d0dd69b5a798af592d09 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/193023299.
+Previous HEAD position was b2e20a0... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/dd5ff12d4c3ad1859224d0dd69b5a798af592d09 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/193023299.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-34...
+Checking out the branch INRIA-spoon-193004144-193023299...
+The bug Bears-34 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-193004144-193023299'
+Your branch is up-to-date with 'origin/INRIA-spoon-193004144-193023299'.
+Note: checking out '0713355f0c3db79d3b6553732f9cdbbb86530b45'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 0713355... End of the bug and patch reproduction process
+Previous HEAD position was 0713355... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-34...
+Checking out the branch INRIA-spoon-193004144-193023299...
+The bug Bears-34 was checked out.
+Analyzing spoon.support.compiler.jdt.ParentExiter in Bears-34
+Analyzing spoon.support.compiler.jdt.ParentExiter in Bears-34
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-34
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-34
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-196963859-196966996'
+Branch INRIA-spoon-196963859-196966996 set up to track remote branch INRIA-spoon-196963859-196966996 from origin.
+Note: checking out '739a8805b5fa414387d357fa90dd10fad6e444fe'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 739a880... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/23ba99df0825643a841941d7d764ed01ce7d952c The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/196966996.
+Previous HEAD position was 739a880... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/23ba99df0825643a841941d7d764ed01ce7d952c The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/196966996.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-35...
+Checking out the branch INRIA-spoon-196963859-196966996...
+The bug Bears-35 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-196963859-196966996'
+Your branch is up-to-date with 'origin/INRIA-spoon-196963859-196966996'.
+Note: checking out 'b6b2493490c9322ac8dd9df557a86854020e71ed'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b6b2493... End of the bug and patch reproduction process
+Previous HEAD position was b6b2493... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-35...
+Checking out the branch INRIA-spoon-196963859-196966996...
+The bug Bears-35 was checked out.
+Analyzing spoon.reflect.visitor.MinimalImportScanner in Bears-35
+Analyzing spoon.reflect.visitor.MinimalImportScanner in Bears-35
+Analyzing spoon.reflect.visitor.ImportScannerImpl in Bears-35
+Analyzing spoon.reflect.visitor.ImportScannerImpl in Bears-35
+Analyzing spoon.reflect.visitor.printer.ElementPrinterHelper in Bears-35
+Analyzing spoon.reflect.visitor.printer.ElementPrinterHelper in Bears-35
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-197673696-197674087'
+Branch INRIA-spoon-197673696-197674087 set up to track remote branch INRIA-spoon-197673696-197674087 from origin.
+Note: checking out 'b19b013a0d2b7de8e23a7588d4dfe157b202b499'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b19b013... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/a727953e00ea1f8fa64b11cb2d237a709fd15e38 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/197674087.
+Previous HEAD position was b19b013... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/a727953e00ea1f8fa64b11cb2d237a709fd15e38 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/197674087.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-36...
+Checking out the branch INRIA-spoon-197673696-197674087...
+The bug Bears-36 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-197673696-197674087'
+Your branch is up-to-date with 'origin/INRIA-spoon-197673696-197674087'.
+Note: checking out 'db0e39a2f0f41ac5433ce0790afb684b5b8005c3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at db0e39a... End of the bug and patch reproduction process
+Previous HEAD position was db0e39a... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-36...
+Checking out the branch INRIA-spoon-197673696-197674087...
+The bug Bears-36 was checked out.
+Analyzing spoon.reflect.visitor.ImportScannerImpl in Bears-36
+Analyzing spoon.reflect.visitor.ImportScannerImpl in Bears-36
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-197674087-198523383'
+Branch INRIA-spoon-197674087-198523383 set up to track remote branch INRIA-spoon-197674087-198523383 from origin.
+Note: checking out '0d691ed30551484034471bc655f1d48c1a8d3f8d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 0d691ed... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/870a297e6b21673c5c62890cf4b57807dfaf3480 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/198523383.
+Previous HEAD position was 0d691ed... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/870a297e6b21673c5c62890cf4b57807dfaf3480 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/198523383.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-37...
+Checking out the branch INRIA-spoon-197674087-198523383...
+The bug Bears-37 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-197674087-198523383'
+Your branch is up-to-date with 'origin/INRIA-spoon-197674087-198523383'.
+Note: checking out '7252af0c342e650b25c1d0252e54ccdbfe9dde7f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 7252af0... End of the bug and patch reproduction process
+Previous HEAD position was 7252af0... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-37...
+Checking out the branch INRIA-spoon-197674087-198523383...
+The bug Bears-37 was checked out.
+Analyzing spoon.support.visitor.java.JavaReflectionTreeBuilder in Bears-37
+Analyzing spoon.support.visitor.java.JavaReflectionTreeBuilder in Bears-37
+Analyzing spoon.support.visitor.java.reflect.RtMethod in Bears-37
+Analyzing spoon.support.visitor.java.reflect.RtMethod in Bears-37
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-199972949-199993301'
+Branch INRIA-spoon-199972949-199993301 set up to track remote branch INRIA-spoon-199972949-199993301 from origin.
+Note: checking out '0bca9135b09833fd7623a455583a7f4b712c1591'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 0bca913... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/b63ac185bb5c83b60f1c1bdbc10aa9b4004ae3a6 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/199993301.
+Previous HEAD position was 0bca913... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/b63ac185bb5c83b60f1c1bdbc10aa9b4004ae3a6 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/199993301.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-38...
+Checking out the branch INRIA-spoon-199972949-199993301...
+The bug Bears-38 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-199972949-199993301'
+Your branch is up-to-date with 'origin/INRIA-spoon-199972949-199993301'.
+Note: checking out 'eb22400173fdf882347167893c118257b9ca2b2d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at eb22400... End of the bug and patch reproduction process
+Previous HEAD position was eb22400... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-38...
+Checking out the branch INRIA-spoon-199972949-199993301...
+The bug Bears-38 was checked out.
+Analyzing spoon.support.reflect.code.CtLambdaImpl in Bears-38
+Analyzing spoon.support.reflect.code.CtLambdaImpl in Bears-38
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-199993301-200108848'
+Branch INRIA-spoon-199993301-200108848 set up to track remote branch INRIA-spoon-199993301-200108848 from origin.
+Note: checking out '5035ea6f1af2295155be9ea8979ce5597e1eef5b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5035ea6... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/05592e51945eb22dd570955c33c83a01d757bac8 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/200108848.
+Previous HEAD position was 5035ea6... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/05592e51945eb22dd570955c33c83a01d757bac8 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/200108848.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-39...
+Checking out the branch INRIA-spoon-199993301-200108848...
+The bug Bears-39 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-199993301-200108848'
+Your branch is up-to-date with 'origin/INRIA-spoon-199993301-200108848'.
+Note: checking out '81f01018c432e6424bdc9048e156432a9037f154'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 81f0101... End of the bug and patch reproduction process
+Previous HEAD position was 81f0101... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-39...
+Checking out the branch INRIA-spoon-199993301-200108848...
+The bug Bears-39 was checked out.
+Traceback (most recent call last):
+  File "/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/helpers/get-changed-lines.py", line 126, in <module>
+    changed_classes = get_changed_classes(dir_src_buggy, dir_src_fixed, dir_src_relative)
+  File "/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/helpers/get-changed-lines.py", line 49, in get_changed_classes
+    chg_file_b, chg_file_f = capture_paths_from_rawout_regex.search(rawout_line).groups()
+AttributeError: 'NoneType' object has no attribute 'groups'
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-201940544-203101555'
+Branch INRIA-spoon-201940544-203101555 set up to track remote branch INRIA-spoon-201940544-203101555 from origin.
+Note: checking out '5f436d891ae85c13b837050cefe58cab26f14244'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5f436d8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/92cedf9af2909264092eff8d75069d74e9368ea6 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/203101555.
+Previous HEAD position was 5f436d8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/92cedf9af2909264092eff8d75069d74e9368ea6 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/203101555.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-40...
+Checking out the branch INRIA-spoon-201940544-203101555...
+The bug Bears-40 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-201940544-203101555'
+Your branch is up-to-date with 'origin/INRIA-spoon-201940544-203101555'.
+Note: checking out 'c153e18b26aea913ac2d23b7919b228674701869'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c153e18... End of the bug and patch reproduction process
+Previous HEAD position was c153e18... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-40...
+Checking out the branch INRIA-spoon-201940544-203101555...
+The bug Bears-40 was checked out.
+Analyzing spoon.support.reflect.reference.CtTypeReferenceImpl in Bears-40
+Analyzing spoon.support.reflect.reference.CtTypeReferenceImpl in Bears-40

@@ -1,0 +1,529 @@
+nohup: ignoring input
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-239865488-239871875'
+Branch INRIA-spoon-239865488-239871875 set up to track remote branch INRIA-spoon-239865488-239871875 from origin.
+Note: checking out '032b854b3195f47d89ebf52099cbd827eac8e131'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 032b854... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/acda3dd7f0377564c9c6e4f31ab485490c9e2c62 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/239871875.
+Previous HEAD position was 032b854... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/acda3dd7f0377564c9c6e4f31ab485490c9e2c62 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/239871875.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-61...
+Checking out the branch INRIA-spoon-239865488-239871875...
+The bug Bears-61 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-239865488-239871875'
+Your branch is up-to-date with 'origin/INRIA-spoon-239865488-239871875'.
+Note: checking out 'a7c95e96fc18a03f34f4ecadfa55a7c869d527ca'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a7c95e9... End of the bug and patch reproduction process
+Previous HEAD position was a7c95e9... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-61...
+Checking out the branch INRIA-spoon-239865488-239871875...
+The bug Bears-61 was checked out.
+Analyzing spoon.reflect.factory.CodeFactory in Bears-61
+Analyzing spoon.reflect.factory.CodeFactory in Bears-61
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-239871875-239928671'
+Branch INRIA-spoon-239871875-239928671 set up to track remote branch INRIA-spoon-239871875-239928671 from origin.
+Note: checking out 'cad2a3daed4c9b924301f722ecbf1de4a6cdb9e6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at cad2a3d... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/e95cd3fb968265d3757f40e290c9f7c4cad55afb The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/239928671.
+Previous HEAD position was cad2a3d... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/e95cd3fb968265d3757f40e290c9f7c4cad55afb The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/239928671.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-62...
+Checking out the branch INRIA-spoon-239871875-239928671...
+The bug Bears-62 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-239871875-239928671'
+Your branch is up-to-date with 'origin/INRIA-spoon-239871875-239928671'.
+Note: checking out '0b1a59365d7a4cd11653afdfc651340103a1b718'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 0b1a593... End of the bug and patch reproduction process
+Previous HEAD position was 0b1a593... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-62...
+Checking out the branch INRIA-spoon-239871875-239928671...
+The bug Bears-62 was checked out.
+Analyzing spoon.template.Substitution in Bears-62
+Analyzing spoon.template.Substitution in Bears-62
+Analyzing spoon.support.visitor.ClassTypingContext in Bears-62
+Analyzing spoon.support.visitor.ClassTypingContext in Bears-62
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-240253890-240366857'
+Branch INRIA-spoon-240253890-240366857 set up to track remote branch INRIA-spoon-240253890-240366857 from origin.
+Note: checking out '576bcfe743987bb7a192771dd111a0035d8a3f07'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 576bcfe... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/c3e72a990e1d507f010cdcdf6da4662f0848eedf The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/240366857.
+Previous HEAD position was 576bcfe... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/c3e72a990e1d507f010cdcdf6da4662f0848eedf The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/240366857.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-63...
+Checking out the branch INRIA-spoon-240253890-240366857...
+The bug Bears-63 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-240253890-240366857'
+Your branch is up-to-date with 'origin/INRIA-spoon-240253890-240366857'.
+Note: checking out 'b418a36f86a7693a3d9662640c385245b8e8ef51'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b418a36... End of the bug and patch reproduction process
+Previous HEAD position was b418a36... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-63...
+Checking out the branch INRIA-spoon-240253890-240366857...
+The bug Bears-63 was checked out.
+Analyzing spoon.support.compiler.jdt.ReferenceBuilder in Bears-63
+Analyzing spoon.support.compiler.jdt.ReferenceBuilder in Bears-63
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-240675027-240677764'
+Branch INRIA-spoon-240675027-240677764 set up to track remote branch INRIA-spoon-240675027-240677764 from origin.
+Note: checking out 'db040504db6177c490561ae0b0142ed3a73d25e1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at db04050... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/40326ca33374cd8ae60603fa48b95e7224792e10 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/240677764.
+Previous HEAD position was db04050... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/40326ca33374cd8ae60603fa48b95e7224792e10 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/240677764.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-64...
+Checking out the branch INRIA-spoon-240675027-240677764...
+The bug Bears-64 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-240675027-240677764'
+Your branch is up-to-date with 'origin/INRIA-spoon-240675027-240677764'.
+Note: checking out '602a1637d28097dac086e99e5cf41cb7dab8ccd1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 602a163... End of the bug and patch reproduction process
+Previous HEAD position was 602a163... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-64...
+Checking out the branch INRIA-spoon-240675027-240677764...
+The bug Bears-64 was checked out.
+Analyzing spoon.support.visitor.ClassTypingContext in Bears-64
+Analyzing spoon.support.visitor.ClassTypingContext in Bears-64
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-241091669-241205460'
+Branch INRIA-spoon-241091669-241205460 set up to track remote branch INRIA-spoon-241091669-241205460 from origin.
+Note: checking out '912ff2c09ea2f880bad700136b064835b36ef59e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 912ff2c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/bf03cb208312146c33547bbdcf868f2fe0d54670 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/241205460.
+Previous HEAD position was 912ff2c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/bf03cb208312146c33547bbdcf868f2fe0d54670 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/241205460.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-65...
+Checking out the branch INRIA-spoon-241091669-241205460...
+The bug Bears-65 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-241091669-241205460'
+Your branch is up-to-date with 'origin/INRIA-spoon-241091669-241205460'.
+Note: checking out 'afbc65b0795c056a64590f9093bab230578ddc7f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at afbc65b... End of the bug and patch reproduction process
+Previous HEAD position was afbc65b... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-65...
+Checking out the branch INRIA-spoon-241091669-241205460...
+The bug Bears-65 was checked out.
+Analyzing spoon.support.visitor.java.JavaReflectionVisitorImpl in Bears-65
+Analyzing spoon.support.visitor.java.JavaReflectionVisitorImpl in Bears-65
+Analyzing spoon.support.visitor.java.JavaReflectionTreeBuilder in Bears-65
+Analyzing spoon.support.visitor.java.JavaReflectionTreeBuilder in Bears-65
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-244508852-244943489'
+Branch INRIA-spoon-244508852-244943489 set up to track remote branch INRIA-spoon-244508852-244943489 from origin.
+Note: checking out '29bbab45c517119bc08d91af0e6d595b20456df8'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 29bbab4... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/953d7b8cdbc187c580b1096fe009459aade9923a The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/244943489.
+Previous HEAD position was 29bbab4... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/953d7b8cdbc187c580b1096fe009459aade9923a The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/244943489.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-66...
+Checking out the branch INRIA-spoon-244508852-244943489...
+The bug Bears-66 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-244508852-244943489'
+Your branch is up-to-date with 'origin/INRIA-spoon-244508852-244943489'.
+Note: checking out '48a54245d0a5c8ff088ce00044451499f2f36abd'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 48a5424... End of the bug and patch reproduction process
+Previous HEAD position was 48a5424... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-66...
+Checking out the branch INRIA-spoon-244508852-244943489...
+The bug Bears-66 was checked out.
+Analyzing spoon.support.reflect.reference.CtTypeParameterReferenceImpl in Bears-66
+Analyzing spoon.support.reflect.reference.CtTypeParameterReferenceImpl in Bears-66
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-245681314-245682273'
+Branch INRIA-spoon-245681314-245682273 set up to track remote branch INRIA-spoon-245681314-245682273 from origin.
+Note: checking out '3c6fbec57a9e9c5bab31b6480e5098d8f181e741'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 3c6fbec... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/521f2307d4a639dcf7541f65a961609ce39d743f The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/245682273.
+Previous HEAD position was 3c6fbec... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/521f2307d4a639dcf7541f65a961609ce39d743f The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/245682273.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-67...
+Checking out the branch INRIA-spoon-245681314-245682273...
+The bug Bears-67 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-245681314-245682273'
+Your branch is up-to-date with 'origin/INRIA-spoon-245681314-245682273'.
+Note: checking out '2b6ce7edc2d4e9b41f4facdf3c38528d338988b7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2b6ce7e... End of the bug and patch reproduction process
+Previous HEAD position was 2b6ce7e... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-67...
+Checking out the branch INRIA-spoon-245681314-245682273...
+The bug Bears-67 was checked out.
+Analyzing spoon.support.reflect.declaration.CtTypeImpl in Bears-67
+Analyzing spoon.support.reflect.declaration.CtTypeImpl in Bears-67
+Analyzing spoon.reflect.factory.ExecutableFactory in Bears-67
+Analyzing spoon.reflect.factory.ExecutableFactory in Bears-67
+Analyzing spoon.support.visitor.ClassTypingContext in Bears-67
+Analyzing spoon.support.visitor.ClassTypingContext in Bears-67
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-68/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-68/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-68’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-68’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-69/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-69/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-69’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-69’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-70/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-70/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-70’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-70’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-71/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-71/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-71’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-71’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-72/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-72/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-72’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-72’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-73/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-73/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-73’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-73’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-74/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-74/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-74’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-74’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-75/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-75/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-75’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-75’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-76/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-76/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-76’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-76’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-77/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-77/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-77’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-77’: No such file or directory
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-260612138-265581135'
+Branch INRIA-spoon-260612138-265581135 set up to track remote branch INRIA-spoon-260612138-265581135 from origin.
+Note: checking out '8bbf739df7b5ba562006cc2a343adf9b46cf2230'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 8bbf739... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/27e3d3f895346849555bcd09e47968351dc04b31 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/265581135.
+Previous HEAD position was 8bbf739... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/27e3d3f895346849555bcd09e47968351dc04b31 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/265581135.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-78...
+Checking out the branch INRIA-spoon-260612138-265581135...
+The bug Bears-78 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-260612138-265581135'
+Your branch is up-to-date with 'origin/INRIA-spoon-260612138-265581135'.
+Note: checking out '85cda7939178922071525062c9bc8cb8f694e6d4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 85cda79... End of the bug and patch reproduction process
+Previous HEAD position was 85cda79... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-78...
+Checking out the branch INRIA-spoon-260612138-265581135...
+The bug Bears-78 was checked out.
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-78
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-78
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-270437105-270439051'
+Branch INRIA-spoon-270437105-270439051 set up to track remote branch INRIA-spoon-270437105-270439051 from origin.
+Note: checking out 'b9bf1e89fd2fe8a4daccecfc1a0389de509c66ff'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b9bf1e8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/1d1ed44e13912f8131880119da287c317605e6e3 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/270439051.
+Previous HEAD position was b9bf1e8... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/1d1ed44e13912f8131880119da287c317605e6e3 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/270439051.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-79...
+Checking out the branch INRIA-spoon-270437105-270439051...
+The bug Bears-79 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-270437105-270439051'
+Your branch is up-to-date with 'origin/INRIA-spoon-270437105-270439051'.
+Note: checking out 'f23346d98a141cbf3a95de051ca3bd866234c197'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f23346d... End of the bug and patch reproduction process
+Previous HEAD position was f23346d... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-79...
+Checking out the branch INRIA-spoon-270437105-270439051...
+The bug Bears-79 was checked out.
+Analyzing spoon.support.visitor.ProcessingVisitor in Bears-79
+Analyzing spoon.support.visitor.ProcessingVisitor in Bears-79
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-270439051-271649592'
+Branch INRIA-spoon-270439051-271649592 set up to track remote branch INRIA-spoon-270439051-271649592 from origin.
+Note: checking out 'a76e00c472112fdc9e3e5b747f4ff6d863695c26'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a76e00c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/0e4787187d8d6192c43144de0fc91e5047fa867b The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/271649592.
+Previous HEAD position was a76e00c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/0e4787187d8d6192c43144de0fc91e5047fa867b The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/271649592.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-80...
+Checking out the branch INRIA-spoon-270439051-271649592...
+The bug Bears-80 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-270439051-271649592'
+Your branch is up-to-date with 'origin/INRIA-spoon-270439051-271649592'.
+Note: checking out '50f53283382d0a73223d7e5e9f11bfc66e6dbba8'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 50f5328... End of the bug and patch reproduction process
+Previous HEAD position was 50f5328... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-80...
+Checking out the branch INRIA-spoon-270439051-271649592...
+The bug Bears-80 was checked out.
+Analyzing spoon.support.StandardEnvironment in Bears-80
+Analyzing spoon.support.StandardEnvironment in Bears-80

@@ -1,0 +1,8 @@
+Compiling the bug Bears-82...
+The bug Bears-82 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:17:06 EST 2020
+Transforming spoon.reflect.visitor.DefaultJavaPrettyPrinter... 
+Writing to sootOutput/spoon.reflect.visitor.DefaultJavaPrettyPrinter.jimple
+Soot finished on Fri Feb 21 16:17:07 EST 2020
+Soot has run for 0 min. 1 sec.

@@ -1,0 +1,919 @@
+nohup: ignoring input
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-271649592-272084174'
+Branch INRIA-spoon-271649592-272084174 set up to track remote branch INRIA-spoon-271649592-272084174 from origin.
+Note: checking out '90194590ca0f93986d6ac738f506108d514c73e7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9019459... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/82eb44bdc63e882696001b3a25f5e32ef2ec8526 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/272084174.
+Previous HEAD position was 9019459... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/82eb44bdc63e882696001b3a25f5e32ef2ec8526 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/272084174.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-81...
+Checking out the branch INRIA-spoon-271649592-272084174...
+The bug Bears-81 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-271649592-272084174'
+Your branch is up-to-date with 'origin/INRIA-spoon-271649592-272084174'.
+Note: checking out 'f043e7d25282883f37b8cc245cca0783f0362ead'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f043e7d... End of the bug and patch reproduction process
+Previous HEAD position was f043e7d... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-81...
+Checking out the branch INRIA-spoon-271649592-272084174...
+The bug Bears-81 was checked out.
+Analyzing spoon.support.reflect.reference.CtTypeParameterReferenceImpl in Bears-81
+Analyzing spoon.support.reflect.reference.CtTypeParameterReferenceImpl in Bears-81
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-272467827-272468614'
+Branch INRIA-spoon-272467827-272468614 set up to track remote branch INRIA-spoon-272467827-272468614 from origin.
+Note: checking out 'd0b19cc68f58a698cef3b3dc7efd4ab424697e7e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d0b19cc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/25286d92e4c3f3c59865b904779d630f6d927ec9 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/272468614.
+Previous HEAD position was d0b19cc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/25286d92e4c3f3c59865b904779d630f6d927ec9 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/272468614.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-82...
+Checking out the branch INRIA-spoon-272467827-272468614...
+The bug Bears-82 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-272467827-272468614'
+Your branch is up-to-date with 'origin/INRIA-spoon-272467827-272468614'.
+Note: checking out 'a91562587eccef59c26e8a21b6c3eb8824378d68'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a915625... End of the bug and patch reproduction process
+Previous HEAD position was a915625... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-82...
+Checking out the branch INRIA-spoon-272467827-272468614...
+The bug Bears-82 was checked out.
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-82
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-82
+Analyzing spoon.support.template.SubstitutionVisitor in Bears-82
+Analyzing spoon.support.template.SubstitutionVisitor in Bears-82
+Analyzing spoon.template.Template in Bears-82
+Analyzing spoon.template.Template in Bears-82
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-277315604-277340707'
+Branch INRIA-spoon-277315604-277340707 set up to track remote branch INRIA-spoon-277315604-277340707 from origin.
+Note: checking out '9f330978496c26b0abd7a5f33f44c0c0d689c902'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9f33097... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/770e4845b911a176cb092e574a93a46fb4327328 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/277340707.
+Previous HEAD position was 9f33097... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/770e4845b911a176cb092e574a93a46fb4327328 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/277340707.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-83...
+Checking out the branch INRIA-spoon-277315604-277340707...
+The bug Bears-83 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-277315604-277340707'
+Your branch is up-to-date with 'origin/INRIA-spoon-277315604-277340707'.
+Note: checking out '5030d837e922fda15be4b930305311201a14fa08'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5030d83... End of the bug and patch reproduction process
+Previous HEAD position was 5030d83... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-83...
+Checking out the branch INRIA-spoon-277315604-277340707...
+The bug Bears-83 was checked out.
+Analyzing spoon.template.Substitution in Bears-83
+Analyzing spoon.template.Substitution in Bears-83
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-185852074-193313389'
+Branch spring-projects-spring-data-commons-185852074-193313389 set up to track remote branch spring-projects-spring-data-commons-185852074-193313389 from origin.
+Note: checking out '52067710a99e37f9f2e311c8e6458b2f4d06df98'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5206771... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/cdbd0720836779e332384e1bcec244c3f645af65 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/193313389.
+Previous HEAD position was 5206771... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/cdbd0720836779e332384e1bcec244c3f645af65 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/193313389.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-84...
+Checking out the branch spring-projects-spring-data-commons-185852074-193313389...
+The bug Bears-84 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-185852074-193313389'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-185852074-193313389'.
+Note: checking out 'bbd4bf942ec27c789a03e6643497ab522e249906'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at bbd4bf9... End of the bug and patch reproduction process
+Previous HEAD position was bbd4bf9... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-84...
+Checking out the branch spring-projects-spring-data-commons-185852074-193313389...
+The bug Bears-84 was checked out.
+Analyzing org.springframework.data.auditing.IsNewAwareAuditingHandler in Bears-84
+Analyzing org.springframework.data.auditing.IsNewAwareAuditingHandler in Bears-84
+Analyzing org.springframework.data.auditing.AuditingHandler in Bears-84
+Analyzing org.springframework.data.auditing.AuditingHandler in Bears-84
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-193313395-193356189'
+Branch spring-projects-spring-data-commons-193313395-193356189 set up to track remote branch spring-projects-spring-data-commons-193313395-193356189 from origin.
+Note: checking out 'e9e0e76ee9d2dd0bc66068e82b9c498716ea12e4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e9e0e76... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/e68be19054603862acf5db25f66cb9a94784fe1e The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/193356189.
+Previous HEAD position was e9e0e76... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/e68be19054603862acf5db25f66cb9a94784fe1e The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/193356189.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-85...
+Checking out the branch spring-projects-spring-data-commons-193313395-193356189...
+The bug Bears-85 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-193313395-193356189'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-193313395-193356189'.
+Note: checking out '46925026a1e724834fbcd62fc07c5c65bfa7a77b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4692502... End of the bug and patch reproduction process
+Previous HEAD position was 4692502... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-85...
+Checking out the branch spring-projects-spring-data-commons-193313395-193356189...
+The bug Bears-85 was checked out.
+Analyzing org.springframework.data.web.ProjectingJackson2HttpMessageConverter in Bears-85
+Analyzing org.springframework.data.web.ProjectingJackson2HttpMessageConverter in Bears-85
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-193356189-194423789'
+Branch spring-projects-spring-data-commons-193356189-194423789 set up to track remote branch spring-projects-spring-data-commons-193356189-194423789 from origin.
+Note: checking out 'd48690984e660f0a6ff7dbff1833cc7b3e0e6742'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d486909... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/bf04e3232b959735a89ea2a06f77295773fce976 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/194423789.
+Previous HEAD position was d486909... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/bf04e3232b959735a89ea2a06f77295773fce976 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/194423789.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-86...
+Checking out the branch spring-projects-spring-data-commons-193356189-194423789...
+The bug Bears-86 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-193356189-194423789'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-193356189-194423789'.
+Note: checking out '5ea22319aeabe52679d4218627ae05030d7175ab'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5ea2231... End of the bug and patch reproduction process
+Previous HEAD position was 5ea2231... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-86...
+Checking out the branch spring-projects-spring-data-commons-193356189-194423789...
+The bug Bears-86 was checked out.
+Analyzing org.springframework.data.web.ProxyingHandlerMethodArgumentResolver in Bears-86
+Analyzing org.springframework.data.web.ProxyingHandlerMethodArgumentResolver in Bears-86
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-240714544-241322094'
+Branch spring-projects-spring-data-commons-240714544-241322094 set up to track remote branch spring-projects-spring-data-commons-240714544-241322094 from origin.
+Note: checking out 'e96e09683ecc80506a1ea0676a39d9a6428f0798'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e96e096... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/e1761f6c8c1f1189144427785b590823134d1cf4 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/241322094.
+Previous HEAD position was e96e096... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/e1761f6c8c1f1189144427785b590823134d1cf4 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/241322094.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-87...
+Checking out the branch spring-projects-spring-data-commons-240714544-241322094...
+The bug Bears-87 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-240714544-241322094'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-240714544-241322094'.
+Note: checking out '166d3f63497c0d7f74b8ee23c7e172a594110f76'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 166d3f6... End of the bug and patch reproduction process
+Previous HEAD position was 166d3f6... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-87...
+Checking out the branch spring-projects-spring-data-commons-240714544-241322094...
+The bug Bears-87 was checked out.
+Analyzing org.springframework.data.repository.util.QueryExecutionConverters in Bears-87
+Analyzing org.springframework.data.repository.util.QueryExecutionConverters in Bears-87
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-254354007-255142407'
+Branch spring-projects-spring-data-commons-254354007-255142407 set up to track remote branch spring-projects-spring-data-commons-254354007-255142407 from origin.
+Note: checking out '4fa247e61e44fde5b4bd803ffc9dce0321b0c572'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4fa247e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/721888f05285f24716908902c6167c3a34e27397 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/255142407.
+Previous HEAD position was 4fa247e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/721888f05285f24716908902c6167c3a34e27397 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/255142407.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-88...
+Checking out the branch spring-projects-spring-data-commons-254354007-255142407...
+The bug Bears-88 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-254354007-255142407'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-254354007-255142407'.
+Note: checking out 'ddd6d2f73cd2d3d4ab201a46dab6b21217a38664'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at ddd6d2f... End of the bug and patch reproduction process
+Previous HEAD position was ddd6d2f... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-88...
+Checking out the branch spring-projects-spring-data-commons-254354007-255142407...
+The bug Bears-88 was checked out.
+Analyzing org.springframework.data.repository.config.RepositoryBeanNameGenerator in Bears-88
+Analyzing org.springframework.data.repository.config.RepositoryBeanNameGenerator in Bears-88
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-263410130-263513297'
+Branch spring-projects-spring-data-commons-263410130-263513297 set up to track remote branch spring-projects-spring-data-commons-263410130-263513297 from origin.
+Note: checking out 'd58bd0f8f9aeb28ff8c40303727bcb44b69c6254'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d58bd0f... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/1725cbaec18cb1a5c859f4d808a27840c4ffb1f6 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/263513297.
+Previous HEAD position was d58bd0f... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/1725cbaec18cb1a5c859f4d808a27840c4ffb1f6 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/263513297.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-89...
+Checking out the branch spring-projects-spring-data-commons-263410130-263513297...
+The bug Bears-89 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-263410130-263513297'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-263410130-263513297'.
+Note: checking out '9bb1fb95c232130413a6fc9c2d7a4aeee22a4e0e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9bb1fb9... End of the bug and patch reproduction process
+Previous HEAD position was 9bb1fb9... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-89...
+Checking out the branch spring-projects-spring-data-commons-263410130-263513297...
+The bug Bears-89 was checked out.
+Analyzing org.springframework.data.util.ParameterizedTypeInformation in Bears-89
+Analyzing org.springframework.data.util.ParameterizedTypeInformation in Bears-89
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-264284792-264335430'
+Branch spring-projects-spring-data-commons-264284792-264335430 set up to track remote branch spring-projects-spring-data-commons-264284792-264335430 from origin.
+Note: checking out 'ab2794e3d170c7ae4d43666b9db3c925bbaa4ccf'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at ab2794e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/766c9078f23d9af9a8d6ebc3b991c07fadee3594 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/264335430.
+Previous HEAD position was ab2794e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/766c9078f23d9af9a8d6ebc3b991c07fadee3594 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/264335430.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-90...
+Checking out the branch spring-projects-spring-data-commons-264284792-264335430...
+The bug Bears-90 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-264284792-264335430'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-264284792-264335430'.
+Note: checking out '520180dbc83c472fde9eac9440bbbe1c4f5c33f1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 520180d... End of the bug and patch reproduction process
+Previous HEAD position was 520180d... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-90...
+Checking out the branch spring-projects-spring-data-commons-264284792-264335430...
+The bug Bears-90 was checked out.
+Analyzing org.springframework.data.mapping.model.AbstractPersistentProperty in Bears-90
+Analyzing org.springframework.data.mapping.model.AbstractPersistentProperty in Bears-90
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-271991482-272568125'
+Branch spring-projects-spring-data-commons-271991482-272568125 set up to track remote branch spring-projects-spring-data-commons-271991482-272568125 from origin.
+Note: checking out 'a37e5489939b6026613023cf0bb710ae64b5d6c6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a37e548... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/a2f8dc1676cb2ef1594b9e0620f52f8076c85617 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/272568125.
+Previous HEAD position was a37e548... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/a2f8dc1676cb2ef1594b9e0620f52f8076c85617 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/272568125.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-91...
+Checking out the branch spring-projects-spring-data-commons-271991482-272568125...
+The bug Bears-91 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-271991482-272568125'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-271991482-272568125'.
+Note: checking out '430e8f799be471fad5b0e0a91a979318667ebfc2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 430e8f7... End of the bug and patch reproduction process
+Previous HEAD position was 430e8f7... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-91...
+Checking out the branch spring-projects-spring-data-commons-271991482-272568125...
+The bug Bears-91 was checked out.
+Analyzing org.springframework.data.web.config.SpringDataWebConfiguration in Bears-91
+Analyzing org.springframework.data.web.config.SpringDataWebConfiguration in Bears-91
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-279152312-279418526'
+Branch spring-projects-spring-data-commons-279152312-279418526 set up to track remote branch spring-projects-spring-data-commons-279152312-279418526 from origin.
+Note: checking out '81a810cfd65ab85effb0211df91347952dcfd0d0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 81a810c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/65e21344ac1e411e3aa71466e62f30230b3b46cc The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/279418526.
+Previous HEAD position was 81a810c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/65e21344ac1e411e3aa71466e62f30230b3b46cc The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/279418526.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-92...
+Checking out the branch spring-projects-spring-data-commons-279152312-279418526...
+The bug Bears-92 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-279152312-279418526'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-279152312-279418526'.
+Note: checking out '9d3962814612ba20b2341c5955248e313bd968f2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9d39628... End of the bug and patch reproduction process
+Previous HEAD position was 9d39628... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-92...
+Checking out the branch spring-projects-spring-data-commons-279152312-279418526...
+The bug Bears-92 was checked out.
+Analyzing org.springframework.data.history.AnnotationRevisionMetadata in Bears-92
+Analyzing org.springframework.data.history.AnnotationRevisionMetadata in Bears-92
+Analyzing org.springframework.data.history.RevisionMetadata in Bears-92
+Analyzing org.springframework.data.history.RevisionMetadata in Bears-92
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-279460664-280335206'
+Branch spring-projects-spring-data-commons-279460664-280335206 set up to track remote branch spring-projects-spring-data-commons-279460664-280335206 from origin.
+Note: checking out '66261dd877ea9090920abe129b935cbbf0a5c72a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 66261dd... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/2b4ef1a55589466c87c2f30432f504e7b00a2438 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/280335206.
+Previous HEAD position was 66261dd... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/2b4ef1a55589466c87c2f30432f504e7b00a2438 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/280335206.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-93...
+Checking out the branch spring-projects-spring-data-commons-279460664-280335206...
+The bug Bears-93 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-279460664-280335206'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-279460664-280335206'.
+Note: checking out '866d019e9a747b4aa07a19e25069f0e2a72cf46a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 866d019... End of the bug and patch reproduction process
+Previous HEAD position was 866d019... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-93...
+Checking out the branch spring-projects-spring-data-commons-279460664-280335206...
+The bug Bears-93 was checked out.
+Analyzing org.springframework.data.convert.ReflectionEntityInstantiator in Bears-93
+Analyzing org.springframework.data.convert.ReflectionEntityInstantiator in Bears-93
+Analyzing org.springframework.data.convert.KotlinClassGeneratingEntityInstantiator in Bears-93
+Analyzing org.springframework.data.convert.KotlinClassGeneratingEntityInstantiator in Bears-93
+Analyzing org.springframework.data.convert.ClassGeneratingEntityInstantiator in Bears-93
+Analyzing org.springframework.data.convert.ClassGeneratingEntityInstantiator in Bears-93
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-286617333-287128429'
+Branch spring-projects-spring-data-commons-286617333-287128429 set up to track remote branch spring-projects-spring-data-commons-286617333-287128429 from origin.
+Note: checking out '02add30e865691861dc432674a0aae7e0075548c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 02add30... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/d0d0d72c980fc5b5bde949ae051b433f8daf5c9f The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/287128429.
+Previous HEAD position was 02add30... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/d0d0d72c980fc5b5bde949ae051b433f8daf5c9f The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/287128429.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-94...
+Checking out the branch spring-projects-spring-data-commons-286617333-287128429...
+The bug Bears-94 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-286617333-287128429'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-286617333-287128429'.
+Note: checking out '640462cbab96e25317ad047ce9abbc34adee331d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 640462c... End of the bug and patch reproduction process
+Previous HEAD position was 640462c... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-94...
+Checking out the branch spring-projects-spring-data-commons-286617333-287128429...
+The bug Bears-94 was checked out.
+Analyzing org.springframework.data.util.ParameterizedTypeInformation in Bears-94
+Analyzing org.springframework.data.util.ParameterizedTypeInformation in Bears-94
+Analyzing org.springframework.data.util.TypeDiscoverer in Bears-94
+Analyzing org.springframework.data.util.TypeDiscoverer in Bears-94
+Analyzing org.springframework.data.util.TypeVariableTypeInformation in Bears-94
+Analyzing org.springframework.data.util.TypeVariableTypeInformation in Bears-94
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-289903133-292475109'
+Branch spring-projects-spring-data-commons-289903133-292475109 set up to track remote branch spring-projects-spring-data-commons-289903133-292475109 from origin.
+Note: checking out '352d85ea33654f7c31f25dbfd990d214fe88adab'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 352d85e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/edd8c5b8a337cec89e1c16a1e0d4f06825fffa73 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/292475109.
+Previous HEAD position was 352d85e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/edd8c5b8a337cec89e1c16a1e0d4f06825fffa73 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/292475109.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-95...
+Checking out the branch spring-projects-spring-data-commons-289903133-292475109...
+The bug Bears-95 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-289903133-292475109'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-289903133-292475109'.
+Note: checking out '4d072ef1403b5f92b865ff4ed9a224821a55a31a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4d072ef... End of the bug and patch reproduction process
+Previous HEAD position was 4d072ef... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-95...
+Checking out the branch spring-projects-spring-data-commons-289903133-292475109...
+The bug Bears-95 was checked out.
+Analyzing org.springframework.data.mapping.model.ClassGeneratingPropertyAccessorFactory in Bears-95
+Analyzing org.springframework.data.mapping.model.ClassGeneratingPropertyAccessorFactory in Bears-95
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-303079759-303439729'
+Branch spring-projects-spring-data-commons-303079759-303439729 set up to track remote branch spring-projects-spring-data-commons-303079759-303439729 from origin.
+Note: checking out '8410dd5d0fadc77f5927464f0ff4a1c073c65608'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 8410dd5... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/e79d70cb13ec44d068da223fdffa387ab0e1ba7f The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/303439729.
+Previous HEAD position was 8410dd5... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/e79d70cb13ec44d068da223fdffa387ab0e1ba7f The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/303439729.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-96...
+Checking out the branch spring-projects-spring-data-commons-303079759-303439729...
+The bug Bears-96 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-303079759-303439729'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-303079759-303439729'.
+Note: checking out '066409177af918ad17016d698b9431edc991c94b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 0664091... End of the bug and patch reproduction process
+Previous HEAD position was 0664091... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-96...
+Checking out the branch spring-projects-spring-data-commons-303079759-303439729...
+The bug Bears-96 was checked out.
+Analyzing org.springframework.data.repository.support.Repositories in Bears-96
+Analyzing org.springframework.data.repository.support.Repositories in Bears-96
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-commons-323136560-323139345'
+Branch spring-projects-spring-data-commons-323136560-323139345 set up to track remote branch spring-projects-spring-data-commons-323136560-323139345 from origin.
+Note: checking out 'c07a33d57532f2ed8eae83d0eb2af8d746b87de7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c07a33d... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/7c0ec77e40c9c5861fd36d3e5f2f6954a2208d46 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/323139345.
+Previous HEAD position was c07a33d... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-commons/commit/7c0ec77e40c9c5861fd36d3e5f2f6954a2208d46 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-commons/builds/323139345.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-97...
+Checking out the branch spring-projects-spring-data-commons-323136560-323139345...
+The bug Bears-97 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-commons-323136560-323139345'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-commons-323136560-323139345'.
+Note: checking out '11070fa3899f58c2588daf68c9755b4212a5044c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 11070fa... End of the bug and patch reproduction process
+Previous HEAD position was 11070fa... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-97...
+Checking out the branch spring-projects-spring-data-commons-323136560-323139345...
+The bug Bears-97 was checked out.
+Analyzing org.springframework.data.web.PagedResourcesAssembler in Bears-97
+Analyzing org.springframework.data.web.PagedResourcesAssembler in Bears-97
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-188473748-188474474'
+Branch traccar-traccar-188473748-188474474 set up to track remote branch traccar-traccar-188473748-188474474 from origin.
+Note: checking out '52dc890b7078c23045ee7873c6238227d1fc8f6b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 52dc890... Bug commit from traccar/traccar This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/e512848dc07145664f3c5d0adff7a9f88b2f17b6 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/188473748.
+Previous HEAD position was 52dc890... Bug commit from traccar/traccar This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/e512848dc07145664f3c5d0adff7a9f88b2f17b6 The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/188473748.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-98...
+Checking out the branch traccar-traccar-188473748-188474474...
+The bug Bears-98 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-188473748-188474474'
+Your branch is up-to-date with 'origin/traccar-traccar-188473748-188474474'.
+Note: checking out '25030f4d19b0dcc31faeb2ab762fe375e1cfe79c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 25030f4... End of the bug and patch reproduction process
+Previous HEAD position was 25030f4... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-98...
+Checking out the branch traccar-traccar-188473748-188474474...
+The bug Bears-98 was checked out.
+Analyzing org.traccar.protocol.GoSafeProtocolDecoder in Bears-98
+Analyzing org.traccar.protocol.GoSafeProtocolDecoder in Bears-98
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-190843415-191103948'
+Branch traccar-traccar-190843415-191103948 set up to track remote branch traccar-traccar-190843415-191103948 from origin.
+Note: checking out '2da8b706f05206072f1d85d738dcde9d754eb9d6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2da8b70... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/e54122e22725bae7a962d58e06a497526aed46cb The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/191103948.
+Previous HEAD position was 2da8b70... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/e54122e22725bae7a962d58e06a497526aed46cb The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/191103948.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-99...
+Checking out the branch traccar-traccar-190843415-191103948...
+The bug Bears-99 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-190843415-191103948'
+Your branch is up-to-date with 'origin/traccar-traccar-190843415-191103948'.
+Note: checking out '7f420284b987a368ab4adcefb3430c04af51d45a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 7f42028... End of the bug and patch reproduction process
+Previous HEAD position was 7f42028... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-99...
+Checking out the branch traccar-traccar-190843415-191103948...
+The bug Bears-99 was checked out.
+Analyzing org.traccar.protocol.H02FrameDecoder in Bears-99
+Analyzing org.traccar.protocol.H02FrameDecoder in Bears-99
+Analyzing org.traccar.protocol.H02ProtocolDecoder in Bears-99
+Analyzing org.traccar.protocol.H02ProtocolDecoder in Bears-99
+Removing scripts/config.pyc
+Switched to a new branch 'traccar-traccar-195128524-195455832'
+Branch traccar-traccar-195128524-195455832 set up to track remote branch traccar-traccar-195128524-195455832 from origin.
+Note: checking out '110f3660d4ec804d7ed8d97d052339683490217a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 110f366... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/3155b8697a9b3f8023e085a766a439eee4c058db The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/195455832.
+Previous HEAD position was 110f366... Changes in the tests This commit is based on the source code from the following commit: http://github.com/traccar/traccar/commit/3155b8697a9b3f8023e085a766a439eee4c058db The mentioned commit triggered the following Travis build: http://travis-ci.org/traccar/traccar/builds/195455832.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-100...
+Checking out the branch traccar-traccar-195128524-195455832...
+The bug Bears-100 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'traccar-traccar-195128524-195455832'
+Your branch is up-to-date with 'origin/traccar-traccar-195128524-195455832'.
+Note: checking out '434780f6f4e7169cd61d5a2e15c069e51d07beec'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 434780f... End of the bug and patch reproduction process
+Previous HEAD position was 434780f... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-100...
+Checking out the branch traccar-traccar-195128524-195455832...
+The bug Bears-100 was checked out.
+Analyzing org.traccar.events.IgnitionEventHandler in Bears-100
+Analyzing org.traccar.events.IgnitionEventHandler in Bears-100

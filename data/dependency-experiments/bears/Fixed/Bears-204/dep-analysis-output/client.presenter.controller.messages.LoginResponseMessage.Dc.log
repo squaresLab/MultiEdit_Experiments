@@ -1,0 +1,8 @@
+Compiling the bug Bears-204...
+The bug Bears-204 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:34:30 EST 2020
+Transforming client.presenter.controller.messages.LoginResponseMessage... 
+Writing to sootOutput/client.presenter.controller.messages.LoginResponseMessage.jimple
+Soot finished on Fri Feb 21 16:34:31 EST 2020
+Soot has run for 0 min. 0 sec.

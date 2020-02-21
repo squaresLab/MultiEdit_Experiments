@@ -1,0 +1,8 @@
+Compiling the bug Bears-202...
+The bug Bears-202 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:33:41 EST 2020
+Transforming io.github.classgraph.ClassGraph... 
+Writing to sootOutput/io.github.classgraph.ClassGraph.jimple
+Soot finished on Fri Feb 21 16:33:42 EST 2020
+Soot has run for 0 min. 1 sec.

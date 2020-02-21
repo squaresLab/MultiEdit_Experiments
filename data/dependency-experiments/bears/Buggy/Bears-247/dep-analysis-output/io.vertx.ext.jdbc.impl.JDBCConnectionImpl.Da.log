@@ -1,0 +1,83 @@
+INFO: io.vertx.codegen.CodeGenProcessor - Loaded cheatsheet code generator 
+INFO: io.vertx.codegen.CodeGenProcessor - Loaded cheatsheet code generator 
+INFO: io.vertx.codegen.CodeGenProcessor - Loaded data_object_converters code generator 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.spi.impl.AgroalCPDataSourceProvider is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.spi.impl.C3P0DataSourceProvider is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.spi.impl.HikariCPDataSourceProvider is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.spi.impl.BoneCPDataSourceProvider is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.JDBCConnectionImpl is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCClose is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.StreamQuery is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCCommit is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.AbstractJDBCAction is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCQuery is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCSQLRowStream is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCBatch is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCAutoCommit is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCUpdate is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCCallable is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCExecute is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCRollback is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.actions.JDBCStatementHelper is in an implementation package 
+WARNING: io.vertx.codegen.CodeGen - Processed element io.vertx.ext.jdbc.impl.JDBCClientImpl is in an implementation package 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method querySingle(java.lang.String,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>>) declared by io.vertx.ext.sql.SQLOperations 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method querySingleWithParams(java.lang.String,io.vertx.core.json.JsonArray,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.core.json.JsonArray>>) declared by io.vertx.ext.sql.SQLOperations 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method getConnection(io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLConnection>>) declared by io.vertx.ext.sql.SQLClient 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method query(java.lang.String,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>>) declared by io.vertx.ext.sql.SQLClient 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method queryStream(java.lang.String,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLRowStream>>) declared by io.vertx.ext.sql.SQLClient 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method queryStreamWithParams(java.lang.String,io.vertx.core.json.JsonArray,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.SQLRowStream>>) declared by io.vertx.ext.sql.SQLClient 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method queryWithParams(java.lang.String,io.vertx.core.json.JsonArray,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>>) declared by io.vertx.ext.sql.SQLClient 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method update(java.lang.String,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>>) declared by io.vertx.ext.sql.SQLClient 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method updateWithParams(java.lang.String,io.vertx.core.json.JsonArray,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.UpdateResult>>) declared by io.vertx.ext.sql.SQLClient 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method call(java.lang.String,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>>) declared by io.vertx.ext.sql.SQLClient 
+WARNING: io.vertx.codegen.ClassModel - Interface io.vertx.ext.jdbc.JDBCClient does not redeclare the @Fluent return type  of method callWithParams(java.lang.String,io.vertx.core.json.JsonArray,io.vertx.core.json.JsonArray,io.vertx.core.Handler<io.vertx.core.AsyncResult<io.vertx.ext.sql.ResultSet>>) declared by io.vertx.ext.sql.SQLClient 
+[ERROR] diagnostic: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-247/src/main/java/io/vertx/ext/jdbc/impl/actions/JDBCSQLRowStream.java:26: error: package io.vertx.core.queue does not exist
+import io.vertx.core.queue.Queue;
+                          ^
+[ERROR] diagnostic: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-247/src/main/java/io/vertx/ext/jdbc/impl/actions/JDBCSQLRowStream.java:50: error: cannot find symbol
+  private final Queue<JsonArray> pending;
+                ^
+  symbol:   class Queue
+  location: class io.vertx.ext.jdbc.impl.actions.JDBCSQLRowStream
+[ERROR] error on execute: use -X to have details 
+[ERROR] Failed to execute goal org.bsc.maven:maven-processor-plugin:3.2.0:process (generate-sources) on project vertx-jdbc-client: Error executing: error during compilation -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+Compiling the bug Bears-247...
+The bug Bears-247 was compiled.
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-247/target//dependency’: No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:41:17 EST 2020
+soot.SootResolver$SootClassNotFoundException: couldn't find class: io.vertx.ext.jdbc.impl.JDBCConnectionImpl (is your soot-class-path set properly?)
+	at soot.SootResolver.bringToHierarchy(SootResolver.java:232)
+	at soot.SootResolver.bringToSignatures(SootResolver.java:275)
+	at soot.SootResolver.processResolveWorklist(SootResolver.java:173)
+	at soot.SootResolver.resolveClass(SootResolver.java:134)
+	at soot.Scene.loadClass(Scene.java:873)
+	at soot.Scene.loadClassAndSupport(Scene.java:858)
+	at soot.Scene.loadNecessaryClass(Scene.java:1575)
+	at soot.Scene.loadNecessaryClasses(Scene.java:1586)
+	at soot.Main.run(Main.java:250)
+	at soot.Main.main(Main.java:147)
+	at io.github.squareslab.common.Utils.runSoot(Utils.java:40)
+	at io.github.squareslab.Main.main(Main.java:240)
+
+
+Ouuups... something went wrong! Sorry about that.
+Follow these steps to fix the problem:
+1.) Are you sure you used the right command line?
+    Click here to double-check:
+    https://ssebuild.cased.de/nightly/soot/doc/soot_options.htm
+
+2.) Not sure whether it's a bug? Feel free to discuss
+    the issue on the Soot mailing list:
+    https://github.com/Sable/soot/wiki/Getting-help
+
+3.) Sure it's a bug? Click this link to report it.
+    https://github.com/Sable/soot/issues/new?title=soot.SootResolver%24SootClassNotFoundException+when+...&body=Steps+to+reproduce%3A%0A1.%29+...%0A%0AFiles+used+to+reproduce%3A+%0A...%0A%0ASoot+version%3A+%3Cpre%3Etrunk%3C%2Fpre%3E%0A%0ACommand+line%3A%0A%3Cpre%3E-cp+%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2FDependencyAnalyzer%2Fjar%2FDependencyAnalyzer.jar%3A%3A%3A%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2Fdata%2Fdependency-experiments%2Fbears%2FBuggy%2FBears-247%2Ftarget%2F%2Fclasses+-keep-line-number+-f+J+-p+jap.DataDependencyAnalysis+on+io.vertx.ext.jdbc.impl.JDBCConnectionImpl%3C%2Fpre%3E%0A%0AMax+Memory%3A%0A%3Cpre%3E27305MB%3C%2Fpre%3E%0A%0AStack+trace%3A%0A%3Cpre%3Esoot.SootResolver%24SootClassNotFoundException%3A+couldn%26%2339%3Bt+find+class%3A+io.vertx.ext.jdbc.impl.JDBCConnectionImpl+%28is+your+soot-class-path+set+properly%3F%29%0A%09at+soot.SootResolver.bringToHierarchy%28SootResolver.java%3A232%29%0A%09at+soot.SootResolver.bringToSignatures%28SootResolver.java%3A275%29%0A%09at+soot.SootResolver.processResolveWorklist%28SootResolver.java%3A173%29%0A%09at+soot.SootResolver.resolveClass%28SootResolver.java%3A134%29%0A%09at+soot.Scene.loadClass%28Scene.java%3A873%29%0A%09at+soot.Scene.loadClassAndSupport%28Scene.java%3A858%29%0A%09at+soot.Scene.loadNecessaryClass%28Scene.java%3A1575%29%0A%09at+soot.Scene.loadNecessaryClasses%28Scene.java%3A1586%29%0A%09at+soot.Main.run%28Main.java%3A250%29%0A%09at+soot.Main.main%28Main.java%3A147%29%0A%09at+io.github.squareslab.common.Utils.runSoot%28Utils.java%3A40%29%0A%09at+io.github.squareslab.Main.main%28Main.java%3A240%29%0A%3C%2Fpre%3E
+    Please be as precise as possible when giving us
+    information on how to reproduce the problem. Thanks!

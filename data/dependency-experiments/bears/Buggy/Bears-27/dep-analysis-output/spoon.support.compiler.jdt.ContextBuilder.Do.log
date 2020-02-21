@@ -1,0 +1,8 @@
+Compiling the bug Bears-27...
+The bug Bears-27 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 15:45:41 EST 2020
+Transforming spoon.support.compiler.jdt.ContextBuilder... 
+Writing to sootOutput/spoon.support.compiler.jdt.ContextBuilder.jimple
+Soot finished on Fri Feb 21 15:45:42 EST 2020
+Soot has run for 0 min. 1 sec.

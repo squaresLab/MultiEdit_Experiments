@@ -1,0 +1,9 @@
+Manifest written to '/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-90/target/classes/META-INF/MANIFEST.MF'
+Compiling the bug Bears-90...
+The bug Bears-90 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:33:09 EST 2020
+Transforming org.springframework.data.mapping.model.AbstractPersistentProperty... 
+Writing to sootOutput/org.springframework.data.mapping.model.AbstractPersistentProperty.jimple
+Soot finished on Fri Feb 21 16:33:10 EST 2020
+Soot has run for 0 min. 0 sec.

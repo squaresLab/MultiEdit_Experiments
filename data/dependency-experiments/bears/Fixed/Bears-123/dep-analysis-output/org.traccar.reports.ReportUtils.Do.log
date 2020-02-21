@@ -1,0 +1,8 @@
+Compiling the bug Bears-123...
+The bug Bears-123 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:21:03 EST 2020
+Transforming org.traccar.reports.ReportUtils... 
+Writing to sootOutput/org.traccar.reports.ReportUtils.jimple
+Soot finished on Fri Feb 21 16:21:04 EST 2020
+Soot has run for 0 min. 1 sec.

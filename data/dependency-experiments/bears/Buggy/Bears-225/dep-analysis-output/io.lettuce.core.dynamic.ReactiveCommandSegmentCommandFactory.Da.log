@@ -1,0 +1,8 @@
+Compiling the bug Bears-225...
+The bug Bears-225 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:25:34 EST 2020
+Transforming io.lettuce.core.dynamic.ReactiveCommandSegmentCommandFactory... 
+Writing to sootOutput/io.lettuce.core.dynamic.ReactiveCommandSegmentCommandFactory.jimple
+Soot finished on Fri Feb 21 16:25:35 EST 2020
+Soot has run for 0 min. 0 sec.

@@ -1,0 +1,60 @@
+[ERROR] Failed to execute goal on project jackson-databind: Could not resolve dependencies for project com.fasterxml.jackson.core:jackson-databind:bundle:2.8.8-SNAPSHOT: Failure to find com.fasterxml.jackson.core:jackson-core:jar:2.8.8-SNAPSHOT in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+Compiling the bug Bears-10...
+The bug Bears-10 was compiled.
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-10/target//dependency’: No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:17:28 EST 2020
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.Exception: Error: The path '/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-10/target/classes' does not exist.
+	at soot.SourceLocator.getClassSourceType(SourceLocator.java:223)
+	at soot.SourceLocator.lookupInClassPath(SourceLocator.java:706)
+	at soot.asm.AsmClassProvider.find(AsmClassProvider.java:35)
+	at soot.SourceLocator.getClassSource(SourceLocator.java:81)
+	at soot.Scene.tryLoadClass(Scene.java:830)
+	at soot.Scene.loadBasicClasses(Scene.java:1504)
+	at soot.Scene.loadNecessaryClasses(Scene.java:1583)
+	at soot.Main.run(Main.java:250)
+	at soot.Main.main(Main.java:147)
+	at io.github.squareslab.common.Utils.runSoot(Utils.java:40)
+	at io.github.squareslab.Main.main(Main.java:240)
+Caused by: java.util.concurrent.ExecutionException: java.lang.Exception: Error: The path '/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-10/target/classes' does not exist.
+	at com.google.common.util.concurrent.AbstractFuture$Sync.getValue(AbstractFuture.java:299)
+	at com.google.common.util.concurrent.AbstractFuture$Sync.get(AbstractFuture.java:286)
+	at com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:116)
+	at com.google.common.util.concurrent.Uninterruptibles.getUninterruptibly(Uninterruptibles.java:137)
+	at com.google.common.cache.LocalCache$Segment.getAndRecordStats(LocalCache.java:2348)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2320)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2282)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2197)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3937)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:3941)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4824)
+	at soot.SourceLocator.getClassSourceType(SourceLocator.java:221)
+	... 10 more
+Caused by: java.lang.Exception: Error: The path '/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-10/target/classes' does not exist.
+	at soot.SourceLocator$2.load(SourceLocator.java:199)
+	at soot.SourceLocator$2.load(SourceLocator.java:194)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2319)
+	... 16 more
+
+
+Ouuups... something went wrong! Sorry about that.
+Follow these steps to fix the problem:
+1.) Are you sure you used the right command line?
+    Click here to double-check:
+    https://ssebuild.cased.de/nightly/soot/doc/soot_options.htm
+
+2.) Not sure whether it's a bug? Feel free to discuss
+    the issue on the Soot mailing list:
+    https://github.com/Sable/soot/wiki/Getting-help
+
+3.) Sure it's a bug? Click this link to report it.
+    https://github.com/Sable/soot/issues/new?title=java.lang.RuntimeException+when+...&body=Steps+to+reproduce%3A%0A1.%29+...%0A%0AFiles+used+to+reproduce%3A+%0A...%0A%0ASoot+version%3A+%3Cpre%3Etrunk%3C%2Fpre%3E%0A%0ACommand+line%3A%0A%3Cpre%3E-cp+%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2FDependencyAnalyzer%2Fjar%2FDependencyAnalyzer.jar%3A%3A%3A%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2Fdata%2Fdependency-experiments%2Fbears%2FBuggy%2FBears-10%2Ftarget%2F%2Fclasses+-keep-line-number+-f+J+-p+jap.DataDependencyAnalysis+on+com.fasterxml.jackson.databind.deser.std.EnumDeserializer%3C%2Fpre%3E%0A%0AMax+Memory%3A%0A%3Cpre%3E27305MB%3C%2Fpre%3E%0A%0AStack+trace%3A%0A%3Cpre%3Ejava.lang.RuntimeException%3A+java.util.concurrent.ExecutionException%3A+java.lang.Exception%3A+Error%3A+The+path+%26%2339%3B%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2Fdata%2Fdependency-experiments%2Fbears%2FBuggy%2FBears-10%2Ftarget%2Fclasses%26%2339%3B+does+not+exist.%0A%09at+soot.SourceLocator.getClassSourceType%28SourceLocator.java%3A223%29%0A%09at+soot.SourceLocator.lookupInClassPath%28SourceLocator.java%3A706%29%0A%09at+soot.asm.AsmClassProvider.find%28AsmClassProvider.java%3A35%29%0A%09at+soot.SourceLocator.getClassSource%28SourceLocator.java%3A81%29%0A%09at+soot.Scene.tryLoadClass%28Scene.java%3A830%29%0A%09at+soot.Scene.loadBasicClasses%28Scene.java%3A1504%29%0A%09at+soot.Scene.loadNecessaryClasses%28Scene.java%3A1583%29%0A%09at+soot.Main.run%28Main.java%3A250%29%0A%09at+soot.Main.main%28Main.java%3A147%29%0A%09at+io.github.squareslab.common.Utils.runSoot%28Utils.java%3A40%29%0A%09at+io.github.squareslab.Main.main%28Main.java%3A240%29%0ACaused+by%3A+java.util.concurrent.ExecutionException%3A+java.lang.Exception%3A+Error%3A+The+path+%26%2339%3B%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2Fdata%2Fdependency-experiments%2Fbears%2FBuggy%2FBears-10%2Ftarget%2Fclasses%26%2339%3B+does+not+exist.%0A%09at+com.google.common.util.concurrent.AbstractFuture%24Sync.getValue%28AbstractFuture.java%3A299%29%0A%09at+com.google.common.util.concurrent.AbstractFuture%24Sync.get%28AbstractFuture.java%3A286%29%0A%09at+com.google.common.util.concurrent.AbstractFuture.get%28AbstractFuture.java%3A116%29%0A%09at+com.google.common.util.concurrent.Uninterruptibles.getUninterruptibly%28Uninterruptibles.java%3A137%29%0A%09at+com.google.common.cache.LocalCache%24Segment.getAndRecordStats%28LocalCache.java%3A2348%29%0A%09at+com.google.common.cache.LocalCache%24Segment.loadSync%28LocalCache.java%3A2320%29%0A%09at+com.google.common.cache.LocalCache%24Segment.lockedGetOrLoad%28LocalCache.java%3A2282%29%0A%09at+com.google.common.cache.LocalCache%24Segment.get%28LocalCache.java%3A2197%29%0A%09at+com.google.common.cache.LocalCache.get%28LocalCache.java%3A3937%29%0A%09at+com.google.common.cache.LocalCache.getOrLoad%28LocalCache.java%3A3941%29%0A%09at+com.google.common.cache.LocalCache%24LocalLoadingCache.get%28LocalCache.java%3A4824%29%0A%09at+soot.SourceLocator.getClassSourceType%28SourceLocator.java%3A221%29%0A%09...+10+more%0ACaused+by%3A+java.lang.Exception%3A+Error%3A+The+path+%26%2339%3B%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2Fdata%2Fdependency-experiments%2Fbears%2FBuggy%2FBears-10%2Ftarget%2Fclasses%26%2339%3B+does+not+exist.%0A%09at+soot.SourceLocator%242.load%28SourceLocator.java%3A199%29%0A%09at+soot.SourceLocator%242.load%28SourceLocator.java%3A194%29%0A%09at+com.google.common.cache.LocalCache%24LoadingValueReference.loadFuture%28LocalCache.java%3A3527%29%0A%09at+com.google.common.cache.LocalCache%24Segment.loadSync%28LocalCache.java%3A2319%29%0A%09...+16+more%0A%3C%2Fpre%3E
+    Please be as precise as possible when giving us
+    information on how to reproduce the problem. Thanks!

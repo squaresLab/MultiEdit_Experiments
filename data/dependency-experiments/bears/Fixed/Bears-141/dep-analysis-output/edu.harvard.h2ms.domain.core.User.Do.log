@@ -1,0 +1,8 @@
+Compiling the bug Bears-141...
+The bug Bears-141 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:39:13 EST 2020
+Transforming edu.harvard.h2ms.domain.core.User... 
+Writing to sootOutput/edu.harvard.h2ms.domain.core.User.jimple
+Soot finished on Fri Feb 21 16:39:14 EST 2020
+Soot has run for 0 min. 0 sec.

@@ -1,0 +1,8 @@
+Compiling the bug Bears-117...
+The bug Bears-117 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:32:58 EST 2020
+Transforming org.traccar.protocol.Gps103ProtocolDecoder... 
+Writing to sootOutput/org.traccar.protocol.Gps103ProtocolDecoder.jimple
+Soot finished on Fri Feb 21 16:32:59 EST 2020
+Soot has run for 0 min. 0 sec.
