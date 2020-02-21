@@ -55,11 +55,14 @@ public class DoCoverageExperiments {
 //            }
 
 
-            Set<Integer> redo = new HashSet<>(Arrays.asList(142, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251));
+//            Set<Integer> redo = new HashSet<>(Arrays.asList(149, 150, 151, 152, 155, 156, 157, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 172, 174, 176, 177, 178, 179, 180, 181, 182, 183, 186, 187, 190, 191));
+//            Set<Integer> redo = new HashSet<>(Arrays.asList(150, 162, 164, 165, 167, 168, 170, 172, 179, 191));
+            // there are only 15 of these for bears, so might as well just test these
+            Set<Integer> multitestMultiedit = new HashSet<>(Arrays.asList(7, 12, 31, 40, 41, 62, 79, 80, 103, 123, 140, 141, 209, 216, 250));
             for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
 //                if (i == 95 || i == 209) continue; // these have malformed test names
 
-                if (!redo.contains(i)) continue;
+                if (!multitestMultiedit.contains(i)) continue;
 
                 try {
                     BearsPatch b = new BearsPatch(i);

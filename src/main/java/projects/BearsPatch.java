@@ -20,8 +20,8 @@ import java.util.stream.Collectors;
 
 public class BearsPatch implements Patch {
 
-    public static final String pathToBears = System.getProperty("user.home") + "/bears-benchmark";
-    private static final Set<Integer> unconventionalBugs = new HashSet<>(Arrays.asList(142, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 210, 211, 212, 213, 214, 215, 216, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251));
+    public String pathToBears = System.getProperty("user.home") + "/bears-benchmark";
+    private static final Set<Integer> unconventionalBugs = new HashSet<>(Arrays.asList(142, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 210, 211, 212, 213, 214, 215, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 251));
     private static Map<Integer, String> bugBranches = new HashMap<>();
     private static Map<Integer, List<String[]>> patchFiles = new HashMap<>();
     private static Map<Integer, List<String>> failingTests = new HashMap<>();
@@ -130,92 +130,14 @@ public class BearsPatch implements Patch {
     public CommandLine getTestCommand(String test, Version version) {
         try {
             checkoutPatched();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-            SAXBuilder builder = new SAXBuilder();
-            File xmlFile = new File(pathToBears+"/pom.xml");
-
-            Document doc = builder.build(xmlFile);
-            Element rootNode = doc.getRootElement();
-
-            Element build = rootNode.getChild("build", rootNode.getNamespace());
-
-//            if (!buildDescendents.hasNext()) {
-//                throw new IllegalStateException("no build field");
-//            } else {
-//                Element build = buildDescendents.next();
-//                if (buildDescendents.hasNext()) {
-//                    throw new IllegalStateException("Should only be one build element");
-//                }
-
-                Element plugins = build.getChild("plugins", build.getNamespace());
-                if (plugins == null) {
-                    System.out.println("what");
-                    plugins = new Element("plugins", build.getNamespace());
-                    build.addContent(plugins);
-                }
-
-                /*
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.2</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <!-- attached to Maven test phase -->
-                        <execution>
-                            <id>report</id>
-                            <phase>test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                 */
-                Element jacocoPlugin = new Element("plugin", build.getNamespace());
-                jacocoPlugin.addContent(new Element("groupId", build.getNamespace()).setText("org.jacoco"));
-                jacocoPlugin.addContent(new Element("artifactId", build.getNamespace()).setText("jacoco-maven-plugin"));
-                jacocoPlugin.addContent(new Element("version", build.getNamespace()).setText("0.8.5"));
-                Element executions = new Element("executions", build.getNamespace());
-                executions.addContent(
-                        new Element("execution", build.getNamespace()).addContent(
-                                new Element("goals", build.getNamespace()).addContent(
-                                        new Element("goal", build.getNamespace()).setText("prepare-agent")
-                                )
-                        )
-                );
-                executions.addContent(
-                        new Element("execution", build.getNamespace())
-                                .addContent(new Element("id", build.getNamespace()).setText("report"))
-                                .addContent(new Element("phase", build.getNamespace()).setText("test"))
-                                .addContent(
-                                    new Element("goals", build.getNamespace()).addContent(
-                                            new Element("goal", build.getNamespace()).setText("report")
-                                    )
-                                )
-                );
-                jacocoPlugin.addContent(executions);
-
-                // I hate this solution
-                IteratorIterable<Element> groupIds = plugins.getDescendants(Filters.element("groupId", build.getNamespace()));
-                boolean[] hasJacoco = new boolean[]{false};
-                groupIds.forEach(e -> hasJacoco[0] = hasJacoco[0] | e.getText().equals("org.jacoco"));
-
-                if (!hasJacoco[0]) plugins.addContent(jacocoPlugin);
-
-                XMLOutputter xmlOutput = new XMLOutputter();
-
-                // display nice nice
-                xmlOutput.setFormat(Format.getPrettyFormat());
-                xmlOutput.output(doc, new FileWriter(pathToBears+"/pom.xml"));
-//            }
-
-        } catch (IOException | JDOMException e) {
-            throw new RuntimeException(e);
+        if (this.bugNumber == 165) {
+            modifyXML(this.pathToBears + "/dhis-2", "pom.xml");
+        } else {
+            modifyXML(this.pathToBears, "pom.xml");
         }
 
         CommandLine command = CommandLine.parse("sh");
@@ -224,6 +146,108 @@ public class BearsPatch implements Patch {
         command.addArgument(pathToBears);
         command.addArgument(test);
         return command;
+    }
+
+    private void modifyXML(String pathToPom, String pomName) {
+        try {
+            SAXBuilder builder = new SAXBuilder();
+            Document doc;
+            try {
+                File xmlFile = new File(pathToPom + "/" + pomName);
+                System.out.println(xmlFile.toPath());
+                doc = builder.build(xmlFile);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+
+            Element rootNode = doc.getRootElement();
+
+            Element build = rootNode.getChild("build", rootNode.getNamespace());
+
+            if (build == null) {
+                build = new Element("build", rootNode.getNamespace());
+                rootNode.addContent(build);
+            }
+
+
+            Element plugins = build.getChild("plugins", build.getNamespace());
+            if (plugins == null && build.getChild("pluginManagement", rootNode.getNamespace()) != null) {
+                build = build.getChild("pluginManagement", rootNode.getNamespace());
+                plugins = build.getChild("plugins", build.getNamespace());
+            }
+            if (plugins == null) {
+                plugins = new Element("plugins", build.getNamespace());
+                build.addContent(plugins);
+            }
+
+
+            /*
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- attached to Maven test phase -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+             */
+            Element jacocoPlugin = new Element("plugin", build.getNamespace());
+            jacocoPlugin.addContent(new Element("groupId", build.getNamespace()).setText("org.jacoco"));
+            jacocoPlugin.addContent(new Element("artifactId", build.getNamespace()).setText("jacoco-maven-plugin"));
+            jacocoPlugin.addContent(new Element("version", build.getNamespace()).setText("0.8.5"));
+            Element executions = new Element("executions", build.getNamespace());
+            executions.addContent(
+                    new Element("execution", build.getNamespace()).addContent(
+                            new Element("goals", build.getNamespace()).addContent(
+                                    new Element("goal", build.getNamespace()).setText("prepare-agent")
+                            )
+                    )
+            );
+            executions.addContent(
+                    new Element("execution", build.getNamespace())
+                            .addContent(new Element("id", build.getNamespace()).setText("report"))
+                            .addContent(new Element("phase", build.getNamespace()).setText("test"))
+                            .addContent(
+                                    new Element("goals", build.getNamespace()).addContent(
+                                            new Element("goal", build.getNamespace()).setText("report")
+                                    )
+                            )
+            );
+            jacocoPlugin.addContent(executions);
+
+            // I hate this solution
+            IteratorIterable<Element> groupIds = plugins.getDescendants(Filters.element("groupId", build.getNamespace()));
+            boolean[] hasJacoco = new boolean[]{false};
+            groupIds.forEach(e -> hasJacoco[0] = hasJacoco[0] | e.getText().equals("org.jacoco"));
+
+            if (!hasJacoco[0]) plugins.addContent(jacocoPlugin);
+
+            XMLOutputter xmlOutput = new XMLOutputter();
+
+            // display nice nice
+            xmlOutput.setFormat(Format.getPrettyFormat());
+            xmlOutput.output(doc, new FileWriter(pathToPom + "/" + pomName));
+
+            if (build.getName().contains("pluginManagement")) {
+                // gonna try this, for bug 165. but idk how to generalize this. maybe case by case is the best policy
+                modifyXML(pathToPom + "/dhis-api", "pom.xml");
+            }
+
+        } catch (IOException | JDOMException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -243,11 +267,16 @@ public class BearsPatch implements Patch {
                 for (int i = 0; i < originalFiles.size(); i++) {
                     String className;
                     String path = originalFiles.get(i);
+                    System.out.println("Path: " + path);
                     if (branchName.startsWith("traccar-traccar")) {
-                        className = path.substring(4, path.length() - 5);
+                        String filename = path.split("/src/")[1];
+                        className = filename.substring(0, filename.length() - 5);
                     } else {
                         className = path.split(".java.?")[1]; // should remove the "src/main/java/ and ".java"
                     }
+
+                    System.out.println("Classname: " + className);
+
                     CoverageSubset classDiff = PatchDiffUtils.getPatchLineNumbers(
                             buggySources.get(originalFiles.get(i)),
                             patchedSources.get(patchedFiles.get(i)),
