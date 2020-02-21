@@ -143,3 +143,7 @@ while IFS= read -r line; do
     let i++
     let i=i%3
 done <<< "$CHANGED_LINES_RAWOUT"
+
+#remove non-analysis output files to clean up space
+find $WD_BUGGY -not -samefile $WD_BUGGY -not -wholename "$WD_BUGGY/$ANALYSIS_OUTPUT_SUBDIR*" -delete
+find $WD_FIXED -not -samefile $WD_FIXED -not -wholename "$WD_FIXED/$ANALYSIS_OUTPUT_SUBDIR*" -delete
