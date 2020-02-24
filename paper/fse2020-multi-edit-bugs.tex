@@ -185,6 +185,15 @@ Wang et al.~\cite{wang2018} did this and that.
 
 Schulte et al.~\cite{schulte} did this and that.
 
+\section{Limitations}
+\subsection{Possibly Unnecessary Edits in Patches}
+
+We found instances in our data set where not all edits are required to 
+make the faulty program pass all tests. One possibility is that the extra 
+edits satisfy untested specifications. Another possibility is that the edits 
+do not affect program functionality (e.g.: refactoring edits). We assume 
+that all edits are functionally relevant. We intend to study such seemingly
+extraneous edits in future work.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
