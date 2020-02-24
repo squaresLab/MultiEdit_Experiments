@@ -77,7 +77,6 @@ measure of patch quality is the number of passing test cases.
 
 \subsection{Fault Localization}
 
-
 \section{Fitness Experiment}
 
 When automatic program repair techniques attempt to generate a multi-edit repair to a buggy program, it is important to have some way to identify edits that are partial repairs (i.e. part of the multi-edit full repair). One popular way to do so is to run unit tests through the edited code and compare the result to the original buggy code's test results, and see if the edited code did better in tests. This approach assumes that making some (but not all) of the edits necessary in a multi-edit repair would improve the code's test performance, and we designed this experiment to further explore on this topic.
@@ -157,6 +156,14 @@ During the experiment, we found that sometimes not all edit chunks of a bug is n
 Sicne we're only interested in edits that are necessary for the repair, we processed the data to ignore redundant chunks and all partial repairs that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears bugs are affected. Some bugs ends up with chunk number 1 after minimization, so they are not included in the Minimized results. The minimized results include 75 remaining bugs in defects4j and 38 remaining bugs of Bears.
 
 ...(TODO: results of minimized experiment)
+
+\section{Dependency Analysis}
+
+A patch contains dependent edits if there exists control or data dependencies 
+between added, removed, or changed lines in the pre- or post-patch
+source code. For practical reasons, we perform intraprocedural analysis, 
+although we heuristically consider function arguments as reads 
+and invocations of getter and setter methods as reads and writes.
 
 \section{Related Work}
 Zhong and Su~\cite{zhong2015} did this and that.
