@@ -77,6 +77,19 @@ measure of patch quality is the number of passing test cases.
 
 \subsection{Fault Localization}
 
+
+\section{Datasets}
+We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}.
+
+Defects4J contains 438 bugs from six Java software projects. This  
+is currently the most popular Java dataset for evaluating program repair tools~\cite{durieux-repair-them-all}.
+Many such tools, however, overfit to Defects4J and perform worse on other 
+benchmarks~\cite{durieux-repair-them-all}.
+
+Bears is a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
+Bears offers 251 bugs from 72 software projects, offering a greater diversity of 
+projects compared to Defects4J.
+
 \section{Fitness Experiment}
 
 When automatic program repair techniques attempt to generate a multi-edit repair to a buggy program, it is important to have some way to identify edits that are partial repairs (i.e. part of the multi-edit full repair). One popular way to do so is to run unit tests through the edited code and compare the result to the original buggy code's test results, and see if the edited code did better in tests. This approach assumes that making some (but not all) of the edits necessary in a multi-edit repair would improve the code's test performance, and we designed this experiment to further explore on this topic.
