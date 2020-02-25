@@ -1,0 +1,8 @@
+Compiling the bug Bears-245...
+The bug Bears-245 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:39:41 EST 2020
+Transforming com.squareup.javapoet.ParameterSpec... 
+Writing to sootOutput/com.squareup.javapoet.ParameterSpec.jimple
+Soot finished on Fri Feb 21 16:39:42 EST 2020
+Soot has run for 0 min. 0 sec.

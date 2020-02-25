@@ -1,0 +1,14 @@
+Generating com.zaxxer.hikari.pool.HikariProxyConnection
+Generating com.zaxxer.hikari.pool.HikariProxyStatement
+Generating com.zaxxer.hikari.pool.HikariProxyResultSet
+Generating com.zaxxer.hikari.pool.HikariProxyPreparedStatement
+Generating com.zaxxer.hikari.pool.HikariProxyCallableStatement
+Generating method bodies for com.zaxxer.hikari.proxy.ProxyFactory
+Compiling the bug Bears-201...
+The bug Bears-201 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:32:11 EST 2020
+Transforming com.zaxxer.hikari.pool.PoolBase... 
+Writing to sootOutput/com.zaxxer.hikari.pool.PoolBase.jimple
+Soot finished on Fri Feb 21 16:32:12 EST 2020
+Soot has run for 0 min. 0 sec.

@@ -1,0 +1,8 @@
+Compiling the bug Bears-49...
+The bug Bears-49 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:18:32 EST 2020
+Transforming spoon.support.reflect.declaration.CtAnnotationImpl... 
+Writing to sootOutput/spoon.support.reflect.declaration.CtAnnotationImpl.jimple
+Soot finished on Fri Feb 21 16:18:33 EST 2020
+Soot has run for 0 min. 0 sec.

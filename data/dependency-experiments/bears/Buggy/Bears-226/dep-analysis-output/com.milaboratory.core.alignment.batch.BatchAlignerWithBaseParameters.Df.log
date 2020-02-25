@@ -1,0 +1,8 @@
+Compiling the bug Bears-226...
+The bug Bears-226 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:29:11 EST 2020
+Transforming com.milaboratory.core.alignment.batch.BatchAlignerWithBaseParameters... 
+Writing to sootOutput/com.milaboratory.core.alignment.batch.BatchAlignerWithBaseParameters.jimple
+Soot finished on Fri Feb 21 16:29:11 EST 2020
+Soot has run for 0 min. 0 sec.

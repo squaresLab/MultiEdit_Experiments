@@ -1,0 +1,688 @@
+nohup: ignoring input
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-195646489-195752461'
+Branch FasterXML-jackson-databind-195646489-195752461 set up to track remote branch FasterXML-jackson-databind-195646489-195752461 from origin.
+Note: checking out '713fce478fae8c4beec5046a7385a4b3be62c77e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 713fce4... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/4d34006e4d8a566c6c64a3a0e04c17e50d63bb82 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/195752461.
+Previous HEAD position was 713fce4... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/4d34006e4d8a566c6c64a3a0e04c17e50d63bb82 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/195752461.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-6...
+Checking out the branch FasterXML-jackson-databind-195646489-195752461...
+The bug Bears-6 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-195646489-195752461'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-195646489-195752461'.
+Note: checking out '0ae542193d8a2c354fc3f4c570ce87894608c579'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 0ae5421... End of the bug and patch reproduction process
+Previous HEAD position was 0ae5421... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-6...
+Checking out the branch FasterXML-jackson-databind-195646489-195752461...
+The bug Bears-6 was checked out.
+Analyzing com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector in Bears-6
+Analyzing com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector in Bears-6
+Analyzing com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder in Bears-6
+Analyzing com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder in Bears-6
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-195752461-195777970'
+Branch FasterXML-jackson-databind-195752461-195777970 set up to track remote branch FasterXML-jackson-databind-195752461-195777970 from origin.
+Note: checking out '5767b4ced50d37644c950d9932f8c032083e8248'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5767b4c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/ff441e82825ea48d28baee6ae7f0f705ff421def The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/195777970.
+Previous HEAD position was 5767b4c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/ff441e82825ea48d28baee6ae7f0f705ff421def The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/195777970.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-7...
+Checking out the branch FasterXML-jackson-databind-195752461-195777970...
+The bug Bears-7 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-195752461-195777970'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-195752461-195777970'.
+Note: checking out 'cbababbfd119283c9a05dd2ce20fff72e4da3019'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at cbababb... End of the bug and patch reproduction process
+Previous HEAD position was cbababb... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-7...
+Checking out the branch FasterXML-jackson-databind-195752461-195777970...
+The bug Bears-7 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.std.EnumDeserializer in Bears-7
+Analyzing com.fasterxml.jackson.databind.deser.std.EnumDeserializer in Bears-7
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-203042777-203306015'
+Branch FasterXML-jackson-databind-203042777-203306015 set up to track remote branch FasterXML-jackson-databind-203042777-203306015 from origin.
+Note: checking out 'f46e25e2c00ac87e2bab40f9f0282579ed8d6171'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f46e25e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/64967c410514ec8a94bb11bb26d6a37fafafc14b The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/203306015.
+Previous HEAD position was f46e25e... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/64967c410514ec8a94bb11bb26d6a37fafafc14b The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/203306015.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-8...
+Checking out the branch FasterXML-jackson-databind-203042777-203306015...
+The bug Bears-8 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-203042777-203306015'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-203042777-203306015'.
+Note: checking out '2f33fd9a6aad33e92be54c6b574362bd79983884'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2f33fd9... End of the bug and patch reproduction process
+Previous HEAD position was 2f33fd9... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-8...
+Checking out the branch FasterXML-jackson-databind-203042777-203306015...
+The bug Bears-8 was checked out.
+Analyzing com.fasterxml.jackson.databind.ser.std.MapSerializer in Bears-8
+Analyzing com.fasterxml.jackson.databind.ser.std.MapSerializer in Bears-8
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-203649003-204682356'
+Branch FasterXML-jackson-databind-203649003-204682356 set up to track remote branch FasterXML-jackson-databind-203649003-204682356 from origin.
+Note: checking out '16c7c378ae014dcfe0a31c0eb321b67cf1b2b441'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 16c7c37... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/10d5ab37f06f7925bf959312bfb6211f5bc4a1cb The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/204682356.
+Previous HEAD position was 16c7c37... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/10d5ab37f06f7925bf959312bfb6211f5bc4a1cb The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/204682356.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-9...
+Checking out the branch FasterXML-jackson-databind-203649003-204682356...
+The bug Bears-9 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-203649003-204682356'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-203649003-204682356'.
+Note: checking out '6fdcded4e9958d598917f956eff1c014cc8b205c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 6fdcded... End of the bug and patch reproduction process
+Previous HEAD position was 6fdcded... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-9...
+Checking out the branch FasterXML-jackson-databind-203649003-204682356...
+The bug Bears-9 was checked out.
+Analyzing com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeDeserializer in Bears-9
+Analyzing com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeDeserializer in Bears-9
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-214497429-214500046'
+Branch FasterXML-jackson-databind-214497429-214500046 set up to track remote branch FasterXML-jackson-databind-214497429-214500046 from origin.
+Note: checking out 'ac9f3dd94ad2b8646d84e52b4ef80331d2dcfbf9'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at ac9f3dd... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/b96a3b55d4c28171cb92bd2cafff853ea973d36f The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/214500046.
+Previous HEAD position was ac9f3dd... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/b96a3b55d4c28171cb92bd2cafff853ea973d36f The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/214500046.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-10...
+Checking out the branch FasterXML-jackson-databind-214497429-214500046...
+The bug Bears-10 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-214497429-214500046'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-214497429-214500046'.
+Note: checking out 'c2f16cf789c3b3fe0a3aa1c26ffd1dbc498f7825'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c2f16cf... End of the bug and patch reproduction process
+Previous HEAD position was c2f16cf... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-10...
+Checking out the branch FasterXML-jackson-databind-214497429-214500046...
+The bug Bears-10 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.std.EnumDeserializer in Bears-10
+Analyzing com.fasterxml.jackson.databind.deser.std.EnumDeserializer in Bears-10
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-215036598-215111320'
+Branch FasterXML-jackson-databind-215036598-215111320 set up to track remote branch FasterXML-jackson-databind-215036598-215111320 from origin.
+Note: checking out 'a1e85b6d78ca2ec5070b46a3b618acdcbced0f82'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a1e85b6... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/934f485d4c62854dd2ef48ed7ebb238f3abec0b7 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/215111320.
+Previous HEAD position was a1e85b6... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/934f485d4c62854dd2ef48ed7ebb238f3abec0b7 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/215111320.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-11...
+Checking out the branch FasterXML-jackson-databind-215036598-215111320...
+The bug Bears-11 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-215036598-215111320'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-215036598-215111320'.
+Note: checking out '4f78f664a70433f50ba7a699bb7dadc84f04f2e1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4f78f66... End of the bug and patch reproduction process
+Previous HEAD position was 4f78f66... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-11...
+Checking out the branch FasterXML-jackson-databind-215036598-215111320...
+The bug Bears-11 was checked out.
+Analyzing com.fasterxml.jackson.databind.ser.std.StdKeySerializers in Bears-11
+Analyzing com.fasterxml.jackson.databind.ser.std.StdKeySerializers in Bears-11
+Analyzing com.fasterxml.jackson.databind.ser.std.StdKeySerializer in Bears-11
+Analyzing com.fasterxml.jackson.databind.ser.std.StdKeySerializer in Bears-11
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-215111320-215799347'
+Branch FasterXML-jackson-databind-215111320-215799347 set up to track remote branch FasterXML-jackson-databind-215111320-215799347 from origin.
+Note: checking out '2d7752a97848bceddba2f86315c77406c3aea79f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2d7752a... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/e08dafef4faa7d71330160dafcbe77536d90e809 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/215799347.
+Previous HEAD position was 2d7752a... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/e08dafef4faa7d71330160dafcbe77536d90e809 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/215799347.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-12...
+Checking out the branch FasterXML-jackson-databind-215111320-215799347...
+The bug Bears-12 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-215111320-215799347'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-215111320-215799347'.
+Note: checking out '100246875608808ee27e716cccb281d6465c7d54'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 1002468... End of the bug and patch reproduction process
+Previous HEAD position was 1002468... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-12...
+Checking out the branch FasterXML-jackson-databind-215111320-215799347...
+The bug Bears-12 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer in Bears-12
+Analyzing com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer in Bears-12
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-216970075-216985681'
+Branch FasterXML-jackson-databind-216970075-216985681 set up to track remote branch FasterXML-jackson-databind-216970075-216985681 from origin.
+Note: checking out '8ae2fc42531f61dc43e489cb896682f5eb751761'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 8ae2fc4... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/04c33a5e2abb2aeec6fb1a054ede951b3519d3b4 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/216985681.
+Previous HEAD position was 8ae2fc4... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/04c33a5e2abb2aeec6fb1a054ede951b3519d3b4 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/216985681.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-13...
+Checking out the branch FasterXML-jackson-databind-216970075-216985681...
+The bug Bears-13 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-216970075-216985681'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-216970075-216985681'.
+Note: checking out 'e8f4801d9fbda8a0236b9379b8f4f004b10aaa24'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e8f4801... End of the bug and patch reproduction process
+Previous HEAD position was e8f4801... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-13...
+Checking out the branch FasterXML-jackson-databind-216970075-216985681...
+The bug Bears-13 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.BeanDeserializerFactory in Bears-13
+Analyzing com.fasterxml.jackson.databind.deser.BeanDeserializerFactory in Bears-13
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-221825856-221903238'
+Branch FasterXML-jackson-databind-221825856-221903238 set up to track remote branch FasterXML-jackson-databind-221825856-221903238 from origin.
+Note: checking out '20c151f687d75326e29b1ae5e691c24701cc87a7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 20c151f... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/6ce32ffd18facac6abdbbf559c817b47fcb622c1 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/221903238.
+Previous HEAD position was 20c151f... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/6ce32ffd18facac6abdbbf559c817b47fcb622c1 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/221903238.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-14...
+Checking out the branch FasterXML-jackson-databind-221825856-221903238...
+The bug Bears-14 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-221825856-221903238'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-221825856-221903238'.
+Note: checking out 'd15d909ea93dceed1f3fc17f682754364ca12c47'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d15d909... End of the bug and patch reproduction process
+Previous HEAD position was d15d909... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-14...
+Checking out the branch FasterXML-jackson-databind-221825856-221903238...
+The bug Bears-14 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.BeanDeserializerFactory in Bears-14
+Analyzing com.fasterxml.jackson.databind.deser.BeanDeserializerFactory in Bears-14
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-223024976-223291136'
+Branch FasterXML-jackson-databind-223024976-223291136 set up to track remote branch FasterXML-jackson-databind-223024976-223291136 from origin.
+Note: checking out 'e0a11b0ae0abf5927c5c5609adb0ffd48eecd0a3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e0a11b0... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/ec859af181fa5b2da62077d00154e3c13c9d8f28 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/223291136.
+Previous HEAD position was e0a11b0... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/ec859af181fa5b2da62077d00154e3c13c9d8f28 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/223291136.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-15...
+Checking out the branch FasterXML-jackson-databind-223024976-223291136...
+The bug Bears-15 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-223024976-223291136'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-223024976-223291136'.
+Note: checking out '6dc0a8626af0619b7f5c82a68994f8e4cd613e46'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 6dc0a86... End of the bug and patch reproduction process
+Previous HEAD position was 6dc0a86... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-15...
+Checking out the branch FasterXML-jackson-databind-223024976-223291136...
+The bug Bears-15 was checked out.
+Analyzing com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector in Bears-15
+Analyzing com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector in Bears-15
+Analyzing com.fasterxml.jackson.databind.introspect.ObjectIdInfo in Bears-15
+Analyzing com.fasterxml.jackson.databind.introspect.ObjectIdInfo in Bears-15
+Analyzing com.fasterxml.jackson.databind.ser.std.BeanSerializerBase in Bears-15
+Analyzing com.fasterxml.jackson.databind.ser.std.BeanSerializerBase in Bears-15
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-226276279-226639126'
+Branch FasterXML-jackson-databind-226276279-226639126 set up to track remote branch FasterXML-jackson-databind-226276279-226639126 from origin.
+Note: checking out '5652927a7323ea8f78df01fa3ad04488a6b1a01c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 5652927... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/c9ab9b3ac1881cacbdbb1a32a1de0e58fc3f6e06 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226639126.
+Previous HEAD position was 5652927... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/c9ab9b3ac1881cacbdbb1a32a1de0e58fc3f6e06 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226639126.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-16...
+Checking out the branch FasterXML-jackson-databind-226276279-226639126...
+The bug Bears-16 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-226276279-226639126'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-226276279-226639126'.
+Note: checking out 'c362c406670b6588c532b6f805db87d7219580bc'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c362c40... End of the bug and patch reproduction process
+Previous HEAD position was c362c40... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-16...
+Checking out the branch FasterXML-jackson-databind-226276279-226639126...
+The bug Bears-16 was checked out.
+Analyzing com.fasterxml.jackson.databind.ser.BeanSerializerFactory in Bears-16
+Analyzing com.fasterxml.jackson.databind.ser.BeanSerializerFactory in Bears-16
+Analyzing com.fasterxml.jackson.databind.ser.BeanSerializerBuilder in Bears-16
+Analyzing com.fasterxml.jackson.databind.ser.BeanSerializerBuilder in Bears-16
+Analyzing com.fasterxml.jackson.databind.SerializerProvider in Bears-16
+Analyzing com.fasterxml.jackson.databind.SerializerProvider in Bears-16
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-226654766-226666085'
+Branch FasterXML-jackson-databind-226654766-226666085 set up to track remote branch FasterXML-jackson-databind-226654766-226666085 from origin.
+Note: checking out '3ea2fe2974f7735140c4f0a8738a4cdbdb550c17'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 3ea2fe2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/974ccddfd718a06f889da2dcd58ebb6bc22c8dca The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226666085.
+Previous HEAD position was 3ea2fe2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/974ccddfd718a06f889da2dcd58ebb6bc22c8dca The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226666085.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-17...
+Checking out the branch FasterXML-jackson-databind-226654766-226666085...
+The bug Bears-17 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-226654766-226666085'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-226654766-226666085'.
+Note: checking out 'af635da416b70627240507605d79976c07e91f1f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at af635da... End of the bug and patch reproduction process
+Previous HEAD position was af635da... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-17...
+Checking out the branch FasterXML-jackson-databind-226654766-226666085...
+The bug Bears-17 was checked out.
+Analyzing com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver in Bears-17
+Analyzing com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver in Bears-17
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-226666085-226673064'
+Branch FasterXML-jackson-databind-226666085-226673064 set up to track remote branch FasterXML-jackson-databind-226666085-226673064 from origin.
+Note: checking out '27771dc82425d75b9b92c5e8cb9e161585ba76b3'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 27771dc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/029413a6e381bb04b7b0a420730d3119e9cc0961 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226673064.
+Previous HEAD position was 27771dc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/029413a6e381bb04b7b0a420730d3119e9cc0961 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/226673064.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-18...
+Checking out the branch FasterXML-jackson-databind-226666085-226673064...
+The bug Bears-18 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-226666085-226673064'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-226666085-226673064'.
+Note: checking out 'e7da981a767d4cd25545e97f4e907d918bda9a18'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e7da981... End of the bug and patch reproduction process
+Previous HEAD position was e7da981... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-18...
+Checking out the branch FasterXML-jackson-databind-226666085-226673064...
+The bug Bears-18 was checked out.
+Analyzing com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector in Bears-18
+Analyzing com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector in Bears-18
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-228025083-228873360'
+Branch FasterXML-jackson-databind-228025083-228873360 set up to track remote branch FasterXML-jackson-databind-228025083-228873360 from origin.
+Note: checking out '2d38acc5f23205a7b9e5602c3f4b4e5b2ded1082'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2d38acc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/4a2b1ae08ded66b77e05bf8fa0ac8a2e8c60709d The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/228873360.
+Previous HEAD position was 2d38acc... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/4a2b1ae08ded66b77e05bf8fa0ac8a2e8c60709d The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/228873360.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-19...
+Checking out the branch FasterXML-jackson-databind-228025083-228873360...
+The bug Bears-19 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-228025083-228873360'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-228025083-228873360'.
+Note: checking out '8b2d7355348f20e4f5b74e733230ccd35d9e0fb6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 8b2d735... End of the bug and patch reproduction process
+Previous HEAD position was 8b2d735... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-19...
+Checking out the branch FasterXML-jackson-databind-228025083-228873360...
+The bug Bears-19 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.BeanDeserializerFactory in Bears-19
+Analyzing com.fasterxml.jackson.databind.deser.BeanDeserializerFactory in Bears-19
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-233857275-234147085'
+Branch FasterXML-jackson-databind-233857275-234147085 set up to track remote branch FasterXML-jackson-databind-233857275-234147085 from origin.
+Note: checking out '99a4d3a6f818d6772add8a2a579c07282877860a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 99a4d3a... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/9a083ad56b20711eab368a7818fb079a870feb93 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/234147085.
+Previous HEAD position was 99a4d3a... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/9a083ad56b20711eab368a7818fb079a870feb93 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/234147085.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-20...
+Checking out the branch FasterXML-jackson-databind-233857275-234147085...
+The bug Bears-20 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-233857275-234147085'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-233857275-234147085'.
+Note: checking out 'e16c3cdeac0475f8657b441972394796880b7f95'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e16c3cd... End of the bug and patch reproduction process
+Previous HEAD position was e16c3cd... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-20...
+Checking out the branch FasterXML-jackson-databind-233857275-234147085...
+The bug Bears-20 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.std.FromStringDeserializer in Bears-20
+Analyzing com.fasterxml.jackson.databind.deser.std.FromStringDeserializer in Bears-20

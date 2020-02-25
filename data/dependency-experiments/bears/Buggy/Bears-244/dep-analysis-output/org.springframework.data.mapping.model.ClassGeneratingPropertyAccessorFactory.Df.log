@@ -1,0 +1,269 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[28,35] cannot find symbol
+  symbol:   class MethodLinkBuilderFactory
+  location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[29,40] package org.springframework.hateoas.core does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[30,39] package org.springframework.hateoas.mvc does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/HateoasPageableHandlerMethodArgumentResolver.java:[29,39] package org.springframework.hateoas.mvc does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/HateoasPageableHandlerMethodArgumentResolver.java:[45,28] cannot find symbol
+  symbol: class UriComponentsContributor
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[56,23] cannot find symbol
+  symbol:   class MethodLinkBuilderFactory
+  location: class org.springframework.data.web.PagedResourcesAssemblerArgumentResolver
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[66,35] cannot find symbol
+  symbol:   class MethodLinkBuilderFactory
+  location: class org.springframework.data.web.PagedResourcesAssemblerArgumentResolver
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/HateoasSortHandlerMethodArgumentResolver.java:[25,39] package org.springframework.hateoas.mvc does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/HateoasSortHandlerMethodArgumentResolver.java:[41,28] cannot find symbol
+  symbol: class UriComponentsContributor
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/domain/jaxb/SpringDataJaxb.java:[38,35] cannot find symbol
+  symbol:   class ResourceSupport
+  location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/domain/jaxb/SpringDataJaxb.java:[99,45] cannot find symbol
+  symbol:   class ResourceSupport
+  location: class org.springframework.data.domain.jaxb.SpringDataJaxb
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[30,35] cannot find symbol
+  symbol:   class PagedResources
+  location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[31,50] package org.springframework.hateoas.PagedResources does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[32,35] cannot find symbol
+  symbol:   class Resource
+  location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[33,35] cannot find symbol
+  symbol:   class ResourceAssembler
+  location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[34,35] cannot find symbol
+  symbol:   class ResourceSupport
+  location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[36,40] package org.springframework.hateoas.core does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[37,40] package org.springframework.hateoas.core does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[52,52] cannot find symbol
+  symbol: class ResourceAssembler
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[52,79] cannot find symbol
+  symbol: class PagedResources
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[52,94] cannot find symbol
+  symbol: class Resource
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[56,23] cannot find symbol
+  symbol:   class EmbeddedWrappers
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[94,16] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[94,31] cannot find symbol
+  symbol:   class Resource
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[107,16] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[107,31] cannot find symbol
+  symbol:   class Resource
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[119,27] cannot find symbol
+  symbol:   class ResourceSupport
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[119,87] cannot find symbol
+  symbol:   class ResourceAssembler
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[119,44] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[133,27] cannot find symbol
+  symbol:   class ResourceSupport
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[133,87] cannot find symbol
+  symbol:   class ResourceAssembler
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[133,44] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[149,16] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[162,16] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[166,17] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[189,30] cannot find symbol
+  symbol:   class ResourceSupport
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[190,25] cannot find symbol
+  symbol:   class PageMetadata
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[189,50] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[199,31] cannot find symbol
+  symbol:   class ResourceSupport
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[200,25] cannot find symbol
+  symbol:   class ResourceAssembler
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[199,48] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[216,58] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[216,21] cannot find symbol
+  symbol:   class PagedResources
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[294,17] cannot find symbol
+  symbol:   class PageMetadata
+  location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (java-compile) on project spring-data-commons: Compilation failure: Compilation failure:
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[28,35] cannot find symbol
+[ERROR] symbol:   class MethodLinkBuilderFactory
+[ERROR] location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[29,40] package org.springframework.hateoas.core does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[30,39] package org.springframework.hateoas.mvc does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/HateoasPageableHandlerMethodArgumentResolver.java:[29,39] package org.springframework.hateoas.mvc does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/HateoasPageableHandlerMethodArgumentResolver.java:[45,28] cannot find symbol
+[ERROR] symbol: class UriComponentsContributor
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[56,23] cannot find symbol
+[ERROR] symbol:   class MethodLinkBuilderFactory
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssemblerArgumentResolver
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssemblerArgumentResolver.java:[66,35] cannot find symbol
+[ERROR] symbol:   class MethodLinkBuilderFactory
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssemblerArgumentResolver
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/HateoasSortHandlerMethodArgumentResolver.java:[25,39] package org.springframework.hateoas.mvc does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/HateoasSortHandlerMethodArgumentResolver.java:[41,28] cannot find symbol
+[ERROR] symbol: class UriComponentsContributor
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/domain/jaxb/SpringDataJaxb.java:[38,35] cannot find symbol
+[ERROR] symbol:   class ResourceSupport
+[ERROR] location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/domain/jaxb/SpringDataJaxb.java:[99,45] cannot find symbol
+[ERROR] symbol:   class ResourceSupport
+[ERROR] location: class org.springframework.data.domain.jaxb.SpringDataJaxb
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[30,35] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[31,50] package org.springframework.hateoas.PagedResources does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[32,35] cannot find symbol
+[ERROR] symbol:   class Resource
+[ERROR] location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[33,35] cannot find symbol
+[ERROR] symbol:   class ResourceAssembler
+[ERROR] location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[34,35] cannot find symbol
+[ERROR] symbol:   class ResourceSupport
+[ERROR] location: package org.springframework.hateoas
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[36,40] package org.springframework.hateoas.core does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[37,40] package org.springframework.hateoas.core does not exist
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[52,52] cannot find symbol
+[ERROR] symbol: class ResourceAssembler
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[52,79] cannot find symbol
+[ERROR] symbol: class PagedResources
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[52,94] cannot find symbol
+[ERROR] symbol: class Resource
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[56,23] cannot find symbol
+[ERROR] symbol:   class EmbeddedWrappers
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[94,16] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[94,31] cannot find symbol
+[ERROR] symbol:   class Resource
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[107,16] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[107,31] cannot find symbol
+[ERROR] symbol:   class Resource
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[119,27] cannot find symbol
+[ERROR] symbol:   class ResourceSupport
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[119,87] cannot find symbol
+[ERROR] symbol:   class ResourceAssembler
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[119,44] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[133,27] cannot find symbol
+[ERROR] symbol:   class ResourceSupport
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[133,87] cannot find symbol
+[ERROR] symbol:   class ResourceAssembler
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[133,44] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[149,16] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[162,16] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[166,17] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[189,30] cannot find symbol
+[ERROR] symbol:   class ResourceSupport
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[190,25] cannot find symbol
+[ERROR] symbol:   class PageMetadata
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[189,50] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[199,31] cannot find symbol
+[ERROR] symbol:   class ResourceSupport
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[200,25] cannot find symbol
+[ERROR] symbol:   class ResourceAssembler
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[199,48] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[216,58] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[216,21] cannot find symbol
+[ERROR] symbol:   class PagedResources
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java:[294,17] cannot find symbol
+[ERROR] symbol:   class PageMetadata
+[ERROR] location: class org.springframework.data.web.PagedResourcesAssembler<T>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Compiling the bug Bears-244...
+The bug Bears-244 was compiled.
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-244/target//dependency’: No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:38:28 EST 2020
+soot.SootResolver$SootClassNotFoundException: couldn't find class: org.springframework.data.mapping.model.ClassGeneratingPropertyAccessorFactory (is your soot-class-path set properly?)
+	at soot.SootResolver.bringToHierarchy(SootResolver.java:232)
+	at soot.SootResolver.bringToSignatures(SootResolver.java:275)
+	at soot.SootResolver.processResolveWorklist(SootResolver.java:173)
+	at soot.SootResolver.resolveClass(SootResolver.java:134)
+	at soot.Scene.loadClass(Scene.java:873)
+	at soot.Scene.loadClassAndSupport(Scene.java:858)
+	at soot.Scene.loadNecessaryClass(Scene.java:1575)
+	at soot.Scene.loadNecessaryClasses(Scene.java:1586)
+	at soot.Main.run(Main.java:250)
+	at soot.Main.main(Main.java:147)
+	at io.github.squareslab.common.Utils.runSoot(Utils.java:40)
+	at io.github.squareslab.Main.main(Main.java:240)
+
+
+Ouuups... something went wrong! Sorry about that.
+Follow these steps to fix the problem:
+1.) Are you sure you used the right command line?
+    Click here to double-check:
+    https://ssebuild.cased.de/nightly/soot/doc/soot_options.htm
+
+2.) Not sure whether it's a bug? Feel free to discuss
+    the issue on the Soot mailing list:
+    https://github.com/Sable/soot/wiki/Getting-help
+
+3.) Sure it's a bug? Click this link to report it.
+    https://github.com/Sable/soot/issues/new?title=soot.SootResolver%24SootClassNotFoundException+when+...&body=Steps+to+reproduce%3A%0A1.%29+...%0A%0AFiles+used+to+reproduce%3A+%0A...%0A%0ASoot+version%3A+%3Cpre%3Etrunk%3C%2Fpre%3E%0A%0ACommand+line%3A%0A%3Cpre%3E-cp+%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2FDependencyAnalyzer%2Fjar%2FDependencyAnalyzer.jar%3A%3A%3A%2Fhome%2Fzhenyud%2FMultiEdit_Experiments%2Fdata%2Fdependency-experiments%2Fbears%2FBuggy%2FBears-244%2Ftarget%2F%2Fclasses+-keep-line-number+-f+J+-p+jap.DataDependencyAnalysis+on+org.springframework.data.mapping.model.ClassGeneratingPropertyAccessorFactory%3C%2Fpre%3E%0A%0AMax+Memory%3A%0A%3Cpre%3E27305MB%3C%2Fpre%3E%0A%0AStack+trace%3A%0A%3Cpre%3Esoot.SootResolver%24SootClassNotFoundException%3A+couldn%26%2339%3Bt+find+class%3A+org.springframework.data.mapping.model.ClassGeneratingPropertyAccessorFactory+%28is+your+soot-class-path+set+properly%3F%29%0A%09at+soot.SootResolver.bringToHierarchy%28SootResolver.java%3A232%29%0A%09at+soot.SootResolver.bringToSignatures%28SootResolver.java%3A275%29%0A%09at+soot.SootResolver.processResolveWorklist%28SootResolver.java%3A173%29%0A%09at+soot.SootResolver.resolveClass%28SootResolver.java%3A134%29%0A%09at+soot.Scene.loadClass%28Scene.java%3A873%29%0A%09at+soot.Scene.loadClassAndSupport%28Scene.java%3A858%29%0A%09at+soot.Scene.loadNecessaryClass%28Scene.java%3A1575%29%0A%09at+soot.Scene.loadNecessaryClasses%28Scene.java%3A1586%29%0A%09at+soot.Main.run%28Main.java%3A250%29%0A%09at+soot.Main.main%28Main.java%3A147%29%0A%09at+io.github.squareslab.common.Utils.runSoot%28Utils.java%3A40%29%0A%09at+io.github.squareslab.Main.main%28Main.java%3A240%29%0A%3C%2Fpre%3E
+    Please be as precise as possible when giving us
+    information on how to reproduce the problem. Thanks!

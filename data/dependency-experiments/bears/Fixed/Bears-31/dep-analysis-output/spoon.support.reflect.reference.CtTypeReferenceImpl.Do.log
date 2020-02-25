@@ -1,0 +1,8 @@
+Compiling the bug Bears-31...
+The bug Bears-31 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 15:51:48 EST 2020
+Transforming spoon.support.reflect.reference.CtTypeReferenceImpl... 
+Writing to sootOutput/spoon.support.reflect.reference.CtTypeReferenceImpl.jimple
+Soot finished on Fri Feb 21 15:51:48 EST 2020
+Soot has run for 0 min. 0 sec.

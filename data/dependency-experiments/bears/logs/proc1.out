@@ -1,0 +1,331 @@
+nohup: ignoring input
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-176912167-190405643'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-176912167-190405643'.
+Note: checking out 'c733673c7ca6fad0ace308ebee4201fcecd9682d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c733673... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/d44600d3750e5dba9fac68aee7248ed2a80a2225 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/190405643.
+Previous HEAD position was c733673... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/d44600d3750e5dba9fac68aee7248ed2a80a2225 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/190405643.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-1...
+Checking out the branch FasterXML-jackson-databind-176912167-190405643...
+The bug Bears-1 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-176912167-190405643'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-176912167-190405643'.
+Note: checking out '71527b17c37a0598f673939815896e3248b99d4f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 71527b1... End of the bug and patch reproduction process
+Previous HEAD position was 71527b1... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-1...
+Checking out the branch FasterXML-jackson-databind-176912167-190405643...
+The bug Bears-1 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.impl.CreatorCollector in Bears-1
+Analyzing com.fasterxml.jackson.databind.deser.impl.CreatorCollector in Bears-1
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-190405643-195044059'
+Branch FasterXML-jackson-databind-190405643-195044059 set up to track remote branch FasterXML-jackson-databind-190405643-195044059 from origin.
+Note: checking out '39b3a78b0bd838c6c57634fedf426f4eb8282b65'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 39b3a78... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/23a733207bc88a06ee486a5896b7b0c4ebbbfef4 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/195044059.
+Previous HEAD position was 39b3a78... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/23a733207bc88a06ee486a5896b7b0c4ebbbfef4 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/195044059.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-2...
+Checking out the branch FasterXML-jackson-databind-190405643-195044059...
+The bug Bears-2 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-190405643-195044059'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-190405643-195044059'.
+Note: checking out 'bf981a8c648c1aa77c108245980a35fa37ce9061'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at bf981a8... End of the bug and patch reproduction process
+Previous HEAD position was bf981a8... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-2...
+Checking out the branch FasterXML-jackson-databind-190405643-195044059...
+The bug Bears-2 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer in Bears-2
+Analyzing com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer in Bears-2
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-190406891-190505536'
+Branch FasterXML-jackson-databind-190406891-190505536 set up to track remote branch FasterXML-jackson-databind-190406891-190505536 from origin.
+Note: checking out 'ea59ec7fca02ed1a1b50b1c3b3305dfa4f4e4c9c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at ea59ec7... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/d7155de6c37db3301b92b755bd0a02388f7dd07f The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/190505536.
+Previous HEAD position was ea59ec7... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/d7155de6c37db3301b92b755bd0a02388f7dd07f The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/190505536.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-3...
+Checking out the branch FasterXML-jackson-databind-190406891-190505536...
+The bug Bears-3 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-190406891-190505536'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-190406891-190505536'.
+Note: checking out 'b8f90919047668cbb3e9e490381437bc25df2fea'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b8f9091... End of the bug and patch reproduction process
+Previous HEAD position was b8f9091... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-3...
+Checking out the branch FasterXML-jackson-databind-190406891-190505536...
+The bug Bears-3 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap in Bears-3
+Analyzing com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap in Bears-3
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-195066764-195069327'
+Branch FasterXML-jackson-databind-195066764-195069327 set up to track remote branch FasterXML-jackson-databind-195066764-195069327 from origin.
+Note: checking out '68d0d9ac938cd65d7a1c5a626d3a0fab3cc31eed'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 68d0d9a... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/63afa5297a0b8bcbf31b9c91e5d15537e0fdbdd5 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/195069327.
+Previous HEAD position was 68d0d9a... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/63afa5297a0b8bcbf31b9c91e5d15537e0fdbdd5 The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/195069327.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-4...
+Checking out the branch FasterXML-jackson-databind-195066764-195069327...
+The bug Bears-4 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-195066764-195069327'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-195066764-195069327'.
+Note: checking out 'dc29e9b65a17d009432f0b19caa8e2d3810572f2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at dc29e9b... End of the bug and patch reproduction process
+Previous HEAD position was dc29e9b... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-4...
+Checking out the branch FasterXML-jackson-databind-195066764-195069327...
+The bug Bears-4 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.impl.InnerClassProperty in Bears-4
+Analyzing com.fasterxml.jackson.databind.deser.impl.InnerClassProperty in Bears-4
+Removing scripts/config.pyc
+Switched to a new branch 'FasterXML-jackson-databind-195430379-198387397'
+Branch FasterXML-jackson-databind-195430379-198387397 set up to track remote branch FasterXML-jackson-databind-195430379-198387397 from origin.
+Note: checking out '4fa8a0bb576145cef7be0d08cccd820b8803fc94'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4fa8a0b... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/04cb1a27e0fe60fe9bab64dfe7f36b3f7649ba0c The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/198387397.
+Previous HEAD position was 4fa8a0b... Changes in the tests This commit is based on the source code from the following commit: http://github.com/FasterXML/jackson-databind/commit/04cb1a27e0fe60fe9bab64dfe7f36b3f7649ba0c The mentioned commit triggered the following Travis build: http://travis-ci.org/FasterXML/jackson-databind/builds/198387397.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-5...
+Checking out the branch FasterXML-jackson-databind-195430379-198387397...
+The bug Bears-5 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'FasterXML-jackson-databind-195430379-198387397'
+Your branch is up-to-date with 'origin/FasterXML-jackson-databind-195430379-198387397'.
+Note: checking out '06dbbc3cb57a2da012870296ed65039b6a7cba51'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 06dbbc3... End of the bug and patch reproduction process
+Previous HEAD position was 06dbbc3... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-5...
+Checking out the branch FasterXML-jackson-databind-195430379-198387397...
+The bug Bears-5 was checked out.
+Analyzing com.fasterxml.jackson.databind.deser.BeanDeserializer in Bears-5
+Analyzing com.fasterxml.jackson.databind.deser.BeanDeserializer in Bears-5
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-6/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-6/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-6’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-6’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-7/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-7/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-7’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-7’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-8/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-8/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-8’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-8’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-9/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-9/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-9’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-9’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-10/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-10/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-10’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-10’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-11/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-11/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-11’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-11’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-12/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-12/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-12’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-12’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-13/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-13/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-13’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-13’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-14/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-14/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-14’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-14’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-15/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-15/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-15’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-15’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-16/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-16/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-16’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-16’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-17/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-17/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-17’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-17’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-18/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-18/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-18’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-18’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-19/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-19/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-19’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-19’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-20/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-20/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-20’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-20’: No such file or directory

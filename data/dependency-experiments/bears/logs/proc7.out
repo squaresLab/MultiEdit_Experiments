@@ -1,0 +1,958 @@
+nohup: ignoring input
+Removing scripts/config.pyc
+Switched to a new branch '2018swecapstone-h2ms-369561147-369563262'
+Branch 2018swecapstone-h2ms-369561147-369563262 set up to track remote branch 2018swecapstone-h2ms-369561147-369563262 from origin.
+Note: checking out 'bfe0bd60d3acc233c0a7ec2f2e17916a816759cc'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at bfe0bd6... Bug commit from 2018swecapstone/h2ms This commit is based on the source code from the following commit: http://github.com/2018swecapstone/h2ms/commit/af499c715d6c5039470372e7316866d16ad752ad The mentioned commit triggered the following Travis build: http://travis-ci.org/2018swecapstone/h2ms/builds/369561147.
+Previous HEAD position was bfe0bd6... Bug commit from 2018swecapstone/h2ms This commit is based on the source code from the following commit: http://github.com/2018swecapstone/h2ms/commit/af499c715d6c5039470372e7316866d16ad752ad The mentioned commit triggered the following Travis build: http://travis-ci.org/2018swecapstone/h2ms/builds/369561147.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-143...
+Checking out the branch 2018swecapstone-h2ms-369561147-369563262...
+The bug Bears-143 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch '2018swecapstone-h2ms-369561147-369563262'
+Your branch is up-to-date with 'origin/2018swecapstone-h2ms-369561147-369563262'.
+Note: checking out '140e2da503a8eff19233e87e727504ca87f6e559'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 140e2da... End of the bug and patch reproduction process
+Previous HEAD position was 140e2da... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-143...
+Checking out the branch 2018swecapstone-h2ms-369561147-369563262...
+The bug Bears-143 was checked out.
+Analyzing edu.harvard.h2ms.domain.core.User in Bears-143
+Analyzing edu.harvard.h2ms.domain.core.User in Bears-143
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-jpa-341944401-342236799'
+Branch spring-projects-spring-data-jpa-341944401-342236799 set up to track remote branch spring-projects-spring-data-jpa-341944401-342236799 from origin.
+Note: checking out '7311ede917eba49e22eb7056dd3c6db746d12bab'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 7311ede... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-jpa/commit/e35a0987992cc23ba06c6ddc15ae8a01d023bc84 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-jpa/builds/342236799.
+Previous HEAD position was 7311ede... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-jpa/commit/e35a0987992cc23ba06c6ddc15ae8a01d023bc84 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-jpa/builds/342236799.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-184...
+Checking out the branch spring-projects-spring-data-jpa-341944401-342236799...
+The bug Bears-184 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-jpa-341944401-342236799'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-jpa-341944401-342236799'.
+Note: checking out 'e1ddc84b8c80a63702eb8e9d2d60548a6436bfa5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e1ddc84... End of the bug and patch reproduction process
+Previous HEAD position was e1ddc84... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-184...
+Checking out the branch spring-projects-spring-data-jpa-341944401-342236799...
+The bug Bears-184 was checked out.
+Analyzing org.springframework.data.jpa.util.JpaMetamodel in Bears-184
+Analyzing org.springframework.data.jpa.util.JpaMetamodel in Bears-184
+Removing scripts/config.pyc
+Switched to a new branch 'spring-projects-spring-data-jpa-343344047-343370260'
+Branch spring-projects-spring-data-jpa-343344047-343370260 set up to track remote branch spring-projects-spring-data-jpa-343344047-343370260 from origin.
+Note: checking out 'bba2ee1588c77b1c07d8eec382d938148fa42861'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at bba2ee1... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-jpa/commit/68efc510dfcd1c5a7df76b7c8bac4a7198471158 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-jpa/builds/343370260.
+Previous HEAD position was bba2ee1... Changes in the tests This commit is based on the source code from the following commit: http://github.com/spring-projects/spring-data-jpa/commit/68efc510dfcd1c5a7df76b7c8bac4a7198471158 The mentioned commit triggered the following Travis build: http://travis-ci.org/spring-projects/spring-data-jpa/builds/343370260.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-185...
+Checking out the branch spring-projects-spring-data-jpa-343344047-343370260...
+The bug Bears-185 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'spring-projects-spring-data-jpa-343344047-343370260'
+Your branch is up-to-date with 'origin/spring-projects-spring-data-jpa-343344047-343370260'.
+Note: checking out '7123539fee40fbea942bba2e842c2030bc3f3c7a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 7123539... End of the bug and patch reproduction process
+Previous HEAD position was 7123539... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-185...
+Checking out the branch spring-projects-spring-data-jpa-343344047-343370260...
+The bug Bears-185 was checked out.
+Analyzing org.springframework.data.jpa.repository.query.NativeJpaQuery in Bears-185
+Analyzing org.springframework.data.jpa.repository.query.NativeJpaQuery in Bears-185
+Removing scripts/config.pyc
+Switched to a new branch 'SzFMV2018-Tavasz-AutomatedCar-351742666-351759763'
+Branch SzFMV2018-Tavasz-AutomatedCar-351742666-351759763 set up to track remote branch SzFMV2018-Tavasz-AutomatedCar-351742666-351759763 from origin.
+Note: checking out '19a81c1fd63ce486f7560d275afa4e65fdb57bef'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 19a81c1... Bug commit from SzFMV2018-Tavasz/AutomatedCar This commit is based on the source code from the following commit: http://github.com/SzFMV2018-Tavasz/AutomatedCar/commit/4efc1e696af816519a2d0d5d52b7deb11240dcc2 The mentioned commit triggered the following Travis build: http://travis-ci.org/SzFMV2018-Tavasz/AutomatedCar/builds/351742666.
+Previous HEAD position was 19a81c1... Bug commit from SzFMV2018-Tavasz/AutomatedCar This commit is based on the source code from the following commit: http://github.com/SzFMV2018-Tavasz/AutomatedCar/commit/4efc1e696af816519a2d0d5d52b7deb11240dcc2 The mentioned commit triggered the following Travis build: http://travis-ci.org/SzFMV2018-Tavasz/AutomatedCar/builds/351742666.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-188...
+Checking out the branch SzFMV2018-Tavasz-AutomatedCar-351742666-351759763...
+The bug Bears-188 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'SzFMV2018-Tavasz-AutomatedCar-351742666-351759763'
+Your branch is up-to-date with 'origin/SzFMV2018-Tavasz-AutomatedCar-351742666-351759763'.
+Note: checking out 'efb0d1012f4e54c17c5feaa8a4ceab0d244cfec6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at efb0d10... End of the bug and patch reproduction process
+Previous HEAD position was efb0d10... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-188...
+Checking out the branch SzFMV2018-Tavasz-AutomatedCar-351742666-351759763...
+The bug Bears-188 was checked out.
+Analyzing hu.oe.nik.szfmv.visualization.Dashboard in Bears-188
+Analyzing hu.oe.nik.szfmv.visualization.Dashboard in Bears-188
+Removing scripts/config.pyc
+Switched to a new branch 'SzFMV2018-Tavasz-AutomatedCar-367688128-367699437'
+Branch SzFMV2018-Tavasz-AutomatedCar-367688128-367699437 set up to track remote branch SzFMV2018-Tavasz-AutomatedCar-367688128-367699437 from origin.
+Note: checking out '088cbff3bd37fcfa47d5b9db983f8b808315a42d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 088cbff... Bug commit from SzFMV2018-Tavasz/AutomatedCar This commit is based on the source code from the following commit: http://github.com/SzFMV2018-Tavasz/AutomatedCar/commit/cfb2118729b90c03d884f2902956ae000f06d926 The mentioned commit triggered the following Travis build: http://travis-ci.org/SzFMV2018-Tavasz/AutomatedCar/builds/367688128.
+Previous HEAD position was 088cbff... Bug commit from SzFMV2018-Tavasz/AutomatedCar This commit is based on the source code from the following commit: http://github.com/SzFMV2018-Tavasz/AutomatedCar/commit/cfb2118729b90c03d884f2902956ae000f06d926 The mentioned commit triggered the following Travis build: http://travis-ci.org/SzFMV2018-Tavasz/AutomatedCar/builds/367688128.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-189...
+Checking out the branch SzFMV2018-Tavasz-AutomatedCar-367688128-367699437...
+The bug Bears-189 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'SzFMV2018-Tavasz-AutomatedCar-367688128-367699437'
+Your branch is up-to-date with 'origin/SzFMV2018-Tavasz-AutomatedCar-367688128-367699437'.
+Note: checking out '757e4b7d6aed80b8fda52f006fa06f4655eb4ae0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 757e4b7... End of the bug and patch reproduction process
+Previous HEAD position was 757e4b7... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-189...
+Checking out the branch SzFMV2018-Tavasz-AutomatedCar-367688128-367699437...
+The bug Bears-189 was checked out.
+Analyzing hu.oe.nik.szfmv.Main in Bears-189
+Analyzing hu.oe.nik.szfmv.Main in Bears-189
+Analyzing hu.oe.nik.szfmv.environment.World in Bears-189
+Analyzing hu.oe.nik.szfmv.environment.World in Bears-189
+Analyzing hu.oe.nik.szfmv.automatedcar.AutomatedCar in Bears-189
+Analyzing hu.oe.nik.szfmv.automatedcar.AutomatedCar in Bears-189
+Removing scripts/config.pyc
+Switched to a new branch 'albfernandez-GDS-PMD-Security-Rules-451155169-455669767'
+Branch albfernandez-GDS-PMD-Security-Rules-451155169-455669767 set up to track remote branch albfernandez-GDS-PMD-Security-Rules-451155169-455669767 from origin.
+Note: checking out 'dc2f1b2b16045abb4ee60ff4011cb8db25dab2be'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at dc2f1b2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/albfernandez/GDS-PMD-Security-Rules/commit/d08d1b9f55598fca9b5a9b78b89998f81edeed7c The mentioned commit triggered the following Travis build: http://travis-ci.org/albfernandez/GDS-PMD-Security-Rules/builds/455669767.
+Previous HEAD position was dc2f1b2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/albfernandez/GDS-PMD-Security-Rules/commit/d08d1b9f55598fca9b5a9b78b89998f81edeed7c The mentioned commit triggered the following Travis build: http://travis-ci.org/albfernandez/GDS-PMD-Security-Rules/builds/455669767.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-194...
+Checking out the branch albfernandez-GDS-PMD-Security-Rules-451155169-455669767...
+The bug Bears-194 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'albfernandez-GDS-PMD-Security-Rules-451155169-455669767'
+Your branch is up-to-date with 'origin/albfernandez-GDS-PMD-Security-Rules-451155169-455669767'.
+Note: checking out 'e7f9a8158d2767655d545327e480fe0ef7892810'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e7f9a81... End of the bug and patch reproduction process
+Previous HEAD position was e7f9a81... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-194...
+Checking out the branch albfernandez-GDS-PMD-Security-Rules-451155169-455669767...
+The bug Bears-194 was checked out.
+Analyzing com.gdssecurity.pmd.rules.dfa.DfaSecurityRule in Bears-194
+Analyzing com.gdssecurity.pmd.rules.dfa.DfaSecurityRule in Bears-194
+Removing scripts/config.pyc
+Switched to a new branch 'aws-aws-encryption-sdk-java-441438164-441901187'
+Branch aws-aws-encryption-sdk-java-441438164-441901187 set up to track remote branch aws-aws-encryption-sdk-java-441438164-441901187 from origin.
+Note: checking out '9348b8f5401b9792264a1890d97d1ea5da975724'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9348b8f... Changes in the tests This commit is based on the source code from the following commit: http://github.com/aws/aws-encryption-sdk-java/commit/7cca10f14f7436b02e156abd0033cd6f88b02d4d The mentioned commit triggered the following Travis build: http://travis-ci.org/aws/aws-encryption-sdk-java/builds/441901187.
+Previous HEAD position was 9348b8f... Changes in the tests This commit is based on the source code from the following commit: http://github.com/aws/aws-encryption-sdk-java/commit/7cca10f14f7436b02e156abd0033cd6f88b02d4d The mentioned commit triggered the following Travis build: http://travis-ci.org/aws/aws-encryption-sdk-java/builds/441901187.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-198...
+Checking out the branch aws-aws-encryption-sdk-java-441438164-441901187...
+The bug Bears-198 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'aws-aws-encryption-sdk-java-441438164-441901187'
+Your branch is up-to-date with 'origin/aws-aws-encryption-sdk-java-441438164-441901187'.
+Note: checking out '42681145e45c931fa773e5a61ad4098517174e0a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4268114... End of the bug and patch reproduction process
+Previous HEAD position was 4268114... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-198...
+Checking out the branch aws-aws-encryption-sdk-java-441438164-441901187...
+The bug Bears-198 was checked out.
+Analyzing com.amazonaws.encryptionsdk.model.DecryptionMaterialsRequest in Bears-198
+Analyzing com.amazonaws.encryptionsdk.model.DecryptionMaterialsRequest in Bears-198
+Removing scripts/config.pyc
+Switched to a new branch 'brettwooldridge-HikariCP-446097106-446106182'
+Branch brettwooldridge-HikariCP-446097106-446106182 set up to track remote branch brettwooldridge-HikariCP-446097106-446106182 from origin.
+Note: checking out 'dc65272630d41ca2051dffc7739355d922f7129e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at dc65272... Bug commit from brettwooldridge/HikariCP This commit is based on the source code from the following commit: http://github.com/brettwooldridge/HikariCP/commit/239919c33deb814aa6e3d9747059410133200e07 The mentioned commit triggered the following Travis build: http://travis-ci.org/brettwooldridge/HikariCP/builds/446097106.
+Previous HEAD position was dc65272... Bug commit from brettwooldridge/HikariCP This commit is based on the source code from the following commit: http://github.com/brettwooldridge/HikariCP/commit/239919c33deb814aa6e3d9747059410133200e07 The mentioned commit triggered the following Travis build: http://travis-ci.org/brettwooldridge/HikariCP/builds/446097106.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-201...
+Checking out the branch brettwooldridge-HikariCP-446097106-446106182...
+The bug Bears-201 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'brettwooldridge-HikariCP-446097106-446106182'
+Your branch is up-to-date with 'origin/brettwooldridge-HikariCP-446097106-446106182'.
+Note: checking out 'baeae0a9887d39fca6b24c031076e27689b47936'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at baeae0a... End of the bug and patch reproduction process
+Previous HEAD position was baeae0a... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-201...
+Checking out the branch brettwooldridge-HikariCP-446097106-446106182...
+The bug Bears-201 was checked out.
+Analyzing com.zaxxer.hikari.pool.PoolBase in Bears-201
+Analyzing com.zaxxer.hikari.pool.PoolBase in Bears-201
+Removing scripts/config.pyc
+Switched to a new branch 'classgraph-classgraph-448207270-449613955'
+Branch classgraph-classgraph-448207270-449613955 set up to track remote branch classgraph-classgraph-448207270-449613955 from origin.
+Note: checking out '134e3d23edac47afde90d774f8eeca500c22f79c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 134e3d2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/classgraph/classgraph/commit/554fbfd61125b7bc56f3287005952199a9f19609 The mentioned commit triggered the following Travis build: http://travis-ci.org/classgraph/classgraph/builds/449613955.
+Previous HEAD position was 134e3d2... Changes in the tests This commit is based on the source code from the following commit: http://github.com/classgraph/classgraph/commit/554fbfd61125b7bc56f3287005952199a9f19609 The mentioned commit triggered the following Travis build: http://travis-ci.org/classgraph/classgraph/builds/449613955.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-202...
+Checking out the branch classgraph-classgraph-448207270-449613955...
+The bug Bears-202 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'classgraph-classgraph-448207270-449613955'
+Your branch is up-to-date with 'origin/classgraph-classgraph-448207270-449613955'.
+Note: checking out 'c68bbffd5b7048cceeb6f1b126afdd9a73ced6d2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c68bbff... End of the bug and patch reproduction process
+Previous HEAD position was c68bbff... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-202...
+Checking out the branch classgraph-classgraph-448207270-449613955...
+The bug Bears-202 was checked out.
+Analyzing io.github.classgraph.ClassGraph in Bears-202
+Analyzing io.github.classgraph.ClassGraph in Bears-202
+Removing scripts/config.pyc
+Switched to a new branch 'CSU-CS414-WareWolves-cs414-f18-001-WareWolves-452444119-454548119'
+Branch CSU-CS414-WareWolves-cs414-f18-001-WareWolves-452444119-454548119 set up to track remote branch CSU-CS414-WareWolves-cs414-f18-001-WareWolves-452444119-454548119 from origin.
+Note: checking out 'bdaafbe1ebe80f22017c8dbbcf66b42d1d9e1cf7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at bdaafbe... Bug commit from CSU-CS414-WareWolves/cs414-f18-001-WareWolves This commit is based on the source code from the following commit: http://github.com/CSU-CS414-WareWolves/cs414-f18-001-WareWolves/commit/4a9f4c3da9d75656cecde0c76b12263b48f1d611 The mentioned commit triggered the following Travis build: http://travis-ci.org/CSU-CS414-WareWolves/cs414-f18-001-WareWolves/builds/452444119.
+Previous HEAD position was bdaafbe... Bug commit from CSU-CS414-WareWolves/cs414-f18-001-WareWolves This commit is based on the source code from the following commit: http://github.com/CSU-CS414-WareWolves/cs414-f18-001-WareWolves/commit/4a9f4c3da9d75656cecde0c76b12263b48f1d611 The mentioned commit triggered the following Travis build: http://travis-ci.org/CSU-CS414-WareWolves/cs414-f18-001-WareWolves/builds/452444119.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-204...
+Checking out the branch CSU-CS414-WareWolves-cs414-f18-001-WareWolves-452444119-454548119...
+The bug Bears-204 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'CSU-CS414-WareWolves-cs414-f18-001-WareWolves-452444119-454548119'
+Your branch is up-to-date with 'origin/CSU-CS414-WareWolves-cs414-f18-001-WareWolves-452444119-454548119'.
+Note: checking out 'c5938dc6506e75088a8bdfd5413343c361116464'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c5938dc... End of the bug and patch reproduction process
+Previous HEAD position was c5938dc... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-204...
+Checking out the branch CSU-CS414-WareWolves-cs414-f18-001-WareWolves-452444119-454548119...
+The bug Bears-204 was checked out.
+Analyzing client.presenter.controller.messages.MenuMessageResponse in Bears-204
+Analyzing client.presenter.controller.messages.MenuMessageResponse in Bears-204
+Analyzing client.presenter.controller.messages.UnregisterResponseMessage in Bears-204
+Analyzing client.presenter.controller.messages.UnregisterResponseMessage in Bears-204
+Analyzing client.presenter.controller.messages.LoginResponseMessage in Bears-204
+Analyzing client.presenter.controller.messages.LoginResponseMessage in Bears-204
+Analyzing client.presenter.controller.messages.ViewValidMovesResponse in Bears-204
+Analyzing client.presenter.controller.messages.ViewValidMovesResponse in Bears-204
+Analyzing client.presenter.controller.messages.RegisterResponseMessage in Bears-204
+Analyzing client.presenter.controller.messages.RegisterResponseMessage in Bears-204
+Removing scripts/config.pyc
+Switched to a new branch 'DataBiosphere-consent-ontology-453433108-453941362'
+Branch DataBiosphere-consent-ontology-453433108-453941362 set up to track remote branch DataBiosphere-consent-ontology-453433108-453941362 from origin.
+Note: checking out '56b981311eee70b34a688b561915b8f83cbfc269'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 56b9813... Changes in the tests This commit is based on the source code from the following commit: http://github.com/DataBiosphere/consent-ontology/commit/e4f0f6a319a10b9c477668bf695e7d23cafad959 The mentioned commit triggered the following Travis build: http://travis-ci.org/DataBiosphere/consent-ontology/builds/453941362.
+Previous HEAD position was 56b9813... Changes in the tests This commit is based on the source code from the following commit: http://github.com/DataBiosphere/consent-ontology/commit/e4f0f6a319a10b9c477668bf695e7d23cafad959 The mentioned commit triggered the following Travis build: http://travis-ci.org/DataBiosphere/consent-ontology/builds/453941362.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-207...
+Checking out the branch DataBiosphere-consent-ontology-453433108-453941362...
+The bug Bears-207 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'DataBiosphere-consent-ontology-453433108-453941362'
+Your branch is up-to-date with 'origin/DataBiosphere-consent-ontology-453433108-453941362'.
+Note: checking out 'dc56a531c845b1efefc9d4ef9affecb1a81a985b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at dc56a53... End of the bug and patch reproduction process
+Previous HEAD position was dc56a53... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-207...
+Checking out the branch DataBiosphere-consent-ontology-453433108-453941362...
+The bug Bears-207 was checked out.
+Analyzing org.broadinstitute.dsde.consent.ontology.resources.SwaggerResource in Bears-207
+Analyzing org.broadinstitute.dsde.consent.ontology.resources.SwaggerResource in Bears-207
+Removing scripts/config.pyc
+Switched to a new branch 'DmitriiSerikov-money-transfer-service-446104441-446106577'
+Branch DmitriiSerikov-money-transfer-service-446104441-446106577 set up to track remote branch DmitriiSerikov-money-transfer-service-446104441-446106577 from origin.
+Note: checking out '828a0482b0e751ba9ee9923533a01fef2c2a5f8c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 828a048... Bug commit from DmitriiSerikov/money-transfer-service This commit is based on the source code from the following commit: http://github.com/DmitriiSerikov/money-transfer-service/commit/953154b15baf0ff4fd15d17ddcf6c9b40d943ee2 The mentioned commit triggered the following Travis build: http://travis-ci.org/DmitriiSerikov/money-transfer-service/builds/446104441.
+Previous HEAD position was 828a048... Bug commit from DmitriiSerikov/money-transfer-service This commit is based on the source code from the following commit: http://github.com/DmitriiSerikov/money-transfer-service/commit/953154b15baf0ff4fd15d17ddcf6c9b40d943ee2 The mentioned commit triggered the following Travis build: http://travis-ci.org/DmitriiSerikov/money-transfer-service/builds/446104441.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-209...
+Checking out the branch DmitriiSerikov-money-transfer-service-446104441-446106577...
+The bug Bears-209 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'DmitriiSerikov-money-transfer-service-446104441-446106577'
+Your branch is up-to-date with 'origin/DmitriiSerikov-money-transfer-service-446104441-446106577'.
+Note: checking out 'e1a0a0ef7b738030eca3cb1991da26ce02a3822f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e1a0a0e... End of the bug and patch reproduction process
+Previous HEAD position was e1a0a0e... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-209...
+Checking out the branch DmitriiSerikov-money-transfer-service-446104441-446106577...
+The bug Bears-209 was checked out.
+Analyzing com.github.example.holder.impl.LockHolderImpl in Bears-209
+Analyzing com.github.example.holder.impl.LockHolderImpl in Bears-209
+Removing scripts/config.pyc
+Switched to a new branch 'dungba88-libra-436514153-436524727'
+Branch dungba88-libra-436514153-436524727 set up to track remote branch dungba88-libra-436514153-436524727 from origin.
+Note: checking out 'fcce805ea502a1abb63f320b6d144a007eea16a4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at fcce805... Changes in the tests This commit is based on the source code from the following commit: http://github.com/dungba88/libra/commit/fbe5d265849641ee3e49f5ffe81db87534525859 The mentioned commit triggered the following Travis build: http://travis-ci.org/dungba88/libra/builds/436524727.
+Previous HEAD position was fcce805... Changes in the tests This commit is based on the source code from the following commit: http://github.com/dungba88/libra/commit/fbe5d265849641ee3e49f5ffe81db87534525859 The mentioned commit triggered the following Travis build: http://travis-ci.org/dungba88/libra/builds/436524727.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-210...
+Checking out the branch dungba88-libra-436514153-436524727...
+The bug Bears-210 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'dungba88-libra-436514153-436524727'
+Your branch is up-to-date with 'origin/dungba88-libra-436514153-436524727'.
+Note: checking out '38dec7b3f318fb73b4545d8420f1df38ff2818d0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 38dec7b... End of the bug and patch reproduction process
+Previous HEAD position was 38dec7b... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-210...
+Checking out the branch dungba88-libra-436514153-436524727...
+The bug Bears-210 was checked out.
+Analyzing org.joo.libra.pointer.VariablePredicate in Bears-210
+Analyzing org.joo.libra.pointer.VariablePredicate in Bears-210
+Removing scripts/config.pyc
+Switched to a new branch 'hexagonframework-spring-data-ebean-375829425-451220180'
+Branch hexagonframework-spring-data-ebean-375829425-451220180 set up to track remote branch hexagonframework-spring-data-ebean-375829425-451220180 from origin.
+Note: checking out 'a51dd7cbdd3242b25543714b35f94564e6c4d5b2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at a51dd7c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/hexagonframework/spring-data-ebean/commit/827079b74c6eb27d2fba17f4ecf44ae62b97bae5 The mentioned commit triggered the following Travis build: http://travis-ci.org/hexagonframework/spring-data-ebean/builds/451220180.
+Previous HEAD position was a51dd7c... Changes in the tests This commit is based on the source code from the following commit: http://github.com/hexagonframework/spring-data-ebean/commit/827079b74c6eb27d2fba17f4ecf44ae62b97bae5 The mentioned commit triggered the following Travis build: http://travis-ci.org/hexagonframework/spring-data-ebean/builds/451220180.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-213...
+Checking out the branch hexagonframework-spring-data-ebean-375829425-451220180...
+The bug Bears-213 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'hexagonframework-spring-data-ebean-375829425-451220180'
+Your branch is up-to-date with 'origin/hexagonframework-spring-data-ebean-375829425-451220180'.
+Note: checking out '1b040406616843cbc4556aa944d3fbe6c6db6b33'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 1b04040... End of the bug and patch reproduction process
+Previous HEAD position was 1b04040... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-213...
+Checking out the branch hexagonframework-spring-data-ebean-375829425-451220180...
+The bug Bears-213 was checked out.
+Analyzing org.springframework.data.ebean.repository.query.EbeanQueryWrapper in Bears-213
+Analyzing org.springframework.data.ebean.repository.query.EbeanQueryWrapper in Bears-213
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-431373130-431373716'
+Branch INRIA-spoon-431373130-431373716 set up to track remote branch INRIA-spoon-431373130-431373716 from origin.
+Note: checking out 'd0607c582d0472393b5544defd3c2ac9768e55a8'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d0607c5... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/c43cffe10c3f847b75f39f84e3a610b855398ac7 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/431373716.
+Previous HEAD position was d0607c5... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/c43cffe10c3f847b75f39f84e3a610b855398ac7 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/431373716.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-215...
+Checking out the branch INRIA-spoon-431373130-431373716...
+The bug Bears-215 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-431373130-431373716'
+Your branch is up-to-date with 'origin/INRIA-spoon-431373130-431373716'.
+Note: checking out 'c8406a340091996ed53c9fdd80c82c286f1a5dda'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c8406a3... End of the bug and patch reproduction process
+Previous HEAD position was c8406a3... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-215...
+Checking out the branch INRIA-spoon-431373130-431373716...
+The bug Bears-215 was checked out.
+Analyzing spoon.reflect.visitor.ImportScannerImpl in Bears-215
+Analyzing spoon.reflect.visitor.ImportScannerImpl in Bears-215
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-431601111-431664501'
+Branch INRIA-spoon-431601111-431664501 set up to track remote branch INRIA-spoon-431601111-431664501 from origin.
+Note: checking out '3542dd1d43379996ccce0645085ee6cdc576e5d0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 3542dd1... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/62d2de1fc4beae4f3c88d01f80821732ed6aba8c The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/431664501.
+Previous HEAD position was 3542dd1... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/62d2de1fc4beae4f3c88d01f80821732ed6aba8c The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/431664501.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-216...
+Checking out the branch INRIA-spoon-431601111-431664501...
+The bug Bears-216 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-431601111-431664501'
+Your branch is up-to-date with 'origin/INRIA-spoon-431601111-431664501'.
+Note: checking out 'f1d49a1392df1e658b40ce78bc64afd93cd9949e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f1d49a1... End of the bug and patch reproduction process
+Previous HEAD position was f1d49a1... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-216...
+Checking out the branch INRIA-spoon-431601111-431664501...
+The bug Bears-216 was checked out.
+Analyzing spoon.support.compiler.SnippetCompilationHelper in Bears-216
+Analyzing spoon.support.compiler.SnippetCompilationHelper in Bears-216
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-453383968-453477713'
+Branch INRIA-spoon-453383968-453477713 set up to track remote branch INRIA-spoon-453383968-453477713 from origin.
+Note: checking out 'c1b61e15c759ec303cb1cf40be49da3ac37e6c34'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at c1b61e1... Bug commit from INRIA/spoon This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/157de1f975b0beebe4906af1eaf3fda1e6ae776e The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/453383968.
+Previous HEAD position was c1b61e1... Bug commit from INRIA/spoon This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/157de1f975b0beebe4906af1eaf3fda1e6ae776e The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/453383968.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-217...
+Checking out the branch INRIA-spoon-453383968-453477713...
+The bug Bears-217 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-453383968-453477713'
+Your branch is up-to-date with 'origin/INRIA-spoon-453383968-453477713'.
+Note: checking out 'fae06bb968d2d1f128d974befcb8bef97a327468'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at fae06bb... End of the bug and patch reproduction process
+Previous HEAD position was fae06bb... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-217...
+Checking out the branch INRIA-spoon-453383968-453477713...
+The bug Bears-217 was checked out.
+Analyzing spoon.support.compiler.jdt.JDTTreeBuilder in Bears-217
+Analyzing spoon.support.compiler.jdt.JDTTreeBuilder in Bears-217
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-454678479-454678770'
+Branch INRIA-spoon-454678479-454678770 set up to track remote branch INRIA-spoon-454678479-454678770 from origin.
+Note: checking out 'b7aaab78c9f56174dc2bf1422d78aaee4eccebbe'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b7aaab7... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/552fdd0c09cf701c9810ab88a2266b1d13f6f911 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/454678770.
+Previous HEAD position was b7aaab7... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/552fdd0c09cf701c9810ab88a2266b1d13f6f911 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/454678770.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-218...
+Checking out the branch INRIA-spoon-454678479-454678770...
+The bug Bears-218 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-454678479-454678770'
+Your branch is up-to-date with 'origin/INRIA-spoon-454678479-454678770'.
+Note: checking out '905b1b19c01a3c9e57a3d866e6c6a2cfa9b7595c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 905b1b1... End of the bug and patch reproduction process
+Previous HEAD position was 905b1b1... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-218...
+Checking out the branch INRIA-spoon-454678479-454678770...
+The bug Bears-218 was checked out.
+Analyzing spoon.support.compiler.jdt.JDTTreeBuilder in Bears-218
+Analyzing spoon.support.compiler.jdt.JDTTreeBuilder in Bears-218
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-455704942-455870305'
+Branch INRIA-spoon-455704942-455870305 set up to track remote branch INRIA-spoon-455704942-455870305 from origin.
+Note: checking out 'd314d3980aaa1db421e5ee9ddb361edeadd5afb5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d314d39... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/d2d3a42527459a810f4d6ccafba0a11ca68a4608 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/455870305.
+Previous HEAD position was d314d39... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/d2d3a42527459a810f4d6ccafba0a11ca68a4608 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/455870305.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-219...
+Checking out the branch INRIA-spoon-455704942-455870305...
+The bug Bears-219 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-455704942-455870305'
+Your branch is up-to-date with 'origin/INRIA-spoon-455704942-455870305'.
+Note: checking out '01534c9d79da7c7f384a248297920568f34fdd5a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 01534c9... End of the bug and patch reproduction process
+Previous HEAD position was 01534c9... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-219...
+Checking out the branch INRIA-spoon-455704942-455870305...
+The bug Bears-219 was checked out.
+Analyzing spoon.support.compiler.SpoonPom in Bears-219
+Analyzing spoon.support.compiler.SpoonPom in Bears-219
+Removing scripts/config.pyc
+Switched to a new branch 'javadev-underscore-java-435386942-435396295'
+Branch javadev-underscore-java-435386942-435396295 set up to track remote branch javadev-underscore-java-435386942-435396295 from origin.
+Note: checking out 'd5b19e7af5bbfec4961880207b9c2d39fd720ef7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d5b19e7... Changes in the tests This commit is based on the source code from the following commit: http://github.com/javadev/underscore-java/commit/321c6af83d17da58ee078eec8f916366dc8381f3 The mentioned commit triggered the following Travis build: http://travis-ci.org/javadev/underscore-java/builds/435396295.
+Previous HEAD position was d5b19e7... Changes in the tests This commit is based on the source code from the following commit: http://github.com/javadev/underscore-java/commit/321c6af83d17da58ee078eec8f916366dc8381f3 The mentioned commit triggered the following Travis build: http://travis-ci.org/javadev/underscore-java/builds/435396295.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-220...
+Checking out the branch javadev-underscore-java-435386942-435396295...
+The bug Bears-220 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'javadev-underscore-java-435386942-435396295'
+Your branch is up-to-date with 'origin/javadev-underscore-java-435386942-435396295'.
+Note: checking out '1032a8793348bab6689dfbfe356054e43db3b6c2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 1032a87... End of the bug and patch reproduction process
+Previous HEAD position was 1032a87... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-220...
+Checking out the branch javadev-underscore-java-435386942-435396295...
+The bug Bears-220 was checked out.
+Analyzing com.github.underscore.lodash.Xml in Bears-220
+Analyzing com.github.underscore.lodash.Xml in Bears-220
+Removing scripts/config.pyc
+Switched to a new branch 'jenkinsci-ansicolor-plugin-440438437-449394834'
+Branch jenkinsci-ansicolor-plugin-440438437-449394834 set up to track remote branch jenkinsci-ansicolor-plugin-440438437-449394834 from origin.
+Note: checking out '4e3b2ca660ef79eb83e0eaf233a74f97e359cc28'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4e3b2ca... Changes in the tests This commit is based on the source code from the following commit: http://github.com/jenkinsci/ansicolor-plugin/commit/e854a4cbecdbbd4b8d6247f007c5bea378013bf6 The mentioned commit triggered the following Travis build: http://travis-ci.org/jenkinsci/ansicolor-plugin/builds/449394834.
+Previous HEAD position was 4e3b2ca... Changes in the tests This commit is based on the source code from the following commit: http://github.com/jenkinsci/ansicolor-plugin/commit/e854a4cbecdbbd4b8d6247f007c5bea378013bf6 The mentioned commit triggered the following Travis build: http://travis-ci.org/jenkinsci/ansicolor-plugin/builds/449394834.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-221...
+Checking out the branch jenkinsci-ansicolor-plugin-440438437-449394834...
+The bug Bears-221 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'jenkinsci-ansicolor-plugin-440438437-449394834'
+Your branch is up-to-date with 'origin/jenkinsci-ansicolor-plugin-440438437-449394834'.
+Note: checking out '4ede3d1af4677bb121dc003fd8cf1a79ee16740b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4ede3d1... End of the bug and patch reproduction process
+Previous HEAD position was 4ede3d1... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-221...
+Checking out the branch jenkinsci-ansicolor-plugin-440438437-449394834...
+The bug Bears-221 was checked out.
+Analyzing hudson.plugins.ansicolor.AnsiColorConsoleLogFilter in Bears-221
+Analyzing hudson.plugins.ansicolor.AnsiColorConsoleLogFilter in Bears-221

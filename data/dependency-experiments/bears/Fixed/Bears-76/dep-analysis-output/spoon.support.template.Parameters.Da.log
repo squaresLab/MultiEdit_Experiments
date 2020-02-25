@@ -1,0 +1,8 @@
+Compiling the bug Bears-76...
+The bug Bears-76 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:32:57 EST 2020
+Transforming spoon.support.template.Parameters... 
+Writing to sootOutput/spoon.support.template.Parameters.jimple
+Soot finished on Fri Feb 21 16:32:58 EST 2020
+Soot has run for 0 min. 0 sec.

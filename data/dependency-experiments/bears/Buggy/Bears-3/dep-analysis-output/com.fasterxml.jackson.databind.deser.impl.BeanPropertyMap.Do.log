@@ -1,0 +1,8 @@
+Compiling the bug Bears-3...
+The bug Bears-3 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 15:41:08 EST 2020
+Transforming com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap... 
+Writing to sootOutput/com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap.jimple
+Soot finished on Fri Feb 21 15:41:09 EST 2020
+Soot has run for 0 min. 0 sec.

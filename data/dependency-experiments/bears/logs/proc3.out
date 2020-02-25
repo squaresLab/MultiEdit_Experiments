@@ -1,0 +1,343 @@
+nohup: ignoring input
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-204567691-207361743'
+Branch INRIA-spoon-204567691-207361743 set up to track remote branch INRIA-spoon-204567691-207361743 from origin.
+Note: checking out '09a3e8b0748ad5f2c1de10c68e3e10a33502e8c4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 09a3e8b... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/6433c2c6641e4e3eb172d04cb39ac5373b38ed74 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/207361743.
+Previous HEAD position was 09a3e8b... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/6433c2c6641e4e3eb172d04cb39ac5373b38ed74 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/207361743.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-41...
+Checking out the branch INRIA-spoon-204567691-207361743...
+The bug Bears-41 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-204567691-207361743'
+Your branch is up-to-date with 'origin/INRIA-spoon-204567691-207361743'.
+Note: checking out '9bce01b2a5999c1d8723cf92f8bef9f28dc96d5c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9bce01b... End of the bug and patch reproduction process
+Previous HEAD position was 9bce01b... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-41...
+Checking out the branch INRIA-spoon-204567691-207361743...
+The bug Bears-41 was checked out.
+Analyzing spoon.support.compiler.jdt.ReferenceBuilder in Bears-41
+Analyzing spoon.support.compiler.jdt.ReferenceBuilder in Bears-41
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-210079209-210080599'
+Branch INRIA-spoon-210079209-210080599 set up to track remote branch INRIA-spoon-210079209-210080599 from origin.
+Note: checking out '4490dfe21ae6d3c1e07cef9dd663642796989c5d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 4490dfe... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/6d7af94b1e5cd9295c379ecfa886cacd97af7a9a The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/210080599.
+Previous HEAD position was 4490dfe... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/6d7af94b1e5cd9295c379ecfa886cacd97af7a9a The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/210080599.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-42...
+Checking out the branch INRIA-spoon-210079209-210080599...
+The bug Bears-42 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-210079209-210080599'
+Your branch is up-to-date with 'origin/INRIA-spoon-210079209-210080599'.
+Note: checking out 'ceb883adb745c4ccc550201313aaa9423317b7bd'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at ceb883a... End of the bug and patch reproduction process
+Previous HEAD position was ceb883a... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-42...
+Checking out the branch INRIA-spoon-210079209-210080599...
+The bug Bears-42 was checked out.
+Analyzing spoon.reflect.visitor.filter.PotentialVariableDeclarationFunction in Bears-42
+Analyzing spoon.reflect.visitor.filter.PotentialVariableDeclarationFunction in Bears-42
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-43/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-43/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-43’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-43’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-44/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-44/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-44’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-44’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-45/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-45/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-45’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-45’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-46/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-46/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-46’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-46’: No such file or directory
+Traceback (most recent call last):
+  File "/home/zhenyud/bears-benchmark/scripts/checkout_bug.py", line 7, in <module>
+ImportError: No module named config
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-47/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-47/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-47’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-47’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-48/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-48/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-48’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-48’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-49/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-49/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-49’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-49’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-50/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-50/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-50’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-50’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-51/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-51/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-51’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-51’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-52/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-52/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-52’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-52’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-53/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-53/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-53’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-53’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-54/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-54/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-54’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-54’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-55/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-55/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-55’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-55’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-56/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-56/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-56’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-56’: No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_bug.py': [Errno 2] No such file or directory
+cp: cannot create regular file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': No such file or directory
+python2.7: can't open file '/home/zhenyud/bears-benchmark/scripts/checkout_fix.py': [Errno 2] No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-57/src/main/java: No such file or directory
+diff: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-57/src/main/java: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Buggy/Bears-57’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-57’: No such file or directory
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-237507053-237511642'
+Branch INRIA-spoon-237507053-237511642 set up to track remote branch INRIA-spoon-237507053-237511642 from origin.
+Note: checking out 'dadc643c326d0efbbec336d09a6532e841ba3186'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at dadc643... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/67934eece720ef593284dfa39edf57a3aa9458e0 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/237511642.
+Previous HEAD position was dadc643... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/67934eece720ef593284dfa39edf57a3aa9458e0 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/237511642.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-58...
+Checking out the branch INRIA-spoon-237507053-237511642...
+The bug Bears-58 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-237507053-237511642'
+Your branch is up-to-date with 'origin/INRIA-spoon-237507053-237511642'.
+Note: checking out 'b07848d76b4609325450e8aa54fdd5d77d649b2e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b07848d... End of the bug and patch reproduction process
+Previous HEAD position was b07848d... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-58...
+Checking out the branch INRIA-spoon-237507053-237511642...
+The bug Bears-58 was checked out.
+Analyzing spoon.reflect.visitor.printer.PrinterHelper in Bears-58
+Analyzing spoon.reflect.visitor.printer.PrinterHelper in Bears-58
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-58
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-58
+Analyzing spoon.reflect.visitor.printer.ElementPrinterHelper in Bears-58
+Analyzing spoon.reflect.visitor.printer.ElementPrinterHelper in Bears-58
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-237627560-237821366'
+Branch INRIA-spoon-237627560-237821366 set up to track remote branch INRIA-spoon-237627560-237821366 from origin.
+Note: checking out 'd33c861fa4cbba4869ae2de2e1271e556f8e4f2c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d33c861... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/95828480ea5fee6df898509c84c6a95b14681ce3 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/237821366.
+Previous HEAD position was d33c861... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/95828480ea5fee6df898509c84c6a95b14681ce3 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/237821366.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-59...
+Checking out the branch INRIA-spoon-237627560-237821366...
+The bug Bears-59 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-237627560-237821366'
+Your branch is up-to-date with 'origin/INRIA-spoon-237627560-237821366'.
+Note: checking out '56ed6fb1f3d50395ec7bbfe2e7f849a01c082b4d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 56ed6fb... End of the bug and patch reproduction process
+Previous HEAD position was 56ed6fb... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-59...
+Checking out the branch INRIA-spoon-237627560-237821366...
+The bug Bears-59 was checked out.
+Analyzing spoon.support.compiler.jdt.ReferenceBuilder in Bears-59
+Analyzing spoon.support.compiler.jdt.ReferenceBuilder in Bears-59
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-59
+Analyzing spoon.reflect.visitor.DefaultJavaPrettyPrinter in Bears-59
+Analyzing spoon.support.reflect.reference.CtTypeParameterReferenceImpl in Bears-59
+Analyzing spoon.support.reflect.reference.CtTypeParameterReferenceImpl in Bears-59
+Analyzing spoon.support.reflect.reference.CtExecutableReferenceImpl in Bears-59
+Analyzing spoon.support.reflect.reference.CtExecutableReferenceImpl in Bears-59
+Removing scripts/config.pyc
+Switched to a new branch 'INRIA-spoon-238234811-238235509'
+Branch INRIA-spoon-238234811-238235509 set up to track remote branch INRIA-spoon-238234811-238235509 from origin.
+Note: checking out 'e4db615a425af4f2f8bebb156302a43bccc42bdc'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at e4db615... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/d3a9c911046c1ca36fd193d5f333ed8f8e3e76d7 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/238235509.
+Previous HEAD position was e4db615... Changes in the tests This commit is based on the source code from the following commit: http://github.com/INRIA/spoon/commit/d3a9c911046c1ca36fd193d5f333ed8f8e3e76d7 The mentioned commit triggered the following Travis build: http://travis-ci.org/INRIA/spoon/builds/238235509.
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-60...
+Checking out the branch INRIA-spoon-238234811-238235509...
+The bug Bears-60 was checked out.
+Removing scripts/checkout_fix.py
+Removing scripts/config.pyc
+Switched to branch 'INRIA-spoon-238234811-238235509'
+Your branch is up-to-date with 'origin/INRIA-spoon-238234811-238235509'.
+Note: checking out '8ee000c0fe363f8b77682e7ec6ebcf94d42ba791'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 8ee000c... End of the bug and patch reproduction process
+Previous HEAD position was 8ee000c... End of the bug and patch reproduction process
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+Checking out the bug Bears-60...
+Checking out the branch INRIA-spoon-238234811-238235509...
+The bug Bears-60 was checked out.
+Analyzing spoon.support.reflect.declaration.CtElementImpl in Bears-60
+Analyzing spoon.support.reflect.declaration.CtElementImpl in Bears-60

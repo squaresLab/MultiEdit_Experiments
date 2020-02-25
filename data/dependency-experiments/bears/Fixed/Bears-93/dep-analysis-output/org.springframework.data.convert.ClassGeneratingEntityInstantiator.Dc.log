@@ -1,0 +1,8 @@
+Compiling the bug Bears-93...
+The bug Bears-93 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:38:31 EST 2020
+Transforming org.springframework.data.convert.ClassGeneratingEntityInstantiator... 
+Writing to sootOutput/org.springframework.data.convert.ClassGeneratingEntityInstantiator.jimple
+Soot finished on Fri Feb 21 16:38:32 EST 2020
+Soot has run for 0 min. 1 sec.

@@ -1,0 +1,8 @@
+Compiling the bug Bears-16...
+The bug Bears-16 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:28:15 EST 2020
+Transforming com.fasterxml.jackson.databind.SerializerProvider... 
+Writing to sootOutput/com.fasterxml.jackson.databind.SerializerProvider.jimple
+Soot finished on Fri Feb 21 16:28:16 EST 2020
+Soot has run for 0 min. 1 sec.

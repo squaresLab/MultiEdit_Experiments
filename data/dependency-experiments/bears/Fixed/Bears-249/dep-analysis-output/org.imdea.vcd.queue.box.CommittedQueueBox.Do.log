@@ -1,0 +1,11 @@
+protoc-jar: executing: [/tmp/protoc4634704504633978819.exe, --version]
+libprotoc 3.4.0
+protoc-jar: executing: [/tmp/protoc4634704504633978819.exe, -I/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-249/src/main/proto, --java_out=/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-249/src/main/java, /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/bears/Fixed/Bears-249/src/main/proto/client.proto]
+Compiling the bug Bears-249...
+The bug Bears-249 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:42:10 EST 2020
+Transforming org.imdea.vcd.queue.box.CommittedQueueBox... 
+Writing to sootOutput/org.imdea.vcd.queue.box.CommittedQueueBox.jimple
+Soot finished on Fri Feb 21 16:42:11 EST 2020
+Soot has run for 0 min. 0 sec.

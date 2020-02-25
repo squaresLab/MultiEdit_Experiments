@@ -1,0 +1,8 @@
+Compiling the bug Bears-220...
+The bug Bears-220 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:43:20 EST 2020
+Transforming com.github.underscore.lodash.Xml... 
+Writing to sootOutput/com.github.underscore.lodash.Xml.jimple
+Soot finished on Fri Feb 21 16:43:21 EST 2020
+Soot has run for 0 min. 0 sec.

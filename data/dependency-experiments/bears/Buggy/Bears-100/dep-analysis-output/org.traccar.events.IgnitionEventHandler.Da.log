@@ -1,0 +1,8 @@
+Compiling the bug Bears-100...
+The bug Bears-100 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:48:54 EST 2020
+Transforming org.traccar.events.IgnitionEventHandler... 
+Writing to sootOutput/org.traccar.events.IgnitionEventHandler.jimple
+Soot finished on Fri Feb 21 16:48:55 EST 2020
+Soot has run for 0 min. 0 sec.

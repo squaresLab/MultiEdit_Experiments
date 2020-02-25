@@ -1,0 +1,8 @@
+Compiling the bug Bears-210...
+The bug Bears-210 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:38:26 EST 2020
+Transforming org.joo.libra.pointer.VariablePredicate... 
+Writing to sootOutput/org.joo.libra.pointer.VariablePredicate.jimple
+Soot finished on Fri Feb 21 16:38:26 EST 2020
+Soot has run for 0 min. 0 sec.

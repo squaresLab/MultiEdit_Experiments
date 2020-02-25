@@ -1,0 +1,8 @@
+Compiling the bug Bears-189...
+The bug Bears-189 was compiled.
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Fri Feb 21 16:28:46 EST 2020
+Transforming hu.oe.nik.szfmv.automatedcar.AutomatedCar... 
+Writing to sootOutput/hu.oe.nik.szfmv.automatedcar.AutomatedCar.jimple
+Soot finished on Fri Feb 21 16:28:47 EST 2020
+Soot has run for 0 min. 1 sec.

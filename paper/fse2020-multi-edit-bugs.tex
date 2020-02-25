@@ -66,11 +66,11 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 Software bugs are hard. That's why we need automated program repair.
 
-Many bugs require multiple chunks or parts of patches. For example, Sobreira et. al reports that over half of the bugs in Defects4J are patched by two or more chunks \cite{d4j-dissection}. In Zhong and Su's empirical study of bugs in Apache projects, they found that 70\% of buggy source files required two or more repair actions\cite{zhong2015}. \todo{(this is, however, different than multiple locations.)}
+Many bugs require multiple chunks or parts of patches. For example, Sobreira et. al reports that over half of the bugs in Defects4J are patched by two or more chunks ~cite{d4j-dissection}. In Zhong and Su's empirical study of bugs in Apache projects, they found that 70\% of buggy source files required two or more repair actions~\cite{zhong2015}. \todo{(this is, however, different than multiple locations.)}
 
-Despite the prevalence of multi-chunk bugs, much of the previous work on automated program repair works best on bugs with single line patches. For example, fault localization techniques often assume that a bug is localized if any one buggy line is identified. Program repair techniques like GenProg \cite{genprog} or S3 \cite{Le17} are most effective on bugs that have only a single repair location.
+Despite the prevalence of multi-chunk bugs, much of the previous work on automated program repair works best on bugs with single location patches, as to avoid the combinatorial growth of the search space with multiple locations. For example, fault localization techniques often assume that a bug is localized if any one buggy line is identified~\cite{fl-survey-wong}. Program repair techniques are often most effective on bugs that have only a single repair location~\cite{rsrepair, ae, hdrepair}.
 
-Work on multi-chunk bugs are often focused on code clones and syntactically similar code chunks \cite{saha2019harnessing,jiang2019cmsuggester}. \todo{something about the empirical multi-entity paper? \cite{wang2018}}
+Work on multi-chunk bugs are often focused on code clones and syntactically similar code chunks~\cite{saha2019harnessing,jiang2019cmsuggester}. \todo{something about the empirical multi-entity paper?~\cite{wang2018}} \todo{some more citations from Zhen's intro~\cite{fl-multi-faults, patch-correctness, Le2018}}
 
 In order to repair more complex multi-chunk bugs, we need to study their characteristics. In this work, we hope to look at the characteristics of multi-chunk bugs, with an eye to automatically repairing them.
 
@@ -91,6 +91,19 @@ measure of patch quality is the number of passing test cases.
 
 \subsection{Fault Localization}
 
+
+\section{Datasets}
+We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}---datasets of 
+bugs found in real world software projects.
+
+Defects4J contains 438 bugs from six Java software projects. This  
+is currently the most popular Java dataset for evaluating program repair tools~\cite{durieux-repair-them-all}.
+Many such tools, however, overfit to Defects4J and perform worse on other 
+benchmarks~\cite{durieux-repair-them-all}. 
+
+Bears is a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
+Bears offers 251 bugs from 72 software projects, offering a greater diversity of 
+projects compared to Defects4J.
 
 \section{Fitness Experiment}
 
@@ -172,6 +185,14 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
 
 ...(TODO: results of minimized experiment)
 
+\section{Dependency Analysis}
+
+A patch contains dependent edits if there exists control or data dependencies 
+between added, removed, or changed lines in the pre- or post-patch
+source code. For practical reasons, we perform intraprocedural analysis, 
+although we heuristically consider function arguments as reads 
+and invocations of getter and setter methods as reads and writes.
+
 \section{Related Work}
 Zhong and Su~\cite{zhong2015} did this and that.
 
@@ -179,6 +200,16 @@ Wang et al.~\cite{wang2018} did this and that.
 
 Schulte et al.~\cite{schulte} did this and that.
 
+\section{Limitations}
+
+\subsection{Possibly Unnecessary Edits in Patches}
+
+We found instances in our data set where not all edits are required to 
+make the faulty program pass all tests. One possibility is that the extra 
+edits satisfy untested specifications. Another possibility is that the edits 
+do not affect program functionality (e.g.: refactoring edits). We assume 
+that all edits are functionally relevant. We intend to study such seemingly
+extraneous edits in future work.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
