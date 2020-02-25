@@ -11,6 +11,7 @@
 on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA, USA}
 \acmYear{2020}
 
+\newcommand\todo[1]{\textcolor{red}{#1}}
 
 %%
 %% Submission ID.
@@ -62,6 +63,19 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 \maketitle
 
 \section{Introduction}
+
+Software bugs are hard. That's why we need automated program repair.
+
+Many bugs require multiple chunks or parts of patches. For example, Sobreira et. al reports that over half of the bugs in Defects4J are patched by two or more chunks \cite{d4j-dissection}. In Zhong and Su's empirical study of bugs in Apache projects, they found that 70\% of buggy source files required two or more repair actions\cite{zhong2015}. \todo{(this is, however, different than multiple locations.)}
+
+Despite the prevalence of multi-chunk bugs, much of the previous work on automated program repair works best on bugs with single line patches. For example, fault localization techniques often assume that a bug is localized if any one buggy line is identified. Program repair techniques like GenProg \cite{genprog} or S3 \cite{Le17} are most effective on bugs that have only a single repair location.
+
+Work on multi-chunk bugs are often focused on code clones and syntactically similar code chunks \cite{saha2019harnessing,jiang2019cmsuggester}. \todo{something about the empirical multi-entity paper? \cite{wang2018}}
+
+In order to repair more complex multi-chunk bugs, we need to study their characteristics. In this work, we hope to look at the characteristics of multi-chunk bugs, with an eye to automatically repairing them.
+
+We focus on three specific aspects -- fault localization, repair actions, and evaluation.
+
 
 \section{Background}
 \subsection{Automated Program Repair (APR)}
