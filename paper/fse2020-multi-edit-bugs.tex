@@ -63,6 +63,14 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 \section{Introduction}
 
+Fault localization and program repair tools aim to reduce the cost of debugging. 
+Such tools, however, often perform poorly on bugs with multiple faulty 
+locations. Some fault localization~\cite{fl-survey-wong} and 
+program repair~\cite{rsrepair, ae, hdrepair} techniques are designed to find or 
+fix only a single location; this avoids the combinatorial growth of a multi-location 
+search space. Techniques that do extend to multiple locations, however, experience 
+difficulty~\cite{fl-multi-faults, patch-correctness, Le2018}.
+
 \section{Background}
 \subsection{Automated Program Repair (APR)}
 Automated program repair (APR) techniques aim to find patches for broken programs. 
@@ -79,8 +87,8 @@ measure of patch quality is the number of passing test cases.
 
 
 \section{Datasets}
-We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}, 
-datasets of bugs found in real world software projects.
+We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}---datasets of 
+bugs found in real world software projects.
 
 Defects4J contains 438 bugs from six Java software projects. This  
 is currently the most popular Java dataset for evaluating program repair tools~\cite{durieux-repair-them-all}.
