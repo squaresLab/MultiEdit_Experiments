@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 25 15:43:33 EST 2020
+Transforming com.google.javascript.jscomp.PeepholeFoldConstants... 
+Writing to sootOutput/com.google.javascript.jscomp.PeepholeFoldConstants.jimple
+Soot finished on Tue Feb 25 15:43:34 EST 2020
+Soot has run for 0 min. 0 sec.

@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 25 15:56:29 EST 2020
+Transforming com.google.javascript.jscomp.SourceMap... 
+Writing to sootOutput/com.google.javascript.jscomp.SourceMap.jimple
+Soot finished on Tue Feb 25 15:56:30 EST 2020
+Soot has run for 0 min. 0 sec.

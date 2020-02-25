@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Tue Feb 25 16:05:19 EST 2020
+Transforming com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax... 
+Writing to sootOutput/com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax.jimple
+Soot finished on Tue Feb 25 16:05:20 EST 2020
+Soot has run for 0 min. 1 sec.

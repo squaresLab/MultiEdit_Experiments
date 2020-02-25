@@ -1,0 +1,2061 @@
+nohup: ignoring input
+Checking out 1dfad504 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1dfad504:2353d807..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-1b...................................... OK
+Checking out 1dfad504 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1dfad504:2353d807..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-1f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.RemoveUnusedVars in Closure1b
+Analyzing com.google.javascript.jscomp.RemoveUnusedVars in Closure1f
+Checking out d1cfe679 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d1cfe679:61095090..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-2b...................................... OK
+Checking out d1cfe679 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d1cfe679:61095090..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-2f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypeCheck in Closure2b
+Analyzing com.google.javascript.jscomp.TypeCheck in Closure2f
+Checking out d80fcc04 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d80fcc04:3cc85c3c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-3b...................................... OK
+Checking out d80fcc04 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d80fcc04:3cc85c3c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-3f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.FlowSensitiveInlineVariables in Closure3b
+Analyzing com.google.javascript.jscomp.FlowSensitiveInlineVariables in Closure3f
+Checking out efefb736 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff efefb736:1c95684b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-4b...................................... OK
+Checking out efefb736 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff efefb736:1c95684b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-4f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.rhino.jstype.NamedType in Closure4b
+Analyzing com.google.javascript.rhino.jstype.NamedType in Closure4f
+Checking out 59eec92e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 59eec92e:722d1192..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-5b...................................... OK
+Checking out 59eec92e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 59eec92e:722d1192..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-5f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.InlineObjectLiterals in Closure5b
+Analyzing com.google.javascript.jscomp.InlineObjectLiterals in Closure5f
+Checking out 9f7a3533 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9f7a3533:929b1c8f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-6b...................................... OK
+Checking out 9f7a3533 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9f7a3533:929b1c8f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-6f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypeValidator in Closure6b
+Analyzing com.google.javascript.jscomp.TypeValidator in Closure6f
+Checking out e736b1c9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e736b1c9:d93f2d5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-7b...................................... OK
+Checking out e736b1c9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e736b1c9:d93f2d5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-7f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.type.ChainableReverseAbstractInterpreter in Closure7b
+Analyzing com.google.javascript.jscomp.type.ChainableReverseAbstractInterpreter in Closure7f
+Checking out 6300a435 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6300a435:e237d264..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-8b...................................... OK
+Checking out 6300a435 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6300a435:e237d264..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-8f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CollapseVariableDeclarations in Closure8b
+Analyzing com.google.javascript.jscomp.CollapseVariableDeclarations in Closure8f
+Checking out e9c15465 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e9c15465:19233b94..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-9b...................................... OK
+Checking out e9c15465 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e9c15465:19233b94..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-9f...................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.ProcessCommonJSModules in Closure9b
+Analyzing com.google.javascript.jscomp.ProcessCommonJSModules in Closure9f
+Checking out 0884a4cb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0884a4cb:f681fd80..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-10b..................................... OK
+Checking out 0884a4cb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0884a4cb:f681fd80..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-10f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.NodeUtil in Closure10b
+Analyzing com.google.javascript.jscomp.NodeUtil in Closure10f
+Checking out 482b7676 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 482b7676:bbf1b138..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-11b..................................... OK
+Checking out 482b7676 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 482b7676:bbf1b138..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-11f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypeCheck in Closure11b
+Analyzing com.google.javascript.jscomp.TypeCheck in Closure11f
+Checking out d06ac163 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d06ac163:919fda93..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-12b..................................... OK
+Checking out d06ac163 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d06ac163:919fda93..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-12f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.MaybeReachingVariableUse in Closure12b
+Analyzing com.google.javascript.jscomp.MaybeReachingVariableUse in Closure12f
+Checking out d6d733f4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d6d733f4:8b8c01a3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-13b..................................... OK
+Checking out d6d733f4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d6d733f4:8b8c01a3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-13f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.PeepholeOptimizationsPass in Closure13b
+Analyzing com.google.javascript.jscomp.PeepholeOptimizationsPass in Closure13f
+Checking out 4b15b25f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4b15b25f:b7c2861b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-14b..................................... OK
+Checking out 4b15b25f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4b15b25f:b7c2861b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-14f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.ControlFlowAnalysis in Closure14b
+Analyzing com.google.javascript.jscomp.ControlFlowAnalysis in Closure14f
+Checking out 968b3f46 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 968b3f46:f9fbad23..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-15b..................................... OK
+Checking out 968b3f46 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 968b3f46:f9fbad23..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-15f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.FlowSensitiveInlineVariables in Closure15b
+Analyzing com.google.javascript.jscomp.FlowSensitiveInlineVariables in Closure15f
+Checking out 3b97e5e4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3b97e5e4:33ab4df8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-16b..................................... OK
+Checking out 3b97e5e4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3b97e5e4:33ab4df8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-16f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.ScopedAliases in Closure16b
+Analyzing com.google.javascript.jscomp.ScopedAliases in Closure16f
+Checking out 33ab4df8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 33ab4df8:e5e1253a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-17b..................................... OK
+Checking out 33ab4df8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 33ab4df8:e5e1253a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-17f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypedScopeCreator in Closure17b
+Analyzing com.google.javascript.jscomp.TypedScopeCreator in Closure17f
+Checking out ea119a2d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ea119a2d:686146c4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-18b..................................... OK
+Checking out ea119a2d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ea119a2d:686146c4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-18f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.Compiler in Closure18b
+Analyzing com.google.javascript.jscomp.Compiler in Closure18f
+Checking out 686146c4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 686146c4:8d91f37d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-19b..................................... OK
+Checking out 686146c4 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 686146c4:8d91f37d..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-19f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.type.ChainableReverseAbstractInterpreter in Closure19b
+Analyzing com.google.javascript.jscomp.type.ChainableReverseAbstractInterpreter in Closure19f
+Checking out ebf229b0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ebf229b0:7e98b9c9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-20b..................................... OK
+Checking out ebf229b0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ebf229b0:7e98b9c9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-20f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax in Closure20b
+Analyzing com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax in Closure20f
+Checking out 1787d7b2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1787d7b2:a9250a5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-21b..................................... OK
+Checking out 1787d7b2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1787d7b2:a9250a5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-21f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CheckSideEffects in Closure21b
+Analyzing com.google.javascript.jscomp.CheckSideEffects in Closure21f
+Checking out 43a55234 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 43a55234:c8e5f7ac..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-22b..................................... OK
+Checking out 43a55234 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 43a55234:c8e5f7ac..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-22f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CheckSideEffects in Closure22b
+Analyzing com.google.javascript.jscomp.CheckSideEffects in Closure22f
+Checking out b59cdd9e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b59cdd9e:30a88df8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-23b..................................... OK
+Checking out b59cdd9e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b59cdd9e:30a88df8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-23f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.PeepholeFoldConstants in Closure23b
+Analyzing com.google.javascript.jscomp.PeepholeFoldConstants in Closure23f
+Checking out 70ca6014 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 70ca6014:59aac0b2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-24b..................................... OK
+Checking out 70ca6014 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 70ca6014:59aac0b2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-24f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.ScopedAliases in Closure24b
+Analyzing com.google.javascript.jscomp.ScopedAliases in Closure24f
+Checking out 2e904fcd to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2e904fcd:372eb11e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-25b..................................... OK
+Checking out 2e904fcd to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2e904fcd:372eb11e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-25f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypeInference in Closure25b
+Analyzing com.google.javascript.jscomp.TypeInference in Closure25f
+Checking out 372eb11e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 372eb11e:d36428ed..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-26b..................................... OK
+Checking out 372eb11e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 372eb11e:d36428ed..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-26f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.ProcessCommonJSModules in Closure26b
+Analyzing com.google.javascript.jscomp.ProcessCommonJSModules in Closure26f
+Checking out 7a898304 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7a898304:1d9ecb53..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-27b..................................... OK
+Checking out 7a898304 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7a898304:1d9ecb53..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-27f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.rhino.IR in Closure27b
+Analyzing com.google.javascript.rhino.IR in Closure27f
+Checking out 59dbb7a2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 59dbb7a2:5c46a579..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-28b..................................... OK
+Checking out 59dbb7a2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 59dbb7a2:5c46a579..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-28f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.InlineCostEstimator in Closure28b
+Analyzing com.google.javascript.jscomp.InlineCostEstimator in Closure28f
+Checking out 6924915e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6924915e:3587cc3b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-29b..................................... OK
+Checking out 6924915e to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6924915e:3587cc3b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-29f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.InlineObjectLiterals in Closure29b
+Analyzing com.google.javascript.jscomp.InlineObjectLiterals in Closure29f
+Checking out 38e2b8f2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38e2b8f2:6da361c5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-30b..................................... OK
+Checking out 38e2b8f2 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38e2b8f2:6da361c5..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-30f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.FlowSensitiveInlineVariables in Closure30b
+Analyzing com.google.javascript.jscomp.FlowSensitiveInlineVariables in Closure30f
+Analyzing com.google.javascript.jscomp.MustBeReachingVariableDef in Closure30b
+Analyzing com.google.javascript.jscomp.MustBeReachingVariableDef in Closure30f
+Checking out 0a670cb5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0a670cb5:82dd7814..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-31b..................................... OK
+Checking out 0a670cb5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 0a670cb5:82dd7814..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-31f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.Compiler in Closure31b
+Analyzing com.google.javascript.jscomp.Compiler in Closure31f
+Checking out 66c8c695 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 66c8c695:116e0d5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-32b..................................... OK
+Checking out 66c8c695 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 66c8c695:116e0d5a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-32f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.parsing.JsDocInfoParser in Closure32b
+Analyzing com.google.javascript.jscomp.parsing.JsDocInfoParser in Closure32f
+Checking out 382422ad to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 382422ad:24c113d3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-33b..................................... OK
+Checking out 382422ad to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 382422ad:24c113d3..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-33f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.rhino.jstype.PrototypeObjectType in Closure33b
+Analyzing com.google.javascript.rhino.jstype.PrototypeObjectType in Closure33f
+Checking out 87b154f8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 87b154f8:bc018d6c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-34b..................................... OK
+Checking out 87b154f8 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 87b154f8:bc018d6c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-34f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CodeGenerator in Closure34b
+Analyzing com.google.javascript.jscomp.CodeGenerator in Closure34f
+Analyzing com.google.javascript.jscomp.CodePrinter in Closure34b
+Analyzing com.google.javascript.jscomp.CodePrinter in Closure34f
+Checking out 22784dc9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 22784dc9:7e3e1a66..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-35b..................................... OK
+Checking out 22784dc9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 22784dc9:7e3e1a66..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-35f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypeInference in Closure35b
+Analyzing com.google.javascript.jscomp.TypeInference in Closure35f
+Checking out be397ee0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff be397ee0:c5ec81dc..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-36b..................................... OK
+Checking out be397ee0 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff be397ee0:c5ec81dc..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-36f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.InlineVariables in Closure36b
+Analyzing com.google.javascript.jscomp.InlineVariables in Closure36f
+Checking out 7e93d521 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7e93d521:375879be..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-37b..................................... OK
+Checking out 7e93d521 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7e93d521:375879be..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-37f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.parsing.IRFactory in Closure37b
+Analyzing com.google.javascript.jscomp.parsing.IRFactory in Closure37f
+Analyzing com.google.javascript.jscomp.NodeTraversal in Closure37b
+Analyzing com.google.javascript.jscomp.NodeTraversal in Closure37f
+Checking out 8cf08115 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8cf08115:f067d0e1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-38b..................................... OK
+Checking out 8cf08115 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 8cf08115:f067d0e1..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-38f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CodeConsumer in Closure38b
+Analyzing com.google.javascript.jscomp.CodeConsumer in Closure38f
+Checking out d577973f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d577973f:9a40e654..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-39b..................................... OK
+Checking out d577973f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff d577973f:9a40e654..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-39f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.rhino.jstype.PrototypeObjectType in Closure39b
+Analyzing com.google.javascript.rhino.jstype.PrototypeObjectType in Closure39f
+Checking out 6ebc0c3d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6ebc0c3d:a90f4b4f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-40b..................................... OK
+Checking out 6ebc0c3d to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6ebc0c3d:a90f4b4f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-40f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.NameAnalyzer in Closure40b
+Analyzing com.google.javascript.jscomp.NameAnalyzer in Closure40f
+Checking out 00b1517c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 00b1517c:974027e9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-41b..................................... OK
+Checking out 00b1517c to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 00b1517c:974027e9..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-41f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.FunctionTypeBuilder in Closure41b
+Analyzing com.google.javascript.jscomp.FunctionTypeBuilder in Closure41f
+Checking out fb01427a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fb01427a:f74939a6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-42b..................................... OK
+Checking out fb01427a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fb01427a:f74939a6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-42f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.parsing.IRFactory in Closure42b
+Analyzing com.google.javascript.jscomp.parsing.IRFactory in Closure42f
+Checking out f636f23b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f636f23b:29f4990e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-43b..................................... OK
+Checking out f636f23b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f636f23b:29f4990e..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-43f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypedScopeCreator in Closure43b
+Analyzing com.google.javascript.jscomp.TypedScopeCreator in Closure43f
+Checking out 64bb2291 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 64bb2291:3e66c9c8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-44b..................................... OK
+Checking out 64bb2291 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 64bb2291:3e66c9c8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-44f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CodeConsumer in Closure44b
+Analyzing com.google.javascript.jscomp.CodeConsumer in Closure44f
+Checking out 6aa71f11 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6aa71f11:a55420ec..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-45b..................................... OK
+Checking out 6aa71f11 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 6aa71f11:a55420ec..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-45f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.RemoveUnusedVars in Closure45b
+Analyzing com.google.javascript.jscomp.RemoveUnusedVars in Closure45f
+Checking out 4a1a31c6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4a1a31c6:edb6e4c4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-46b..................................... OK
+Checking out 4a1a31c6 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4a1a31c6:edb6e4c4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-46f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.rhino.jstype.RecordType in Closure46b
+Analyzing com.google.javascript.rhino.jstype.RecordType in Closure46f
+Checking out aedce359 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff aedce359:c5d7b308..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-47b..................................... OK
+Checking out aedce359 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff aedce359:c5d7b308..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-47f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.debugging.sourcemap.SourceMapConsumerV3 in Closure47b
+Analyzing com.google.debugging.sourcemap.SourceMapConsumerV3 in Closure47f
+Analyzing com.google.javascript.jscomp.SourceMap in Closure47b
+Analyzing com.google.javascript.jscomp.SourceMap in Closure47f
+Checking out 46da17d5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 46da17d5:5524adbd..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-48b..................................... OK
+Checking out 46da17d5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 46da17d5:5524adbd..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-48f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypedScopeCreator in Closure48b
+Analyzing com.google.javascript.jscomp.TypedScopeCreator in Closure48f
+Checking out 1a7ba5cb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1a7ba5cb:62581c69..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-49b..................................... OK
+Checking out 1a7ba5cb to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1a7ba5cb:62581c69..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-49f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.MakeDeclaredNamesUnique in Closure49b
+Analyzing com.google.javascript.jscomp.MakeDeclaredNamesUnique in Closure49f
+Checking out c3b630fc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c3b630fc:9d3ed3fb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-50b..................................... OK
+Checking out c3b630fc to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff c3b630fc:9d3ed3fb..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-50f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.PeepholeReplaceKnownMethods in Closure50b
+Analyzing com.google.javascript.jscomp.PeepholeReplaceKnownMethods in Closure50f
+Checking out a02241e5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a02241e5:44c2d711..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-51b..................................... OK
+Checking out a02241e5 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a02241e5:44c2d711..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-51f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CodeConsumer in Closure51b
+Analyzing com.google.javascript.jscomp.CodeConsumer in Closure51f
+Checking out 5909c3db to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5909c3db:d7907296..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-52b..................................... OK
+Checking out 5909c3db to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 5909c3db:d7907296..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-52f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CodeGenerator in Closure52b
+Analyzing com.google.javascript.jscomp.CodeGenerator in Closure52f
+Checking out 9959716b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9959716b:4adf024b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-53b..................................... OK
+Checking out 9959716b to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9959716b:4adf024b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-53f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.InlineObjectLiterals in Closure53b
+Analyzing com.google.javascript.jscomp.InlineObjectLiterals in Closure53f
+Checking out 7e9b8336 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7e9b8336:fc307189..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-54b..................................... OK
+Checking out 7e9b8336 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 7e9b8336:fc307189..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-54f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.TypedScopeCreator in Closure54b
+Analyzing com.google.javascript.jscomp.TypedScopeCreator in Closure54f
+Analyzing com.google.javascript.rhino.jstype.FunctionType in Closure54b
+Analyzing com.google.javascript.rhino.jstype.FunctionType in Closure54f
+Checking out f2c0cb1f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f2c0cb1f:1d13eac7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-55b..................................... OK
+Checking out f2c0cb1f to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f2c0cb1f:1d13eac7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-55f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.FunctionRewriter in Closure55b
+Analyzing com.google.javascript.jscomp.FunctionRewriter in Closure55f
+Checking out 9e921fa9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9e921fa9:f791e3a7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-56b..................................... OK
+Checking out 9e921fa9 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9e921fa9:f791e3a7..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-56f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.SourceFile in Closure56b
+Analyzing com.google.javascript.jscomp.SourceFile in Closure56f
+Checking out f759f431 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f759f431:2d3b9a6c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-57b..................................... OK
+Checking out f759f431 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f759f431:2d3b9a6c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-57f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.ClosureCodingConvention in Closure57b
+Analyzing com.google.javascript.jscomp.ClosureCodingConvention in Closure57f
+Checking out f640b5de to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f640b5de:7876ab2f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-58b..................................... OK
+Checking out f640b5de to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f640b5de:7876ab2f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-58f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.LiveVariablesAnalysis in Closure58b
+Analyzing com.google.javascript.jscomp.LiveVariablesAnalysis in Closure58f
+Checking out 49b4ef31 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 49b4ef31:5331b915..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-59b..................................... OK
+Checking out 49b4ef31 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 49b4ef31:5331b915..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-59f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.Compiler in Closure59b
+Analyzing com.google.javascript.jscomp.Compiler in Closure59f
+Checking out fbaadc73 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fbaadc73:042b972a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-60b..................................... OK
+Checking out fbaadc73 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fbaadc73:042b972a..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-60f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.NodeUtil in Closure60b
+Analyzing com.google.javascript.jscomp.NodeUtil in Closure60f
+Checking out 34e4616a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 34e4616a:bac71221..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-61b..................................... OK
+Checking out 34e4616a to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 34e4616a:bac71221..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-61f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.NodeUtil in Closure61b
+Analyzing com.google.javascript.jscomp.NodeUtil in Closure61f
+Checking out b12d1d64 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b12d1d64:1e070472..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-62b..................................... OK
+Checking out b12d1d64 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff b12d1d64:1e070472..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-62f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.LightweightMessageFormatter in Closure62b
+Analyzing com.google.javascript.jscomp.LightweightMessageFormatter in Closure62f
+Version id does not exist: 63f! at /home/zhenyud/defects4j/framework/core/Vcs.pm line 177.
+Compilation failed in require at /home/zhenyud/defects4j/framework/bin/defects4j line 155.
+Version id does not exist: 63f! at /home/zhenyud/defects4j/framework/core/Vcs.pm line 177.
+Compilation failed in require at /home/zhenyud/defects4j/framework/bin/defects4j line 155.
+./find-patch-dependencies-d4j.sh: line 112: cd: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/d4j/Closure63b: No such file or directory
+Cannot open config file (/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/.defects4j.config): No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts is not a valid working directory!
+usage: defects4j export -p property_name [-o output_file] [-w work_dir]
+
+Properties:
+  classes.modified  Classes modified by the bug fix
+  classes.relevant  Classes loaded by the triggering tests
+  cp.compile        Classpath to compile the project
+  cp.test           Classpath to compile and run the developer-written tests
+  dir.bin.classes   Target directory of classes
+  dir.bin.tests     Target directory of test classes
+  dir.src.classes   Source directory of classes
+  dir.src.tests     Source directory of tests
+  tests.all         List of all developer-written tests
+  tests.relevant    Relevant tests that touch at least one of the modified sources
+  tests.trigger     Trigger tests that expose the bug
+./find-patch-dependencies-d4j.sh: line 114: cd: /home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/d4j/Closure63f: No such file or directory
+Cannot open config file (/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts/.defects4j.config): No such file or directory
+/home/zhenyud/MultiEdit_Experiments/DependencyAnalyzer/bugset-scripts is not a valid working directory!
+usage: defects4j export -p property_name [-o output_file] [-w work_dir]
+
+Properties:
+  classes.modified  Classes modified by the bug fix
+  classes.relevant  Classes loaded by the triggering tests
+  cp.compile        Classpath to compile the project
+  cp.test           Classpath to compile and run the developer-written tests
+  dir.bin.classes   Target directory of classes
+  dir.bin.tests     Target directory of test classes
+  dir.src.classes   Source directory of classes
+  dir.src.tests     Source directory of tests
+  tests.all         List of all developer-written tests
+  tests.relevant    Relevant tests that touch at least one of the modified sources
+  tests.trigger     Trigger tests that expose the bug
+usage: get-changed-lines.py [-h] buggy fixed src
+get-changed-lines.py: error: the following arguments are required: src
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/d4j/Closure63b’: No such file or directory
+find: ‘/home/zhenyud/MultiEdit_Experiments/data/dependency-experiments/d4j/Closure63f’: No such file or directory
+Checking out de726510 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de726510:620fc21f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-64b..................................... OK
+Checking out de726510 to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de726510:620fc21f..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-64f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.Compiler in Closure64b
+Analyzing com.google.javascript.jscomp.Compiler in Closure64f
+Checking out 48aea0ff to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 48aea0ff:9465f913..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-65b..................................... OK
+Checking out 48aea0ff to /home/zhenyud/MultiEdit_Experiments/data/dependenc OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 48aea0ff:9465f913..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-65f..................................... OK
+Running ant (export.dir.src.classes)....................................... OK
+
+Running ant (export.dir.src.classes)....................................... OK
+
+Analyzing com.google.javascript.jscomp.CodeGenerator in Closure65b
+Analyzing com.google.javascript.jscomp.CodeGenerator in Closure65f
