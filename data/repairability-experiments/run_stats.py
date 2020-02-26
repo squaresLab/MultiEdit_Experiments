@@ -1,5 +1,13 @@
 import json
 import csv
+from scipy import stats
+
+DEPENDENCY_TUPLE_INDEX_CTRL=0
+DEPENDENCY_TUPLE_INDEX_FLOW=1
+DEPENDENCY_TUPLE_INDEX_ANTI=2
+DEPENDENCY_TUPLE_INDEX_OUTPUT=3
+DEPENDENCY_TUPLE_INDEX_DATA=4
+DEPENDENCY_TUPLE_INDEX_ANY=5
 
 bears_single_module_bugs = list(range(1,141+1)) + [143,184,185,188,189,194,198, \
     201,202,204,207,209,210,213,215,216,217,218,219,220,221,223,224,225,226,230, \
@@ -172,8 +180,42 @@ def partition_bugs_by_dependency(bugs_to_partition, dependencies, dependency_tup
     nondependent_partition = bugs_to_partition_set - all_dependent_bugs
     return dependent_partition, nondependent_partition
 
+def run_chi2(dependent_bugs, nondependent_bugs, repairable_bugs, nonrepairable_bugs, message):
+    contingency_table = [[len(dependent_bugs & repairable_bugs), len(nondependent_bugs & repairable_bugs)],
+                         [len(dependent_bugs & nonrepairable_bugs), len(nondependent_bugs & nonrepairable_bugs)]]
+
+    chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
+    print(message)
+    print('\t p-value: {}\tchi^2: {}\tdf: {}'.format(pval, chi2, df))
+
+def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs):
+    ctrl_dependent_d4j, ctrl_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_CTRL)
+    data_dependent_d4j, data_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_DATA)
+    any_dependent_d4j, any_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_ANY)
+    repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_edit_bugs_d4j, tool_to_repaired_bugs)
+
+    run_chi2(ctrl_dependent_d4j, ctrl_nondependent_d4j, repairable_d4j, nonrepairable_d4j, \
+    "D4J: Chi-squared between control dependency and repairability")
+    run_chi2(data_dependent_d4j, data_nondependent_d4j, repairable_d4j, nonrepairable_d4j, \
+    "D4J: Chi-squared between data dependency and repairability")
+    run_chi2(any_dependent_d4j, any_nondependent_d4j, repairable_d4j, nonrepairable_d4j, \
+    "D4J: Chi-squared between control|data dependency and repairability")
+
+    ctrl_dependent_bears, ctrl_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_CTRL)
+    data_dependent_bears, data_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_DATA)
+    any_dependent_bears, any_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_ANY)
+    repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
+
+    run_chi2(ctrl_dependent_bears, ctrl_nondependent_bears, repairable_bears, nonrepairable_bears, \
+    "Bears: Chi-squared between control dependency and repairability")
+    run_chi2(data_dependent_bears, data_nondependent_bears, repairable_bears, nonrepairable_bears, \
+    "Bears: Chi-squared between data dependency and repairability")
+    run_chi2(any_dependent_bears, any_nondependent_bears, repairable_bears, nonrepairable_bears, \
+    "Bears: Chi-squared between control|data dependency and repairability")
+
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
     dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
     tool_to_repaired_bugs = get_tool_to_repaired_bugs()
     print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
+    test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
