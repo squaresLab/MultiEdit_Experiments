@@ -31,9 +31,38 @@ def get_dependencies():
 
     return dependencies
 
+def get_repairs_bears():
+    repairs = dict() #maps tool -> bugIds of bugs repaired by the tool
+
+    with open('repair-them-all/Bears.csv') as f:
+        reader=csv.reader(f)
+        for row in reader:
+            tool = row[0]
+            bugnums = row[1:] #may be empty
+            bugIds = ['Bears-{}'.format(bugnum) for bugnum in bugnums]
+            repairs[tool] = bugIds
+
+    return repairs
+
+def get_repairs_d4j():
+    repairs = dict() #maps tool -> bugIds of bugs repaired by the tool
+
+    with open('repair-them-all/defects4j.csv') as f:
+        reader=csv.reader(f)
+        for row in reader:
+            tool = row[0]
+            proj = row[1]
+            bugnums = row[2:] #may be empty
+            bugIds = ['{}{}'.format(proj, bugnum) for bugnum in bugnums]
+
+            if tool not in repairs:
+                repairs[tool] = list()
+
+            repairs[tool] += bugIds
+
+    return repairs
+
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
     dependencies = get_dependencies() #maps bugId -> 6-Tuple info on dependencies
-    print(multi_edit_bugs_bears)
-
-#todo: get info on which bugs are repairable by which techniques
+    repairs_bears, repairs_d4j = get_repairs_bears(), get_repairs_d4j()
