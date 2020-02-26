@@ -26,7 +26,7 @@ def get_dependencies():
         dependencies_reader=csv.reader(f)
         for row in dependencies_reader:
             bugId = row[0]
-            dependency_info = row[1:]
+            dependency_info = [True if v == 'True' else False for v in row[1:]]
             dependencies[bugId] = dependency_info
 
     return dependencies
@@ -62,7 +62,28 @@ def get_repairs_d4j():
 
     return repairs
 
+def percent(n_part, n_whole):
+    p = 100 * n_part/n_whole
+    return "{}%".format(p)
+
+def print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies):
+    n_total_bugs_d4j = 395
+    n_single_edit_bugs_d4j = n_total_bugs_d4j - len(multi_edit_bugs_d4j)
+    n_bugs_with_ctrl_deps = sum(1 for bug in multi_edit_bugs_d4j if bug in dependencies and dependencies[bug][0])
+    n_bugs_with_data_deps = sum(1 for bug in multi_edit_bugs_d4j if bug in dependencies and dependencies[bug][4])
+    n_bugs_with_any_deps = sum(1 for bug in multi_edit_bugs_d4j if bug in dependencies and dependencies[bug][5])
+    n_bugs_with_no_deps = len(multi_edit_bugs_d4j) - n_bugs_with_any_deps
+
+    print("Defects4J:")
+    print("Total analyzed bugs: {} ({})".format(n_total_bugs_d4j, percent(n_total_bugs_d4j, n_total_bugs_d4j)))
+    print("Single edit bugs: {} ({})".format(n_single_edit_bugs_d4j, percent(n_single_edit_bugs_d4j, n_total_bugs_d4j)))
+    print("Multi edit bugs with control deps: {} ({})".format(n_bugs_with_ctrl_deps, percent(n_bugs_with_ctrl_deps, n_total_bugs_d4j)))
+    print("Multi edit bugs with data deps: {} ({})".format(n_bugs_with_data_deps, percent(n_bugs_with_data_deps, n_total_bugs_d4j)))
+    print("Multi edit bugs with any deps: {} ({})".format(n_bugs_with_any_deps, percent(n_bugs_with_any_deps, n_total_bugs_d4j)))
+    print("Multi edit bugs with no deps: {} ({})".format(n_bugs_with_no_deps, percent(n_bugs_with_no_deps, n_total_bugs_d4j)))
+
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
-    dependencies = get_dependencies() #maps bugId -> 6-Tuple info on dependencies
+    dependencies = get_dependencies() #maps bugId -> ()
     repairs_bears, repairs_d4j = get_repairs_bears(), get_repairs_d4j()
+    print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
