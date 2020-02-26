@@ -5,6 +5,8 @@ bears_single_module_bugs = list(range(1,141+1)) + [143,184,185,188,189,194,198, 
     201,202,204,207,209,210,213,215,216,217,218,219,220,221,223,224,225,226,230, \
     231,232,234,235,238,239,243,244,245,246,247,249,250,251]
 
+bears_falsely_multiedit_bugs=[49,53,76,133]
+
 def get_multi_edit_bugs():
     global bears_single_module_bugs
 
@@ -19,7 +21,8 @@ def get_multi_edit_bugs():
         lines_edited = sum(len(edits) for edits in patch.values())
         if lines_edited > 1:
             if bugId[:5] == 'Bears':
-                if int(bugId[6:]) in bears_single_module_bugs:
+                bugnum = int(bugId[6:])
+                if bugnum in bears_single_module_bugs and bugnum not in bears_falsely_multiedit_bugs:
                     multi_edit_bugs_bears.append(bugId)
             else:
                 multi_edit_bugs_d4j.append(bugId)
@@ -80,14 +83,21 @@ def print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependenc
     n_bugs_with_data_deps_d4j = sum(1 for bug in multi_edit_bugs_d4j if bug in dependencies and dependencies[bug][4])
     n_bugs_with_any_deps_d4j = sum(1 for bug in multi_edit_bugs_d4j if bug in dependencies and dependencies[bug][5])
     n_bugs_with_no_deps_d4j = len(multi_edit_bugs_d4j) - n_bugs_with_any_deps_d4j
+    p_total_bugs_d4j = percent(n_total_bugs_d4j, n_total_bugs_d4j)
+    p_single_edit_bugs_d4j = percent(n_single_edit_bugs_d4j, n_total_bugs_d4j)
+    p_bugs_with_ctrl_deps_d4j = percent(n_bugs_with_ctrl_deps_d4j, n_total_bugs_d4j)
+    p_bugs_with_data_deps_d4j = percent(n_bugs_with_data_deps_d4j, n_total_bugs_d4j)
+    p_bugs_with_any_deps_d4j = percent(n_bugs_with_any_deps_d4j, n_total_bugs_d4j)
+    p_bugs_with_no_deps_d4j = percent(n_bugs_with_no_deps_d4j, n_total_bugs_d4j)
 
     print("Defects4J:")
-    print("Total analyzed bugs: {} ({})".format(n_total_bugs_d4j, percent(n_total_bugs_d4j, n_total_bugs_d4j)))
-    print("Single edit bugs: {} ({})".format(n_single_edit_bugs_d4j, percent(n_single_edit_bugs_d4j, n_total_bugs_d4j)))
-    print("Multi edit bugs with control deps: {} ({})".format(n_bugs_with_ctrl_deps_d4j, percent(n_bugs_with_ctrl_deps_d4j, n_total_bugs_d4j)))
-    print("Multi edit bugs with data deps: {} ({})".format(n_bugs_with_data_deps_d4j, percent(n_bugs_with_data_deps_d4j, n_total_bugs_d4j)))
-    print("Multi edit bugs with any deps: {} ({})".format(n_bugs_with_any_deps_d4j, percent(n_bugs_with_any_deps_d4j, n_total_bugs_d4j)))
-    print("Multi edit bugs with no deps: {} ({})".format(n_bugs_with_no_deps_d4j, percent(n_bugs_with_no_deps_d4j, n_total_bugs_d4j)))
+    print("Total analyzed bugs: {} ({})".format(n_total_bugs_d4j, p_total_bugs_d4j))
+    print("Single edit bugs: {} ({})".format(n_single_edit_bugs_d4j, p_single_edit_bugs_d4j))
+    print("Multi edit bugs with control deps: {} ({})".format(n_bugs_with_ctrl_deps_d4j, p_bugs_with_ctrl_deps_d4j))
+    print("Multi edit bugs with data deps: {} ({})".format(n_bugs_with_data_deps_d4j, p_bugs_with_data_deps_d4j))
+    print("Multi edit bugs with any deps: {} ({})".format(n_bugs_with_any_deps_d4j, p_bugs_with_any_deps_d4j))
+    print("Multi edit bugs with no deps: {} ({})".format(n_bugs_with_no_deps_d4j, p_bugs_with_no_deps_d4j))
+    print()
 
     n_total_bugs_bears = 181 #184 single modules - 3 cassandra-reaper bugs that used a multi-module design
     n_single_edit_bugs_bears = n_total_bugs_bears - len(multi_edit_bugs_bears)
@@ -95,14 +105,43 @@ def print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependenc
     n_bugs_with_data_deps_bears = sum(1 for bug in multi_edit_bugs_bears if bug in dependencies and dependencies[bug][4])
     n_bugs_with_any_deps_bears = sum(1 for bug in multi_edit_bugs_bears if bug in dependencies and dependencies[bug][5])
     n_bugs_with_no_deps_bears = len(multi_edit_bugs_bears) - n_bugs_with_any_deps_bears
+    p_total_bugs_bears = percent(n_total_bugs_bears, n_total_bugs_bears)
+    p_single_edit_bugs_bears = percent(n_single_edit_bugs_bears, n_total_bugs_bears)
+    p_bugs_with_ctrl_deps_bears = percent(n_bugs_with_ctrl_deps_bears, n_total_bugs_bears)
+    p_bugs_with_data_deps_bears = percent(n_bugs_with_data_deps_bears, n_total_bugs_bears)
+    p_bugs_with_any_deps_bears = percent(n_bugs_with_any_deps_bears, n_total_bugs_bears)
+    p_bugs_with_no_deps_bears = percent(n_bugs_with_no_deps_bears, n_total_bugs_bears)
 
     print("Bears:")
-    print("Total analyzed bugs: {} ({})".format(n_total_bugs_bears, percent(n_total_bugs_bears, n_total_bugs_bears)))
-    print("Single edit bugs: {} ({})".format(n_single_edit_bugs_bears, percent(n_single_edit_bugs_bears, n_total_bugs_bears)))
-    print("Multi edit bugs with control deps: {} ({})".format(n_bugs_with_ctrl_deps_bears, percent(n_bugs_with_ctrl_deps_bears, n_total_bugs_bears)))
-    print("Multi edit bugs with data deps: {} ({})".format(n_bugs_with_data_deps_bears, percent(n_bugs_with_data_deps_bears, n_total_bugs_bears)))
-    print("Multi edit bugs with any deps: {} ({})".format(n_bugs_with_any_deps_bears, percent(n_bugs_with_any_deps_bears, n_total_bugs_bears)))
-    print("Multi edit bugs with no deps: {} ({})".format(n_bugs_with_no_deps_bears, percent(n_bugs_with_no_deps_bears, n_total_bugs_bears)))
+    print("Total analyzed bugs: {} ({})".format(n_total_bugs_bears, p_total_bugs_bears))
+    print("Single edit bugs: {} ({})".format(n_single_edit_bugs_bears, p_single_edit_bugs_bears))
+    print("Multi edit bugs with control deps: {} ({})".format(n_bugs_with_ctrl_deps_bears, p_bugs_with_ctrl_deps_bears))
+    print("Multi edit bugs with data deps: {} ({})".format(n_bugs_with_data_deps_bears, p_bugs_with_data_deps_bears))
+    print("Multi edit bugs with any deps: {} ({})".format(n_bugs_with_any_deps_bears, p_bugs_with_any_deps_bears))
+    print("Multi edit bugs with no deps: {} ({})".format(n_bugs_with_no_deps_bears, p_bugs_with_no_deps_bears))
+    print()
+
+    n_total_bugs_combined          = n_total_bugs_d4j          + n_total_bugs_bears
+    n_single_edit_bugs_combined    = n_single_edit_bugs_d4j    + n_single_edit_bugs_bears
+    n_bugs_with_ctrl_deps_combined = n_bugs_with_ctrl_deps_d4j + n_bugs_with_ctrl_deps_bears
+    n_bugs_with_data_deps_combined = n_bugs_with_data_deps_d4j + n_bugs_with_data_deps_bears
+    n_bugs_with_any_deps_combined  = n_bugs_with_any_deps_d4j  + n_bugs_with_any_deps_bears
+    n_bugs_with_no_deps_combined   = n_bugs_with_no_deps_d4j   + n_bugs_with_no_deps_bears
+    p_total_bugs_combined = percent(n_total_bugs_combined, n_total_bugs_combined)
+    p_single_edit_bugs_combined = percent(n_single_edit_bugs_combined, n_total_bugs_combined)
+    p_bugs_with_ctrl_deps_combined = percent(n_bugs_with_ctrl_deps_combined, n_total_bugs_combined)
+    p_bugs_with_data_deps_combined = percent(n_bugs_with_data_deps_combined, n_total_bugs_combined)
+    p_bugs_with_any_deps_combined = percent(n_bugs_with_any_deps_combined, n_total_bugs_combined)
+    p_bugs_with_no_deps_combined = percent(n_bugs_with_no_deps_combined, n_total_bugs_combined)
+
+    print("Combined:")
+    print("Total analyzed bugs: {} ({})".format(n_total_bugs_combined, p_total_bugs_combined))
+    print("Single edit bugs: {} ({})".format(n_single_edit_bugs_combined, p_single_edit_bugs_combined))
+    print("Multi edit bugs with control deps: {} ({})".format(n_bugs_with_ctrl_deps_combined, p_bugs_with_ctrl_deps_combined))
+    print("Multi edit bugs with data deps: {} ({})".format(n_bugs_with_data_deps_combined, p_bugs_with_data_deps_combined))
+    print("Multi edit bugs with any deps: {} ({})".format(n_bugs_with_any_deps_combined, p_bugs_with_any_deps_combined))
+    print("Multi edit bugs with no deps: {} ({})".format(n_bugs_with_no_deps_combined, p_bugs_with_no_deps_combined))
+    print()
 
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
