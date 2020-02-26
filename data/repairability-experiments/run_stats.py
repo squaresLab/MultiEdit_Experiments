@@ -201,7 +201,10 @@ def run_chi2(dependent_bugs, nondependent_bugs, repairable_bugs, nonrepairable_b
 
     chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
     print(message)
-    print('\t p-value: {}\tchi^2: {}\tdf: {}'.format(pval, chi2, df))
+    print('\tdependent\tnondependent')
+    print('repairable\t{}\t{}'.format(contingency_table[0][0], contingency_table[0][1]))
+    print('nonrepairable\t{}\t{}'.format(contingency_table[1][0], contingency_table[1][1]))
+    print('p-value:', pval)
 
 def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs):
     ctrl_dependent_d4j, ctrl_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_CTRL)
