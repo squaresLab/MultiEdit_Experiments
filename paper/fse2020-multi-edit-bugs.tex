@@ -34,7 +34,26 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 %add authors & shortauthors if we are lucky :)
 
 \begin{abstract}
-	Multi-edit bugs are cool.
+  \todo{note that this is probably full of falsehoods, I'm just thinking by
+    typing.} Automatic program repair is a promising approach for reducing the
+    cost of quality assurance practices and faulty software. To date, most
+    techniques proposed for test-driven automatic repair have succeeded
+    primarily on bugs that benefit from short, single-edit patches. Techniques
+    that succeed on multi-edit bugs often do so by patching them in an
+    alternative, single-edit way, or by targeting particular multi-edit bug
+    patterns. Empirical studies of real-world similarly tend to focus on the
+    patterns exhibited by single-edit bugs, and have not examined repairability
+    of multi-edit bugs in detail. We present a comprehensive empirical analysis
+    of multi-edit bugs in open source Java programs, focusing on static and
+    dynamic properties that define the repair search space for a given bug (and
+    thus, in turn, the challenges that apply to automatically addressing them).
+    This analysis focuses on the key challenges of the dynamic program repair
+    problem: the \emph{mutations and fix code} used to repair multi-edit bugs;
+    the \emph{fault locations} and their relationships; and the \emph{objective
+      function}, and in particular how and to what degree test cases can be used
+    (or not) to identify partial repairs. We identify key takeaways and
+    challenges, with implications for future work in expressive, multi-chunk bug
+    repair.
 \end{abstract}
 
 %%
