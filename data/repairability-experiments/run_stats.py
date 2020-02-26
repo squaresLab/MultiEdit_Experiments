@@ -191,8 +191,8 @@ def print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_t
     repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
     num_repairable_bears, num_nonrepairable_bears = len(repairable_bears), len(nonrepairable_bears)
     print("Bears:")
-    print("Bugs repaired by any technique: {}".format(num_repairable_d4j))
-    print("Bugs not repaired by any technique: {}".format(num_nonrepairable_d4j))
+    print("Bugs repaired by any technique: {}".format(num_repairable_bears))
+    print("Bugs not repaired by any technique: {}".format(num_nonrepairable_bears))
     print()
 
 def run_chi2(dependent_bugs, nondependent_bugs, repairable_bugs, nonrepairable_bugs, message):
