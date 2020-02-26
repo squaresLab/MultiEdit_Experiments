@@ -180,6 +180,21 @@ def partition_bugs_by_dependency(bugs_to_partition, dependencies, dependency_tup
     nondependent_partition = bugs_to_partition_set - all_dependent_bugs
     return dependent_partition, nondependent_partition
 
+def print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs):
+    repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_edit_bugs_d4j, tool_to_repaired_bugs)
+    num_repairable_d4j, num_nonrepairable_d4j = len(repairable_d4j), len(nonrepairable_d4j)
+    print("D4J:")
+    print("Bugs repaired by any technique: {}".format(num_repairable_d4j))
+    print("Bugs not repaired by any technique: {}".format(num_nonrepairable_d4j))
+    print()
+
+    repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
+    num_repairable_bears, num_nonrepairable_bears = len(repairable_bears), len(nonrepairable_bears)
+    print("Bears:")
+    print("Bugs repaired by any technique: {}".format(num_repairable_d4j))
+    print("Bugs not repaired by any technique: {}".format(num_nonrepairable_d4j))
+    print()
+
 def run_chi2(dependent_bugs, nondependent_bugs, repairable_bugs, nonrepairable_bugs, message):
     contingency_table = [[len(dependent_bugs & repairable_bugs), len(nondependent_bugs & repairable_bugs)],
                          [len(dependent_bugs & nonrepairable_bugs), len(nondependent_bugs & nonrepairable_bugs)]]
@@ -218,4 +233,5 @@ if __name__=='__main__':
     dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
     tool_to_repaired_bugs = get_tool_to_repaired_bugs()
     print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
+    print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs)
     test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
