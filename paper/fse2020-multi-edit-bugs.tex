@@ -205,12 +205,18 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
 ...(TODO: results of minimized experiment)
 
 \section{Dependency Analysis}
+\subsection{Research Questions}
+RQ1: How many multi-edit patches require multiple edits?
 
+RQ2: Are bugs with dependent edits in the human patch more difficult to automatically repair?
+
+\subsection{Methodology}
 A patch contains dependent edits if there exists control or data dependencies 
 between added, removed, or changed lines in the pre- or post-patch
 source code. For practical reasons, we perform intraprocedural analysis, 
 although we heuristically consider function arguments as reads 
 and invocations of getter and setter methods as reads and writes.
+
 
 \section{Related Work}
 Zhong and Su~\cite{zhong2015} did this and that.
