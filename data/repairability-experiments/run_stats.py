@@ -154,8 +154,26 @@ def print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependenc
     print("Multi edit bugs with no deps: {} ({})".format(n_bugs_with_no_deps_combined, p_bugs_with_no_deps_combined))
     print()
 
+def partition_bugs_by_repairability(bugs_to_partition, tool_to_repaired_bugs):
+    all_repairable_bugs = set()
+    for tool, bugs_repaired_by_tool in tool_to_repaired_bugs.items():
+        all_repairable_bugs |= set(bugs_repaired_by_tool)
+
+    bugs_to_partition_set = set(bugs_to_partition)
+    repairable_paritition = bugs_to_partition_set & all_repairable_bugs
+    unrepairable_partition = bugs_to_partition_set - all_repairable_bugs
+    return repairable_paritition, unrepairable_partition
+
+def partition_bugs_by_dependency(bugs_to_partition, dependencies, dependency_tuple_index):
+    all_dependent_bugs = set(bug for bug in dependencies if dependencies[bug][dependency_tuple_index])
+
+    bugs_to_partition_set = set(bugs_to_partition)
+    dependent_partition = bugs_to_partition_set & all_dependent_bugs
+    nondependent_partition = bugs_to_partition_set - all_dependent_bugs
+    return dependent_partition, nondependent_partition
+
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
-    dependencies = get_dependencies() #maps bugId -> ()
+    dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
     tool_to_repaired_bugs = get_tool_to_repaired_bugs()
     print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
