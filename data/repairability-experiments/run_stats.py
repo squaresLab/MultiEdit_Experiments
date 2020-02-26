@@ -1,7 +1,13 @@
 import json
 import csv
 
+bears_single_module_bugs = list(range(1,141+1)) + [143,184,185,188,189,194,198, \
+    201,202,204,207,209,210,213,215,216,217,218,219,220,221,223,224,225,226,230, \
+    231,232,234,235,238,239,243,244,245,246,247,249,250,251]
+
 def get_multi_edit_bugs():
+    global bears_single_module_bugs
+
     with open('patch_locs.json') as f:
         patch_locs_json = json.load(f)
 
@@ -13,7 +19,8 @@ def get_multi_edit_bugs():
         lines_edited = sum(len(edits) for edits in patch.values())
         if lines_edited > 1:
             if bugId[:5] == 'Bears':
-                multi_edit_bugs_bears.append(bugId)
+                if int(bugId[6:]) in bears_single_module_bugs:
+                    multi_edit_bugs_bears.append(bugId)
             else:
                 multi_edit_bugs_d4j.append(bugId)
 
