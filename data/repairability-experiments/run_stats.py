@@ -72,6 +72,17 @@ def get_repairs_d4j():
 
     return repairs
 
+def get_tool_to_repaired_bugs():
+    repairs_d4j = get_repairs_d4j()
+    repairs_bears = get_repairs_bears()
+    tools = repairs_d4j.keys()
+
+    tools_to_repaired_bugs = dict()
+    for tool in tools:
+        tools_to_repaired_bugs[tool] = repairs_d4j[tool] + repairs_bears[tool]
+
+    return tools_to_repaired_bugs
+
 def percent(n_part, n_whole):
     p = 100 * n_part/n_whole
     return "{}%".format(p)
@@ -146,5 +157,5 @@ def print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependenc
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
     dependencies = get_dependencies() #maps bugId -> ()
-    repairs_bears, repairs_d4j = get_repairs_bears(), get_repairs_d4j()
+    tool_to_repaired_bugs = get_tool_to_repaired_bugs()
     print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
