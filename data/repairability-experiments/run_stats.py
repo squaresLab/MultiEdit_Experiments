@@ -327,11 +327,12 @@ def run_chi2(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
     contingency_table = [[len(r0set & c0set), len(r0set & c1set)],
                          [len(r1set & c0set), len(r1set & c1set)]]
 
-    chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
     print(message)
     print('\t{}\t{}'.format(c0, c1))
     print('{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1]))
     print('{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1]))
+
+    chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
     print('p-value:', pval)
     print()
 
@@ -339,11 +340,12 @@ def run_fisher_exact(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
     contingency_table = [[len(r0set & c0set), len(r0set & c1set)],
                          [len(r1set & c0set), len(r1set & c1set)]]
 
-    oddsratio, pval = stats.fisher_exact(contingency_table)
     print(message)
     print('\t{}\t{}'.format(c0, c1))
     print('{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1]))
     print('{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1]))
+
+    oddsratio, pval = stats.fisher_exact(contingency_table)
     print('p-value:', pval)
     print()
 
@@ -436,6 +438,71 @@ def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears
     print("Number of all in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_all, inbtw_nonrepairable_all))
     print()
 
+def is_table_analyzable(contingency_table):
+    #check all rows for 0s
+    for row in contingency_table:
+        found_nonzero_elem_in_row = False
+        for elem in row:
+            if elem != 0:
+                found_nonzero_elem_in_row = True
+                break
+        if not found_nonzero_elem_in_row:
+            return False
+
+    #check all cols for 0s
+    for colnum in range(len(contingency_table[0])):
+        found_nonzero_elem_in_col = False
+        for rownum in range(len(contingency_table)):
+            elem = contingency_table[rownum][colnum]
+            if elem != 0:
+                found_nonzero_elem_in_col = True
+                break
+        if not found_nonzero_elem_in_col:
+            return False
+
+    #no row or column is full of zeroes
+    return True
+
+def should_use_fisher_exact(contingency_table):
+    for row in contingency_table:
+        for elem in row:
+            if elem < 5:
+                return True
+    return False
+
+def run_contignency_analysis(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
+    contingency_table = [[len(r0set & c0set), len(r0set & c1set)],
+                         [len(r1set & c0set), len(r1set & c1set)]]
+
+    print(message)
+    print('\t{}\t{}'.format(c0, c1))
+    print('{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1]))
+    print('{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1]))
+
+    if not is_table_analyzable(contingency_table):
+        print("Not analyzable")
+        pval = -1
+    elif should_use_fisher_exact(contingency_table):
+        print("Running Fisher's Exact Test")
+        oddsratio, pval = stats.fisher_exact(contingency_table)
+    else:
+        print("Running Chi-squared")
+        chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
+
+    print('p-value:', pval)
+    print()
+
+def test_symptoms_and_repairability(bugs_d4j, bugs_bears, symptoms_to_bugs, grouping_name, tool_to_repaired_bugs):
+    bugsets = [(set(bugs_d4j), 'D4J'), (set(bugs_bears), 'Bears'), (set(bugs_d4j + bugs_bears), 'Combined D4J|Bears')]
+    for bugset, bugset_name in bugsets:
+        repairable, nonrepairable = partition_bugs_by_repairability(bugset, tool_to_repaired_bugs)
+        for symptom in symptoms_to_bugs.keys():
+            symptomatic = bugset & symptoms_to_bugs[symptom]
+            asymptomatic = bugset - symptomatic
+            run_contignency_analysis(repairable, nonrepairable, symptomatic, asymptomatic, \
+            "{} on grouping {}: Symptom <{}> and repairability".format(bugset_name, grouping_name, symptom), \
+            'repairable', 'nonrepairable', 'symptomatic', 'asymptomatic')
+
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #lists of multi-edit bugs
     multi_chunk_bugs_d4j, multi_chunk_bugs_bears = get_multi_chunk_bugs()
@@ -445,7 +512,10 @@ if __name__=='__main__':
     symptoms_to_bugs_aonly = get_symptoms('asserts_only')
     symptoms_to_bugs_g1 = get_symptoms('grouping1')
     symptoms_to_bugs_g2 = get_symptoms('grouping2')
-    print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
-    print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs)
-    test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
-    test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)
+    #print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
+    #print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs)
+    #test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
+    #test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)
+    #test_symptoms_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, symptoms_to_bugs_aonly, 'asserts_only', tool_to_repaired_bugs)
+    #test_symptoms_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, symptoms_to_bugs_g1, 'grouping1', tool_to_repaired_bugs)
+    #test_symptoms_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, symptoms_to_bugs_g2, 'grouping2', tool_to_repaired_bugs)
