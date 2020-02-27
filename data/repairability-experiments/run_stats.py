@@ -239,6 +239,19 @@ def run_chi2(dependent_bugs, nondependent_bugs, repairable_bugs, nonrepairable_b
     print('repairable\t{}\t{}'.format(contingency_table[0][0], contingency_table[0][1]))
     print('nonrepairable\t{}\t{}'.format(contingency_table[1][0], contingency_table[1][1]))
     print('p-value:', pval)
+    print()
+
+def run_fisher_exact(dependent_bugs, nondependent_bugs, repairable_bugs, nonrepairable_bugs, message):
+    contingency_table = [[len(dependent_bugs & repairable_bugs), len(nondependent_bugs & repairable_bugs)],
+                         [len(dependent_bugs & nonrepairable_bugs), len(nondependent_bugs & nonrepairable_bugs)]]
+
+    oddsratio, pval = stats.fisher_exact(contingency_table)
+    print(message)
+    print('\tdependent\tnondependent')
+    print('repairable\t{}\t{}'.format(contingency_table[0][0], contingency_table[0][1]))
+    print('nonrepairable\t{}\t{}'.format(contingency_table[1][0], contingency_table[1][1]))
+    print('p-value:', pval)
+    print()
 
 def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs):
     ctrl_dependent_d4j, ctrl_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_CTRL)
@@ -258,12 +271,12 @@ def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears
     any_dependent_bears, any_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_ANY)
     repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
 
-    run_chi2(ctrl_dependent_bears, ctrl_nondependent_bears, repairable_bears, nonrepairable_bears, \
-    "Bears: Chi-squared between control dependency and repairability")
-    run_chi2(data_dependent_bears, data_nondependent_bears, repairable_bears, nonrepairable_bears, \
-    "Bears: Chi-squared between data dependency and repairability")
-    run_chi2(any_dependent_bears, any_nondependent_bears, repairable_bears, nonrepairable_bears, \
-    "Bears: Chi-squared between control|data dependency and repairability")
+    run_fisher_exact(ctrl_dependent_bears, ctrl_nondependent_bears, repairable_bears, nonrepairable_bears, \
+    "Bears: Fisher's Exact Test between control dependency and repairability")
+    run_fisher_exact(data_dependent_bears, data_nondependent_bears, repairable_bears, nonrepairable_bears, \
+    "Bears: Fisher's Exact Test between data dependency and repairability")
+    run_fisher_exact(any_dependent_bears, any_nondependent_bears, repairable_bears, nonrepairable_bears, \
+    "Bears: Fisher's Exact Test between control|data dependency and repairability")
 
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
