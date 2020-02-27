@@ -69,6 +69,24 @@ repairable	9	7
 nonrepairable	86	48
 p-value: 0.5879584484465213
 
+Combined D4J|Bears: Chi-squared between control dependency and repairability
+	dependent	nondependent
+repairable	41	108
+nonrepairable	165	139
+p-value: 1.3398517049404377e-07
+
+Combined D4J|Bears: Chi-squared between data dependency and repairability
+	dependent	nondependent
+repairable	27	122
+nonrepairable	114	190
+p-value: 4.5558096773866576e-05
+
+Combined D4J|Bears: Chi-squared between control|data dependency and repairability
+	dependent	nondependent
+repairable	48	101
+nonrepairable	179	125
+p-value: 1.6665835613909147e-07
+
 D4J: Chi-squared between disjoint coverage and repairability
 	disjoint	nondisjoint
 repairable	13	120
@@ -92,4 +110,16 @@ Bears: Fisher's Exact Test between same coverage and repairability
 repairable	8	4
 nonrepairable	101	52
 p-value: 1.0
+
+Combined D4J|Bears: Chi-squared between disjoint coverage and repairability
+	disjoint	nondisjoint
+repairable	15	128
+nonrepairable	83	235
+p-value: 0.0002457895066666852
+
+Combined D4J|Bears: Chi-squared between same coverage and repairability
+	same	nonsame
+repairable	115	30
+nonrepairable	217	105
+p-value: 0.01178208850938585
 

@@ -341,6 +341,21 @@ def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears
     "Bears: Fisher's Exact Test between control|data dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
+    ctrl_dependent_all, ctrl_nondependent_all = ctrl_dependent_d4j | ctrl_dependent_bears, ctrl_nondependent_d4j | ctrl_nondependent_bears
+    data_dependent_all, data_nondependent_all = data_dependent_d4j | data_dependent_bears, data_nondependent_d4j | data_nondependent_bears
+    any_dependent_all, any_nondependent_all = any_dependent_d4j | any_dependent_bears, any_nondependent_d4j | any_nondependent_bears
+    repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
+
+    run_chi2(repairable_all, nonrepairable_all, ctrl_dependent_all, ctrl_nondependent_all, \
+    "Combined D4J|Bears: Chi-squared between control dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+    run_chi2(repairable_all, nonrepairable_all, data_dependent_all, data_nondependent_all, \
+    "Combined D4J|Bears: Chi-squared between data dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+    run_chi2(repairable_all, nonrepairable_all, any_dependent_all, any_nondependent_all, \
+    "Combined D4J|Bears: Chi-squared between control|data dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+
 def test_coverage_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs):
     disj_d4j, inbtw_d4j, same_d4j = [partition & set(multi_edit_bugs_d4j) for partition in coverage_partitions_d4j]
     ndisj_d4j = inbtw_d4j | same_d4j
@@ -362,6 +377,17 @@ def test_coverage_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, 
     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
     run_fisher_exact(repairable_bears, nonrepairable_bears, same_bears, nsame_bears, \
     "Bears: Fisher's Exact Test between same coverage and repairability", \
+    'repairable', 'nonrepairable', 'same', 'nonsame')
+
+    disj_all, same_all = disj_d4j | disj_bears, same_d4j | same_bears
+    ndisj_all = ndisj_d4j | ndisj_bears
+    nsame_all = nsame_d4j | nsame_bears
+    repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
+    run_chi2(repairable_all, nonrepairable_all, disj_all, ndisj_all, \
+    "Combined D4J|Bears: Chi-squared between disjoint coverage and repairability", \
+    'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
+    run_chi2(repairable_all, nonrepairable_all, same_all, nsame_all, \
+    "Combined D4J|Bears: Chi-squared between same coverage and repairability", \
     'repairable', 'nonrepairable', 'same', 'nonsame')
 
 if __name__=='__main__':
