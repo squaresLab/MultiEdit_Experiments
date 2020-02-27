@@ -240,6 +240,25 @@ and invocations of getter and setter methods as reads and writes.
 	\label{tab:multi-edit-dependency-frequencies}
 \end{table}
 
+\begin{table}
+{\begin{center}
+	\begin{tabular}{l | rrrr | r}
+            	\toprule
+            	& Control & Data & Either & Neither & Total \\
+            	\midrule
+            	Auto-repaired & 34 & 21 & 39 & 94 & 133 \\
+            	Not Auto-repaired & 89 & 57 & 93 & 77 & 170 \\
+            	\midrule
+            	Total & 123 & 78 & 132 & 171 & 303 \\
+            	\bottomrule
+	\end{tabular}
+ \end{center}
+}
+	\caption{Frequency of Defects4J multi-edit patches with respect to the presence of 
+	control/data dependent line edits and whether an APR technique successfully 
+	repaired the bug in~\cite{durieux-repair-them-all}.}
+\end{table}
+
 \section{Related Work}
 Zhong and Su~\cite{zhong2015} did this and that.
 
