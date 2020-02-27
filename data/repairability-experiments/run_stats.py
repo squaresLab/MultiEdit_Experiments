@@ -37,6 +37,36 @@ def get_multi_edit_bugs():
 
     return multi_edit_bugs_d4j, multi_edit_bugs_bears
 
+def get_bugId_from_Serenas_data_line_d4j(coverage_line):
+    coverage_line_stripped = coverage_line.strip()
+    proj_raw, num_raw = coverage_line_stripped.split(':')
+    proj = proj_raw[0] + proj_raw[1:].lower()
+    num = str(int(num_raw))
+    bugId = proj + num
+    return bugId
+
+def get_bugId_from_Serenas_data_line_bears(coverage_line):
+    coverage_line_stripped = coverage_line.strip()
+    branch, bugnum_raw = coverage_line.split(':')
+    bugnum = int(bugnum_raw)
+    bugId = 'Bears-{}'.format(bugnum)
+    return bugId
+
+def get_multi_chunk_bugs():
+    multi_chunk_bugs_d4j = list()
+    with open('multi-chunk-bugs/multi_chunk_d4j.data') as f:
+        for line in f:
+            bugId = get_bugId_from_Serenas_data_line_d4j(line)
+            multi_chunk_bugs_d4j.append(bugId)
+
+    multi_chunk_bugs_bears = list()
+    with open('multi-chunk-bugs/multi_chunk_bears.data') as f:
+        for line in f:
+            bugId = get_bugId_from_Serenas_data_line_bears(line)
+            multi_chunk_bugs_bears.append(bugId)
+
+    return multi_chunk_bugs_d4j, multi_chunk_bugs_bears
+
 def get_dependencies():
     dependencies = dict() #maps bugId -> 6-Tuple info on dependencies
 
@@ -91,59 +121,44 @@ def get_tool_to_repaired_bugs():
 
     return tools_to_repaired_bugs
 
-def get_bugId_from_coverage_data_line_d4j(coverage_line):
-    coverage_line_stripped = coverage_line.strip()
-    proj_raw, num_raw = coverage_line_stripped.split(':')
-    proj = proj_raw[0] + proj_raw[1:].lower()
-    num = str(int(num_raw))
-    bugId = proj + num
-    return bugId
-
 def get_coverage_d4j():
     disjoint = set()
     with open('coverage/d4j/disjoint.data') as f:
         for line in f:
-            bugId = get_bugId_from_coverage_data_line_d4j(line)
+            bugId = get_bugId_from_Serenas_data_line_d4j(line)
             disjoint.add(bugId)
 
     inBetween = set()
     with open('coverage/d4j/inBetween.data') as f:
         for line in f:
-            bugId = get_bugId_from_coverage_data_line_d4j(line)
+            bugId = get_bugId_from_Serenas_data_line_d4j(line)
             inBetween.add(bugId)
 
     same = set()
     with open('coverage/d4j/same.data') as f:
         for line in f:
-            bugId = get_bugId_from_coverage_data_line_d4j(line)
+            bugId = get_bugId_from_Serenas_data_line_d4j(line)
             same.add(bugId)
 
     return disjoint, inBetween, same
-
-def get_bugId_from_coverage_data_line_bears(coverage_line):
-    coverage_line_stripped = coverage_line.strip()
-    branch, bugnum_raw = coverage_line.split(':')
-    bugnum = int(bugnum_raw)
-    bugId = 'Bears-{}'.format(bugnum)
-    return bugId
 
 def get_coverage_bears():
     disjoint = set()
     with open('coverage/d4j/disjoint.data') as f:
         for line in f:
-            bugId = get_bugId_from_coverage_data_line_bears(line)
+            bugId = get_bugId_from_Serenas_data_line_bears(line)
             disjoint.add(bugId)
 
     inBetween = set()
     with open('coverage/d4j/inBetween.data') as f:
         for line in f:
-            bugId = get_bugId_from_coverage_data_line_bears(line)
+            bugId = get_bugId_from_Serenas_data_line_bears(line)
             inBetween.add(bugId)
 
     same = set()
     with open('coverage/d4j/same.data') as f:
         for line in f:
-            bugId = get_bugId_from_coverage_data_line_bears(line)
+            bugId = get_bugId_from_Serenas_data_line_bears(line)
             same.add(bugId)
 
     return disjoint, inBetween, same
@@ -356,30 +371,36 @@ def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears
     "Combined D4J|Bears: Chi-squared between control|data dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
-def test_coverage_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs):
-    disj_d4j, inbtw_d4j, same_d4j = [partition & set(multi_edit_bugs_d4j) for partition in coverage_partitions_d4j]
+def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs):
+    disj_d4j, inbtw_d4j, same_d4j = [partition & set(multi_chunk_bugs_d4j) for partition in coverage_partitions_d4j]
     ndisj_d4j = inbtw_d4j | same_d4j
     nsame_d4j = disj_d4j | inbtw_d4j
-    repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_edit_bugs_d4j, tool_to_repaired_bugs)
+    repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_chunk_bugs_d4j, tool_to_repaired_bugs)
     run_chi2(repairable_d4j, nonrepairable_d4j, disj_d4j, ndisj_d4j, \
     "D4J: Chi-squared between disjoint coverage and repairability", \
     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
     run_chi2(repairable_d4j, nonrepairable_d4j, same_d4j, nsame_d4j, \
     "D4J: Chi-squared between same coverage and repairability", \
     'repairable', 'nonrepairable', 'same', 'nonsame')
+    inbtw_repairable_d4j, inbtw_nonrepairable_d4j = len(inbtw_d4j & repairable_d4j), len(inbtw_d4j & nonrepairable_d4j)
+    print("Number of D4J in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_d4j, inbtw_nonrepairable_d4j))
+    print()
 
-    disj_bears, inbtw_bears, same_bears = [partition & set(multi_edit_bugs_bears) for partition in coverage_partitions_bears]
+    disj_bears, inbtw_bears, same_bears = [partition & set(multi_chunk_bugs_bears) for partition in coverage_partitions_bears]
     ndisj_bears = inbtw_bears | same_bears
     nsame_bears = disj_bears | inbtw_bears
-    repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
+    repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_chunk_bugs_bears, tool_to_repaired_bugs)
     run_fisher_exact(repairable_bears, nonrepairable_bears, disj_bears, ndisj_bears, \
     "Bears: Fisher's Exact Test between disjoint coverage and repairability", \
     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
     run_fisher_exact(repairable_bears, nonrepairable_bears, same_bears, nsame_bears, \
     "Bears: Fisher's Exact Test between same coverage and repairability", \
     'repairable', 'nonrepairable', 'same', 'nonsame')
+    inbtw_repairable_bears, inbtw_nonrepairable_bears = len(inbtw_bears & repairable_bears), len(inbtw_bears & nonrepairable_bears)
+    print("Number of Bears in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_bears, inbtw_nonrepairable_bears))
+    print()
 
-    disj_all, same_all = disj_d4j | disj_bears, same_d4j | same_bears
+    disj_all, inbtw_all, same_all = disj_d4j | disj_bears, inbtw_d4j | inbtw_bears, same_d4j | same_bears
     ndisj_all = ndisj_d4j | ndisj_bears
     nsame_all = nsame_d4j | nsame_bears
     repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
@@ -389,13 +410,22 @@ def test_coverage_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, 
     run_chi2(repairable_all, nonrepairable_all, same_all, nsame_all, \
     "Combined D4J|Bears: Chi-squared between same coverage and repairability", \
     'repairable', 'nonrepairable', 'same', 'nonsame')
+    inbtw_repairable_all, inbtw_nonrepairable_all = len(inbtw_all & repairable_all), len(inbtw_all & nonrepairable_all)
+    print("Number of all in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_all, inbtw_nonrepairable_all))
+    print()
 
 if __name__=='__main__':
-    multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
+    multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #lists of multi-edit bugs
+    multi_chunk_bugs_d4j, multi_chunk_bugs_bears = get_multi_chunk_bugs()
     dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
     tool_to_repaired_bugs = get_tool_to_repaired_bugs()
     coverage_partitions_d4j, coverage_partitions_bears = get_coverage_d4j(), get_coverage_bears()
     print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
     print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs)
     test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
-    test_coverage_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)
+    test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)
+
+    #medits = set(multi_edit_bugs_d4j)
+    #testset = coverage_partitions_d4j[0] | coverage_partitions_d4j[1] | coverage_partitions_d4j[2]
+    #testset &= medits
+    #print(medits - testset)

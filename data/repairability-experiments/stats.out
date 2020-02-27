@@ -89,37 +89,43 @@ p-value: 1.6665835613909147e-07
 
 D4J: Chi-squared between disjoint coverage and repairability
 	disjoint	nondisjoint
-repairable	13	120
-nonrepairable	38	131
-p-value: 0.005566180243723523
+repairable	7	23
+nonrepairable	16	51
+p-value: 0.8417291445975188
 
 D4J: Chi-squared between same coverage and repairability
 	same	nonsame
-repairable	107	26
-nonrepairable	116	53
-p-value: 0.028759488159196198
+repairable	21	9
+nonrepairable	42	25
+p-value: 0.6401169973010429
+
+Number of D4J in-between bugs: 2 repaired; 9 not repaired
 
 Bears: Fisher's Exact Test between disjoint coverage and repairability
 	disjoint	nondisjoint
-repairable	2	8
-nonrepairable	45	104
-p-value: 0.7244572894675716
+repairable	2	4
+nonrepairable	16	41
+p-value: 1.0
 
 Bears: Fisher's Exact Test between same coverage and repairability
 	same	nonsame
-repairable	8	4
-nonrepairable	101	52
+repairable	4	2
+nonrepairable	41	18
 p-value: 1.0
+
+Number of Bears in-between bugs: 0 repaired; 5 not repaired
 
 Combined D4J|Bears: Chi-squared between disjoint coverage and repairability
 	disjoint	nondisjoint
-repairable	15	128
-nonrepairable	83	235
-p-value: 0.0002457895066666852
+repairable	9	27
+nonrepairable	32	92
+p-value: 0.9050714696498329
 
 Combined D4J|Bears: Chi-squared between same coverage and repairability
 	same	nonsame
-repairable	115	30
-nonrepairable	217	105
-p-value: 0.01178208850938585
+repairable	25	11
+nonrepairable	83	43
+p-value: 0.841131840226228
+
+Number of all in-between bugs: 2 repaired; 14 not repaired
 
