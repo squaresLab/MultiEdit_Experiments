@@ -286,27 +286,27 @@ def print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_t
     print("Bugs not repaired by any technique: {}".format(num_nonrepairable_bears))
     print()
 
-def run_chi2(dependent_bugs, nondependent_bugs, repairable_bugs, nonrepairable_bugs, message):
-    contingency_table = [[len(dependent_bugs & repairable_bugs), len(nondependent_bugs & repairable_bugs)],
-                         [len(dependent_bugs & nonrepairable_bugs), len(nondependent_bugs & nonrepairable_bugs)]]
+def run_chi2(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
+    contingency_table = [[len(r0set & c0set), len(r0set & c1set)],
+                         [len(r1set & c0set), len(r1set & c1set)]]
 
     chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
     print(message)
-    print('\tdependent\tnondependent')
-    print('repairable\t{}\t{}'.format(contingency_table[0][0], contingency_table[0][1]))
-    print('nonrepairable\t{}\t{}'.format(contingency_table[1][0], contingency_table[1][1]))
+    print('\t{}\t{}'.format(c0, c1))
+    print('{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1]))
+    print('{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1]))
     print('p-value:', pval)
     print()
 
-def run_fisher_exact(dependent_bugs, nondependent_bugs, repairable_bugs, nonrepairable_bugs, message):
-    contingency_table = [[len(dependent_bugs & repairable_bugs), len(nondependent_bugs & repairable_bugs)],
-                         [len(dependent_bugs & nonrepairable_bugs), len(nondependent_bugs & nonrepairable_bugs)]]
+def run_fisher_exact(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
+    contingency_table = [[len(r0set & c0set), len(r0set & c1set)],
+                         [len(r1set & c0set), len(r1set & c1set)]]
 
     oddsratio, pval = stats.fisher_exact(contingency_table)
     print(message)
-    print('\tdependent\tnondependent')
-    print('repairable\t{}\t{}'.format(contingency_table[0][0], contingency_table[0][1]))
-    print('nonrepairable\t{}\t{}'.format(contingency_table[1][0], contingency_table[1][1]))
+    print('\t{}\t{}'.format(c0, c1))
+    print('{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1]))
+    print('{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1]))
     print('p-value:', pval)
     print()
 
@@ -316,24 +316,30 @@ def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears
     any_dependent_d4j, any_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_ANY)
     repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_edit_bugs_d4j, tool_to_repaired_bugs)
 
-    run_chi2(ctrl_dependent_d4j, ctrl_nondependent_d4j, repairable_d4j, nonrepairable_d4j, \
-    "D4J: Chi-squared between control dependency and repairability")
-    run_chi2(data_dependent_d4j, data_nondependent_d4j, repairable_d4j, nonrepairable_d4j, \
-    "D4J: Chi-squared between data dependency and repairability")
-    run_chi2(any_dependent_d4j, any_nondependent_d4j, repairable_d4j, nonrepairable_d4j, \
-    "D4J: Chi-squared between control|data dependency and repairability")
+    run_chi2(repairable_d4j, nonrepairable_d4j, ctrl_dependent_d4j, ctrl_nondependent_d4j, \
+    "D4J: Chi-squared between control dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+    run_chi2(repairable_d4j, nonrepairable_d4j, data_dependent_d4j, data_nondependent_d4j, \
+    "D4J: Chi-squared between data dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+    run_chi2(repairable_d4j, nonrepairable_d4j, any_dependent_d4j, any_nondependent_d4j, \
+    "D4J: Chi-squared between control|data dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
     ctrl_dependent_bears, ctrl_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_CTRL)
     data_dependent_bears, data_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_DATA)
     any_dependent_bears, any_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_ANY)
     repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
 
-    run_fisher_exact(ctrl_dependent_bears, ctrl_nondependent_bears, repairable_bears, nonrepairable_bears, \
-    "Bears: Fisher's Exact Test between control dependency and repairability")
-    run_fisher_exact(data_dependent_bears, data_nondependent_bears, repairable_bears, nonrepairable_bears, \
-    "Bears: Fisher's Exact Test between data dependency and repairability")
-    run_fisher_exact(any_dependent_bears, any_nondependent_bears, repairable_bears, nonrepairable_bears, \
-    "Bears: Fisher's Exact Test between control|data dependency and repairability")
+    run_fisher_exact(repairable_bears, nonrepairable_bears, ctrl_dependent_bears, ctrl_nondependent_bears, \
+    "Bears: Fisher's Exact Test between control dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+    run_fisher_exact(repairable_bears, nonrepairable_bears, data_dependent_bears, data_nondependent_bears, \
+    "Bears: Fisher's Exact Test between data dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+    run_fisher_exact(repairable_bears, nonrepairable_bears, any_dependent_bears, any_nondependent_bears, \
+    "Bears: Fisher's Exact Test between control|data dependency and repairability", \
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
