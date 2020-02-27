@@ -163,6 +163,28 @@ def get_coverage_bears():
 
     return disjoint, inBetween, same
 
+def get_symptoms(grouping_method):
+    symptoms_to_bugs = dict() #maps symptom to set of bugIds
+
+    with open('symptoms/{}/symptoms.csv'.format(grouping_method)) as f:
+        reader=csv.reader(f)
+        for row in reader:
+            bugId_raw = row[0] #different format than before, don't use helper functions
+            symptoms = row[1:]
+            project_raw, bugnum_raw = bugId_raw.split(':')
+            bugnum = int(bugnum_raw)
+            if project_raw == 'BEARS':
+                bugId = 'Bears-{}'.format(bugnum)
+            else:
+                bugId = project_raw[0] + project_raw[1:].lower() + str(bugnum)
+
+            for symptom in symptoms:
+                if symptom not in symptoms_to_bugs:
+                    symptoms_to_bugs[symptom] = set()
+                symptoms_to_bugs[symptom].add(bugId)
+
+    return symptoms_to_bugs
+
 def percent(n_part, n_whole):
     p = 100 * n_part/n_whole
     return "{}%".format(p)
@@ -420,12 +442,10 @@ if __name__=='__main__':
     dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
     tool_to_repaired_bugs = get_tool_to_repaired_bugs()
     coverage_partitions_d4j, coverage_partitions_bears = get_coverage_d4j(), get_coverage_bears()
+    symptoms_to_bugs_aonly = get_symptoms('asserts_only')
+    symptoms_to_bugs_g1 = get_symptoms('grouping1')
+    symptoms_to_bugs_g2 = get_symptoms('grouping2')
     print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
     print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs)
     test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
     test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)
-
-    #medits = set(multi_edit_bugs_d4j)
-    #testset = coverage_partitions_d4j[0] | coverage_partitions_d4j[1] | coverage_partitions_d4j[2]
-    #testset &= medits
-    #print(medits - testset)
