@@ -1,0 +1,53 @@
+\section{Coverage}
+
+%% what are the claims, what are we studying, why are we studying it
+
+Do different failing tests in a bug cover different parts of the codebase? How much do they cover the patch locations?
+
+The assumption underlying SBFL is that tests that fail cover buggy/patched portions of the code more than the tests that pass. However, if the tests that fail all cover different portions of the code, then the underlying assumption that makes SBFL work no longer hold.
+
+We also wanted to know how the failing tests related to the fault location. What kinds of patterns of faults can we glean from the test coverage.
+
+For each test that had multiple failing tests and multiple chunks, we ran the failing tests one by one and got coverage information for each test using Jacoco. Then we categorize the bug based on one of three coverage patterns: \textit{disjoint} for bugs who's tests cover distinct parts of a patch, \textit{same} for bugs that cover the exact same parts of the test, and \textit{overlap} for all other bugs.
+
+Between both datasets, there are 59 total bugs that are both multi-chunk and multi-test -- 45 in Defects4J and 14 in Bears.
+
+\todo{following is mostly for my own reference for now}
+\begin{lstlisting}
+Everything:
+Total projects with multiple tests: 194
+Multiple tests disjoint: 53
+Multiple tests same: 92
+Multiple tests inBetween: 49
+Total projects with multiple tests & multiple chunks: 59
+Multitest/multichunk disjoint: 24
+Multitest/multichunk same: 18
+Multitest/multichunk inBetween: 17
+
+Bears:
+Total projects with multiple tests: 50
+Multiple tests disjoint: 7
+Multiple tests same: 22
+Multiple tests inBetween: 21
+Total projects with multiple tests & multiple chunks: 14
+Multitest/multichunk disjoint: 3
+Multitest/multichunk same: 5
+Multitest/multichunk inBetween: 6
+
+D4J:
+Total projects with multiple tests: 144
+Multiple tests disjoint: 46
+Multiple tests same: 70
+Multiple tests inBetween: 28
+Total projects with multiple tests & multiple chunks: 45
+Multitest/multichunk disjoint: 21
+Multitest/multichunk same: 13
+Multitest/multichunk inBetween: 11
+\end{lstlisting}
+
+\todo{Mostly code tasks: mockito, line coverage vs chunk coverage?}
+
+Interestingly, the two datasets have different distributions of patterns.The Defects4J set has a much higher proportion of "disjoint" bugs than "overlap" bugs, while the Bears set has many more "overlap" bugs and comparatively few "disjoint" ones. We hypothesize that this may be due to differences in how the two datasets were minimized, or due to the projects used in the datasets, themselves. \todo{Do we have other hypotheses for why they might be different? Look at project level, repair types, etc.}
+
+
+

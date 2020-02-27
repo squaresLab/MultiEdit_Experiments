@@ -7,6 +7,8 @@ import seaborn as sns
 # 			"data/coverage-experiments/dec16-Lang63-Time11"]
 
 folders = ["data/coverage-experiments/all_bears"]
+# folders = ["data/coverage-experiments/jan15"]
+# folders = ["data/coverage-experiments/all_bears", "data/coverage-experiments/jan15"]
 
 with open("data/more_than_one_test.txt") as f:
     more_than_one_test = set([x.strip() for x in f.readlines()])
@@ -101,60 +103,60 @@ plt.title("Distribution of coverage, patches w/ multiple chunks")
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
 
-fig, axes = plt.subplots(3, 2)
-fig.suptitle("Distribution of coverage, all multitest patches, by project")
-chart = 'CHART'
-axes[0, 0].set_title(chart)
-axes[0, 0].bar(["disjoint", "in between", "same"],
-    [disjoint_projects.get(chart, 0), inBetween_projects.get(chart, 0), same_projects.get(chart, 0)])
-closure = 'CLOSURE'
-axes[0, 1].set_title(closure)
-axes[0, 1].bar(["disjoint", "in between", "same"],
-    [disjoint_projects.get(closure, 0), inBetween_projects.get(closure, 0), same_projects.get(closure, 0)])
-lang = 'LANG'
-axes[1, 0].set_title(lang)
-axes[1, 0].bar(["disjoint", "in between", "same"],
-    [disjoint_projects.get(lang, 0), inBetween_projects.get(lang, 0), same_projects.get(lang, 0)])
-math = 'MATH'
-axes[1, 1].set_title(math)
-axes[1, 1].bar(["disjoint", "in between", "same"],
-    [disjoint_projects.get(math, 0), inBetween_projects.get(math, 0), same_projects.get(math, 0)])
-mockito = 'MOCKITO'
-axes[2, 0].set_title(mockito)
-axes[2, 0].bar(["disjoint", "in between", "same"],
-    [disjoint_projects.get(mockito, 0), inBetween_projects.get(mockito, 0), same_projects.get(mockito, 0)])
-time = 'TIME'
-axes[2, 1].set_title(time)
-axes[2, 1].bar(["disjoint", "in between", "same"],
-    [disjoint_projects.get(time, 0), inBetween_projects.get(time, 0), same_projects.get(time, 0)])
+# fig, axes = plt.subplots(3, 2)
+# fig.suptitle("Distribution of coverage, all multitest patches, by project")
+# chart = 'CHART'
+# axes[0, 0].set_title(chart)
+# axes[0, 0].bar(["disjoint", "in between", "same"],
+#     [disjoint_projects.get(chart, 0), inBetween_projects.get(chart, 0), same_projects.get(chart, 0)])
+# closure = 'CLOSURE'
+# axes[0, 1].set_title(closure)
+# axes[0, 1].bar(["disjoint", "in between", "same"],
+#     [disjoint_projects.get(closure, 0), inBetween_projects.get(closure, 0), same_projects.get(closure, 0)])
+# lang = 'LANG'
+# axes[1, 0].set_title(lang)
+# axes[1, 0].bar(["disjoint", "in between", "same"],
+#     [disjoint_projects.get(lang, 0), inBetween_projects.get(lang, 0), same_projects.get(lang, 0)])
+# math = 'MATH'
+# axes[1, 1].set_title(math)
+# axes[1, 1].bar(["disjoint", "in between", "same"],
+#     [disjoint_projects.get(math, 0), inBetween_projects.get(math, 0), same_projects.get(math, 0)])
+# mockito = 'MOCKITO'
+# axes[2, 0].set_title(mockito)
+# axes[2, 0].bar(["disjoint", "in between", "same"],
+#     [disjoint_projects.get(mockito, 0), inBetween_projects.get(mockito, 0), same_projects.get(mockito, 0)])
+# time = 'TIME'
+# axes[2, 1].set_title(time)
+# axes[2, 1].bar(["disjoint", "in between", "same"],
+#     [disjoint_projects.get(time, 0), inBetween_projects.get(time, 0), same_projects.get(time, 0)])
 
 
-fig, axes = plt.subplots(3, 2)
-fig.suptitle("Distribution of coverage, patches w/ multiple cunks, by project")
-chart = 'CHART'
-axes[0, 0].set_title(chart)
-axes[0, 0].bar(["disjoint", "in between", "same"],
-    [multichunk_disjoint_projects.get(chart, 0), multichunk_inBetween_projects.get(chart, 0), multichunk_same_projects.get(chart, 0)])
-closure = 'CLOSURE'
-axes[0, 1].set_title(closure)
-axes[0, 1].bar(["disjoint", "in between", "same"],
-    [multichunk_disjoint_projects.get(closure, 0), multichunk_inBetween_projects.get(closure, 0), multichunk_same_projects.get(closure, 0)])
-lang = 'LANG'
-axes[1, 0].set_title(lang)
-axes[1, 0].bar(["disjoint", "in between", "same"],
-    [multichunk_disjoint_projects.get(lang, 0), multichunk_inBetween_projects.get(lang, 0), multichunk_same_projects.get(lang, 0)])
-math = 'MATH'
-axes[1, 1].set_title(math)
-axes[1, 1].bar(["disjoint", "in between", "same"],
-    [multichunk_disjoint_projects.get(math, 0), multichunk_inBetween_projects.get(math, 0), multichunk_same_projects.get(math, 0)])
-mockito = 'MOCKITO'
-axes[2, 0].set_title(mockito)
-axes[2, 0].bar(["disjoint", "in between", "same"],
-    [multichunk_disjoint_projects.get(mockito, 0), multichunk_inBetween_projects.get(mockito, 0), multichunk_same_projects.get(mockito, 0)])
-time = 'TIME'
-axes[2, 1].set_title(time)
-axes[2, 1].bar(["disjoint", "in between", "same"],
-    [multichunk_disjoint_projects.get(time, 0), multichunk_inBetween_projects.get(time, 0), multichunk_same_projects.get(time, 0)])
+# fig, axes = plt.subplots(3, 2)
+# fig.suptitle("Distribution of coverage, patches w/ multiple cunks, by project")
+# chart = 'CHART'
+# axes[0, 0].set_title(chart)
+# axes[0, 0].bar(["disjoint", "in between", "same"],
+#     [multichunk_disjoint_projects.get(chart, 0), multichunk_inBetween_projects.get(chart, 0), multichunk_same_projects.get(chart, 0)])
+# closure = 'CLOSURE'
+# axes[0, 1].set_title(closure)
+# axes[0, 1].bar(["disjoint", "in between", "same"],
+#     [multichunk_disjoint_projects.get(closure, 0), multichunk_inBetween_projects.get(closure, 0), multichunk_same_projects.get(closure, 0)])
+# lang = 'LANG'
+# axes[1, 0].set_title(lang)
+# axes[1, 0].bar(["disjoint", "in between", "same"],
+#     [multichunk_disjoint_projects.get(lang, 0), multichunk_inBetween_projects.get(lang, 0), multichunk_same_projects.get(lang, 0)])
+# math = 'MATH'
+# axes[1, 1].set_title(math)
+# axes[1, 1].bar(["disjoint", "in between", "same"],
+#     [multichunk_disjoint_projects.get(math, 0), multichunk_inBetween_projects.get(math, 0), multichunk_same_projects.get(math, 0)])
+# mockito = 'MOCKITO'
+# axes[2, 0].set_title(mockito)
+# axes[2, 0].bar(["disjoint", "in between", "same"],
+#     [multichunk_disjoint_projects.get(mockito, 0), multichunk_inBetween_projects.get(mockito, 0), multichunk_same_projects.get(mockito, 0)])
+# time = 'TIME'
+# axes[2, 1].set_title(time)
+# axes[2, 1].bar(["disjoint", "in between", "same"],
+#     [multichunk_disjoint_projects.get(time, 0), multichunk_inBetween_projects.get(time, 0), multichunk_same_projects.get(time, 0)])
 
 
 plt.show()

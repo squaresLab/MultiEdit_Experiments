@@ -1,5 +1,7 @@
 \documentclass[sigconf, timestamp-false, anonymous=true]{acmart}
 
+\usepackage{listings}
+
 %% Rights management information.  This information is sent to you
 %% when you complete the rights form.  These commands have SAMPLE
 %% values in them; it is your responsibility as an author to replace
@@ -110,6 +112,9 @@ measure of patch quality is the number of passing test cases.
 
 \subsection{Fault Localization}
 
+Work on fault localization started in assisting human developers with debugging. When people started doing program repair, folks just plucked those techniques and used them for program repair. 
+
+The most commonly used fault localization technique is Spectrum Based Fault Localization (SBFL). 
 
 \section{Datasets}
 We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}---datasets of 
@@ -279,6 +284,9 @@ dependent edits and whether an APR tool successfully repaired the bug in~\cite{d
 A $\chi^2$ test indicates a statistically significant relationship between APR  
 success and control, data, and the disjunction of either dependencies 
 ($p < 0.001$ for all).
+
+\input{coverage.tex}
+\input{symptoms.tex}
 
 \section{Related Work}
 Zhong and Su~\cite{zhong2015} did this and that.

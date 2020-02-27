@@ -7,9 +7,12 @@ from collections import defaultdict
 
 
 ### Choose one
-from classifications.exception_classify import classify
+# from classifications.exception_classify import classify
 # from classifications.assertion_classify import classify
 # from classifications.assertion_lessgranular_classify import classify
+# from classifications.smaller_classify import classify
+from classifications.smallerer_classify import classify
+# from classifications.assert_only_classify import classify
 
 sns.set_style("whitegrid")
 
@@ -98,6 +101,7 @@ df.index.name = "symptom"
 pandas.set_option('display.max_colwidth', -1)
 print(df)
 
+bool_df.replace(to_replace=1.0, value=True, inplace=True)
 bool_df = bool_df.fillna(False)
 bool_df.index.name = "index"
 bool_df.to_csv("data/symptoms.csv")

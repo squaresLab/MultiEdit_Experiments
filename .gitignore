@@ -143,4 +143,6 @@ fabric.properties
 jacoco.exec
 *target/
 tmp
-
+paper/fse2020-multi-edit-bugs.pdf
+*.pyc
+*__pycache__*
