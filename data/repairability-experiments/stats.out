@@ -69,3 +69,27 @@ repairable	9	7
 nonrepairable	86	48
 p-value: 0.5879584484465213
 
+D4J: Chi-squared between disjoint coverage and repairability
+	disjoint	nondisjoint
+repairable	13	120
+nonrepairable	38	131
+p-value: 0.005566180243723523
+
+D4J: Chi-squared between same coverage and repairability
+	same	nonsame
+repairable	107	26
+nonrepairable	116	53
+p-value: 0.028759488159196198
+
+Bears: Fisher's Exact Test between disjoint coverage and repairability
+	disjoint	nondisjoint
+repairable	2	8
+nonrepairable	45	104
+p-value: 0.7244572894675716
+
+Bears: Fisher's Exact Test between same coverage and repairability
+	same	nonsame
+repairable	8	4
+nonrepairable	101	52
+p-value: 1.0
+

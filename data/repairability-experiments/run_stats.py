@@ -353,6 +353,17 @@ def test_coverage_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, 
     "D4J: Chi-squared between same coverage and repairability", \
     'repairable', 'nonrepairable', 'same', 'nonsame')
 
+    disj_bears, inbtw_bears, same_bears = [partition & set(multi_edit_bugs_bears) for partition in coverage_partitions_bears]
+    ndisj_bears = inbtw_bears | same_bears
+    nsame_bears = disj_bears | inbtw_bears
+    repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
+    run_fisher_exact(repairable_bears, nonrepairable_bears, disj_bears, ndisj_bears, \
+    "Bears: Fisher's Exact Test between disjoint coverage and repairability", \
+    'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
+    run_fisher_exact(repairable_bears, nonrepairable_bears, same_bears, nsame_bears, \
+    "Bears: Fisher's Exact Test between same coverage and repairability", \
+    'repairable', 'nonrepairable', 'same', 'nonsame')
+
 if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
     dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
@@ -361,3 +372,4 @@ if __name__=='__main__':
     print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
     print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs)
     test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
+    test_coverage_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)
