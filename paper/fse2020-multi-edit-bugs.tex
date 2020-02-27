@@ -206,6 +206,7 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
 
 \section{Dependency Analysis}
 \subsection{Research Questions}
+
 RQ1: How many multi-edit patches require multiple edits?
 
 RQ2: Are bugs with dependent edits in the human patch more difficult to automatically repair?
@@ -236,9 +237,12 @@ and invocations of getter and setter methods as reads and writes.
 	\end{tabular}
  \end{center}
 }
-	\caption{Frequencies of multi-edit patches with control and data dependent line edits.}
-	\label{tab:multi-edit-dependency-frequencies}
+	\caption{Frequencies of multi-line patches with control and data dependent line edits.}
+	\label{tab:dependency-frequencies}
 \end{table}
+
+\subsubsection{RQ1} Table~\ref{tab:dependency-frequencies} shows the 
+frequencies multi-line patches with control or data dependent edits.
 
 \begin{table}
 {\begin{center}
@@ -254,10 +258,18 @@ and invocations of getter and setter methods as reads and writes.
 	\end{tabular}
  \end{center}
 }
-	\caption{Frequency of Defects4J multi-edit patches with respect to the presence of 
-	control/data dependent line edits and whether an APR technique successfully 
+	\caption{Frequency of Defects4J multi-line patches with respect to the presence of 
+	control/data dependent line edits and whether an APR tool successfully 
 	repaired the bug in~\cite{durieux-repair-them-all}.}
+	\label{tab:dependency-repair-contingency-table}
 \end{table}
+
+\subsubsection{RQ2} Table~\ref{tab:dependency-repair-contingency-table} shows
+the frequencies of Defects4J multi-line patches with respect to the presence of 
+dependent edits and whether an APR tool successfully repaired the bug in~\cite{durieux-repair-them-all}.
+A $\chi^2$ test indicates a statistically significant relationship between APR  
+success and control, data, and the disjunction of either dependencies 
+($p < 0.001$ for all).
 
 \section{Related Work}
 Zhong and Su~\cite{zhong2015} did this and that.
