@@ -91,6 +91,63 @@ def get_tool_to_repaired_bugs():
 
     return tools_to_repaired_bugs
 
+def get_bugId_from_coverage_data_line_d4j(coverage_line):
+    coverage_line_stripped = coverage_line.strip()
+    proj_raw, num_raw = coverage_line_stripped.split(':')
+    proj = proj_raw[0] + proj_raw[1:].lower()
+    num = str(int(num_raw))
+    bugId = proj + num
+    return bugId
+
+def get_coverage_d4j():
+    disjoint = set()
+    with open('coverage/d4j/disjoint.data') as f:
+        for line in f:
+            bugId = get_bugId_from_coverage_data_line_d4j(line)
+            disjoint.add(bugId)
+
+    inBetween = set()
+    with open('coverage/d4j/inBetween.data') as f:
+        for line in f:
+            bugId = get_bugId_from_coverage_data_line_d4j(line)
+            inBetween.add(bugId)
+
+    same = set()
+    with open('coverage/d4j/same.data') as f:
+        for line in f:
+            bugId = get_bugId_from_coverage_data_line_d4j(line)
+            same.add(bugId)
+
+    return disjoint, inBetween, same
+
+def get_bugId_from_coverage_data_line_bears(coverage_line):
+    coverage_line_stripped = coverage_line.strip()
+    branch, bugnum_raw = coverage_line.split(':')
+    bugnum = int(bugnum_raw)
+    bugId = 'Bears-{}'.format(bugnum)
+    return bugId
+
+def get_coverage_bears():
+    disjoint = set()
+    with open('coverage/d4j/disjoint.data') as f:
+        for line in f:
+            bugId = get_bugId_from_coverage_data_line_bears(line)
+            disjoint.add(bugId)
+
+    inBetween = set()
+    with open('coverage/d4j/inBetween.data') as f:
+        for line in f:
+            bugId = get_bugId_from_coverage_data_line_bears(line)
+            inBetween.add(bugId)
+
+    same = set()
+    with open('coverage/d4j/same.data') as f:
+        for line in f:
+            bugId = get_bugId_from_coverage_data_line_bears(line)
+            same.add(bugId)
+
+    return disjoint, inBetween, same
+
 def percent(n_part, n_whole):
     p = 100 * n_part/n_whole
     return "{}%".format(p)
@@ -282,6 +339,7 @@ if __name__=='__main__':
     multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #collection of multi-edit bugs
     dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
     tool_to_repaired_bugs = get_tool_to_repaired_bugs()
+    coverage_partitions_d4j, coverage_partitions_bears = get_coverage_d4j(), get_coverage_bears()
     print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
     print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs)
     test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
