@@ -126,12 +126,21 @@ projects compared to Defects4J.
 
 \section{Fitness Experiment}
 
-When automatic program repair techniques attempt to generate a multi-edit repair to a buggy program, it is important to have some way to identify edits that are partial repairs (i.e. part of the multi-edit full repair). One popular way to do so is to run unit tests through the edited code and compare the result to the original buggy code's test results, and see if the edited code did better in tests. This approach assumes that making some (but not all) of the edits necessary in a multi-edit repair would improve the code's test performance, and we designed this experiment to further explore on this topic.
+In search based program repair, one key area of research is to find ways to measure how "close" a candidate patch is to a full repair (a fitness function),
+and this is usually done via measuring unit test performance of the candidate patch. 
+Given a buggy program and a valid repair, if we apply a part of the valid repair to the buggy program (a partial repair), then semanticly the partial repair is closer to the full repair compared to the original. 
+Ideally, we would want the fitness function to guide the search towards a full repair by identifying partial repairs as "closer" to full repair than original.
+However, sometimes partial repairs will perform no different in unit tests compared to the original program, and other times they could perform worse. We want to find out how often each of these situations happen.
 
+Moreover, unit test performance can be measured in different granularity levels. The most common ones used in existing APR tools are class level and method level. 
+It is commonly believed that the more granular a fitness functions is, the better it is because it collects more information and is less likely to plateau. Thus, we introduce a third granularity level: assertion level, which is more granular than method level granularity.
+We would like to compare the performance of the fitness functions at identifying partial repairs at different granularity levels.
+
+The results may provide valuable information to future search-based program repair tool designs.
 
 \subsection{Partial Repairs}
 
-For each bug in Defects4j (excluding Clojure bugs) and Bears, we look at the provided correct patch and divide it into edit chunks using the following steps:
+For each bug in Defects4j (excluding Clojure bugs) and Bears (single-module only), we look at the provided correct patch and divide it into edit chunks using the following steps:
 
 1. Each consecutive block of edits (including both insertion and deletion) is labeled as one chunk.
 
