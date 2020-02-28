@@ -131,6 +131,17 @@ projects compared to Defects4J.
 
 \todo{can we have a description of chunk rules here (should be moving the stuff in partial repairs subsection), plus maybe a table or something about how many multichunk bugs there are?}
 
+\section{Frequency of Multi-Edit Bugs}
+
+\subsection{Research Questions}
+
+\textbf{RQ1: How many multi-edit patches are in Defects4J and Bears?}
+We start our analysis of multi-edit patches by asking how many such patches 
+exist in our benchmarks. We analyze edits at two levels: line and chunk.
+Line edits include adding, deleting, or modifying lines.
+Chunks are sequences of consecutive line edits.
+We ignore whitespace and comments when counting edits.
+
 \section{Fitness Experiment}
 
 In search based program repair, one key area of research is to find ways to measure how "close" a candidate patch is to a full repair (a fitness function),
