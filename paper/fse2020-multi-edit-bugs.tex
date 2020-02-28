@@ -342,6 +342,11 @@ This experiment breaks up full repairs into chunks and treats each chunk as a si
 
 Regardless of its limitations, this experiment is provides valid and valuable information to tackling the challenge of automatically repairing bugs that requires multiple edit actions to fully repair and provides insight in future APR research.
 
+\subsection{Relations between fitness experiment result and fault localization experiment result}
+
+(I'm not sure where these findings belong to (or even if they should be in the paper), so I just toss them here for now)
+
+Negative fitness tend to happen in "Same" category of coverage (8 out of 12 bugs has some partial repair that is negative, another 2 have all their partial repairs as 0). In bugs of category "Overlap" or "Disjoint", all of them has some partial repairs that results in more test methods passed, while only 5 out of 12 "Same" bugs has any partial repair that performs better than original. Moreover, "Disjoint" and "Overlap" category has very few partial repairs that has negative fitness compared to original: only 2 out of 17 Disjoint bugs has some negative partial repair, and only 1 out of 10 Overlap bugs have some negative partial repair. These results are kind of intuitive (we would expect multiple edits in the same location to cause more problems for partial repairs than Disjoint ones)
 
 \section{Dependency Analysis}
 \subsection{Research Questions}
