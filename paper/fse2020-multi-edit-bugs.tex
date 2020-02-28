@@ -349,6 +349,15 @@ Regardless of its limitations, this experiment is provides valid and valuable in
 Negative fitness tend to happen in "Same" category of coverage (8 out of 12 bugs has some partial repair that is negative, another 2 have all their partial repairs as 0). In bugs of category "Overlap" or "Disjoint", all of them has some partial repairs that results in more test methods passed, while only 5 out of 12 "Same" bugs has any partial repair that performs better than original. Moreover, "Disjoint" and "Overlap" category has very few partial repairs that has negative fitness compared to original: only 2 out of 17 Disjoint bugs has some negative partial repair, and only 1 out of 10 Overlap bugs have some negative partial repair. These results are kind of intuitive (we would expect multiple edits in the same location to cause more problems for partial repairs than Disjoint ones)
 
 \section{Dependency Analysis}
+
+\subsection{Motivation}
+The presence of control or data dependencies in a patch's edits 
+indicates coupling between the dependent edits.
+Such coupled edits might need to be repaired simultaneously.
+\todo{Some motivating examples might be nice.}
+We analyze control and data dependencies in bug patches along 
+with their relationship to APR tool success.
+
 \subsection{Research Questions}
 
 RQ1: How many multi-edit patches require multiple edits?
@@ -440,6 +449,7 @@ success and control, data, and the disjunction of either dependencies
 ($p < 0.001$ for all).
 We find that bugs whose human patches are free of dependencies are
 more likely to be successfully fixed by an APR tool.
+
 
 \input{coverage.tex}
 \input{symptoms.tex}
