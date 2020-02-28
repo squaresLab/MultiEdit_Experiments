@@ -1,6 +1,7 @@
 \documentclass[sigconf, timestamp-false, anonymous=true]{acmart}
 
 \usepackage{listings}
+\usepackage{multirow}
 
 %% Rights management information.  This information is sent to you
 %% when you complete the rights form.  These commands have SAMPLE
@@ -133,7 +134,7 @@ projects compared to Defects4J.
 
 \section{Frequency of Multi-Edit Bugs}
 
-\subsection{Research Questions}
+\subsection{Research Question}
 
 \textbf{RQ1: How many multi-edit patches are in Defects4J and Bears?}
 We start our analysis of multi-edit patches by asking how many such patches 
@@ -141,6 +142,32 @@ exist in our benchmarks. We analyze edits at two levels: line and chunk.
 Line edits include adding, deleting, or modifying lines.
 Chunks are sequences of consecutive line edits.
 We ignore whitespace and comments when counting edits.
+
+\subsection{Results}
+
+\begin{table}
+{\begin{center}
+	\begin{tabular}{l | rrrr | r}
+		\toprule
+		Dataset & 1-line & Multiline & 1-chunk & Multichunk & Total \\
+		\midrule
+		\multirow{ 2}{*}{Defects4J} & 92 & 303 & 298 & 97 & 395 \\
+		& 23\% & 77\% & 75\% & 25\% & 100\% \\
+		\multirow{ 2}{*}{Bears} & 31 & 150 & 117 & 64 & 181 \\
+		& 17\% & 83\% & 65\% & 35\% & 100\% \\
+		\midrule
+		\multirow{ 2}{*}{Combined} & 123 & 453 & 415 & 161 & 576 \\
+		& 21\% & 79\% & 72\% & 28\% & 100\% \\
+		\bottomrule
+	\end{tabular}
+ \end{center}
+}
+	\caption{Frequencies and percentages of patches with multi-line and multi-chunk edits.}
+	\label{tab:multiedit-frequencies}
+\end{table}
+
+Table~\ref{tab:multiedit-frequencies} lists the number and percentages of Defects4J and Bears
+multi-line and multi-chunk patches.
 
 \section{Fitness Experiment}
 
