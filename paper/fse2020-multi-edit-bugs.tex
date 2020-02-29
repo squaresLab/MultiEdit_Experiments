@@ -437,19 +437,21 @@ frequencies multi-line patches with control or data dependent edits.
 
 \begin{table}
 {\begin{center}
-	\begin{tabular}{l | rrrr | r}
-            	\toprule
-            	& Control & Data & Either & Neither & Total \\
-            	\midrule
-            	Auto-repaired & 34 & 21 & 39 & 94 & 133 \\
-            	Not Auto-repaired & 89 & 57 & 93 & 77 & 170 \\
-            	\midrule
-            	Total & 123 & 78 & 132 & 171 & 303 \\
-            	\bottomrule
+	\begin{tabular}{l | l | r r r r | r}
+		\toprule
+		Dataset & APR & Control & Data & Either & Neither & Total \\
+		\midrule
+		\multirow{2}{*}{Defects4J} & Success & 34 & 21 & 39 & 94 & 133 \\
+		                                          & Failure   &  89 & 57 & 93 & 77 & 170 \\
+		\multirow{2}{*}{Bears}       & Success &    7 &   6 &   9 &   7 &   16 \\
+		                                          & Failure   &  76 & 57 & 86 & 48 & 134 \\
+		\midrule
+		\multirow{2}{*}{Combined}& Success &  41 & 27 & 48 &101& 149 \\
+		                                          & Failure   &165 &114&179&125& 304 \\
 	\end{tabular}
  \end{center}
 }
-	\caption{Frequency of Defects4J multi-line patches with respect to the presence of 
+	\caption{Frequency of multi-line patches with respect to the presence of 
 	control/data dependent line edits and whether an APR tool successfully 
 	repaired the bug in~\cite{durieux-repair-them-all}.}
 	\label{tab:dependency-repair-contingency-table}
@@ -457,14 +459,16 @@ frequencies multi-line patches with control or data dependent edits.
 
 \begin{table}
 {\begin{center}
-	\begin{tabular}{l | r}
+	\begin{tabular}{l | rrr}
             	\toprule
-		$P(\mbox{Auto-repaired } | \mbox{ Control Dependent})$ & 28\% \\
-		$P(\mbox{Auto-repaired } | \neg \mbox{ Control Dependent})$ & 55\% \\
-		$P(\mbox{Auto-repaired } | \mbox{ Data Dependent})$ & 27\% \\
-		$P(\mbox{Auto-repaired } | \neg \mbox{ Data Dependent})$ & 50\% \\
-		$P(\mbox{Auto-repaired } | \mbox{ Control or Data Dependent})$ & 30\% \\
-		$P(\mbox{Auto-repaired } | \mbox{ Not Dependent})$ & 45\% \\
+		& Defects4J & Bears & Combined \\
+		\midrule
+		$P(\mbox{APR Success } | \mbox{ Control})$ & 28\% &  8\% & 20\% \\
+		$P(\mbox{APR Success } | \neg \mbox{ Control})$ & 55\% & 13\% & 44\% \\
+		$P(\mbox{APR Success } | \mbox{ Data})$ & 27\% & 10\% & 19\%\\
+		$P(\mbox{APR Success } | \neg \mbox{ Data})$ & 50\% & 11\% & 39\% \\
+		$P(\mbox{APR Success } | \mbox{ Either})$ & 30\% & 9\% & 21\% \\
+		$P(\mbox{APR Success } | \mbox{ Neither})$ & 45\% & 13\% & 45\% \\
 		\bottomrule
 	\end{tabular}
  \end{center}
@@ -477,11 +481,8 @@ frequencies multi-line patches with control or data dependent edits.
 \subsubsection{RQ2} 
 
 Table~\ref{tab:dependency-repair-contingency-table} shows
-the frequencies of Defects4J multi-line patches with respect to the presence of 
+the frequencies of multi-line patches with respect to the presence of 
 dependent edits and whether an APR tool successfully auto-repaired the bug in~\cite{durieux-repair-them-all}.
-Table~\ref{tab:dependency-repair-percents} shows the percentages of 
-auto-repaired bugs with respect to the sets of bugs whose patches contain 
-dependent edits.
 Using $\chi^2$ tests, we find statistically significant relationships between APR  
 success and control, data, and the disjunction of either dependencies 
 ($p < 0.001$ for all).
