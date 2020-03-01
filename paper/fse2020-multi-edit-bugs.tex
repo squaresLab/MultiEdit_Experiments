@@ -388,7 +388,6 @@ Negative fitness tend to happen in "Same" category of coverage (8 out of 12 bugs
 
 \section{Dependency Analysis}
 
-\subsection{Motivation}
 The presence of control or data dependencies in a patch's edits 
 indicates coupling between the dependent edits.
 Such coupled edits might need to be repaired simultaneously.
@@ -403,6 +402,7 @@ RQ1: How many multi-edit patches contain control or data dependencies?
 RQ2: Are bugs with dependent edits in the human patch more difficult to automatically repair?
 
 \subsection{Methodology}
+
 A patch contains dependent edits if there exists control or data dependencies 
 between added, removed, or changed lines in the pre- or post-patch
 source code. For practical reasons, we perform intraprocedural analysis, 
@@ -429,11 +429,14 @@ and invocations of getter and setter methods as reads and writes.
  \end{center}
 }
 	\caption{Frequencies of multi-line patches with control and data dependent line edits.}
-	\label{tab:dependency-frequencies}
+	\label{tab:dependency}
 \end{table}
 
-\subsubsection{RQ1} Table~\ref{tab:dependency-frequencies} shows the 
-frequencies multi-line patches with control or data dependent edits.
+\subsubsection{RQ1} Table~\ref{tab:dependency} shows the 
+frequencies and percentages of multi-line patches with control or data dependent 
+line edits. We find a higher proportion of dependent patches in Bears compared to 
+Defects4J, indicating higher patch complexity among multi-line patches in Bears.
+
 
 \begin{table}
 {\begin{center}
@@ -488,6 +491,16 @@ success and control, data, and the disjunction of either dependencies
 ($p < 0.001$ for all).
 We find that bugs whose human patches are free of dependencies are
 more likely to be successfully fixed by an APR tool.
+
+Tables~\ref{tab:dependency-repair-contingency-table} and~\ref{tab:dependency-repair-percents}
+show the frequencies and percentages of multi-line patches with respect to edit dependency 
+and whether an APR tool successfully repaired bug in~\cite{durieux-repair-them-all}.
+We find that edit dependency generally reduces the likelihood of APR tool success.
+Using $\chi^2$ tests, we find statistically significant relationships ($p < 0.001$ for all)
+between APR success and control, data, and the disjunction of either dependencies 
+for Defects4J and Defects4J $\cup$ Bears patches. We fail to find statistically 
+significant relationships over only Bears patches, possibly due to the small number (16) of 
+successfully auto-repaired Bears bugs with multi-line human patches.
 
 
 \input{coverage.tex}
