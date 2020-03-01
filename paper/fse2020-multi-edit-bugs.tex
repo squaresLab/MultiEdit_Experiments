@@ -221,21 +221,26 @@ For each bug, run unit tests on all three levels of granularity on the original 
   c+ & PR passed more test classes than OBC  \\\hline
   c- & PR passed less test classes than OBC  \\\hline
   m+ & PR and OBC passed same number of test classes, \\
-  & PR passed more methods than OBC and passed all methods that OBC passed\\\hline
+  & PR passed more methods than OBC and \\
+  & passed all methods that OBC passed\\\hline
   m- & PR and OBC passed same number of test classes, \\
-  & OBC passed more methods than PR and passed all methods that PR passed\\\hline
+  & OBC passed more methods than PR and passed \\
+  & all methods that PR passed\\\hline
   m\~ & PR and OBC passed same number of test classes, \\
   & PR passed some methods that OBC didn't, \\
   & and OBC passed some methods that PR didn't \\\hline
   a+ & PR and OBC passed exact same test methods, \\
-  & PR has higher assertion scores in some failed methods than OBC \\
-  & and has equal assertion scores in all other failed methods \\\hline
+  & PR has higher assertion scores in some failed methods \\
+  & than OBC and has equal assertion scores in \\
+  & all other failed methods \\\hline
   a- & PR and OBC passed exact same test methods, \\
-  & PR has lower assertion scores in some failed methods than OBC \\
-  & and has equal assertion scores in all other failed methods \\\hline
+  & PR has lower assertion scores in some failed methods \\
+  & than OBC and has equal assertion scores in \\ 
+  & all other failed methods \\\hline
   a\~ & PR and OBC passed exact same test methods, \\
-  & PR has higher assertion scores in some failed methods than OBC \\
-  & and has lower assertion scores in some other failed methods \\\hline
+  & PR has higher assertion scores in some failed \\
+  & methods than OBC and has lower assertion scores \\
+  &  in some other failed methods \\\hline
   0 & PR and OBC passed exact same test methods \\
   & and has same assertion score for all failed methods \\ \hline
   NC & PR did not compile \\\hline
@@ -249,8 +254,8 @@ For each bug, run unit tests on all three levels of granularity on the original 
 After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs in Bears that has chunk number between 2 and 6. Since each bug may have different number of partial repairs, we analyzed the results in two different ways: Unweighted (where each partial repair has weight 1), and weighted (where each bug has a total weight of 1, so if a bug has n partial repairs each of them has weight $\frac{1}{n}$). Here is the full result:
 
 \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
     Total & 898 & 97 & 444 & 64 \\ \hline
     c+ & 102 & 19.84 & 129 & 17.67 \\
     c- & 108 & 6.97 & 18 & 4.29 \\
@@ -270,11 +275,11 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
     Thus, from the data above, we can compute the percentage of partial repairs that are identified positively by each granularity level:
     
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 11.36\% & 20.46\% & 29.05\% & 27.60\%\\
-    Method Level Granularity & 35.41\% & 41.25\% & 37.61\% & 31.29\% \\
-    Assertion Level Granularity & 40.42\% & 48.25\% & 38.96 \% & 31.60\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted &Unweighted& Weighted \\ \hline
+    Class & 11.36\% & 20.46\% & 29.05\% & 27.60\%\\
+    Method & 35.41\% & 41.25\% & 37.61\% & 31.29\% \\
+    Assertion & 40.42\% & 48.25\% & 38.96 \% & 31.60\% \\
     \hline
     
     \end{tabular}
@@ -282,11 +287,11 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
     Here are the percentage of partial repairs that performs no different at each granularity level:
     
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 68.04\% & 65.53\% & 65.09\% & 56.84\%\\
-    Method Level Granularity & 36.64 \% & 39.33\% & 55.63\% & 51.60\% \\
-    Assertion Level Granularity & 27.62\% & 31.73\% & 49.32 \% & 47.48\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 68.04\% & 65.53\% & 65.09\% & 56.84\%\\
+    Method & 36.64 \% & 39.33\% & 55.63\% & 51.60\% \\
+    Assertion & 27.62\% & 31.73\% & 49.32 \% & 47.48\% \\
     \hline
     
     \end{tabular}
@@ -294,11 +299,11 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
     Here are the percentage of partial repairs that performed worse compared to original buggy program at each granularity level:
     
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 12.03\% & 7.18\% & 4.05\% & 6.70\%\\
-    Method Level Granularity & 19.27 \% & 12.52\% & 4.95\% & 8.26\% \\
-    Assertion Level Granularity & 21.83\% & 12.90\% & 9.68 \% & 11.29\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 12.03\% & 7.18\% & 4.05\% & 6.70\%\\
+    Method & 19.27 \% & 12.52\% & 4.95\% & 8.26\% \\
+    Assertion & 21.83\% & 12.90\% & 9.68 \% & 11.29\% \\
     \hline
     
     \end{tabular}
@@ -312,8 +317,8 @@ During the experiment, we found that sometimes not all edit chunks of a bug is n
 Sicne we're only interested in edits that are necessary for the repair, we processed the data to ignore redundant chunks and all partial repairs that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears bugs are affected. Some bugs ends up with chunk number 1 after minimization, so they are not included in the Minimized results. The minimized results include 75 remaining bugs in defects4j and 38 remaining bugs of Bears.
 
 \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    & Defects4j & Defects4j & Bears & Bears  \\ \hline
+    & Unweighted & Weighted & Unweighted & Weighted \\ \hline
     Total & 566 & 75 & 156 & 38 \\ \hline
     c+ & 30 & 7.33 & 19 & 4.02 \\
     c- & 56 & 5.73 & 17 & 4.12 \\
@@ -333,11 +338,11 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
     Thus, from the data above, we can compute the percentage of partial repairs that are identified positively by each granularity level:
     
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 5.30\% & 9.78\% & 12.18\% & 10.59\%\\
-    Method Level Granularity & 34.81\% & 36.80\% & 23.72\% & 19.71\% \\
-    Assertion Level Granularity & 40.28\% & 45.91\% & 27.56 \% & 20.24\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 5.30\% & 9.78\% & 12.18\% & 10.59\%\\
+    Method & 34.81\% & 36.80\% & 23.72\% & 19.71\% \\
+    Assertion & 40.28\% & 45.91\% & 27.56 \% & 20.24\% \\
     \hline
     
     \end{tabular}
@@ -345,11 +350,11 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
     Here are the percentage of partial repairs that performs no different at each granularity level:
     
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 77.56\% & 73.56\% & 73.72\% & 73.75\%\\
-    Method Level Granularity & 40.11 \% & 39.95\% & 62.18\% & 64.62\% \\
-    Assertion Level Granularity & 31.98\% & 30.30\% & 49.36 \% & 59.19\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 77.56\% & 73.56\% & 73.72\% & 73.75\%\\
+    Method & 40.11 \% & 39.95\% & 62.18\% & 64.62\% \\
+    Assertion & 31.98\% & 30.30\% & 49.36 \% & 59.19\% \\
     \hline
     
     \end{tabular}
@@ -357,11 +362,11 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
     Here are the percentage of partial repairs that performed worse compared to original buggy program at each granularity level:
     
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 9.89\% & 7.64\% & 10.90\% & 10.84\%\\
-    Method Level Granularity & 17.67 \% & 14.13\% & 10.90 \% & 10.84\% \\
-    Assertion Level Granularity & 18.55 \% & 14.39 \% & 19.23 \% & 14.44\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 9.89\% & 7.64\% & 10.90\% & 10.84\%\\
+    Method & 17.67 \% & 14.13\% & 10.90 \% & 10.84\% \\
+    Assertion & 18.55 \% & 14.39 \% & 19.23 \% & 14.44\% \\
     \hline
     
     \end{tabular}
