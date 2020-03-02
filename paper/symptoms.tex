@@ -147,5 +147,70 @@ In assert only, \lstinline{assert_float} correlates with multiedit bugs. In addi
 
 In the two groupings, there are slight to medium correlations between parsing errors (errors in which there is some sort of parsing or conversion of text or objects) and multiedit bugs.
 
-%Interestingly, parsing errors also correlate with decreased APR success in multiedit bugs.
-%Need to rerun analysis on APR success / APR partial repairs
+Interestingly, parsing errors also correlate with decreased APR success in multiedit bugs.s
+
+\begin{table}
+{\begin{center}
+	\begin{tabular}{l | rr | r}
+            	\toprule
+            	& Symptomatic & Asymptomatic & Total \\
+            	\midrule
+            	Auto-repaired & 0 & 133 & 133 \\
+            	Not Auto-repaired & 12 & 158 & 170 \\
+            	\midrule
+            	Total & 12 & 291 & 303\\
+            	\bottomrule
+	\end{tabular}
+ \end{center}
+}
+	\caption{Frequency of Defects4J multi-line patches with respect to the presence of
+	the parsing symptom and whether an APR tool successfully
+	repaired the bug in~\cite{durieux-repair-them-all}.
+	A Fisher's Exact Test found a statistically significant relationship
+	($p = 0.001$).}
+	\label{tab:parsing-repair-frequencies-d4j}
+\end{table}
+
+\begin{table}
+{\begin{center}
+	\begin{tabular}{l | rr | r}
+            	\toprule
+            	& Symptomatic & Asymptomatic & Total \\
+            	\midrule
+            	Auto-repaired & 2 & 14 & 16 \\
+            	Not Auto-repaired & 10 & 124 & 134 \\
+            	\midrule
+            	Total & 12 & 138 & 150\\
+            	\bottomrule
+	\end{tabular}
+ \end{center}
+}
+	\caption{Frequency of Bears multi-line patches with respect to the presence of
+	the parsing symptom and whether an APR tool successfully
+	repaired the bug in~\cite{durieux-repair-them-all}.
+	A Fisher's Exact Test did not find a statistically significant relationship
+	($p = 0.619$).}
+	\label{tab:parsing-repair-frequencies-bears}
+\end{table}
+
+\begin{table}
+{\begin{center}
+	\begin{tabular}{l | rr | r}
+            	\toprule
+            	& Symptomatic & Asymptomatic & Total \\
+            	\midrule
+            	Auto-repaired & 2 & 147 & 149 \\
+            	Not Auto-repaired & 22 & 282 & 304 \\
+            	\midrule
+            	Total & 24 & 429 & 453\\
+            	\bottomrule
+	\end{tabular}
+ \end{center}
+}
+	\caption{Frequency of both Defects4 and Bears multi-line patches with respect to the presence of
+	the parsing symptom and whether an APR tool successfully
+	repaired the bug in~\cite{durieux-repair-them-all}.
+	A Fisher's Exact Test found a statistically significant relationship
+	($p = 0.007$).}
+	\label{tab:parsing-repair-frequencies-bears}
+\end{table}
