@@ -181,16 +181,16 @@ as follows:
 \item \todo{A set of recommendations?}
 \end{itemize}
 
+\todo{This paragraph is a lie and some people hate them so maybe we'll cut it,
+  it just feels comforting to me to write them as I'm working on a paper draft...}
 The rest of this paper is organized as follows.  We provide background on
 generate-and-validate program repair, with a focus on the key parameters of the
-program repair search problem, in Section~\ref{sec:background}.  We explain our
-research questions and empirical experimental approach in
-Section~\ref{sec:approach}.  We describe the results of our analysis in
+program repair search problem, in Section~\ref{sec:background}.  We describe the results of our analysis in
 Section~\ref{sec:results}, with discussion of implications as well as
 limitations in Section~\ref{sec:discussion}.  Related work is discussed in
 Section~\ref{sec:related}; Section~\ref{conclusions} concludes.
 
-\section{Key Terms and Concepts}
+\section{Key Concepts and Research Questions}
 \label{sec:background}
 
 \paragraph{Search spaces in automatic program repair.} Automatic program repair (APR) techniques aim to find patches for bugs in
@@ -246,7 +246,20 @@ on understanding multi-chunk bugs for the purposes of adapting, extending, or
 applying new program repair techniques to address them. \todo{A couple more
   sentences re: why this is reasonable.}
 
-\section{Datasets}
+\paragraph{Research questions.}  The parameterization of the program repair
+search problems into multiple subspaces informs our empirical study of those
+spaces for the purposes of understanding multi-edit repair.  We address the
+following research questions:
+
+\begin{enumerate}
+\item RQ1: What is the incidents of multi-edit repairs in real-world bug data?
+\item RQ2: ...
+\item \todo{WHAT ARE OUR RESEARCH QUESTIONS?}
+\end{enumerate}
+
+\section{Datasets and Multi-Edit Prevalence}
+\label{sec:data-rq1}
+
 We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}---datasets of 
 bugs found in real world software projects.
 
@@ -258,8 +271,6 @@ benchmarks~\cite{durieux-repair-them-all}.
 Bears is a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
 Bears offers 251 bugs from 72 software projects, offering a greater diversity of 
 projects compared to Defects4J.
-
-\todo{can we have a description of chunk rules here (should be moving the stuff in partial repairs subsection), plus maybe a table or something about how many multichunk bugs there are?}
 
 \section{Frequency of Multi-Edit Bugs}
 
