@@ -11,8 +11,8 @@ from collections import defaultdict
 # from classifications.assertion_classify import classify
 # from classifications.assertion_lessgranular_classify import classify
 # from classifications.smaller_classify import classify
-# from classifications.smallerer_classify import classify
-from classifications.assert_only_classify import classify
+from classifications.smallerer_classify import classify
+# from classifications.assert_only_classify import classify
 
 sns.set_style("whitegrid")
 
@@ -21,7 +21,7 @@ multi_errors = defaultdict(list)
 single_errors = defaultdict(list)
 
 with open("data/multi_edit.txt") as f:
-    multi_edit = set([x.strip() for x in f.readlines()])
+	multi_edit = set([x.strip() for x in f.readlines()])
 
 with open("data/defects4j-bugs.json") as f:
 	d4jbugs = json.load(f)
@@ -44,8 +44,9 @@ for b in d4jbugs:
 			single_errors[bug_name].append(classify(error, msg))
 
 for b in bearsbugs:
+	branch_name = b["bugName"]
 	_, num = b["bugId"].split("-")
-	bug_name = f'BEARS:{int(num):03}'
+	bug_name = f'{branch_name}:{int(num):03}'
 
 	for test in b["tests"]["failureDetails"]:
 		error = test["failureName"]

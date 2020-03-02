@@ -144,8 +144,31 @@ public class Defects4JPatch implements Patch {
         command.addArgument(projectName.getID());
         command.addArgument(String.valueOf(bugNumber));
         command.addArgument(d4jWorkingDir);
-        System.out.println(command);
-        CommandLineRunner.runCommand(command);
+        System.out.println(String.join(" ", command.toStrings()));
+        if (projectName == D4JName.MOCKITO) {
+            // defects4j commands are super flaky through the command line runner, but work perfectly fine in my shell
+            try {
+                Thread.sleep(300_000); // run the damn thing yourself.
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            int tries = 0;
+            while (true) {
+                try {
+                    CommandLineRunner.runCommand(command);
+                } catch (Exception e) {
+                    if (tries >= 5) {
+                        throw new RuntimeException(e);
+                    }
+                    System.out.println(++tries);
+                    continue;
+                }
+                break;
+            }
+        }
+
     }
 
     private void parseFields() throws Exception {

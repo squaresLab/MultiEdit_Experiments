@@ -14,7 +14,6 @@ defects4j compile
 
 defects4j export -p tests.trigger > neg.tests
 defects4j export -p tests.relevant > rel.tests
-
 MODIFIED=$(defects4j export -p classes.modified)
 MODIFIED=$(echo $MODIFIED | sed 's/ /:/g')
 
@@ -30,8 +29,14 @@ defects4j compile
 PATCHEDSOURCE=$(defects4j export -p dir.src.classes)
 TARGETCLASSP=$(defects4j export -p dir.bin.classes)
 TARGETTESTP=$(defects4j export -p dir.bin.tests)
+defects4j export -p cp.compile
 COMPILECPP=$(defects4j export -p cp.compile)
+echo "running export test"
+defects4j export -p cp.test
+echo "running export test again"
 TESTCPP=$(defects4j export -p cp.test)
+defects4j compile # this is purely for some mockito bugs where the test classes disappear?
+
 
 cd ..
 

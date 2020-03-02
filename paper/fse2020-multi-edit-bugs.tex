@@ -302,8 +302,9 @@ Here we introduce a third level of granularity: assertion-level granularity. For
 
 \subsection{Test Result Notations}
 
-For each bug, run unit tests on all three levels of granularity on the original buggy code and all partial repairs. Then, the test results of each partial repair is compared to the test results of the original buggy code, and the comparison result is represented using one of the following labels (PR means partial repair, OBC means original buggy code):
-
+For each bug, run unit tests on all three levels of granularity on the original buggy code and all partial repairs. Then, the test results of each partial repair is compared to the test results of the original buggy code, and the comparison result is represented using one of the labels in Table 2.
+\begin{table}
+{\begin{center}
 \begin{tabular}{| l | l |}
 \hline
   Label & Meaning \\
@@ -312,36 +313,47 @@ For each bug, run unit tests on all three levels of granularity on the original 
   c+ & PR passed more test classes than OBC  \\\hline
   c- & PR passed less test classes than OBC  \\\hline
   m+ & PR and OBC passed same number of test classes, \\
-  & PR passed more methods than OBC and passed all methods that OBC passed\\\hline
+  & PR passed more methods than OBC and \\
+  & passed all methods that OBC passed\\\hline
   m- & PR and OBC passed same number of test classes, \\
-  & OBC passed more methods than PR and passed all methods that PR passed\\\hline
+  & OBC passed more methods than PR and passed \\
+  & all methods that PR passed\\\hline
   m\~ & PR and OBC passed same number of test classes, \\
   & PR passed some methods that OBC didn't, \\
   & and OBC passed some methods that PR didn't \\\hline
   a+ & PR and OBC passed exact same test methods, \\
-  & PR has higher assertion scores in some failed methods than OBC \\
-  & and has equal assertion scores in all other failed methods \\\hline
+  & PR has higher assertion scores in some failed methods \\
+  & than OBC and has equal assertion scores in \\
+  & all other failed methods \\\hline
   a- & PR and OBC passed exact same test methods, \\
-  & PR has lower assertion scores in some failed methods than OBC \\
-  & and has equal assertion scores in all other failed methods \\\hline
+  & PR has lower assertion scores in some failed methods \\
+  & than OBC and has equal assertion scores in \\ 
+  & all other failed methods \\\hline
   a\~ & PR and OBC passed exact same test methods, \\
-  & PR has higher assertion scores in some failed methods than OBC \\
-  & and has lower assertion scores in some other failed methods \\\hline
+  & PR has higher assertion scores in some failed \\
+  & methods than OBC and has lower assertion scores \\
+  &  in some other failed methods \\\hline
   0 & PR and OBC passed exact same test methods \\
   & and has same assertion score for all failed methods \\ \hline
   NC & PR did not compile \\\hline
  
   
 \end{tabular}
-
+\end{center}
+}
+\caption{Test results notation, where PR stands for partial repair and OBC stands for Original Buggy Code}
+\end{table}
 
 \subsection{Unminimized Results}
 
-After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs in Bears that has chunk number between 2 and 6. Since each bug may have different number of partial repairs, we analyzed the results in two different ways: Unweighted (where each partial repair has weight 1), and weighted (where each bug has a total weight of 1, so if a bug has n partial repairs each of them has weight $\frac{1}{n}$). Here is the full result:
+After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs in Bears that has chunk number between 2 and 6. Since each bug may have different number of partial repairs, we analyzed the results in two different ways: Unweighted (where each partial repair has weight 1), and weighted (where each bug has a total weight of 1, so if a bug has n partial repairs each of them has weight $\frac{1}{n}$). The full result is presented in Table 3, while the percentage of partial repairs identified positively/negatively or performs no different from original buggy program is presented in Table 4-6.
+
+\begin{table}
+{
 
 \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
     Total & 898 & 97 & 444 & 64 \\ \hline
     c+ & 102 & 19.84 & 129 & 17.67 \\
     c- & 108 & 6.97 & 18 & 4.29 \\
@@ -357,42 +369,56 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
     
     
     \end{tabular}
+}
+\caption{Full result of fitness experiment, unminimized}
+\end{table}
     
-    Thus, from the data above, we can compute the percentage of partial repairs that are identified positively by each granularity level:
-    
-    \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 11.36\% & 20.46\% & 29.05\% & 27.60\%\\
-    Method Level Granularity & 35.41\% & 41.25\% & 37.61\% & 31.29\% \\
-    Assertion Level Granularity & 40.42\% & 48.25\% & 38.96 \% & 31.60\% \\
-    \hline
-    
-    \end{tabular}
 
-    Here are the percentage of partial repairs that performs no different at each granularity level:
-    
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 68.04\% & 65.53\% & 65.09\% & 56.84\%\\
-    Method Level Granularity & 36.64 \% & 39.33\% & 55.63\% & 51.60\% \\
-    Assertion Level Granularity & 27.62\% & 31.73\% & 49.32 \% & 47.48\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted &Unweighted& Weighted \\ \hline
+    Class & 11.36\% & 20.46\% & 29.05\% & 27.60\%\\
+    Method & 35.41\% & 41.25\% & 37.61\% & 31.29\% \\
+    Assertion & 40.42\% & 48.25\% & 38.96 \% & 31.60\% \\
     \hline
     
     \end{tabular}
+\end{center}}
+\caption{percentage of partial repairs that are identified positively at each granularity level, in unminimized experiment result}
+\end{table}
+
     
-    Here are the percentage of partial repairs that performed worse compared to original buggy program at each granularity level:
-    
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 12.03\% & 7.18\% & 4.05\% & 6.70\%\\
-    Method Level Granularity & 19.27 \% & 12.52\% & 4.95\% & 8.26\% \\
-    Assertion Level Granularity & 21.83\% & 12.90\% & 9.68 \% & 11.29\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 68.04\% & 65.53\% & 65.09\% & 56.84\%\\
+    Method & 36.64 \% & 39.33\% & 55.63\% & 51.60\% \\
+    Assertion & 27.62\% & 31.73\% & 49.32 \% & 47.48\% \\
     \hline
     
     \end{tabular}
+\end{center} }
+\caption{percentage of partial repairs that performs no different at each granularity level, in unminimized experiment result}
+\end{table}   
+    
+\begin{table}
+{\begin{center}
+    \begin{tabular}{| l | l | l | l | l |} \hline
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 12.03\% & 7.18\% & 4.05\% & 6.70\%\\
+    Method & 19.27 \% & 12.52\% & 4.95\% & 8.26\% \\
+    Assertion & 21.83\% & 12.90\% & 9.68 \% & 11.29\% \\
+    \hline
+    
+    \end{tabular}
+\end{center}}
+\caption{percentage of partial repairs that are identified negatively at each granularity level, in unminimized experiment result}
+\end{table}
     
     
 
@@ -400,11 +426,12 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
 
 During the experiment, we found that sometimes not all edit chunks of a bug is necessary to pass all tests, because one or more of its partial repairs passed all tests. This means that some chunks in the provided correct patch is redundant. 
 
-Sicne we're only interested in edits that are necessary for the repair, we processed the data to ignore redundant chunks and all partial repairs that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears bugs are affected. Some bugs ends up with chunk number 1 after minimization, so they are not included in the Minimized results. The minimized results include 75 remaining bugs in defects4j and 38 remaining bugs of Bears.
+Sicne we're only interested in edits that are necessary for the repair, we processed the data to ignore redundant chunks and all partial repairs that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears bugs are affected. Some bugs ends up with chunk number 1 after minimization, so they are not included in the Minimized results. The minimized results include 75 remaining bugs in defects4j and 38 remaining bugs of Bears. The full result is presented in Table 7, while the percentage of partial repairs identified positively/negatively or performs no different from original buggy program is presented in Table 8-10.
+\begin{table}
 
 \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    & Defects4j & Defects4j & Bears & Bears  \\ \hline
+    & Unweighted & Weighted & Unweighted & Weighted \\ \hline
     Total & 566 & 75 & 156 & 38 \\ \hline
     c+ & 30 & 7.33 & 19 & 4.02 \\
     c- & 56 & 5.73 & 17 & 4.12 \\
@@ -421,42 +448,56 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
     
     \end{tabular}
     
-    Thus, from the data above, we can compute the percentage of partial repairs that are identified positively by each granularity level:
+\caption{Full result of fitness experiment, unminimized}
+\end{table}
     
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 5.30\% & 9.78\% & 12.18\% & 10.59\%\\
-    Method Level Granularity & 34.81\% & 36.80\% & 23.72\% & 19.71\% \\
-    Assertion Level Granularity & 40.28\% & 45.91\% & 27.56 \% & 20.24\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 5.30\% & 9.78\% & 12.18\% & 10.59\%\\
+    Method & 34.81\% & 36.80\% & 23.72\% & 19.71\% \\
+    Assertion & 40.28\% & 45.91\% & 27.56 \% & 20.24\% \\
     \hline
     
     \end{tabular}
+\end{center}}
+\caption{percentage of partial repairs that are identified positively at each granularity level, in minimized experiment result}
+\end{table}
+    
+\begin{table}
+{\begin{center}
+    \begin{tabular}{| l | l | l | l | l |} \hline
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 77.56\% & 73.56\% & 73.72\% & 73.75\%\\
+    Method & 40.11 \% & 39.95\% & 62.18\% & 64.62\% \\
+    Assertion & 31.98\% & 30.30\% & 49.36 \% & 59.19\% \\
+    \hline
+    
+    \end{tabular}
+    
+\end{center}}
+\caption{percentage of partial repairs that performs no different at each granularity level, in minimized experiment result}
+\end{table}
 
-    Here are the percentage of partial repairs that performs no different at each granularity level:
     
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 77.56\% & 73.56\% & 73.72\% & 73.75\%\\
-    Method Level Granularity & 40.11 \% & 39.95\% & 62.18\% & 64.62\% \\
-    Assertion Level Granularity & 31.98\% & 30.30\% & 49.36 \% & 59.19\% \\
+     & Defects4j & Defects4j & Bears & Bears  \\ \hline
+     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
+    Class & 9.89\% & 7.64\% & 10.90\% & 10.84\%\\
+    Method & 17.67 \% & 14.13\% & 10.90 \% & 10.84\% \\
+    Assertion & 18.55 \% & 14.39 \% & 19.23 \% & 14.44\% \\
     \hline
     
     \end{tabular}
     
-    Here are the percentage of partial repairs that performed worse compared to original buggy program at each granularity level:
-    
-    \begin{tabular}{| l | l | l | l | l |} \hline
-    Dataset & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    Weightedness & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class Level Granularity & 9.89\% & 7.64\% & 10.90\% & 10.84\%\\
-    Method Level Granularity & 17.67 \% & 14.13\% & 10.90 \% & 10.84\% \\
-    Assertion Level Granularity & 18.55 \% & 14.39 \% & 19.23 \% & 14.44\% \\
-    \hline
-    
-    \end{tabular}
-    
+\end{center}}
+\caption{percentage of partial repairs that are identified negatively at each granularity level, in minimized experiment result}
+\end{table}
 \subsection{Interpretations}
 
 1. As expected, the more granular the fitness function gets, the more likely a partial repair gets identified positively or negatively.
@@ -471,11 +512,6 @@ This experiment breaks up full repairs into chunks and treats each chunk as a si
 
 Regardless of its limitations, this experiment is provides valid and valuable information to tackling the challenge of automatically repairing bugs that requires multiple edit actions to fully repair and provides insight in future APR research.
 
-\subsection{Relations between fitness experiment result and fault localization experiment result}
-
-(I'm not sure where these findings belong to (or even if they should be in the paper), so I just toss them here for now)
-
-Negative fitness tend to happen in "Same" category of coverage (8 out of 12 bugs has some partial repair that is negative, another 2 have all their partial repairs as 0). In bugs of category "Overlap" or "Disjoint", all of them has some partial repairs that results in more test methods passed, while only 5 out of 12 "Same" bugs has any partial repair that performs better than original. Moreover, "Disjoint" and "Overlap" category has very few partial repairs that has negative fitness compared to original: only 2 out of 17 Disjoint bugs has some negative partial repair, and only 1 out of 10 Overlap bugs have some negative partial repair. These results are kind of intuitive (we would expect multiple edits in the same location to cause more problems for partial repairs than Disjoint ones)
 
 \section{Dependency Analysis}
 
@@ -610,7 +646,19 @@ other three tools. Later work found patch incorrectness to be
 also problematic in Defects4J~\cite{d4j-eval} and in semantics-based 
 repair techniques~\cite{Le2018}.
 
-Zhong and Su ~\cite{zhong2015} did an empirical study on real bug fixes. 
+% I know I'm referring to the work by the authors' names,
+% but I can't find a good way to refactor their names out without writing awkwardly.
+% I would need to refactor all of the usages of "they" to remove their names.
+Long and Rinard~\cite{long-search-spaces} studied the prevalence of 
+correct and incorrect plausible patches in the search spaces of SPR~\cite{spr} 
+and Prophet~\cite{prophet}. They found incorrect plausible patches to outnumber 
+correct patches by orders of magnitude. When they increased the search space 
+by adding additional mutation operations, they found an increased number of 
+correct patches, but APR tool performance might actually degrade due to a 
+simultaneous increase in incorrect plausible patches and the combinatorial 
+growth of the search space.
+
+Zhong and Su~\cite{zhong2015} did an empirical study on real bug fixes. 
 They studied the difficulty of fault localization, the complexity of fixing bugs, 
 necessary mutation operators, importance of API knowledge, the types of buggy files, 
 and addition/deletion of files in bug fixing on over 9000 real-world bugs collected via BUGSTAT, 
@@ -621,7 +669,7 @@ In contrast, our study focuses on one specific category of bugs:
 source file bugs that requires multiple edit actions to successfully repair, 
 drawing insights on their behaviors in fault localization, fitness evaluations and dependency.
 
-Wang et al ~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
+Wang et al.~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
 (where each entity is a class, method or field). Their research questions mostly focused on 
 how often and why do real-world bug fixes have multi-entity changes, the relationship 
 between co-changed entities, and the recurring patterns of those multi-entity changes. 
@@ -634,14 +682,22 @@ requires multiple edits to fix, where the edits may be in the same entity. We de
 changes (single edit) differently, and we studied interactions between edits 
 (i.e. the lines that changed in the bug fix) instead of entire entities.
 
-Ding et al ~\cite{gi2019} proposed an approach to tackle the problem of fitness functions 
-misidentifying partial repairs by leveraging program invariants to promote population diversity 
-in addition to unit test results in class or method level granularity. 
-Ultimately, they were unable to show a statistically significant increase in repair success rate 
-with their new approach. In contrast, our study includes an evaluation of fitness function 
-results of partial repairs without using program invariants and purely based on unit test performance.
+Previous efforts in G\&V program repair to derive more search-guiding information 
+during candidate patch evaluation 
+include using program invariants~\cite{better-fitness, dinglyu}, 
+intermediate program values~\cite{source-code-checkpoint}, 
+and online mutation-based fault localization~\cite{mut-analysis}.
+Some approaches require additional input, such as suspicious variables~\cite{source-code-checkpoint} 
+or known patches for the bug under repair~\cite{better-fitness}, 
+while others exhibit limited performance improvements~\cite{dinglyu, mut-analysis}.
+\todo{Describe how our work can spark future work in better evaluating candidate patches.}
 
-Schulte et al ~\cite{schulte} did an empirical study on software mutation robustness (i.e. how often do code mutations remain neutral in test results). They found that in a large collection of off-the-shelf softwares the mutation robustness is about 37\%, and discussed potential application of mutation robustness to proactive bug repair. In contrast, our study focuses on automatically fixing current bugs (i.e. bugs that fail an existing unit test), and we do not restrict our repair actions to neutral variants of the program.
+Schulte et al.~\cite{schulte} did an empirical study on software mutation robustness 
+(i.e. how often do code mutations remain neutral in test results). 
+They found that in a large collection of off-the-shelf softwares the mutation robustness is about 37\%, 
+and discussed potential application of mutation robustness to proactive bug repair. 
+In contrast, our study focuses on automatically fixing current bugs (i.e. bugs that fail an existing unit test), 
+and we do not restrict our repair actions to neutral variants of the program.
 
 \section{Limitations}
 

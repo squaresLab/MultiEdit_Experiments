@@ -1,0 +1,138 @@
+PATCH : FasterXML-jackson-databind-195752461-195777970:007
+INTERSECT
+intersect all failing tests
+com/fasterxml/jackson/databind/deser/std/EnumDeserializer: [170]
+
+UNION
+aggregate all failing tests
+com/fasterxml/jackson/databind/deser/std/EnumDeserializer: [170]
+
+PATCH : FasterXML-jackson-databind-215111320-215799347:012
+INTERSECT
+intersect all failing tests
+com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer: [583]
+
+UNION
+aggregate all failing tests
+com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer: [583]
+
+PATCH : INRIA-spoon-191511078-191595944:031
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [677, 622]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [677, 622]
+
+PATCH : INRIA-spoon-201940544-203101555:040
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [641, 642, 646, 678, 273, 274, 275, 276, 278, 662, 663, 669]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [641, 642, 646, 678, 650, 273, 274, 275, 276, 278, 662, 663, 280, 669]
+
+PATCH : INRIA-spoon-204567691-207361743:041
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [577, 578, 536]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [577, 578, 536, 537, 538, 539]
+
+PATCH : INRIA-spoon-239871875-239928671:062
+INTERSECT
+intersect all failing tests
+spoon/template/Substitution: [192, 193, 185, 186, 187, 188, 190, 175]
+spoon/support/visitor/ClassTypingContext: [699]
+
+UNION
+aggregate all failing tests
+spoon/template/Substitution: [192, 193, 185, 186, 187, 188, 190, 175]
+spoon/support/visitor/ClassTypingContext: [699, 700, 701, 702, 703]
+
+PATCH : INRIA-spoon-270437105-270439051:079
+INTERSECT
+intersect all failing tests
+spoon/support/visitor/ProcessingVisitor: [48, 49, 52]
+
+UNION
+aggregate all failing tests
+spoon/support/visitor/ProcessingVisitor: [48, 49, 52]
+
+PATCH : INRIA-spoon-270439051-271649592:080
+INTERSECT
+intersect all failing tests
+spoon/support/StandardEnvironment: [357, 359, 363]
+
+UNION
+aggregate all failing tests
+spoon/support/StandardEnvironment: [368, 369, 370, 357, 359, 360, 363, 364, 365, 366]
+
+PATCH : traccar-traccar-207561899-207563891:103
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/traccar/protocol/MeitrackProtocolDecoder: [127]
+org/traccar/protocol/TotemProtocolDecoder: [293]
+org/traccar/protocol/AquilaProtocolDecoder: [135]
+
+PATCH : traccar-traccar-265439859-265542197:123
+INTERSECT
+intersect all failing tests
+org/traccar/reports/ReportUtils: [288, 289, 292, 293, 296, 297, 298, 299, 300, 287]
+
+UNION
+aggregate all failing tests
+org/traccar/reports/ReportUtils: [288, 289, 292, 293, 294, 296, 297, 298, 299, 300, 301, 287]
+
+PATCH : 2018swecapstone-h2ms-356638992-356666847:140
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+edu/harvard/h2ms/service/utils/H2msRestUtils: [128, 96, 131, 99, 132, 100, 54, 55, 58, 59, 127, 95]
+
+PATCH : 2018swecapstone-h2ms-363210218-363627522:141
+INTERSECT
+intersect all failing tests
+edu/harvard/h2ms/domain/core/User: [97, 150, 151]
+
+UNION
+aggregate all failing tests
+edu/harvard/h2ms/service/UserDetailsServiceImpl: [19]
+edu/harvard/h2ms/domain/core/User: [97, 150, 151]
+
+PATCH : DmitriiSerikov-money-transfer-service-446104441-446106577:209
+INTERSECT
+intersect all failing tests
+com/github/example/holder/impl/LockHolderImpl: [37, 29]
+
+UNION
+aggregate all failing tests
+com/github/example/holder/impl/LockHolderImpl: [37, 29]
+
+PATCH : INRIA-spoon-431601111-431664501:216
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/SnippetCompilationHelper: [97]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/SnippetCompilationHelper: [97, 113, 116, 117, 119]
+
+PATCH : vkostyukov-la4j-414793864-436911083:250
+INTERSECT
+intersect all failing tests
+org/la4j/vector/sparse/CompressedVector: [210, 211, 215]
+
+UNION
+aggregate all failing tests
+org/la4j/vector/sparse/CompressedVector: [210, 211, 215]
+
