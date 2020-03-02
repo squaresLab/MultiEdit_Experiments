@@ -190,23 +190,61 @@ Section~\ref{sec:results}, with discussion of implications as well as
 limitations in Section~\ref{sec:discussion}.  Related work is discussed in
 Section~\ref{sec:related}; Section~\ref{conclusions} concludes.
 
-\section{Background}
-\subsection{Automated Program Repair (APR)}
-Automated program repair (APR) techniques aim to find patches for broken programs. 
-Given a buggy program and an oracle for program correctness (e.g: test cases), APR 
-techniques attempt to produce a series of edits that causes the program to satisfy the 
-correctness oracle. 
+\section{Key Terms and Concepts}
+\label{sec:background}
 
-A popular search-based repair technique is to treat program repair as an optimization 
-problem, where the repair technique attempts uses a heuristic for patch quality to guide 
-the search for a high quality patch within the space of possible patches. A popular heuristic
-measure of patch quality is the number of passing test cases.
+\paragraph{Search spaces in automatic program repair.} Automatic program repair (APR) techniques aim to find patches for bugs in
+programs.  We restrict attention to dynamic or test-case guided program repair,
+which describes the majority of research advancements over the past ten years.
+Such techniques take as input a program and a set of test cases that serve as
+the oracle for program correctness.  At least one of those tests should be
+failing, corresponding to the bug to be repaired.  
 
-\subsection{Fault Localization}
+At a high level, any APR technique aims to solve a search or optimization
+problem, seeking a set of edits (or patch) to the program that will lead it to
+pass all of the provided tests.  Although The repair search is classically defined along
+the following axes:
+\begin{itemize}
+\item \emph{Fault space.} The first problem in fixing a bug concerns
+  \emph{where} in the code modifications should be applied. All dynamic repair
+  techniques begin by using the provided test cases as input to a fault
+  localization technique. Such techniques identify (and typically score)
+  suspicious code based on which test cases execute which pieces of code.
+  Although the particulars of the fault localization employed can vary, most APR
+  use some variant of spectrum-based fault localization (SBFL)~\cite{refs} in
+  this first step. The resulting computation defines the fault space, or the
+  candidate locations or code entities considered for repair. This first step is
+  key to reducing the search space.
+\item \emph{Mutation space.} \todo{fixmes: expand out the rest of these bullets...}
+Some use heuristic or templated modifications at the AST level trying. For
+example \todo{NOPOL does X, GenProg does Y...}. Other techniques use s
 
-Work on fault localization started in assisting human developers with debugging. When people started doing program repair, folks just plucked those techniques and used them for program repair. 
+\item \emph{Fix code.}
 
-The most commonly used fault localization technique is Spectrum Based Fault Localization (SBFL). 
+\item \emph{Objective.} 
+
+\end{itemize}
+
+
+
+\paragraph{Edit granularity in bug-fixing patches.}  Developer patches for
+program bugs naturally vary in length and complexity.  Estimates range from
+\todo{FIXME} to \todo{FIXME}\% of bugs are repaired using fewer than
+\todo{FIXME} lines of code.  \todo{rephrpase/repeat stuff in intro about
+  studies/prevalence of multi-edit bugs, but expand the rephrase of the results
+  in that prior work to contrast with incidence of single-edit bugs.}  
+
+There are indeed several plausible definitions of multi- vs. single-edit bugs,
+with implications for how they are studied.  We follow \todo{WHO? prior work?}
+in our definition of single- vs. multi-edit (or \emph{chunk}) repairs, as
+follows: 
+\todo{CHUNK DEFINITION.}
+
+Alternative definitions may have bearing on our results.  We argue that this
+definition is natural for the purposes of our study, which focuses in particular
+on understanding multi-chunk bugs for the purposes of adapting, extending, or
+applying new program repair techniques to address them. \todo{A couple more
+  sentences re: why this is reasonable.}
 
 \section{Datasets}
 We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}---datasets of 
