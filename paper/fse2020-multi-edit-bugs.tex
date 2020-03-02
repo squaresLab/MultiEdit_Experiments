@@ -555,7 +555,19 @@ other three tools. Later work found patch incorrectness to be
 also problematic in Defects4J~\cite{d4j-eval} and in semantics-based 
 repair techniques~\cite{Le2018}.
 
-Zhong and Su ~\cite{zhong2015} did an empirical study on real bug fixes. 
+% I know I'm referring to the work by the authors' names,
+% but I can't find a good way to refactor their names out without writing awkwardly.
+% I would need to refactor all of the usages of "they" to remove their names.
+Long and Rinard~\cite{long-search-spaces} studied the prevalence of 
+correct and incorrect plausible patches in the search spaces of SPR~\cite{spr} 
+and Prophet~\cite{prophet}. They found incorrect plausible patches to outnumber 
+correct patches by orders of magnitude. When they increased the search space 
+by adding additional mutation operations, they found an increased number of 
+correct patches, but APR tool performance might actually degrade due to a 
+simultaneous increase in incorrect plausible patches and the combinatorial 
+growth of the search space.
+
+Zhong and Su~\cite{zhong2015} did an empirical study on real bug fixes. 
 They studied the difficulty of fault localization, the complexity of fixing bugs, 
 necessary mutation operators, importance of API knowledge, the types of buggy files, 
 and addition/deletion of files in bug fixing on over 9000 real-world bugs collected via BUGSTAT, 
@@ -566,7 +578,7 @@ In contrast, our study focuses on one specific category of bugs:
 source file bugs that requires multiple edit actions to successfully repair, 
 drawing insights on their behaviors in fault localization, fitness evaluations and dependency.
 
-Wang et al ~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
+Wang et al.~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
 (where each entity is a class, method or field). Their research questions mostly focused on 
 how often and why do real-world bug fixes have multi-entity changes, the relationship 
 between co-changed entities, and the recurring patterns of those multi-entity changes. 
@@ -589,7 +601,7 @@ or known patches for the bug under repair~\cite{better-fitness},
 while others exhibit limited performance improvements~\cite{dinglyu, mut-analysis}.
 \todo{Describe how our work can spark future work in better evaluating candidate patches.}
 
-Schulte et al ~\cite{schulte} did an empirical study on software mutation robustness 
+Schulte et al.~\cite{schulte} did an empirical study on software mutation robustness 
 (i.e. how often do code mutations remain neutral in test results). 
 They found that in a large collection of off-the-shelf softwares the mutation robustness is about 37\%, 
 and discussed potential application of mutation robustness to proactive bug repair. 
