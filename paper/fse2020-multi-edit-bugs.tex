@@ -579,14 +579,22 @@ requires multiple edits to fix, where the edits may be in the same entity. We de
 changes (single edit) differently, and we studied interactions between edits 
 (i.e. the lines that changed in the bug fix) instead of entire entities.
 
-Ding et al ~\cite{gi2019} proposed an approach to tackle the problem of fitness functions 
-misidentifying partial repairs by leveraging program invariants to promote population diversity 
-in addition to unit test results in class or method level granularity. 
-Ultimately, they were unable to show a statistically significant increase in repair success rate 
-with their new approach. In contrast, our study includes an evaluation of fitness function 
-results of partial repairs without using program invariants and purely based on unit test performance.
+Previous efforts in G\&V program repair to derive more search-guiding information 
+during candidate patch evaluation 
+include using program invariants~\cite{better-fitness, dinglyu}, 
+intermediate program values~\cite{source-code-checkpoint}, 
+and online mutation-based fault localization~\cite{mut-analysis}.
+Some approaches require additional input, such as suspicious variables~\cite{source-code-checkpoint} 
+or known patches for the bug under repair~\cite{better-fitness}, 
+while others exhibit limited performance improvements~\cite{dinglyu, mut-analysis}.
+\todo{Describe how our work can spark future work in better evaluating candidate patches.}
 
-Schulte et al ~\cite{schulte} did an empirical study on software mutation robustness (i.e. how often do code mutations remain neutral in test results). They found that in a large collection of off-the-shelf softwares the mutation robustness is about 37\%, and discussed potential application of mutation robustness to proactive bug repair. In contrast, our study focuses on automatically fixing current bugs (i.e. bugs that fail an existing unit test), and we do not restrict our repair actions to neutral variants of the program.
+Schulte et al ~\cite{schulte} did an empirical study on software mutation robustness 
+(i.e. how often do code mutations remain neutral in test results). 
+They found that in a large collection of off-the-shelf softwares the mutation robustness is about 37\%, 
+and discussed potential application of mutation robustness to proactive bug repair. 
+In contrast, our study focuses on automatically fixing current bugs (i.e. bugs that fail an existing unit test), 
+and we do not restrict our repair actions to neutral variants of the program.
 
 \section{Limitations}
 
