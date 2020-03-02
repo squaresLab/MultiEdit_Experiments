@@ -86,18 +86,109 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 \section{Introduction}
 
-Software bugs are hard. That's why we need automated program repair.
+Bugs in software remain a prevalent and expensive problem~\cite{whatever}.  This
+motivates significant research in techniques to automatically find and fix
+them~\cite{whatever}, with the ultimate goal of reducing Quality Assurance costs
+while improving software quality. 
 
-Many bugs require multiple chunks or parts of patches. For example, Sobreira et. al reports that over half of the bugs in Defects4J are patched by two or more chunks ~cite{d4j-dissection}. In Zhong and Su's empirical study of bugs in Apache projects, they found that 70\% of buggy source files required two or more repair actions~\cite{zhong2015}. \todo{(this is, however, different than multiple locations.)}
+A significant class of program repair techniques in both
+research~\cite{examples} and practice~\cite{tyfacebook} use test cases to guide
+patch construction, typically by following what's known as a
+generate-and-validate paradigm. At a high level, these techniques use test cases
+to localize a defect --- identified by at least one failing test --- to a set of
+likely-suspicious program locations. Then, they use a variety of techniques to
+construct (or \emph{generate}) patch candidates for the bug in question,
+checking each to see (or \emph{validate}) if any of them cause the program to
+pass all of the provided test cases.  
+%
+Patches are constructed in a variety of ways, ranging from heuristic, syntactic
+program manipulation~\cite{syntax,examples}, to specially adapted program
+synthesis techniques~\cite{examples}. These techniques have successfully
+repaired real, meaningful defects in large, complex programs~\cite{examples}.
 
-Despite the prevalence of multi-chunk bugs, much of the previous work on automated program repair works best on bugs with single location patches, as to avoid the combinatorial growth of the search space with multiple locations. For example, fault localization techniques often assume that a bug is localized if any one buggy line is identified~\cite{fl-survey-wong}. Program repair techniques are often most effective on bugs that have only a single repair location~\cite{rsrepair, ae, hdrepair}.
+Practically speaking, these techniques are typically limited in the types and
+variety of defects they can repair~\cite{for,example}. Some of this limitation
+is by design. Some techniques specifically target certain classes of
+bugs~\cite{nopol,sapfix}, and it has been argued that doing so is necessary for
+repair to reach true practical applicability~\cite{maybe}. Fundamentally, the
+vast majority of program repair techniques can only produce single-edit repairs,
+often by design~\cite{rsrepair, ae, hdrepair}. \todo{more recent citations?}
+Even those that can in principle produce multi-edit bugs typically
+don't~\cite{poor,genprog}.
 
-Work on multi-chunk bugs are often focused on code clones and syntactically similar code chunks~\cite{saha2019harnessing,jiang2019cmsuggester}. \todo{something about the empirical multi-entity paper?~\cite{wang2018}} \todo{some more citations from Zhen's intro~\cite{fl-multi-faults, patch-correctness, Le2018}}
+This leaves a large proportion of real-world bugs unrepairable by modern
+research techniques in program repair.  Over half of the bugs in popular bug
+benchmark Defects4J are patched by humans using multi-part
+patches~\cite{d4j-dissection}. Approximately 70\% of buggy source files in a
+large study of bugs in Apache projects required two or more edit
+actions~\cite{zhong2015}.
 
-In order to repair more complex multi-chunk bugs, we need to study their characteristics. In this work, we hope to look at the characteristics of multi-chunk bugs, with an eye to automatically repairing them.
+A key factor or tension in how these techniques are constructed is in their
+management of the trivially-infinite search space of possible patches for a
+given bug, while constructing patches in which a user can have confidence of
+their quality or correctness.  This space has been parameterized~\cite{refs}
+along several axes: (1) the \emph{fault space}, or the potential locations that
+may be changed, (2) the \emph{mutation space}, or the possible modifications
+that may be tried at a location, and (3) \emph{fix code space}, or the code that may
+be instantiated as part of a mutation (e.g., if the mutation seeks to
+\emph{insert} code, the fix code is the code that is inserted).  Many dynamic
+repair techniques can be compared or described in terms of their choices along
+each of these axes; the ways each technique constructs and then traverses the
+space has first-order implications for scalability, and for the type and quality
+of patches produced.  This has been studied many ways~\cite{examples}.
 
-We focus on three specific aspects -- fault localization, repair actions, and evaluation.
+The various ways this search space has been handled or limited by previous
+techniques has direct bearing on the problem of addressing multi-location or
+multi-edit repair. For example, the evaluation of most fault localization
+techniques typicaly assumes that a bug is localized if any one buggy line is
+identified~\cite{fl-survey-wong}.  The size of the fix code space motivated the
+\emph{plastic surgery hypothesis}, which limits selection of fix code from
+elsewhere in the same program, and idea that underlies several program repair
+techniques~\cite{foo}.  
+Initial work on explicitly multi-edit repair has similarly tried to limit the
+search space using heuristics like syntactic similarity, simultaneously constraining the type
+of bugs targeted to a particular narrow
+class~\cite{saha2019harnessing,jiang2019cmsuggester}. \todo{something about the
+  empirical multi-entity paper?~\cite{wang2018}} 
+Although multi-edit repair has been discussed in the context of other analyses
+that study bug fix characteristics in general~\cite{examples} as well as for
+repair applicability specifically~\cite{moar,examples}, to the best of our
+knowledge there has been no significant previous study of the characterists of
+multi-edit repairs in terms of their implications for repairability or, more
+broadly, program repair.  
 
+In this paper, we present a systematic study of real-world multi-edit bugs,
+looking specifically at their characteristics with respect to the problem of the
+automatic repair search space.  
+We study the bugs curated in two
+real-world datasets that support program repair research: Defects4J~\cite{d4j}
+and BEARS~\cite{bears}, totally \todo{NUMBUGS} in \todo{NUMPROJECTS} and
+\todo{NUMLOC} total lines of code.  Of these, \todo{NUMULTI} were repaired by a
+human developer using a multi-edit or -chunk (as we define in
+Section~\ref{somewhere}) repair.  We look at characteristics along each of the
+relevant axes of the program repair search problem: fault locations, mutation
+operators, fix code, and evaluation (or fitness or objective) using test cases.  
+\todo{we also examine symptoms, need to fit that one in.}  Our contributions are
+as follows:
+
+\begin{itemize}
+\item \todo{fixme} A study on X and Y.
+\item \todo{fixme} characterizing of fault localization.  We find that FOO.
+\item \todo{fixme} characterizing fix types and code.  We find that BAR.
+\item \todo{fixme} study of test cases as a means to evaluation partial and full
+  multi-site repairs.  We find that BAZ.
+\item \todo{fixme} whatever else.
+\item \todo{A set of recommendations?}
+\end{itemize}
+
+The rest of this paper is organized as follows.  We provide background on
+generate-and-validate program repair, with a focus on the key parameters of the
+program repair search problem, in Section~\ref{sec:background}.  We explain our
+research questions and empirical experimental approach in
+Section~\ref{sec:approach}.  We describe the results of our analysis in
+Section~\ref{sec:results}, with discussion of implications as well as
+limitations in Section~\ref{sec:discussion}.  Related work is discussed in
+Section~\ref{sec:related}; Section~\ref{conclusions} concludes.
 
 \section{Background}
 \subsection{Automated Program Repair (APR)}
