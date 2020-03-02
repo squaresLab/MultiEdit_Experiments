@@ -211,8 +211,9 @@ Here we introduce a third level of granularity: assertion-level granularity. For
 
 \subsection{Test Result Notations}
 
-For each bug, run unit tests on all three levels of granularity on the original buggy code and all partial repairs. Then, the test results of each partial repair is compared to the test results of the original buggy code, and the comparison result is represented using one of the following labels (PR means partial repair, OBC means original buggy code):
-
+For each bug, run unit tests on all three levels of granularity on the original buggy code and all partial repairs. Then, the test results of each partial repair is compared to the test results of the original buggy code, and the comparison result is represented using one of the labels in Table 2.
+\begin{table}
+{\begin{center}
 \begin{tabular}{| l | l |}
 \hline
   Label & Meaning \\
@@ -247,11 +248,17 @@ For each bug, run unit tests on all three levels of granularity on the original 
  
   
 \end{tabular}
-
+\end{center}
+}
+\caption{Test results notation, where PR stands for partial repair and OBC stands for Original Buggy Code}
+\end{table}
 
 \subsection{Unminimized Results}
 
-After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs in Bears that has chunk number between 2 and 6. Since each bug may have different number of partial repairs, we analyzed the results in two different ways: Unweighted (where each partial repair has weight 1), and weighted (where each bug has a total weight of 1, so if a bug has n partial repairs each of them has weight $\frac{1}{n}$). Here is the full result:
+After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs in Bears that has chunk number between 2 and 6. Since each bug may have different number of partial repairs, we analyzed the results in two different ways: Unweighted (where each partial repair has weight 1), and weighted (where each bug has a total weight of 1, so if a bug has n partial repairs each of them has weight $\frac{1}{n}$). The full result is presented in Table 3, while the percentage of partial repairs identified positively/negatively or performs no different from original buggy program is presented in Table 4-6.
+
+\begin{table}
+{
 
 \begin{tabular}{| l | l | l | l | l |} \hline
      & Defects4j & Defects4j & Bears & Bears  \\ \hline
@@ -271,9 +278,13 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
     
     
     \end{tabular}
+}
+\caption{Full result of fitness experiment, unminimized}
+\end{table}
     
-    Thus, from the data above, we can compute the percentage of partial repairs that are identified positively by each granularity level:
-    
+
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
      & Defects4j & Defects4j & Bears & Bears  \\ \hline
      & Unweighted & Weighted &Unweighted& Weighted \\ \hline
@@ -283,9 +294,13 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
     \hline
     
     \end{tabular}
+\end{center}}
+\caption{percentage of partial repairs that are identified positively at each granularity level, in unminimized experiment result}
+\end{table}
 
-    Here are the percentage of partial repairs that performs no different at each granularity level:
     
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
      & Defects4j & Defects4j & Bears & Bears  \\ \hline
      & Unweighted & Weighted & Unweighted & Weighted \\ \hline
@@ -295,9 +310,12 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
     \hline
     
     \end{tabular}
+\end{center} }
+\caption{percentage of partial repairs that performs no different at each granularity level, in unminimized experiment result}
+\end{table}   
     
-    Here are the percentage of partial repairs that performed worse compared to original buggy program at each granularity level:
-    
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
      & Defects4j & Defects4j & Bears & Bears  \\ \hline
      & Unweighted & Weighted & Unweighted & Weighted \\ \hline
@@ -307,6 +325,9 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
     \hline
     
     \end{tabular}
+\end{center}}
+\caption{percentage of partial repairs that are identified negatively at each granularity level, in unminimized experiment result}
+\end{table}
     
     
 
@@ -314,7 +335,8 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
 
 During the experiment, we found that sometimes not all edit chunks of a bug is necessary to pass all tests, because one or more of its partial repairs passed all tests. This means that some chunks in the provided correct patch is redundant. 
 
-Sicne we're only interested in edits that are necessary for the repair, we processed the data to ignore redundant chunks and all partial repairs that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears bugs are affected. Some bugs ends up with chunk number 1 after minimization, so they are not included in the Minimized results. The minimized results include 75 remaining bugs in defects4j and 38 remaining bugs of Bears.
+Sicne we're only interested in edits that are necessary for the repair, we processed the data to ignore redundant chunks and all partial repairs that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears bugs are affected. Some bugs ends up with chunk number 1 after minimization, so they are not included in the Minimized results. The minimized results include 75 remaining bugs in defects4j and 38 remaining bugs of Bears. The full result is presented in Table 7, while the percentage of partial repairs identified positively/negatively or performs no different from original buggy program is presented in Table 8-10.
+\begin{table}
 
 \begin{tabular}{| l | l | l | l | l |} \hline
     & Defects4j & Defects4j & Bears & Bears  \\ \hline
@@ -335,8 +357,11 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
     
     \end{tabular}
     
-    Thus, from the data above, we can compute the percentage of partial repairs that are identified positively by each granularity level:
+\caption{Full result of fitness experiment, unminimized}
+\end{table}
     
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
      & Defects4j & Defects4j & Bears & Bears  \\ \hline
      & Unweighted & Weighted & Unweighted & Weighted \\ \hline
@@ -346,9 +371,12 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
     \hline
     
     \end{tabular}
-
-    Here are the percentage of partial repairs that performs no different at each granularity level:
+\end{center}}
+\caption{percentage of partial repairs that are identified positively at each granularity level, in minimized experiment result}
+\end{table}
     
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
      & Defects4j & Defects4j & Bears & Bears  \\ \hline
      & Unweighted & Weighted & Unweighted & Weighted \\ \hline
@@ -359,8 +387,13 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
     
     \end{tabular}
     
-    Here are the percentage of partial repairs that performed worse compared to original buggy program at each granularity level:
+\end{center}}
+\caption{percentage of partial repairs that performs no different at each granularity level, in minimized experiment result}
+\end{table}
+
     
+\begin{table}
+{\begin{center}
     \begin{tabular}{| l | l | l | l | l |} \hline
      & Defects4j & Defects4j & Bears & Bears  \\ \hline
      & Unweighted & Weighted & Unweighted & Weighted \\ \hline
@@ -371,6 +404,9 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
     
     \end{tabular}
     
+\end{center}}
+\caption{percentage of partial repairs that are identified negatively at each granularity level, in minimized experiment result}
+\end{table}
 \subsection{Interpretations}
 
 1. As expected, the more granular the fitness function gets, the more likely a partial repair gets identified positively or negatively.
@@ -385,11 +421,6 @@ This experiment breaks up full repairs into chunks and treats each chunk as a si
 
 Regardless of its limitations, this experiment is provides valid and valuable information to tackling the challenge of automatically repairing bugs that requires multiple edit actions to fully repair and provides insight in future APR research.
 
-\subsection{Relations between fitness experiment result and fault localization experiment result}
-
-(I'm not sure where these findings belong to (or even if they should be in the paper), so I just toss them here for now)
-
-Negative fitness tend to happen in "Same" category of coverage (8 out of 12 bugs has some partial repair that is negative, another 2 have all their partial repairs as 0). In bugs of category "Overlap" or "Disjoint", all of them has some partial repairs that results in more test methods passed, while only 5 out of 12 "Same" bugs has any partial repair that performs better than original. Moreover, "Disjoint" and "Overlap" category has very few partial repairs that has negative fitness compared to original: only 2 out of 17 Disjoint bugs has some negative partial repair, and only 1 out of 10 Overlap bugs have some negative partial repair. These results are kind of intuitive (we would expect multiple edits in the same location to cause more problems for partial repairs than Disjoint ones)
 
 \section{Dependency Analysis}
 
