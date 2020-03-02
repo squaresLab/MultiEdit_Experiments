@@ -3,15 +3,13 @@ package util;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteWatchdog;
+import org.apache.commons.exec.PumpStreamHandler;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.function.Consumer;
 
 public class CommandLineRunner {
-    public static void runCommand(CommandLine commandLine) throws IOException {
+    public static void runCommand(CommandLine commandLine) {
         String workingDirectory = System.getProperty("user.dir");
         System.out.println(commandLine);
 
@@ -22,7 +20,25 @@ public class CommandLineRunner {
 
         executor.setExitValue(0);
 
-        executor.execute(commandLine);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        executor.setStreamHandler(new PumpStreamHandler(out));
+
+        try {
+            executor.execute(commandLine);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                out.flush();
+                String output = out.toString();
+                out.reset();
+                System.out.println(output);
+                out.close();
+            } catch (IOException e) {
+            }
+        }
+
+
     }
 
     public static void lineIterator(File f, Consumer<String> eachLine) throws IOException {

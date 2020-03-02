@@ -1,0 +1,303 @@
+Loading required package: carData
+Classes and Methods for R developed in the
+Political Science Computational Laboratory
+Department of Political Science
+Stanford University
+Simon Jackman
+hurdle and zeroinfl functions by Achim Zeileis
+Parsed with column specification:
+cols(
+  index = col_double(),
+  name = col_character(),
+  multi = col_logical(),
+  assert_obj_arr_date = col_logical(),
+  other_assert = col_logical(),
+  other = col_logical(),
+  assert_int = col_logical(),
+  assert_float = col_logical(),
+  error_expected = col_logical(),
+  timeout = col_logical(),
+  assert_null = col_logical()
+)
+ [1] "index"               "name"                "multi"              
+ [4] "assert_obj_arr_date" "other_assert"        "other"              
+ [7] "assert_int"          "assert_float"        "error_expected"     
+[10] "timeout"             "assert_null"        
+Classes ‘spec_tbl_df’, ‘tbl_df’, ‘tbl’ and 'data.frame':	646 obs. of  11 variables:
+ $ index              : num  0 1 2 3 4 5 6 7 8 9 ...
+ $ name               : chr  "CHART:006" "CHART:010" "CHART:009" "CHART:008" ...
+ $ multi              : logi  FALSE FALSE FALSE FALSE TRUE TRUE ...
+ $ assert_obj_arr_date: logi  TRUE FALSE FALSE FALSE FALSE FALSE ...
+ $ other_assert       : logi  TRUE TRUE FALSE FALSE FALSE FALSE ...
+ $ other              : logi  FALSE FALSE TRUE FALSE FALSE TRUE ...
+ $ assert_int         : logi  FALSE FALSE FALSE TRUE TRUE FALSE ...
+ $ assert_float       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ error_expected     : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ timeout            : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ assert_null        : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   index = col_double(),
+  ..   name = col_character(),
+  ..   multi = col_logical(),
+  ..   assert_obj_arr_date = col_logical(),
+  ..   other_assert = col_logical(),
+  ..   other = col_logical(),
+  ..   assert_int = col_logical(),
+  ..   assert_float = col_logical(),
+  ..   error_expected = col_logical(),
+  ..   timeout = col_logical(),
+  ..   assert_null = col_logical()
+  .. )
+assert_obj_arr_date          assert_int        assert_float      error_expected 
+           1.166196            1.204889            1.743265            1.335200 
+            timeout         assert_null        other_assert               other 
+           1.222881            1.419615            2.503744            2.697671 
+
+Call:
+glm(formula = multi ~ assert_obj_arr_date + assert_int + assert_float + 
+    error_expected + timeout + assert_null + other_assert + other, 
+    family = "binomial", data = symptoms)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.1630  -0.8391  -0.6331  -0.5009   1.9894  
+
+Coefficients:
+                        Estimate Std. Error z value Pr(>|z|)    
+(Intercept)             -1.46956    0.31792  -4.622 3.79e-06 ***
+assert_obj_arr_dateTRUE  0.63225    0.47659   1.327  0.18464    
+assert_intTRUE          -0.18226    0.38280  -0.476  0.63399    
+assert_floatTRUE         1.42011    0.44206   3.212  0.00132 ** 
+error_expectedTRUE      -0.36046    0.48704  -0.740  0.45924    
+timeoutTRUE              0.50710    0.59237   0.856  0.39197    
+assert_nullTRUE          0.82904    0.37982   2.183  0.02905 *  
+other_assertTRUE        -0.03597    0.30388  -0.118  0.90577    
+otherTRUE                0.60662    0.31835   1.906  0.05671 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 725.44  on 645  degrees of freedom
+Residual deviance: 697.26  on 637  degrees of freedom
+AIC: 715.26
+
+Number of Fisher Scoring iterations: 4
+
+          llh       llhNull            G2      McFadden          r2ML 
+-348.63149059 -362.71816458   28.17334798    0.03883642    0.04267467 
+         r2CU 
+   0.06325109 
+Analysis of Deviance Table
+
+Model: binomial, link: logit
+
+Response: multi
+
+Terms added sequentially (first to last)
+
+
+                    Df Deviance Resid. Df Resid. Dev
+NULL                                  645     725.44
+assert_obj_arr_date  1   0.6600       644     724.78
+assert_int           1   1.9377       643     722.84
+assert_float         1  10.6083       642     712.23
+error_expected       1   2.5132       641     709.72
+timeout              1   0.1442       640     709.57
+assert_null          1   3.6962       639     705.88
+other_assert         1   5.1179       638     700.76
+other                1   3.4958       637     697.26
+Parsed with column specification:
+cols(
+  index = col_double(),
+  name = col_character(),
+  multi = col_logical(),
+  other_assert = col_logical(),
+  access = col_logical(),
+  assert_prim = col_logical(),
+  null_pointer = col_logical(),
+  timeout = col_logical(),
+  assert_null = col_logical(),
+  other = col_logical(),
+  parsing = col_logical()
+)
+ [1] "index"        "name"         "multi"        "other_assert" "access"      
+ [6] "assert_prim"  "null_pointer" "timeout"      "assert_null"  "other"       
+[11] "parsing"     
+Classes ‘spec_tbl_df’, ‘tbl_df’, ‘tbl’ and 'data.frame':	646 obs. of  11 variables:
+ $ index       : num  0 1 2 3 4 5 6 7 8 9 ...
+ $ name        : chr  "CHART:006" "CHART:010" "CHART:009" "CHART:008" ...
+ $ multi       : logi  FALSE FALSE FALSE FALSE TRUE TRUE ...
+ $ other_assert: logi  TRUE TRUE FALSE FALSE FALSE FALSE ...
+ $ access      : logi  FALSE FALSE TRUE FALSE FALSE TRUE ...
+ $ assert_prim : logi  FALSE FALSE FALSE TRUE TRUE FALSE ...
+ $ null_pointer: logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ timeout     : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ assert_null : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ other       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ parsing     : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   index = col_double(),
+  ..   name = col_character(),
+  ..   multi = col_logical(),
+  ..   other_assert = col_logical(),
+  ..   access = col_logical(),
+  ..   assert_prim = col_logical(),
+  ..   null_pointer = col_logical(),
+  ..   timeout = col_logical(),
+  ..   assert_null = col_logical(),
+  ..   other = col_logical(),
+  ..   parsing = col_logical()
+  .. )
+      access  assert_prim null_pointer      timeout  assert_null      parsing 
+    1.667595     1.788390     1.364684     1.186915     1.376938     1.475576 
+other_assert        other 
+    2.407741     1.406454 
+
+Call:
+glm(formula = multi ~ access + assert_prim + null_pointer + timeout + 
+    assert_null + parsing + other_assert + other, family = "binomial", 
+    data = symptoms)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.3448  -0.7293  -0.6413  -0.6152   1.9233  
+
+Coefficients:
+                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)      -1.15825    0.30011  -3.859 0.000114 ***
+accessTRUE        0.49743    0.35565   1.399 0.161918    
+assert_primTRUE   0.28861    0.31792   0.908 0.363983    
+null_pointerTRUE -0.20119    0.45263  -0.444 0.656682    
+timeoutTRUE       0.23758    0.58290   0.408 0.683582    
+assert_nullTRUE   0.57468    0.37483   1.533 0.125236    
+parsingTRUE       0.96885    0.41871   2.314 0.020675 *  
+other_assertTRUE -0.31892    0.28866  -1.105 0.269231    
+otherTRUE        -0.09137    0.40435  -0.226 0.821223    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 725.44  on 645  degrees of freedom
+Residual deviance: 703.98  on 637  degrees of freedom
+AIC: 721.98
+
+Number of Fisher Scoring iterations: 4
+
+          llh       llhNull            G2      McFadden          r2ML 
+-351.99084523 -362.71816458   21.45463869    0.02957481    0.03266607 
+         r2CU 
+   0.04841665 
+Analysis of Deviance Table
+
+Model: binomial, link: logit
+
+Response: multi
+
+Terms added sequentially (first to last)
+
+
+             Df Deviance Resid. Df Resid. Dev
+NULL                           645     725.44
+access        1   3.0320       644     722.40
+assert_prim   1   1.6831       643     720.72
+null_pointer  1   0.1526       642     720.57
+timeout       1   0.1961       641     720.37
+assert_null   1   4.2325       640     716.14
+parsing       1  10.7868       639     705.35
+other_assert  1   1.3198       638     704.03
+other         1   0.0516       637     703.98
+Parsed with column specification:
+cols(
+  index = col_double(),
+  name = col_character(),
+  multi = col_logical(),
+  assert_equal = col_logical(),
+  other_assert = col_logical(),
+  access = col_logical(),
+  null_pointer = col_logical(),
+  other = col_logical(),
+  parsing = col_logical()
+)
+[1] "index"        "name"         "multi"        "assert_equal" "other_assert"
+[6] "access"       "null_pointer" "other"        "parsing"     
+Classes ‘spec_tbl_df’, ‘tbl_df’, ‘tbl’ and 'data.frame':	646 obs. of  9 variables:
+ $ index       : num  0 1 2 3 4 5 6 7 8 9 ...
+ $ name        : chr  "CHART:006" "CHART:010" "CHART:009" "CHART:008" ...
+ $ multi       : logi  FALSE FALSE FALSE FALSE TRUE TRUE ...
+ $ assert_equal: logi  TRUE TRUE FALSE TRUE TRUE FALSE ...
+ $ other_assert: logi  TRUE FALSE FALSE FALSE FALSE FALSE ...
+ $ access      : logi  FALSE FALSE TRUE FALSE FALSE TRUE ...
+ $ null_pointer: logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ other       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ parsing     : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   index = col_double(),
+  ..   name = col_character(),
+  ..   multi = col_logical(),
+  ..   assert_equal = col_logical(),
+  ..   other_assert = col_logical(),
+  ..   access = col_logical(),
+  ..   null_pointer = col_logical(),
+  ..   other = col_logical(),
+  ..   parsing = col_logical()
+  .. )
+assert_equal       access null_pointer      parsing other_assert        other 
+    2.243404     1.622578     1.378737     1.471153     2.177717     1.586877 
+
+Call:
+glm(formula = multi ~ assert_equal + access + null_pointer + 
+    parsing + other_assert + other, family = "binomial", data = symptoms)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.2102  -0.7915  -0.6497  -0.6220   1.8644  
+
+Coefficients:
+                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)      -1.24535    0.29793  -4.180 2.92e-05 ***
+assert_equalTRUE  0.24537    0.28801   0.852  0.39424    
+accessTRUE        0.55033    0.35105   1.568  0.11696    
+null_pointerTRUE -0.09632    0.45470  -0.212  0.83224    
+parsingTRUE       1.07674    0.41778   2.577  0.00996 ** 
+other_assertTRUE -0.20294    0.27965  -0.726  0.46804    
+otherTRUE         0.07740    0.37084   0.209  0.83466    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 725.44  on 645  degrees of freedom
+Residual deviance: 709.62  on 639  degrees of freedom
+AIC: 723.62
+
+Number of Fisher Scoring iterations: 4
+
+          llh       llhNull            G2      McFadden          r2ML 
+-354.81019865 -362.71816458   15.81593185    0.02180196    0.02418559 
+         r2CU 
+   0.03584715 
+Analysis of Deviance Table
+
+Model: binomial, link: logit
+
+Response: multi
+
+Terms added sequentially (first to last)
+
+
+             Df Deviance Resid. Df Resid. Dev
+NULL                           645     725.44
+assert_equal  1   0.6403       644     724.80
+access        1   3.6597       643     721.14
+null_pointer  1   0.1095       642     721.03
+parsing       1  10.3990       641     710.63
+other_assert  1   0.9641       640     709.66
+other         1   0.0433       639     709.62
+Error in symptoms_exceptions[symptoms_exceptions$test_assertions == "1.0",  : 
+  object 'symptoms_exceptions' not found
+Execution halted

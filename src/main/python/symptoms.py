@@ -14,7 +14,7 @@ num_multi_bugs = 0
 num_single_bugs =0
 
 with open("data/multi_edit.txt") as f:
-    multi_edit = set([x.strip() for x in f.readlines()])
+	multi_edit = set([x.strip() for x in f.readlines()])
 
 with open("data/defects4j-bugs.json") as f:
 	d4jbugs = json.load(f)
@@ -46,8 +46,9 @@ with open("data/bears-bugs.json") as f:
 	bearsbugs = json.load(f)
 
 for b in bearsbugs:
+	branch_name = b["bugName"]
 	_, num = b["bugId"].split("-")
-	bug_name = f'BEARS:{int(num):03}'
+	bug_name = f'{branch_name}:{int(num):03}'
 	if bug_name in multi_edit:
 		num_multi_bugs += 1
 	else:

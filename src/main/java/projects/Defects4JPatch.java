@@ -145,7 +145,20 @@ public class Defects4JPatch implements Patch {
         command.addArgument(String.valueOf(bugNumber));
         command.addArgument(d4jWorkingDir);
         System.out.println(command);
-        CommandLineRunner.runCommand(command);
+        int tries = 0;
+        while(true) {
+            try {
+                CommandLineRunner.runCommand(command);
+            } catch (Exception e) {
+                if (tries >= 5) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println(++tries);
+                continue;
+            }
+            break;
+        }
+
     }
 
     private void parseFields() throws Exception {

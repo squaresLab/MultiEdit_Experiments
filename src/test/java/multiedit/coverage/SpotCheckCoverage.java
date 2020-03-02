@@ -81,6 +81,12 @@ public class SpotCheckCoverage {
         this.d4jCoverage(D4JName.MOCKITO, 21);
     }
 
+    @Test
+    public void testMockito023() {
+        this.d4jCoverage(D4JName.MOCKITO, 23);
+    }
+
+
     public void bearsCoverage(int i) {
         BearsPatch b = new BearsPatch(i);
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" + b.getPatchName());
