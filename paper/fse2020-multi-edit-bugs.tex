@@ -235,16 +235,18 @@ program bugs naturally vary in length and complexity.  Estimates range from
   in that prior work to contrast with incidence of single-edit bugs.}  
 
 There are indeed several plausible definitions of multi- vs. single-edit bugs,
-with implications for how they are studied.  We follow \todo{WHO? prior work?}
-in our definition of single- vs. multi-edit (or \emph{chunk}) repairs, as
-follows: 
-\todo{CHUNK DEFINITION.}
+with implications for how they are studied.  We consider edits at the granularity 
+of lines and of chunks. We define a line edit as an added, removed, or modified 
+line. We follow~\cite{d4j-dissection} in our definition of a chunk as a continuous 
+sequence of line edits. We solely consider edits to source code; thus, we ignore 
+edits to whitespace or comments.
 
 Alternative definitions may have bearing on our results.  We argue that this
 definition is natural for the purposes of our study, which focuses in particular
-on understanding multi-chunk bugs for the purposes of adapting, extending, or
-applying new program repair techniques to address them. \todo{A couple more
-  sentences re: why this is reasonable.}
+on understanding larger bugs---especially multi-chunk bugs---for the purposes of 
+adapting, extending, or applying new program repair techniques to address them. 
+\todo{A couple more sentences re: why this is reasonable. Might be solved by 
+pointing to low rates of repair for multi-chunk bugs.}
 
 \paragraph{Research questions.}  The parameterization of the program repair
 search problems into multiple subspaces informs our empirical study of those
