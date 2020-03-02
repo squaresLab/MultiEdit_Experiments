@@ -261,35 +261,21 @@ following research questions:
 \label{sec:data-rq1}
 
 We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}---datasets of 
-bugs found in real world software projects.
-
-Defects4J contains 438 bugs from six Java software projects. This  
-is currently the most popular Java dataset for evaluating program repair tools~\cite{durieux-repair-them-all}.
+bugs found in real world software projects. Defects4J contains 438 bugs from six 
+Java software projects. This is currently the most popular Java dataset for evaluating 
+program repair tools~\cite{durieux-repair-them-all}.
 Many such tools, however, overfit to Defects4J and perform worse on other 
 benchmarks~\cite{durieux-repair-them-all}. 
-
-Bears is a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
-Bears offers 251 bugs from 72 software projects, offering a greater diversity of 
+We thus also study bugs from Bears, 
+a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
+Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
 projects compared to Defects4J.
-
-\section{Frequency of Multi-Edit Bugs}
-
-\subsection{Research Question}
-
-\textbf{RQ1: How many multi-edit patches are in Defects4J and Bears?}
-We start our analysis of multi-edit patches by asking how many such patches 
-exist in our benchmarks. We analyze edits at two levels: line and chunk.
-Line edits include adding, deleting, or modifying lines.
-Chunks are sequences of consecutive line edits.
-We ignore whitespace and comments when counting edits.
-
-\subsection{Results}
 
 \begin{table}
 {\begin{center}
 	\begin{tabular}{l | rrrr | r}
 		\toprule
-		Dataset & 1-line & Multiline & 1-chunk & Multichunk & Total \\
+		Dataset & 1-line & Multi-line & 1-chunk & Multi-chunk & Total \\
 		\midrule
 		\multirow{ 2}{*}{Defects4J} & 92 & 303 & 298 & 97 & 395 \\
 		& 23\% & 77\% & 75\% & 25\% & 100\% \\
@@ -306,8 +292,25 @@ We ignore whitespace and comments when counting edits.
 	\label{tab:multiedit-frequencies}
 \end{table}
 
-Table~\ref{tab:multiedit-frequencies} lists the number and percentages of Defects4J and Bears
-multi-line and multi-chunk patches.
+Table~\ref{tab:multiedit-frequencies} lists the number and percentages of
+multi-line and multi-chunk patches. For both datasets, over 75\% of patches are multi-line, 
+and $\geq$25\% are multi-chunk. At both edit granularities, multi-edit bugs 
+comprise a majority or a substantial minority of both datasets.
+
+\todo{Maybe add some data to show repair rates of multi-line \& multi-chunk bugs}
+
+\section{Frequency of Multi-Edit Bugs}
+
+\subsection{Research Question}
+
+\textbf{RQ1: How many multi-edit patches are in Defects4J and Bears?}
+We start our analysis of multi-edit patches by asking how many such patches 
+exist in our benchmarks. We analyze edits at two levels: line and chunk.
+Line edits include adding, deleting, or modifying lines.
+Chunks are sequences of consecutive line edits.
+We ignore whitespace and comments when counting edits.
+
+\subsection{Results}
 
 \section{Fitness Experiment}
 
