@@ -86,6 +86,11 @@ public class SpotCheckCoverage {
         this.d4jCoverage(D4JName.MOCKITO, 23);
     }
 
+    @Test
+    public void testMath035() {
+        this.d4jCoverage(D4JName.MATH, 35);
+    }
+
 
     public void bearsCoverage(int i) {
         BearsPatch b = new BearsPatch(i);

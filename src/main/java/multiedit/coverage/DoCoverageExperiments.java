@@ -23,13 +23,19 @@ public class DoCoverageExperiments {
              PrintWriter disjointWriter = new PrintWriter(new File("data/coverage-experiments/disjoint.data"));
              PrintWriter sameWriter = new PrintWriter(new File("data/coverage-experiments/same.data"));
              PrintWriter inBetweenWriter = new PrintWriter(new File("data/coverage-experiments/inBetween.data"))) {
-            for (D4JName n : D4JName.values()) {
-                if (true) continue; //skip for now
 
-                if (n != D4JName.MOCKITO) continue;
-                Set<Integer> mockitoMultiEdit = new HashSet<>(Arrays.asList(3, 4, 11, 20, 23, 35));
+            Map<D4JName, Set<Integer>> d4jMultitestMultiedit = new HashMap<>();
+            d4jMultitestMultiedit.put(D4JName.CHART, new HashSet<>(Arrays.asList(2, 14, 16, 18, 19, 22, 25)));
+            d4jMultitestMultiedit.put(D4JName.LANG, new HashSet<>(Arrays.asList(20, 22,  30, 34, 41, 47, 50, 12, 15, 19, 36)));
+            d4jMultitestMultiedit.put(D4JName.MATH, new HashSet<>(Arrays.asList(1, 4, 16, 29, 35, 36, 37, 98, 99, 21, 43, 46, 47, 68, 76, 86, 102)));
+            d4jMultitestMultiedit.put(D4JName.TIME, new HashSet<>(Arrays.asList(12, 5, 6,  21, 22)));
+            d4jMultitestMultiedit.put(D4JName.CLOSURE, new HashSet<>());
+            d4jMultitestMultiedit.put(D4JName.MOCKITO, new HashSet<>(Arrays.asList(3, 4, 11, 20, 23, 35)));
+            for (D4JName n : D4JName.values()) {
+
+                if (n == D4JName.MOCKITO) continue;
                 for (int i = 1; i <= n.numBugs; i++) {
-                    if (!mockitoMultiEdit.contains(i)) {
+                    if (!d4jMultitestMultiedit.get(n).contains(i)) {
                         continue;
                     }
 
@@ -74,12 +80,13 @@ public class DoCoverageExperiments {
 //            Set<Integer> redo = new HashSet<>(Arrays.asList(149, 150, 151, 152, 155, 156, 157, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 172, 174, 176, 177, 178, 179, 180, 181, 182, 183, 186, 187, 190, 191));
 //            Set<Integer> redo = new HashSet<>(Arrays.asList(150, 162, 164, 165, 167, 168, 170, 172, 179, 191));
 //             there are only 15 of these for bears, so might as well just test these
-            Set<Integer> multitestMultiedit = new HashSet<>(Arrays.asList(7, 12, 31, 40, 41, 62, 79, 80, 103, 123, 140, 141, 209, 216, 250));
+            Set<Integer> bearsMultitestMultiedit = new HashSet<>(Arrays.asList(7, 12, 31, 40, 41, 62, 79, 80, 103, 123, 140, 141, 209, 216, 250));
             for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
+                if (true) continue;
 
 //                if (i == 95 || i == 209) continue; // these have malformed test names
 
-                if (!multitestMultiedit.contains(i)) continue;
+                if (!bearsMultitestMultiedit.contains(i)) continue;
 
                 try {
                     BearsPatch b = new BearsPatch(i);
