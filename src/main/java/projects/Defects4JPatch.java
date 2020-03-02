@@ -144,19 +144,28 @@ public class Defects4JPatch implements Patch {
         command.addArgument(projectName.getID());
         command.addArgument(String.valueOf(bugNumber));
         command.addArgument(d4jWorkingDir);
-        System.out.println(command);
-        int tries = 0;
-        while(true) {
+        System.out.println(String.join(" ", command.toStrings()));
+        if (projectName == D4JName.MOCKITO) {
             try {
-                CommandLineRunner.runCommand(command);
-            } catch (Exception e) {
-                if (tries >= 5) {
-                    throw new RuntimeException(e);
-                }
-                System.out.println(++tries);
-                continue;
+                Thread.sleep(300_000); // run the damn thing yourself.
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            break;
+        }
+        else {
+            int tries = 0;
+            while (true) {
+                try {
+                    CommandLineRunner.runCommand(command);
+                } catch (Exception e) {
+                    if (tries >= 5) {
+                        throw new RuntimeException(e);
+                    }
+                    System.out.println(++tries);
+                    continue;
+                }
+                break;
+            }
         }
 
     }

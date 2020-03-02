@@ -6,9 +6,9 @@ import seaborn as sns
 # 			"data/coverage-experiments/dec16-Lang43-Lang61",
 # 			"data/coverage-experiments/dec16-Lang63-Time11"]
 
-folders = ["data/coverage-experiments/all_bears"]
-# folders = ["data/coverage-experiments/jan15"]
-# folders = ["data/coverage-experiments/all_bears", "data/coverage-experiments/jan15"]
+# folders = ["data/coverage-experiments/all_bears"]
+# folders = ["data/coverage-experiments/jan15", "data/coverage-experiments/mockito"]
+folders = ["data/coverage-experiments/all_bears", "data/coverage-experiments/jan15", "data/coverage-experiments/mockito"]
 
 with open("data/more_than_one_test.txt") as f:
     more_than_one_test = set([x.strip() for x in f.readlines()])
@@ -91,15 +91,15 @@ print(f"Multitest/multichunk same: {multichunk_same}")
 print(f"Multitest/multichunk inBetween: {multichunk_inBetween}")
 
 
-plt.figure()
-plt.bar(["disjoint", "in between", "same"], [disjoint, inBetween, same])
-plt.title("Distribution of coverage, all multitest patches")
-plt.xlabel("Coverage pattern")
-plt.ylabel("Number patches")
+# plt.figure()
+# plt.bar(["disjoint", "in between", "same"], [disjoint, inBetween, same])
+# plt.title("Distribution of coverage, all multitest patches")
+# plt.xlabel("Coverage pattern")
+# plt.ylabel("Number patches")
 
 plt.figure()
-plt.bar(["disjoint", "in between", "same"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])
-plt.title("Distribution of coverage, patches w/ multiple chunks")
+plt.bar(["disjoint", "overlap", "same"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])
+plt.title("All multi-test and multi-chunk: Distribution of coverage")
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
 

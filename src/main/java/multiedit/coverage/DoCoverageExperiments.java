@@ -24,8 +24,14 @@ public class DoCoverageExperiments {
              PrintWriter sameWriter = new PrintWriter(new File("data/coverage-experiments/same.data"));
              PrintWriter inBetweenWriter = new PrintWriter(new File("data/coverage-experiments/inBetween.data"))) {
             for (D4JName n : D4JName.values()) {
+                if (true) continue; //skip for now
+
                 if (n != D4JName.MOCKITO) continue;
+                Set<Integer> mockitoMultiEdit = new HashSet<>(Arrays.asList(3, 4, 11, 20, 23, 35));
                 for (int i = 1; i <= n.numBugs; i++) {
+                    if (!mockitoMultiEdit.contains(i)) {
+                        continue;
+                    }
 
                     Defects4JPatch p;
                     Collection<CoverageSubset> coverageFailingTests;
@@ -71,7 +77,6 @@ public class DoCoverageExperiments {
             Set<Integer> multitestMultiedit = new HashSet<>(Arrays.asList(7, 12, 31, 40, 41, 62, 79, 80, 103, 123, 140, 141, 209, 216, 250));
             for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
 
-                if (true) continue; //skip bears for now
 //                if (i == 95 || i == 209) continue; // these have malformed test names
 
                 if (!multitestMultiedit.contains(i)) continue;

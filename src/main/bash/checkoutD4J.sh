@@ -14,7 +14,6 @@ defects4j compile
 
 defects4j export -p tests.trigger > neg.tests
 defects4j export -p tests.relevant > rel.tests
-
 MODIFIED=$(defects4j export -p classes.modified)
 MODIFIED=$(echo $MODIFIED | sed 's/ /:/g')
 
