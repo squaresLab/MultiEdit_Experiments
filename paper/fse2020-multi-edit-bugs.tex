@@ -501,116 +501,105 @@ successfully auto-repaired Bears bugs with multi-line human patches.
 
 \section{Test case-based validation}
 
-In search based program repair, one key area of research is to find ways to measure how "close" a candidate patch is to a full repair (a fitness function),
+In search based program repair, one key area of research is to find ways to 
+measure how "close" a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
-Given a buggy program and a valid repair, if we apply a part of the valid repair to the buggy program (a partial repair), then semanticly the partial repair is closer to the full repair compared to the original. 
-Ideally, we would want the fitness function to guide the search towards a full repair by identifying partial repairs as "closer" to full repair than original.
-However, sometimes partial repairs will perform no different in unit tests compared to the original program, and other times they could perform worse. We want to find out how often each of these situations happen.
+Given a buggy program and a valid repair, if we apply a part of the valid repair to 
+the buggy program (a partial repair), then semanticly the partial repair is closer
+ to the full repair compared to the original. 
+Ideally, we would want the fitness function to guide the search towards a full 
+repair by identifying partial repairs as "closer" to full repair than original.
+However, sometimes partial repairs will perform no different in unit tests compared 
+to the original program, and other times they could perform worse. We want to find 
+out how often each of these situations happen.
 
-Moreover, unit test performance can be measured in different granularity levels. The most common ones used in existing APR tools are class level and method level. 
-It is commonly believed that the more granular a fitness functions is, the better it is because it collects more information and is less likely to plateau. Thus, we introduce a third granularity level: assertion level, which is more granular than method level granularity.
-We would like to compare the performance of the fitness functions at identifying partial repairs at different granularity levels.
+Moreover, unit test performance can be measured in different granularity levels. 
+The most common ones used in existing APR tools are class level and method level. 
+It is commonly believed that the more granular a fitness functions is, the better 
+it is because it collects more information and is less likely to plateau. Thus, 
+we introduce a third granularity level: assertion level, which is more granular 
+than method level granularity.
+We would like to compare the performance of the fitness functions at identifying 
+partial repairs at different granularity levels.
 
-The results may provide valuable information to future search-based program repair tool designs.
+The results may provide valuable information to future search-based program 
+repair tool designs.
 
 \subsection{Partial Repairs}
 
-For each bug in Defects4j (excluding Clojure bugs) and Bears (single-module only), we look at the provided correct patch and divide it into edit chunks using the following steps:
+For each bug in Defects4j (excluding Clojure bugs) and Bears (single-module only), 
+we look at the provided correct patch and divide it 
+into edit chunks using the following steps:
 
-1. Each consecutive block of edits (including both insertion and deletion) is labeled as one chunk.
+1. Each consecutive block of edits (including both insertion and deletion) 
+is labeled as one chunk.
 
-2. Discard all edits that does not actually affect the program (such as comment change, fixing spaces, etc)
+2. Discard all edits that does not actually affect the program 
+(such as comment change, fixing spaces, etc)
 
-3. If a set of matched brackets that are both inserted or deleted in two different chunk, merge those two chunks into one; if a bracket is deleted in one chunk but inserted back in another chunk (matched to the same opposite bracket), merge these two chunks into one
+3. If a set of matched brackets that are both inserted or deleted in two different 
+chunk, merge those two chunks into one; if a bracket is deleted in one chunk but 
+inserted back in another chunk (matched to the same opposite bracket), merge these 
+two chunks into one
 
-4. We introduce a new set of edits, Base, initially empty. If a variable declaration is deleted, discard the deletion edit; if a variable declaration is inserted, move this edit to Base; if a variable declaration is moved upwards in code, move the variable moving edits to Base; if a variable declaration is moved downwards in code, discard the moving edits. Declaration modifications (i.e. changing parts of the variable declaration, but not the variable name or the location of the declaration), however, does not belong to any of the cases above.
+4. We introduce a new set of edits, Base, initially empty. If a variable declaration 
+is deleted, discard the deletion edit; if a variable declaration is inserted, move this
+ edit to Base; if a variable declaration is moved upwards in code, move the variable 
+moving edits to Base; if a variable declaration is moved downwards in code, 
+discard the moving edits. Declaration modifications (i.e. changing parts of the 
+variable declaration, but not the variable name or the location of the declaration), 
+however, does not belong to any of the cases above.
 
-5. Any insertion of imports or additional helper methods are moved to Base; any deletion of imports or helper methods is discarded
+5. Any insertion of imports or additional helper methods are moved to Base; 
+any deletion of imports or helper methods is discarded
 
-After the steps above, we count the number of remaining chunks (not including Base) and call it the chunk number of the bug, label the chunks with positive numbers, and make a power set of the chunks excluding the empty set and the complete set. Then, for each subset of the chunks, we apply all edits in chunks in this subset and Base to the original buggy code, and we define this as a partial repair. For a bug with chunk number n, it should have $2^n-2$ partial repairs. 
+After the steps above, we count the number of remaining chunks (not including Base) 
+and call it the chunk number of the bug, label the chunks with positive numbers, and 
+make a power set of the chunks excluding the empty set and the complete set. 
+Then, for each subset of the chunks, we apply all edits in chunks in this subset 
+and Base to the original buggy code, and we define this as a partial repair. 
+For a bug with chunk number n, it should have $2^n-2$ partial repairs. 
 
-In this experiment, each edit chunk will be viewed as a single edit. Thus, only bugs with chunk number between 2 and 6 (inclusive) is selected, as bugs with chunk number more than 6 are rare but has too many partial repairs to evaluate.
+In this experiment, each edit chunk will be viewed as a single edit. Thus, only bugs 
+with chunk number between 2 and 6 (inclusive) is selected, as bugs with chunk number 
+more than 6 are rare but has too many partial repairs to evaluate.
 
-Note that the reason of steps 4 and 5 is to make sure that all declarations are present in all partial repairs such that the partial repairs compile (thus can be tested). Since there are almost no cases where a declaration in patch have side effects, it is okay to include redundant variable/method declarations in partial repairs, as they will not affect the program's performance in unit tests. 
+Note that the reason of steps 4 and 5 is to make sure that all declarations are 
+present in all partial repairs such that the partial repairs compile (thus can be 
+tested). Since there are almost no cases where a declaration in patch have side 
+effects, it is okay to include redundant variable/method declarations in partial 
+repairs, as they will not affect the program's performance in unit tests. 
 
 \subsection{Unit Testing Granularity}
 
-There are different ways to compare unit test results, and the most common ways are class-level granularity and method-level granularity. At Class-level granularity, we only look at which test classes passed and which failed; at method-level granularity, we look at which test methods passed and which failed.
+There are different ways to compare unit test results, and the most common ways 
+are class-level granularity and method-level granularity. At Class-level granularity, 
+we only look at which test classes passed and which failed; at method-level 
+granularity, we look at which test methods passed and which failed.
 
-Here we introduce a third level of granularity: assertion-level granularity. For each test method $M$, let $A(M)$ be the set of all assert statements in $M$. When $M$ is run, if an assertion failed, the failure is recorded and the method is allowed to continue to run (as opposed to normally the test method throws an error and terminates). After running the method, for each assert statement $a\in A(M)$, let $b(a)$ be 1 if $a$ never failed once during the running of $M$, and 0 otherwise. We define the assertion score of $M$ to be $AS(M)=\frac{\Sigma_{a\in A(M)}b(a)}{|A(M)|}$. If $M$ failed to run to completion due to timeouts or exceptions that are not related to assertions, then we define $AS(M)=0$. Thus by definition, $AS(M)=1$ if $M$ passes. If a program passed more assertions in $M$, there should be an increase in $AS(M)$.
+Here we introduce a third level of granularity: assertion-level granularity. 
+For each test method $M$, let $A(M)$ be the set of all assert statements in $M$. 
+When $M$ is run, if an assertion failed, the failure is recorded and the method 
+is allowed to continue to run (as opposed to normally the test method throws an 
+error and terminates). After running the method, for each assert statement 
+$a\in A(M)$, let $b(a)$ be 1 if $a$ never failed once during the running of $M$, 
+and 0 otherwise. We define the assertion score of $M$ to be 
+$AS(M)=\frac{\Sigma_{a\in A(M)}b(a)}{|A(M)|}$. If $M$ failed to run to completion 
+due to timeouts or exceptions that are not related to assertions, then we define 
+$AS(M)=0$. Thus by definition, $AS(M)=1$ if $M$ passes. If a program passed more 
+assertions in $M$, there should be an increase in $AS(M)$.
 
-\subsection{Test Result Notations}
-
-For each bug, run unit tests on all three levels of granularity on the original buggy code and all partial repairs. Then, the test results of each partial repair is compared to the test results of the original buggy code, and the comparison result is represented using one of the labels in Table 2.
-\begin{table}
-{\begin{center}
-\begin{tabular}{| l | l |}
-\hline
-  Label & Meaning \\
-  
-  \hline
-  c+ & PR passed more test classes than OBC  \\\hline
-  c- & PR passed less test classes than OBC  \\\hline
-  m+ & PR and OBC passed same number of test classes, \\
-  & PR passed more methods than OBC and \\
-  & passed all methods that OBC passed\\\hline
-  m- & PR and OBC passed same number of test classes, \\
-  & OBC passed more methods than PR and passed \\
-  & all methods that PR passed\\\hline
-  m\~ & PR and OBC passed same number of test classes, \\
-  & PR passed some methods that OBC didn't, \\
-  & and OBC passed some methods that PR didn't \\\hline
-  a+ & PR and OBC passed exact same test methods, \\
-  & PR has higher assertion scores in some failed methods \\
-  & than OBC and has equal assertion scores in \\
-  & all other failed methods \\\hline
-  a- & PR and OBC passed exact same test methods, \\
-  & PR has lower assertion scores in some failed methods \\
-  & than OBC and has equal assertion scores in \\ 
-  & all other failed methods \\\hline
-  a\~ & PR and OBC passed exact same test methods, \\
-  & PR has higher assertion scores in some failed \\
-  & methods than OBC and has lower assertion scores \\
-  &  in some other failed methods \\\hline
-  0 & PR and OBC passed exact same test methods \\
-  & and has same assertion score for all failed methods \\ \hline
-  NC & PR did not compile \\\hline
- 
-  
-\end{tabular}
-\end{center}
-}
-\caption{Test results notation, where PR stands for partial repair and OBC stands for Original Buggy Code}
-\end{table}
 
 \subsection{Unminimized Results}
 
-After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs in Bears that has chunk number between 2 and 6. Since each bug may have different number of partial repairs, we analyzed the results in two different ways: Unweighted (where each partial repair has weight 1), and weighted (where each bug has a total weight of 1, so if a bug has n partial repairs each of them has weight $\frac{1}{n}$). The full result is presented in Table 3, while the percentage of partial repairs identified positively/negatively or performs no different from original buggy program is presented in Table 4-6.
+After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs 
+in Bears that has chunk number between 2 and 6. Since each bug may have different 
+number of partial repairs, we analyzed the results in two different ways: 
+Unweighted (where each partial repair is weighted equally), and weighted (where each bug 
+has equal weight, so if a bug has n partial repairs each of them has weight 
+$\frac{1}{n}$). We record the percentage of partial repairs that performed better, same
+or worse compared to original code in each assertion level.
 
-\begin{table}
-{
-
-\begin{tabular}{| l | l | l | l | l |} \hline
-     & Defects4j & Defects4j & Bears & Bears  \\ \hline
-     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Total & 898 & 97 & 444 & 64 \\ \hline
-    c+ & 102 & 19.84 & 129 & 17.67 \\
-    c- & 108 & 6.97 & 18 & 4.29 \\
-    m+ & 216 & 20.16 & 38 & 2.36 \\
-    m- & 65 & 5.18 & 4 & 1 \\
-    m~ & 1 & 0.07 & 0 & 0 \\
-    a+ & 45 & 6.79 & 6 & 0.2 \\
-    a- & 23 & 0.37 & 21 & 1.94 \\
-    a~ & 13 & 0.21 & 1 & 0.5 \\
-    0 & 248 & 30.77 & 219 & 30.39 \\
-    NC & 77 & 6.62 & 8 & 1.67 \\
-    \hline
-    
-    
-    \end{tabular}
-}
-\caption{Full result of fitness experiment, unminimized}
-\end{table}
     
 
 \begin{table}
@@ -663,32 +652,19 @@ After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs
 
 \subsection{Minimized Results}
 
-During the experiment, we found that sometimes not all edit chunks of a bug is necessary to pass all tests, because one or more of its partial repairs passed all tests. This means that some chunks in the provided correct patch is redundant. 
+During the experiment, we found that sometimes not all edit 
+chunks of a bug is necessary to pass all tests, 
+because one or more of its partial repairs passed all tests. This means that 
+some chunks in the provided correct patch is redundant. 
 
-Sicne we're only interested in edits that are necessary for the repair, we processed the data to ignore redundant chunks and all partial repairs that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears bugs are affected. Some bugs ends up with chunk number 1 after minimization, so they are not included in the Minimized results. The minimized results include 75 remaining bugs in defects4j and 38 remaining bugs of Bears. The full result is presented in Table 7, while the percentage of partial repairs identified positively/negatively or performs no different from original buggy program is presented in Table 8-10.
-\begin{table}
+Since we're only interested in edits that are necessary for the repair, 
+we processed the data to ignore redundant chunks and all partial repairs 
+that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears 
+bugs are affected. Some bugs ends up with chunk number 1 after minimization, 
+so they are not included in the Minimized results. The minimized results 
+include 75 remaining bugs in defects4j and 38 remaining bugs of Bears. 
+The full result is presented in tables.
 
-\begin{tabular}{| l | l | l | l | l |} \hline
-    & Defects4j & Defects4j & Bears & Bears  \\ \hline
-    & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Total & 566 & 75 & 156 & 38 \\ \hline
-    c+ & 30 & 7.33 & 19 & 4.02 \\
-    c- & 56 & 5.73 & 17 & 4.12 \\
-    m+ & 167 & 20.26 & 18 & 3.47 \\
-    m- & 44 & 4.86 & 0 & 0 \\
-    m~ & 1 & 0.07 & 0 & 0 \\
-    a+ & 31 & 6.83 & 6 & 0.2 \\
-    a- & 5 & 0.19 & 13 & 1.67 \\
-    a~ & 10 & 0.22 & 1 & 0.5 \\
-    0 & 181 & 22.73 & 77 & 22.49 \\
-    NC & 41 & 5.77 & 5 & 1.83 \\
-    \hline
-    
-    
-    \end{tabular}
-    
-\caption{Full result of fitness experiment, unminimized}
-\end{table}
     
 \begin{table}
 {\begin{center}
@@ -739,17 +715,45 @@ Sicne we're only interested in edits that are necessary for the repair, we proce
 \end{table}
 \subsection{Interpretations}
 
-1. As expected, the more granular the fitness function gets, the more likely a partial repair gets identified positively or negatively.
+1. As expected, the more granular the fitness function gets, the more 
+likely a partial repair gets identified positively or negatively.
 
-2. In both datasets, method level granularity performed a lot better than class level granularity. Assertion level granularity performed better than method level granularity in Defects4j (significant increase in positively identifying partial repairs and minimal increase in negatively identifying partial repairs) and not so well in Bears (almost no increase in positively identifying partial repairs while significantly increasing negatively identifying partial repairs).
+2. In both datasets, method level granularity performed a lot better 
+than class level granularity. Assertion level granularity performed 
+better than method level granularity in Defects4j (significant increase 
+in positively identifying partial repairs and minimal increase in negatively 
+identifying partial repairs) and not so well in Bears (almost no increase in 
+positively identifying partial repairs while significantly 
+increasing negatively identifying partial repairs). 
 
-3. In general, it seems that unit test results are less sensitive to granularity level in Bears compared to Defects4j. Fitness function with class level granularity performs approximately the same on both datasets in minimized results (and in unminimized results it actually did better in Bears), but as we get more granular, the fitness functions performs much better with Defects4j bugs compared to Bears bugs in both minimized and unminimized results.
+3. Note that the percentage of
+partial repairs that are identified positively in class level granularity is a lot
+less in minimized results compared to unminimized results, that is because 
+a lot of partial repairs in unminimized results that passed more test classes than
+original buggy code actually passed all tests, thus is no longer considered 
+a partial repair in minimized results.
+
+4. In general, it seems that unit test results are less sensitive to granularity 
+level in Bears compared to Defects4j. Fitness function with class level 
+granularity performs approximately the same on both datasets in minimized results 
+(and in unminimized results it actually did better in Bears), but as we get more 
+granular, the fitness functions performs much better with Defects4j bugs compared 
+to Bears bugs in both minimized and unminimized results.
+
 
 \subsection{Limitations}
 
-This experiment breaks up full repairs into chunks and treats each chunk as a single edit action. However, in reality most APR techniques edits a line or part of a line at a time. Also, this experiment only checks whether fitness functions can identify partial repairs, and not concerned with how to come up with these partial repairs (depending on specifics of the APR techniques, some may not be in the search space).
+This experiment breaks up full repairs into chunks and treats each chunk as a 
+single edit action. However, in reality most APR techniques edits a line or part 
+of a line at a time. Also, this experiment only checks whether fitness functions 
+can identify partial repairs, and not concerned with how to come up with these 
+partial repairs (depending on specifics of the APR 
+techniques, some may not be in the search space).
 
-Regardless of its limitations, this experiment is provides valid and valuable information to tackling the challenge of automatically repairing bugs that requires multiple edit actions to fully repair and provides insight in future APR research.
+Regardless of its limitations, this experiment is provides valid and valuable 
+information to tackling the challenge of automatically repairing bugs that 
+requires multiple edit actions to fully repair 
+and provides insight in future APR research.
 
 
 \section{Related Work}
