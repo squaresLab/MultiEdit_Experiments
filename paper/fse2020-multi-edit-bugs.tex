@@ -99,14 +99,6 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 \section{Introduction}
 
-\todo{Note to self/everyone: one thing that's missing in this draft of a story
-  is a more specific discussion of why this is hard, which is what we end up
-  using to motivate our specific research questions.  Things like, dependencies
-  between locations/code, partial correctness evaluated by tests, etc...those
-  things drive our specific study, and I'm not presently bringing it out in this
-  intro (and thus it requires revision to that end!). It will be easier for me
-  once I finish reorganizing the results/experiments, but I want this note here
-  so I don't forget, and to encouragey ou all to edit if you want.}
 Bugs in software remain a prevalent and expensive problem~\cite{whatever}.  This
 motivates significant research in techniques to automatically find and fix
 them~\cite{whatever}, with the ultimate goal of reducing Quality Assurance costs
@@ -158,19 +150,25 @@ each of these axes; the ways each technique constructs and then traverses the
 space has first-order implications for scalability, and for the type and quality
 of patches produced.  This has been studied many ways~\cite{examples}.
 
-The various ways this search space has been handled or limited by previous
-techniques has direct bearing on the problem of addressing multi-location or
-multi-edit repair. For example, the evaluation of most fault localization
+Multi-edit repair poses distinct challenges for each of these axes fo repair.  
+Spectrum-based fault localization, the most
+prevalent class of fault localization techniques used in program repair, does
+not specifically identify sets of locations that might be related or repaired
+together; indeed, the evaluation of most fault localization
 techniques typicaly assumes that a bug is localized if any one buggy line is
-identified~\cite{fl-survey-wong}.  The size of the fix code space motivated the
-\emph{plastic surgery hypothesis}, which limits selection of fix code from
-elsewhere in the same program, and idea that underlies several program repair
-techniques~\cite{foo}.  
-Initial work on explicitly multi-edit repair has similarly tried to limit the
-search space using heuristics like syntactic similarity, simultaneously constraining the type
-of bugs targeted to a particular narrow
-class~\cite{saha2019harnessing,jiang2019cmsuggester}. \todo{something about the
+identified~\cite{fl-survey-wong}.  Researchers have observed that some bugs are
+repaired in multiple locations using very similar
+code~\cite{saha2019harnessing,jiang2019cmsuggester}, informing novel techniques
+that constrain the \emph{fix space} of possible multi-edit repairs accordingly.
+One key question for applicability of these types of techniques is how prevalent
+such bugs are, and how often multi-edit bugs instead require multiple
+coordinating (but ultimately different) edits or pieces of fix code.  
+\todo{something about the
   empirical multi-entity paper?~\cite{wang2018}} 
+Test cases are used to evaluate candidate repairs in virtually all dynamic
+generate-and-validate repair techniques, but, anecdotally, may not be effective
+at identifying partial repairs in a multi-edit
+context~\cite{fitness10,maybeeric}.  
 Although multi-edit repair has been discussed in the context of other analyses
 that study bug fix characteristics in general~\cite{examples} as well as for
 repair applicability specifically~\cite{moar,examples}, to the best of our
