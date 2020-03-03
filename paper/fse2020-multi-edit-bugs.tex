@@ -300,7 +300,7 @@ following research questions:
 \begin{table}
 \begin{tabular}{l | rrr}
 \toprule
-\multicolumn{3}{c}{\textbf{Defects4j}} \\
+\multicolumn{4}{c}{\textbf{Defects4j}} \\
 \midrule
 project & bugs & src(kloc) & test(kloc) \\
 \midrule
@@ -311,7 +311,7 @@ Apache commons-math & 106 & 45.0 & 41.5 \\
 Mockito & 38 & 23.0 & 28.5 \\
 Joda-Time & 27 & 82.9 & 70.4 \\
 \midrule
-\multicolumn{3}{c}{\textbf{Bears (single-module)}} \\
+\multicolumn{4}{c}{\textbf{Bears (single-module)}} \\
 \midrule
 FasterXML-jackson-databind & 26 & 95.7 & 53.6 \\
 INRIA-Spoon & 62 & 66.2 & 30.8 \\
@@ -358,27 +358,29 @@ We intend to address the remaining multi-module software projects in future work
 
 \begin{table}
 {\begin{center}
-	\begin{tabular}{l | rrrr | r}
+	\begin{tabular}{l | rr | rr | rr}
 		\toprule
-		Dataset & 1-line & Multi-line & 1-chunk & Multi-chunk & Total \\
+		\multicolumn{7}{c}{\textbf{Line edit granularity}} \\
 		\midrule
-		\multirow{ 2}{*}{Defects4J} & 92 & 303 & 298 & 97 & 395 \\
-		& 23\% & 77\% & 75\% & 25\% & 100\% \\
-		\multirow{ 2}{*}{Bears} & 31 & 150 & 117 & 64 & 181 \\
-		& 17\% & 83\% & 65\% & 35\% & 100\% \\
+		Dataset & \multicolumn{2}{c}{Single line} & \multicolumn{2}{c}{Multi-line} & \multicolumn{2}{c}{Total} \\
 		\midrule
-		\multirow{ 2}{*}{Combined} & 123 & 453 & 415 & 161 & 576 \\
-		& 21\% & 79\% & 72\% & 28\% & 100\% \\
+		Defects4J & 92 & 23\% & 303 & 77\% & 395 & 100\%\\ % & 298 & 75\% & 97 & 25\% & 395 \\
+		Bears & 31 & 17\% & 150 & 83\% & 181 & 100\%\\ % & 117 & 65\% & 64 & 35\% & 181 \\
+		Combined & 123 & 21\% & 453 & 79\% & 576 & 100\% \\ % & 415 & 72\% & 161 & 28\% & 576 \\
+		\midrule
+		\multicolumn{7}{c}{\textbf{Chunk edit granularity}} \\
+		\midrule
+		Dataset & \multicolumn{2}{c}{Single chunk} & \multicolumn{2}{c}{Multi-chunk} & \multicolumn{2}{c}{Total} \\
+		\midrule
+		Defects4J & 298 & 75\% & 97 & 25\% & 395 & 100\%\\
+		Bears & 117 & 65\% & 64 & 35\% & 181 & 100\%\\
+		Combined & 415 & 72\% & 161 & 28\% & 576 & 100\%\\
 		\bottomrule
 	\end{tabular}
  \end{center}
 }
 	\caption{Frequencies and percentages of patches with multi-line and
-          multi-chunk edits. \todo{What is the difference? What's the takeaway?
-            Also please reorganize to have everything in a column have the same
-            type -- either percentage or count. It's fine to break up things by
-            count or percentage but have them next to each other, not on top of
-            one another.}}
+          multi-chunk edits. \todo{What is the difference? What's the takeaway?}}
 	\label{tab:multiedit-frequencies}
 \end{table}
 
