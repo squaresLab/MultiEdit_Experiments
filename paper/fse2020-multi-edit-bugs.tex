@@ -183,7 +183,7 @@ In this paper, we present a systematic study of real-world multi-edit bugs,
 looking specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
 We study the bugs curated in two
-real-world datasets that support program repair research: Defects4J~\cite{d4j}
+real-world datasets that support program repair research: Defects4J~\cite{defects4j}
 and BEARS~\cite{bears}, in total, 646 bugs in 78 projects \todo{do we include the multi-module bugs 
 in bears?} and
 \todo{NUMLOC} total lines of code.  Of these, \todo{NUMULTI} were repaired by a
@@ -238,9 +238,16 @@ the following axes:
   this first step. The resulting computation defines the fault space, or the
   candidate locations or code entities considered for repair. This first step is
   key to reducing the search space.
-\item \emph{Mutation space.} \todo{fixmes: expand out the rest of these bullets...}
-Some use heuristic or templated modifications at the AST level trying. For
-example \todo{NOPOL does X, GenProg does Y...}. Other techniques use s
+
+\item \emph{Mutation space.} The mutation space is the set of applicable 
+modifications at a program location. Examples include GenProg's append, 
+replace, and delete operators over statements~\cite{genprog-operators} and 
+Nopol's condition replacement over if-statements and missing precondition 
+addition over non-branch and non-loop statements~\cite{Xuan17}.
+A larger mutation space generates 
+a richer search space with potentially more repairs, but
+the resulting combinatorial growth of the search space can also hinder 
+the search process~\cite{long-search-spaces}.
 
 \item \emph{Fix code.}
 
