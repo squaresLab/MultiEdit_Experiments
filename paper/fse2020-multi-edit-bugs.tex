@@ -101,14 +101,14 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 \section{Introduction}
 
-Buggy softwares has a significant cost in terms of both social impact~\cite{tricentis} 
+Buggy software has a significant cost in terms of both social impact~\cite{tricentis} 
 and developer effort~\cite{cambridge-study}. This
 motivates significant research in techniques to automatically find and fix
 them~\cite{whatever}, with the ultimate goal of reducing Quality Assurance costs
 while improving software quality. 
 
 A significant class of program repair techniques in both
-research~\cite{examples} and practice~\cite{tyfacebook} use test cases to guide
+research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test cases to guide
 patch construction, typically by following what's known as a
 generate-and-validate paradigm. At a high level, these techniques use test cases
 to localize a defect --- identified by at least one failing test --- to a set of
@@ -153,7 +153,7 @@ each of these axes; the ways each technique constructs and then traverses the
 space has first-order implications for scalability, and for the type and quality
 of patches produced.  This has been studied many ways~\cite{examples}.
 
-Multi-edit repair poses distinct challenges for each of these axes fo repair.  
+Multi-edit repair poses distinct challenges for each of these axes for repair.  
 Spectrum-based fault localization, the most
 prevalent class of fault localization techniques used in program repair, does
 not specifically identify sets of locations that might be related or repaired
@@ -165,9 +165,9 @@ code~\cite{saha2019harnessing,jiang2019cmsuggester}, informing novel techniques
 that constrain the \emph{fix space} of possible multi-edit repairs accordingly.
 One key question for applicability of these types of techniques is how prevalent
 such bugs are, and how often multi-edit bugs instead require multiple
-coordinating (but ultimately different) edits or pieces of fix code.  
-\todo{something about the
-  empirical multi-entity paper?~\cite{wang2018}} 
+coordinating (but ultimately different) edits or pieces of fix code.  Over 50\% of the fixes in four 
+Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
+those multi-entity fixes involved syntactic dependencies.~\cite{wang2018}. 
 Test cases are used to evaluate candidate repairs in virtually all dynamic
 generate-and-validate repair techniques, but, anecdotally, may not be effective
 at identifying partial repairs in a multi-edit
@@ -175,7 +175,7 @@ context~\cite{fitness10,maybeeric}.
 Although multi-edit repair has been discussed in the context of other analyses
 that study bug fix characteristics in general~\cite{examples} as well as for
 repair applicability specifically~\cite{moar,examples}, to the best of our
-knowledge there has been no significant previous study of the characterists of
+knowledge there has been no significant previous study of the characteristics of
 multi-edit repairs in terms of their implications for repairability or, more
 broadly, program repair.  
 
@@ -184,7 +184,8 @@ looking specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
 We study the bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{d4j}
-and BEARS~\cite{bears}, totally \todo{NUMBUGS} in \todo{NUMPROJECTS} and
+and BEARS~\cite{bears}, in total, 646 bugs in 78 projects \todo{do we include the multi-module bugs 
+in bears?} and
 \todo{NUMLOC} total lines of code.  Of these, \todo{NUMULTI} were repaired by a
 human developer using a multi-edit or -chunk (as we define in
 Section~\ref{somewhere}) repair.  We look at characteristics along each of the
@@ -324,7 +325,8 @@ multi-edit defects.  We study both the defects in Defects4J
 Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:data}
 summarizes these datasets, both of which
 consist of historical
-bugs found in real world software projects. Defects4J contains 438 bugs from six 
+bugs found in real world software projects. Defects4J contains 438 bugs\todo{isn't this 395?} from 
+six 
 Java software projects, and is currently very popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.
 However, there is a risk associated with any such dataset that tools may overfit
@@ -389,7 +391,7 @@ comprise a majority or a substantial minority of both datasets.
 
 
 \input{coverage.tex}
-\input{symptoms.tex}
+
 
 
 \section{Dependency Analysis}
