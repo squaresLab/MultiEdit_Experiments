@@ -304,12 +304,8 @@ JFreeChart  & \todo{Fill me in..} \\
 
 \rqorinsight{RQ1: How many multi-edit patches are in Defects4J and Bears?}
 We start our analysis of multi-edit patches by asking how many such patches 
-exist in our benchmarks. We analyze edits at two levels: line and chunk.
-Line edits include adding, deleting, or modifying lines.
-Chunks are sequences of consecutive line edits.
-We ignore whitespace and comments when counting edits.
-\todo{please reorganize this material and the chunk/line material to all be in
-  one place (namely, above, where there's a labeled paragraph/todo)}.
+exist in our benchmarks. We analyze edits at line and chunk granularities,
+which we defined in Section~\ref{sec:background}.
 
 \paragraph{Datasets}  Our study requires a dataset of indicative, real-world,
 multi-edit defects.  We study both the defects in Defects4J
