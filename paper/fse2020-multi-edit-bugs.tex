@@ -302,13 +302,13 @@ Apache commons-math & 106 & 45.0 & 41.5 \\
 Mockito & 38 & 23.0 & 28.5 \\
 Joda-Time & 27 & 82.9 & 70.4 \\
 \midrule
-\multicolumn{3}{c}{\textbf{Bears}} \\
+\multicolumn{3}{c}{\textbf{Bears (single-module)}} \\
 \midrule
 FasterXML-jackson-databind & 26 & 95.7 & 53.6 \\
 INRIA-Spoon & 62 & 66.2 & 30.8 \\
 spring-data-commons & 15 & 45.8 & 28.8 \\
 traccar-traccar & 42 & 47.9 & 8.6 \\
-68 other projects & 106 & - & -\\
+30 other projects & 62 & - & -\\
 \bottomrule
 \end{tabular}
 \caption{\label{tab:data} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
@@ -332,12 +332,13 @@ program repair tools that target Java~\cite{durieux-repair-them-all}.
 However, there is a risk associated with any such dataset that tools may overfit
 to the defects in question, and there is evidence that this situation applies to
 program repair and Defects4j~\cite{durieux-repair-them-all}. 
-We thus also study bugs from Bears, 
+We thus also study bugs from Bears~\cite{bears}, 
 a set of Java bugs derived from failed Travis-CI builds of GitHub
-projects~\cite{reforurlorsomething}. 
+projects. 
 Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
-projects compared to Defects4J. For tool compatibility reasons, we limit 
-our analysis of Bears to 181 single-module bugs. 
+projects compared to Defects4J. Several projects, however, are structured as 
+multiple modules, which are not compatible with our current automation tools.
+We thus limit our analysis of Bears to 181 bugs from 30 single-module projects.
 
 \todo{Questions: what does ``tool compatability reasons'' mean?  Why doesn't it
   apply to D4J?}
