@@ -435,16 +435,13 @@ We implement our dependency analyses in Soot~\cite{soot}.
 
 \begin{table}
 {\begin{center}
-	\begin{tabular}{l | r r | r}
+	\begin{tabular}{l | rr | rr | rr}
 		\toprule
-		Dataset & Dependent & Independent & Total \\
+		Dataset & \multicolumn{2}{c}{Dependent} & \multicolumn{2}{c}{Independent} & \multicolumn{2}{c}{Total}  \\
 		\midrule
-		Defects4J & 132 & 171 & 303 \\
-		& 44\% & 56\% & 100\% \\
-		Bears & 95 & 55 & 150 \\
-		& 63\% & 37\% & 100\% \\
-		Combined & 227 & 226 & 453 \\
-		&  50\% & 50\% & 100\% \\
+		Defects4J & 132  & 44\% & 171 & 56\% & 303 & 100\% \\
+		Bears & 95 & 63\% & 55 & 37\% & 150 & 100\% \\
+		Combined & 227 & 50\% & 226 & 50\% & 453 & 100\% \\
 		\bottomrule
 	\end{tabular}
  \end{center}
@@ -489,8 +486,8 @@ Defects4J, indicating higher patch complexity among multi-line patches in Bears.
             	\toprule
 		& Defects4J & Bears & Combined \\
 		\midrule
-		$P(\mbox{APR Success } | \mbox{ Either})$ & 30\% & 9\% & 21\% \\
-		$P(\mbox{APR Success } | \mbox{ Neither})$ & 45\% & 13\% & 45\% \\
+		$P(\mbox{APR Success } | \mbox{ Dependent})$ & 30\% & 9\% & 21\% \\
+		$P(\mbox{APR Success } | \mbox{ Independent})$ & 45\% & 13\% & 45\% \\
 		\bottomrule
 	\end{tabular}
  \end{center}
