@@ -264,18 +264,52 @@ following research questions:
 \section{RQ1: Multi-Edit Prevalence}
 \label{sec:data-rq1}
 
-\paragraph{Datasets}
-We study bugs from Defects4J~\cite{defects4j} and Bears~\cite{bears}---datasets of 
+\begin{table}
+\begin{tabular}{lrrl}
+\toprule
+\multicolumn{3}{c}{\textbf{Defects4j}} \\
+\midrule
+project & bugs & tests & description \\
+\midrule
+JFreeChart  & \todo{Fill me in..} \\
+... \\
+\midrule
+\multicolumn{3}{c}{\textbf{Bears}} \\
+\midrule
+\todo{fill me in} \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:data} Characteristics of the Defects4J (top) and BEARS (bottom) datasets.}
+\end{table}
+
+\paragraph{Datasets}  Our study requires a dataset of indicative, real-world,
+multi-edit defects.  We study both the defects in Defects4J
+Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:data}
+summarizes these datasets, both of which
+consist of historical
 bugs found in real world software projects. Defects4J contains 438 bugs from six 
-Java software projects. This is currently the most popular Java dataset for evaluating 
-program repair tools~\cite{durieux-repair-them-all}.
-Many such tools, however, overfit to Defects4J and perform worse on other 
-benchmarks~\cite{durieux-repair-them-all}. 
+Java software projects, and is currently very popular dataset for evaluating 
+program repair tools that target Java~\cite{durieux-repair-them-all}.
+However, there is a risk associated with any such dataset that tools may overfit
+to the defects in question, and there is evidence that this situation applies to
+program repair and Defects4j~\cite{durieux-repair-them-all}. 
 We thus also study bugs from Bears, 
-a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
+a set of Java bugs derived from failed Travis-CI builds of GitHub
+projects~\cite{reforurlorsomething}. 
 Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
 projects compared to Defects4J. For tool compatibility reasons, we limit 
 our analysis of Bears to 181 single-module bugs. 
+
+\todo{Questions: what does ``tool compatability reasons'' mean?  Why doesn't it
+  apply to D4J?}
+
+\todo{Consider adding a column to the dataset table above with ``subset
+  considered'' for the defects; is this worth doing?  How many bugs do we
+  exclude? Do we include Closure?}
+
+\todo{It is likely/possible that we need another paragraph here outlining which
+  bugs/projects we include and which we exclude, and \emph{why}.  ``For
+  compatability'' isn't specific enough; it's problematically hand-wavey.  Be precise.}
 
 \begin{table}
 {\begin{center}
