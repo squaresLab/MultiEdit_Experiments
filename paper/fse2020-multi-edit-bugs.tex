@@ -409,12 +409,16 @@ comprise a majority or a substantial minority of both datasets.
 	and are bugs with dependent edits more difficult for APR tools to repair?
 }
 
-The presence of control or data dependencies in a patch's edits 
-indicates coupling between the dependent edits.
-Such coupled edits might need to be repaired simultaneously.
-\todo{Some motivating examples might be nice.}
-We analyze control and data dependencies in bug patches along 
-with their relationship to APR tool success.
+APR techniques differ in the treatment of potentially dependent code mutations.
+Semantics-based repair techniques can represent dependent edits as a 
+conjunction of multiple constraints to simultaneously solve.
+\todo{Are there any search based techniques that take the dependency of 
+multiple mutations into account?}
+On the other hand, GenProg's~\cite{genprog}
+mutation operations make no consideration of 
+any possible dependencies between applied edits.
+We thus investigate the control and data dependency relationships between 
+edits in human patches.
 
 \subsection{Methodology}
 
