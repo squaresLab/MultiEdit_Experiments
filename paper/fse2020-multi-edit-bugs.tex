@@ -99,7 +99,8 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 \section{Introduction}
 
-Bugs in software remain a prevalent and expensive problem~\cite{whatever}.  This
+Buggy softwares has a significant cost in terms of both social impact~\cite{tricentis} 
+and developer effort~\cite{cambridge-study}. This
 motivates significant research in techniques to automatically find and fix
 them~\cite{whatever}, with the ultimate goal of reducing Quality Assurance costs
 while improving software quality. 
@@ -276,6 +277,7 @@ following research questions:
 \item \emph{RQ1: What is the incidence of multi-edit repairs in real-world bug data?}
 \item RQ2: ...
 \item \todo{WHAT ARE OUR RESEARCH QUESTIONS?}
+\item RQ7: How well can test case based validation identify partial repairs at each granularity level?
 \end{enumerate}
 
 \paragraph{Datasets.}  
@@ -284,18 +286,26 @@ following research questions:
 \label{sec:data-rq1}
 
 \begin{table}
-\begin{tabular}{lrrl}
+\begin{tabular}{l | lll}
 \toprule
 \multicolumn{3}{c}{\textbf{Defects4j}} \\
 \midrule
-project & bugs & tests & description \\
+project & bugs & src(kloc) & test(kloc) \\
 \midrule
-JFreeChart  & \todo{Fill me in..} \\
-... \\
+JFreeChart  & 26 & 193.3 & 74.6 \\
+Closure compiler & 133 & 150.6 & 112.6 \\
+Apache commons-lang & 65 & 57.8 & 47.4 \\
+Apache commons-math & 106 & 45.0 & 41.5 \\
+Mockito & 38 & 23.0 & 28.5 \\
+Joda-Time & 27 & 82.9 & 70.4 \\
 \midrule
 \multicolumn{3}{c}{\textbf{Bears}} \\
 \midrule
-\todo{fill me in} \\
+FasterXML-jackson-databind & 26 & 95.7 & 53.6 \\
+INRIA-Spoon & 62 & 66.2 & 30.8 \\
+spring-data-commons & 15 & 45.8 & 28.8 \\
+traccar-traccar & 42 & 47.9 & 8.6 \\
+68 other projects & 106 & - & -\\
 \bottomrule
 \end{tabular}
 \caption{\label{tab:data} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
@@ -829,7 +839,8 @@ and we do not restrict our repair actions to neutral variants of the program.
 We found instances in our data set where not all edits are required to 
 make the faulty program pass all tests. One possibility is that the extra 
 edits satisfy untested specifications. Another possibility is that the edits 
-do not affect program functionality (e.g.: refactoring edits). We assume 
+do not affect program functionality (e.g.: refactoring edits). In the test case based
+validation section, we addressed this issue by minimization. We assume 
 that all edits are functionally relevant. We intend to study such seemingly
 extraneous edits in future work.
 
