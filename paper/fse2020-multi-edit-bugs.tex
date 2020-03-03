@@ -396,20 +396,17 @@ comprise a majority or a substantial minority of both datasets.
 
 \section{Dependency Analysis}
 
+\rqorinsight{
+	RQ?: How many multi-line patches contain control or data dependent edits, 
+	and are bugs with dependent edits more difficult for APR tools to repair?
+}
+
 The presence of control or data dependencies in a patch's edits 
 indicates coupling between the dependent edits.
 Such coupled edits might need to be repaired simultaneously.
 \todo{Some motivating examples might be nice.}
 We analyze control and data dependencies in bug patches along 
 with their relationship to APR tool success.
-
-\subsection{Research Questions}
-
-\todo{Please centralize all research questions above, and number them once.}
-
-RQ1: How many multi-edit patches contain control or data dependencies?
-
-RQ2: Are bugs with dependent edits in the human patch more difficult to automatically repair?
 
 \subsection{Methodology}
 
