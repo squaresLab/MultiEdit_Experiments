@@ -428,22 +428,22 @@ and invocations of getter and setter methods as reads and writes.
 
 \begin{table}
 {\begin{center}
-	\begin{tabular}{l | rrrr | r}
+	\begin{tabular}{l | r r | r}
 		\toprule
-		Dataset & Control & Data & Either & Neither & Total \\
+		Dataset & Dependent & Independent & Total \\
 		\midrule
-		Defects4J & 123 & 78 & 132 & 171 & 303 \\
-		& 40\% & 26\% & 44\% & 56\% & 100\% \\
-		Bears & 83 & 63 & 95 & 55 & 150 \\
-		& 53\% & 42\% & 63\% & 37\% & 100\% \\
-		\midrule
-		Combined & 206 & 141 & 227 & 226 & 453 \\
-		& 45\% & 31\% & 50\% & 50\% & 100\% \\
+		Defects4J & 132 & 171 & 303 \\
+		& 44\% & 56\% & 100\% \\
+		Bears & 95 & 55 & 150 \\
+		& 63\% & 37\% & 100\% \\
+		Combined & 227 & 226 & 453 \\
+		&  50\% & 50\% & 100\% \\
 		\bottomrule
 	\end{tabular}
  \end{center}
 }
-	\caption{Frequencies of multi-line patches with control and data dependent line edits.}
+	\caption{Frequencies and percentages of multi-line patches with(out) control or data 
+	dependencies between edited lines.}
 	\label{tab:dependency}
 \end{table}
 
@@ -457,20 +457,21 @@ Defects4J, indicating higher patch complexity among multi-line patches in Bears.
 {\begin{center}
 	\begin{tabular}{l | l | r r r r | r}
 		\toprule
-		Dataset & APR & Control & Data & Either & Neither & Total \\
+		Dataset & APR & Dependent & Independent & Total \\
 		\midrule
-		\multirow{2}{*}{Defects4J} & Success & 34 & 21 & 39 & 94 & 133 \\
-		                                          & Failure   &  89 & 57 & 93 & 77 & 170 \\
-		\multirow{2}{*}{Bears}       & Success &    7 &   6 &   9 &   7 &   16 \\
-		                                          & Failure   &  76 & 57 & 86 & 48 & 134 \\
+		\multirow{2}{*}{Defects4J} & Success & 39 & 94 & 133 \\
+		                                          & Failure   & 93 & 77 & 170 \\
 		\midrule
-		\multirow{2}{*}{Combined}& Success &  41 & 27 & 48 &101& 149 \\
-		                                          & Failure   &165 &114&179&125& 304 \\
+		\multirow{2}{*}{Bears}       & Success &   9 &   7 &   16 \\
+		                                          & Failure   & 86 & 48 & 134 \\
+		\midrule
+		\multirow{2}{*}{Combined}& Success & 48 &101& 149 \\
+		                                          & Failure   &179&125& 304 \\
 	\end{tabular}
  \end{center}
 }
 	\caption{Frequency of multi-line patches with respect to the presence of 
-	control/data dependent line edits and whether an APR tool successfully 
+	dependent line edits and whether an APR tool successfully 
 	repaired the bug in~\cite{durieux-repair-them-all}.}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
@@ -481,10 +482,6 @@ Defects4J, indicating higher patch complexity among multi-line patches in Bears.
             	\toprule
 		& Defects4J & Bears & Combined \\
 		\midrule
-		$P(\mbox{APR Success } | \mbox{ Control})$ & 28\% &  8\% & 20\% \\
-		$P(\mbox{APR Success } | \neg \mbox{ Control})$ & 55\% & 13\% & 44\% \\
-		$P(\mbox{APR Success } | \mbox{ Data})$ & 27\% & 10\% & 19\%\\
-		$P(\mbox{APR Success } | \neg \mbox{ Data})$ & 50\% & 11\% & 39\% \\
 		$P(\mbox{APR Success } | \mbox{ Either})$ & 30\% & 9\% & 21\% \\
 		$P(\mbox{APR Success } | \mbox{ Neither})$ & 45\% & 13\% & 45\% \\
 		\bottomrule
@@ -492,24 +489,15 @@ Defects4J, indicating higher patch complexity among multi-line patches in Bears.
  \end{center}
 }
 	\caption{Percentages of auto-repaired bugs in~\cite{durieux-repair-them-all} 
-	that (do not) contain control/data dependent line edits.}
+	that (do not) contain dependent line edits.}
 	\label{tab:dependency-repair-percents}
 \end{table}
 
-Table~\ref{tab:dependency-repair-contingency-table} shows
-the frequencies of multi-line patches with respect to the presence of 
-dependent edits and whether an APR tool successfully auto-repaired the bug in~\cite{durieux-repair-them-all}.
-Using $\chi^2$ tests, we find statistically significant relationships between APR  
-success and control, data, and the disjunction of either dependencies 
-($p < 0.001$ for all).
-We find that bugs whose human patches are free of dependencies are
-more likely to be successfully fixed by an APR tool.
-
 Tables~\ref{tab:dependency-repair-contingency-table} and~\ref{tab:dependency-repair-percents}
-show the frequencies and percentages of multi-line patches with respect to edit dependency 
+show the frequencies and percentages of multi-line patches with respect to dependencies 
 and whether an APR tool successfully repaired bug in~\cite{durieux-repair-them-all}.
-We find that edit dependency generally reduces the likelihood of APR tool success.
-Using $\chi^2$ tests, we find statistically significant relationships ($p < 0.001$ for all)
+We find that the presence of dependencies generally reduces the likelihood of APR tool success.
+Using a $\chi^2$ test, we find statistically significant relationships ($p < 0.001$)
 between APR success and control, data, and the disjunction of either dependencies 
 for Defects4J and Defects4J $\cup$ Bears patches. We fail to find statistically 
 significant relationships over only Bears patches, possibly due to the small number (16) of 
