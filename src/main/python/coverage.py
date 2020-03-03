@@ -32,6 +32,12 @@ multichunk_disjoint_projects = {}
 multichunk_same_projects = {}
 multichunk_inBetween_projects = {}
 
+move_to_same = set(["INRIA-spoon-204567691-207361743:041", 
+    "INRIA-spoon-239871875-239928671:062", 
+    "INRIA-spoon-270439051-271649592:080", 
+    "traccar-traccar-265439859-265542197:123",
+    "MOCKITO:011"])
+
 for dir in folders:
     with open(dir+"/disjoint.data") as f:
         for line in f:
@@ -70,7 +76,14 @@ for dir in folders:
             if len(line) > 0:
                 project, bugnum = line.split(":")
 
-                if line in more_than_one_test:
+                if line in move_to_same:
+                    same+=1
+                    same_projects[project] = same_projects.get(project, 0) + 1
+                    multichunk_same+=1
+                    multichunk_same_projects[project] = disjoint_projects.get(project, 0) + 1
+                    print(f'same {line}')
+
+                elif line in more_than_one_test:
                     inBetween+=1
                     inBetween_projects[project] = inBetween_projects.get(project, 0) + 1
 
@@ -99,7 +112,8 @@ print(f"Multitest/multichunk inBetween: {multichunk_inBetween}")
 
 plt.figure()
 plt.bar(["disjoint", "overlap", "same"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])
-plt.title("All multi-test and multi-chunk: Distribution of coverage")
+plt.title("All multi-test and multi-edit: Distribution of coverage patterns")
+# plt.yticks(range(0, 25, 5))
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
 

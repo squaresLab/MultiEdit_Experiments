@@ -6,64 +6,72 @@
 
 \rqorinsight{RQ?: Do failing tests cover different portions of the fault?}
 
-The assumption underlying SBFL is that failing tests cover buggy portions of 
-the code more than passing tests. Thus, if all failing tests cover a particular 
-line of code, then that line of code is more suspicious. However, if the 
-failing tests cover different portions of the buggy code, then this assumption 
-no longer holds.
+SBFL is the most commonly used, as well as the most effective~\cite{zou2019empirical}, fault 
+localization technique. As a result, it serves as an important first step in narrowing down the search 
+space for program repair.
 
-Therefore, for bugs that are signaled through multiple failing tests and 
-require a multi-edit patch, do the different failing tests cover exactly the 
+The assumption underlying SBFL is that failing tests execute buggy portions of 
+the code more often than passing tests. Thus, if all failing tests execute a particular 
+line of code, then that line of code is scored as more suspicious. However, if the 
+failing tests cover different portions of the buggy code, then this assumption 
+no longer holds, and SBFL would lose effectiveness.
+
+Therefore, for multi-edit bugs with multiple failing tests, do the different failing tests cover exactly the 
 same patch locations, exactly disjoint path locations, or some combination?
 
-Between both datasets, there are 60 total bugs that are both multi-edit and 
-multi-test -- 45 in Defects4J and 15 in Bears. For each of these, we used 
-Jacoco to obtain coverage for each failing test. Then we extracted the extent 
-to which each test covers the patch, and we categorized the bug based on one of 
-three coverage patterns: \textit{disjoint} for bugs in which no part of the 
-patch is covered by all failing tests, \textit{same} for bugs in which all 
-tests cover the exact same parts of the patch, and \textit{overlap} for all 
-other bugs.
+\paragraph{Methodology}
 
-\todo{how do I handle line coverage vs. chunk coverage? 5 bugs is a pretty 
-significant amount with these sample sizes.}
+Between both datasets, there are 60 total bugs that are both multi-edit and 
+multi-test -- 45 in Defects4J and 15 in Bears. For each of these bugs, we used 
+Jacoco to determine which of the chunks in the human patch were executed by each failing test. Using 
+this coverage data, we categorized the bug as one of 
+three coverage patterns: \textit{disjoint} for bugs in which no chunk is covered by all failing tests, 
+\textit{same} for bugs in which all 
+tests cover the exact same chunks of the patch, and \textit{overlap} for all 
+other bugs, where some chunks are covered by all failing tests, but some chunks are only covered by a 
+subset of failing tests.
 
 \paragraph{Results}
-The overall distribution is seen in Figure \ref{fig:coverage-all}. There are 
-quite 
-a few more disjoint bugs \todo{how to format the words disjoint, same, and 
-overlap?} than same or overlap bugs, indicating that a significant portion of 
-bugs cannot be localized by only looking at parts of the program that are 
-covered by all failing tests.
+The overall distribution is seen in Figure \ref{fig:coverage-all}. Over a third of the bugs were classified as 
+disjoint, indicating that a significant portion of 
+bugs cannot be localized by only looking locations that are executed by all failing tests.
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage-all.png}
 	\caption{Distribution of coverage patterns for all multi-test and 
-	multi-edit bugs in Bears and Defects4J}
+	multi-edit bugs in Bears and Defects4J. In all, 38\% of bugs were classified as disjoint, 40\% were 
+	classified as same, and 22\% were classified as overlap.}
 	\label{fig:coverage-all}
 \end{figure}
 
 
 If we divide distribution by dataset, we can see even more interesting 
-behavior. Figure \ref{fig:coverage-datasets} shows the Defects4J dataset has a 
-much higher proportion of "disjoint" bugs than "overlap" bugs, while the Bears 
-dataset has many more "overlap" bugs and comparatively few "disjoint" ones. We 
-hypothesize that this may be due to differences in how the two datasets were 
-minimized, or due to the projects used in the datasets, themselves. 
-\todo{Do we have other hypotheses for why they might be different? Look at 
-project level, repair types, etc.}
+behavior. Figure \ref{fig:coverage-datasets} shows the Defects4J dataset and the Bears dataset have 
+very different distributions with respect to the disjoint and same categories -- in Defects4J, 47\% of 
+bugs are disjoint and 31\% are same, whereas in Bears, the proportions are 13\% disjoint and 67\% 
+same. We hypothesize that this may be due to differences in how the two datasets were 
+minimized, since Defects4J is a dataset of minimized and curated bugs while the bugs in Bears are taken 
+scraped directly from the commits.
+
 
 \begin{figure}[h]
-	\label{fig:coverage-datasets}
 	\begin{subfigure}{\linewidth}
 		\includegraphics[width=\linewidth]{img/coverage-d4j.png}
+		\caption{Distribution of coverage patterns for Defects4J. 47\% disjoint, 31\% same, and 22\% 
+		overlap.}
 	\end{subfigure}
 	\begin{subfigure}{\linewidth}
 		\includegraphics[width=\linewidth]{img/coverage-bears.png}
+		\caption{Distribution of coverage patterns for Defects4J. 13\% disjoint, 67\% same, and 20\% 
+		overlap.}
 	\end{subfigure}
-	\caption{Distribution of coverage patterns divided by dataset. Above is 
-	Defects4J, below is Bears.}
+	\caption{Distribution of coverage patterns divided by dataset.}
+	\label{fig:coverage-datasets}
 \end{figure}
+
+\paragraph{Discussion}
+
+hi
 
 \input{symptoms.tex}
 
