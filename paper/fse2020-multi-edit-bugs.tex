@@ -421,9 +421,12 @@ edits in human patches.
 
 \subsection{Methodology}
 
-A patch contains dependent edits if there exists control or data dependencies 
+For dependency analysis, we consider edits at the granularity of lines instead 
+of chunks. \todo{Justify.} We consider a patch to contain
+dependent edits if there exists control or data dependencies 
 between added, removed, or changed lines in the pre- or post-patch
-source code. For practical reasons, we perform intraprocedural analysis, 
+source code. For practical performance and scalability
+reasons, we perform intraprocedural analysis, 
 although we heuristically consider function arguments as reads 
 and invocations of getter and setter methods as reads and writes.
 We implement our dependency analyses in Soot~\cite{soot}.
