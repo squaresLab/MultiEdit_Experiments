@@ -1,13 +1,23 @@
-\section{Symptoms}
+\subsection{Symptoms}
 
-We want to study symptoms in the context of fault localization. We define symptoms as the output given in failing test cases. In Java, most of these symptoms will be exceptions and their accompanying error message. Since most program repair is based off of failing tests, we want to see if those symptoms exhibited in those tests can correlate to type of repair.
+\rqorinsight{RQ?: Do certain symptoms correlate with multi-edit patches?} 
 
-For this paper, we specifically wanted to look at whether symptoms correlated with whether a bug could be fixed in a single location or multiple locations. If we can classify which bugs are single edit or multi edit, we can choose fault localization or patch generation techniques that are more suited.
+Since most program repair uses failing tests to identify a fault, correlating 
+symptoms with certain classes of repairs may provide a starting point for fault 
+localization. We specifically looked at whether certain classes of symptoms correlated with 
+multi-edit or single-edit patch.
 
-We looked at all symptoms for all bugs in Defects4J and Bears, and categorized them based on whether they were one of the identified multi-chunk bugs or not. Then we fit the data to a linear regression model to see if there were statistically significant differences between the type of symptoms for multi edit and single edit bugs.
+We define symptoms as the output given in failing test cases. In Java, most of 
+these symptoms are exceptions (including JUnit exceptions) and the accompanying error message.
 
-In order to find statistical significance, we needed to categorize the symptoms in big enough categories. We experimented with three groupings:
+To find a correlation, we recorded the incidence of each symptom among multi-edit and single-edit 
+bugs, and then fit the data to a linear regression.
 
+Since the sample sizes are so small, we needed to categorize the symptoms in larger groups in order 
+to find statistical significance. We experimented with three groupings:
+
+\todo{what's an alternative to just listing the groupings? and appendix? linking to the source code on 
+github?}
 \begin{enumerate}
 	\item Group all exceptions together except for assertion exceptions and exceptions for which a message indicates some sort of assertion (in our case, we simply looked for the keyword "expected"). We grouped the assertions into a few different types:
 	\begin{itemize}
@@ -42,7 +52,7 @@ In order to find statistical significance, we needed to categorize the symptoms 
 	\end{itemize}
 \end{enumerate}
 
-\todo{raw data:}
+\todo{How to present statistics?}
 
 assert only
 \begin{lstlisting}[basicstyle=\tiny]
@@ -143,11 +153,36 @@ AIC: 723.62
 Number of Fisher Scoring iterations: 4
 \end{lstlisting}
 
+\paragraph{Results}
 In assert only, \lstinline{assert_float} correlates with multiedit bugs. In addition, \lstinline{assert_null} (expecting null or getting null) correlates somewhat with multiedit bugs.
 
 In the two groupings, there are slight to medium correlations between parsing errors (errors in which there is some sort of parsing or conversion of text or objects) and multiedit bugs.
 
-Interestingly, parsing errors also correlate with decreased APR success in multiedit bugs.s
+\rqorinsight{RQ?: Do certain symptoms correlate with repair success by existing repair tools?} 
+\todo{where to fit this, it's not exactly localization.}
+
+Looking at symptoms that are more or less likely to be repaired by existing repair tools may give us 
+insight to the strengths and weaknesses of existing repair tools, and provides insight to opportunities 
+to improve program repair tools.
+
+Classifying multi-edit patches using the same symptom categorization previously outlined, we 
+performed a Fisher's Exact Test for each symptom category to see if a bug exhibiting that class of 
+symptom would be more or less likely to be repaired by automated repair tools than a bug that is not 
+exhibiting that symptom. We used the RepairThemAll experiment in order to determine whether a 
+bug could be repaired by automated repair tools~\cite{durieux-repair-them-all}.
+
+\paragraph{Results}
+We found statistically significant results for symptoms categorized as parsing errors, particularly in 
+Defects4J. Table \ref{tab:parsing-repair-frequencies-d4j} shows a strong correlation between bugs 
+that exhibit a parsing error and bugs that are unable to be repaired by APR tools. This correlation 
+still holds when looking at Defects4J and Bears bugs together, as shown in Table 
+\ref{tab:parsing-repair-frequencies-both}. However, in Table 
+\ref{tab:parsing-repair-frequencies-bears}, the parsing symptom does not correlate with 
+repairability. \todo{Is repairability a word I can use here?}
+
+\todo{We found a difference between bears and d4j in coverage experiments as well as symptoms 
+vs. repairability. Is the difference between datasets something we want to dwell on? Should I look at 
+the difference between bears and d4j for symptoms vs multi-edit?}
 
 \begin{table}
 {\begin{center}
@@ -212,5 +247,5 @@ Interestingly, parsing errors also correlate with decreased APR success in multi
 	repaired the bug in~\cite{durieux-repair-them-all}.
 	A Fisher's Exact Test found a statistically significant relationship
 	($p = 0.007$).}
-	\label{tab:parsing-repair-frequencies-bears}
+	\label{tab:parsing-repair-frequencies-both}
 \end{table}
