@@ -269,9 +269,10 @@ program bugs naturally vary in length and complexity.  Estimates range from
 There are indeed several plausible definitions of multi- vs. single-edit bugs,
 with implications for how they are studied.  We consider edits at the granularity 
 of lines and of chunks. We define a line edit as an added, removed, or modified 
-line. We follow~\cite{d4j-dissection} in our definition of a chunk as a continuous 
-sequence of line edits. We solely consider edits to source code; thus, we ignore 
-edits to whitespace or comments.
+line. We define a chunk as a continuous sequence of line edits, with the exception 
+that if one chunk adds a \texttt{\{} whose corresponding \texttt{\}} is in a different chunk, 
+then we merge the two chunks together. 
+We ignore changes to comments, whitespace, or import statements.
 
 Alternative definitions may have bearing on our results.  We argue that this
 definition is natural for the purposes of our study, which focuses in particular
