@@ -12,7 +12,11 @@ from collections import defaultdict
 # from classifications.assertion_lessgranular_classify import classify
 # from classifications.smaller_classify import classify
 # from classifications.smallerer_classify import classify
-from classifications.assert_only_classify import classify
+# from classifications.assert_only_classify import classify
+from classifications.bigfour_classify import classify
+from classifications.assert_parsing_classify import classify
+
+print(classify.__module__)
 
 sns.set_style("whitegrid")
 
@@ -27,6 +31,12 @@ bool_df = pandas.DataFrame(columns=["name", "multi"] + list(multi_errors.keys())
 
 with open("data/multi_edit.txt") as f:
 	multi_edit = set([x.strip() for x in f.readlines()])
+
+with open("data/multi-module.txt") as f:
+	multi_module = set([x.strip() for x in f.readlines()])
+
+print(len(multi_module))
+print(multi_module.intersection(multi_edit))
 
 with open("data/defects4j-bugs.json") as f:
 	d4jbugs = json.load(f)
@@ -63,7 +73,7 @@ for b in d4jbugs:
 for b in bearsbugs:
 	branch_name = b["bugName"]
 	_, num = b["bugId"].split("-")
-	bug_name = f'{branch_name}:{int(num):03}'
+	bug_name = f'BEARS:{int(num):03}'
 
 	row = {}
 	row["name"] = bug_name
@@ -71,9 +81,11 @@ for b in bearsbugs:
 	if bug_name in multi_edit:
 		num_multi_bugs += 1
 		row["multi"] = True
-	else:
+	elif bug_name not in multi_module:
 		num_single_bugs += 1
 		row["multi"] = False
+	else:
+		continue
 
 	for test in b["tests"]["failureDetails"]:
 		error = test["failureName"]
