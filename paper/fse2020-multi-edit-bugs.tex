@@ -553,47 +553,29 @@ in details in the Granularity subsubsection), and compare the results.
 
 \subsubsection{Partial Repairs}
 
-For each bug in the experiment, we look at the provided correct patch and divide it 
-into edit chunks using the following steps:
+To construct partial repairs for each bug, we apply a struct, non-empty subset 
+of chunk-granularity edits from the human patch to the broken code.
+In order to minimize the number of syntactically invalid partial repairs, 
+we pre-add, prevent the deletion of, or prevent the narrowing of scope of 
+import statements, helper methods, and variable declarations.
+For example, if a patch contains a chunk that declares a new variable 
+\texttt{var} and a second chunk that might use \texttt{var}, then we 
+pre-add the declaration of \texttt{var} from the first chunk. 
+We argue that the semantic behavior of partial edits is more interesting 
+than their syntactic correctness, which prompts us to apply the 
+aforementioned preprocessing.
 
-1. Each consecutive block of edits (including both insertion and deletion) 
-is labeled as one chunk.
+We do not split chunks into two when applying any of our preprocessing steps. 
+If a chunk, however, only contains edits that we pre-apply or remove during 
+preprocessing, then we discard the now-empty chunk from the set of 
+potential edits to apply. We eliminate bugs whose human patches contain only 
+one chunk after preprocessing (for example, a 2-chunk patch that adds a new 
+helper method in one chunk and invokes the helper method in the other). 
 
-2. Discard all edits that does not actually affect the program 
-(such as comment change, fixing spaces, etc)
-
-3. If a set of matched brackets that are both inserted or deleted in two different 
-chunk, merge those two chunks into one; if a bracket is deleted in one chunk but 
-inserted back in another chunk (matched to the same opposite bracket), merge these 
-two chunks into one
-
-4. We introduce a new set of edits, Base, initially empty. If a variable declaration 
-is deleted, discard the deletion edit; if a variable declaration is inserted, move this
- edit to Base; if a variable declaration is moved upwards in code, move the variable 
-moving edits to Base; if a variable declaration is moved downwards in code, 
-discard the moving edits. Declaration modifications (i.e. changing parts of the 
-variable declaration, but not the variable name or the location of the declaration), 
-however, does not belong to any of the cases above.
-
-5. Any insertion of imports or additional helper methods are moved to Base; 
-any deletion of imports or helper methods is discarded
-
-After the steps above, we count the number of remaining chunks (not including Base) 
-and call it the chunk number of the bug, label the chunks with positive numbers, and 
-make a power set of the chunks excluding the empty set and the complete set. 
-Then, for each subset of the chunks, we apply all edits in chunks in this subset 
-and Base to the original buggy code, and we define this as a partial repair. 
-For a bug with chunk number n, it should have $2^n-2$ partial repairs. 
-
-In this experiment, each edit chunk will be viewed as a single edit. Thus, only bugs 
-with chunk number between 2 and 6 (inclusive) is selected, as bugs with chunk number 
-more than 6 are rare but has too many partial repairs to evaluate.
-
-Note that the reason of steps 4 and 5 is to make sure that all declarations are 
-present in all partial repairs such that the partial repairs compile (thus can be 
-tested). Since there are almost no cases where a declaration in patch have side 
-effects, it is okay to include redundant variable/method declarations in partial 
-repairs, as they will not affect the program's performance in unit tests. 
+Due to the exponential growth of the number of partial repairs with respect 
+to the number of available edit operations, we evaluate bugs whose patches 
+contain between two and six chunks after preprocessing; this leaves us 
+with 151 Defects4J and 64 Bears bugs.
 
 \subsubsection{Granularity}
 
