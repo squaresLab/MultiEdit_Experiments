@@ -289,7 +289,6 @@ following research questions:
 \item \emph{RQ1: What is the incidence of multi-edit repairs in real-world bug data?}
 \item RQ2: ...
 \item \todo{WHAT ARE OUR RESEARCH QUESTIONS?}
-\item RQ7: How well can test case based validation identify partial repairs at each granularity level?
 \end{enumerate}
 
 \paragraph{Datasets.}  
@@ -298,11 +297,12 @@ following research questions:
 \label{sec:data-rq1}
 
 \begin{table}
+\begin{center}
 \begin{tabular}{l | rrr}
 \toprule
 \multicolumn{4}{c}{\textbf{Defects4J}} \\
 \midrule
-Project & Bugs & Source (kloc) & Test (kloc) \\
+Project & Bugs & Src (kloc) & Test (kloc) \\
 \midrule
 JFreeChart  & 26 & 193.3 & 74.6 \\
 Closure compiler & 133 & 150.6 & 112.6 \\
@@ -320,6 +320,7 @@ traccar-traccar & 42 & 47.9 & 8.6 \\
 30 other projects & 62 & - & -\\
 \bottomrule
 \end{tabular}
+\end{center}
 \caption{\label{tab:data} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
 \end{table}
 
@@ -510,34 +511,48 @@ successfully auto-repaired Bears bugs with multi-line human patches.
 
 \section{Test case-based validation}
 
-In search based program repair, one key area of research is to find ways to 
-measure how "close" a candidate patch is to a full repair (a fitness function),
+In search based program repair, one key area of research is to find ways to validate
+candidate patches by
+measuring how "close" a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
+
+\rqorinsight{RQ?: Do test cases fully capture the effects of multiple edits?}
+
+Sometimes not all edits in a human patch is necessary to pass all tests. This could be
+due to human patch including refactoring or other changes that does not actually
+change code behavior, or it could be due to the unit tests not being able to catch
+an incorrect behavior that the remaining edits correct. We would like to explore
+to what extent does this phenomenon affect the bugs in our benchmarks.
+
+\rqorinsight{RQ?: How well do test case based validation methods identify partial repairs?}
+
 Given a buggy program and a valid repair, if we apply a part of the valid repair to 
 the buggy program (a partial repair), then semanticly the partial repair is closer
  to the full repair compared to the original. 
 Ideally, we would want the fitness function to guide the search towards a full 
 repair by identifying partial repairs as "closer" to full repair than original.
+
 However, sometimes partial repairs will perform no different in unit tests compared 
 to the original program, and other times they could perform worse. We want to find 
 out how often each of these situations happen.
 
 Moreover, unit test performance can be measured in different granularity levels. 
-The most common ones used in existing APR tools are class level and method level. 
-It is commonly believed that the more granular a fitness functions is, the better 
-it is because it collects more information and is less likely to plateau. Thus, 
-we introduce a third granularity level: assertion level, which is more granular 
-than method level granularity.
 We would like to compare the performance of the fitness functions at identifying 
 partial repairs at different granularity levels.
 
-The results may provide valuable information to future search-based program 
-repair tool designs.
 
-\subsection{Partial Repairs}
+\subsection{Method}
 
-For each bug in Defects4j (excluding Clojure bugs) and Bears (single-module only), 
-we look at the provided correct patch and divide it 
+To address RQ? and RQ?, we designed the following experiment: for each bug in Defects4j 
+(excluding Clojure bugs because they dont use JUnit) 
+and Bears (single-module only), we generate all of its partial repairs using method described in 
+the Partial Repairs subsubsection, and then run unit tests through all partial repairs
+as well as the original buggy program on three different granularity levels (described
+in details in the Granularity subsubsection), and compare the results.
+
+\subsubsection{Partial Repairs}
+
+For each bug in the experiment, we look at the provided correct patch and divide it 
 into edit chunks using the following steps:
 
 1. Each consecutive block of edits (including both insertion and deletion) 
@@ -579,7 +594,7 @@ tested). Since there are almost no cases where a declaration in patch have side
 effects, it is okay to include redundant variable/method declarations in partial 
 repairs, as they will not affect the program's performance in unit tests. 
 
-\subsection{Unit Testing Granularity}
+\subsubsection{Granularity}
 
 There are different ways to compare unit test results, and the most common ways 
 are class-level granularity and method-level granularity. At Class-level granularity, 
@@ -599,155 +614,113 @@ $AS(M)=0$. Thus by definition, $AS(M)=1$ if $M$ passes. If a program passed more
 assertions in $M$, there should be an increase in $AS(M)$.
 
 
-\subsection{Unminimized Results}
+\subsection{Results}
 
-After doing the steps in section 2.1, there are 97 bugs in Defects4j and 64 bugs 
-in Bears that has chunk number between 2 and 6. Since each bug may have different 
+There are 97 bugs in Defects4j (excluding Closure) and 64 bugs 
+in Bears (single module) that has chunk number between 2 and 6, with
+a total of 898 partial repairs for Defects4j and 444 partial repairs for Bears.
+Out of these bugs, 32 out of 97 bugs in Defects4j and 
+34 out of 64 bugs in Bears has at least one chunk that
+is unnecessary to pass all unit tests.
+
+Due to the phenomenon described in the previous section, we decided to present the
+data of this experiment in two ways: always view full provided human patch as full repair
+(Unminimized), and viewing minimum set of edit chunks in provided human patch necessary
+to pass all unit tests as full repair (Minimized).
+Some bugs ends up with chunk number 1 after minimization, 
+so they are not included in the Minimized results. The minimized results 
+include 75 remaining bugs (544 partial repairs) in defects4j and 38 remaining bugs (156 partial repairs) of Bears. 
+
+Since each bug may have different 
 number of partial repairs, we analyzed the results in two different ways: 
 Unweighted (where each partial repair is weighted equally), and weighted (where each bug 
 has equal weight, so if a bug has n partial repairs each of them has weight 
-$\frac{1}{n}$). We record the percentage of partial repairs that performed better, same
-or worse compared to original code in each assertion level.
+$\frac{1}{n}$). We record the percentage of partial repairs that performed better (positive), same (neutral)
+or worse (worse) compared to original code in each assertion level. Non compiling
+partial repairs do not count towards any of the three categories.
 
-    
+The full unminimized result is presented in Table 9 and minimized results in Table 10.
 
 \begin{table}
 {\begin{center}
-    \begin{tabular}{| l | r | r | r | r |} \hline
-     & Defects4j & Defects4j & Bears & Bears  \\ \hline
-     & Unweighted & Weighted &Unweighted& Weighted \\ \hline
-    Class & 11.36\% & 20.46\% & 29.05\% & 27.60\%\\
-    Method & 35.41\% & 41.25\% & 37.61\% & 31.29\% \\
-    Assertion & 40.42\% & 48.25\% & 38.96\% & 31.60\% \\
-    \hline
-    
-    \end{tabular}
+\begin{tabular}{| l | l | r | r | r | r | r | r |}
+\hline
+\multicolumn{2}{|c|}{Dataset} &\multicolumn{2}{|c|}{Defects4j} & \multicolumn{2}{|c|}{Bears} \\
+\hline
+\multicolumn{2}{|c|}{Weightedness} & U & W & U & W  \\
+\hline
+Positive & Class & 11.36\% & 20.46 \% & 29.05 \% & 27.60\%  \\
+Positive & Method & 35.41\% & 41.25 \% & 37.61 \% & 31.29\%  \\
+ositive & Assertion & 40.42\% & 48.25 \% & 38.96 \% & 31.60\%  \\ 
+\hline
+Neutral & Class & 68.04\% & 65.53 \% & 65.09 \% & 56.84\% \\
+Neutral & Method & 36.64\% & 39.33 \% & 55.63 \% & 51.60\%  \\
+Neutral & Assertion & 27.62\% & 31.73 \% & 49.32 \% &  47.48\%  \\ 
+\hline
+Negative & Class & 12.03\% & 7.18 \% & 4.05 \% & 6.70\%  \\
+Negative & Method & 19.27\% & 12.52 \% & 4.95 \% & 8.26\%  \\
+Negative & Assertion & 21.83\% & 12.90 \% & 9.68 \% &  11.29\%  \\ 
+\hline
+\end{tabular}
 \end{center}}
-\caption{percentage of partial repairs that are identified positively at each granularity level, in unminimized experiment result}
+\caption{Full Unminimized Results at all granularity levels, "U" stands for Unweighted, "W" stands for weighted}
+\end{table}
+
+
+\begin{table}
+{\begin{center}
+\begin{tabular}{| l | l | r | r | r | r | r | r |}
+\hline
+\multicolumn{2}{|c|}{Dataset} &\multicolumn{2}{|c|}{Defects4j} & \multicolumn{2}{|c|}{Bears} \\
+\hline
+\multicolumn{2}{|c|}{Weightedness} & U & W & U & W  \\
+\hline
+Positive & Class & 5.30\% & 9.78 \% & 12.18 \% & 10.59\%  \\
+Positive & Method & 34.81\% & 36.80 \% & 23.72 \% & 19.71\%  \\
+Positive & Assertion & 40.28\% & 45.91 \% & 27.56 \% & 20.24\%  \\ 
+\hline
+Neutral & Class & 77.56\% & 73.56 \% & 73.72 \% & 73.75\% \\
+Neutral & Method & 40.11\% & 39.95 \% & 62.18 \% & 64.62\%  \\
+Neutral & Assertion & 31.98\% & 30.30 \% & 49.36 \% &  59.19\%  \\ 
+\hline
+Negative & Class & 9.89\% & 7.64 \% & 10.90 \% & 10.84\%  \\
+Negative & Method & 17.67\% & 14.13 \% & 10.90 \% & 10.84\%  \\
+Negative & Assertion & 18.55\% & 14.39 \% & 19.23 \% &  14.44\%  \\ 
+\hline
+\end{tabular}
+\end{center}}
+\caption{Full minimized Results at all granularity levels, "U" stands for Unweighted, "W" stands for weighted}
 \end{table}
 
     
-\begin{table}
-{\begin{center}
-    \begin{tabular}{| l | r | r | r | r |} \hline
-     & Defects4j & Defects4j & Bears & Bears  \\ \hline
-     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class & 68.04\% & 65.53\% & 65.09\% & 56.84\%\\
-    Method & 36.64\% & 39.33\% & 55.63\% & 51.60\% \\
-    Assertion & 27.62\% & 31.73\% & 49.32\% & 47.48\% \\
-    \hline
-    
-    \end{tabular}
-\end{center} }
-\caption{percentage of partial repairs that performs no different at each granularity level, in unminimized experiment result}
-\end{table}   
-    
-\begin{table}
-{\begin{center}
-    \begin{tabular}{| l | r | r | r | r |} \hline
-     & Defects4j & Defects4j & Bears & Bears  \\ \hline
-     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class & 12.03\% & 7.18\% & 4.05\% & 6.70\%\\
-    Method & 19.27\% & 12.52\% & 4.95\% & 8.26\% \\
-    Assertion & 21.83\% & 12.90\% & 9.68\% & 11.29\% \\
-    \hline
-    
-    \end{tabular}
-\end{center}}
-\caption{percentage of partial repairs that are identified negatively at each granularity level, in unminimized experiment result}
-\end{table}
-    
-    
+\subsection{Conclusions}
 
-\subsection{Minimized Results}
+\subsubsection{RQ?}
+About a third of Defects4j bugs and over half of
+Bears bugs in this experiment do not need all chunks in the provided human patches to pass
+all unit tests. This suggests that significant portion of multi-chunk bugs contains some
+chunk that has completely no effect on the test case behavior. This could be due to some
+edit chunk is just human developer refactoring code that doesn't change code behavior,
+or it could be due to test cases not being able to detect incorrect behavior that is fixed
+by the "unnecessary" chunk.
 
-During the experiment, we found that sometimes not all edit 
-chunks of a bug is necessary to pass all tests, 
-because one or more of its partial repairs passed all tests. This means that 
-some chunks in the provided correct patch is redundant. 
+\subsubsection{RQ?}
 
-Since we're only interested in edits that are necessary for the repair, 
-we processed the data to ignore redundant chunks and all partial repairs 
-that included them. 32 out of 97 defects4j bugs and 34 out of 64 Bears 
-bugs are affected. Some bugs ends up with chunk number 1 after minimization, 
-so they are not included in the Minimized results. The minimized results 
-include 75 remaining bugs in defects4j and 38 remaining bugs of Bears. 
-The full result is presented in tables.
+Under highest granularity, we are able to identify above 40\% of the partial repairs in Defects4j
+and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50\%
+of Bears partial repairs are neutral and below 22\% of Defects4j partial repairs and below 20\% 
+of Bears partial repairs are negatively identified. This is pretty good. \todo{change "this is pretty good"}
 
-    
-\begin{table}
-{\begin{center}
-    \begin{tabular}{| l | l | l | l | l |} \hline
-     & Defects4j & Defects4j & Bears & Bears  \\ \hline
-     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class & 5.30\% & 9.78\% & 12.18\% & 10.59\%\\
-    Method & 34.81\% & 36.80\% & 23.72\% & 19.71\% \\
-    Assertion & 40.28\% & 45.91\% & 27.56 \% & 20.24\% \\
-    \hline
-    
-    \end{tabular}
-\end{center}}
-\caption{percentage of partial repairs that are identified positively at each granularity level, in minimized experiment result}
-\end{table}
-    
-\begin{table}
-{\begin{center}
-    \begin{tabular}{| l | l | l | l | l |} \hline
-     & Defects4j & Defects4j & Bears & Bears  \\ \hline
-     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class & 77.56\% & 73.56\% & 73.72\% & 73.75\%\\
-    Method & 40.11 \% & 39.95\% & 62.18\% & 64.62\% \\
-    Assertion & 31.98\% & 30.30\% & 49.36 \% & 59.19\% \\
-    \hline
-    
-    \end{tabular}
-    
-\end{center}}
-\caption{percentage of partial repairs that performs no different at each granularity level, in minimized experiment result}
-\end{table}
-
-    
-\begin{table}
-{\begin{center}
-    \begin{tabular}{| l | l | l | l | l |} \hline
-     & Defects4j & Defects4j & Bears & Bears  \\ \hline
-     & Unweighted & Weighted & Unweighted & Weighted \\ \hline
-    Class & 9.89\% & 7.64\% & 10.90\% & 10.84\%\\
-    Method & 17.67 \% & 14.13\% & 10.90 \% & 10.84\% \\
-    Assertion & 18.55 \% & 14.39 \% & 19.23 \% & 14.44\% \\
-    \hline
-    
-    \end{tabular}
-    
-\end{center}}
-\caption{percentage of partial repairs that are identified negatively at each granularity level, in minimized experiment result}
-\end{table}
-\subsection{Interpretations}
-
-1. As expected, the more granular the fitness function gets, the more 
-likely a partial repair gets identified positively or negatively.
-
-2. In both datasets, method level granularity performed a lot better 
-than class level granularity. Assertion level granularity performed 
-better than method level granularity in Defects4j (significant increase 
-in positively identifying partial repairs and minimal increase in negatively 
-identifying partial repairs) and not so well in Bears (almost no increase in 
-positively identifying partial repairs while significantly 
-increasing negatively identifying partial repairs). 
-
-3. Note that the percentage of
-partial repairs that are identified positively in class level granularity is a lot
-less in minimized results compared to unminimized results, that is because 
-a lot of partial repairs in unminimized results that passed more test classes than
-original buggy code actually passed all tests, thus is no longer considered 
-a partial repair in minimized results.
-
-4. In general, it seems that unit test results are less sensitive to granularity 
-level in Bears compared to Defects4j. Fitness function with class level 
-granularity performs approximately the same on both datasets in minimized results 
-(and in unminimized results it actually did better in Bears), but as we get more 
-granular, the fitness functions performs much better with Defects4j bugs compared 
-to Bears bugs in both minimized and unminimized results.
+The experiment result shows that higher granularity levels are better at identifying partial repairs positively, 
+but they also increase the chance of identifying partial repairs negatively.
+This tradeoff can behave differently on different datasets. For example,
+Assertion Level Granularity performed much better than Method Level Granularity
+in Defects4j (up to 10\% more positively identified partial repairs, with less than
+1\% more negatively identified), but this is not the case in Bears (less than 2\%
+more positively identified partial repairs, with 3-8\% more negatively identified).
+Thus, it is recommended that researchers should 
+carefully balance the tradeoffs in granularity level in test case based validation
+in APR research.
 
 
 \subsection{Limitations}
