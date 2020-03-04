@@ -366,23 +366,24 @@ We intend to address the remaining multi-module software projects in future work
 		\midrule
 		Dataset & \multicolumn{2}{c}{Single line} & \multicolumn{2}{c}{Multi-line} & \multicolumn{2}{c}{Total} \\
 		\midrule
-		Defects4J & 92 & 23\% & 303 & 77\% & 395 & 100\%\\ % & 298 & 75\% & 97 & 25\% & 395 \\
-		Bears & 31 & 17\% & 150 & 83\% & 181 & 100\%\\ % & 117 & 65\% & 64 & 35\% & 181 \\
-		Combined & 123 & 21\% & 453 & 79\% & 576 & 100\% \\ % & 415 & 72\% & 161 & 28\% & 576 \\
+		Defects4J & 92 & 23\% & 303 & 77\% & 395 & 100\%\\
+		Bears & 31 & 17\% & 150 & 83\% & 181 & 100\%\\ 
+		Combined & 123 & 21\% & 453 & 79\% & 576 & 100\% \\ 
 		\midrule
 		\multicolumn{7}{c}{\textbf{Chunk edit granularity}} \\
 		\midrule
 		Dataset & \multicolumn{2}{c}{Single chunk} & \multicolumn{2}{c}{Multi-chunk} & \multicolumn{2}{c}{Total} \\
 		\midrule
-		Defects4J & 244 & 62\% & 151 & 38\% & 395 & 100\%\\
-		Bears & 117 & 65\% & 64 & 35\% & 181 & 100\%\\
-		Combined & 361 & 63\% & 215 & 37\% & 576 & 100\%\\
+		Defects4J & 211 & 53\% & 184 & 47\% & 395 & 100\%\\
+		Bears & 72 & 40\% & 109 & 60\% & 181 & 100\%\\
+		Combined & 283 & 49\% & 293 & 51\% & 576 & 100\%\\
 		\bottomrule
 	\end{tabular}
  \end{center}
 }
-	\caption{Frequencies and percentages of patches with multi-line and
-          multi-chunk edits. \todo{What is the difference? What's the takeaway?}}
+	\caption{Frequencies and percentages of patches with multi-edit patches. 
+	Multi-line patches comprise a large majority of patches, and multi-chunk 
+	patches comprise a majority or a large minority of patches in both datasets.}
 	\label{tab:multiedit-frequencies}
 \end{table}
 
