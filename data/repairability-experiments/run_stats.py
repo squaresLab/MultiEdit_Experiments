@@ -15,7 +15,20 @@ bears_single_module_bugs = list(range(1,141+1)) + [143,184,185,188,189,194,198, 
 
 bears_falsely_multiedit_bugs=[49,53,76,133]
 
-def get_multi_edit_bugs():
+def get_all_d4j_bugs():
+    d4j_bugs = list()
+    d4j_bugs += ['Chart{}'.format(n) for n in range(1, 26+1)]
+    d4j_bugs += ['Closure{}'.format(n) for n in range(1, 133+1)]
+    d4j_bugs += ['Lang{}'.format(n) for n in range(1, 65+1)]
+    d4j_bugs += ['Math{}'.format(n) for n in range(1, 106+1)]
+    d4j_bugs += ['Mockito{}'.format(n) for n in range(1, 38+1)]
+    d4j_bugs += ['Time{}'.format(n) for n in range(1, 27+1)]
+    return set(d4j_bugs)
+
+def get_all_bears_bugs(): #all = all single-module bugs
+    return {'Bears-{}'.format(n) for n in bears_single_module_bugs}
+
+def get_multi_line_bugs():
     global bears_single_module_bugs
 
     with open('patch_locs.json') as f:
@@ -35,7 +48,7 @@ def get_multi_edit_bugs():
             else:
                 multi_edit_bugs_d4j.append(bugId)
 
-    return multi_edit_bugs_d4j, multi_edit_bugs_bears
+    return set(multi_edit_bugs_d4j), set(multi_edit_bugs_bears)
 
 def get_bugId_from_Serenas_data_line_d4j(coverage_line):
     coverage_line_stripped = coverage_line.strip()
@@ -65,7 +78,7 @@ def get_multi_chunk_bugs():
             bugId = get_bugId_from_Serenas_data_line_bears(line)
             multi_chunk_bugs_bears.append(bugId)
 
-    return multi_chunk_bugs_d4j, multi_chunk_bugs_bears
+    return set(multi_chunk_bugs_d4j), set(multi_chunk_bugs_bears)
 
 def get_dependencies():
     dependencies = dict() #maps bugId -> 6-Tuple info on dependencies
@@ -184,6 +197,50 @@ def get_symptoms(grouping_method):
                 symptoms_to_bugs[symptom].add(bugId)
 
     return symptoms_to_bugs
+
+#variant is a bad name; it's really a partial repair instead
+def get_has_one_neg_variant():
+    has_one_neg_variant_d4j = set()
+    with open('partial-repair/d4j/has-one-neg-variant.data') as f:
+        for line in f:
+            bugId = line.strip()
+            has_one_neg_variant_d4j.add(bugId)
+
+    has_one_neg_variant_bears = set()
+    with open('partial-repair/bears/has-one-neg-variant.data') as f:
+        for line in f:
+            bugId = line.strip()
+            has_one_neg_variant_bears.add(bugId)
+
+    return has_one_neg_variant_d4j, has_one_neg_variant_bears
+
+def get_pos_neg_neu_proportions():
+    proportions = dict() #bugId -> (pos, neg, neu proportions of partial repairs)
+
+    for dataset in ['d4j', 'bears']:
+        with open('partial-repair/{}/pos-neg-neu-proportions.csv'.format(dataset)) as f:
+            reader=csv.reader(f)
+            for row in reader:
+                bugId = row[0]
+                bugId_proportions = row[1:3]
+                proportions[bugId] = bugId_proportions
+
+    return proportions
+
+def get_multi_test_bugs():
+    multi_test_bugs = set()
+
+    with open('multi-test-bugs/multi-test-d4j.data') as f:
+        for line in f:
+            bugId = get_bugId_from_Serenas_data_line_d4j(line)
+            multi_test_bugs.add(bugId)
+
+    with open('multi-test-bugs/multi-test-bears.data') as f:
+        for line in f:
+            bugId = get_bugId_from_Serenas_data_line_bears(line)
+            multi_test_bugs.add(bugId)
+
+    return multi_test_bugs
 
 def percent(n_part, n_whole):
     p = 100 * n_part/n_whole
@@ -308,21 +365,6 @@ def partition_bugs_by_dependency(bugs_to_partition, dependencies, dependency_tup
     nondependent_partition = bugs_to_partition_set - all_dependent_bugs
     return dependent_partition, nondependent_partition
 
-def print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs):
-    repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_edit_bugs_d4j, tool_to_repaired_bugs)
-    num_repairable_d4j, num_nonrepairable_d4j = len(repairable_d4j), len(nonrepairable_d4j)
-    print("D4J:")
-    print("Bugs repaired by any technique: {}".format(num_repairable_d4j))
-    print("Bugs not repaired by any technique: {}".format(num_nonrepairable_d4j))
-    print()
-
-    repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
-    num_repairable_bears, num_nonrepairable_bears = len(repairable_bears), len(nonrepairable_bears)
-    print("Bears:")
-    print("Bugs repaired by any technique: {}".format(num_repairable_bears))
-    print("Bugs not repaired by any technique: {}".format(num_nonrepairable_bears))
-    print()
-
 def run_chi2(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
     contingency_table = [[len(r0set & c0set), len(r0set & c1set)],
                          [len(r1set & c0set), len(r1set & c1set)]]
@@ -349,20 +391,72 @@ def run_fisher_exact(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
     print('p-value:', pval)
     print()
 
+def should_use_fisher_exact(contingency_table):
+    for row in contingency_table:
+        for elem in row:
+            if elem < 5:
+                return True
+    return False
+
+def run_contingency_analysis(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
+    r0c0, r0c1 = len(r0set & c0set), len(r0set & c1set)
+    r1c0, r1c1 = len(r1set & c0set), len(r1set & c1set)
+
+    r0sum = r0c0 + r0c1
+    r1sum = r1c0 + r1c1
+    c0sum = r0c0 + r1c0
+    c1sum = r0c1 + r1c1
+    allsum = r0sum + r1sum
+
+    contingency_table = [[r0c0, r0c1],
+                         [r1c0, r1c1]]
+
+    print(message)
+    print('\t{}\t{}\ttotal'.format(c0, c1))
+    print('{}\t{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1], r0sum))
+    print('{}\t{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1], r1sum))
+    print('total\t{}\t{}\t{}'.format(c0sum, c1sum, allsum))
+
+    if not is_table_analyzable(contingency_table):
+        print("Not analyzable")
+        pval = -1
+    elif should_use_fisher_exact(contingency_table):
+        print("Running Fisher's Exact Test")
+        oddsratio, pval = stats.fisher_exact(contingency_table)
+    else:
+        print("Running Chi-squared")
+        chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
+
+    print('p-value:', pval)
+    print()
+
+def print_repairability_stats(all_bugs, multi_line_bugs, multi_chunk_bugs, tool_to_repaired_bugs):
+    single_line_bugs = all_bugs - multi_line_bugs
+    single_chunk_bugs = all_bugs - multi_chunk_bugs
+    repairable, nonrepairable = partition_bugs_by_repairability(all_bugs, tool_to_repaired_bugs)
+
+    run_contingency_analysis(repairable, nonrepairable, single_line_bugs, multi_line_bugs,
+        "Line edits and Repairability",
+        'repairable', 'nonrepairable', '1-line', 'multiline')
+
+    run_contingency_analysis(repairable, nonrepairable, single_chunk_bugs, multi_chunk_bugs,
+        "Chunk edits and Repairability",
+        'repairable', 'nonrepairable', '1-chunk', 'multichunk')
+
 def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs):
     ctrl_dependent_d4j, ctrl_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_CTRL)
     data_dependent_d4j, data_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_DATA)
     any_dependent_d4j, any_nondependent_d4j = partition_bugs_by_dependency(multi_edit_bugs_d4j, dependencies, DEPENDENCY_TUPLE_INDEX_ANY)
     repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_edit_bugs_d4j, tool_to_repaired_bugs)
 
-    run_chi2(repairable_d4j, nonrepairable_d4j, ctrl_dependent_d4j, ctrl_nondependent_d4j, \
-    "D4J: Chi-squared between control dependency and repairability", \
+    run_contingency_analysis(repairable_d4j, nonrepairable_d4j, ctrl_dependent_d4j, ctrl_nondependent_d4j, \
+    "D4J: control dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
-    run_chi2(repairable_d4j, nonrepairable_d4j, data_dependent_d4j, data_nondependent_d4j, \
-    "D4J: Chi-squared between data dependency and repairability", \
+    run_contingency_analysis(repairable_d4j, nonrepairable_d4j, data_dependent_d4j, data_nondependent_d4j, \
+    "D4J: data dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
-    run_chi2(repairable_d4j, nonrepairable_d4j, any_dependent_d4j, any_nondependent_d4j, \
-    "D4J: Chi-squared between control|data dependency and repairability", \
+    run_contingency_analysis(repairable_d4j, nonrepairable_d4j, any_dependent_d4j, any_nondependent_d4j, \
+    "D4J: control|data dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
     ctrl_dependent_bears, ctrl_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_CTRL)
@@ -370,14 +464,14 @@ def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears
     any_dependent_bears, any_nondependent_bears = partition_bugs_by_dependency(multi_edit_bugs_bears, dependencies, DEPENDENCY_TUPLE_INDEX_ANY)
     repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_edit_bugs_bears, tool_to_repaired_bugs)
 
-    run_fisher_exact(repairable_bears, nonrepairable_bears, ctrl_dependent_bears, ctrl_nondependent_bears, \
-    "Bears: Fisher's Exact Test between control dependency and repairability", \
+    run_contingency_analysis(repairable_bears, nonrepairable_bears, ctrl_dependent_bears, ctrl_nondependent_bears, \
+    "Bears: between control dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
-    run_fisher_exact(repairable_bears, nonrepairable_bears, data_dependent_bears, data_nondependent_bears, \
-    "Bears: Fisher's Exact Test between data dependency and repairability", \
+    run_contingency_analysis(repairable_bears, nonrepairable_bears, data_dependent_bears, data_nondependent_bears, \
+    "Bears: between data dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
-    run_fisher_exact(repairable_bears, nonrepairable_bears, any_dependent_bears, any_nondependent_bears, \
-    "Bears: Fisher's Exact Test between control|data dependency and repairability", \
+    run_contingency_analysis(repairable_bears, nonrepairable_bears, any_dependent_bears, any_nondependent_bears, \
+    "Bears: between control|data dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
     ctrl_dependent_all, ctrl_nondependent_all = ctrl_dependent_d4j | ctrl_dependent_bears, ctrl_nondependent_d4j | ctrl_nondependent_bears
@@ -385,14 +479,14 @@ def test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears
     any_dependent_all, any_nondependent_all = any_dependent_d4j | any_dependent_bears, any_nondependent_d4j | any_nondependent_bears
     repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
 
-    run_chi2(repairable_all, nonrepairable_all, ctrl_dependent_all, ctrl_nondependent_all, \
-    "Combined D4J|Bears: Chi-squared between control dependency and repairability", \
+    run_contingency_analysis(repairable_all, nonrepairable_all, ctrl_dependent_all, ctrl_nondependent_all, \
+    "Combined D4J|Bears: control dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
-    run_chi2(repairable_all, nonrepairable_all, data_dependent_all, data_nondependent_all, \
-    "Combined D4J|Bears: Chi-squared between data dependency and repairability", \
+    run_contingency_analysis(repairable_all, nonrepairable_all, data_dependent_all, data_nondependent_all, \
+    "Combined D4J|Bears: data dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
-    run_chi2(repairable_all, nonrepairable_all, any_dependent_all, any_nondependent_all, \
-    "Combined D4J|Bears: Chi-squared between control|data dependency and repairability", \
+    run_contingency_analysis(repairable_all, nonrepairable_all, any_dependent_all, any_nondependent_all, \
+    "Combined D4J|Bears: control|data dependency and repairability", \
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
 def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs):
@@ -400,11 +494,11 @@ def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears
     ndisj_d4j = inbtw_d4j | same_d4j
     nsame_d4j = disj_d4j | inbtw_d4j
     repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_chunk_bugs_d4j, tool_to_repaired_bugs)
-    run_chi2(repairable_d4j, nonrepairable_d4j, disj_d4j, ndisj_d4j, \
-    "D4J: Chi-squared between disjoint coverage and repairability", \
+    run_contingency_analysis(repairable_d4j, nonrepairable_d4j, disj_d4j, ndisj_d4j, \
+    "D4J: disjoint coverage and repairability", \
     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
-    run_chi2(repairable_d4j, nonrepairable_d4j, same_d4j, nsame_d4j, \
-    "D4J: Chi-squared between same coverage and repairability", \
+    run_contingency_analysis(repairable_d4j, nonrepairable_d4j, same_d4j, nsame_d4j, \
+    "D4J: same coverage and repairability", \
     'repairable', 'nonrepairable', 'same', 'nonsame')
     inbtw_repairable_d4j, inbtw_nonrepairable_d4j = len(inbtw_d4j & repairable_d4j), len(inbtw_d4j & nonrepairable_d4j)
     print("Number of D4J in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_d4j, inbtw_nonrepairable_d4j))
@@ -414,11 +508,11 @@ def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears
     ndisj_bears = inbtw_bears | same_bears
     nsame_bears = disj_bears | inbtw_bears
     repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_chunk_bugs_bears, tool_to_repaired_bugs)
-    run_fisher_exact(repairable_bears, nonrepairable_bears, disj_bears, ndisj_bears, \
-    "Bears: Fisher's Exact Test between disjoint coverage and repairability", \
+    run_contingency_analysis(repairable_bears, nonrepairable_bears, disj_bears, ndisj_bears, \
+    "Bears: between disjoint coverage and repairability", \
     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
-    run_fisher_exact(repairable_bears, nonrepairable_bears, same_bears, nsame_bears, \
-    "Bears: Fisher's Exact Test between same coverage and repairability", \
+    run_contingency_analysis(repairable_bears, nonrepairable_bears, same_bears, nsame_bears, \
+    "Bears: between same coverage and repairability", \
     'repairable', 'nonrepairable', 'same', 'nonsame')
     inbtw_repairable_bears, inbtw_nonrepairable_bears = len(inbtw_bears & repairable_bears), len(inbtw_bears & nonrepairable_bears)
     print("Number of Bears in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_bears, inbtw_nonrepairable_bears))
@@ -428,11 +522,11 @@ def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears
     ndisj_all = ndisj_d4j | ndisj_bears
     nsame_all = nsame_d4j | nsame_bears
     repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
-    run_chi2(repairable_all, nonrepairable_all, disj_all, ndisj_all, \
-    "Combined D4J|Bears: Chi-squared between disjoint coverage and repairability", \
+    run_contingency_analysis(repairable_all, nonrepairable_all, disj_all, ndisj_all, \
+    "Combined D4J|Bears: disjoint coverage and repairability", \
     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
-    run_chi2(repairable_all, nonrepairable_all, same_all, nsame_all, \
-    "Combined D4J|Bears: Chi-squared between same coverage and repairability", \
+    run_contingency_analysis(repairable_all, nonrepairable_all, same_all, nsame_all, \
+    "Combined D4J|Bears: same coverage and repairability", \
     'repairable', 'nonrepairable', 'same', 'nonsame')
     inbtw_repairable_all, inbtw_nonrepairable_all = len(inbtw_all & repairable_all), len(inbtw_all & nonrepairable_all)
     print("Number of all in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_all, inbtw_nonrepairable_all))
@@ -463,35 +557,6 @@ def is_table_analyzable(contingency_table):
     #no row or column is full of zeroes
     return True
 
-def should_use_fisher_exact(contingency_table):
-    for row in contingency_table:
-        for elem in row:
-            if elem < 5:
-                return True
-    return False
-
-def run_contignency_analysis(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
-    contingency_table = [[len(r0set & c0set), len(r0set & c1set)],
-                         [len(r1set & c0set), len(r1set & c1set)]]
-
-    print(message)
-    print('\t{}\t{}'.format(c0, c1))
-    print('{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1]))
-    print('{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1]))
-
-    if not is_table_analyzable(contingency_table):
-        print("Not analyzable")
-        pval = -1
-    elif should_use_fisher_exact(contingency_table):
-        print("Running Fisher's Exact Test")
-        oddsratio, pval = stats.fisher_exact(contingency_table)
-    else:
-        print("Running Chi-squared")
-        chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
-
-    print('p-value:', pval)
-    print()
-
 def test_symptoms_and_repairability(bugs_d4j, bugs_bears, symptoms_to_bugs, grouping_name, tool_to_repaired_bugs):
     bugsets = [(set(bugs_d4j), 'D4J'), (set(bugs_bears), 'Bears'), (set(bugs_d4j + bugs_bears), 'Combined D4J|Bears')]
     for bugset, bugset_name in bugsets:
@@ -499,23 +564,76 @@ def test_symptoms_and_repairability(bugs_d4j, bugs_bears, symptoms_to_bugs, grou
         for symptom in symptoms_to_bugs.keys():
             symptomatic = bugset & symptoms_to_bugs[symptom]
             asymptomatic = bugset - symptomatic
-            run_contignency_analysis(repairable, nonrepairable, symptomatic, asymptomatic, \
+            run_contingency_analysis(repairable, nonrepairable, symptomatic, asymptomatic, \
             "{} on grouping {}: Symptom <{}> and repairability".format(bugset_name, grouping_name, symptom), \
             'repairable', 'nonrepairable', 'symptomatic', 'asymptomatic')
 
+def test_neg_variant_and_same_coverage(bugs_d4j, bugs_bears, \
+                                        one_neg_var_d4j, one_neg_var_bears, \
+                                        cov_partitions_d4j, cov_partitions_bears):
+    no_neg_var_d4j = set(bugs_d4j) - one_neg_var_d4j
+    disj_d4j, inbtw_d4j, same_d4j = [partition & set(bugs_d4j) for partition in cov_partitions_d4j]
+    nsame_d4j = disj_d4j | inbtw_d4j
+    run_contingency_analysis(one_neg_var_d4j, no_neg_var_d4j, same_d4j, nsame_d4j, \
+            "D4J: At least one negative partial repair and same coverage", \
+            'one negative', 'none negative', 'Same', 'non-Same')
+
+    no_neg_var_bears = set(bugs_bears) - one_neg_var_bears
+    disj_bears, inbtw_bears, same_bears = [partition & set(bugs_bears) for partition in cov_partitions_bears]
+    nsame_bears = disj_bears | inbtw_bears
+    run_contingency_analysis(one_neg_var_bears, no_neg_var_bears, same_bears, nsame_bears, \
+            "Bears: At least one negative partial repair and same coverage", \
+            'one negative', 'none negative', 'Same', 'non-Same')
+
+    one_neg_var_combined = one_neg_var_d4j | one_neg_var_bears
+    no_neg_var_combined = no_neg_var_d4j | no_neg_var_bears
+    same_combined = same_d4j | same_bears
+    nsame_combined = nsame_d4j | nsame_bears
+    run_contingency_analysis(one_neg_var_combined, no_neg_var_combined, same_combined, nsame_combined, \
+            "Combined D4J|Bears: At least one negative partial repair and same coverage", \
+            'one negative', 'none negative', 'Same', 'non-Same')
+
+def print_edit_and_test_info(all_bugs, multi_edit_bugs, multi_test_bugs):
+    single_edit_bugs = all_bugs - multi_edit_bugs
+    single_test_bugs = all_bugs - multi_test_bugs
+    run_contingency_analysis(single_test_bugs, multi_test_bugs, single_edit_bugs, multi_edit_bugs, \
+            "Num edits and num tests",
+            'single edit', 'multi-edits', 'single chunk', 'multi-chunk')
+
+
 if __name__=='__main__':
-    multi_edit_bugs_d4j, multi_edit_bugs_bears = get_multi_edit_bugs() #lists of multi-edit bugs
+    all_bugs_d4j, all_bugs_bears = get_all_d4j_bugs(), get_all_bears_bugs()
+    multi_line_bugs_d4j, multi_line_bugs_bears = get_multi_line_bugs() #lists of multi-edit bugs
     multi_chunk_bugs_d4j, multi_chunk_bugs_bears = get_multi_chunk_bugs()
-    dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
+    #dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
     tool_to_repaired_bugs = get_tool_to_repaired_bugs()
-    coverage_partitions_d4j, coverage_partitions_bears = get_coverage_d4j(), get_coverage_bears()
-    symptoms_to_bugs_aonly = get_symptoms('asserts_only')
-    symptoms_to_bugs_g1 = get_symptoms('grouping1')
-    symptoms_to_bugs_g2 = get_symptoms('grouping2')
-    #print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies)
-    #print_repairability_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, tool_to_repaired_bugs)
-    #test_dependency_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies, tool_to_repaired_bugs)
-    #test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)
-    #test_symptoms_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, symptoms_to_bugs_aonly, 'asserts_only', tool_to_repaired_bugs)
-    #test_symptoms_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, symptoms_to_bugs_g1, 'grouping1', tool_to_repaired_bugs)
-    #test_symptoms_and_repairability(multi_edit_bugs_d4j, multi_edit_bugs_bears, symptoms_to_bugs_g2, 'grouping2', tool_to_repaired_bugs)
+    #coverage_partitions_d4j, coverage_partitions_bears = get_coverage_d4j(), get_coverage_bears()
+    #symptoms_to_bugs_aonly = get_symptoms('asserts_only')
+    #symptoms_to_bugs_g1 = get_symptoms('grouping1')
+    #symptoms_to_bugs_g2 = get_symptoms('grouping2')
+    #has_one_neg_variant_d4j, has_one_neg_variant_bears = get_has_one_neg_variant()
+    #pos_neg_neu_proportions = get_pos_neg_neu_proportions()
+    #multi_test_bugs = get_multi_test_bugs()
+
+    print("D4J repairability:")
+    print_repairability_stats(all_bugs_d4j, multi_line_bugs_d4j, multi_chunk_bugs_d4j, tool_to_repaired_bugs)
+    print("Bears repairability:")
+    print_repairability_stats(all_bugs_bears, multi_line_bugs_bears, multi_chunk_bugs_bears, tool_to_repaired_bugs)
+    print("Combined repairability:")
+    print_repairability_stats(all_bugs_d4j|all_bugs_bears, multi_line_bugs_d4j|multi_line_bugs_bears, multi_chunk_bugs_d4j|multi_chunk_bugs_bears, tool_to_repaired_bugs)
+
+    #print("D4J chunks and tests:")
+    #print_edit_and_test_info(all_bugs_d4j, multi_chunk_bugs_d4j, multi_test_bugs)
+    #print("Bears chunks and tests:")
+    #print_edit_and_test_info(all_bugs_bears, multi_chunk_bugs_bears, multi_test_bugs)
+    #print("Combined chunks and tests:")
+    #print_edit_and_test_info(all_bugs_d4j|all_bugs_bears, multi_chunk_bugs_d4j|multi_chunk_bugs_bears, multi_test_bugs)
+
+    #print(len(multi_chunk_bugs_d4j), len(multi_chunk_bugs_bears))
+    #print_dependency_stats(multi_line_bugs_d4j, multi_line_bugs_bears, dependencies)
+    #test_dependency_and_repairability(multi_line_bugs_d4j, multi_line_bugs_bears, dependencies, tool_to_repaired_bugs)
+    #test_coverage_and_repairability(multi_line_bugs_d4j, multi_line_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)
+    #test_symptoms_and_repairability(multi_line_bugs_d4j, multi_line_bugs_bears, symptoms_to_bugs_aonly, 'asserts_only', tool_to_repaired_bugs)
+    #test_symptoms_and_repairability(multi_line_bugs_d4j, multi_line_bugs_bears, symptoms_to_bugs_g1, 'grouping1', tool_to_repaired_bugs)
+    #test_symptoms_and_repairability(multi_line_bugs_d4j, multi_line_bugs_bears, symptoms_to_bugs_g2, 'grouping2', tool_to_repaired_bugs)
+    #test_neg_variant_and_same_coverage(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, has_one_neg_variant_d4j, has_one_neg_variant_bears, coverage_partitions_d4j, coverage_partitions_bears)
