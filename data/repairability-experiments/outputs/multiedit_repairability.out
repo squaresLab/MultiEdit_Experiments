@@ -1,0 +1,51 @@
+D4J repairability:
+Line edits and Repairability
+	1-line	multiline	total
+repairable	52	133	185
+nonrepairable	40	170	210
+total	92	303	395
+Running Chi-squared
+p-value: 0.04479621525196511
+
+Chunk edits and Repairability
+	1-chunk	multichunk	total
+repairable	120	65	185
+nonrepairable	124	86	210
+total	244	151	395
+Running Chi-squared
+p-value: 0.27860349455219635
+
+Bears repairability:
+Line edits and Repairability
+	1-line	multiline	total
+repairable	7	16	23
+nonrepairable	24	134	158
+total	31	150	181
+Running Chi-squared
+p-value: 0.12928034755968215
+
+Chunk edits and Repairability
+	1-chunk	multichunk	total
+repairable	14	9	23
+nonrepairable	103	55	158
+total	117	64	181
+Running Chi-squared
+p-value: 0.8638239770124605
+
+Combined repairability:
+Line edits and Repairability
+	1-line	multiline	total
+repairable	59	149	208
+nonrepairable	64	304	368
+total	123	453	576
+Running Chi-squared
+p-value: 0.0028718018778148033
+
+Chunk edits and Repairability
+	1-chunk	multichunk	total
+repairable	134	74	208
+nonrepairable	227	141	368
+total	361	215	576
+Running Chi-squared
+p-value: 0.5734588364722235
+

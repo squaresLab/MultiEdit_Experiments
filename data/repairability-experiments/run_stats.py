@@ -593,7 +593,12 @@ def test_neg_variant_and_same_coverage(bugs_d4j, bugs_bears, \
             "Combined D4J|Bears: At least one negative partial repair and same coverage", \
             'one negative', 'none negative', 'Same', 'non-Same')
 
-
+def print_edit_and_test_info(all_bugs, multi_edit_bugs, multi_test_bugs):
+    single_edit_bugs = all_bugs - multi_edit_bugs
+    single_test_bugs = all_bugs - multi_test_bugs
+    run_contingency_analysis(single_test_bugs, multi_test_bugs, single_edit_bugs, multi_edit_bugs, \
+            "Num edits and num tests",
+            'single edit', 'multi-edits', 'single chunk', 'multi-chunk')
 
 
 if __name__=='__main__':
@@ -615,10 +620,16 @@ if __name__=='__main__':
     print("Bears repairability:")
     print_repairability_stats(all_bugs_bears, multi_line_bugs_bears, multi_chunk_bugs_bears, tool_to_repaired_bugs)
     print("Combined repairability:")
-    print_repairability_stats(all_bugs_d4j|all_bugs_bears, multi_line_bugs_d4j|multi_line_bugs_bears, \
-                                multi_chunk_bugs_d4j|multi_chunk_bugs_bears, tool_to_repaired_bugs)
+    print_repairability_stats(all_bugs_d4j|all_bugs_bears, multi_line_bugs_d4j|multi_line_bugs_bears, multi_chunk_bugs_d4j|multi_chunk_bugs_bears, tool_to_repaired_bugs)
 
-    print(len(multi_chunk_bugs_d4j), len(multi_chunk_bugs_bears))
+    #print("D4J chunks and tests:")
+    #print_edit_and_test_info(all_bugs_d4j, multi_chunk_bugs_d4j, multi_test_bugs)
+    #print("Bears chunks and tests:")
+    #print_edit_and_test_info(all_bugs_bears, multi_chunk_bugs_bears, multi_test_bugs)
+    #print("Combined chunks and tests:")
+    #print_edit_and_test_info(all_bugs_d4j|all_bugs_bears, multi_chunk_bugs_d4j|multi_chunk_bugs_bears, multi_test_bugs)
+
+    #print(len(multi_chunk_bugs_d4j), len(multi_chunk_bugs_bears))
     #print_dependency_stats(multi_line_bugs_d4j, multi_line_bugs_bears, dependencies)
     #test_dependency_and_repairability(multi_line_bugs_d4j, multi_line_bugs_bears, dependencies, tool_to_repaired_bugs)
     #test_coverage_and_repairability(multi_line_bugs_d4j, multi_line_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs)

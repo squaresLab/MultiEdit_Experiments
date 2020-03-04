@@ -1,0 +1,131 @@
+Defects4J:
+Total analyzed bugs: 395 (100.0%)
+Single edit bugs: 92 (23.29113924050633%)
+Multi edit bugs: 303 (76.70886075949367%)
+Multi edit bugs with control deps: 123 (31.139240506329113%, 40.59405940594059% of multi edit bugs)
+Multi edit bugs with data deps: 78 (19.746835443037973%, 25.742574257425744% of multi edit bugs)
+Multi edit bugs with any deps: 132 (33.41772151898734%, 43.56435643564357% of multi edit bugs)
+Multi edit bugs with no deps: 171 (43.29113924050633%, 56.43564356435643% of multi edit bugs)
+
+Bears:
+Total analyzed bugs: 181 (100.0%)
+Single edit bugs: 31 (17.12707182320442%)
+Multi edit bugs: 150 (82.87292817679558%)
+Multi edit bugs with control deps: 83 (45.85635359116022%, 55.333333333333336% of multi edit bugs)
+Multi edit bugs with data deps: 63 (34.806629834254146%, 42.0% of multi edit bugs)
+Multi edit bugs with any deps: 95 (52.48618784530387%, 63.333333333333336% of multi edit bugs)
+Multi edit bugs with no deps: 55 (30.386740331491712%, 36.666666666666664% of multi edit bugs)
+
+Combined:
+Total analyzed bugs: 576 (100.0%)
+Single edit bugs: 123 (21.354166666666668%)
+Multi edit bugs: 453 (78.64583333333333%)
+Multi edit bugs with control deps: 206 (35.763888888888886%, 45.47461368653422% of multi edit bugs)
+Multi edit bugs with data deps: 141 (24.479166666666668%, 31.125827814569536% of multi edit bugs)
+Multi edit bugs with any deps: 227 (39.40972222222222%, 50.11037527593819% of multi edit bugs)
+Multi edit bugs with no deps: 226 (39.236111111111114%, 49.88962472406181% of multi edit bugs)
+
+D4J:
+Bugs repaired by any technique: 133
+Bugs not repaired by any technique: 170
+
+Bears:
+Bugs repaired by any technique: 16
+Bugs not repaired by any technique: 134
+
+D4J: Chi-squared between control dependency and repairability
+	dependent	nondependent
+repairable	34	99
+nonrepairable	89	81
+p-value: 4.337739830143835e-06
+
+D4J: Chi-squared between data dependency and repairability
+	dependent	nondependent
+repairable	21	112
+nonrepairable	57	113
+p-value: 0.0007446480860495174
+
+D4J: Chi-squared between control|data dependency and repairability
+	dependent	nondependent
+repairable	39	94
+nonrepairable	93	77
+p-value: 1.667586259759025e-05
+
+Bears: Fisher's Exact Test between control dependency and repairability
+	dependent	nondependent
+repairable	7	9
+nonrepairable	76	58
+p-value: 0.426466180799555
+
+Bears: Fisher's Exact Test between data dependency and repairability
+	dependent	nondependent
+repairable	6	10
+nonrepairable	57	77
+p-value: 0.7928878492273077
+
+Bears: Fisher's Exact Test between control|data dependency and repairability
+	dependent	nondependent
+repairable	9	7
+nonrepairable	86	48
+p-value: 0.5879584484465213
+
+Combined D4J|Bears: Chi-squared between control dependency and repairability
+	dependent	nondependent
+repairable	41	108
+nonrepairable	165	139
+p-value: 1.3398517049404377e-07
+
+Combined D4J|Bears: Chi-squared between data dependency and repairability
+	dependent	nondependent
+repairable	27	122
+nonrepairable	114	190
+p-value: 4.5558096773866576e-05
+
+Combined D4J|Bears: Chi-squared between control|data dependency and repairability
+	dependent	nondependent
+repairable	48	101
+nonrepairable	179	125
+p-value: 1.6665835613909147e-07
+
+D4J: Chi-squared between disjoint coverage and repairability
+	disjoint	nondisjoint
+repairable	7	23
+nonrepairable	16	51
+p-value: 0.8417291445975188
+
+D4J: Chi-squared between same coverage and repairability
+	same	nonsame
+repairable	21	9
+nonrepairable	42	25
+p-value: 0.6401169973010429
+
+Number of D4J in-between bugs: 2 repaired; 9 not repaired
+
+Bears: Fisher's Exact Test between disjoint coverage and repairability
+	disjoint	nondisjoint
+repairable	2	4
+nonrepairable	16	41
+p-value: 1.0
+
+Bears: Fisher's Exact Test between same coverage and repairability
+	same	nonsame
+repairable	4	2
+nonrepairable	41	18
+p-value: 1.0
+
+Number of Bears in-between bugs: 0 repaired; 5 not repaired
+
+Combined D4J|Bears: Chi-squared between disjoint coverage and repairability
+	disjoint	nondisjoint
+repairable	9	27
+nonrepairable	32	92
+p-value: 0.9050714696498329
+
+Combined D4J|Bears: Chi-squared between same coverage and repairability
+	same	nonsame
+repairable	25	11
+nonrepairable	83	43
+p-value: 0.841131840226228
+
+Number of all in-between bugs: 2 repaired; 14 not repaired
+

@@ -1,0 +1,27 @@
+D4J chunks and tests:
+Num edits and num tests
+	single chunk	multi-chunk	total
+single edit	176	75	251
+multi-edits	68	76	144
+total	244	151	395
+Running Chi-squared
+p-value: 1.0837675416099222e-05
+
+Bears chunks and tests:
+Num edits and num tests
+	single chunk	multi-chunk	total
+single edit	84	49	133
+multi-edits	33	15	48
+total	117	64	181
+Running Chi-squared
+p-value: 0.6040608379304347
+
+Combined chunks and tests:
+Num edits and num tests
+	single chunk	multi-chunk	total
+single edit	260	124	384
+multi-edits	101	91	192
+total	361	215	576
+Running Chi-squared
+p-value: 0.0005780904539639508
+
