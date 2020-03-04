@@ -2,156 +2,32 @@
 
 \rqorinsight{RQ?: Do certain symptoms correlate with multi-edit patches?} 
 
-Since most program repair uses failing tests to identify a fault, correlating 
-symptoms with certain classes of repairs may provide a starting point for fault 
-localization. We specifically looked at whether certain classes of symptoms correlated with 
-multi-edit or single-edit patch.
+Current fault localization approaches, particularly SBFL, are not ideal for localizing most multi-edit 
+bugs. Thus, we want to look at other information we can leverage in fault localization. Since most 
+APR techniques use failing tests to identify a fault, correlating the symptoms exhibited by failing 
+tests with certain classes of repairs may provide a starting point for developing new methods for 
+fault localization.
 
 We define symptoms as the output given in failing test cases. In Java, most of 
 these symptoms are exceptions (including JUnit exceptions) and the accompanying error message.
 
-To find a correlation, we recorded the incidence of each symptom among multi-edit and single-edit 
-bugs, and then fit the data to a linear regression.
+\paragraph{Methodology}
+We recorded the incidence of each symptom among multi-edit and single-edit bugs, and then fit the 
+data to a linear regression in order to find which symptoms would be able to predict whether a bug 
+is multi-edit or single-edit.
+
+We included all 646 bugs found in Bears and Defects4J, and between those 646 bugs, there were 
+71 unique exceptions thrown in failing test cases. Of those exceptions, 74\% were either 
+\lstinline{junit.framework.AssertionFailedError}, \lstinline{java.lang.AssertionError}, 
+\lstinline{java.lang.NullPointerException}, or \lstinline{junit.framework.ComparisonFailure}.
 
 Since the sample sizes are so small, we needed to categorize the symptoms in larger groups in order 
-to find statistical significance. We experimented with three groupings:
-
-\todo{what's an alternative to just listing the groupings? and appendix? linking to the source code on 
-github?}
-\begin{enumerate}
-	\item Group all exceptions together except for assertion exceptions and exceptions for which a message indicates some sort of assertion (in our case, we simply looked for the keyword "expected"). We grouped the assertions into a few different types:
-	\begin{itemize}
-		\item \lstinline{assert_null} is when the assertion is either expecting null, or got null when it wasn't expecting it.
-		\item \lstinline{assert_int} is when the failing assertion was expecting a particular int value.
-		\item \lstinline{assert_float} is the same as above, but for floats.
-		\item \lstinline{assert_obj_arr_date} is when the assertion is expecting an object address, array of objects, or date object/date string. These are grouped together as commonly found but more complex assertions.
-		\item \lstinline{error_expected} is when the failing test expected an exception, error, or warning.
-		\item \lstinline{timeout} is when a Junit test times out, but also includes errors like stack overflows or out of memory exceptions.
-		\item \lstinline{other_assert} for any other assertion that I couldn't easily categorize or parse. The large bulk of bugs in this category are bugs that had no error message at all; it simply failed with an \lstinline{AssertionError} or \lstinline{StackOverflow}.
-		\item \lstinline{other}: all non-assertion exceptions.
-	\end{itemize}
-	\item Grouping symptoms together in an ad hoc way \todo{sell it better.}
-	\begin{itemize}
-		\item \lstinline{assert_prim}: assertions that compare to a Java primitive, such as int, float, or boolean.
-		\item \lstinline{assert_null}: either expected or actual is null
-		\item \lstinline{other_assert}: Asserting to anything that's not clearly a primitive or null.
-		\item \lstinline{access}: all the bugs pertaining to wrongfully accessing or invoking certain fields or methods, or problems with classpath.
-		\item \lstinline{null_pointer}: null pointer exceptions.
-		\item \lstinline{timeout}: when a Junit test times out, but also includes errors like stack overflows or out of memory exceptions.
-		\item \lstinline{parsing}: Anything related to parsing, serialization, or type conversion.
-		\item \lstinline{other}: everything else
-	\end{itemize}
-	\item This last grouping is an even coarser version of the previous grouping.
-	\begin{itemize}
-		\item \lstinline{assert_equal}: Any assertion in which the test expected one value but got another
-		\item \lstinline{other_assert}: any other assertion
-		\item \lstinline{access}: all the bugs pertaining to wrongfully accessing or invoking certain fields or methods, or problems with classpath.
-		\item \lstinline{null_pointer}: null pointer exceptions.
-		\item \lstinline{parsing}: Anything related to parsing, serialization, or type conversion.
-		\item \lstinline{other}: everything else
-	\end{itemize}
-\end{enumerate}
+to find statistical significance. We experimented with a few groupings, not all of which generated 
+results~\footnote{The scripts we used to generate the classifications can be found at \url{Github link 
+redacted}.}.  
 
 \todo{How to present statistics?}
 
-assert only
-\begin{lstlisting}[basicstyle=\tiny]
-Call:
-glm(formula = multi ~ assert_obj_arr_date + assert_int + assert_float +
-error_expected + timeout + assert_null + other_assert + other,
-family = "binomial", data = symptoms)
-
-Deviance Residuals:
-Min       1Q   Median       3Q      Max
--1.1630  -0.8391  -0.6331  -0.5009   1.9894
-
-Coefficients:
-Estimate Std. Error z value Pr(>|z|)
-(Intercept)             -1.46956    0.31792  -4.622 3.79e-06 ***
-assert_obj_arr_dateTRUE  0.63225    0.47659   1.327  0.18464
-assert_intTRUE          -0.18226    0.38280  -0.476  0.63399
-assert_floatTRUE         1.42011    0.44206   3.212  0.00132 **
-error_expectedTRUE      -0.36046    0.48704  -0.740  0.45924
-timeoutTRUE              0.50710    0.59237   0.856  0.39197
-assert_nullTRUE          0.82904    0.37982   2.183  0.02905 *
-other_assertTRUE        -0.03597    0.30388  -0.118  0.90577
-otherTRUE                0.60662    0.31835   1.906  0.05671 .
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-Null deviance: 725.44  on 645  degrees of freedom
-Residual deviance: 697.26  on 637  degrees of freedom
-AIC: 715.26
-
-Number of Fisher Scoring iterations: 4
-\end{lstlisting}
-
-grouping 1
-\begin{lstlisting}[basicstyle=\tiny]
-Call:
-glm(formula = multi ~ access + assert_prim + null_pointer + timeout +
-assert_null + parsing + other_assert + other, family = "binomial",
-data = symptoms)
-
-Deviance Residuals:
-Min       1Q   Median       3Q      Max
--1.3448  -0.7293  -0.6413  -0.6152   1.9233
-
-Coefficients:
-Estimate Std. Error z value Pr(>|z|)
-(Intercept)      -1.15825    0.30011  -3.859 0.000114 ***
-accessTRUE        0.49743    0.35565   1.399 0.161918
-assert_primTRUE   0.28861    0.31792   0.908 0.363983
-null_pointerTRUE -0.20119    0.45263  -0.444 0.656682
-timeoutTRUE       0.23758    0.58290   0.408 0.683582
-assert_nullTRUE   0.57468    0.37483   1.533 0.125236
-parsingTRUE       0.96885    0.41871   2.314 0.020675 *
-other_assertTRUE -0.31892    0.28866  -1.105 0.269231
-otherTRUE        -0.09137    0.40435  -0.226 0.821223
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-Null deviance: 725.44  on 645  degrees of freedom
-Residual deviance: 703.98  on 637  degrees of freedom
-AIC: 721.98
-
-Number of Fisher Scoring iterations: 4
-\end{lstlisting}
-
-grouping 2
-\begin{lstlisting}[basicstyle=\tiny]
-Call:
-glm(formula = multi ~ assert_equal + access + null_pointer +
-parsing + other_assert + other, family = "binomial", data = symptoms)
-
-Deviance Residuals:
-Min       1Q   Median       3Q      Max
--1.2102  -0.7915  -0.6497  -0.6220   1.8644
-
-Coefficients:
-Estimate Std. Error z value Pr(>|z|)
-(Intercept)      -1.24535    0.29793  -4.180 2.92e-05 ***
-assert_equalTRUE  0.24537    0.28801   0.852  0.39424
-accessTRUE        0.55033    0.35105   1.568  0.11696
-null_pointerTRUE -0.09632    0.45470  -0.212  0.83224
-parsingTRUE       1.07674    0.41778   2.577  0.00996 **
-other_assertTRUE -0.20294    0.27965  -0.726  0.46804
-otherTRUE         0.07740    0.37084   0.209  0.83466
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-Null deviance: 725.44  on 645  degrees of freedom
-Residual deviance: 709.62  on 639  degrees of freedom
-AIC: 723.62
-
-Number of Fisher Scoring iterations: 4
-\end{lstlisting}
 
 \paragraph{Results}
 In assert only, \lstinline{assert_float} correlates with multiedit bugs. In addition, \lstinline{assert_null} (expecting null or getting null) correlates somewhat with multiedit bugs.

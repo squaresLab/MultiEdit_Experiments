@@ -48,7 +48,7 @@ with open("data/bears-bugs.json") as f:
 for b in bearsbugs:
 	branch_name = b["bugName"]
 	_, num = b["bugId"].split("-")
-	bug_name = f'{branch_name}:{int(num):03}'
+	bug_name = f'BEARS:{int(num):03}'
 	if bug_name in multi_edit:
 		num_multi_bugs += 1
 	else:
@@ -84,8 +84,12 @@ df2.plot(kind="pie", y="single", legend=False)
 df = pandas.merge(df2, df1, left_index=True, right_index=True, sort=False, how="outer")
 df = df.fillna(0)
 
+print(f'total symptoms: {len(df)}')
+
 df_cleaned = df[(df["multi"] > 1) | (df["single"] > 1)]
 others = df[(df["multi"] <= 1) & (df["single"] <= 1)]
+
+print(f'cleaned symptoms: {len(df_cleaned)}')
 
 df_cleaned.sort_values(["multi", "single"], inplace=True, ascending=False)
 sns.set_palette("hls", 2)
@@ -116,7 +120,7 @@ actual_v_expected.loc["other"] = [other_sums["single"], other_sums["multi"], exp
 
 actual_v_expected.index.name = "symptom"
 pandas.set_option('display.max_colwidth', -1)
-print(actual_v_expected.to_csv())
+print(actual_v_expected)#.to_csv())
 
 chi2 = 0
 dof = -1

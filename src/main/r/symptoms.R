@@ -75,6 +75,51 @@ summary(m)
 pR2(m)
 anova(m)
 
+# Big Four
+
+symptoms = read_csv("~/MultiEdit_Experiments/data/symptoms/bigfour-symptoms.csv")
+
+# View(symptoms)
+names(symptoms)
+str(symptoms)
+
+m = glm(multi ~ assertionfailederror
+        + comparisonfailure
+        + nullpointer
+        + assertionerror
+        + other
+        , data = symptoms
+        , family = "binomial")
+
+vif(m)
+summary(m)
+pR2(m)
+anova(m)
+
+# assert + parsing
+
+symptoms = read_csv("~/MultiEdit_Experiments/data/symptoms/assertparsing-symptoms.csv")
+
+# View(symptoms)
+names(symptoms)
+str(symptoms)
+
+m = glm(multi ~ assert_obj_arr_date
+        + assert_int
+        + assert_float
+        + error_expected
+        + timeout
+        + assert_null
+        + parsing
+        + other_assert
+        + other
+        , data = symptoms
+        , family = "binomial")
+
+vif(m)
+summary(m)
+pR2(m)
+anova(m)
 
 ### OLD BELOW
 
