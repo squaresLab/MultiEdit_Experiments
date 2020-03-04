@@ -709,8 +709,9 @@ in APR research.
 \subsection{Limitations}
 
 This experiment breaks up full repairs into chunks and treats each chunk as a 
-single edit action. However, in reality most APR techniques edits a line or part 
-of a line at a time. Also, this experiment only checks whether fitness functions 
+single edit action. However, in reality most APR techniques mutate code at 
+a more granular level.
+Also, this experiment only checks whether fitness functions 
 can identify partial repairs, and not concerned with how to come up with these 
 partial repairs (depending on specifics of the APR 
 techniques, some may not be in the search space).
