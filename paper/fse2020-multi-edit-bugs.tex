@@ -574,8 +574,10 @@ helper method in one chunk and invokes the helper method in the other).
 
 Due to the exponential growth of the number of partial repairs with respect 
 to the number of available edit operations, we evaluate bugs whose patches 
-contain between two and six chunks after preprocessing; this leaves us 
-with 151 Defects4J and 64 Bears bugs.
+contain between two and six chunks after preprocessing.
+Moreover, we exclude Defect4J's Closure compiler bugs due to 
+their nonstandard test suite setup.
+We are left with 97 Defects4J and 64 Bears bugs.
 
 \subsubsection{Granularity}
 
@@ -599,8 +601,7 @@ assertions in $M$, there should be an increase in $AS(M)$.
 
 \subsection{Results}
 
-There are 97 bugs in Defects4j (excluding Closure) and 64 bugs 
-in Bears (single module) that has chunk number between 2 and 6, with
+With 97 Defects4J and 64 Bears bugs, we evaluate
 a total of 898 partial repairs for Defects4j and 444 partial repairs for Bears.
 Out of these bugs, 32 out of 97 bugs in Defects4j and 
 34 out of 64 bugs in Bears has at least one chunk that
