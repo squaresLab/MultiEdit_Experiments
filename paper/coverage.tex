@@ -6,18 +6,20 @@
 
 \rqorinsight{RQ?: Do failing tests cover different portions of the fault?}
 
-SBFL is the most commonly used, as well as the most effective~\cite{zou2019empirical}, fault 
-localization technique. As a result, it serves as an important first step in narrowing down the search 
+SBFL is the most commonly used, as well as the most 
+effective~\cite{zou2019empirical}, fault localization technique. As a result, 
+it serves as an important first step in narrowing down the search 
 space for program repair.
 
 The assumption underlying SBFL is that failing tests execute buggy portions of 
-the code more often than passing tests. Thus, if all failing tests execute a particular 
-line of code, then that line of code is scored as more suspicious. However, if the 
-failing tests cover different portions of the buggy code, then this assumption 
-no longer holds, and SBFL would lose effectiveness.
+the code more often than passing tests. Thus, if all failing tests execute a 
+particular line of code, then that line of code is scored as more suspicious. 
+However, if the failing tests cover different portions of the buggy code, then 
+this assumption no longer holds, and SBFL would lose effectiveness.
 
-Therefore, for multi-edit bugs with multiple failing tests, do the different failing tests cover exactly the 
-same patch locations, exactly disjoint path locations, or some combination?
+Therefore, for multi-edit bugs with multiple identifying failing tests, do the 
+different failing tests cover exactly the same patch locations, exactly 
+disjoint path locations, or some combination?
 
 \paragraph{Methodology}
 
@@ -32,9 +34,13 @@ other bugs, where some chunks are covered by all failing tests, but some chunks 
 subset of failing tests.
 
 \paragraph{Results}
-The overall distribution is seen in Figure \ref{fig:coverage-all}. Over a third of the bugs were classified as 
-disjoint, indicating that a significant portion of 
-bugs cannot be localized by only looking locations that are executed by all failing tests.
+The overall distribution is seen in Figure \ref{fig:coverage-all}. Over a third 
+of the bugs were classified as disjoint, indicating that for a significant 
+portion of bugs, the failing tests do not all execute any portion of the faulty 
+code. In addition, another 22\% were classified as overlap. Thus, over half of 
+the bugs that were both multi-edit and multi-test contained chunks that were 
+not executed by all failing test cases.
+2
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage-all.png}
@@ -44,17 +50,23 @@ bugs cannot be localized by only looking locations that are executed by all fail
 	\label{fig:coverage-all}
 \end{figure}
 
+SBFL assumes that faulty locations are executed more often by identifying 
+or failing test cases and is not designed to find faults like these. Since SBFL 
+is the most common fault localization technique in APR, most APR techniques 
+are not well suited to fix a majority of these multi-edit and multi-test 
+bugs.
 
 If we divide distribution by dataset, we can see even more interesting 
-behavior. Figure \ref{fig:coverage-datasets} shows the Defects4J dataset and the Bears dataset have 
-very different distributions with respect to the disjoint and same categories -- in Defects4J, 47\% of 
-bugs are disjoint and 31\% are same, whereas in Bears, the proportions are 13\% disjoint and 67\% 
-same. We hypothesize that this may be due to differences in how the two datasets were 
-minimized, since Defects4J is a dataset of minimized and curated bugs while the bugs in Bears are taken 
-scraped directly from the commits.
+behavior. Figure \ref{fig:coverage-datasets} shows the Defects4J dataset and 
+the Bears dataset have very different distributions with respect to the 
+disjoint and same categories -- in Defects4J, 47\% of bugs are disjoint and 
+31\% are same, whereas in Bears, the proportions are 13\% disjoint and 67\% 
+same. We hypothesize that this may be due to differences in how the two 
+datasets were minimized, since Defects4J is a dataset of minimized and curated 
+bugs while the bugs in Bears are taken scraped directly from the commits.
 
 
-\begin{figure}[h]
+\begin{figure}
 	\begin{subfigure}{\linewidth}
 		\includegraphics[width=\linewidth]{img/coverage-d4j.png}
 		\caption{Distribution of coverage patterns for Defects4J. 47\% disjoint, 31\% same, and 22\% 
@@ -69,9 +81,6 @@ scraped directly from the commits.
 	\label{fig:coverage-datasets}
 \end{figure}
 
-\paragraph{Discussion}
-
-hi
 
 \input{symptoms.tex}
 
