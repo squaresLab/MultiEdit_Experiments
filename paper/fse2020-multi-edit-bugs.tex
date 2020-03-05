@@ -534,47 +534,66 @@ successfully auto-repaired Bears bugs with multi-line human patches.
 
 \subsection{Cloned code}
 
-\rqorinsight{RQ4: How often and where do code clones occur in multi-chunk bugs? Are existence of 
-code
-clones in human patch correlated with specific patterns of fault localization?}
+\rqorinsight{RQ4: How often do code clones occur in multi-location bugs? Are existence of 
+	code
+	clones in human patch correlated with specific patterns of fault localization?}
 
 Previous research ~\cite{wang2018} suggested that one potential way to enhance
 APR techniques is to allow them to apply a single edits to multiple locations.
 This is based on the observation that human developers tend to make exactly the 
-same edits in multiple locations when fixing bugs. Therefore, we want to study the
-prevalence of code clones in human patches.
+same edits in multiple locations when fixing bugs. 
 
-We will also attempt to look for patterns in fault localization of multi-chunk bugs
-from the coverage experiment that may be correlated with existence of code clones in 
-human patches.\todo{Why? I don't know that we actually need to motivate this
-  here, we can do it in results/analysis, below.  But if we move this, we need
-  to expand on the motivation.  Right now it reads as though we through a
-  correlation analysis everywhere to see what it stuck to...what's the intuition
-  behind why this test is reasonable?}
-Possible intuition: if we can find some kind of correlation between fault localization results
-and code clones, then if some APR research decided to follow Wang et al's suggestion and
-include "repeat same edits at multiple location" operator, then our results may advise
-the APR to be more likely to apply the repeat edit operator when the fault localization
-result matches specific patterns.
+Therefore, as a proxy for measuring how often this style of repair occurs, we want to study the
+prevalence of code clones in human patches. If a large proportion of multi-location bugs contains code 
+clones, then we can corroborate the usefulness of previous repair techniques that specifically apply 
+similar 
+edits for a bug~\cite{saha2019harnessing}.
 
-\subsubsection{Method}
+We will also attempt to correlate the coverage patterns outlines in Section \ref{secFL} with the 
+existence of 
+code clones in 
+human patches. Intuitively, we might expect that a \emph{disjoint} bug may occur when a developer 
+needs 
+to apply the same fix at multiple independent locations; hence, we hypothesize that \emph{disjoint} 
+bugs 
+will have a higher incidence of code clones. In contrast, bugs categorized as \emph{same} or 
+\emph{disjoint} may have more inter-related parts that are not merely the same statements copied to 
+multiple locations.
+
+In addition, if code clones occur more often with specific coverage patterns, the insights gained from 
+fault 
+localization can also help us identify the right repair technique --- i.e., if \emph{disjoint} bugs are more 
+likely to have code clones, then we can use Wang et. al's suggestion to apply the same edits at multiple 
+locations.
+
+%Possible intuition: if we can find some kind of correlation between fault localization results
+%and code clones, then if some APR research decided to follow Wang et al's suggestion and
+%include "repeat same edits at multiple location" operator, then our results may advise
+%the APR to be more likely to apply the repeat edit operator when the fault localization
+%result matches specific patterns.
+
+\subsubsection{Methodology}
 \label{sec52}
-In this experiment, we will look at the existence of code clones in 
-edit chunks (same definition as in fitness experiment) of multi-chunk bugs (selected
-with same criteria as fitness experiment, but also includes Closure bugs in Defects4j).
+We will look at the existence of code clones in multi-location bugs, including bugs in Closure (which are 
+excluded from other experiments that require execution of tests), leaving 216 bugs to analyze. We 
+excluded bugs with more than 6 faulty locations to constrain the search space.
 
-Then we will compare the results with the results of the coverage experiment in
-Section~\ref{secFL}. 
+In comparing these results with the results of the coverage experiment in
+Section~\ref{secFL}, we will focus on the multi-test and multi-location bugs used in the coverage 
+experiment, a total of 91 bugs.
 
-In this experiment, we call two chunks are code clones if it is one of the following four cases
+We call the partial patches at two locations code clones if it is one of the following four cases
 \begin{enumerate}
-\item Same Case: The two chunks are alpha-equivalent. 
-\item Literal Case: The two chunks differ by at most one constant or arithmetic operator,
- or replacement of one constant with variable 
-\item Composite Case: All edit lines in one chunk is inside another chunk in the same order (the other chunk may include
-more lines), essentially the other chunk "contains" a copy of this chunk.
-\item Move Case: Two chunks forms a "movement" of lines of code (i.e. one chunk inserts and the other deletes the same
-  content at different locations, essentially moving the lines of code from one location to another)
+	\item Same Case: The two locations are alpha-equivalent. 
+	\item Literal Case: The two locations differ by at most one constant or arithmetic operator,
+	or replacement of one constant with variable 
+	\item Composite Case: The patch at one location is exactly copied and contained within the patch at 
+	the 
+	second location (the second location  has additional lines in the patch).
+	\item Move Case: Two locations forms a "movement" of code (i.e., one location is an insertion of 
+	code 
+	while the other is a deletion of the same code, essentially moving the code from one location to 
+	another).
 \end{enumerate}
 
 \subsubsection{Results and Conclusions}
@@ -596,15 +615,25 @@ Total & 152 & 64 & 216 \\ \hline
 \end{tabular}
 \end{center}
 }
-\caption{Multi-chunk bugs with each kind of chunk-level code clones. Same, Literal, composite and move corresponds to
-the four types of code clones described in \ref{sec52}. Any means the bug contains any of the four types of code clones. 
+\caption{Multi-chunk bugs with each kind of chunk-level code clones. Same, Literal, composite and 
+move corresponds to
+the four types of code clones described in \ref{sec52}. Any means the bug contains any of the four 
+types of code clones. Note that "Any" may not
+be the sum of the previous four rows because some bug could contain multiple pairs of code clones 
+that
+belong to different categories.
 Shows that over 30\% of multi-chunk bugs has code clones.}
+\label{tab:clones}
 \end{table}
 
-As shown in Table ?, out of 216 multi-chunk bugs in Bears (single module) and Defects4j (all) with between 2-6 chunks,
-69 of them had at least two chunks that are code clones. Thus over 30\% of multi-chunk bugs seems
-to have chunk-level code clones, indicating prevalence of code clones in human patches. Note that "Any" may not
-be the sum of the previous four rows because some bug could contain multiple pairs of code clones that
+As shown in Table \ref{tab:clones}, out of the 216 multi-location bugs,
+69 of them, or over 30\%, had some flavor of code clone between faulty locations, indicating a 
+significant 
+prevalence of code clones in human patches. In addition, 44 of code clones, or 62\% of code clones 
+found, are classified as "same," indicating that the majority of code clones found are exactly 
+alpha-equivalent. Note that "Any" may not
+be the sum of the previous four rows because some bug could contain multiple pairs of code clones 
+that
 belong to different categories.
 
 
@@ -624,37 +653,44 @@ Total & 41 & 26 & 7 \\ \hline
 }
 \caption{Relative locations of sets of code clones in each category (defined in \ref{sec52}).
 Shows that the majority of code clones occur within the same method}
+\label{tab:clones_loc}
 \end{table}
 
-As shown in table ?, over half of code clones are in the same method, while less than
+As shown in Table \ref{tab:clones_loc}, over half of code clones are in the same method, while less than
 one tenth of the code clones occur in different classes. Note that the total is greater
 than the total number of bugs that has code clones because a bug could have multiple different 
 sets of code clones.
 
 \begin{table}
-{\begin{center}
-\begin{tabular} {| l | r r | r |}
-\hline
-& Disjoint & Non-Disjoint & Total \\
-\hline
-Has Clone & 19 & 37 & 56 \\
-No Clone & 4 & 102 & 106 \\ \hline
-Total & 23 & 139 & 162 \\ \hline
-\end{tabular}
-\end{center}
-}
-\caption{Multi-chunk bugs categorized on Disjointness and Code clones (without Closure). Disjoint means the bug
-Disjointness is determined on whether the bug is categorized as "Disjoint" in coverage experiment (\ref{secFL}).
-A bug "has clone" if it has at least one pair of chunks that are code clones. Shows that Disjoint bugs are
-very likely to contain code clones compared to non-disjoint ones.}
+	{\begin{center}
+			\begin{tabular} {| l | r r r | r |}
+				\hline
+				& Disjoint & Overlap & Identical & Total \\
+				\hline
+				Has Clone & 19 & 2 & 5 & 26 \\
+				No Clone & 6 & 26 & 33 &  65\\ \hline
+				Total & 25 & 28 & 38 & 91 \\ \hline
+			\end{tabular}
+		\end{center}
+	}
+	\caption{Multi-location and multi-test bugs categorized on coverage patterns (Section 
+		\ref{secFL}) and code clones}
+	\label{tab:cov_clones}
 \end{table}
 
-Out of all bugs we checked for code clone analysis (excluding the Closure ones because they were not in the coverage experiment), there are 23 bugs labeled as "Disjoint" in the coverage experiment, out of which
-19 had code clones (14 Same, 4 Literal, 1 Composite). Full results available in Table ?. This indicates that a 
-bug with disjoint coverage result is very likely to contain code clones in its
-human patch. This result could suggest future APR techniques to apply the same edits to multiple locations
-if the coverage result of the bug can be categorized as "Disjoint". 
+In Table \ref{tab:cov_clones}, we show the incidence of code clones among the three 
+coverage patterns identified in Section \ref{secFL}. Out of 25 bugs labeled as 
+\emph{disjoint} in the coverage 
+experiment, 19 had code clones (14 Same, 4 Literal, 1 Composite). In contrast, the 
+\emph{overlap} and \emph{identical} categories respectively had 2 and 5 bugs with code clones, 
+making up only a small proportion of the bugs in those categories. This indicates that a 
+bug with \emph{disjoint} coverage result is very likely to contain code clones in its
+human patch. 
 
+This result qualitatively supports the hypothesis that \emph{disjoint} bugs are more likely to contain 
+code clones, while the other two classifications have comparatively less code clones. This suggests that 
+future APR techniques to apply the same edits to multiple locations
+if the coverage result of the bug can be categorized as \emph{disjoint}.
 
 
 \section{Test case-based validation}
