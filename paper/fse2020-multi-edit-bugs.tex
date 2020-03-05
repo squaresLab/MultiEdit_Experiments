@@ -564,7 +564,7 @@ successfully auto-repaired Bears bugs with multi-line human patches.
 
 \subsection{Cloned code}
 
-\rqorinsight{RQ4: How often do code clones occur in multi-chunk bugs? Are existence of 
+\rqorinsight{RQ4: How often and where do code clones occur in multi-chunk bugs? Are existence of 
 code
 clones in human patch correlated with specific patterns of fault localization?}
 
@@ -588,6 +588,7 @@ the APR to be more likely to apply the repeat edit operator when the fault local
 result matches specific patterns.
 
 \subsubsection{Method}
+\label{sec52}
 In this experiment, we will look at the existence of code clones in 
 edit chunks (same definition as in fitness experiment) of multi-chunk bugs (selected
 with same criteria as fitness experiment, but also includes Closure bugs in Defects4j).
@@ -625,7 +626,9 @@ Total & 152 & 64 & 216 \\ \hline
 \end{tabular}
 \end{center}
 }
-\caption{Multi-chunk bugs with each kind of chunk-level code clones}
+\caption{Multi-chunk bugs with each kind of chunk-level code clones. Same, Literal, composite and move corresponds to
+the four types of code clones described in \ref{sec52}. Any means the bug contains any of the four types of code clones. 
+Shows that over 30\% of multi-chunk bugs has code clones.}
 \end{table}
 
 As shown in Table ?, out of 216 multi-chunk bugs in Bears (single module) and Defects4j (all) with between 2-6 chunks,
@@ -633,6 +636,30 @@ As shown in Table ?, out of 216 multi-chunk bugs in Bears (single module) and De
 to have chunk-level code clones, indicating prevalence of code clones in human patches. Note that "Any" may not
 be the sum of the previous four rows because some bug could contain multiple pairs of code clones that
 belong to different categories.
+
+
+\begin{table}
+{\begin{center}
+\begin{tabular} {| l | r | r | r |}
+\hline
+& SameMethod & SameClassDiffMethod & DiffClass \\
+\hline
+Same & 24 & 18 & 5  \\ 
+Literal & 9 & 4 & 1  \\
+Composite & 3 & 5 & 0  \\
+Move & 5 & 1 & 1  \\ \hline
+Total & 41 & 26 & 7 \\ \hline
+\end{tabular}
+\end{center}
+}
+\caption{Relative locations of sets of code clones in each category (defined in \ref{sec52}).
+Shows that the majority of code clones occur within the same method}
+\end{table}
+
+As shown in table ?, over half of code clones are in the same method, while less than
+one tenth of the code clones occur in different classes. Note that the total is greater
+than the total number of bugs that has code clones because a bug could have multiple different 
+sets of code clones.
 
 \begin{table}
 {\begin{center}
@@ -646,7 +673,10 @@ Total & 23 & 139 & 162 \\ \hline
 \end{tabular}
 \end{center}
 }
-\caption{Multi-chunk bugs categorized on Disjointness and Code clones (without Closure)}
+\caption{Multi-chunk bugs categorized on Disjointness and Code clones (without Closure). Disjoint means the bug
+Disjointness is determined on whether the bug is categorized as "Disjoint" in coverage experiment (\ref{secFL}).
+A bug "has clone" if it has at least one pair of chunks that are code clones. Shows that Disjoint bugs are
+very likely to contain code clones compared to non-disjoint ones.}
 \end{table}
 
 Out of all bugs we checked for code clone analysis (excluding the Closure ones because they were not in the coverage experiment), there are 23 bugs labeled as "Disjoint" in the coverage experiment, out of which
@@ -655,8 +685,6 @@ bug with disjoint coverage result is very likely to contain code clones in its
 human patch. This result could suggest future APR techniques to apply the same edits to multiple locations
 if the coverage result of the bug can be categorized as "Disjoint". 
 
-\todo{YL: out of 69 code clones, 7 are in diff class, 26 are in same class diff method, and
-36 are in same method. Do we want to include these info too?}
 
 
 \section{Test case-based validation}
@@ -785,7 +813,7 @@ The full unminimized result is presented in Table 9 and minimized results in Tab
 \hline
 Positive & Class & 11.36\% & 20.46 \% & 29.05 \% & 27.60\%  \\
 Positive & Method & 35.41\% & 41.25 \% & 37.61 \% & 31.29\%  \\
-ositive & Assertion & 40.42\% & 48.25 \% & 38.96 \% & 31.60\%  \\ 
+Positive & Assertion & 40.42\% & 48.25 \% & 38.96 \% & 31.60\%  \\ 
 \hline
 Neutral & Class & 68.04\% & 65.53 \% & 65.09 \% & 56.84\% \\
 Neutral & Method & 36.64\% & 39.33 \% & 55.63 \% & 51.60\%  \\
@@ -797,7 +825,7 @@ Negative & Assertion & 21.83\% & 12.90 \% & 9.68 \% &  11.29\%  \\
 \hline
 \end{tabular}
 \end{center}}
-\caption{Full Unminimized Results at all granularity levels, "U" stands for Unweighted, "W" stands for weighted}
+\caption{Full Unminimized Results at all granularity levels, "U" stands for Unweighted, "W" stands for weighted. }
 \end{table}
 
 
@@ -829,7 +857,7 @@ Negative & Assertion & 18.55\% & 14.39 \% & 19.23 \% &  14.44\%  \\
     
 \subsection{Conclusions}
 
-\subsubsection{RQ6}
+\subsubsection{RQ5}
 About a third of Defects4j bugs and over half of
 Bears bugs in this experiment do not need all chunks in the provided human patches to pass
 all unit tests. This suggests that significant portion of multi-chunk bugs contains some
@@ -838,7 +866,7 @@ edit chunk is just human developer refactoring code that doesn't change code beh
 or it could be due to test cases not being able to detect incorrect behavior that is fixed
 by the "unnecessary" chunk.
 
-\subsubsection{RQ7}
+\subsubsection{RQ6}
 
 Under highest granularity, we are able to identify above 40\% of the partial repairs in Defects4j
 and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50\%
