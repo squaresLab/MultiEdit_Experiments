@@ -183,7 +183,7 @@ looking specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
 We study the bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
-and BEARS~\cite{bears}, in total, 576 bugs in 40 projects. 
+and BEARS~\cite{bears}, in total, 578 bugs in 40 projects. 
 More than half of these bugs were repaired by a
 human developer using a multi-chunk repair (as we define in
 Section~\ref{sec:background}).  We look at characteristics along each of the
@@ -343,11 +343,11 @@ FasterXML-jackson-databind & 26 & 95.7 & 53.6 & 24 & 92\% & 17 & 65\% & 4 & 15\%
 INRIA-Spoon & 62 & 66.2 & 30.8 & 56 & 90\% & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
 spring-data-commons & 15 & 45.8 & 28.8 & 14 & 93\% & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
 traccar-traccar & 42 & 47.9 & 8.6 & 34 & 81\% & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
-30 other projects & 36 & - & - & 26 & 72\% & 20 & 56\% & 36 & 100\% & 7 & 19\%\\
+30 other projects & 38 & - & - & 28 & 74\% & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
 \midrule
-All (Bears) & 181 & >255.6 & >121.8 & 154 & 85\% & 109 & 60\% & 72 & 40\% & 31 & 17\% \\
+All (Bears) & 183 & >255.6 & >121.8 & 156 & 85\% & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
 \midrule
-Combined (Defects4J \& Bears) & 576 & >808.2 & >496.8 & 457 & 79\% & 293 & 51\% & 216 & 38\% & 121 & 21\%\\
+Combined (Defects4J \& Bears) & 578 & >808.2 & >496.8 & 459 & 79\% & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -374,7 +374,7 @@ Bears offers 251 bugs from 72 software projects, providing a greater diversity o
 projects compared to Defects4J. 
 Several projects in Bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
-We thus limit our analysis of Bears to 181 bugs from 30 single-module projects.
+We thus limit our analysis of Bears to 183 bugs from 30 single-module projects.
 We intend to address the remaining multi-module software projects in future work.
 
 \subsection{Multi-edit Prevalence}
