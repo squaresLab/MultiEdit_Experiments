@@ -194,32 +194,33 @@ contributions are
 as follows:
 
 \begin{itemize}
-\item An analysis of multi-edit bug patches in Defects4J and Bears.
-\item A study characterizing the ways that failing tests cover faulty locations as a means of 
-testing whether the underlying hypothesis in current fault localization techniques still hold 
-in multi-edit bugs. We find that 58\% of 
-bugs with multi-edit patches and multiple failing tests have faulty locations that are not 
-covered by all failing tests, thus the underlying assumptions do not necessarily hold.
-\item A study characterizing fix code.  We find that half of 
-bug patches contain dependent edits and \todo{N\%} contain 
-code clones.
-\item A new fitness function that measures patch quality using the number of 
-	passing and failing assertions within test cases.
-\item study of test cases as a means to evaluation partial and full
-  multi-site repairs.  We find that there are significant amount of edit chunks that
-  is not captured by test cases, as a third of Defects4j multi-chunk bugs and over a half of 
-  Bears multi-chunk bugs do not require all edit chunks in their provided human patches to
-  pass all test cases. Other than that, we found that, under highest granularity (assertion level), test case
-  based validation methods can positively identify over 40\% of partial repairs, 
-  while less than 40\% partial repairs are neutral in test cases and less than 20\% are identified
-  negatively. Moreover, we found that higher granularity will increase the number of
-  positively identified partial repairs, but it will also increase the number of negatively 
-  identified partial repairs, and the amount of increase/decrease may vary between
-  datasets.
-\item  study of code clones. We find that over 30\% multi-chunk bugs
-  have almost same edits applied to different locations. Moreover, bugs that have 
-  "disjoint" coverage result tend to be much more likely (19 out of 23) to have
-  code clones.
+\item An analysis of multi-location patches in Defects4J and Bears.
+\item A study characterizing the ways that failing tests cover faulty locations
+  as a means of testing whether the underlying hypothesis in current fault
+  localization techniques still hold for bugs requiring multi-location
+  patches. We find that 58\% of such bugs have faulty locations that are not
+  covered by all failing tests, thus the underlying assumptions do not
+  necessarily hold.
+\item A study characterizing fix code.  We find that half of bug patches contain
+  dependent edits and over 30\% contain code clones.
+\item A new fitness function that measures patch quality using the number of
+  passing and failing assertions within test cases.
+\item A study of test cases as a means of evaluating both partial and full
+  multi-location repairs.  We find that there are significant amount of edits
+  that are not captured by test cases: one third of bugs with multi-location
+  patches in Defects4j more than half in Bears do not require the edits at every
+  location in their provided human patches to pass all test cases. Other than
+  that, we found that, under highest granularity (assertion level), test case
+  based validation methods can positively identify close to 40\% of partial repairs,
+  while only about 45\% partial repairs are neutral in test cases and less than
+  15\% are identified negatively. Moreover, we found that higher granularity
+  will increase the number of positively identified partial repairs, but it will
+  also increase the number of negatively identified partial repairs, and the
+  amount of increase/decrease may vary between datasets.
+\item A study of code clones. We find that over 30\% of bugs with multi-location
+  patches have very similar edits applied to different locations. Moreover, bugs
+  that have "disjoint" coverage tend to be much more likely (19 out of 23) to
+  have code clones.
 \item \todo{A set of recommendations?}
 \end{itemize}
 
@@ -522,9 +523,14 @@ We implement our dependency analyses in Soot~\cite{soot}.
 \end{table}
 
 Table~\ref{tab:dependency} shows the 
-frequencies and percentages of multi-line patches with control or data dependent 
-line edits. \todo{Expand; reexplain, given precise numbers.}  We find a higher proportion of dependent patches in Bears compared to 
-Defects4J, indicating higher patch complexity among multi-line patches in Bears.\todo{implications?}
+frequencies and percentages of multi-line patches 
+with control or data dependent edits.
+We find that 44\% of Defects4J patches, 61\% of Bears patches, 
+and 49\% of the combined datasets' patches contain dependencies 
+between edited statements.
+Our finding supports earlier results on edit dependencies in 
+bug patches~\cite{zhong2015}. 
+
 
 
 \begin{table}
@@ -536,11 +542,11 @@ Defects4J, indicating higher patch complexity among multi-line patches in Bears.
 		\multirow{2}{*}{Defects4J} & Success & 39 & 94 & 133 \\
 		                                          & Failure   & 93 & 77 & 170 \\
 		\midrule
-		\multirow{2}{*}{Bears}       & Success &   9 &   7 &   16 \\
-		                                          & Failure   & 86 & 48 & 134 \\
+		\multirow{2}{*}{Bears}       & Success &   9 &   8 &   17 \\
+		                                          & Failure   & 86 & 53 & 139 \\
 		\midrule
-		\multirow{2}{*}{Combined}& Success & 48 &101& 149 \\
-		                                          & Failure   &179&125& 304 \\
+		\multirow{2}{*}{Combined}& Success & 48 &102& 150 \\
+		                                          & Failure   &179&130& 309 \\
 \bottomrule
 	\end{tabular}
  \end{center}
@@ -549,27 +555,6 @@ Defects4J, indicating higher patch complexity among multi-line patches in Bears.
 	dependent line edits and whether an APR tool successfully 
 	repaired the bug in~\cite{durieux-repair-them-all}.}
 	\label{tab:dependency-repair-contingency-table}
-\end{table}
-
-\begin{table}
-{\begin{center}
-	\begin{tabular}{l | rrr}
-            	\toprule
-		& Defects4J & Bears & Combined \\
-		\midrule
-		$P(\mbox{APR Success } | \mbox{ Dependent})$ & 30\% & 9\% & 21\% \\
-		$P(\mbox{APR Success } | \mbox{ Independent})$ & 45\% & 13\% & 45\% \\
-		\bottomrule
-	\end{tabular}
- \end{center}
-}
-	\caption{Percentages of auto-repaired bugs in~\cite{durieux-repair-them-all} 
-	that (do not) contain dependent line edits.\todo{Please combine this
-          table with table 4 somehow, and/or explain to me why you shouldn't.
-          Also, expand this caption, wherever it goes, to tell me what you mean
-          and what the interpretation is; among other issues I don't understand how the cells are
-          percentages when the rows are conditional probabilities.}
-	\label{tab:dependency-repair-percents}}
 \end{table}
 
 \todo{Why are we asking this question/discussing these results?} 
@@ -805,7 +790,7 @@ Out of these bugs, 32 out of 97 bugs in Defects4j and
 34 out of 64 bugs in Bears has at least one chunk that
 is unnecessary to pass all unit tests.
 
-Due to the phenomenon described in the previous section, we decided to present the
+Due to the phenomenon above, we decided to present the
 data of this experiment in two ways: always view full provided human patch as full repair
 (Unminimized), and viewing minimum set of edit chunks in provided human patch necessary
 to pass all unit tests as full repair (Minimized).
@@ -814,39 +799,13 @@ so they are not included in the Minimized results. The minimized results
 include 75 remaining bugs (544 partial repairs) in defects4j and 38 remaining bugs (156 partial repairs) of Bears. 
 
 Since each bug may have different 
-number of partial repairs, we analyzed the results in two different ways: 
-Unweighted (where each partial repair is weighted equally), and weighted (where each bug 
+number of partial repairs, we analyzed the results with the partial repairs weighted such that each bug
 has equal weight, so if a bug has n partial repairs each of them has weight 
-$\frac{1}{n}$). We record the percentage of partial repairs that performed better (positive), same (neutral)
+$\frac{1}{n}$. We record the percentage of partial repairs that performed better (positive), same (neutral)
 or worse (worse) compared to original code in each assertion level. Non compiling
 partial repairs do not count towards any of the three categories.
 
-The full unminimized result is presented in Table 9 and minimized results in Table 10.
-
-\begin{table}
-{\begin{center}
-\begin{tabular}{| l | l | r | r | r | r | r | r |}
-\hline
-\multicolumn{2}{|c|}{Dataset} &\multicolumn{2}{|c|}{Defects4j} & \multicolumn{2}{|c|}{Bears} \\
-\hline
-\multicolumn{2}{|c|}{Weightedness} & U & W & U & W  \\
-\hline
-Positive & Class & 11.36\% & 20.46 \% & 29.05 \% & 27.60\%  \\
-Positive & Method & 35.41\% & 41.25 \% & 37.61 \% & 31.29\%  \\
-ositive & Assertion & 40.42\% & 48.25 \% & 38.96 \% & 31.60\%  \\ 
-\hline
-Neutral & Class & 68.04\% & 65.53 \% & 65.09 \% & 56.84\% \\
-Neutral & Method & 36.64\% & 39.33 \% & 55.63 \% & 51.60\%  \\
-Neutral & Assertion & 27.62\% & 31.73 \% & 49.32 \% &  47.48\%  \\ 
-\hline
-Negative & Class & 12.03\% & 7.18 \% & 4.05 \% & 6.70\%  \\
-Negative & Method & 19.27\% & 12.52 \% & 4.95 \% & 8.26\%  \\
-Negative & Assertion & 21.83\% & 12.90 \% & 9.68 \% &  11.29\%  \\ 
-\hline
-\end{tabular}
-\end{center}}
-\caption{Full Unminimized Results at all granularity levels, "U" stands for Unweighted, "W" stands for weighted}
-\end{table}
+The full unminimized result and minimized results in Table ?.
 
 
 \begin{table}
@@ -855,23 +814,25 @@ Negative & Assertion & 21.83\% & 12.90 \% & 9.68 \% &  11.29\%  \\
 \hline
 \multicolumn{2}{|c|}{Dataset} &\multicolumn{2}{|c|}{Defects4j} & \multicolumn{2}{|c|}{Bears} \\
 \hline
-\multicolumn{2}{|c|}{Weightedness} & U & W & U & W  \\
+\multicolumn{2}{|c|}{Minimization} & U & M & U & M  \\
 \hline
-Positive & Class & 5.30\% & 9.78 \% & 12.18 \% & 10.59\%  \\
-Positive & Method & 34.81\% & 36.80 \% & 23.72 \% & 19.71\%  \\
-Positive & Assertion & 40.28\% & 45.91 \% & 27.56 \% & 20.24\%  \\ 
+Positive & Class & 20.46\% & 9.78 \% & 27.60\% & 10.59\%  \\
+Positive & Method & 41.25\% & 36.80 \% & 31.29 \% & 19.71\%  \\
+Positive & Assertion & 48.25\% & 45.91 \% & 31.60 \% & 20.24\%  \\ 
 \hline
-Neutral & Class & 77.56\% & 73.56 \% & 73.72 \% & 73.75\% \\
-Neutral & Method & 40.11\% & 39.95 \% & 62.18 \% & 64.62\%  \\
-Neutral & Assertion & 31.98\% & 30.30 \% & 49.36 \% &  59.19\%  \\ 
+Neutral & Class & 65.53\% & 73.56 \% & 56.84 \% & 73.75\% \\
+Neutral & Method & 39.33\% & 39.95 \% & 51.60 \% & 64.62\%  \\
+Neutral & Assertion & 31.73\% & 30.30 \% & 47.48 \% &  59.19\%  \\ 
 \hline
-Negative & Class & 9.89\% & 7.64 \% & 10.90 \% & 10.84\%  \\
-Negative & Method & 17.67\% & 14.13 \% & 10.90 \% & 10.84\%  \\
-Negative & Assertion & 18.55\% & 14.39 \% & 19.23 \% &  14.44\%  \\ 
+Negative & Class & 7.18\% & 7.64 \% & 6.70 \% & 10.84\%  \\
+Negative & Method & 12.52\% & 14.13 \% & 8.26 \% & 10.84\%  \\
+Negative & Assertion & 12.90\% & 14.39 \% & 11.29 \% &  14.44\%  \\ 
 \hline
 \end{tabular}
 \end{center}}
-\caption{Full minimized Results at all granularity levels, "U" stands for Unweighted, "W" stands for weighted}
+\caption{Identification results of partial repairs using test case results
+at all granularity levels, "U" stands for Unminimized, "M" stands for minimized.
+Shows that at high granularity test case based validation performs pretty well}
 \end{table}
 
     
@@ -888,19 +849,19 @@ by the "unnecessary" chunk.
 
 \subsubsection{RQ7}
 
-Under highest granularity, we are able to identify above 40\% of the partial repairs in Defects4j
-and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50\%
-of Bears partial repairs are neutral and below 22\% of Defects4j partial repairs and below 20\% 
-of Bears partial repairs are negatively identified. This is pretty good. \todo{YL: I don't know how to phrase this better than
-"This is pretty good"... Also the numbers are hand-wavy because we still need to decide on weightedness of data analysis}
-
+Under highest granularity, we are able to identify above 45\% of the partial repairs in Defects4j
+and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50-60\%
+of Bears partial repairs are neutral and below 15\% of bugs in both datasets are negatively identified. This shows that, 
+under high granularity, test case results can be a reasonably good indicator of partial repairs, as it makes much
+more positive partial repair identifications than negative ones.
+ 
 The experiment result shows that higher granularity levels are better at identifying partial repairs positively, 
 but they also increase the chance of identifying partial repairs negatively.
 This tradeoff can behave differently on different datasets. For example,
 Assertion Level Granularity performed much better than Method Level Granularity
-in Defects4j (up to 10\% more positively identified partial repairs, with less than
-1\% more negatively identified), but this is not the case in Bears (less than 2\%
-more positively identified partial repairs, with 3-8\% more negatively identified).
+in Defects4j (close to 10\% more positively identified partial repairs, with less than
+0.5\% more negatively identified), but this is not the case in Bears (less than 0.6\%
+more positively identified partial repairs, with about 4\% more negatively identified).
 Thus, it is recommended that researchers should 
 carefully balance the tradeoffs in granularity level in test case based validation
 in APR research.
