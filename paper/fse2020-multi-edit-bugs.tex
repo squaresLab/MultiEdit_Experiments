@@ -36,30 +36,28 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 %% end of the preamble, start of the body of the document source.
 \begin{document}
 
-\title{A Study of Multi-Edit Bug Patches}
+\title{A Study of Multi-Location Bug Patches}
 
 %add authors & shortauthors if we are lucky :)
 
 \begin{abstract}
-  \todo{note that this is probably full of falsehoods, I'm just thinking by
-    typing.} Automatic program repair is a promising approach for reducing the
+    Automatic program repair is a promising approach for reducing the
     cost of quality assurance practices and faulty software. To date, most
     techniques proposed for test-driven automatic repair have succeeded
-    primarily on bugs that benefit from short, single-edit patches. Techniques
-    that succeed on multi-edit bugs often do so by patching them in an
-    alternative, single-edit way, or by targeting particular multi-edit bug
+    primarily on bugs that benefit from short, single-location patches. Techniques
+    that successfully generate multi-location patches often do so in an
+    alternative, single-edit way, or by targeting particular multi-location bug
     patterns. Empirical studies of real-world similarly tend to focus on the
-    patterns exhibited by single-edit bugs, and have not examined repairability
-    of multi-edit bugs in detail. We present a comprehensive empirical analysis
-    of multi-edit bugs in open source Java programs, focusing on static and
-    dynamic properties that define the repair search space for a given bug (and
-    thus, in turn, the challenges that apply to automatically addressing them).
+    patterns exhibited by single-location bug patches, and have not examined repairability
+    of multi-location patches in detail. We present a comprehensive empirical analysis
+    of multi-location patches for bugs in open source Java programs, focusing on static and
+    dynamic properties that define the repair search space for a given bug.
     This analysis focuses on the key challenges of the dynamic program repair
-    problem: the \emph{mutations and fix code} used to repair multi-edit bugs;
+    problem: the \emph{mutations and fix code} used to repair bugs in multiple locations;
     the \emph{fault locations} and their relationships; and the \emph{objective
       function}, and in particular how and to what degree test cases can be used
     (or not) to identify partial repairs. We identify key takeaways and
-    challenges, with implications for future work in expressive, multi-chunk bug
+    challenges, with implications for future work in expressive, multi-location bug
     repair.
 \end{abstract}
 
@@ -185,15 +183,14 @@ We study the bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
 and BEARS~\cite{bears}, in total, 578 bugs in 40 projects. 
 More than half of these bugs were repaired by a
-human developer using a multi-chunk repair (as we define in
-Section~\ref{sec:background}).  We look at characteristics along each of the
+human developer using multiple edits.  We look at characteristics along each of the
 relevant axes of the program repair search problem: fault locations, mutation
 operators, fix code, and evaluation (or fitness or objective) using test cases.  Our 
 contributions are
 as follows:
 
 \begin{itemize}
-\item An analysis of multi-edit bug patches in Defects4J and Bears.
+\item An analysis of multi-edit patches in Defects4J and Bears.
 \item A study characterizing the ways that failing tests cover faulty locations as a means of 
 testing whether the underlying hypothesis in current fault localization techniques still hold 
 in multi-edit bugs. We find that 58\% of 
@@ -204,10 +201,11 @@ bug patches contain dependent edits and \todo{N\%} contain
 code clones.
 \item A new fitness function that measures patch quality using the number of 
 	passing and failing assertions within test cases.
-\item study of test cases as a means to evaluation partial and full
-  multi-site repairs.  We find that there are significant amount of edit chunks that
-  is not captured by test cases, as a third of Defects4j multi-chunk bugs and over a half of 
-  Bears multi-chunk bugs do not require all edit chunks in their provided human patches to
+
+  \item A study of test cases as a means of evaluating both partial and full
+  multi-edit repairs.  We find that there are significant amount of edits that
+  are not captured by test cases: one third of multi-edit Defects4j bugs and more than half of 
+  Bears multi-edit bugs do not require all edit chunks in their provided human patches to
   pass all test cases. Other than that, we found that, under highest granularity (assertion level), test case
   based validation methods can positively identify over 40\% of partial repairs, 
   while less than 40\% partial repairs are neutral in test cases and less than 20\% are identified
@@ -215,6 +213,7 @@ code clones.
   positively identified partial repairs, but it will also increase the number of negatively 
   identified partial repairs, and the amount of increase/decrease may vary between
   datasets.
+
 \item  study of code clones. We find that over 30\% multi-chunk bugs
   have almost same edits applied to different locations. Moreover, bugs that have 
   "disjoint" coverage result tend to be much more likely (19 out of 23) to have
