@@ -785,18 +785,6 @@ and discussed potential application of mutation robustness to proactive bug repa
 In contrast, our study focuses on automatically fixing current bugs (i.e. bugs that fail an existing unit test), 
 and we do not restrict our repair actions to neutral variants of the program.
 
-\section{Limitations}
-
-\subsection{Possibly Unnecessary Edits in Patches}
-
-We found instances in our data set where not all edits are required to 
-make the faulty program pass all tests. One possibility is that the extra 
-edits satisfy untested specifications. Another possibility is that the edits 
-do not affect program functionality (e.g.: refactoring edits). In the test case based
-validation section, we addressed this issue by minimization. We assume 
-that all edits are functionally relevant. We intend to study such seemingly
-extraneous edits in future work.
-
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
 
