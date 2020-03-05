@@ -199,11 +199,23 @@ as follows:
 \item A study characterizing fix code.  We find that half of 
 bug patches contain dependent edits and \todo{N\%} contain 
 code clones.
-\item \todo{fixme} study of test cases as a means to evaluation partial and full
-  multi-site repairs.  We find that BAZ.
 \item A new fitness function that measures patch quality using the number of 
 	passing and failing assertions within test cases.
-\item \todo{fixme} whatever else.
+\item study of test cases as a means to evaluation partial and full
+  multi-site repairs.  We find that there are significant amount of edit chunks that
+  is not captured by test cases, as a third of Defects4j multi-chunk bugs and over a half of 
+  Bears multi-chunk bugs do not require all edit chunks in their provided human patches to
+  pass all test cases. Other than that, we found that, under highest granularity (assertion level), test case
+  based validation methods can positively identify over 40\% of partial repairs, 
+  while less than 40\% partial repairs are neutral in test cases and less than 20\% are identified
+  negatively. Moreover, we found that higher granularity will increase the number of
+  positively identified partial repairs, but it will also increase the number of negatively 
+  identified partial repairs, and the amount of increase/decrease may vary between
+  datasets.
+\item  study of code clones. We find that over 30\% multi-chunk bugs
+  have almost same edits applied to different locations. Moreover, bugs that have 
+  "disjoint" coverage result tend to be much more likely (19 out of 23) to have
+  code clones.
 \item \todo{A set of recommendations?}
 \end{itemize}
 
