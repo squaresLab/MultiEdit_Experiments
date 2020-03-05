@@ -357,7 +357,7 @@ Combined (Defects4J \& Bears) & 578 & >808.2 & >496.8 & 295 & 51\% & 216 & 37\% 
 \end{table*}
 
 \paragraph{Datasets}  Our study requires a dataset of indicative, real-world,
-multi-edit defects.  We study both the defects in Defects4J
+multi-location defects.  We study both the defects in Defects4J
 Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
 summarizes these datasets, both of which
 consist of historical
@@ -365,7 +365,7 @@ bugs found in real world software projects. Defects4J contains 395 bugs from
 six Java software projects, and is currently very popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.
 The dataset's patches are manually minimized to isolate the bug fix 
-and exclude edits such as refactorings, feature additions, et cetera.
+and exclude non-repair edits such as refactorings, feature additions, et cetera.
 
 With any dataset, however, there is a risk associated that tools may overfit
 to the defects in question, and there is evidence that this situation applies to
@@ -379,8 +379,8 @@ which are not currently compatible with our automation tools.
 We thus limit our analysis of Bears to 183 bugs from 30 single-module projects.
 We intend to address the remaining multi-module software projects in future work.
 
-\subsection{Multi-edit Prevalence}
-\rqorinsight{RQ1: How prevalent are multi-edit human patches are in Defects4J and Bears?}
+\subsection{Multi-location Prevalence}
+\rqorinsight{RQ1: How prevalent are multi-location human patches are in Defects4J and Bears?}
 
 We start our analysis of multi-location patches by asking how many such patches 
 exist in our benchmarks.
