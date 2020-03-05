@@ -237,42 +237,40 @@ programs.  We restrict attention to dynamic or test-case guided program repair,
 which describes the majority of research advancements over the past ten years.
 Such techniques take as input a program and a set of test cases that serve as
 the oracle for program correctness.  At least one of those tests should be
-failing, corresponding to the bug to be repaired.  
+failing, corresponding to the bug to be repaired.
 
 At a high level, any APR technique aims to solve a search or optimization
 problem, seeking a set of edits (or patch) to the program that will lead it to
-pass all of the provided tests.  Although The repair search is classically defined along
-the following axes:
+pass all of the provided tests. The repair search space is typically defined
+along the following axes:
 \begin{itemize}
+
 \item \emph{Fault space.} The first problem in fixing a bug concerns
-  \emph{where} in the code modifications should be applied. All dynamic repair
-  techniques begin by using the provided test cases as input to a fault
-  localization technique. Such techniques identify (and typically score)
-  suspicious code based on which test cases execute which pieces of code.
-  Although the particulars of the fault localization employed can vary, most APR
-  use some variant of spectrum-based fault localization (SBFL)~\cite{refs} in
-  this first step. The resulting computation defines the fault space, or the
-  candidate locations or code entities considered for repair. This first step is
-  key to reducing the search space.
+  \emph{where} in the code modifications should be applied. Dynamic repair
+  techniques begin by using test cases as input to a fault localization
+  technique. Such techniques identify (and typically score) suspicious code
+  based on which test cases execute which pieces of code. Although the
+  particulars of the fault localization employed can vary, most APR use some
+  variant of spectrum-based fault localization (SBFL)~\cite{ochiai} in this first
+  step. The resulting computation defines the fault space, or the candidate
+  locations or code entities considered for repair.
 
-\item \emph{Mutation space.} The mutation space is the set of applicable 
-modifications at a program location. Examples include GenProg's append, 
-replace, and delete operators over statements~\cite{genprog-operators} and 
-Nopol's condition replacement over if-statements and missing precondition 
-addition over non-branch and non-loop statements~\cite{Xuan17}.
-A larger mutation space generates 
-a richer search space with potentially more repairs, but
-the resulting combinatorial growth of the search space can also hinder 
-the search process~\cite{long-search-spaces}.
+\item \emph{Mutation space.} The mutation space is the set of applicable
+  modifications at a specific program location. Examples include GenProg's
+  \emph{append}, \emph{replace}, and \emph{delete} mutation operators over
+  statements~\cite{genprog-operators} and Nopol's condition replacement over
+  \texttt{if} statements and missing precondition addition over non-branch and
+  non-loop statements~\cite{Xuan17}.  A larger mutation space generates a richer
+  search space with potentially more repairs, but increases its size
+  combinatorially~\cite{long-search-spaces}.
 
-\item \emph{Fix code.} The fix code space consists of the code available 
-to instantiate as part of a mutation. APR techniques have used the 
-subject program itself~\cite{genprog}, handwritten or inferred 
-code templates~\cite{par, spr, prophet}, or the output of 
-SMT solvers~\cite{semantic-techniques-galore} as the fix code space.
-
-\item \emph{Objective.} 
-
+\item \emph{Fix space.} Once a particular mutation is selected, code must be
+  generated. The size fix space is often a function of the chosen mutation
+  operator: for instance GenProg's \emph{delete} mutation can only delete an
+  entire statement~\cite{genprog}, while PAR's \emph{Calling another method with
+    the same parameters} mutation replaces a method call with any other method
+  that takes the same number and type of parameters~\cite{par}.
+\item \emph{Objective function.} \todo{HERE}
 \end{itemize}
 
 
@@ -284,20 +282,21 @@ program bugs naturally vary in length and complexity.  Estimates range from
   studies/prevalence of multi-edit bugs, but expand the rephrase of the results
   in that prior work to contrast with incidence of single-edit bugs.}  
 
-There are indeed several plausible definitions of multi- vs. single-edit bugs,
-with implications for how they are studied.  We consider edits at the granularity 
-of lines and of chunks. We define a \emph{line~edit} as an added, removed, or modified 
-line. We define a \emph{chunk} as a continuous sequence of line edits, with the exception 
-that if one chunk adds a \texttt{\{} whose corresponding \texttt{\}} is in a different chunk, 
-then we merge the two chunks together. 
-We ignore changes to comments, whitespace, or import statements.
+There are several plausible definitions of multi- vs. single-location bugs, with
+implications for how they are studied. For the purpose of this study, we define
+a \emph{patch location} as a contiguous sequence of edited lines of
+code. Additionally, since we would like to observe the behavior of code as edits
+are applied one-by-one, we combine two locations if one starts block with
+\texttt{\{} and the other closes it with \texttt{\}} (as they are not
+independent). We ignore changes to comments, whitespace, or import statements.
 
-Alternative definitions may have bearing on our results.  We argue that this
+\todo{JL: maybe this goes in threats. I think the above definition is reasonable
+  enough: Alternative definitions may have bearing on our results.  We argue that this
 definition is natural for the purposes of our study, which focuses in particular
 on understanding larger bugs---especially multi-chunk bugs---for the purposes of 
 adapting, extending, or applying new program repair techniques to address them. 
 \todo{A couple more sentences re: why this is reasonable. Might be solved by 
-pointing to low rates of repair for multi-chunk bugs.}
+pointing to low rates of repair for multi-chunk bugs.}}
 
 \paragraph{Research questions.}  The parameterization of the program repair
 search problems into multiple subspaces informs our empirical study of those
@@ -305,15 +304,14 @@ spaces for the purposes of understanding multi-edit repair.  We address the
 following research questions:
 
 \begin{enumerate}
-\item \emph{RQ1: How prevalent are multiedit human patches are in Defects4J and Bears?}
+\item \emph{RQ1: How prevalent are multi-location human patches are in Defects4J and Bears?}
 \item \emph{RQ2: Do failing tests cover different portions of the fault?}
 \item \emph{RQ3: How prevalent are dependencies between edited code?}
-\item \emph{RQ4: How often do code clones occur in multi-chunk bugs? Are existence of 
-code clones in human patch correlated with specific patterns of fault localization?}
-\item \emph{RQ5: Do test cases fully capture the effects of multiple edits?}
+\item \emph{RQ4: How often do code clones occur in bugs with multi-location
+  patches? Is the existence of code clones in a human patch correlated with specific
+  patterns of fault localization?}
+\item \emph{RQ5: Do test cases fully capture the effects of multi-location patches?}
 \item \emph{RQ6: How well do test case based validation methods identify partial repairs?}
-
-
 
 \end{enumerate}
 
