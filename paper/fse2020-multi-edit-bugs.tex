@@ -454,19 +454,29 @@ locations?}
 
 We first examine control- and data-dependencies between multiple edit locations. 
 
-\paragraph{Methodology.} For dependency analysis, we consider edits at the granularity of lines instead 
-of chunks. \todo{Justify.} We consider a patch to contain
-dependent edits if there exists control or data dependencies 
-between added, removed, or changed lines in the pre- or post-patch
-source code. \todo{Make more precise: lines can't have dependencies.  Perhaps
-  you mean variables used or defined in those lines?  Exapand.  Is this pre- or
-  post-patch?  What lines are considered (inserted, deleted, modified?)} For
-practical performance and scalability 
-reasons, we perform intraprocedural analysis, 
-although we heuristically consider function arguments as reads 
-and invocations of getter and setter methods as reads and writes.\todo{Please
-  expand because I'm not sure I know what this means/could explain it}
-We implement our dependency analyses in Soot~\cite{soot}.
+\paragraph{Methodology.} For dependency analysis, 
+in order to get more granular edit information,
+we consider edits at the granularity of lines instead of chunks.
+We consider a patch to contain dependent line edits if there exists 
+control or data dependencies between statements---and their used or defined 
+variables---in added, deleted, or modified lines. We analyze deleted/modified 
+lines in the pre-patch code and added/modified lines in the post-patch code
+for dependencies.
+  
+For practical performance and scalability reasons, 
+we perform intraprocedural analysis. 
+We do, however, gather some interprocedural data dependency information 
+using the following heuristics:
+\begin{itemize}
+	\item If a statement invokes a method, then we assume that
+	the statement reads all variables used in the method arguments.
+	\item If a statement invokes a getter method \texttt{Class.getX} 
+	(for any \texttt{Class} and \texttt{X}), then we heuristically 
+	assume that the statement reads \texttt{Class.X}. 
+	Note that \texttt{Class.X} does not need to actually exist.
+	\item If a statement invokes a setter method \texttt{Class.setX}, 
+	then we heuristically assume that the statement writes to \texttt{Class.X}. 
+\end{itemize}
 
 \paragraph{Results}
 
