@@ -2,24 +2,54 @@
 
 %% what are the claims, what are we studying, why are we studying it
 
-\subsection{Coverage}
 
-\rqorinsight{RQ2: Do failing tests cover different portions of the fault?}
+Spectrum-based fault localization (SBFL) is the most commonly studied, as well as the most 
+effective~\cite{zou2019empirical}, fault localization technique. It is a key
+first step to characterizing the \emph{fault space} in automatic program repair,
+narrowing the search space to a portion of the program more likely (based on
+test case behavior) to correspond to the fault.  
 
-SBFL is the most commonly used, as well as the most 
-effective~\cite{zou2019empirical}, fault localization technique. As a result, 
-it serves as an important first step in narrowing down the search 
-space for program repair.
+\paragraph{SBFL Basics.} \todo{Serena, please add an explanation of how SBFL
+  works; it's key to understanding the underlying assumption.  This should
+  include references as appropriate.}
 
-The assumption underlying SBFL is that failing tests execute buggy portions of 
-the code more often than passing tests. Thus, if all failing tests execute a 
-particular line of code, then that line of code is scored as more suspicious. 
-However, if the failing tests cover different portions of the buggy code, then 
-this assumption no longer holds, and SBFL would lose effectiveness.
+Given these basics, fundamentally, a core
+assumption underlying SBFL is that \emph{failing tests execute buggy portions of 
+the code relatively more often than passing tests.} Thus, if all failing tests execute a 
+particular line of code, then that line of code is scored as more suspicious.
+This assumption is well-suited to single edit repair. Indeed, the evaluation
+of most SBFL techniques asks exactly the question of interest when considering a
+technique's suitability for single-edit repair: how often does a given technique
+correctly, highly rank individual buggy lines of code? 
+
+Such evaluations, by and large, do not consider the implications of
+suspeciousness scoring in a multi-edit repair context.  Instead, evaluations
+typically consider a technique ``successful'' if it identifies \emph{any} of a
+set of changed lines as highly-ranked or likely-suspicious.  While appropriate
+for the question being asked in such evaluations, this does not address
+suitability for multi-line program repair.  Identifying one of several buggy
+locations is generally inadequate in a context where multiple locations must be
+modified.  
+
+Thus, in this research question, we investigate how well the SBFL assumption
+applies to tests that identify multi-line bugs. We focus especially on
+multi-line bugs that are associated with multiple tests; \todo{short explanation
+  of the intuition why. This is a placeholder, I'm a bit tired and so this
+  succinct explanation is escaping me.} If multiple tests all cover the multiple
+modified locations well, then SBFL's core assumption holds and multi-edit repair
+can expect to effectively make use of the off-the-shelf ranking these techniques
+currently provide (indeed, this has been tried~\cite{angelix}). If not---that
+is, if multiple tests exercise \emph{different} portions of the buggy
+code---SBFL off-the-shelf will by definition be less effective in guiding APR to
+correctly modifying multiple buggy locations at once.
 
 Therefore, for multi-edit bugs with multiple identifying failing tests, do the 
 different failing tests cover exactly the same patch locations, exactly 
 disjoint path locations, or some combination?
+
+
+\rqorinsight[2]{How well do multiple tests cover the multiple locations
+  implicated in multi-edit bugs?}
 
 \paragraph{Methodology}
 
