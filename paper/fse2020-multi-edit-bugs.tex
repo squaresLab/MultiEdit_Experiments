@@ -124,14 +124,12 @@ repaired real, meaningful defects in large, complex
 programs~\cite{angelix,genprog-eight-dollars,prophet,sapfix}.
 
 Practically speaking, these techniques are typically limited in the types and
-variety of defects they can repair~\cite{for,example}. Some of this limitation
-is by design. Some techniques specifically target certain classes of
-bugs~\cite{nopol,sapfix}, and it has been argued that doing so is necessary for
-repair to reach true practical applicability~\cite{maybe}. Fundamentally, the
-vast majority of program repair techniques can only produce single-edit repairs,
-often by design~\cite{rsrepair, ae, hdrepair}. \todo{more recent citations?}
-Even those that can in principle produce multi-edit bugs typically
-don't~\cite{poor,genprog}.
+variety of defects they can repair. Often this is by design: techniques may
+limit the repair search space to single-edit patches for \todo{(JL: ick)
+  tractability}~\cite{rsrepair,ae,hdrepair}, while others only target certain
+classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. However, even techniques
+that can in principle generate multi-edit repairs typically
+don't~\cite{genprog,others}.
 
 This leaves a large proportion of real-world bugs unrepairable by modern
 research techniques in program repair.  Over half of the bugs in popular bug
