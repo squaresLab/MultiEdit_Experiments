@@ -601,41 +601,83 @@ human patches.\todo{Why? I don't know that we actually need to motivate this
   to expand on the motivation.  Right now it reads as though we through a
   correlation analysis everywhere to see what it stuck to...what's the intuition
   behind why this test is reasonable?}
+Possible intuition: if we can find some kind of correlation between fault localization results
+and code clones, then if some APR research decided to follow Wang et al's suggestion and
+include "repeat same edits at multiple location" operator, then our results may advise
+the APR to be more likely to apply the repeat edit operator when the fault localization
+result matches specific patterns.
 
-
-\paragraph{Method}
+\subsubsection{Method}
 In this experiment, we will look at the existence of code clones in 
 edit chunks (same definition as in fitness experiment) of multi-chunk bugs (selected
 with same criteria as fitness experiment, but also includes Closure bugs in Defects4j).
 
 Then we will compare the results with the results of the coverage experiment in
-Section~\ref{use-sec-refs}. 
+Section~\ref{secFL}. 
 
-In this experiment, we call two chunks are code clones 
+In this experiment, we call two chunks are code clones if it is one of the following four cases
 \begin{enumerate}
-\item The two chunks are alpha-equivalent, or differ by at most one constant or arithmetic operator,
- or replacement of one constant with variable
-\item One chunk is a part of another \todo{More precise: what do you mean?}
-\item  Movement of chunk (i.e. one chunk inserts and the other deletes the same
-  content) \todo{this doesn't have the same structure as the previous two items.
-    Please fix, and expand.}
+\item Same Case: The two chunks are alpha-equivalent. 
+\item Literal Case: The two chunks differ by at most one constant or arithmetic operator,
+ or replacement of one constant with variable 
+\item Composite Case: All edit lines in one chunk is inside another chunk in the same order (the other chunk may include
+more lines), essentially the other chunk "contains" a copy of this chunk.
+\item Move Case: Two chunks forms a "movement" of lines of code (i.e. one chunk inserts and the other deletes the same
+  content at different locations, essentially moving the lines of code from one location to another)
 \end{enumerate}
 
-\paragraph{Results.} \todo{Is there a way to make a table of this data, perhaps
-  broken down by project?  Right now this is a bit ``results not shown''; it
-  would strongly benefit from more specifics.}
-Out of 216 multi-chunk bugs in Bears (single module) and Defects4j (all) with between 2-6 chunks,
+\subsubsection{Results and Conclusions}
+
+\begin{table}
+{\begin{center}
+\begin{tabular} {| l | r | r | r |}
+\hline
+& Defects4j & Bears & Combined \\
+\hline
+Same & 35 & 9 & 44  \\ 
+Literal & 11 & 2 & 13  \\
+Composite & 7 & 1 & 8  \\
+Move & 5 & 1 & 6  \\ \hline
+Any & 56 & 13 & 69  \\ \hline
+No clones & 96  &  51 & 147 \\ \hline
+Total & 152 & 64 & 216 \\ \hline
+\% with Clones & 36.8\% & 20.3\% & 31.9\% \\ \hline
+\end{tabular}
+\end{center}
+}
+\caption{Multi-chunk bugs with each kind of chunk-level code clones}
+\end{table}
+
+As shown in Table ?, out of 216 multi-chunk bugs in Bears (single module) and Defects4j (all) with between 2-6 chunks,
 69 of them had at least two chunks that are code clones. Thus over 30\% of multi-chunk bugs seems
-to have chunk-level code clones, indicating prevalence of code clones in human patches.
+to have chunk-level code clones, indicating prevalence of code clones in human patches. Note that "Any" may not
+be the sum of the previous four rows because some bug could contain multiple pairs of code clones that
+belong to different categories.
+
+\begin{table}
+{\begin{center}
+\begin{tabular} {| l | r r | r |}
+\hline
+& Disjoint & Non-Disjoint & Total \\
+\hline
+Has Clone & 19 & 50 & 69 \\
+No Clone & 4 & 143 & 147 \\ \hline
+Total & 23 & 193 & 216 \\ \hline
+\end{tabular}
+\end{center}
+}
+\caption{Multi-chunk bugs categorized on Disjointness and Code clones}
+\end{table}
 
 There are 23 bugs labeled as "Disjoint" in the coverage experiment, out of which
-19 had code clones.\todo{Statistics, please.  How does this compare to the
-  distribution of code clones in general (over teh whole dataset)?  I can't
-  decide the appropriate statistical test right now because I'm tired, but we
-  should do one, let's talk once I've slept.}
-This indicates that a bug with disjoint coverage result is very likely to contain code clones in its
+19 had code clones (14 Same, 4 Literal, 1 Composite). This indicates that a 
+bug with disjoint coverage result is very likely to contain code clones in its
 human patch. This result could suggest future APR techniques to apply the same edits to multiple locations
 if the coverage result of the bug can be categorized as "Disjoint".
+
+\todo{YL: out of 69 code clones, 7 are in diff class, 26 are in same class diff method, and
+36 are in same method. Do we want to include these info too?}
+
 
 \section{Test case-based validation}
 
