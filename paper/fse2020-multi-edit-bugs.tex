@@ -294,7 +294,7 @@ following research questions:
 
 \paragraph{Datasets.}  
 
-\section{RQ1: Multi-Edit Prevalence}
+\section{Dataset Characteristics}
 \label{sec:data-rq1}
 
 \begin{table}
@@ -346,13 +346,11 @@ We thus also study bugs from Bears~\cite{bears},
 a set of Java bugs derived from failed Travis-CI builds of GitHub
 projects. 
 Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
-projects compared to Defects4J. Several projects, however, are structured as 
-multiple modules, which are not compatible with our current automation tools.
+projects compared to Defects4J. 
+Several projects in Bears, however, are structured as multi-module projects, 
+which are not currently compatible with our automation tools.
 We thus limit our analysis of Bears to 181 bugs from 30 single-module projects.
 We intend to address the remaining multi-module software projects in future work.
-
-\todo{Questions: what does ``tool compatability reasons'' mean?  Why doesn't it
-  apply to D4J?}
 
 \todo{Consider adding a column to the dataset table above with ``subset
   considered'' for the defects; is this worth doing?  How many bugs do we
