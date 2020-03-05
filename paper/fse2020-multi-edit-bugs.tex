@@ -320,34 +320,34 @@ code clones in human patch correlated with specific patterns of fault localizati
 
 \begin{table*}
 \begin{center}
-\begin{tabular}{l | rrr | rr | rr | rr | rr}
+\begin{tabular}{l | rrr  | rr | rr | rr}
 \toprule
-\multicolumn{12}{c}{\textbf{Defects4J}} \\
+\multicolumn{10}{c}{\textbf{Defects4J}} \\
 \midrule
-Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-line} & \multicolumn{2}{c}{Multi-chunk} 
-		& \multicolumn{2}{c}{Multi-test} & \multicolumn{2}{c}{Multi-chunk \&}\\
-&&&&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{Multi-test bugs}\\
+Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location} 
+		& \multicolumn{2}{c}{Multi-test} & \multicolumn{2}{c}{Multi-location \&}\\
+&&&&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{Multi-test bugs}\\
 \midrule
-JFreeChart  & 26 & 193.3 & 74.6 & 17 & 65\% & 11 & 42\% & 10 & 38\% & 7 & 27\%\\
-Closure compiler & 133 & 150.6 & 112.6 & 102 & 77\% & 55 & 41\% & 58 & 44\% & 31 & 23\%\\
-Apache commons-lang & 65 & 57.8 & 47.4 & 51 & 78\% & 32 & 49\% & 17 & 26\% & 13 & 20\%\\
-Apache commons-math & 106 & 45.0 & 41.5 & 80 & 75\% & 53 & 50\% & 28 & 26\% & 22 & 21\%\\
-Mockito & 38 & 23.0 & 28.5 & 29 & 76\% & 16 & 42\% & 18 & 47\% & 8 & 21\%\\
-Joda-Time & 27 & 82.9 & 70.4 & 24 & 89\% & 17 & 63\% & 13 & 48\% & 9 & 33\%\\
+JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 10 & 38\% & 7 & 27\%\\
+Closure compiler & 133 & 150.6 & 112.6 & 55 & 41\% & 58 & 44\% & 31 & 23\%\\
+Apache commons-lang & 65 & 57.8 & 47.4  & 32 & 49\% & 17 & 26\% & 13 & 20\%\\
+Apache commons-math & 106 & 45.0 & 41.5 & 53 & 50\% & 28 & 26\% & 22 & 21\%\\
+Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 18 & 47\% & 8 & 21\%\\
+Joda-Time & 27 & 82.9 & 70.4 & 17 & 63\% & 13 & 48\% & 9 & 33\%\\
 \midrule
-All (Defects4J) & 395 & 552.6 & 375.0 & 303 & 77\% & 184 & 47\% & 144 & 36\% & 90 & 23\%\\
+All (Defects4J) & 395 & 552.6 & 375.0 & 184 & 47\% & 144 & 36\% & 90 & 23\%\\
 \midrule
-\multicolumn{12}{c}{\textbf{Bears (single-module)}} \\
+\multicolumn{10}{c}{\textbf{Bears (single-module)}} \\
 \midrule
-FasterXML-jackson-databind & 26 & 95.7 & 53.6 & 24 & 92\% & 17 & 65\% & 4 & 15\% & 2 & 8\%\\
-INRIA-Spoon & 62 & 66.2 & 30.8 & 56 & 90\% & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
-spring-data-commons & 15 & 45.8 & 28.8 & 14 & 93\% & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
-traccar-traccar & 42 & 47.9 & 8.6 & 34 & 81\% & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
-30 other projects & 38 & - & - & 28 & 74\% & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
+FasterXML-jackson-databind & 26 & 95.7 & 53.6 & 17 & 65\% & 4 & 15\% & 2 & 8\%\\
+INRIA-Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
+spring-data-commons & 15 & 45.8 & 28.8  & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
+traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
+30 other projects & 38 & - & - & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
 \midrule
-All (Bears) & 183 & >255.6 & >121.8 & 156 & 85\% & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
+All (Bears) & 183 & >255.6 & >121.8 & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
 \midrule
-Combined (Defects4J \& Bears) & 578 & >808.2 & >496.8 & 459 & 79\% & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
+Combined (Defects4J \& Bears) & 578 & >808.2 & >496.8 & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -380,25 +380,23 @@ We intend to address the remaining multi-module software projects in future work
 \subsection{Multi-edit Prevalence}
 \rqorinsight{RQ1: How prevalent are multi-edit human patches are in Defects4J and Bears?}
 
-We start our analysis of multi-edit patches by asking how many such patches 
-exist in our benchmarks. We analyze edits at line and chunk granularities,
-which we defined in Section~\ref{sec:background}.
+We start our analysis of multi-location patches by asking how many such patches 
+exist in our benchmarks.
 
 \paragraph{Results} 
 Table~\ref{tab:dataset-characteristics} lists the number and percentages of
-multi-line and multi-chunk patches in Defects4J and Bears. 
-Multi-line patches comprise a large majority of patches across both datasets, 
-while multi-chunk patches comprise over half of Bears and almost half of Defects4J.
-Although a multi-edit human patch for a bug does not imply the 
+multi-location patches in Defects4J and Bears. 
+We find that multi-location patches comprise over half of Bears and almost half of Defects4J.
+Although a multi-location human patch for a bug does not imply the 
 non-existence of a simpler patch, the high proportion of bugs that have 
-multi-edit patches demonstrates the relevance of such bugs to fault localization and
+multi-location patches demonstrates the relevance of such bugs to fault localization and
 program repair. 
 
-At both levels of edit granularity, Bears contains a greater proportion of 
-multi-edit patches compared to Defects4J. This may be the 
+Bears contains a greater proportion of 
+multi-location patches compared to Defects4J. This may be the 
 result of manual patch minimization in Defects4J~\cite{defects4j} 
 and lack thereof in Bears.
-Thus, some Bears patches may be multi-edit as a result of additional 
+Thus, some Bears patches may be multi-location as a result of additional 
 changes added for non-repair reasons.
 
 
