@@ -3,19 +3,23 @@
 %% what are the claims, what are we studying, why are we studying it
 
 
-Spectrum-based fault localization (SBFL) is the most commonly studied, as well as the most 
-effective~\cite{zou2019empirical}, fault localization technique. It is a key
-first step to characterizing the \emph{fault space} in automatic program repair,
-narrowing the search space to a portion of the program more likely (based on
-test case behavior) to correspond to the fault.  
+Spectrum-based fault localization (SBFL) is the most commonly studied dynamic
+fault localization technique, and studies have shown that it is more effective
+than other techniques such as Mutation-based fault
+localization~\cite{mut-analysis} or dynamic program
+slicing~\cite{zou2019empirical}. It is a key first step to characterizing the
+\emph{fault space} in automatic program repair, narrowing it to a portion of the
+program most likely to correspond to the fault.
 
-\paragraph{SBFL Basics.} 
-There are a few different SBFL tools, but they are 
-similar on principle. Intuitively, SBFL assigns a suspiciousness score to different lines of 
-code based on how often that line is executed among failing tests compared to passing 
-tests. This suspiciousness score can be calculated a few different ways. One of the oldest 
-and commonly studied SBFL technique is Tarantula~\cite{tarantula}. In Tarantula, the 
-suspiciousness score for a line $s$ is calculated by:
+Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
+  execute buggy portions of the code relatively more often than passing tests.}
+Thus, if all failing tests execute a particular line of code, then that line of
+code is highly suspicious.  SBFL techniques compute a suspiciousness by
+measuring how often a line is executed by failing tests as compared to passing
+tests. This suspiciousness score can be calculated a few different ways, but is
+typically a linear combination of the passing and failing test coverage. One of
+the oldest and commonly studied SBFL technique is Tarantula~\cite{tarantula}. In
+Tarantula, the suspiciousness score for a line $s$ is calculated by:
 
 $$\mathit{susp(s)} 
 =\frac{\mathit{\%F(s)}}{\mathit{\%F(s)} + \mathit{\%P(s)}}$$
@@ -26,16 +30,12 @@ SBFL techniques that calculate this score differently, such as Ochiai~\cite{ochi
 DStar~\cite{wong2013dstar}. Both of these were included in an empirical study 
 comparing fault localization techniques and were found to localize a similar set of 
 faults~\cite{zou2019empirical}.
-  
 
-Fundamentally, a core assumption underlying SBFL is that \emph{failing tests execute 
-buggy portions of the code relatively more often than passing tests.} 
-Thus, if all failing tests execute a 
-particular line of code, then that line of code is scored as more suspicious.
-This assumption is well-suited to single location repair. Indeed, the evaluation
-of most SBFL techniques asks exactly the question of interest when considering a
-technique's suitability for single-location repair: how often does a given technique
-correctly, highly rank individual buggy lines of code? 
+Assigning a suspiciousness score to each line of code is well-suited to single
+location repair. Indeed, the evaluation of most SBFL techniques asks exactly the
+question of interest when considering a technique's suitability for
+single-location repair: how often does a given technique correctly, highly rank
+individual buggy lines of code?
 
 Such evaluations, by and large, do not consider the implications of
 suspiciousness scoring in a multi-location repair context.  Instead, evaluations
@@ -44,54 +44,54 @@ set of changed lines as highly-ranked or likely-suspicious.  While appropriate
 for the question being asked in such evaluations, this does not address
 suitability for multi-location program repair.  Identifying one of several buggy
 locations is generally inadequate in a context where multiple locations must be
-modified.  
-
-Thus, in this research question, we investigate how well the SBFL assumption
-applies to tests that identify multi-location bugs. We focus especially on
-multi-location bugs that are associated with multiple tests; a bug with only a single failing 
-test 
-trivially and equally implicates all the lines that test executes.  If multiple tests all cover the 
-multiple
-modified locations well, then SBFL's core assumption holds and multi-edit repair
-can expect to effectively make use of the off-the-shelf ranking these techniques
-currently provide (indeed, this has been tried~\cite{angelix}). If not---that
-is, if multiple tests exercise \emph{different} portions of the buggy
-code---SBFL off-the-shelf will by definition be less effective in guiding APR to
-correctly modifying multiple buggy locations at once.
-
-Therefore, for multi-edit bugs with multiple identifying failing tests, do the 
-different failing tests cover exactly the same patch locations, exactly 
-disjoint path locations, or some combination?
+modified. Thus, we ask the following research question:
 
 
 \rqorinsight{How well do multiple tests cover the multiple locations
-  implicated in multi-location bugs?}
+  implicated in bugs that require multi-location patches?}
+
+To answer this research question, we investigate how well the SBFL assumption
+applies to tests that identify bugs that require multi-location patches. We
+focus especially on bugs that are associated with multiple failing tests: a bug
+with only a single failing test trivially and equally implicates all the lines
+that test executes.  If multiple tests cover the modified locations well, then
+SBFL's core assumption holds and multi-location repair can expect to effectively
+make use of the off-the-shelf ranking these techniques currently provide
+(indeed, this has been tried~\cite{angelix}). If not---that is, if multiple
+tests exercise \emph{different} portions of the buggy code---SBFL off-the-shelf
+will by definition be less effective in guiding APR to correctly modifying
+multiple buggy locations at once.
+
+Therefore, for these bugs, do the different failing tests cover exactly the same
+patch locations, exactly disjoint patch locations, or some combination?
 
 \paragraph{Methodology}
 
-Between both datasets, there are 92 total bugs that are both multi-location and 
-multi-test: 59 in Defects4J, and 33 in Bears. \todo{There is one bug in bears that I couldn't 
-get coverage for through my tool or by inspection; what do I do about that? (It's currently 
-counted in the 92 bugs but not in the graphs)} For each of these bugs, we used 
-Jacoco to determine which of the patched locations were executed (at
-least once) by each failing test. Using 
-this coverage data, we categorized each bug as follows:
+Between both datasets, there are 92 total bugs that both require multi-location
+patches and contain multiple failing tests: 59 in Defects4J, and 33 in
+Bears. \todo{There is one bug in bears that I couldn't get coverage for through
+  my tool or by inspection; what do I do about that?  (It's currently
+  counted in the 92 bugs but not in the graphs)}
+For each of these bugs, we used JaCoCo\footnote{https://www.eclemma.org/jacoco/}
+to determine which of the patched locations were executed (at least once) by
+each failing test. Using this coverage data, we categorized each bug as follows:
 \begin{itemize}
-\item \emph{disjoint} bugs are those for which no location is covered by all
+\item \emph{disjoint} bugs are those for which no patch location is covered by all
 failing tests.  Inutitively, these are the bugs for which the core SBFL
 assumption is violated.
-\item \emph{overlap} bugs are those for which some faulty locations are covered by
-all failing tests, but some are only covered by a subset of the failing tests. These bugs also 
-violate the core assumption of SBFL, albeit to a lesser extent.
-\item \emph{identical} bugs are those for which all tests cover the exact same set of
-  patch locations.
+\item \emph{overlap} bugs are those for which some faulty locations are covered
+by all failing tests, but some are only covered by a subset of the failing
+tests. These bugs also violate the core assumption of SBFL, albeit to a lesser
+extent.
+\item \emph{identical} bugs are those for which all tests cover the exact same
+  set of patch locations.
 \end{itemize}
 
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage-all.png}
-	\caption{Distribution of coverage patterns for all multi-test and 
-	multi-location bugs in Bears and Defects4J.}
+	\caption{Distribution of coverage patterns for bugs with multiple failing
+      tests that are repaired with multi-location patches in Bears and Defects4J.}
 	\label{fig:coverage-all}
 \end{figure}
 
