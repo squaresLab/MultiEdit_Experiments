@@ -286,9 +286,16 @@ spaces for the purposes of understanding multi-edit repair.  We address the
 following research questions:
 
 \begin{enumerate}
-\item \emph{RQ1: What is the incidence of multi-edit repairs in real-world bug data?}
-\item RQ2: ...
-\item \todo{WHAT ARE OUR RESEARCH QUESTIONS?}
+\item \emph{RQ1: How prevalent are multiedit human patches are in Defects4J and Bears?}
+\item \emph{RQ2: Do failing tests cover different portions of the fault?}
+\item \emph{RQ3: Do certain symptoms correlate with multi-edit patches?}
+\item \emph{RQ4: Do certain symptoms correlate with repair success by existing repair tools?}
+\item \emph{RQ5: How prevalent are dependencies between edited code?}
+\item \emph{RQ6: Do test cases fully capture the effects of multiple edits?}
+\item \emph{RQ7: How well do test case based validation methods identify partial repairs?}
+\item \emph{RQ8: How often do code clones occur in multi-chunk bugs? Are existence of code 
+clones in human patch correlated with specific patterns of fault localization?}
+
 \end{enumerate}
 
 \section{Dataset Characteristics}
@@ -408,7 +415,7 @@ multi-edit patches compared to Defects4J.
 \section{Dependency Analysis}
 
 \rqorinsight{
-	RQ?: How prevalent are dependencies between edited code?
+	RQ5: How prevalent are dependencies between edited code?
 }
 
 APR techniques differ in the treatment of potentially dependent code mutations.
@@ -518,7 +525,7 @@ candidate patches by
 measuring how "close" a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
 
-\rqorinsight{RQ?: Do test cases fully capture the effects of multiple edits?}
+\rqorinsight{RQ6: Do test cases fully capture the effects of multiple edits?}
 
 Sometimes not all edits in a human patch is necessary to pass all tests. This could be
 due to human patch including refactoring or other changes that does not actually
@@ -526,7 +533,7 @@ change code behavior, or it could be due to the unit tests not being able to cat
 an incorrect behavior that the remaining edits correct. We would like to explore
 to what extent does this phenomenon affect the bugs in our benchmarks.
 
-\rqorinsight{RQ?: How well do test case based validation methods identify partial repairs?}
+\rqorinsight{RQ7: How well do test case based validation methods identify partial repairs?}
 
 Given a buggy program and a valid repair, if we apply a part of the valid repair to 
 the buggy program (a partial repair), then semanticly the partial repair is closer
@@ -545,7 +552,7 @@ partial repairs at different granularity levels.
 
 \subsection{Method}
 
-To address RQ? and RQ?, we designed the following experiment: for each bug in Defects4j 
+To address RQ6 and RQ7, we designed the following experiment: for each bug in Defects4j 
 (excluding Clojure bugs because they dont use JUnit) 
 and Bears (single-module only), we generate all of its partial repairs using method described in 
 the Partial Repairs subsubsection, and then run unit tests through all partial repairs
@@ -680,7 +687,7 @@ Negative & Assertion & 18.55\% & 14.39 \% & 19.23 \% &  14.44\%  \\
     
 \subsection{Conclusions}
 
-\subsubsection{RQ?}
+\subsubsection{RQ6}
 About a third of Defects4j bugs and over half of
 Bears bugs in this experiment do not need all chunks in the provided human patches to pass
 all unit tests. This suggests that significant portion of multi-chunk bugs contains some
@@ -689,7 +696,7 @@ edit chunk is just human developer refactoring code that doesn't change code beh
 or it could be due to test cases not being able to detect incorrect behavior that is fixed
 by the "unnecessary" chunk.
 
-\subsubsection{RQ?}
+\subsubsection{RQ7}
 
 Under highest granularity, we are able to identify above 40\% of the partial repairs in Defects4j
 and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50\%
@@ -728,7 +735,7 @@ and provides insight in future APR research.
 
 \todo{I don't know if we want this section on the paper, but I'm going to put it on here for now}
 
-\rqorinsight{RQ?: How often do code clones occur in multi-chunk bugs? Are existence of code
+\rqorinsight{RQ8: How often do code clones occur in multi-chunk bugs? Are existence of code
 clones in human patch correlated with specific patterns of fault localization?}
 
 Previous research ~\cite{wang2018} suggested that one potential way to enhance
@@ -747,7 +754,7 @@ In this experiment, we will look at the existence of code clones in
 edit chunks (same definition as in fitness experiment) of multi-chunk bugs (selected
 with same criteria as fitness experiment, but also includes Closure bugs in Defects4j).
 
-Then we will compare the results with the results of the coverage experiment in Section ?.
+Then we will compare the results with the results of the coverage experiment in Section 4.1.
 
 \subsubsection{Code Clone}
 
