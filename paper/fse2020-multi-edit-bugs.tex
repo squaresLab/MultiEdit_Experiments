@@ -351,23 +351,25 @@ Combined (Defects4J \& Bears) & 576 & >808.2 & >496.8 & 457 & 79\% & 293 & 51\% 
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:data} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
+\caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
 \end{table*}
 
 \paragraph{Datasets}  Our study requires a dataset of indicative, real-world,
 multi-edit defects.  We study both the defects in Defects4J
-Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:data}
+Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 395 bugs from 
 six Java software projects, and is currently very popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.
-However, there is a risk associated with any such dataset that tools may overfit
+The dataset's patches are manually minimized to isolate the bug fix 
+and exclude edits such as refactorings, feature additions, et cetera.
+
+With any dataset, however, there is a risk associated that tools may overfit
 to the defects in question, and there is evidence that this situation applies to
 program repair and Defects4j~\cite{durieux-repair-them-all}. 
 We thus also study bugs from Bears~\cite{bears}, 
-a set of Java bugs derived from failed Travis-CI builds of GitHub
-projects. 
+a set of Java bugs derived from failed Travis-CI builds of GitHub projects. 
 Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
 projects compared to Defects4J. 
 Several projects in Bears, however, are structured as multi-module projects, 
@@ -383,18 +385,21 @@ exist in our benchmarks. We analyze edits at line and chunk granularities,
 which we defined in Section~\ref{sec:background}.
 
 \paragraph{Results} 
-Table~\ref{tab:multiedit-frequencies} lists the number and percentages of
+Table~\ref{tab:dataset-characteristics} lists the number and percentages of
 multi-line and multi-chunk patches in Defects4J and Bears. 
 Multi-line patches comprise a large majority of patches across both datasets, 
 while multi-chunk patches comprise over half of Bears and almost half of Defects4J.
+Although a multi-edit human patch for a bug does not imply the 
+non-existence of a simpler patch, the high proportion of bugs that have 
+multi-edit patches demonstrates the relevance of such bugs to fault localization and
+program repair. 
+
 At both levels of edit granularity, Bears contains a greater proportion of 
-multi-edit patches compared to Defects4J.
-
-\todo{Maybe add some data to show repair rates of multi-line \& multi-chunk bugs}
-
-\todo{CLG says: ...I honestly don't understand the ``frequencies'' table or the
-  2--3 sentences above. And: What is the interpretation?
-  Why do I care?}
+multi-edit patches compared to Defects4J. This may be the 
+result of manual patch minimization in Defects4J~\cite{defects4j} 
+and lack thereof in Bears.
+Thus, some Bears patches may be multi-edit as a result of additional 
+changes added for non-repair reasons.
 
 
 \input{coverage.tex}
