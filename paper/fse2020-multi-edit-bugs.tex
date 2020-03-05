@@ -318,35 +318,35 @@ code clones in human patch correlated with specific patterns of fault localizati
 \section{Dataset Characteristics}
 \label{sec:data-rq1}
 
-\begin{table}
+\begin{table*}
 \begin{center}
-\begin{tabular}{l | rrr}
+\begin{tabular}{l | rrr | rr | rr | rr | rr}
 \toprule
-\multicolumn{4}{c}{\textbf{Defects4J}} \\
+\multicolumn{12}{c}{\textbf{Defects4J}} \\
 \midrule
-Project & Bugs & Src (kloc) & Test (kloc) \\
+Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-line} & \multicolumn{2}{c}{Multi-chunk} 
+		& \multicolumn{2}{c}{Multi-test} & \multicolumn{2}{c}{Multi-chunk \&}\\
+&&&&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{Multi-test bugs}\\
 \midrule
-JFreeChart  & 26 & 193.3 & 74.6 \\
-Closure compiler & 133 & 150.6 & 112.6 \\
-Apache commons-lang & 65 & 57.8 & 47.4 \\
-Apache commons-math & 106 & 45.0 & 41.5 \\
-Mockito & 38 & 23.0 & 28.5 \\
-Joda-Time & 27 & 82.9 & 70.4 \\
+JFreeChart  & 26 & 193.3 & 74.6 & 17 & 65\% & 11 & 42\% & 10 & 38\% & 7 & 27\%\\
+Closure compiler & 133 & 150.6 & 112.6 & 102 & 77\% & 55 & 41\% & 58 & 44\% & 31 & 23\%\\
+Apache commons-lang & 65 & 57.8 & 47.4 & 51 & 78\% & 32 & 49\% & 17 & 26\% & 13 & 20\%\\
+Apache commons-math & 106 & 45.0 & 41.5 & 80 & 75\% & 53 & 50\% & 28 & 26\% & 22 & 21\%\\
+Mockito & 38 & 23.0 & 28.5 & 29 & 76\% & 16 & 42\% & 18 & 47\% & 8 & 21\%\\
+Joda-Time & 27 & 82.9 & 70.4 & 24 & 89\% & 17 & 63\% & 13 & 48\% & 9 & 33\%\\
 \midrule
-\multicolumn{4}{c}{\textbf{Bears (single-module)}} \\
+\multicolumn{12}{c}{\textbf{Bears (single-module)}} \\
 \midrule
-FasterXML-jackson-databind & 26 & 95.7 & 53.6 \\
-INRIA-Spoon & 62 & 66.2 & 30.8 \\
-spring-data-commons & 15 & 45.8 & 28.8 \\
-traccar-traccar & 42 & 47.9 & 8.6 \\
-30 other projects & 62 & - & -\\
+FasterXML-jackson-databind & 26 & 95.7 & 53.6 & 24 & 92\% & 17 & 65\% & 4 & 15\% & 2 & 8\%\\
+INRIA-Spoon & 62 & 66.2 & 30.8 & 56 & 90\% & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
+spring-data-commons & 15 & 45.8 & 28.8 & 14 & 93\% & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
+traccar-traccar & 42 & 47.9 & 8.6 & 34 & 81\% & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
+30 other projects & 62 & - & - & 26 & 72\% & 20 & 56\% & 36 & 100\% & 7 & 19\%\\
 \bottomrule
 \end{tabular}
 \end{center}
 \caption{\label{tab:data} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
-\end{table}
-
-\todo{I think we should add a column to the datasets indicating how many of each are multi-test, as well} 
+\end{table*}
 
 \paragraph{Datasets}  Our study requires a dataset of indicative, real-world,
 multi-edit defects.  We study both the defects in Defects4J
@@ -368,43 +368,6 @@ Several projects in Bears, however, are structured as multi-module projects,
 which are not currently compatible with our automation tools.
 We thus limit our analysis of Bears to 181 bugs from 30 single-module projects.
 We intend to address the remaining multi-module software projects in future work.
-
-\todo{Consider adding a column to the dataset table above with ``subset
-  considered'' for the defects; is this worth doing?  How many bugs do we
-  exclude? Do we include Closure?}
-
-\begin{table}
-{\begin{center}
-	\begin{tabular}{l | rr | rr | rr}
-		\toprule
-		\multicolumn{7}{c}{\textbf{Line edit granularity}} \\
-		\midrule
-		Dataset & \multicolumn{2}{c}{Single line} & \multicolumn{2}{c}{Multi-line} & \multicolumn{2}{c}{Total} \\
-		\midrule
-		Defects4J & 92 & 23\% & 303 & 77\% & 395 & 100\%\\
-		Bears & 27 & 15\% & 154 & 85\% & 181 & 100\%\\ 
-		Combined & 119 & 21\% & 457 & 79\% & 576 & 100\% \\ 
-		\midrule
-		\multicolumn{7}{c}{\textbf{Chunk edit granularity}} \\
-		\midrule
-		Dataset & \multicolumn{2}{c}{Single chunk} & \multicolumn{2}{c}{Multi-chunk} & \multicolumn{2}{c}{Total} \\
-		\midrule
-		Defects4J & 211 & 53\% & 184 & 47\% & 395 & 100\%\\
-		Bears & 72 & 40\% & 109 & 60\% & 181 & 100\%\\
-		Combined & 283 & 49\% & 293 & 51\% & 576 & 100\%\\
-		\bottomrule
-	\end{tabular}
- \end{center}
-}
-	\caption{Frequencies and percentages of bugs with multi-edit patches
-	based on the edit granularities defined in Section~\ref{sec:background}.
-	Multi-line patches comprise a large majority of patches, and multi-chunk 
-	patches comprise a majority or a large minority of patches in both datasets.}
-	\label{tab:multiedit-frequencies}
-\end{table}
-
-
-\todo{Please combine table 1 and table 2 as suggested over slack}
 
 \subsection{Multi-edit Prevalence}
 \rqorinsight{RQ1: How prevalent are multi-edit human patches are in Defects4J and Bears?}
