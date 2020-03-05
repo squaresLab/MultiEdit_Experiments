@@ -456,14 +456,13 @@ locations?}
 
 We first examine control- and data-dependencies between multiple edit locations. 
 
-\paragraph{Methodology.} For dependency analysis, 
-in order to get more granular edit information,
-we consider edits at the granularity of lines instead of chunks.
-We consider a patch to contain dependent line edits if there exists 
-control or data dependencies between statements---and their used or defined 
-variables---in added, deleted, or modified lines. We analyze deleted/modified 
-lines in the pre-patch code and added/modified lines in the post-patch code
-for dependencies.
+\paragraph{Methodology.} 
+For dependency analysis, we broaden the scope of multi-location patches to 
+include all patches containing at least two added, removed, or modified lines.
+We consider a patch to contain dependent edits if there exists 
+control or data dependencies between added, deleted, or modified statements.
+We analyze deleted/modified statements in the pre-patch code 
+and added/modified statements in the post-patch code for dependencies.
   
 For practical performance and scalability reasons, 
 we perform intraprocedural analysis. 
@@ -501,13 +500,14 @@ using the following heuristics:
 \end{table}
 
 Table~\ref{tab:dependency} shows the 
-frequencies and percentages of multi-line patches with control or data dependent 
-line edits.
+frequencies and percentages of multi-line patches 
+with control or data dependent edits.
 We find that 44\% of Defects4J patches, 61\% of Bears patches, 
 and 49\% of the combined datasets' patches contain dependent edits.
 \todo{Expand; reexplain.}  
 We find a higher proportion of dependent patches in Bears compared to 
-Defects4J, indicating higher patch complexity among multi-line patches in Bears.\todo{implications?}
+Defects4J, possibly indicating higher patch complexity among 
+patches in Bears.\todo{implications?}
 
 
 \begin{table}
@@ -557,9 +557,9 @@ Defects4J, indicating higher patch complexity among multi-line patches in Bears.
 
 \todo{Why are we asking this question/discussing these results?} 
 Tables~\ref{tab:dependency-repair-contingency-table} and~\ref{tab:dependency-repair-percents}
-show the frequencies and percentages of multi-line patches with respect to dependencies 
+show the frequencies and percentages of multi-line patches with respect to edit dependency 
 and whether an APR tool successfully repaired bug in~\cite{durieux-repair-them-all}.
-We find that the presence of dependencies generally reduces the likelihood of APR tool success.
+We find that the presence of edit dependencies generally reduces the likelihood of APR tool success.
 Using a $\chi^2$ test, we find statistically significant relationships ($p < 0.001$)
 between APR success and control, data, and the disjunction of either dependencies 
 for Defects4J and Defects4J $\cup$ Bears patches. We fail to find statistically 
