@@ -506,9 +506,8 @@ with control or data dependent edits.
 We find that 44\% of Defects4J patches, 61\% of Bears patches, 
 and 49\% of the combined datasets' patches contain dependencies 
 between edited statements.
-We find a higher proportion of dependent patches in Bears compared to 
-Defects4J, possibly indicating higher patch complexity among 
-patches in Bears.\todo{implications?}
+Our finding supports earlier results on edit dependencies in 
+bug patches~\cite{zhong2015}. 
 
 
 \begin{table}
@@ -520,11 +519,11 @@ patches in Bears.\todo{implications?}
 		\multirow{2}{*}{Defects4J} & Success & 39 & 94 & 133 \\
 		                                          & Failure   & 93 & 77 & 170 \\
 		\midrule
-		\multirow{2}{*}{Bears}       & Success &   9 &   7 &   16 \\
-		                                          & Failure   & 86 & 48 & 134 \\
+		\multirow{2}{*}{Bears}       & Success &   9 &   8 &   17 \\
+		                                          & Failure   & 86 & 53 & 139 \\
 		\midrule
-		\multirow{2}{*}{Combined}& Success & 48 &101& 149 \\
-		                                          & Failure   &179&125& 304 \\
+		\multirow{2}{*}{Combined}& Success & 48 &102& 150 \\
+		                                          & Failure   &179&130& 309 \\
 \bottomrule
 	\end{tabular}
  \end{center}
@@ -533,27 +532,6 @@ patches in Bears.\todo{implications?}
 	dependent line edits and whether an APR tool successfully 
 	repaired the bug in~\cite{durieux-repair-them-all}.}
 	\label{tab:dependency-repair-contingency-table}
-\end{table}
-
-\begin{table}
-{\begin{center}
-	\begin{tabular}{l | rrr}
-            	\toprule
-		& Defects4J & Bears & Combined \\
-		\midrule
-		$P(\mbox{APR Success } | \mbox{ Dependent})$ & 30\% & 9\% & 21\% \\
-		$P(\mbox{APR Success } | \mbox{ Independent})$ & 45\% & 13\% & 45\% \\
-		\bottomrule
-	\end{tabular}
- \end{center}
-}
-	\caption{Percentages of auto-repaired bugs in~\cite{durieux-repair-them-all} 
-	that (do not) contain dependent line edits.\todo{Please combine this
-          table with table 4 somehow, and/or explain to me why you shouldn't.
-          Also, expand this caption, wherever it goes, to tell me what you mean
-          and what the interpretation is; among other issues I don't understand how the cells are
-          percentages when the rows are conditional probabilities.}
-	\label{tab:dependency-repair-percents}}
 \end{table}
 
 \todo{Why are we asking this question/discussing these results?} 
