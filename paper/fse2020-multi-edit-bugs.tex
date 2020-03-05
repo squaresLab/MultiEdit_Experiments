@@ -101,11 +101,11 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 \section{Introduction}
 
-Buggy software has a significant cost in terms of both social impact~\cite{tricentis} 
-and developer effort~\cite{cambridge-study}. This
-motivates significant research in techniques to automatically find and fix
-them~\cite{whatever}, with the ultimate goal of reducing Quality Assurance costs
-while improving software quality. 
+Buggy software has a significant economic cost~\cite{cambridge-study}, and
+software failures are estimated to have affected half of the world's
+population~\cite{tricentis}. This motivates significant research in techniques
+to automatically find and fix them~\cite{whatever}, with the ultimate goal of
+reducing Quality Assurance costs while improving software quality.
 
 A significant class of program repair techniques in both
 research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test cases to guide
@@ -183,7 +183,7 @@ looking specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
 We study the bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
-and BEARS~\cite{bears}, in total, 576 bugs in 40 projects. 
+and BEARS~\cite{bears}, in total, 578 bugs in 40 projects. 
 More than half of these bugs were repaired by a
 human developer using a multi-chunk repair (as we define in
 Section~\ref{sec:background}).  We look at characteristics along each of the
@@ -343,36 +343,38 @@ FasterXML-jackson-databind & 26 & 95.7 & 53.6 & 24 & 92\% & 17 & 65\% & 4 & 15\%
 INRIA-Spoon & 62 & 66.2 & 30.8 & 56 & 90\% & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
 spring-data-commons & 15 & 45.8 & 28.8 & 14 & 93\% & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
 traccar-traccar & 42 & 47.9 & 8.6 & 34 & 81\% & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
-30 other projects & 36 & - & - & 26 & 72\% & 20 & 56\% & 36 & 100\% & 7 & 19\%\\
+30 other projects & 38 & - & - & 28 & 74\% & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
 \midrule
-All (Bears) & 181 & >255.6 & >121.8 & 154 & 85\% & 109 & 60\% & 72 & 40\% & 31 & 17\% \\
+All (Bears) & 183 & >255.6 & >121.8 & 156 & 85\% & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
 \midrule
-Combined (Defects4J \& Bears) & 576 & >808.2 & >496.8 & 457 & 79\% & 293 & 51\% & 216 & 38\% & 121 & 21\%\\
+Combined (Defects4J \& Bears) & 578 & >808.2 & >496.8 & 459 & 79\% & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:data} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
+\caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
 \end{table*}
 
 \paragraph{Datasets}  Our study requires a dataset of indicative, real-world,
 multi-edit defects.  We study both the defects in Defects4J
-Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:data}
+Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 395 bugs from 
 six Java software projects, and is currently very popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.
-However, there is a risk associated with any such dataset that tools may overfit
+The dataset's patches are manually minimized to isolate the bug fix 
+and exclude edits such as refactorings, feature additions, et cetera.
+
+With any dataset, however, there is a risk associated that tools may overfit
 to the defects in question, and there is evidence that this situation applies to
 program repair and Defects4j~\cite{durieux-repair-them-all}. 
 We thus also study bugs from Bears~\cite{bears}, 
-a set of Java bugs derived from failed Travis-CI builds of GitHub
-projects. 
+a set of Java bugs derived from failed Travis-CI builds of GitHub projects. 
 Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
 projects compared to Defects4J. 
 Several projects in Bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
-We thus limit our analysis of Bears to 181 bugs from 30 single-module projects.
+We thus limit our analysis of Bears to 183 bugs from 30 single-module projects.
 We intend to address the remaining multi-module software projects in future work.
 
 \subsection{Multi-edit Prevalence}
@@ -383,18 +385,21 @@ exist in our benchmarks. We analyze edits at line and chunk granularities,
 which we defined in Section~\ref{sec:background}.
 
 \paragraph{Results} 
-Table~\ref{tab:multiedit-frequencies} lists the number and percentages of
+Table~\ref{tab:dataset-characteristics} lists the number and percentages of
 multi-line and multi-chunk patches in Defects4J and Bears. 
 Multi-line patches comprise a large majority of patches across both datasets, 
 while multi-chunk patches comprise over half of Bears and almost half of Defects4J.
+Although a multi-edit human patch for a bug does not imply the 
+non-existence of a simpler patch, the high proportion of bugs that have 
+multi-edit patches demonstrates the relevance of such bugs to fault localization and
+program repair. 
+
 At both levels of edit granularity, Bears contains a greater proportion of 
-multi-edit patches compared to Defects4J.
-
-\todo{Maybe add some data to show repair rates of multi-line \& multi-chunk bugs}
-
-\todo{CLG says: ...I honestly don't understand the ``frequencies'' table or the
-  2--3 sentences above. And: What is the interpretation?
-  Why do I care?}
+multi-edit patches compared to Defects4J. This may be the 
+result of manual patch minimization in Defects4J~\cite{defects4j} 
+and lack thereof in Bears.
+Thus, some Bears patches may be multi-edit as a result of additional 
+changes added for non-repair reasons.
 
 
 \input{coverage.tex}
