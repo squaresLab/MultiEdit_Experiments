@@ -960,6 +960,26 @@ and we do not restrict our repair actions to neutral variants of the program.
 \todo{Write me, plz, summarize takeaways and why we care.  We have established a
   roadmap of research directions for multi-edit repair.}
 
+In conclusion, \todo{Fill sec 3 conclusion}
+
+\todo{Fill sec 4 conclusion}
+
+\todo{Fill sec 5.1 conclusion}.
+
+We found that chunk level code clones are prevalent in human patches. Over 30\%
+of multi-chunk bugs have some kind of code clones. Moreover, we found that multi-chunk bugs with Disjoint
+coverage result is much more likely to have code clones.
+
+We found that test case based validation methods cannot capture all effects of human patches,
+as between a third and a half of multi-chunk bugs do not require all chunks in human patch to
+past all tests.
+
+We found that test case based validation methods can be reasonably good at identifying partial
+repairs at higher granularity levels such as method level or assertion level. Moreover, 
+we observed that the number of both positively and negatively identified partial repairs
+increase as we increase the granularity, so we advice a careful balance of the tradeoffs of
+granularity levels in future search based APR development.
+
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
 
