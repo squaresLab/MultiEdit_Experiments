@@ -48,30 +48,30 @@ different failing tests cover exactly the same patch locations, exactly
 disjoint path locations, or some combination?
 
 
-\rqorinsight[2]{How well do multiple tests cover the multiple locations
+\rqorinsight{How well do multiple tests cover the multiple locations
   implicated in multi-edit bugs?}
 
 \paragraph{Methodology}
 
 Between both datasets, there are 60 total bugs that are both multi-edit and 
-multi-test -- 45 in Defects4J and 15 in Bears. For each of these bugs, we used 
-Jacoco to determine which of the chunks in the human patch were executed by each failing test. Using 
-this coverage data, we categorized the bug as one of 
-three coverage patterns: \textit{disjoint} for bugs in which no chunk is covered by all failing tests, 
-\textit{same} for bugs in which all 
-tests cover the exact same chunks of the patch, and \textit{overlap} for all 
-other bugs, where some chunks are covered by all failing tests, but some chunks are only covered by a 
-subset of failing tests.
+multi-test: 45 in Defects4J, and 15 in Bears. For each of these bugs, we used 
+Jacoco to determine which of the chunks in the human patch were executed (at
+least once) by each failing test. Using 
+this coverage data, we categorized each bug as follows:
+\begin{itemize}
+\item \emph{disjoint} bugs are those for which no chunk is covered by all
+failing tests.  Inutitively, these are the bugs for which the core SBFL
+assumption is violated.
+\item \emph{same} bugs are those for which all tests cover the exact same set of
+  patch chunks
+\item \emph{overlap} bugs are those for which some buggy chunks are covered by
+  all failing tests, but some are only covered by a subset of the failing tests.
+\end{itemize}
+\todo{...I'm realizing I don't love this naming scheme.  Can we come up with an
+  alternative?} 
 
-\paragraph{Results}
-The overall distribution is seen in Figure \ref{fig:coverage-all}. Over a third 
-of the bugs were classified as disjoint, indicating that for a significant 
-portion of bugs, the failing tests do not all execute any portion of the faulty 
-code. In addition, another 22\% were classified as overlap. Thus, over half of 
-the bugs that were both multi-edit and multi-test contained chunks that were 
-not executed by all failing test cases.
-2
 
+\todo{Can you redraw all these histograms with percentages at the top of the bars?}
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage-all.png}
 	\caption{Distribution of coverage patterns for all multi-test and 
@@ -79,21 +79,6 @@ not executed by all failing test cases.
 	classified as same, and 22\% were classified as overlap.}
 	\label{fig:coverage-all}
 \end{figure}
-
-SBFL assumes that faulty locations are executed more often by identifying 
-or failing test cases and is not designed to find faults like these. Since SBFL 
-is the most common fault localization technique in APR, most APR techniques 
-are not well suited to fix a majority of these multi-edit and multi-test 
-bugs.
-
-If we divide distribution by dataset, we can see even more interesting 
-behavior. Figure \ref{fig:coverage-datasets} shows the Defects4J dataset and 
-the Bears dataset have very different distributions with respect to the 
-disjoint and same categories -- in Defects4J, 47\% of bugs are disjoint and 
-31\% are same, whereas in Bears, the proportions are 13\% disjoint and 67\% 
-same. We hypothesize that this may be due to differences in how the two 
-datasets were minimized, since Defects4J is a dataset of minimized and curated 
-bugs while the bugs in Bears are taken scraped directly from the commits.
 
 
 \begin{figure}
@@ -107,9 +92,53 @@ bugs while the bugs in Bears are taken scraped directly from the commits.
 		\caption{Distribution of coverage patterns for Defects4J. 13\% disjoint, 67\% same, and 20\% 
 		overlap.}
 	\end{subfigure}
-	\caption{Distribution of coverage patterns divided by dataset.}
+	\caption{Distribution of coverage patterns divided by dataset,
+          indicating significant differences between the multi-edit bugs in
+          Bears and Defects4J.}
 	\label{fig:coverage-datasets}
 \end{figure}
+
+\paragraph{Results}
+Figure~\ref{fig:coverage-all} shows results for the overall distribution,
+combining the bugs in both datasets. Over a third (\todo{FIXME\% (real number, please)})
+of the bugs were fully disjoint.  For a significant portion of multi-edit bugs,
+the failing tests do not all execute any of the buggy code in common.  
+In addition, another 22\% were classified as \emph{overlap}: only some of the
+buggy locations were executed by all failing tests. Thus, over half of 
+the bugs that were both multi-edit and multi-test contained chunks that were 
+not executed by all failing test cases.
+
+\todo{Ooooooh I have a question about results we can't ansewr in 24 hours but
+  can answer in refinement to this work: do those failing tests have \emph{any}
+  overlap, as in, on the \emph{non-buggy} code?  Because if so, that's
+  \emph{much} worse for FL of multi-edit bugs.}
+
+Note, however, that the behavior varies considerably by dataset;
+Figure~\ref{fig:coverage-datasets} shows results.  Defects4J and 
+Bears have very different distributions with respect to the 
+disjoint and same categories. In Defects4J, 47\% of bugs are \emph{disjoint} and 
+31\% are \emph{same}; in Bears, the proportions are 13\% and 67\%, respectively.
+We hypothesize that this may be due to differences in how the two  
+datasets were selected and minimized: Defects4J is a dataset of minimized and curated 
+bugs, while the bugs in Bears are taken scraped directly from the
+commits.\todo{references to the original papers in citations would be good,
+  here.}  \todo{1--2 more sentences...what's the implication?  Something like
+  ``this supports recent work arguing for a diversity of datasets and
+  identifying the risk of overfitting to our datasets.''  But also, as
+  discussed, I think this may not be a terrible thing about Defects4J....like,
+  maybe the minimization means that D4J is more focused on the edits actually
+  necessary to fix a bug, and that the results on D4J are subsequently more
+  indicative in terms of what fault localization needs to do to work for
+  multi-edit repair.  I'm comfortable with that level of speculation, but we
+  need to spell it out here (and we are not currently spelling it out).  If we
+  do, then I'm comfortable with the claim in the concluding/next paragraph.}
+
+SBFL assumes that faulty locations are executed more often by identifying 
+or failing test cases and is not designed to find faults like these. Since SBFL 
+is the most common fault localization technique in APR, most APR techniques 
+are not well suited to fix a majority of these multi-edit and multi-test 
+bugs.
+
 
 
 %\input{symptoms.tex}
