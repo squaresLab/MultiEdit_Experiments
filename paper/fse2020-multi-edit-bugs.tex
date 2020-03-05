@@ -138,27 +138,27 @@ patches~\cite{d4j-dissection}. Approximately 70\% of buggy source files in a
 large study of bugs in Apache projects required two or more edit
 actions~\cite{zhong2015}.
 
-A key factor or tension in how these techniques are constructed is in their
-management of the trivially-infinite search space of possible patches for a
-given bug, while constructing patches in which a user can have confidence of
-their quality or correctness.  This space has been parameterized~\cite{refs}
-along several axes: (1) the \emph{fault space}, or the potential locations that
-may be changed, (2) the \emph{mutation space}, or the possible modifications
-that may be tried at a location, and (3) \emph{fix code space}, or the code that may
-be instantiated as part of a mutation (e.g., if the mutation seeks to
-\emph{insert} code, the fix code is the code that is inserted).  Many dynamic
-repair techniques can be compared or described in terms of their choices along
-each of these axes; the ways each technique constructs and then traverses the
-space has first-order implications for scalability, and for the type and quality
-of patches produced.  This has been studied many ways~\cite{examples}.
+A key tension in the design of an automated repair technique is the balance
+between giving users confidence in patch correctness by maximizing its
+subjective quality while managing a trivially-infinite search space. This space
+is typically parameterized along several axes: (1) the \emph{fault space}:
+potential program locations to be modified, (2) the \emph{mutation space}: which
+modifications may be applied at a location, and (3) the \emph{fix space}: code
+that may be instantiated for a specific mutation. For example, a repair
+technique might identify the location of a null-pointer dereference (exploring
+the fault space), decide to insert new code (mutation space), and synthesize
+code to initialize the pointer (fix space). Many dynamic repair techniques can
+be compared in terms of their choices along each of these axes, and traversal
+strategies have first-order implications for scalability and for the type and
+quality of patches produced. \todo{JL: I think a CT MBFL cite might be good here-ish.}
 
-Multi-edit repair poses distinct challenges for each of these axes for repair.  
-Spectrum-based fault localization, the most
-prevalent class of fault localization techniques used in program repair, does
-not specifically identify sets of locations that might be related or repaired
-together; indeed, the evaluation of most fault localization
-techniques typicaly assumes that a bug is localized if any one buggy line is
-identified~\cite{fl-survey-wong}.  Researchers have observed that some bugs are
+Multi-edit repair poses distinct challenges for each of these axes for repair.
+Spectrum-based fault localization~\cite{ochiai}, the most prevalent class of
+fault localization techniques used in program repair, does not specifically
+identify sets of locations that might be related or repaired together; indeed,
+the evaluation of most fault localization techniques typicaly assumes that a bug
+is localized if any one buggy line is identified~\cite{fl-survey-wong}.
+Researchers have observed that some bugs are
 repaired in multiple locations using very similar
 code~\cite{saha2019harnessing,jiang2019cmsuggester}, informing novel techniques
 that constrain the \emph{fix space} of possible multi-edit repairs accordingly.
