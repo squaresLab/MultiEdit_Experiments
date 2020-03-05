@@ -123,18 +123,18 @@ programs~\cite{angelix,genprog-eight-dollars,prophet,sapfix}.
 
 Practically speaking, these techniques are typically limited in the types and
 variety of defects they can repair. Often this is by design: techniques may
-limit the repair search space to single-edit patches for \todo{(JL: ick)
-  tractability}~\cite{rsrepair,ae,hdrepair}, while others only target certain
+limit the repair search space to single-location patches for
+tractability~\cite{rsrepair,ae,hdrepair}, while others only target certain
 classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. However, even techniques
-that can in principle generate multi-edit repairs typically
+that can in principle generate repairs with multi-location patches typically
 don't~\cite{genprog,others}.
 
 This leaves a large proportion of real-world bugs unrepairable by modern
 research techniques in program repair.  Over half of the bugs in popular bug
 benchmark Defects4J are patched by humans using multi-part
 patches~\cite{d4j-dissection}. Approximately 70\% of buggy source files in a
-large study of bugs in Apache projects required two or more edit
-actions~\cite{zhong2015}.
+large study of bugs in Apache projects required edits at two or more
+locations~\cite{zhong2015}.
 
 A key tension in the design of an automated repair technique is the balance
 between giving users confidence in patch correctness by maximizing its
@@ -150,7 +150,7 @@ be compared in terms of their choices along each of these axes, and traversal
 strategies have first-order implications for scalability and for the type and
 quality of patches produced. \todo{JL: I think a CT MBFL cite might be good here-ish.}
 
-Multi-edit repair poses distinct challenges for each of these axes for repair.
+Multi-location repair poses distinct challenges for each of these axes for repair.
 Spectrum-based fault localization~\cite{ochiai}, the most prevalent class of
 fault localization techniques used in program repair, does not specifically
 identify sets of locations that might be related or repaired together; indeed,
@@ -159,76 +159,75 @@ is localized if any one buggy line is identified~\cite{fl-survey-wong}.
 Researchers have observed that some bugs are
 repaired in multiple locations using very similar
 code~\cite{saha2019harnessing,jiang2019cmsuggester}, informing novel techniques
-that constrain the \emph{fix space} of possible multi-edit repairs accordingly.
+that constrain the \emph{fix space} of possible multi-location repairs accordingly.
 One key question for applicability of these types of techniques is how prevalent
-such bugs are, and how often multi-edit bugs instead require multiple
+such bugs are, and how often multi-location patches instead require multiple
 coordinating (but ultimately different) edits or pieces of fix code.  Over 50\% of the fixes in four 
 Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
 those multi-entity fixes involved syntactic dependencies.~\cite{wang2018}. 
 Test cases are used to evaluate candidate repairs in virtually all dynamic
 generate-and-validate repair techniques, but, anecdotally, may not be effective
-at identifying partial repairs in a multi-edit
+at identifying partial repairs in a multi-location
 context~\cite{fitness10,maybeeric}.  
-Although multi-edit repair has been discussed in the context of other analyses
+Although multi-location repair has been discussed in the context of other analyses
 that study bug fix characteristics in general~\cite{examples} as well as for
 repair applicability specifically~\cite{moar,examples}, to the best of our
 knowledge there has been no significant previous study of the characteristics of
-multi-edit repairs in terms of their implications for repairability or, more
+multi-location repairs in terms of their implications for repairability or, more
 broadly, program repair.  
 
-In this paper, we present a systematic study of real-world multi-edit bugs,
+In this paper, we present a systematic study of real-world bugs with
+multi-location patches,
 looking specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
 We study the bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
 and BEARS~\cite{bears}, in total, 578 bugs in 40 projects. 
 More than half of these bugs were repaired by a
-human developer using multiple edits.  We look at characteristics along each of the
+human developer using edits at multiple locations.  We look at characteristics along each of the
 relevant axes of the program repair search problem: fault locations, mutation
 operators, fix code, and evaluation (or fitness or objective) using test cases.  Our 
 contributions are
 as follows:
 
 \begin{itemize}
-\item An analysis of multi-edit patches in Defects4J and Bears.
-\item A study characterizing the ways that failing tests cover faulty locations as a means of 
-testing whether the underlying hypothesis in current fault localization techniques still hold 
-in multi-edit bugs. We find that 58\% of 
-bugs with multi-edit patches and multiple failing tests have faulty locations that are not 
-covered by all failing tests, thus the underlying assumptions do not necessarily hold.
-\item A study characterizing fix code.  We find that half of 
-bug patches contain dependent edits and \todo{N\%} contain 
-code clones.
-\item A new fitness function that measures patch quality using the number of 
-	passing and failing assertions within test cases.
-
-  \item A study of test cases as a means of evaluating both partial and full
-  multi-edit repairs.  We find that there are significant amount of edits that
-  are not captured by test cases: one third of multi-edit Defects4j bugs and more than half of 
-  Bears multi-edit bugs do not require all edit chunks in their provided human patches to
-  pass all test cases. Other than that, we found that, under highest granularity (assertion level), test case
-  based validation methods can positively identify over 40\% of partial repairs, 
-  while less than 40\% partial repairs are neutral in test cases and less than 20\% are identified
-  negatively. Moreover, we found that higher granularity will increase the number of
-  positively identified partial repairs, but it will also increase the number of negatively 
-  identified partial repairs, and the amount of increase/decrease may vary between
-  datasets.
-
-\item  study of code clones. We find that over 30\% multi-chunk bugs
-  have almost same edits applied to different locations. Moreover, bugs that have 
-  "disjoint" coverage result tend to be much more likely (19 out of 23) to have
-  code clones.
+\item An analysis of multi-location patches in Defects4J and Bears.
+\item A study characterizing the ways that failing tests cover faulty locations
+  as a means of testing whether the underlying hypothesis in current fault
+  localization techniques still hold for bugs requiring multi-location
+  patches. We find that 58\% of such bugs have faulty locations that are not
+  covered by all failing tests, thus the underlying assumptions do not
+  necessarily hold.
+\item A study characterizing fix code.  We find that half of bug patches contain
+  dependent edits and \todo{N\%} contain code clones.
+\item A new fitness function that measures patch quality using the number of
+  passing and failing assertions within test cases.
+\item A study of test cases as a means of evaluating both partial and full
+  multi-location repairs.  We find that there are significant amount of edits
+  that are not captured by test cases: one third of bugs with multi-location
+  patches in Defects4j more than half in Bears do not require the edits at every
+  location in their provided human patches to pass all test cases. Other than
+  that, we found that, under highest granularity (assertion level), test case
+  based validation methods can positively identify over 40\% of partial repairs,
+  while less than 40\% partial repairs are neutral in test cases and less than
+  20\% are identified negatively. Moreover, we found that higher granularity
+  will increase the number of positively identified partial repairs, but it will
+  also increase the number of negatively identified partial repairs, and the
+  amount of increase/decrease may vary between datasets.
+\item A study of code clones. We find that over 30\% of bugs with multi-location
+  patches have very similar edits applied to different locations. Moreover, bugs
+  that have "disjoint" coverage tend to be much more likely (19 out of 23) to
+  have code clones.
 \item \todo{A set of recommendations?}
 \end{itemize}
 
-\todo{This paragraph is a lie and some people hate them so maybe we'll cut it,
-  it just feels comforting to me to write them as I'm working on a paper draft...}
-The rest of this paper is organized as follows.  We provide background on
+\todo{The rest of this paper is organized as follows.  We provide background on
 generate-and-validate program repair, with a focus on the key parameters of the
-program repair search problem, in Section~\ref{sec:background}.  We describe the results of our analysis in
-Section~\ref{sec:results}, with discussion of implications as well as
-limitations in Section~\ref{sec:discussion}.  Related work is discussed in
-Section~\ref{sec:related}; Section~\ref{conclusions} concludes.
+program repair search problem, in Section~\ref{sec:background}.  We describe the
+results of our analysis in Section~\ref{sec:results}, with discussion of
+implications as well as limitations in Section~\ref{sec:discussion}.  Related
+work is discussed in Section~\ref{sec:related}; Section~\ref{conclusions}
+concludes.}
 
 \section{Key Concepts and Research Questions}
 \label{sec:background}
