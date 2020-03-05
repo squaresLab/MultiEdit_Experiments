@@ -385,10 +385,14 @@ We intend to address the remaining multi-module software projects in future work
 We start our analysis of multi-edit patches by asking how many such patches 
 exist in our benchmarks. We analyze edits at line and chunk granularities,
 which we defined in Section~\ref{sec:background}.
+
+\paragraph{Results} 
 Table~\ref{tab:multiedit-frequencies} lists the number and percentages of
-multi-line and multi-chunk patches. For both datasets, over 75\% of patches are multi-line, 
-and $\geq$25\% are multi-chunk. At both edit granularities, multi-edit bugs 
-comprise a majority or a substantial minority of both datasets.
+multi-line and multi-chunk patches in Defects4J and Bears. 
+Multi-line patches comprise a large majority of patches across both datasets, 
+while multi-chunk patches comprise over half of Bears and almost half of Defects4J.
+At both levels of edit granularity, Bears contains a greater proportion of 
+multi-edit patches compared to Defects4J.
 
 \todo{Maybe add some data to show repair rates of multi-line \& multi-chunk bugs}
 
