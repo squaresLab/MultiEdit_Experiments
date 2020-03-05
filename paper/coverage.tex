@@ -27,32 +27,29 @@ DStar~\cite{wong2013dstar}. Both of these were included in an empirical study
 comparing fault localization techniques and were found to localize a similar set of 
 faults~\cite{zou2019empirical}.
   
-%$\mathit{suspiciousness}(s) = 
-%\frac{\mathit{\%failing(s)}}{\mathit{\% failing(s)} + \mathit{\% passing(s)}}$, where  
-%$\mathit{\% failing(s)}$ and $\mathit{\% passing(s)}$ is the percentage of failing tests 
-%and passing tests that execute line $s$, respectively
 
 Fundamentally, a core assumption underlying SBFL is that \emph{failing tests execute 
 buggy portions of the code relatively more often than passing tests.} 
 Thus, if all failing tests execute a 
 particular line of code, then that line of code is scored as more suspicious.
-This assumption is well-suited to single edit repair. Indeed, the evaluation
+This assumption is well-suited to single location repair. Indeed, the evaluation
 of most SBFL techniques asks exactly the question of interest when considering a
-technique's suitability for single-edit repair: how often does a given technique
+technique's suitability for single-location repair: how often does a given technique
 correctly, highly rank individual buggy lines of code? 
 
 Such evaluations, by and large, do not consider the implications of
-suspiciousness scoring in a multi-edit repair context.  Instead, evaluations
+suspiciousness scoring in a multi-location repair context.  Instead, evaluations
 typically consider a technique ``successful'' if it identifies \emph{any} of a
 set of changed lines as highly-ranked or likely-suspicious.  While appropriate
 for the question being asked in such evaluations, this does not address
-suitability for multi-line program repair.  Identifying one of several buggy
+suitability for multi-location program repair.  Identifying one of several buggy
 locations is generally inadequate in a context where multiple locations must be
 modified.  
 
 Thus, in this research question, we investigate how well the SBFL assumption
-applies to tests that identify multi-line bugs. We focus especially on
-multi-line bugs that are associated with multiple tests; a bug with only a single failing test 
+applies to tests that identify multi-location bugs. We focus especially on
+multi-location bugs that are associated with multiple tests; a bug with only a single failing 
+test 
 trivially and equally implicates all the lines that test executes.  If multiple tests all cover the 
 multiple
 modified locations well, then SBFL's core assumption holds and multi-edit repair
@@ -68,32 +65,33 @@ disjoint path locations, or some combination?
 
 
 \rqorinsight{How well do multiple tests cover the multiple locations
-  implicated in multi-edit bugs?}
+  implicated in multi-location bugs?}
 
 \paragraph{Methodology}
 
-Between both datasets, there are 92 total bugs that are both multi-edit and 
+Between both datasets, there are 92 total bugs that are both multi-location and 
 multi-test: 59 in Defects4J, and 33 in Bears. \todo{There is one bug in bears that I couldn't 
 get coverage for through my tool or by inspection; what do I do about that? (It's currently 
 counted in the 92 bugs but not in the graphs)} For each of these bugs, we used 
-Jacoco to determine which of the chunks in the human patch were executed (at
+Jacoco to determine which of the patched locations were executed (at
 least once) by each failing test. Using 
 this coverage data, we categorized each bug as follows:
 \begin{itemize}
-\item \emph{disjoint} bugs are those for which no chunk is covered by all
+\item \emph{disjoint} bugs are those for which no location is covered by all
 failing tests.  Inutitively, these are the bugs for which the core SBFL
 assumption is violated.
+\item \emph{overlap} bugs are those for which some faulty locations are covered by
+all failing tests, but some are only covered by a subset of the failing tests. These bugs also 
+violate the core assumption of SBFL, albeit to a lesser extent.
 \item \emph{identical} bugs are those for which all tests cover the exact same set of
-  patch chunks
-\item \emph{overlap} bugs are those for which some buggy chunks are covered by
-  all failing tests, but some are only covered by a subset of the failing tests.
+  patch locations.
 \end{itemize}
 
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage-all.png}
 	\caption{Distribution of coverage patterns for all multi-test and 
-	multi-edit bugs in Bears and Defects4J.}
+	multi-location bugs in Bears and Defects4J.}
 	\label{fig:coverage-all}
 \end{figure}
 
@@ -108,7 +106,7 @@ assumption is violated.
 		\caption{Distribution of coverage patterns for Defects4J.}
 	\end{subfigure}
 	\caption{Distribution of coverage patterns divided by dataset,
-          indicating significant differences between the multi-edit bugs in
+          indicating significant differences between the multi-location bugs in
           Bears and Defects4J.}
 	\label{fig:coverage-datasets}
 \end{figure}
@@ -116,11 +114,11 @@ assumption is violated.
 \paragraph{Results}
 Figure~\ref{fig:coverage-all} shows results for the overall distribution,
 combining the bugs in both datasets. 27\%
-of the bugs were fully disjoint.  Thus, for a significant portion of multi-edit bugs,
+of the bugs were fully disjoint.  Thus, for a significant portion of multi-location bugs,
 the failing tests do not all execute any of the buggy code in common.  
 In addition, another 31\% were classified as \emph{overlap}: only some of the
 buggy locations were executed by all failing tests. In all, over half of 
-the bugs that were both multi-edit and multi-test contained chunks that were 
+the bugs that were both multi-location and multi-test contained chunks that were 
 not executed by all failing test cases.
 
 \todo{Ooooooh I have a question about results we can't ansewr in 24 hours but
@@ -135,12 +133,12 @@ disjoint and same categories. In Defects4J, 36\% of bugs are \emph{disjoint} and
 22\% are \emph{overlap}; in Bears, the proportions are 12\% and 47\%, respectively.
 We hypothesize that this may be due to differences in how the two  
 datasets were selected and minimized: Defects4J is a dataset of minimized and curated 
-bugs, while the bugs in Bears are taken scraped directly from the
+bugs, while the bugs in Bears are scraped directly from the
 commits. The Defects4J dataset specifically enforces a requirement that the patches in the 
 dataset be isolated, i.e., not containing any refactorings or new features, to improve the 
 usability of the dataset. The authors specifically chose patches that met this requirement, 
 and in some cases, isolated the bug themselves, manually~\cite{defects4j}. In contrast, the 
-only requirements that Bears has for inclusion of bugs is that it must be reproducible and 
+only requirements for inclusion of bugs in Bears is that it must be reproducible and 
 the patch must be written by a human. In addition, Bears was designed to be evolvable 
 and relatively easily expanded, which is at odds with manual inspection and isolation of 
 bugs~\cite{bears}.
@@ -149,6 +147,7 @@ different behavior, these findings highlight the importance of using diverse dat
 \todo{I don't actually know of work that argues that we should be using diverse dataset ? 
 But maybe Claire you have an idea.}
 
+\todo{below is original todo, which I've tried to address:}
 \todo{references to the original papers in citations would be good,
   here.}  \todo{1--2 more sentences...what's the implication?  Something like
   ``this supports recent work arguing for a diversity of datasets and
@@ -164,7 +163,7 @@ But maybe Claire you have an idea.}
 SBFL assumes that faulty locations are executed more often by identifying 
 or failing test cases and is not designed to find faults like these. Since SBFL 
 is the most common fault localization technique in APR, most APR techniques 
-are not well suited to fix a majority of these multi-edit and multi-test 
+are not well suited to fix a majority of these multi-location and multi-test 
 bugs.
 
 
