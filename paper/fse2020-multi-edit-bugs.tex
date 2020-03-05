@@ -284,8 +284,8 @@ program bugs naturally vary in length and complexity.  Estimates range from
 
 There are indeed several plausible definitions of multi- vs. single-edit bugs,
 with implications for how they are studied.  We consider edits at the granularity 
-of lines and of chunks. We define a line edit as an added, removed, or modified 
-line. We define a chunk as a continuous sequence of line edits, with the exception 
+of lines and of chunks. We define a \emph{line~edit} as an added, removed, or modified 
+line. We define a \emph{chunk} as a continuous sequence of line edits, with the exception 
 that if one chunk adds a \texttt{\{} whose corresponding \texttt{\}} is in a different chunk, 
 then we merge the two chunks together. 
 We ignore changes to comments, whitespace, or import statements.
