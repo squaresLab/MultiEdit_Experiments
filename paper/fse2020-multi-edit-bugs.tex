@@ -36,28 +36,30 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 %% end of the preamble, start of the body of the document source.
 \begin{document}
 
-\title{A Study of Multi-Location Bug Patches}
+\title{A Study of Multi-Edit Bug Patches}
 
 %add authors & shortauthors if we are lucky :)
 
 \begin{abstract}
-    Automatic program repair is a promising approach for reducing the
+  \todo{note that this is probably full of falsehoods, I'm just thinking by
+    typing.} Automatic program repair is a promising approach for reducing the
     cost of quality assurance practices and faulty software. To date, most
     techniques proposed for test-driven automatic repair have succeeded
-    primarily on bugs that benefit from short, single-location patches. Techniques
-    that successfully generate multi-location patches often do so in an
-    alternative, single-edit way, or by targeting particular multi-location bug
+    primarily on bugs that benefit from short, single-edit patches. Techniques
+    that succeed on multi-edit bugs often do so by patching them in an
+    alternative, single-edit way, or by targeting particular multi-edit bug
     patterns. Empirical studies of real-world similarly tend to focus on the
-    patterns exhibited by single-location bug patches, and have not examined repairability
-    of multi-location patches in detail. We present a comprehensive empirical analysis
-    of multi-location patches for bugs in open source Java programs, focusing on static and
-    dynamic properties that define the repair search space for a given bug.
+    patterns exhibited by single-edit bugs, and have not examined repairability
+    of multi-edit bugs in detail. We present a comprehensive empirical analysis
+    of multi-edit bugs in open source Java programs, focusing on static and
+    dynamic properties that define the repair search space for a given bug (and
+    thus, in turn, the challenges that apply to automatically addressing them).
     This analysis focuses on the key challenges of the dynamic program repair
-    problem: the \emph{mutations and fix code} used to repair bugs in multiple locations;
+    problem: the \emph{mutations and fix code} used to repair multi-edit bugs;
     the \emph{fault locations} and their relationships; and the \emph{objective
       function}, and in particular how and to what degree test cases can be used
     (or not) to identify partial repairs. We identify key takeaways and
-    challenges, with implications for future work in expressive, multi-location bug
+    challenges, with implications for future work in expressive, multi-chunk bug
     repair.
 \end{abstract}
 
@@ -99,11 +101,11 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 \section{Introduction}
 
-Buggy software has a significant economic cost~\cite{cambridge-study}, and
-software failures are estimated to have affected half of the world's
-population~\cite{tricentis}. This motivates significant research in techniques
-to automatically find and fix them~\cite{whatever}, with the ultimate goal of
-reducing Quality Assurance costs while improving software quality.
+Buggy software has a significant cost in terms of both social impact~\cite{tricentis} 
+and developer effort~\cite{cambridge-study}. This
+motivates significant research in techniques to automatically find and fix
+them~\cite{whatever}, with the ultimate goal of reducing Quality Assurance costs
+while improving software quality. 
 
 A significant class of program repair techniques in both
 research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test cases to guide
@@ -116,118 +118,119 @@ checking each to see (or \emph{validate}) if any of them cause the program to
 pass all of the provided test cases.  
 %
 Patches are constructed in a variety of ways, ranging from heuristic, syntactic
-program manipulation~\cite{par,genprog,rsrepair,ae,prophet,hdrepair}, to specially adapted program
-synthesis techniques~\cite{Konighofer11,Konighofer12,semfix,DeMarco14,angelix}. These techniques have successfully
-repaired real, meaningful defects in large, complex
-programs~\cite{angelix,genprog-eight-dollars,prophet,sapfix}.
+program manipulation~\cite{syntax,examples}, to specially adapted program
+synthesis techniques~\cite{examples}. These techniques have successfully
+repaired real, meaningful defects in large, complex programs~\cite{examples}.
 
 Practically speaking, these techniques are typically limited in the types and
-variety of defects they can repair. Often this is by design: techniques may
-limit the repair search space to single-location patches for
-tractability~\cite{rsrepair,ae,hdrepair}, while others only target certain
-classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. However, even techniques
-that can in principle generate repairs with multi-location patches typically
-don't~\cite{genprog,others}.
+variety of defects they can repair~\cite{for,example}. Some of this limitation
+is by design. Some techniques specifically target certain classes of
+bugs~\cite{nopol,sapfix}, and it has been argued that doing so is necessary for
+repair to reach true practical applicability~\cite{maybe}. Fundamentally, the
+vast majority of program repair techniques can only produce single-edit repairs,
+often by design~\cite{rsrepair, ae, hdrepair}. \todo{more recent citations?}
+Even those that can in principle produce multi-edit bugs typically
+don't~\cite{poor,genprog}.
 
 This leaves a large proportion of real-world bugs unrepairable by modern
 research techniques in program repair.  Over half of the bugs in popular bug
 benchmark Defects4J are patched by humans using multi-part
 patches~\cite{d4j-dissection}. Approximately 70\% of buggy source files in a
-large study of bugs in Apache projects required edits at two or more
-locations~\cite{zhong2015}.
+large study of bugs in Apache projects required two or more edit
+actions~\cite{zhong2015}.
 
-A key tension in the design of an automated repair technique is the balance
-between giving users confidence in patch correctness by maximizing its
-subjective quality while managing a trivially-infinite search space. This space
-is typically parameterized along several axes: (1) the \emph{fault space}:
-potential program locations to be modified, (2) the \emph{mutation space}: which
-modifications may be applied at a location, and (3) the \emph{fix space}: code
-that may be instantiated for a specific mutation. For example, a repair
-technique might identify the location of a null-pointer dereference (exploring
-the fault space), decide to insert new code (mutation space), and synthesize
-code to initialize the pointer (fix space). Many dynamic repair techniques can
-be compared in terms of their choices along each of these axes, and traversal
-strategies have first-order implications for scalability and for the type and
-quality of patches produced. \todo{JL: I think a CT MBFL cite might be good here-ish.}
+A key factor or tension in how these techniques are constructed is in their
+management of the trivially-infinite search space of possible patches for a
+given bug, while constructing patches in which a user can have confidence of
+their quality or correctness.  This space has been parameterized~\cite{refs}
+along several axes: (1) the \emph{fault space}, or the potential locations that
+may be changed, (2) the \emph{mutation space}, or the possible modifications
+that may be tried at a location, and (3) \emph{fix code space}, or the code that may
+be instantiated as part of a mutation (e.g., if the mutation seeks to
+\emph{insert} code, the fix code is the code that is inserted).  Many dynamic
+repair techniques can be compared or described in terms of their choices along
+each of these axes; the ways each technique constructs and then traverses the
+space has first-order implications for scalability, and for the type and quality
+of patches produced.  This has been studied many ways~\cite{examples}.
 
-Multi-location repair poses distinct challenges for each of these axes for repair.
-Spectrum-based fault localization~\cite{ochiai}, the most prevalent class of
-fault localization techniques used in program repair, does not specifically
-identify sets of locations that might be related or repaired together; indeed,
-the evaluation of most fault localization techniques typicaly assumes that a bug
-is localized if any one buggy line is identified~\cite{fl-survey-wong}.
-Researchers have observed that some bugs are
+Multi-edit repair poses distinct challenges for each of these axes for repair.  
+Spectrum-based fault localization, the most
+prevalent class of fault localization techniques used in program repair, does
+not specifically identify sets of locations that might be related or repaired
+together; indeed, the evaluation of most fault localization
+techniques typicaly assumes that a bug is localized if any one buggy line is
+identified~\cite{fl-survey-wong}.  Researchers have observed that some bugs are
 repaired in multiple locations using very similar
 code~\cite{saha2019harnessing,jiang2019cmsuggester}, informing novel techniques
-that constrain the \emph{fix space} of possible multi-location repairs accordingly.
+that constrain the \emph{fix space} of possible multi-edit repairs accordingly.
 One key question for applicability of these types of techniques is how prevalent
-such bugs are, and how often multi-location patches instead require multiple
+such bugs are, and how often multi-edit bugs instead require multiple
 coordinating (but ultimately different) edits or pieces of fix code.  Over 50\% of the fixes in four 
 Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
 those multi-entity fixes involved syntactic dependencies.~\cite{wang2018}. 
 Test cases are used to evaluate candidate repairs in virtually all dynamic
 generate-and-validate repair techniques, but, anecdotally, may not be effective
-at identifying partial repairs in a multi-location
+at identifying partial repairs in a multi-edit
 context~\cite{fitness10,maybeeric}.  
-Although multi-location repair has been discussed in the context of other analyses
+Although multi-edit repair has been discussed in the context of other analyses
 that study bug fix characteristics in general~\cite{examples} as well as for
 repair applicability specifically~\cite{moar,examples}, to the best of our
 knowledge there has been no significant previous study of the characteristics of
-multi-location repairs in terms of their implications for repairability or, more
+multi-edit repairs in terms of their implications for repairability or, more
 broadly, program repair.  
 
-In this paper, we present a systematic study of real-world bugs with
-multi-location patches,
+In this paper, we present a systematic study of real-world multi-edit bugs,
 looking specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
 We study the bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
-and BEARS~\cite{bears}, in total, 578 bugs in 40 projects. 
+and BEARS~\cite{bears}, in total, 576 bugs in 40 projects. 
 More than half of these bugs were repaired by a
-human developer using edits at multiple locations.  We look at characteristics along each of the
+human developer using a multi-chunk repair (as we define in
+Section~\ref{sec:background}).  We look at characteristics along each of the
 relevant axes of the program repair search problem: fault locations, mutation
 operators, fix code, and evaluation (or fitness or objective) using test cases.  Our 
 contributions are
 as follows:
 
 \begin{itemize}
-\item An analysis of multi-location patches in Defects4J and Bears.
-\item A study characterizing the ways that failing tests cover faulty locations
-  as a means of testing whether the underlying hypothesis in current fault
-  localization techniques still hold for bugs requiring multi-location
-  patches. We find that 58\% of such bugs have faulty locations that are not
-  covered by all failing tests, thus the underlying assumptions do not
-  necessarily hold.
-\item A study characterizing fix code.  We find that half of bug patches contain
-  dependent edits and over 30\% contain code clones.
-\item A new fitness function that measures patch quality using the number of
-  passing and failing assertions within test cases.
-\item A study of test cases as a means of evaluating both partial and full
-  multi-location repairs.  We find that there are significant amount of edits
-  that are not captured by test cases: one third of bugs with multi-location
-  patches in Defects4j more than half in Bears do not require the edits at every
-  location in their provided human patches to pass all test cases. Other than
-  that, we found that, under highest granularity (assertion level), test case
-  based validation methods can positively identify over 40\% of partial repairs,
-  while less than 40\% partial repairs are neutral in test cases and less than
-  20\% are identified negatively. Moreover, we found that higher granularity
-  will increase the number of positively identified partial repairs, but it will
-  also increase the number of negatively identified partial repairs, and the
-  amount of increase/decrease may vary between datasets.
-\item A study of code clones. We find that over 30\% of bugs with multi-location
-  patches have very similar edits applied to different locations. Moreover, bugs
-  that have "disjoint" coverage tend to be much more likely (19 out of 23) to
-  have code clones.
+\item An analysis of multi-edit bug patches in Defects4J and Bears.
+\item A study characterizing the ways that failing tests cover faulty locations as a means of 
+testing whether the underlying hypothesis in current fault localization techniques still hold 
+in multi-edit bugs. We find that 58\% of 
+bugs with multi-edit patches and multiple failing tests have faulty locations that are not 
+covered by all failing tests, thus the underlying assumptions do not necessarily hold.
+\item A study characterizing fix code.  We find that half of 
+bug patches contain dependent edits and \todo{N\%} contain 
+code clones.
+\item A new fitness function that measures patch quality using the number of 
+	passing and failing assertions within test cases.
+\item study of test cases as a means to evaluation partial and full
+  multi-site repairs.  We find that there are significant amount of edit chunks that
+  is not captured by test cases, as a third of Defects4j multi-chunk bugs and over a half of 
+  Bears multi-chunk bugs do not require all edit chunks in their provided human patches to
+  pass all test cases. Other than that, we found that, under highest granularity (assertion level), test case
+  based validation methods can positively identify over 40\% of partial repairs, 
+  while less than 40\% partial repairs are neutral in test cases and less than 20\% are identified
+  negatively. Moreover, we found that higher granularity will increase the number of
+  positively identified partial repairs, but it will also increase the number of negatively 
+  identified partial repairs, and the amount of increase/decrease may vary between
+  datasets.
+\item  study of code clones. We find that over 30\% multi-chunk bugs
+  have almost same edits applied to different locations. Moreover, bugs that have 
+  "disjoint" coverage result tend to be much more likely (19 out of 23) to have
+  code clones.
 \item \todo{A set of recommendations?}
 \end{itemize}
 
-\todo{The rest of this paper is organized as follows.  We provide background on
+\todo{This paragraph is a lie and some people hate them so maybe we'll cut it,
+  it just feels comforting to me to write them as I'm working on a paper draft...}
+The rest of this paper is organized as follows.  We provide background on
 generate-and-validate program repair, with a focus on the key parameters of the
-program repair search problem, in Section~\ref{sec:background}.  We describe the
-results of our analysis in Section~\ref{sec:results}, with discussion of
-implications as well as limitations in Section~\ref{sec:discussion}.  Related
-work is discussed in Section~\ref{sec:related}; Section~\ref{conclusions}
-concludes.}
+program repair search problem, in Section~\ref{sec:background}.  We describe the results of our analysis in
+Section~\ref{sec:results}, with discussion of implications as well as
+limitations in Section~\ref{sec:discussion}.  Related work is discussed in
+Section~\ref{sec:related}; Section~\ref{conclusions} concludes.
 
 \section{Key Concepts and Research Questions}
 \label{sec:background}
@@ -244,7 +247,6 @@ problem, seeking a set of edits (or patch) to the program that will lead it to
 pass all of the provided tests. The repair search space is typically defined
 along the following axes:
 \begin{itemize}
-
 \item \emph{Fault space.} The first problem in fixing a bug concerns
   \emph{where} in the code modifications should be applied. Dynamic repair
   techniques begin by using test cases as input to a fault localization
@@ -318,86 +320,114 @@ following research questions:
 \section{Dataset Characteristics}
 \label{sec:data-rq1}
 
-\begin{table*}
+\begin{table}
 \begin{center}
-\begin{tabular}{l | rrr  | rr | rr | rr}
+\begin{tabular}{l | rrr}
 \toprule
-\multicolumn{10}{c}{\textbf{Defects4J}} \\
+\multicolumn{4}{c}{\textbf{Defects4J}} \\
 \midrule
-Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location} 
-		& \multicolumn{2}{c}{Multi-test} & \multicolumn{2}{c}{Multi-location \&}\\
-&&&&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{Multi-test bugs}\\
+Project & Bugs & Src (kloc) & Test (kloc) \\
 \midrule
-JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 10 & 38\% & 7 & 27\%\\
-Closure compiler & 133 & 150.6 & 112.6 & 55 & 41\% & 58 & 44\% & 31 & 23\%\\
-Apache commons-lang & 65 & 57.8 & 47.4  & 32 & 49\% & 17 & 26\% & 13 & 20\%\\
-Apache commons-math & 106 & 45.0 & 41.5 & 53 & 50\% & 28 & 26\% & 22 & 21\%\\
-Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 18 & 47\% & 8 & 21\%\\
-Joda-Time & 27 & 82.9 & 70.4 & 17 & 63\% & 13 & 48\% & 9 & 33\%\\
+JFreeChart  & 26 & 193.3 & 74.6 \\
+Closure compiler & 133 & 150.6 & 112.6 \\
+Apache commons-lang & 65 & 57.8 & 47.4 \\
+Apache commons-math & 106 & 45.0 & 41.5 \\
+Mockito & 38 & 23.0 & 28.5 \\
+Joda-Time & 27 & 82.9 & 70.4 \\
 \midrule
-All (Defects4J) & 395 & 552.6 & 375.0 & 184 & 47\% & 144 & 36\% & 90 & 23\%\\
+\multicolumn{4}{c}{\textbf{Bears (single-module)}} \\
 \midrule
-\multicolumn{10}{c}{\textbf{Bears (single-module)}} \\
-\midrule
-FasterXML-jackson-databind & 26 & 95.7 & 53.6 & 17 & 65\% & 4 & 15\% & 2 & 8\%\\
-INRIA-Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
-spring-data-commons & 15 & 45.8 & 28.8  & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
-traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
-30 other projects & 38 & - & - & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
-\midrule
-All (Bears) & 183 & >255.6 & >121.8 & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
-\midrule
-Combined (Defects4J \& Bears) & 578 & >808.2 & >496.8 & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
+FasterXML-jackson-databind & 26 & 95.7 & 53.6 \\
+INRIA-Spoon & 62 & 66.2 & 30.8 \\
+spring-data-commons & 15 & 45.8 & 28.8 \\
+traccar-traccar & 42 & 47.9 & 8.6 \\
+30 other projects & 62 & - & -\\
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
-\end{table*}
+\caption{\label{tab:data} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
+\end{table}
+
+\todo{I think we should add a column to the datasets indicating how many of each are multi-test, as well} 
 
 \paragraph{Datasets}  Our study requires a dataset of indicative, real-world,
-multi-location defects.  We study both the defects in Defects4J
-Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
+multi-edit defects.  We study both the defects in Defects4J
+Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:data}
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 395 bugs from 
 six Java software projects, and is currently very popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.
-The dataset's patches are manually minimized to isolate the bug fix 
-and exclude non-repair edits such as refactorings, feature additions, et cetera.
-
-With any dataset, however, there is a risk associated that tools may overfit
+However, there is a risk associated with any such dataset that tools may overfit
 to the defects in question, and there is evidence that this situation applies to
 program repair and Defects4j~\cite{durieux-repair-them-all}. 
 We thus also study bugs from Bears~\cite{bears}, 
-a set of Java bugs derived from failed Travis-CI builds of GitHub projects. 
+a set of Java bugs derived from failed Travis-CI builds of GitHub
+projects. 
 Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
 projects compared to Defects4J. 
 Several projects in Bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
-We thus limit our analysis of Bears to 183 bugs from 30 single-module projects.
+We thus limit our analysis of Bears to 181 bugs from 30 single-module projects.
 We intend to address the remaining multi-module software projects in future work.
 
-\subsection{Multi-location Patch Prevalence}
-\rqorinsight{RQ1: How prevalent are multi-location human patches are in Defects4J and Bears?}
+\todo{Consider adding a column to the dataset table above with ``subset
+  considered'' for the defects; is this worth doing?  How many bugs do we
+  exclude? Do we include Closure?}
 
-We start our analysis of multi-location patches by asking how many such patches 
-exist in our benchmarks.
+\begin{table}
+{\begin{center}
+	\begin{tabular}{l | rr | rr | rr}
+		\toprule
+		\multicolumn{7}{c}{\textbf{Line edit granularity}} \\
+		\midrule
+		Dataset & \multicolumn{2}{c}{Single line} & \multicolumn{2}{c}{Multi-line} & \multicolumn{2}{c}{Total} \\
+		\midrule
+		Defects4J & 92 & 23\% & 303 & 77\% & 395 & 100\%\\
+		Bears & 27 & 15\% & 154 & 85\% & 181 & 100\%\\ 
+		Combined & 119 & 21\% & 457 & 79\% & 576 & 100\% \\ 
+		\midrule
+		\multicolumn{7}{c}{\textbf{Chunk edit granularity}} \\
+		\midrule
+		Dataset & \multicolumn{2}{c}{Single chunk} & \multicolumn{2}{c}{Multi-chunk} & \multicolumn{2}{c}{Total} \\
+		\midrule
+		Defects4J & 211 & 53\% & 184 & 47\% & 395 & 100\%\\
+		Bears & 72 & 40\% & 109 & 60\% & 181 & 100\%\\
+		Combined & 283 & 49\% & 293 & 51\% & 576 & 100\%\\
+		\bottomrule
+	\end{tabular}
+ \end{center}
+}
+	\caption{Frequencies and percentages of bugs with multi-edit patches
+	based on the edit granularities defined in Section~\ref{sec:background}.
+	Multi-line patches comprise a large majority of patches, and multi-chunk 
+	patches comprise a majority or a large minority of patches in both datasets.}
+	\label{tab:multiedit-frequencies}
+\end{table}
+
+
+\todo{Please combine table 1 and table 2 as suggested over slack}
+
+\subsection{Multi-edit Prevalence}
+\rqorinsight{RQ1: How prevalent are multi-edit human patches are in Defects4J and Bears?}
+
+We start our analysis of multi-edit patches by asking how many such patches 
+exist in our benchmarks. We analyze edits at line and chunk granularities,
+which we defined in Section~\ref{sec:background}.
 
 \paragraph{Results} 
-Table~\ref{tab:dataset-characteristics} lists the number and percentages of
-multi-location patches in Defects4J and Bears. 
-We find that multi-location patches comprise over half of Bears and almost half of Defects4J.
-Although a multi-location human patch for a bug does not imply the 
-non-existence of a simpler patch, the high proportion of bugs that have 
-multi-location patches demonstrates the relevance of such bugs to fault localization and
-program repair. 
+Table~\ref{tab:multiedit-frequencies} lists the number and percentages of
+multi-line and multi-chunk patches in Defects4J and Bears. 
+Multi-line patches comprise a large majority of patches across both datasets, 
+while multi-chunk patches comprise over half of Bears and almost half of Defects4J.
+At both levels of edit granularity, Bears contains a greater proportion of 
+multi-edit patches compared to Defects4J.
 
-Bears contains a greater proportion of 
-multi-location patches compared to Defects4J. This may be the 
-result of manual patch minimization in Defects4J~\cite{defects4j} 
-and lack thereof in Bears.
-Thus, some Bears patches may be multi-location as a result of additional 
-changes added for non-repair reasons.
+\todo{Maybe add some data to show repair rates of multi-line \& multi-chunk bugs}
+
+\todo{CLG says: ...I honestly don't understand the ``frequencies'' table or the
+  2--3 sentences above. And: What is the interpretation?
+  Why do I care?}
 
 
 \input{coverage.tex}
@@ -436,7 +466,7 @@ fix code.
 
 These kinds of targeted technique surface the general questions about
 multi-edit repairs that we seek to answer, with
-implications for how they should be designed in new techniques moving forward.
+implications for how they should be designed in new techniques movin forward.
 In particular, we examine the \emph{relationship} between multiple edits, along
 two dimensions:
 
@@ -457,40 +487,31 @@ locations?}
 
 We first examine control- and data-dependencies between multiple edit locations. 
 
-\paragraph{Methodology.} 
-For dependency analysis, we broaden the scope of multi-location patches to 
-include all patches containing at least two added, removed, or modified lines.
-We consider a patch to contain dependent edits if there exists 
-control or data dependencies between added, deleted, or modified statements.
-We analyze deleted/modified statements in the pre-patch code 
-and added/modified statements in the post-patch code for dependencies.
-  
-For practical performance and scalability reasons, 
-we perform intraprocedural analysis. 
-We do, however, gather some interprocedural data dependency information 
-using the following heuristics:
-\begin{itemize}
-	\item If a statement invokes a method, then we assume that
-	the statement reads all variables used in the method arguments.
-	\item If a statement invokes a getter method \texttt{Class.getX()} 
-	(for any \texttt{Class} and \texttt{X}), then we heuristically 
-	assume that the statement reads \texttt{Class.X}. 
-	Note that \texttt{Class.X} does not need to actually exist.
-	\item If a statement invokes a setter method \texttt{Class.setX()}, 
-	then we heuristically assume that the statement writes to \texttt{Class.X}. 
-\end{itemize}
+\paragraph{Methodology.} For dependency analysis, we consider edits at the granularity of lines instead 
+of chunks. \todo{Justify.} We consider a patch to contain
+dependent edits if there exists control or data dependencies 
+between added, removed, or changed lines in the pre- or post-patch
+source code. \todo{Make more precise: lines can't have dependencies.  Perhaps
+  you mean variables used or defined in those lines?  Exapand.  Is this pre- or
+  post-patch?  What lines are considered (inserted, deleted, modified?)} For
+practical performance and scalability 
+reasons, we perform intraprocedural analysis, 
+although we heuristically consider function arguments as reads 
+and invocations of getter and setter methods as reads and writes.\todo{Please
+  expand because I'm not sure I know what this means/could explain it}
+We implement our dependency analyses in Soot~\cite{soot}.
 
 \paragraph{Results}
 
 \begin{table}
 {\begin{center}
-	\begin{tabular}{l | rr | rr | r}
+	\begin{tabular}{l | rr | rr | rr}
 		\toprule
-		Dataset & \multicolumn{2}{c}{Dependent} & \multicolumn{2}{c}{Independent} & Total  \\
+		Dataset & \multicolumn{2}{c}{Dependent} & \multicolumn{2}{c}{Independent} & \multicolumn{2}{c}{Total}  \\
 		\midrule
-		Defects4J & 132  & 44\% & 171 & 56\% & 303 \\
-		Bears & 95 & 61\% & 61 & 39\% & 156 \\
-		Combined & 227 & 49\% & 232 & 51\% & 459 \\
+		Defects4J & 132  & 44\% & 171 & 56\% & 303 & 100\% \\
+		Bears & 95 & 63\% & 55 & 37\% & 150 & 100\% \\
+		Combined & 227 & 50\% & 226 & 50\% & 453 & 100\% \\
 		\bottomrule
 	\end{tabular}
  \end{center}
@@ -501,14 +522,9 @@ using the following heuristics:
 \end{table}
 
 Table~\ref{tab:dependency} shows the 
-frequencies and percentages of multi-line patches 
-with control or data dependent edits.
-We find that 44\% of Defects4J patches, 61\% of Bears patches, 
-and 49\% of the combined datasets' patches contain dependencies 
-between edited statements.
-We find a higher proportion of dependent patches in Bears compared to 
-Defects4J, possibly indicating higher patch complexity among 
-patches in Bears.\todo{implications?}
+frequencies and percentages of multi-line patches with control or data dependent 
+line edits. \todo{Expand; reexplain, given precise numbers.}  We find a higher proportion of dependent patches in Bears compared to 
+Defects4J, indicating higher patch complexity among multi-line patches in Bears.\todo{implications?}
 
 
 \begin{table}
@@ -558,9 +574,9 @@ patches in Bears.\todo{implications?}
 
 \todo{Why are we asking this question/discussing these results?} 
 Tables~\ref{tab:dependency-repair-contingency-table} and~\ref{tab:dependency-repair-percents}
-show the frequencies and percentages of multi-line patches with respect to edit dependency 
+show the frequencies and percentages of multi-line patches with respect to dependencies 
 and whether an APR tool successfully repaired bug in~\cite{durieux-repair-them-all}.
-We find that the presence of edit dependencies generally reduces the likelihood of APR tool success.
+We find that the presence of dependencies generally reduces the likelihood of APR tool success.
 Using a $\chi^2$ test, we find statistically significant relationships ($p < 0.001$)
 between APR success and control, data, and the disjunction of either dependencies 
 for Defects4J and Defects4J $\cup$ Bears patches. We fail to find statistically 
@@ -571,47 +587,57 @@ successfully auto-repaired Bears bugs with multi-line human patches.
 
 \subsection{Cloned code}
 
-\rqorinsight{RQ4: How often and where do code clones occur in multi-chunk bugs? Are existence of 
+\rqorinsight{RQ4: How often do code clones occur in multi-location bugs? Are existence of 
 code
 clones in human patch correlated with specific patterns of fault localization?}
 
 Previous research ~\cite{wang2018} suggested that one potential way to enhance
 APR techniques is to allow them to apply a single edits to multiple locations.
 This is based on the observation that human developers tend to make exactly the 
-same edits in multiple locations when fixing bugs. Therefore, we want to study the
-prevalence of code clones in human patches.
+same edits in multiple locations when fixing bugs. 
 
-We will also attempt to look for patterns in fault localization of multi-chunk bugs
-from the coverage experiment that may be correlated with existence of code clones in 
-human patches.\todo{Why? I don't know that we actually need to motivate this
-  here, we can do it in results/analysis, below.  But if we move this, we need
-  to expand on the motivation.  Right now it reads as though we through a
-  correlation analysis everywhere to see what it stuck to...what's the intuition
-  behind why this test is reasonable?}
-Possible intuition: if we can find some kind of correlation between fault localization results
-and code clones, then if some APR research decided to follow Wang et al's suggestion and
-include "repeat same edits at multiple location" operator, then our results may advise
-the APR to be more likely to apply the repeat edit operator when the fault localization
-result matches specific patterns.
+Therefore, as a proxy for measuring how often this style of repair occurs, we want to study the
+prevalence of code clones in human patches. If a large proportion of multi-location bugs contains code 
+clones, then we can corroborate the usefulness of previous repair techniques that specifically apply similar 
+edits for a bug~\cite{saha2019harnessing}.
 
-\subsubsection{Method}
-\label{sec52}
-In this experiment, we will look at the existence of code clones in 
-edit chunks (same definition as in fitness experiment) of multi-chunk bugs (selected
-with same criteria as fitness experiment, but also includes Closure bugs in Defects4j).
+We will also attempt to correlate the coverage patterns outlines in Section \ref{secFL} with the existence of 
+code clones in 
+human patches. Intuitively, we might expect that a \emph{disjoint} bug may occur when a developer needs 
+to apply the same fix at multiple independent locations; hence, we hypothesize that \emph{disjoint} bugs 
+will have a higher incidence of code clones. In contrast, bugs categorized as \emph{same} or 
+\emph{disjoint} may have more inter-related parts that are not merely the same statements copied to 
+multiple locations.
 
-Then we will compare the results with the results of the coverage experiment in
-Section~\ref{secFL}. 
+In addition, if code clones occur more often with specific coverage patterns, the insights gained from fault 
+localization can also help us identify the right repair technique --- i.e., if \emph{disjoint} bugs are more 
+likely to have code clones, then we can use Wang et. al's suggestion to apply the same edits at multiple 
+locations.
 
-In this experiment, we call two chunks are code clones if it is one of the following four cases
+%Possible intuition: if we can find some kind of correlation between fault localization results
+%and code clones, then if some APR research decided to follow Wang et al's suggestion and
+%include "repeat same edits at multiple location" operator, then our results may advise
+%the APR to be more likely to apply the repeat edit operator when the fault localization
+%result matches specific patterns.
+
+\subsubsection{Methodology}
+We will look at the existence of code clones in multi-location bugs, including bugs in Closure (which are 
+excluded from other experiments that require execution of tests), leaving 216 bugs to analyze. We 
+excluded bugs with more than 6 faulty locations to constrain the search space.
+
+In comparing these results with the results of the coverage experiment in
+Section~\ref{secFL}, we will focus on the multi-test and multi-location bugs used in the coverage 
+experiment, a total of 91 bugs.
+
+We call the partial patches at two locations code clones if it is one of the following four cases
 \begin{enumerate}
-\item Same Case: The two chunks are alpha-equivalent. 
-\item Literal Case: The two chunks differ by at most one constant or arithmetic operator,
+\item Same Case: The two locations are alpha-equivalent. 
+\item Literal Case: The two locations differ by at most one constant or arithmetic operator,
  or replacement of one constant with variable 
-\item Composite Case: All edit lines in one chunk is inside another chunk in the same order (the other chunk may include
-more lines), essentially the other chunk "contains" a copy of this chunk.
-\item Move Case: Two chunks forms a "movement" of lines of code (i.e. one chunk inserts and the other deletes the same
-  content at different locations, essentially moving the lines of code from one location to another)
+\item Composite Case: The patch at one location is exactly copied and contained within the patch at the 
+second location (the second location  has additional lines in the patch).
+\item Move Case: Two locations forms a "movement" of code (i.e., one location is an insertion of code 
+while the other is a deletion of the same code, essentially moving the code from one location to another).
 \end{enumerate}
 
 \subsubsection{Results and Conclusions}
@@ -633,65 +659,52 @@ Total & 152 & 64 & 216 \\ \hline
 \end{tabular}
 \end{center}
 }
-\caption{Multi-chunk bugs with each kind of chunk-level code clones. Same, Literal, composite and move corresponds to
-the four types of code clones described in \ref{sec52}. Any means the bug contains any of the four types of code clones. 
-Shows that over 30\% of multi-chunk bugs has code clones.}
+\caption{Multi-location bugs with each kind of code clones. Note that "Any" may not
+	be the sum of the previous four rows because some bug could contain multiple pairs of code clones that
+	belong to different categories.}
+\label{tab:clones}
 \end{table}
 
-As shown in Table ?, out of 216 multi-chunk bugs in Bears (single module) and Defects4j (all) with between 2-6 chunks,
-69 of them had at least two chunks that are code clones. Thus over 30\% of multi-chunk bugs seems
-to have chunk-level code clones, indicating prevalence of code clones in human patches. Note that "Any" may not
+As shown in Table \ref{tab:clones}, out of the 216 multi-location bugs,
+69 of them, or over 30\%, had some flavor of code clone between faulty locations, indicating a significant 
+prevalence of code clones in human patches. In addition, 44 of code clones, or 62\% of code clones 
+found, are classified as "same," indicating that the majority of code clones found are exactly 
+alpha-equivalent. Note that "Any" may not
 be the sum of the previous four rows because some bug could contain multiple pairs of code clones that
 belong to different categories.
 
-
 \begin{table}
 {\begin{center}
-\begin{tabular} {| l | r | r | r |}
+\begin{tabular} {| l | r r r | r |}
 \hline
-& SameMethod & SameClassDiffMethod & DiffClass \\
+& Disjoint & Overlap & Identical & Total \\
 \hline
-Same & 24 & 18 & 5  \\ 
-Literal & 9 & 4 & 1  \\
-Composite & 3 & 5 & 0  \\
-Move & 5 & 1 & 1  \\ \hline
-Total & 41 & 26 & 7 \\ \hline
+Has Clone & 19 & 2 & 5 & 26 \\
+No Clone & 6 & 26 & 33 &  65\\ \hline
+Total & 25 & 28 & 38 & 91 \\ \hline
 \end{tabular}
 \end{center}
 }
-\caption{Relative locations of sets of code clones in each category (defined in \ref{sec52}).
-Shows that the majority of code clones occur within the same method}
+\caption{Multi-location and multi-test bugs categorized on coverage patterns (Section 
+\ref{secFL}) and code clones}
+\label{tab:cov_clones}
 \end{table}
 
-As shown in table ?, over half of code clones are in the same method, while less than
-one tenth of the code clones occur in different classes. Note that the total is greater
-than the total number of bugs that has code clones because a bug could have multiple different 
-sets of code clones.
-
-\begin{table}
-{\begin{center}
-\begin{tabular} {| l | r r | r |}
-\hline
-& Disjoint & Non-Disjoint & Total \\
-\hline
-Has Clone & 19 & 37 & 56 \\
-No Clone & 4 & 102 & 106 \\ \hline
-Total & 23 & 139 & 162 \\ \hline
-\end{tabular}
-\end{center}
-}
-\caption{Multi-chunk bugs categorized on Disjointness and Code clones (without Closure). Disjoint means the bug
-Disjointness is determined on whether the bug is categorized as "Disjoint" in coverage experiment (\ref{secFL}).
-A bug "has clone" if it has at least one pair of chunks that are code clones. Shows that Disjoint bugs are
-very likely to contain code clones compared to non-disjoint ones.}
-\end{table}
-
-Out of all bugs we checked for code clone analysis (excluding the Closure ones because they were not in the coverage experiment), there are 23 bugs labeled as "Disjoint" in the coverage experiment, out of which
-19 had code clones (14 Same, 4 Literal, 1 Composite). Full results available in Table ?. This indicates that a 
-bug with disjoint coverage result is very likely to contain code clones in its
+In Table \ref{tab:cov_clones}, we show the incidence of code clones among the three 
+coverage patterns identified in Section \ref{secFL}. Out of 25 bugs labeled as 
+\emph{disjoint} in the coverage 
+experiment, 19 had code clones (14 Same, 4 Literal, 1 Composite). In contrast, the 
+\emph{overlap} and \emph{identical} categories respectively had 2 and 5 bugs with code clones, 
+making up only a small proportion of the bugs in those categories. This indicates that a 
+bug with \emph{disjoint} coverage result is very likely to contain code clones in its
 human patch. This result could suggest future APR techniques to apply the same edits to multiple locations
-if the coverage result of the bug can be categorized as "Disjoint". 
+if the coverage result of the bug can be categorized as \emph{disjoint}.
 
+This result qualitatively supports the hypothesis that \emph{disjoint} bugs are more likely to contain code 
+clones, while the other two classifications have comparatively less code clones.
+
+% \todo{YL: out of 69 code clones, 7 are in diff class, 26 are in same class diff method, and
+% 36 are in same method. Do we want to include these info too?}
 
 
 \section{Test case-based validation}
@@ -820,7 +833,7 @@ The full unminimized result is presented in Table 9 and minimized results in Tab
 \hline
 Positive & Class & 11.36\% & 20.46 \% & 29.05 \% & 27.60\%  \\
 Positive & Method & 35.41\% & 41.25 \% & 37.61 \% & 31.29\%  \\
-Positive & Assertion & 40.42\% & 48.25 \% & 38.96 \% & 31.60\%  \\ 
+ositive & Assertion & 40.42\% & 48.25 \% & 38.96 \% & 31.60\%  \\ 
 \hline
 Neutral & Class & 68.04\% & 65.53 \% & 65.09 \% & 56.84\% \\
 Neutral & Method & 36.64\% & 39.33 \% & 55.63 \% & 51.60\%  \\
@@ -832,7 +845,7 @@ Negative & Assertion & 21.83\% & 12.90 \% & 9.68 \% &  11.29\%  \\
 \hline
 \end{tabular}
 \end{center}}
-\caption{Full Unminimized Results at all granularity levels, "U" stands for Unweighted, "W" stands for weighted. }
+\caption{Full Unminimized Results at all granularity levels, "U" stands for Unweighted, "W" stands for weighted}
 \end{table}
 
 
@@ -864,7 +877,7 @@ Negative & Assertion & 18.55\% & 14.39 \% & 19.23 \% &  14.44\%  \\
     
 \subsection{Conclusions}
 
-\subsubsection{RQ5}
+\subsubsection{RQ6}
 About a third of Defects4j bugs and over half of
 Bears bugs in this experiment do not need all chunks in the provided human patches to pass
 all unit tests. This suggests that significant portion of multi-chunk bugs contains some
@@ -873,7 +886,7 @@ edit chunk is just human developer refactoring code that doesn't change code beh
 or it could be due to test cases not being able to detect incorrect behavior that is fixed
 by the "unnecessary" chunk.
 
-\subsubsection{RQ6}
+\subsubsection{RQ7}
 
 Under highest granularity, we are able to identify above 40\% of the partial repairs in Defects4j
 and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50\%
@@ -994,26 +1007,6 @@ and we do not restrict our repair actions to neutral variants of the program.
 
 \todo{Write me, plz, summarize takeaways and why we care.  We have established a
   roadmap of research directions for multi-edit repair.}
-
-In conclusion, \todo{Fill sec 3 conclusion}
-
-\todo{Fill sec 4 conclusion}
-
-\todo{Fill sec 5.1 conclusion}.
-
-We found that chunk level code clones are prevalent in human patches. Over 30\%
-of multi-chunk bugs have some kind of code clones. Moreover, we found that multi-chunk bugs with Disjoint
-coverage result is much more likely to have code clones.
-
-We found that test case based validation methods cannot capture all effects of human patches,
-as between a third and a half of multi-chunk bugs do not require all chunks in human patch to
-past all tests.
-
-We found that test case based validation methods can be reasonably good at identifying partial
-repairs at higher granularity levels such as method level or assertion level. Moreover, 
-we observed that the number of both positively and negatively identified partial repairs
-increase as we increase the granularity, so we advice a careful balance of the tradeoffs of
-granularity levels in future search based APR development.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
