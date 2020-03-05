@@ -19,6 +19,7 @@ suspiciousness score for a line $s$ is calculated by:
 
 $$\mathit{susp(s)} 
 =\frac{\mathit{\%F(s)}}{\mathit{\%F(s)} + \mathit{\%P(s)}}$$
+
 where  $\mathit{\%F(s)}$ and $\mathit{\%P(s)}$ are, respectively, the percentage of failing 
 tests and passing tests that execute $s$. There are newer, more effective 
 SBFL techniques that calculate this score differently, such as Ochiai~\cite{ochiai} and 
@@ -51,9 +52,9 @@ modified.
 
 Thus, in this research question, we investigate how well the SBFL assumption
 applies to tests that identify multi-line bugs. We focus especially on
-multi-line bugs that are associated with multiple tests; \todo{short explanation
-  of the intuition why. This is a placeholder, I'm a bit tired and so this
-  succinct explanation is escaping me.} If multiple tests all cover the multiple
+multi-line bugs that are associated with multiple tests; a bug with only a single failing test 
+trivially and equally implicates all the lines that test executes.  If multiple tests all cover the 
+multiple
 modified locations well, then SBFL's core assumption holds and multi-edit repair
 can expect to effectively make use of the off-the-shelf ranking these techniques
 currently provide (indeed, this has been tried~\cite{angelix}). If not---that
@@ -71,8 +72,10 @@ disjoint path locations, or some combination?
 
 \paragraph{Methodology}
 
-Between both datasets, there are 60 total bugs that are both multi-edit and 
-multi-test: 45 in Defects4J, and 15 in Bears. For each of these bugs, we used 
+Between both datasets, there are 92 total bugs that are both multi-edit and 
+multi-test: 59 in Defects4J, and 33 in Bears. \todo{There is one bug in bears that I couldn't 
+get coverage for through my tool or by inspection; what do I do about that? (It's currently 
+counted in the 92 bugs but not in the graphs)} For each of these bugs, we used 
 Jacoco to determine which of the chunks in the human patch were executed (at
 least once) by each failing test. Using 
 this coverage data, we categorized each bug as follows:
@@ -80,21 +83,17 @@ this coverage data, we categorized each bug as follows:
 \item \emph{disjoint} bugs are those for which no chunk is covered by all
 failing tests.  Inutitively, these are the bugs for which the core SBFL
 assumption is violated.
-\item \emph{same} bugs are those for which all tests cover the exact same set of
+\item \emph{identical} bugs are those for which all tests cover the exact same set of
   patch chunks
 \item \emph{overlap} bugs are those for which some buggy chunks are covered by
   all failing tests, but some are only covered by a subset of the failing tests.
 \end{itemize}
-\todo{...I'm realizing I don't love this naming scheme.  Can we come up with an
-  alternative?} 
 
 
-\todo{Can you redraw all these histograms with percentages at the top of the bars?}
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage-all.png}
 	\caption{Distribution of coverage patterns for all multi-test and 
-	multi-edit bugs in Bears and Defects4J. In all, 38\% of bugs were classified as disjoint, 40\% were 
-	classified as same, and 22\% were classified as overlap.}
+	multi-edit bugs in Bears and Defects4J.}
 	\label{fig:coverage-all}
 \end{figure}
 
@@ -102,13 +101,11 @@ assumption is violated.
 \begin{figure}
 	\begin{subfigure}{\linewidth}
 		\includegraphics[width=\linewidth]{img/coverage-d4j.png}
-		\caption{Distribution of coverage patterns for Defects4J. 47\% disjoint, 31\% same, and 22\% 
-		overlap.}
+		\caption{Distribution of coverage patterns for Defects4J.}
 	\end{subfigure}
 	\begin{subfigure}{\linewidth}
 		\includegraphics[width=\linewidth]{img/coverage-bears.png}
-		\caption{Distribution of coverage patterns for Defects4J. 13\% disjoint, 67\% same, and 20\% 
-		overlap.}
+		\caption{Distribution of coverage patterns for Defects4J.}
 	\end{subfigure}
 	\caption{Distribution of coverage patterns divided by dataset,
           indicating significant differences between the multi-edit bugs in
@@ -118,11 +115,11 @@ assumption is violated.
 
 \paragraph{Results}
 Figure~\ref{fig:coverage-all} shows results for the overall distribution,
-combining the bugs in both datasets. Over a third (\todo{FIXME\% (real number, please)})
-of the bugs were fully disjoint.  For a significant portion of multi-edit bugs,
+combining the bugs in both datasets. 27\%
+of the bugs were fully disjoint.  Thus, for a significant portion of multi-edit bugs,
 the failing tests do not all execute any of the buggy code in common.  
-In addition, another 22\% were classified as \emph{overlap}: only some of the
-buggy locations were executed by all failing tests. Thus, over half of 
+In addition, another 31\% were classified as \emph{overlap}: only some of the
+buggy locations were executed by all failing tests. In all, over half of 
 the bugs that were both multi-edit and multi-test contained chunks that were 
 not executed by all failing test cases.
 
@@ -134,12 +131,25 @@ not executed by all failing test cases.
 Note, however, that the behavior varies considerably by dataset;
 Figure~\ref{fig:coverage-datasets} shows results.  Defects4J and 
 Bears have very different distributions with respect to the 
-disjoint and same categories. In Defects4J, 47\% of bugs are \emph{disjoint} and 
-31\% are \emph{same}; in Bears, the proportions are 13\% and 67\%, respectively.
+disjoint and same categories. In Defects4J, 36\% of bugs are \emph{disjoint} and 
+22\% are \emph{overlap}; in Bears, the proportions are 12\% and 47\%, respectively.
 We hypothesize that this may be due to differences in how the two  
 datasets were selected and minimized: Defects4J is a dataset of minimized and curated 
 bugs, while the bugs in Bears are taken scraped directly from the
-commits.\todo{references to the original papers in citations would be good,
+commits. The Defects4J dataset specifically enforces a requirement that the patches in the 
+dataset be isolated, i.e., not containing any refactorings or new features, to improve the 
+usability of the dataset. The authors specifically chose patches that met this requirement, 
+and in some cases, isolated the bug themselves, manually~\cite{defects4j}. In contrast, the 
+only requirements that Bears has for inclusion of bugs is that it must be reproducible and 
+the patch must be written by a human. In addition, Bears was designed to be evolvable 
+and relatively easily expanded, which is at odds with manual inspection and isolation of 
+bugs~\cite{bears}.
+Given that these two datasets were designed with different values and demonstrate very 
+different behavior, these findings highlight the importance of using diverse datasets. 
+\todo{I don't actually know of work that argues that we should be using diverse dataset ? 
+But maybe Claire you have an idea.}
+
+\todo{references to the original papers in citations would be good,
   here.}  \todo{1--2 more sentences...what's the implication?  Something like
   ``this supports recent work arguing for a diversity of datasets and
   identifying the risk of overfitting to our datasets.''  But also, as

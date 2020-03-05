@@ -77,6 +77,11 @@ public class SpotCheckCoverage {
     }
 
     @Test
+    public void testChart005() {
+        this.d4jCoverage(D4JName.CHART, 5);
+    }
+
+    @Test
     public void testMockito021() {
         this.d4jCoverage(D4JName.MOCKITO, 21);
     }
@@ -162,6 +167,24 @@ public class SpotCheckCoverage {
     }
 
     @Test
+    public void testBears191() {
+        //
+        this.bearsCoverage(191);
+    }
+
+    @Test
+    public void testBears192() {
+        //
+        this.bearsCoverage(192);
+    }
+
+    @Test
+    public void testBears204() {
+        //
+        this.bearsCoverage(204);
+    }
+
+    @Test
     public void testBears209() {
         //
         this.bearsCoverage(209);
@@ -175,6 +198,6 @@ public class SpotCheckCoverage {
     public static void main(String[] args) {
         // main is necessary because part of the hack for some of
         // the bears experiments requires user input
-        new SpotCheckCoverage().testBears165();
+        new SpotCheckCoverage().testBears192();
     }
 }

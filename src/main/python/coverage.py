@@ -6,9 +6,9 @@ import seaborn as sns
 # 			"data/coverage-experiments/dec16-Lang43-Lang61",
 # 			"data/coverage-experiments/dec16-Lang63-Time11"]
 
-# folders = ["data/coverage-experiments/all_bears"]
-# folders = ["data/coverage-experiments/jan15", "data/coverage-experiments/mockito"]
-folders = ["data/coverage-experiments/all_bears", "data/coverage-experiments/jan15", "data/coverage-experiments/mockito"]
+folders = ["data/coverage-experiments/mar4-bears"]
+# folders = ["data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
+# folders = ["data/coverage-experiments/mar4-bears", "data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
 
 with open("data/more_than_one_test.txt") as f:
     more_than_one_test = set([x.strip() for x in f.readlines()])
@@ -32,11 +32,14 @@ multichunk_disjoint_projects = {}
 multichunk_same_projects = {}
 multichunk_inBetween_projects = {}
 
-move_to_same = set(["INRIA-spoon-204567691-207361743:041", 
-    "INRIA-spoon-239871875-239928671:062", 
-    "INRIA-spoon-270439051-271649592:080", 
-    "traccar-traccar-265439859-265542197:123",
-    "MOCKITO:011"])
+move_to_same = set(["BEARS:041", 
+    "BEARS:062", 
+    "BEARS:080",
+    "BEARS:086"
+    "BEARS:123",
+    "MOCKITO:011",
+    "MOCKITO:025"])
+
 
 for dir in folders:
     with open(dir+"/disjoint.data") as f:
@@ -98,10 +101,16 @@ print(f"Multiple tests disjoint: {disjoint}")
 print(f"Multiple tests same: {same}")
 print(f"Multiple tests inBetween: {inBetween}")
 
-print(f"Total projects with multiple tests & multiple chunks: {multichunk_disjoint + multichunk_same + multichunk_inBetween}")
+sum_mchunk = multichunk_disjoint + multichunk_same + multichunk_inBetween
+
+print(f"Total projects with multiple tests & multiple chunks: {sum_mchunk}")
 print(f"Multitest/multichunk disjoint: {multichunk_disjoint}")
 print(f"Multitest/multichunk same: {multichunk_same}")
 print(f"Multitest/multichunk inBetween: {multichunk_inBetween}")
+
+disjoint_percent = round(100 * multichunk_disjoint / sum_mchunk)
+identical_percent = round(100 *multichunk_same / sum_mchunk)
+overlap_percent = round(100 * multichunk_inBetween / sum_mchunk)
 
 
 # plt.figure()
@@ -111,11 +120,18 @@ print(f"Multitest/multichunk inBetween: {multichunk_inBetween}")
 # plt.ylabel("Number patches")
 
 plt.figure()
-plt.bar(["disjoint", "overlap", "same"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])
-plt.title("All multi-test and multi-edit: Distribution of coverage patterns")
-# plt.yticks(range(0, 25, 5))
+ax = plt.bar(["disjoint", "overlap", "identical"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])
+plt.title("Bears: Distribution of coverage patterns")
+plt.yticks(range(0, 25, 5))
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
+
+
+# Add this loop to add the annotations
+for p, percent in zip(ax.patches, [disjoint_percent, overlap_percent, identical_percent]):
+    width, height = p.get_width(), p.get_height()
+    x, y = p.get_xy() 
+    plt.annotate(f'{percent}%', (x + (width/2) - 0.05, y + height + 0.5))
 
 # fig, axes = plt.subplots(3, 2)
 # fig.suptitle("Distribution of coverage, all multitest patches, by project")

@@ -30,10 +30,11 @@ public class DoCoverageExperiments {
             d4jMultitestMultiedit.put(D4JName.MATH, new HashSet<>(Arrays.asList(1, 4, 7, 14, 16, 18, 21, 23, 24, 26, 28, 29, 35, 36, 37, 38, 40, 43, 44, 46, 47, 49, 51, 52, 54, 55, 62, 65, 67, 68, 72, 74, 76, 81, 83, 86, 93, 95, 98, 99, 100, 102, 106, 6, 8, 12, 15, 64, 66, 79, 84, 88, 92)));
             d4jMultitestMultiedit.put(D4JName.TIME, new HashSet<>(Arrays.asList(1, 2, 3, 7, 10, 12, 23, 26, 5, 6, 8, 9, 13, 17, 20, 21, 22)));
             d4jMultitestMultiedit.put(D4JName.CLOSURE, new HashSet<>());
-            d4jMultitestMultiedit.put(D4JName.MOCKITO, new HashSet<>(Arrays.asList(3, 4, 11, 20, 23, 35, 2, 10, 14, 16, 19, 21, 25, 30, 37, 17)));
-            for (D4JName n : D4JName.values()) {
+            d4jMultitestMultiedit.put(D4JName.MOCKITO, new HashSet<>(Arrays.asList(3, 4, 11, 20, 35, 2, 25, 37)));
 
-                if (n == D4JName.MOCKITO) continue;
+            for (D4JName n : D4JName.values()) {
+                if (true) continue;
+                if (n != D4JName.MOCKITO) continue;
                 for (int i = 1; i <= n.numBugs; i++) {
                     if (!d4jMultitestMultiedit.get(n).contains(i)) {
                         continue;
@@ -87,10 +88,10 @@ public class DoCoverageExperiments {
                     39, 45, 48, 52, 55, 57, 58, 59, 63, 67, 68, 71, 72, 75, 77, 82, 84, 86, 90, 91, 92, 93, 94, 122,
                     189, 190, 191, 192, 194, 204, 223, 225, 235, 243, 247));
             for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
-                if (true) continue;
 
 //                if (i == 95 || i == 209) continue; // these have malformed test names
 
+                if (i != 191 && i != 192 && i != 204) continue;
                 if (!bearsMultitestMultiedit.contains(i)) continue;
 
                 try {

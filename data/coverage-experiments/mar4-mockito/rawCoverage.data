@@ -1,0 +1,70 @@
+PATCH : MOCKITO:002
+INTERSECT
+intersect all failing tests
+org/mockito/internal/util/Timer: [31]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/util/Timer: [31]
+
+PATCH : MOCKITO:003
+INTERSECT
+intersect all failing tests
+org/mockito/internal/invocation/InvocationMatcher: [146, 147, 148, 149, 150, 155, 127]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/invocation/InvocationMatcher: [129, 130, 146, 131, 147, 148, 149, 150, 155, 127]
+
+PATCH : MOCKITO:004
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/mockito/exceptions/Reporter: [434, 677, 678, 424]
+
+PATCH : MOCKITO:011
+INTERSECT
+intersect all failing tests
+org/mockito/internal/creation/DelegatingMethod: [55]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/creation/DelegatingMethod: [55, 56, 58, 59, 60]
+
+PATCH : MOCKITO:020
+INTERSECT
+intersect all failing tests
+org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker: [32]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker: [32, 35]
+
+PATCH : MOCKITO:025
+INTERSECT
+intersect all failing tests
+org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs: [81, 98, 82, 83, 71, 88, 56, 89, 91, 93, 94]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs: [98, 101, 71, 81, 82, 83, 88, 56, 89, 90, 91, 93, 94]
+
+PATCH : MOCKITO:035
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/mockito/Matchers: [516, 362, 479]
+
+PATCH : MOCKITO:037
+INTERSECT
+intersect all failing tests
+org/mockito/internal/stubbing/answers/AnswersValidator: [34, 28]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/stubbing/answers/AnswersValidator: [34, 28]
+

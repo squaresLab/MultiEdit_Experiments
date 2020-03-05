@@ -145,7 +145,7 @@ public class Defects4JPatch implements Patch {
         command.addArgument(String.valueOf(bugNumber));
         command.addArgument(d4jWorkingDir);
         System.out.println(String.join(" ", command.toStrings()));
-        if (projectName == D4JName.MOCKITO) {
+        if (projectName == D4JName.MOCKITO || (projectName == D4JName.CHART && bugNumber == 5)) {
             // defects4j commands are super flaky through the command line runner, but work perfectly fine in my shell
             try {
                 Thread.sleep(300_000); // run the damn thing yourself.

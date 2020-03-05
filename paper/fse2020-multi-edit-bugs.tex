@@ -189,16 +189,17 @@ More than half of these bugs were repaired by a
 human developer using a multi-chunk repair (as we define in
 Section~\ref{sec:background}).  We look at characteristics along each of the
 relevant axes of the program repair search problem: fault locations, mutation
-operators, fix code, and evaluation (or fitness or objective) using test cases.  
-\todo{we also examine symptoms, need to fit that one in.}  Our contributions are
+operators, fix code, and evaluation (or fitness or objective) using test cases.  Our 
+contributions are
 as follows:
 
 \begin{itemize}
 \item An analysis of multi-edit bug patches in Defects4J and Bears.
-\item A study characterizing the ways that failing tests cover faulty locations. We find that 60\% of 
-bugs with multi-edit patches and multiple failing tests have faulty locations that are not covered by all 
-failing tests. \todo{Do I say something about the motivation/SBFL? Or will that be too many words for 
-here?}
+\item A study characterizing the ways that failing tests cover faulty locations as a means of 
+testing whether the underlying hypothesis in current fault localization techniques still hold 
+in multi-edit bugs. We find that 58\% of 
+bugs with multi-edit patches and multiple failing tests have faulty locations that are not 
+covered by all failing tests, thus the underlying assumptions do not necessarily hold.
 \item A study characterizing fix code.  We find that half of 
 bug patches contain dependent edits and \todo{N\%} contain 
 code clones.
@@ -305,13 +306,13 @@ following research questions:
 \begin{enumerate}
 \item \emph{RQ1: How prevalent are multiedit human patches are in Defects4J and Bears?}
 \item \emph{RQ2: Do failing tests cover different portions of the fault?}
-\item \emph{RQ3: Do certain symptoms correlate with multi-edit patches?}
-\item \emph{RQ4: Do certain symptoms correlate with repair success by existing repair tools?}
-\item \emph{RQ5: How prevalent are dependencies between edited code?}
-\item \emph{RQ6: Do test cases fully capture the effects of multiple edits?}
-\item \emph{RQ7: How well do test case based validation methods identify partial repairs?}
-\item \emph{RQ8: How often do code clones occur in multi-chunk bugs? Are existence of code 
-clones in human patch correlated with specific patterns of fault localization?}
+\item \emph{RQ3: How prevalent are dependencies between edited code?}
+\item \emph{RQ4: How often do code clones occur in multi-chunk bugs? Are existence of 
+code clones in human patch correlated with specific patterns of fault localization?}
+\item \emph{RQ5: Do test cases fully capture the effects of multiple edits?}
+\item \emph{RQ6: How well do test case based validation methods identify partial repairs?}
+
+
 
 \end{enumerate}
 
@@ -585,7 +586,8 @@ successfully auto-repaired Bears bugs with multi-line human patches.
 
 \subsection{Cloned code}
 
-\rqorinsight{RQ8: How often do code clones occur in multi-chunk bugs? Are existence of code
+\rqorinsight{RQ4: How often do code clones occur in multi-chunk bugs? Are existence of 
+code
 clones in human patch correlated with specific patterns of fault localization?}
 
 Previous research ~\cite{wang2018} suggested that one potential way to enhance
@@ -686,7 +688,7 @@ candidate patches by
 measuring how "close" a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
 
-\rqorinsight{RQ6: Do test cases fully capture the effects of multiple edits?}
+\rqorinsight{RQ5: Do test cases fully capture the effects of multiple edits?}
 
 Sometimes not all edits in a human patch is necessary to pass all tests. This could be
 due to human patch including refactoring or other changes that does not actually
@@ -694,7 +696,7 @@ change code behavior, or it could be due to the unit tests not being able to cat
 an incorrect behavior that the remaining edits correct. We would like to explore
 to what extent does this phenomenon affect the bugs in our benchmarks.
 
-\rqorinsight{RQ7: How well do test case based validation methods identify partial repairs?}
+\rqorinsight{RQ6: How well do test case based validation methods identify partial repairs?}
 
 Given a buggy program and a valid repair, if we apply a part of the valid repair to 
 the buggy program (a partial repair), then semanticly the partial repair is closer
@@ -713,7 +715,8 @@ partial repairs at different granularity levels.
 
 \subsection{Method}
 
-To address RQ6 and RQ7, we designed the following experiment: for each bug in Defects4j 
+To address RQ5 and RQ6, we designed the following experiment: for each bug in 
+Defects4j 
 (excluding Clojure bugs because they dont use JUnit) 
 and Bears (single-module only), we generate all of its partial repairs using method described in 
 the Partial Repairs subsubsection, and then run unit tests through all partial repairs

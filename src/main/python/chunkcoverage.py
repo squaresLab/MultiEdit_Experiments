@@ -4,6 +4,7 @@ import re
 with open("data/patch_locs.json") as f:
 	patch_json = json.load(f)
 
+d4jnames = {"CHART": "Chart ", "CLOSURE": "Closure ", "LANG": "Lang ", "MATH": "Math ", "MOCKITO": "Mockito ", "TIME": "Time "}
 
 mode = "PATCH"
 patch_pattern = re.compile("(.+): \[(.+)]")
@@ -22,6 +23,9 @@ def parse_cov(f):
 			all_cov[name] = { "INTERSECT": intersect, "UNION": union }
 			mode = "PATCH"
 			name = line.split(" : ")[1].strip()
+			proj, bugnum = name.split(":")
+			if proj not in d4jnames:
+				name = f"BEARS:{bugnum}"
 			intersect = {}
 			union = {}
 
@@ -47,13 +51,13 @@ def parse_cov(f):
 
 
 
-with open("data/coverage-experiments/all_bears/rawCoverage.data") as f:
+with open("data/coverage-experiments/mar4-bears/rawCoverage.data") as f:
 	parse_cov(f)
 
-with open("data/coverage-experiments/mar2-d4j/rawCoverage.data") as f:
+with open("data/coverage-experiments/mar4-d4j/rawCoverage.data") as f:
 	parse_cov(f)
 
-with open("data/coverage-experiments/mockito/rawCoverage.data") as f:
+with open("data/coverage-experiments/mar4-mockito/rawCoverage.data") as f:
 	parse_cov(f)
 
 print(all_cov)
@@ -93,11 +97,11 @@ def get_chunk_ranges(bugId):
 			return chunk_map, chunk_num
 	return {}, 0
 
-multitest_multichunk = ["traccar-traccar-207561899-207563891:103", "2018swecapstone-h2ms-356638992-356666847:140", "FasterXML-jackson-databind-195752461-195777970:007", "FasterXML-jackson-databind-215111320-215799347:012", "INRIA-spoon-191511078-191595944:031", "INRIA-spoon-270437105-270439051:079", "DmitriiSerikov-money-transfer-service-446104441-446106577:209", "vkostyukov-la4j-414793864-436911083:250", "INRIA-spoon-201940544-203101555:040", "INRIA-spoon-204567691-207361743:041", "INRIA-spoon-239871875-239928671:062", "INRIA-spoon-270439051-271649592:080", "traccar-traccar-265439859-265542197:123", "2018swecapstone-h2ms-363210218-363627522:141", "INRIA-spoon-431601111-431664501:216", "CHART:002", "CHART:014", "CHART:019", "CHART:022", "CHART:025", "LANG:020", "LANG:030", "LANG:041", "LANG:047", "LANG:050", "MATH:001", "MATH:004", "MATH:029", "MATH:035", "MATH:036", "MATH:037", "MATH:098", "MATH:099", "TIME:012", "LANG:022", "LANG:034", "MATH:021", "MATH:043", "MATH:046", "MATH:047", "MATH:068", "MATH:076", "MATH:086", "MATH:102", "TIME:005", "TIME:021", "TIME:022", "CHART:016", "CHART:018", "LANG:012", "LANG:015", "LANG:019", "LANG:036", "MATH:016", "TIME:006", "MOCKITO:004", "MOCKITO:035", "MOCKITO:003", "MOCKITO:011", "MOCKITO:020"]
+with open("data/multitest_multiedit.txt") as f:
+	multitest_multichunk = [x.strip() for x in f]
 
 print(len(multitest_multichunk))
 
-d4jnames = {"CHART": "Chart ", "CLOSURE": "Closure ", "LANG": "Lang ", "MATH": "Math ", "MOCKITO": "Mockito ", "TIME": "Time "}
 
 classify = {}
 
@@ -106,6 +110,8 @@ for bug in multitest_multichunk:
 	if name in d4jnames:
 		chunkmap, num_chunks = get_chunk_ranges(f'{d4jnames[name]}{int(num)}')
 	else:
+		if num == "192":
+			continue
 		chunkmap, num_chunks = get_chunk_ranges(f'Bears-{int(num)}')
 	print(bug)
 	print(chunkmap)
@@ -138,12 +144,12 @@ for bug in multitest_multichunk:
 
 		# are they the same chunks?
 		if intersect_chunks == union_chunks:
-			classify[bug] = "same"
+			classify[bug] = "same" #, len(union_chunks), num_chunks
 		# do they overlap chunks?
 		elif len(intersect_chunks.intersection(union_chunks)) > 0:
-			classify[bug] = "overlap"
+			classify[bug] = "overlap" #, len(union_chunks), num_chunks
 		else:
-			classify[bug] = "disjoint"
+			classify[bug] = "disjoint" #, len(union_chunks), num_chunks
 
 print(json.dumps(classify, indent=3))
 

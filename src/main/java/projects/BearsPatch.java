@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class BearsPatch implements Patch {
 
     public String pathToBears = System.getProperty("user.home") + "/bears-benchmark";
-    private static final Set<Integer> unconventionalBugs = new HashSet<>(Arrays.asList(142, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 210, 211, 212, 213, 214, 215, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 251));
+    private static final Set<Integer> unconventionalBugs = new HashSet<>(Arrays.asList(142, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 186, 187, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 205, 206, 207, 208, 210, 211, 212, 213, 214, 215, 218, 219, 220, 221, 222, 223, 224, 226, 227, 228, 229, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 251));
     private static Map<Integer, String> bugBranches = new HashMap<>();
     private static Map<Integer, List<String[]>> patchFiles = new HashMap<>();
     private static Map<Integer, List<String>> failingTests = new HashMap<>();
@@ -241,8 +241,12 @@ public class BearsPatch implements Patch {
             xmlOutput.output(doc, new FileWriter(pathToPom + "/" + pomName));
 
             if (build.getName().contains("pluginManagement")) {
-                // gonna try this, for bug 165. but idk how to generalize this. maybe case by case is the best policy
-                modifyXML(pathToPom + "/dhis-api", "pom.xml");
+                if (this.bugNumber == 191 || this.bugNumber == 192){
+                    modifyXML(pathToPom + "/src/server", "pom.xml");
+                } else {
+                    // gonna try this, for bug 165. but idk how to generalize this. maybe case by case is the best policy
+                    modifyXML(pathToPom + "/dhis-api", "pom.xml");
+                }
             }
 
         } catch (IOException | JDOMException e) {
@@ -306,6 +310,11 @@ public class BearsPatch implements Patch {
         command.addArgument(pathToBears);
         System.out.println(command);
         CommandLineRunner.runCommand(command);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("BEARS:%03d", bugNumber);
     }
 
 }

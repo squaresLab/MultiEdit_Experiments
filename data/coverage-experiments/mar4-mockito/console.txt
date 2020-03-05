@@ -1,0 +1,1316 @@
+src/main/bash/checkoutD4J.sh Mockito 2 tmp/Mockito-002
+[java, -classpath, target/classes:tmp/Mockito-002/patched/build/classes/main:tmp/Mockito-002/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative]
+OUTPUT: org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative
+Test Class: org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative
+class org.mockito.internal.util.TimerTest
+should_throw_friendly_reminder_exception_when_duration_is_negative
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-002/patched/build/classes/main:tmp/Mockito-002/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method]
+OUTPUT: org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method
+Test Class: org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method
+class org.mockito.verification.NegativeDurationTest
+should_throw_exception_when_duration_is_negative_for_timeout_method
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-002/patched/build/classes/main:tmp/Mockito-002/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-002/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+OUTPUT: org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method
+Test Class: org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method
+class org.mockito.verification.NegativeDurationTest
+should_throw_exception_when_duration_is_negative_for_after_method
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Mockito-002]
+[rm, -rf, tmp/Mockito-002]
+
+src/main/bash/checkoutD4J.sh Mockito 3 tmp/Mockito-003
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.invocation.InvocationMatcherTest::should_capture_varargs_as_vararg]
+OUTPUT: org.mockito.internal.invocation.InvocationMatcherTest::should_capture_varargs_as_vararg
+Test Class: org.mockito.internal.invocation.InvocationMatcherTest::should_capture_varargs_as_vararg
+class org.mockito.internal.invocation.InvocationMatcherTest
+should_capture_varargs_as_vararg
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.bugs.varargs.VarargsAndAnyObjectPicksUpExtraInvocationsTest::shouldVerifyCorrectlyNumberOfInvocationsWithVarargs]
+OUTPUT: org.mockitousage.bugs.varargs.VarargsAndAnyObjectPicksUpExtraInvocationsTest::shouldVerifyCorrectlyNumberOfInvocationsWithVarargs
+Test Class: org.mockitousage.bugs.varargs.VarargsAndAnyObjectPicksUpExtraInvocationsTest::shouldVerifyCorrectlyNumberOfInvocationsWithVarargs
+class org.mockitousage.bugs.varargs.VarargsAndAnyObjectPicksUpExtraInvocationsTest
+shouldVerifyCorrectlyNumberOfInvocationsWithVarargs
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.bugs.varargs.VarargsNotPlayingWithAnyObjectTest::shouldMatchAnyVararg]
+OUTPUT: org.mockitousage.bugs.varargs.VarargsNotPlayingWithAnyObjectTest::shouldMatchAnyVararg
+Test Class: org.mockitousage.bugs.varargs.VarargsNotPlayingWithAnyObjectTest::shouldMatchAnyVararg
+class org.mockitousage.bugs.varargs.VarargsNotPlayingWithAnyObjectTest
+shouldMatchAnyVararg
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.matchers.CapturingArgumentsTest::should_capture_all_vararg]
+OUTPUT: org.mockitousage.matchers.CapturingArgumentsTest::should_capture_all_vararg
+Test Class: org.mockitousage.matchers.CapturingArgumentsTest::should_capture_all_vararg
+class org.mockitousage.matchers.CapturingArgumentsTest
+should_capture_all_vararg
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.matchers.CapturingArgumentsTest::captures_correctly_when_captor_used_multiple_times]
+OUTPUT: org.mockitousage.matchers.CapturingArgumentsTest::captures_correctly_when_captor_used_multiple_times
+Test Class: org.mockitousage.matchers.CapturingArgumentsTest::captures_correctly_when_captor_used_multiple_times
+class org.mockitousage.matchers.CapturingArgumentsTest
+captures_correctly_when_captor_used_multiple_times
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.matchers.CapturingArgumentsTest::should_capture_vararg]
+OUTPUT: org.mockitousage.matchers.CapturingArgumentsTest::should_capture_vararg
+Test Class: org.mockitousage.matchers.CapturingArgumentsTest::should_capture_vararg
+class org.mockitousage.matchers.CapturingArgumentsTest
+should_capture_vararg
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.matchers.CapturingArgumentsTest::captures_correctly_when_captor_used_on_pure_vararg_method]
+OUTPUT: org.mockitousage.matchers.CapturingArgumentsTest::captures_correctly_when_captor_used_on_pure_vararg_method
+Test Class: org.mockitousage.matchers.CapturingArgumentsTest::captures_correctly_when_captor_used_on_pure_vararg_method
+class org.mockitousage.matchers.CapturingArgumentsTest
+captures_correctly_when_captor_used_on_pure_vararg_method
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.matchers.CapturingArgumentsTest::should_capture_byte_vararg_by_creating_captor_with_primitive_wrapper]
+OUTPUT: org.mockitousage.matchers.CapturingArgumentsTest::should_capture_byte_vararg_by_creating_captor_with_primitive_wrapper
+Test Class: org.mockitousage.matchers.CapturingArgumentsTest::should_capture_byte_vararg_by_creating_captor_with_primitive_wrapper
+class org.mockitousage.matchers.CapturingArgumentsTest
+should_capture_byte_vararg_by_creating_captor_with_primitive_wrapper
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-003/patched/build/classes/main:tmp/Mockito-003/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-003/patched/compileLib/byte-buddy-0.6.8.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.matchers.CapturingArgumentsTest::should_capture_byte_vararg_by_creating_captor_with_primitive]
+OUTPUT: org.mockitousage.matchers.CapturingArgumentsTest::should_capture_byte_vararg_by_creating_captor_with_primitive
+Test Class: org.mockitousage.matchers.CapturingArgumentsTest::should_capture_byte_vararg_by_creating_captor_with_primitive
+class org.mockitousage.matchers.CapturingArgumentsTest
+should_capture_byte_vararg_by_creating_captor_with_primitive
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Mockito-003]
+[rm, -rf, tmp/Mockito-003]
+
+src/main/bash/checkoutD4J.sh Mockito 4 tmp/Mockito-004
+[java, -classpath, target/classes:tmp/Mockito-004/patched/build/classes/main:tmp/Mockito-004/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.exceptions.ReporterTest::can_use_print_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_no_more_interaction_wanted_in_order]
+OUTPUT: org.mockito.exceptions.ReporterTest::can_use_print_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_no_more_interaction_wanted_in_order
+Test Class: org.mockito.exceptions.ReporterTest::can_use_print_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_no_more_interaction_wanted_in_order
+class org.mockito.exceptions.ReporterTest
+can_use_print_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_no_more_interaction_wanted_in_order
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-004/patched/build/classes/main:tmp/Mockito-004/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.exceptions.ReporterTest::can_use_print_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_injection_failure]
+OUTPUT: org.mockito.exceptions.ReporterTest::can_use_print_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_injection_failure
+Test Class: org.mockito.exceptions.ReporterTest::can_use_print_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_injection_failure
+class org.mockito.exceptions.ReporterTest
+can_use_print_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_injection_failure
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-004/patched/build/classes/main:tmp/Mockito-004/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.exceptions.ReporterTest::can_use_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_no_more_interaction_wanted]
+OUTPUT: org.mockito.exceptions.ReporterTest::can_use_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_no_more_interaction_wanted
+Test Class: org.mockito.exceptions.ReporterTest::can_use_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_no_more_interaction_wanted
+class org.mockito.exceptions.ReporterTest
+can_use_mock_name_even_when_mock_bogus_default_answer_and_when_reporting_no_more_interaction_wanted
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-004/patched/build/classes/main:tmp/Mockito-004/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-004/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.bugs.ClassCastExOnVerifyZeroInteractionsTest::should_not_throw_a_ClassCastException]
+OUTPUT: org.mockitousage.bugs.ClassCastExOnVerifyZeroInteractionsTest::should_not_throw_a_ClassCastException
+Test Class: org.mockitousage.bugs.ClassCastExOnVerifyZeroInteractionsTest::should_not_throw_a_ClassCastException
+class org.mockitousage.bugs.ClassCastExOnVerifyZeroInteractionsTest
+should_not_throw_a_ClassCastException
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Mockito-004]
+[rm, -rf, tmp/Mockito-004]
+
+src/main/bash/checkoutD4J.sh Mockito 11 tmp/Mockito-011
+[java, -classpath, target/classes:tmp/Mockito-011/patched/build/classes/main:tmp/Mockito-011/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-011/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-011/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-011/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.creation.DelegatingMethodTest::equals_should_return_true_when_equal]
+OUTPUT: org.mockito.internal.creation.DelegatingMethodTest::equals_should_return_true_when_equal
+Test Class: org.mockito.internal.creation.DelegatingMethodTest::equals_should_return_true_when_equal
+class org.mockito.internal.creation.DelegatingMethodTest
+equals_should_return_true_when_equal
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-011/patched/build/classes/main:tmp/Mockito-011/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-011/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-011/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-011/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.creation.DelegatingMethodTest::equals_should_return_true_when_self]
+OUTPUT: org.mockito.internal.creation.DelegatingMethodTest::equals_should_return_true_when_self
+Test Class: org.mockito.internal.creation.DelegatingMethodTest::equals_should_return_true_when_self
+class org.mockito.internal.creation.DelegatingMethodTest
+equals_should_return_true_when_self
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Mockito-011]
+[rm, -rf, tmp/Mockito-011]
+
+src/main/bash/checkoutD4J.sh Mockito 20 tmp/Mockito-020
+[java, -classpath, target/classes:tmp/Mockito-020/patched/build/classes/main:tmp/Mockito-020/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.annotation.SpyAnnotationTest::should_spy_inner_class]
+OUTPUT: org.mockitousage.annotation.SpyAnnotationTest::should_spy_inner_class
+Test Class: org.mockitousage.annotation.SpyAnnotationTest::should_spy_inner_class
+class org.mockitousage.annotation.SpyAnnotationTest
+should_spy_inner_class
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-020/patched/build/classes/main:tmp/Mockito-020/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.annotation.SpyAnnotationTest::should_report_when_constructor_is_explosive]
+OUTPUT: org.mockitousage.annotation.SpyAnnotationTest::should_report_when_constructor_is_explosive
+Test Class: org.mockitousage.annotation.SpyAnnotationTest::should_report_when_constructor_is_explosive
+class org.mockitousage.annotation.SpyAnnotationTest
+should_report_when_constructor_is_explosive
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-020/patched/build/classes/main:tmp/Mockito-020/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_spy_abstract_classes]
+OUTPUT: org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_spy_abstract_classes
+Test Class: org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_spy_abstract_classes
+class org.mockitousage.constructor.CreatingMocksWithConstructorTest
+can_spy_abstract_classes
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-020/patched/build/classes/main:tmp/Mockito-020/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.constructor.CreatingMocksWithConstructorTest::exception_message_when_constructor_not_found]
+OUTPUT: org.mockitousage.constructor.CreatingMocksWithConstructorTest::exception_message_when_constructor_not_found
+Test Class: org.mockitousage.constructor.CreatingMocksWithConstructorTest::exception_message_when_constructor_not_found
+class org.mockitousage.constructor.CreatingMocksWithConstructorTest
+exception_message_when_constructor_not_found
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-020/patched/build/classes/main:tmp/Mockito-020/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_create_mock_with_constructor]
+OUTPUT: org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_create_mock_with_constructor
+Test Class: org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_create_mock_with_constructor
+class org.mockitousage.constructor.CreatingMocksWithConstructorTest
+can_create_mock_with_constructor
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-020/patched/build/classes/main:tmp/Mockito-020/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_mock_inner_classes]
+OUTPUT: org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_mock_inner_classes
+Test Class: org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_mock_inner_classes
+class org.mockitousage.constructor.CreatingMocksWithConstructorTest
+can_mock_inner_classes
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-020/patched/build/classes/main:tmp/Mockito-020/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.constructor.CreatingMocksWithConstructorTest::mocking_inner_classes_with_wrong_outer_instance]
+OUTPUT: org.mockitousage.constructor.CreatingMocksWithConstructorTest::mocking_inner_classes_with_wrong_outer_instance
+Test Class: org.mockitousage.constructor.CreatingMocksWithConstructorTest::mocking_inner_classes_with_wrong_outer_instance
+class org.mockitousage.constructor.CreatingMocksWithConstructorTest
+mocking_inner_classes_with_wrong_outer_instance
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-020/patched/build/classes/main:tmp/Mockito-020/patched/build/classes/test:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/main:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/build/classes/test:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-020/patched/compileLib/byte-buddy-0.2.1.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_mock_abstract_classes]
+OUTPUT: org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_mock_abstract_classes
+Test Class: org.mockitousage.constructor.CreatingMocksWithConstructorTest::can_mock_abstract_classes
+class org.mockitousage.constructor.CreatingMocksWithConstructorTest
+can_mock_abstract_classes
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Mockito-020]
+[rm, -rf, tmp/Mockito-020]
+
+src/main/bash/checkoutD4J.sh Mockito 25 tmp/Mockito-025
+[java, -classpath, target/classes:tmp/Mockito-025/patched/target/classes:tmp/Mockito-025/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::will_return_default_value_on_non_mockable_nested_generic]
+OUTPUT: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::will_return_default_value_on_non_mockable_nested_generic
+Test Class: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::will_return_default_value_on_non_mockable_nested_generic
+class org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest
+will_return_default_value_on_non_mockable_nested_generic
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-025/patched/target/classes:tmp/Mockito-025/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class]
+OUTPUT: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class
+Test Class: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class
+class org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest
+can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-025/patched/target/classes:tmp/Mockito-025/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_return_types_declared_with_a_bounded_wildcard]
+OUTPUT: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_return_types_declared_with_a_bounded_wildcard
+Test Class: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_return_types_declared_with_a_bounded_wildcard
+class org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest
+can_create_mock_from_return_types_declared_with_a_bounded_wildcard
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-025/patched/target/classes:tmp/Mockito-025/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class]
+OUTPUT: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class
+Test Class: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class
+class org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest
+can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-025/patched/target/classes:tmp/Mockito-025/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls]
+OUTPUT: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls
+Test Class: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls
+class org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest
+generic_deep_mock_frenzy__look_at_these_chained_calls
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-025/patched/target/classes:tmp/Mockito-025/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-025/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class]
+OUTPUT: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class
+Test Class: org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class
+class org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest
+can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Mockito-025]
+[rm, -rf, tmp/Mockito-025]
+
+src/main/bash/checkoutD4J.sh Mockito 35 tmp/Mockito-035
+[java, -classpath, target/classes:tmp/Mockito-035/patched/target/classes:tmp/Mockito-035/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed]
+OUTPUT: org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed
+Test Class: org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed
+class org.mockitousage.bugs.NPEWithCertainMatchersTest
+shouldNotThrowNPEWhenIntPassed
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-035/patched/target/classes:tmp/Mockito-035/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed]
+OUTPUT: org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed
+Test Class: org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed
+class org.mockitousage.bugs.NPEWithCertainMatchersTest
+shouldNotThrowNPEWhenIntegerPassed
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-035/patched/target/classes:tmp/Mockito-035/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq]
+OUTPUT: org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq
+Test Class: org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq
+class org.mockitousage.bugs.NPEWithCertainMatchersTest
+shouldNotThrowNPEWhenIntegerPassedToEq
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-035/patched/target/classes:tmp/Mockito-035/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-035/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame]
+OUTPUT: org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame
+Test Class: org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame
+class org.mockitousage.bugs.NPEWithCertainMatchersTest
+shouldNotThrowNPEWhenIntegerPassedToSame
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Mockito-035]
+[rm, -rf, tmp/Mockito-035]
+
+src/main/bash/checkoutD4J.sh Mockito 37 tmp/Mockito-037
+[java, -classpath, target/classes:tmp/Mockito-037/patched/target/classes:tmp/Mockito-037/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-037/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-037/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-037/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockito.internal.stubbing.answers.AnswersValidatorTest::shouldFailWhenCallingRealMethodOnIterface]
+OUTPUT: org.mockito.internal.stubbing.answers.AnswersValidatorTest::shouldFailWhenCallingRealMethodOnIterface
+Test Class: org.mockito.internal.stubbing.answers.AnswersValidatorTest::shouldFailWhenCallingRealMethodOnIterface
+class org.mockito.internal.stubbing.answers.AnswersValidatorTest
+shouldFailWhenCallingRealMethodOnIterface
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[java, -classpath, target/classes:tmp/Mockito-037/patched/target/classes:tmp/Mockito-037/patched/target/test-classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-037/patched/target/classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/home/serenach/tooling/defects4j/framework/projects/lib/junit-4.11.jar:/home/serenach/MultiEdit_Experiments/tmp/Mockito-037/patched/target/classes:/home/serenach/MultiEdit_Experiments/tmp/Mockito-037/patched/target/test-classes:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/home/serenach/tooling/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:lib/junit-4.13-rc-2.jar, -Xmx1024m, -javaagent:lib/jacocoagent.jar=excludes=org.junit.*,append=false, util.JUnitTestRunner, org.mockitousage.spies.SpyingOnInterfacesTest::shouldFailFastWhenCallingRealMethodOnInterface]
+OUTPUT: org.mockitousage.spies.SpyingOnInterfacesTest::shouldFailFastWhenCallingRealMethodOnInterface
+Test Class: org.mockitousage.spies.SpyingOnInterfacesTest::shouldFailFastWhenCallingRealMethodOnInterface
+class org.mockitousage.spies.SpyingOnInterfacesTest
+shouldFailFastWhenCallingRealMethodOnInterface
+Requested #: 1
+[SUCCESS]:true
+[TOTAL]:1
+[FAILURE]:0
+
+[]
+
+[rm, -rf, tmp/Mockito-037]
+[rm, -rf, tmp/Mockito-037]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%thelastpickle-cassandra-reaper-364710673-365484062:191
+[src/main/bash/checkoutBearsPatched.sh, thelastpickle-cassandra-reaper-364710673-365484062, /home/serenach/bears-benchmark]
+[src/main/bash/checkoutBearsPatched.sh, thelastpickle-cassandra-reaper-364710673-365484062, /home/serenach/bears-benchmark]
+HEAD is now at 8cbd29879 End of the bug and patch reproduction process
+Switched to branch 'thelastpickle-cassandra-reaper-364710673-365484062'
+Your branch is up to date with 'origin/thelastpickle-cassandra-reaper-364710673-365484062'.
+
+/home/serenach/bears-benchmark/pom.xml
+/home/serenach/bears-benchmark/src/server/pom.xml
+[sh, src/main/bash/runBears.sh, /home/serenach/bears-benchmark, io.cassandrareaper.resources.view.NodesStatusTest#testParseIPv6Endpoint21WithHostnameStatusString]
+OUTPUT: io.cassandrareaper.resources.view.NodesStatusTest#testParseIPv6Endpoint21WithHostnameStatusString
+Removing src/server/dependency-reduced-pom.xml
+Removing src/server/target/
+Apache Maven 3.6.0
+Maven home: /usr/share/maven
+Java version: 1.8.0_242, vendor: Private Build, runtime: /usr/lib/jvm/java-8-openjdk-amd64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "5.3.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Cassandra Reaper project                                           [pom]
+[INFO] Cassandra Reaper server                                            [jar]
+[INFO] 
+[INFO] --------------< io.cassandrareaper:cassandra-reaper-pom >---------------
+[INFO] Building Cassandra Reaper project 1.2.0-SNAPSHOT                   [1/2]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ cassandra-reaper-pom ---
+[INFO] Installing /home/serenach/bears-benchmark/pom.xml to /home/serenach/.m2/repository/io/cassandrareaper/cassandra-reaper-pom/1.2.0-SNAPSHOT/cassandra-reaper-pom-1.2.0-SNAPSHOT.pom
+[INFO] 
+[INFO] ----------------< io.cassandrareaper:cassandra-reaper >-----------------
+[INFO] Building Cassandra Reaper server 1.2.0-SNAPSHOT                    [2/2]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ cassandra-reaper ---
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/home/serenach/bears-benchmark/src/server' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /home/serenach/bears-benchmark/src/server
+[INFO] Storing buildNumber: 93c7902 at timestamp: 1583399644839
+[INFO] Storing buildScmBranch: thelastpickle-cassandra-reaper-364710673-365484062
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ cassandra-reaper ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (default) @ cassandra-reaper ---
+[INFO] argLine set to -javaagent:/home/serenach/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/serenach/bears-benchmark/src/server/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ cassandra-reaper ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 48 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ cassandra-reaper ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 84 source files to /home/serenach/bears-benchmark/src/server/target/classes
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/service/RepairManager.java:[288,24] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/service/RepairManager.java:[326,22] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/core/Snapshot.java:[88,17] [MissingOverride] toString overrides method in Object; expected @Override
+    (see http://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public String toString() {'?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/core/Node.java:[37,17] [MissingOverride] toString overrides method in Object; expected @Override
+    (see http://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public String toString() {'?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/service/Heart.java:[104,26] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/ReaperApplication.java:[266,39] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[347,25] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[558,27] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[559,27] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[561,25] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[947,27] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[951,27] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[955,27] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[959,27] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[1095,25] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/CassandraStorage.java:[1146,25] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/cassandra/Migration003.java:[78,27] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/cassandra/Migration003.java:[99,29] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/cassandra/Migration003.java:[102,29] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/cassandra/Migration003.java:[103,29] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/cassandra/Migration003.java:[106,27] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/cassandra/Migration009.java:[57,33] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/storage/cassandra/Migration009.java:[82,29] [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.
+    (see http://errorprone.info/bugpattern/FutureReturnValueIgnored)
+  Did you mean to remove this line?
+[INFO] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/jmx/RepairStatusHandler.java:[-1,-1] Some input files use or override a deprecated API.
+[INFO] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/jmx/RepairStatusHandler.java:[-1,-1] Recompile with -Xlint:deprecation for details.
+[INFO] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java:[-1,-1] Some input files use unchecked or unsafe operations.
+[INFO] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java:[-1,-1] Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (default) @ cassandra-reaper ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ cassandra-reaper ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 13 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ cassandra-reaper ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 37 source files to /home/serenach/bears-benchmark/src/server/target/test-classes
+[INFO] /home/serenach/bears-benchmark/src/server/src/test/java/io/cassandrareaper/service/RepairRunnerTest.java:[-1,-1] Some input files use or override a deprecated API.
+[INFO] /home/serenach/bears-benchmark/src/server/src/test/java/io/cassandrareaper/service/RepairRunnerTest.java:[-1,-1] Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ cassandra-reaper ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ cassandra-reaper ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ cassandra-reaper ---
+[INFO] Building jar: /home/serenach/bears-benchmark/src/server/target/cassandra-reaper-1.2.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.0.0:jar (attach-javadocs) @ cassandra-reaper ---
+[INFO] 
+Loading source files for package io.cassandrareaper.jmx...
+Loading source files for package io.cassandrareaper...
+Loading source files for package io.cassandrareaper.service...
+Loading source files for package io.cassandrareaper.core...
+Loading source files for package io.cassandrareaper.storage...
+Loading source files for package io.cassandrareaper.storage.postgresql...
+Loading source files for package io.cassandrareaper.storage.cassandra...
+Loading source files for package io.cassandrareaper.resources...
+Loading source files for package io.cassandrareaper.resources.view...
+Loading source files for package io.cassandrareaper.resources.auth...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_242
+Building tree for all the packages and classes...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/HostConnectionCounters.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/JmxAddresses.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/JmxConnectionFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/JmxConnectionsInitializer.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/JmxProxy.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/RepairStatusHandler.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/StorageServiceMBean20.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/AppContext.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/ReaperApplication.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/ReaperApplicationConfiguration.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/ReaperApplicationConfiguration.AccessControlConfiguration.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/ReaperApplicationConfiguration.AutoSchedulingConfiguration.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/ReaperApplicationConfiguration.DatacenterAvailability.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/ReaperApplicationConfiguration.JmxCredentials.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/ReaperException.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/AutoSchedulingManager.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/ClusterRepairScheduler.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/RepairManager.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/RepairParameters.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/RepairRunService.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/RepairScheduleService.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/RepairUnitService.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/RingRange.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/RingRange.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/SchedulingManager.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/SnapshotManager.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/Cluster.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/Node.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/Node.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/NodeMetrics.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/NodeMetrics.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairRun.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairRun.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairRun.RunState.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairSchedule.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairSchedule.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairSchedule.LongCollectionSqlType.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairSchedule.State.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairSegment.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairSegment.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairSegment.State.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairUnit.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/RepairUnit.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/Snapshot.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/Snapshot.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/CassandraStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/IDistributedStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/IStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/MemoryStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/MemoryStorage.RepairUnitKey.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/PostgresStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/BigIntegerArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/ClusterMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/IStoragePostgreSql.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/LongCollectionSqlTypeArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/PostgresArrayArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RepairParallelismArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RepairParametersMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RepairRunMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RepairRunStatusMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RepairScheduleMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RepairScheduleStatusMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RepairSegmentMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RepairUnitMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/RunStateArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/ScheduleStateArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/SnapshotMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/StateArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/UuidArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/UuidUtil.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/DateTimeCodec.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/Migration003.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/Migration009.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/ClusterResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/PingResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/ReaperHealthCheck.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/RepairRunResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/RepairScheduleResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/SnapshotResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/ClusterStatus.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/NodesStatus.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/NodesStatus.EndpointState.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/NodesStatus.GossipInfo.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/RepairRunStatus.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/RepairScheduleStatus.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/auth/LoginResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/auth/ShiroExceptionMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/overview-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/auth/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/auth/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/auth/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/package-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/package-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/package-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/constant-values.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/serialized-form.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/class-use/JmxAddresses.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/class-use/JmxConnectionFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/class-use/HostConnectionCounters.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/class-use/RepairStatusHandler.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/class-use/JmxConnectionsInitializer.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/class-use/JmxProxy.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/class-use/StorageServiceMBean20.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/class-use/ReaperApplication.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/class-use/ReaperException.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/class-use/ReaperApplicationConfiguration.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/class-use/ReaperApplicationConfiguration.JmxCredentials.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/class-use/ReaperApplicationConfiguration.AutoSchedulingConfiguration.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/class-use/ReaperApplicationConfiguration.DatacenterAvailability.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/class-use/ReaperApplicationConfiguration.AccessControlConfiguration.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/class-use/AppContext.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/AutoSchedulingManager.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/SnapshotManager.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/SchedulingManager.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/RingRange.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/RingRange.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/ClusterRepairScheduler.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/RepairRunService.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/RepairManager.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/RepairParameters.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/RepairScheduleService.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/class-use/RepairUnitService.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairRun.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairRun.RunState.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairRun.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/Cluster.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/Node.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/Node.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/Snapshot.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/Snapshot.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/NodeMetrics.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/NodeMetrics.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairSchedule.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairSchedule.State.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairSchedule.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairSchedule.LongCollectionSqlType.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairSegment.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairSegment.State.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairSegment.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairUnit.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/class-use/RepairUnit.Builder.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/class-use/MemoryStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/class-use/MemoryStorage.RepairUnitKey.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/class-use/PostgresStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/class-use/IDistributedStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/class-use/IStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/class-use/CassandraStorage.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RepairParametersMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/LongCollectionSqlTypeArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RepairSegmentMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/UuidUtil.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RepairParallelismArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/PostgresArrayArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RepairUnitMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RunStateArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RepairRunStatusMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RepairScheduleMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/ClusterMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RepairRunMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/BigIntegerArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/ScheduleStateArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/UuidArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/StateArgumentFactory.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/SnapshotMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/RepairScheduleStatusMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/class-use/IStoragePostgreSql.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/class-use/DateTimeCodec.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/class-use/Migration009.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/class-use/Migration003.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/class-use/ReaperHealthCheck.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/class-use/ClusterResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/class-use/PingResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/class-use/RepairRunResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/class-use/RepairScheduleResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/class-use/SnapshotResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/class-use/RepairRunStatus.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/class-use/ClusterStatus.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/class-use/NodesStatus.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/class-use/NodesStatus.GossipInfo.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/class-use/NodesStatus.EndpointState.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/class-use/RepairScheduleStatus.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/auth/class-use/LoginResource.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/auth/class-use/ShiroExceptionMapper.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/core/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/jmx/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/auth/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/resources/view/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/service/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/cassandra/package-use.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/io/cassandrareaper/storage/postgresql/package-use.html...
+Building index for all the packages and classes...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/overview-tree.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/index-all.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/deprecated-list.html...
+Building index for all classes...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/allclasses-frame.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/allclasses-noframe.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/index.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/overview-summary.html...
+Generating /home/serenach/bears-benchmark/src/server/target/apidocs/help-doc.html...
+1 warning
+[WARNING] Javadoc Warnings
+[WARNING] /home/serenach/bears-benchmark/src/server/src/main/java/io/cassandrareaper/jmx/StorageServiceMBean20.java:33: warning - Tag @see: reference not found: org.apache.cassandra.metrics.StorageMetrics#load
+[INFO] Building jar: /home/serenach/bears-benchmark/src/server/target/cassandra-reaper-1.2.0-SNAPSHOT-javadoc.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (attach-sources) > generate-sources @ cassandra-reaper >>>
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ cassandra-reaper ---
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/home/serenach/bears-benchmark/src/server' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /home/serenach/bears-benchmark/src/server
+[INFO] Storing buildNumber: 93c7902 at timestamp: 1583399653078
+[INFO] Storing buildScmBranch: thelastpickle-cassandra-reaper-364710673-365484062
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ cassandra-reaper ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (default) @ cassandra-reaper ---
+[INFO] argLine set to -javaagent:/home/serenach/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/serenach/bears-benchmark/src/server/target/jacoco.exec
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (attach-sources) < generate-sources @ cassandra-reaper <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (attach-sources) @ cassandra-reaper ---
+[INFO] Building jar: /home/serenach/bears-benchmark/src/server/target/cassandra-reaper-1.2.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:3.0.0:shade (default) @ cassandra-reaper ---
+[INFO] Including com.google.guava:guava:jar:19.0 in the shaded jar.
+[INFO] Including ch.qos.logback:logback-core:jar:1.2.2 in the shaded jar.
+[INFO] Including ch.qos.logback:logback-access:jar:1.2.2 in the shaded jar.
+[INFO] Including ch.qos.logback:logback-classic:jar:1.2.2 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.25 in the shaded jar.
+[INFO] Including javax.mail:javax.mail-api:jar:1.5.6 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-core:jar:1.0.8 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-util:jar:1.0.8 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:2.7.9 in the shaded jar.
+[INFO] Including com.google.code.findbugs:jsr305:jar:3.0.1 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-jackson:jar:1.0.8 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:2.7.9 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:2.7.9.1 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.7.9 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.7.9 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.7.9 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.module:jackson-module-afterburner:jar:2.7.9 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.7.9 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-validation:jar:1.0.8 in the shaded jar.
+[INFO] Including org.hibernate:hibernate-validator:jar:5.2.4.Final in the shaded jar.
+[INFO] Including javax.validation:validation-api:jar:1.1.0.Final in the shaded jar.
+[INFO] Including org.jboss.logging:jboss-logging:jar:3.2.1.Final in the shaded jar.
+[INFO] Including com.fasterxml:classmate:jar:1.1.0 in the shaded jar.
+[INFO] Including org.glassfish:javax.el:jar:3.0.0 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-configuration:jar:1.0.8 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.7.9 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-logging:jar:1.0.8 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-logback:jar:3.1.4 in the shaded jar.
+[INFO] Including org.slf4j:jul-to-slf4j:jar:1.7.21 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-util:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-metrics:jar:1.0.8 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-jersey:jar:1.0.8 in the shaded jar.
+[INFO] Including org.glassfish.jersey.core:jersey-server:jar:2.23.2 in the shaded jar.
+[INFO] Including org.glassfish.jersey.media:jersey-media-jaxb:jar:2.23.2 in the shaded jar.
+[INFO] Including org.glassfish.jersey.ext:jersey-metainf-services:jar:2.23.2 in the shaded jar.
+[INFO] Including org.glassfish.jersey.ext:jersey-bean-validation:jar:2.23.2 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-jersey2:jar:3.1.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.7.9 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.7.9 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.7.9 in the shaded jar.
+[INFO] Including org.glassfish.jersey.containers:jersey-container-servlet:jar:2.23.2 in the shaded jar.
+[INFO] Including org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.23.2 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-server:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including javax.servlet:javax.servlet-api:jar:3.1.0 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-io:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-webapp:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-xml:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-continuation:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-servlets:jar:1.0.8 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-annotation:jar:3.1.4 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-jetty:jar:1.0.8 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-jetty9:jar:3.1.4 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-servlet:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-security:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-servlets:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-http:jar:9.3.9.v20160517 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-lifecycle:jar:1.0.8 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-core:jar:3.1.4 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-jvm:jar:3.1.4 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-servlets:jar:3.1.4 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-json:jar:3.1.4 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-healthchecks:jar:3.1.4 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-request-logging:jar:1.0.8 in the shaded jar.
+[INFO] Including net.sourceforge.argparse4j:argparse4j:jar:0.7.0 in the shaded jar.
+[INFO] Including org.eclipse.jetty.toolchain.setuid:jetty-setuid-java:jar:1.0.3 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-jdbi:jar:1.0.8 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-db:jar:1.0.8 in the shaded jar.
+[INFO] Including org.apache.tomcat:tomcat-jdbc:jar:8.5.3 in the shaded jar.
+[INFO] Including org.apache.tomcat:tomcat-juli:jar:8.5.3 in the shaded jar.
+[INFO] Including org.jdbi:jdbi:jar:2.73 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-jdbi:jar:3.1.4 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-metrics-graphite:jar:1.0.8 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-graphite:jar:3.1.4 in the shaded jar.
+[INFO] Including org.coursera:dropwizard-metrics-datadog:jar:1.0.6 in the shaded jar.
+[INFO] Including org.coursera:metrics-datadog:jar:1.0.6 in the shaded jar.
+[INFO] Including com.codahale.metrics:metrics-core:jar:3.0.2 in the shaded jar.
+[INFO] Including org.apache.httpcomponents:fluent-hc:jar:4.3.4 in the shaded jar.
+[INFO] Including commons-logging:commons-logging:jar:1.1.3 in the shaded jar.
+[INFO] Including com.indeed:java-dogstatsd-client:jar:2.0.9 in the shaded jar.
+[INFO] Including io.dropwizard:dropwizard-assets:jar:1.0.8 in the shaded jar.
+[INFO] Including systems.composable:dropwizard-cassandra:jar:4.1.0 in the shaded jar.
+[INFO] Including org.apache.cassandra:cassandra-all:jar:2.2.7 in the shaded jar.
+[INFO] Including org.xerial.snappy:snappy-java:jar:1.1.1.7 in the shaded jar.
+[INFO] Including net.jpountz.lz4:lz4:jar:1.3.0 in the shaded jar.
+[INFO] Including com.ning:compress-lzf:jar:0.8.4 in the shaded jar.
+[INFO] Including commons-cli:commons-cli:jar:1.1 in the shaded jar.
+[INFO] Including commons-codec:commons-codec:jar:1.2 in the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.1 in the shaded jar.
+[INFO] Including org.apache.commons:commons-math3:jar:3.2 in the shaded jar.
+[INFO] Including com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:jar:1.4 in the shaded jar.
+[INFO] Including org.antlr:antlr:jar:3.5.2 in the shaded jar.
+[INFO] Including org.antlr:ST4:jar:4.0.8 in the shaded jar.
+[INFO] Including org.antlr:antlr-runtime:jar:3.5.2 in the shaded jar.
+[INFO] Including org.slf4j:log4j-over-slf4j:jar:1.7.7 in the shaded jar.
+[INFO] Including org.slf4j:jcl-over-slf4j:jar:1.7.7 in the shaded jar.
+[INFO] Including com.googlecode.json-simple:json-simple:jar:1.1 in the shaded jar.
+[INFO] Including com.boundary:high-scale-lib:jar:1.0.6 in the shaded jar.
+[INFO] Including org.yaml:snakeyaml:jar:1.11 in the shaded jar.
+[INFO] Including org.mindrot:jbcrypt:jar:0.3m in the shaded jar.
+[INFO] Including com.addthis.metrics:reporter-config3:jar:3.0.0 in the shaded jar.
+[INFO] Including com.addthis.metrics:reporter-config-base:jar:3.0.0 in the shaded jar.
+[INFO] Including com.thinkaurelius.thrift:thrift-server:jar:0.3.7 in the shaded jar.
+[INFO] Including com.lmax:disruptor:jar:3.0.1 in the shaded jar.
+[INFO] Including com.clearspring.analytics:stream:jar:2.5.2 in the shaded jar.
+[INFO] Including it.unimi.dsi:fastutil:jar:6.5.7 in the shaded jar.
+[INFO] Including net.sf.supercsv:super-csv:jar:2.1.0 in the shaded jar.
+[INFO] Including org.apache.thrift:libthrift:jar:0.9.2 in the shaded jar.
+[INFO] Including org.apache.httpcomponents:httpclient:jar:4.2.5 in the shaded jar.
+[INFO] Including org.apache.httpcomponents:httpcore:jar:4.2.4 in the shaded jar.
+[INFO] Including org.apache.cassandra:cassandra-thrift:jar:2.2.7 in the shaded jar.
+[INFO] Including net.java.dev.jna:jna:jar:4.0.0 in the shaded jar.
+[INFO] Including com.github.jbellis:jamm:jar:0.3.0 in the shaded jar.
+[INFO] Including com.github.tjake:crc32ex:jar:0.1.1 in the shaded jar.
+[INFO] Including io.netty:netty-all:jar:4.0.23.Final in the shaded jar.
+[INFO] Including joda-time:joda-time:jar:2.4 in the shaded jar.
+[INFO] Including org.fusesource:sigar:jar:1.6.4 in the shaded jar.
+[INFO] Including org.eclipse.jdt.core.compiler:ecj:jar:4.4.2 in the shaded jar.
+[INFO] Including org.caffinitas.ohc:ohc-core:jar:0.3.4 in the shaded jar.
+[INFO] Including com.datastax.cassandra:cassandra-driver-core:jar:3.1.4 in the shaded jar.
+[INFO] Including io.netty:netty-handler:jar:4.0.37.Final in the shaded jar.
+[INFO] Including io.netty:netty-buffer:jar:4.0.37.Final in the shaded jar.
+[INFO] Including io.netty:netty-common:jar:4.0.37.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport:jar:4.0.37.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec:jar:4.0.37.Final in the shaded jar.
+[INFO] Including com.github.jnr:jnr-ffi:jar:2.0.7 in the shaded jar.
+[INFO] Including com.github.jnr:jffi:jar:1.2.10 in the shaded jar.
+[INFO] Including com.github.jnr:jffi:jar:native:1.2.10 in the shaded jar.
+[INFO] Including org.ow2.asm:asm:jar:5.0.3 in the shaded jar.
+[INFO] Including org.ow2.asm:asm-commons:jar:5.0.3 in the shaded jar.
+[INFO] Including org.ow2.asm:asm-analysis:jar:5.0.3 in the shaded jar.
+[INFO] Including org.ow2.asm:asm-tree:jar:5.0.3 in the shaded jar.
+[INFO] Including org.ow2.asm:asm-util:jar:5.0.3 in the shaded jar.
+[INFO] Including com.github.jnr:jnr-x86asm:jar:1.0.2 in the shaded jar.
+[INFO] Including com.github.jnr:jnr-posix:jar:3.0.27 in the shaded jar.
+[INFO] Including com.github.jnr:jnr-constants:jar:0.9.0 in the shaded jar.
+[INFO] Including org.postgresql:postgresql:jar:9.3-1100-jdbc41 in the shaded jar.
+[INFO] Including com.h2database:h2:jar:1.4.186 in the shaded jar.
+[INFO] Including org.cognitor.cassandra:cassandra-migration:jar:2.0.0 in the shaded jar.
+[INFO] Including org.flywaydb:flyway-core:jar:4.0.3 in the shaded jar.
+[INFO] Including io.prometheus:simpleclient:jar:0.0.25 in the shaded jar.
+[INFO] Including io.prometheus:simpleclient_servlet:jar:0.0.25 in the shaded jar.
+[INFO] Including io.prometheus:simpleclient_common:jar:0.0.25 in the shaded jar.
+[INFO] Including io.prometheus:simpleclient_dropwizard:jar:0.0.25 in the shaded jar.
+[INFO] Including org.secnod.dropwizard:dropwizard-shiro:jar:0.2.0 in the shaded jar.
+[INFO] Including org.apache.shiro:shiro-web:jar:1.2.3 in the shaded jar.
+[INFO] Including org.apache.shiro:shiro-core:jar:1.2.3 in the shaded jar.
+[INFO] Including commons-beanutils:commons-beanutils:jar:1.8.3 in the shaded jar.
+[INFO] Including org.secnod.shiro:shiro-jersey:jar:0.2.0 in the shaded jar.
+[INFO] Including org.glassfish.jersey.core:jersey-client:jar:2.25.1 in the shaded jar.
+[INFO] Including javax.ws.rs:javax.ws.rs-api:jar:2.0.1 in the shaded jar.
+[INFO] Including org.glassfish.jersey.core:jersey-common:jar:2.25.1 in the shaded jar.
+[INFO] Including javax.annotation:javax.annotation-api:jar:1.2 in the shaded jar.
+[INFO] Including org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.25.1 in the shaded jar.
+[INFO] Including org.glassfish.hk2:osgi-resource-locator:jar:1.0.1 in the shaded jar.
+[INFO] Including org.glassfish.hk2:hk2-api:jar:2.5.0-b32 in the shaded jar.
+[INFO] Including org.glassfish.hk2:hk2-utils:jar:2.5.0-b32 in the shaded jar.
+[INFO] Including org.glassfish.hk2.external:aopalliance-repackaged:jar:2.5.0-b32 in the shaded jar.
+[INFO] Including org.glassfish.hk2.external:javax.inject:jar:2.5.0-b32 in the shaded jar.
+[INFO] Including org.glassfish.hk2:hk2-locator:jar:2.5.0-b32 in the shaded jar.
+[INFO] Including org.javassist:javassist:jar:3.20.0-GA in the shaded jar.
+[WARNING] netty-all-4.0.23.Final.jar, netty-handler-4.0.37.Final.jar define 73 overlapping classes: 
+[WARNING]   - io.netty.handler.ssl.SslHandler$7
+[WARNING]   - io.netty.handler.ssl.OpenSsl
+[WARNING]   - io.netty.handler.ssl.util.SimpleTrustManagerFactory$1
+[WARNING]   - io.netty.handler.traffic.TrafficCounter$TrafficMonitoringTask
+[WARNING]   - io.netty.handler.ssl.OpenSslSessionStats
+[WARNING]   - io.netty.handler.ssl.OpenSslServerContext
+[WARNING]   - io.netty.handler.ssl.PemReader
+[WARNING]   - io.netty.handler.timeout.IdleStateHandler
+[WARNING]   - io.netty.handler.traffic.GlobalTrafficShapingHandler
+[WARNING]   - io.netty.handler.ssl.JdkSslContext
+[WARNING]   - 63 more...
+[WARNING] netty-all-4.0.23.Final.jar, netty-buffer-4.0.37.Final.jar define 68 overlapping classes: 
+[WARNING]   - io.netty.buffer.ByteBufProcessor$5
+[WARNING]   - io.netty.buffer.PoolSubpage
+[WARNING]   - io.netty.buffer.PooledHeapByteBuf
+[WARNING]   - io.netty.buffer.ReadOnlyByteBuf
+[WARNING]   - io.netty.buffer.PooledByteBufAllocator
+[WARNING]   - io.netty.buffer.AbstractReferenceCountedByteBuf
+[WARNING]   - io.netty.buffer.SimpleLeakAwareByteBuf
+[WARNING]   - io.netty.buffer.PoolThreadCache$SubPageMemoryRegionCache
+[WARNING]   - io.netty.buffer.ByteBufUtil$ThreadLocalDirectByteBuf$1
+[WARNING]   - io.netty.buffer.ByteBufUtil$ThreadLocalDirectByteBuf
+[WARNING]   - 58 more...
+[WARNING] netty-all-4.0.23.Final.jar, netty-common-4.0.37.Final.jar define 242 overlapping classes: 
+[WARNING]   - io.netty.util.ResourceLeakDetector$DefaultResourceLeak
+[WARNING]   - io.netty.util.ResourceLeakException
+[WARNING]   - io.netty.util.internal.chmv8.ConcurrentHashMapV8$BulkTask
+[WARNING]   - io.netty.util.concurrent.ImmediateExecutor
+[WARNING]   - io.netty.util.internal.logging.CommonsLogger
+[WARNING]   - io.netty.util.internal.chmv8.ConcurrentHashMapV8$BiFun
+[WARNING]   - io.netty.util.HashedWheelTimer$Worker
+[WARNING]   - io.netty.util.Timeout
+[WARNING]   - io.netty.util.internal.chmv8.ForkJoinTask$ExceptionNode
+[WARNING]   - io.netty.util.internal.chmv8.ConcurrentHashMapV8$CounterCell
+[WARNING]   - 232 more...
+[WARNING] netty-all-4.0.23.Final.jar, netty-codec-4.0.37.Final.jar define 95 overlapping classes: 
+[WARNING]   - io.netty.handler.codec.compression.ZlibUtil
+[WARNING]   - io.netty.handler.codec.marshalling.MarshallingDecoder
+[WARNING]   - io.netty.handler.codec.serialization.ObjectEncoder
+[WARNING]   - io.netty.handler.codec.MessageToMessageCodec$1
+[WARNING]   - io.netty.handler.codec.serialization.ClassResolver
+[WARNING]   - io.netty.handler.codec.compression.JZlibEncoder$2
+[WARNING]   - io.netty.handler.codec.MessageToMessageEncoder
+[WARNING]   - io.netty.handler.codec.marshalling.UnmarshallerProvider
+[WARNING]   - io.netty.handler.codec.MessageToMessageCodec
+[WARNING]   - io.netty.handler.codec.compression.JdkZlibDecoder$1
+[WARNING]   - 85 more...
+[WARNING] metrics-core-3.0.2.jar, metrics-core-3.1.4.jar define 79 overlapping classes: 
+[WARNING]   - com.codahale.metrics.JmxReporter$MetricTimeUnits
+[WARNING]   - com.codahale.metrics.JmxReporter$JmxGaugeMBean
+[WARNING]   - com.codahale.metrics.Striped64$1
+[WARNING]   - com.codahale.metrics.JmxReporter
+[WARNING]   - com.codahale.metrics.ScheduledReporter$1
+[WARNING]   - com.codahale.metrics.EWMA
+[WARNING]   - com.codahale.metrics.Gauge
+[WARNING]   - com.codahale.metrics.Counting
+[WARNING]   - com.codahale.metrics.JmxReporter$JmxCounterMBean
+[WARNING]   - com.codahale.metrics.MetricRegistry$MetricBuilder$1
+[WARNING]   - 69 more...
+[WARNING] netty-all-4.0.23.Final.jar, netty-transport-4.0.37.Final.jar define 226 overlapping classes: 
+[WARNING]   - io.netty.channel.DefaultChannelPipeline$2
+[WARNING]   - io.netty.channel.oio.AbstractOioChannel
+[WARNING]   - io.netty.bootstrap.Bootstrap$1
+[WARNING]   - io.netty.channel.group.ChannelMatchers$ClassMatcher
+[WARNING]   - io.netty.channel.nio.AbstractNioMessageChannel$NioMessageUnsafe
+[WARNING]   - io.netty.channel.RecvByteBufAllocator$Handle
+[WARNING]   - io.netty.channel.EventLoopGroup
+[WARNING]   - io.netty.channel.AbstractChannelHandlerContext$WriteAndFlushTask$1
+[WARNING]   - io.netty.channel.oio.OioByteStreamChannel$2
+[WARNING]   - io.netty.channel.socket.InternetProtocolFamily
+[WARNING]   - 216 more...
+[WARNING] commons-logging-1.1.3.jar, jcl-over-slf4j-1.7.7.jar define 6 overlapping classes: 
+[WARNING]   - org.apache.commons.logging.impl.SimpleLog$1
+[WARNING]   - org.apache.commons.logging.Log
+[WARNING]   - org.apache.commons.logging.impl.SimpleLog
+[WARNING]   - org.apache.commons.logging.LogConfigurationException
+[WARNING]   - org.apache.commons.logging.impl.NoOpLog
+[WARNING]   - org.apache.commons.logging.LogFactory
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /home/serenach/bears-benchmark/src/server/target/cassandra-reaper-1.2.0-SNAPSHOT.jar with /home/serenach/bears-benchmark/src/server/target/cassandra-reaper-1.2.0-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /home/serenach/bears-benchmark/src/server/dependency-reduced-pom.xml
+[INFO] 
+[INFO] --- maven-failsafe-plugin:2.20:integration-test (integration-tests) @ cassandra-reaper ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-failsafe-plugin:2.20:verify (integration-tests) @ cassandra-reaper ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ cassandra-reaper ---
+[INFO] Installing /home/serenach/bears-benchmark/src/server/target/cassandra-reaper-1.2.0-SNAPSHOT.jar to /home/serenach/.m2/repository/io/cassandrareaper/cassandra-reaper/1.2.0-SNAPSHOT/cassandra-reaper-1.2.0-SNAPSHOT.jar
+[INFO] Installing /home/serenach/bears-benchmark/src/server/dependency-reduced-pom.xml to /home/serenach/.m2/repository/io/cassandrareaper/cassandra-reaper/1.2.0-SNAPSHOT/cassandra-reaper-1.2.0-SNAPSHOT.pom
+[INFO] Installing /home/serenach/bears-benchmark/src/server/target/cassandra-reaper-1.2.0-SNAPSHOT-javadoc.jar to /home/serenach/.m2/repository/io/cassandrareaper/cassandra-reaper/1.2.0-SNAPSHOT/cassandra-reaper-1.2.0-SNAPSHOT-javadoc.jar
+[INFO] Installing /home/serenach/bears-benchmark/src/server/target/cassandra-reaper-1.2.0-SNAPSHOT-sources.jar to /home/serenach/.m2/repository/io/cassandrareaper/cassandra-reaper/1.2.0-SNAPSHOT/cassandra-reaper-1.2.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Cassandra Reaper project 1.2.0-SNAPSHOT:
+[INFO] 
+[INFO] Cassandra Reaper project ........................... SUCCESS [  0.134 s]
+[INFO] Cassandra Reaper server ............................ SUCCESS [ 13.525 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.742 s
+[INFO] Finished at: 2020-03-05T04:14:17-05:00
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Cassandra Reaper project                                           [pom]
+[INFO] Cassandra Reaper server                                            [jar]
+[INFO] 
+[INFO] --------------< io.cassandrareaper:cassandra-reaper-pom >---------------
+[INFO] Building Cassandra Reaper project 1.2.0-SNAPSHOT                   [1/2]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ----------------< io.cassandrareaper:cassandra-reaper >-----------------
+[INFO] Building Cassandra Reaper server 1.2.0-SNAPSHOT                    [2/2]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ cassandra-reaper ---
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/home/serenach/bears-benchmark/src/server' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /home/serenach/bears-benchmark/src/server
+[INFO] Storing buildNumber: 93c7902 at timestamp: 1583399659374
+[INFO] Storing buildScmBranch: thelastpickle-cassandra-reaper-364710673-365484062
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ cassandra-reaper ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (default) @ cassandra-reaper ---
+[INFO] argLine set to -javaagent:/home/serenach/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/serenach/bears-benchmark/src/server/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ cassandra-reaper ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 48 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ cassandra-reaper ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (default) @ cassandra-reaper ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ cassandra-reaper ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 13 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ cassandra-reaper ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19:test (default-test) @ cassandra-reaper ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running io.cassandrareaper.jmx.JmxConnectionsInitializerTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.jmx.JmxConnectionsInitializerTest
+Running io.cassandrareaper.jmx.JmxProxyTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.jmx.JmxProxyTest
+Running io.cassandrareaper.jmx.JmxAddressesTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.jmx.JmxAddressesTest
+Running io.cassandrareaper.AssertionTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.AssertionTest
+Running io.cassandrareaper.service.HeartTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.HeartTest
+Running io.cassandrareaper.service.RepairRunnerTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.RepairRunnerTest
+Running io.cassandrareaper.service.RepairManagerTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.RepairManagerTest
+Running io.cassandrareaper.service.AutoSchedulingManagerTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.AutoSchedulingManagerTest
+Running io.cassandrareaper.service.SegmentGeneratorTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.SegmentGeneratorTest
+Running io.cassandrareaper.service.RepairRunServiceTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.RepairRunServiceTest
+Running io.cassandrareaper.service.SnapshotManagerTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.SnapshotManagerTest
+Running io.cassandrareaper.service.SegmentRunnerTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.SegmentRunnerTest
+Running io.cassandrareaper.service.ClusterRepairSchedulerTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.ClusterRepairSchedulerTest
+Running io.cassandrareaper.service.RingRangeTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.service.RingRangeTest
+Running io.cassandrareaper.core.ClusterTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.core.ClusterTest
+Running io.cassandrareaper.acceptance.ReaperH2NoIncrementalIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.acceptance.ReaperH2NoIncrementalIT
+Running io.cassandrareaper.acceptance.ReaperCassandraIncrementalIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in io.cassandrareaper.acceptance.ReaperCassandraIncrementalIT
+Running io.cassandrareaper.acceptance.ReaperCassandraIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in io.cassandrareaper.acceptance.ReaperCassandraIT
+Running io.cassandrareaper.acceptance.ReaperIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in io.cassandrareaper.acceptance.ReaperIT
+Running io.cassandrareaper.acceptance.ReaperPostgresNoIncrementalIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in io.cassandrareaper.acceptance.ReaperPostgresNoIncrementalIT
+Running io.cassandrareaper.acceptance.AddClusterIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in io.cassandrareaper.acceptance.AddClusterIT
+Running io.cassandrareaper.acceptance.ReaperH2IT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in io.cassandrareaper.acceptance.ReaperH2IT
+Running io.cassandrareaper.acceptance.ReaperPostgresIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in io.cassandrareaper.acceptance.ReaperPostgresIT
+Running io.cassandrareaper.acceptance.ReaperCassandraNoIncrementalIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in io.cassandrareaper.acceptance.ReaperCassandraNoIncrementalIT
+Running io.cassandrareaper.acceptance.ReaperNoIncrementalIT
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in io.cassandrareaper.acceptance.ReaperNoIncrementalIT
+Running io.cassandrareaper.resources.ClusterResourceTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.resources.ClusterResourceTest
+Running io.cassandrareaper.resources.view.NodesStatusTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.resources.view.NodesStatusTest
+Running io.cassandrareaper.resources.view.RepairScheduleStatusTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.resources.view.RepairScheduleStatusTest
+Running io.cassandrareaper.resources.view.RepairRunStatusTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.resources.view.RepairRunStatusTest
+Running io.cassandrareaper.resources.RepairRunResourceTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.resources.RepairRunResourceTest
+Running io.cassandrareaper.ReaperApplicationConfigurationTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in io.cassandrareaper.ReaperApplicationConfigurationTest
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ cassandra-reaper ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Cassandra Reaper project 1.2.0-SNAPSHOT:
+[INFO] 
+[INFO] Cassandra Reaper project ........................... SUCCESS [  0.001 s]
+[INFO] Cassandra Reaper server ............................ SUCCESS [  6.589 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.671 s
+[INFO] Finished at: 2020-03-05T04:14:25-05:00
+[INFO] ------------------------------------------------------------------------
+mvn -Dtest=io.cassandrareaper.resources.view.NodesStatusTest#testParseIPv6Endpoint21WithHostnameStatusString -DfailIfNoTests=false test
+/home/serenach/MultiEdit_Experiments
+mv: missing destination file operand after './'
+Try 'mv --help' for more information.
+
