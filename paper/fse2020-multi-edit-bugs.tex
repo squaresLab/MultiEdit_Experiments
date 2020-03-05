@@ -640,20 +640,20 @@ belong to different categories.
 \hline
 & Disjoint & Non-Disjoint & Total \\
 \hline
-Has Clone & 19 & 50 & 69 \\
-No Clone & 4 & 143 & 147 \\ \hline
-Total & 23 & 193 & 216 \\ \hline
+Has Clone & 19 & 37 & 56 \\
+No Clone & 4 & 102 & 106 \\ \hline
+Total & 23 & 139 & 162 \\ \hline
 \end{tabular}
 \end{center}
 }
-\caption{Multi-chunk bugs categorized on Disjointness and Code clones}
+\caption{Multi-chunk bugs categorized on Disjointness and Code clones (without Closure)}
 \end{table}
 
-There are 23 bugs labeled as "Disjoint" in the coverage experiment, out of which
-19 had code clones (14 Same, 4 Literal, 1 Composite). This indicates that a 
+Out of all bugs we checked for code clone analysis (excluding the Closure ones because they were not in the coverage experiment), there are 23 bugs labeled as "Disjoint" in the coverage experiment, out of which
+19 had code clones (14 Same, 4 Literal, 1 Composite). Full results available in Table ?. This indicates that a 
 bug with disjoint coverage result is very likely to contain code clones in its
 human patch. This result could suggest future APR techniques to apply the same edits to multiple locations
-if the coverage result of the bug can be categorized as "Disjoint".
+if the coverage result of the bug can be categorized as "Disjoint". 
 
 \todo{YL: out of 69 code clones, 7 are in diff class, 26 are in same class diff method, and
 36 are in same method. Do we want to include these info too?}
