@@ -470,11 +470,11 @@ using the following heuristics:
 \begin{itemize}
 	\item If a statement invokes a method, then we assume that
 	the statement reads all variables used in the method arguments.
-	\item If a statement invokes a getter method \texttt{Class.getX} 
+	\item If a statement invokes a getter method \texttt{Class.getX()} 
 	(for any \texttt{Class} and \texttt{X}), then we heuristically 
 	assume that the statement reads \texttt{Class.X}. 
 	Note that \texttt{Class.X} does not need to actually exist.
-	\item If a statement invokes a setter method \texttt{Class.setX}, 
+	\item If a statement invokes a setter method \texttt{Class.setX()}, 
 	then we heuristically assume that the statement writes to \texttt{Class.X}. 
 \end{itemize}
 
