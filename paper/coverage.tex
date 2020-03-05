@@ -9,13 +9,31 @@ first step to characterizing the \emph{fault space} in automatic program repair,
 narrowing the search space to a portion of the program more likely (based on
 test case behavior) to correspond to the fault.  
 
-\paragraph{SBFL Basics.} \todo{Serena, please add an explanation of how SBFL
-  works; it's key to understanding the underlying assumption.  This should
-  include references as appropriate.}
+\paragraph{SBFL Basics.} 
+There are a few different SBFL tools, but they are 
+similar on principle. Intuitively, SBFL assigns a suspiciousness score to different lines of 
+code based on how often that line is executed among failing tests compared to passing 
+tests. This suspiciousness score can be calculated a few different ways. One of the oldest 
+and commonly studied SBFL technique is Tarantula~\cite{tarantula}. In Tarantula, the 
+suspiciousness score for a line $s$ is calculated by:
 
-Given these basics, fundamentally, a core
-assumption underlying SBFL is that \emph{failing tests execute buggy portions of 
-the code relatively more often than passing tests.} Thus, if all failing tests execute a 
+$$\mathit{susp(s)} 
+=\frac{\mathit{\%F(s)}}{\mathit{\%F(s)} + \mathit{\%P(s)}}$$
+where  $\mathit{\%F(s)}$ and $\mathit{\%P(s)}$ are, respectively, the percentage of failing 
+tests and passing tests that execute $s$. There are newer, more effective 
+SBFL techniques that calculate this score differently, such as Ochiai~\cite{ochiai} and 
+DStar~\cite{wong2013dstar}. Both of these were included in an empirical study 
+comparing fault localization techniques and were found to localize a similar set of 
+faults~\cite{zou2019empirical}.
+  
+%$\mathit{suspiciousness}(s) = 
+%\frac{\mathit{\%failing(s)}}{\mathit{\% failing(s)} + \mathit{\% passing(s)}}$, where  
+%$\mathit{\% failing(s)}$ and $\mathit{\% passing(s)}$ is the percentage of failing tests 
+%and passing tests that execute line $s$, respectively
+
+Fundamentally, a core assumption underlying SBFL is that \emph{failing tests execute 
+buggy portions of the code relatively more often than passing tests.} 
+Thus, if all failing tests execute a 
 particular line of code, then that line of code is scored as more suspicious.
 This assumption is well-suited to single edit repair. Indeed, the evaluation
 of most SBFL techniques asks exactly the question of interest when considering a
@@ -23,7 +41,7 @@ technique's suitability for single-edit repair: how often does a given technique
 correctly, highly rank individual buggy lines of code? 
 
 Such evaluations, by and large, do not consider the implications of
-suspeciousness scoring in a multi-edit repair context.  Instead, evaluations
+suspiciousness scoring in a multi-edit repair context.  Instead, evaluations
 typically consider a technique ``successful'' if it identifies \emph{any} of a
 set of changed lines as highly-ranked or likely-suspicious.  While appropriate
 for the question being asked in such evaluations, this does not address
