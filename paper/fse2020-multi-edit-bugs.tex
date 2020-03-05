@@ -719,6 +719,54 @@ requires multiple edit actions to fully repair
 and provides insight in future APR research.
 
 
+\section{Code clones}
+
+\todo{I don't know if we want this section on the paper, but I'm going to put it on here for now}
+
+\rqorinsight{RQ?: How often do code clones occur in multi-chunk bugs? Are existence of code
+clones in human patch correlated with specific patterns of fault localization?}
+
+Previous research ~\cite{wang2018} suggested that one potential way to enhance
+APR techniques is to allow them to apply a single edits to multiple locations.
+This is based on the observation that human developers tend to make exactly the 
+same edits in multiple locations when fixing bugs. Therefore, we want to study the
+prevalence of code clones in human patches.
+
+We will also attempt to look for patterns in fault localization of multi-chunk bugs
+from the coverage experiment that may be correlated with existence of code clones in 
+human patches.
+
+\subsection{Method}
+
+In this experiment, we will look at the existence of code clones in 
+edit chunks (same definition as in fitness experiment) of multi-chunk bugs (selected
+with same criteria as fitness experiment, but also includes Closure bugs in Defects4j).
+
+Then we will compare the results with the results of the coverage experiment in Section ?.
+
+\subsubsection{Code Clone}
+
+In this experiment, we call two chunks are code clones if
+
+1. The two chunks are alpha-equivalent, or differ by at most one constant or arithmetic operator,
+ or replacement of one constant with variable
+
+2. One chunk is a part of another 
+
+3. Movement of chunk (i.e. one chunk inserts and the other deletes the same content)
+
+\subsection{Results and Conclusion}
+
+Out of 216 multi-chunk bugs in Bears (single module) and Defects4j (all) with between 2-6 chunks,
+69 of them had at least two chunks that are code clones. Thus over 30\% of multi-chunk bugs seems
+to have chunk-level code clones, indicating prevalence of code clones in human patches.
+
+There are 23 bugs labeled as "Disjoint" in the coverage experiment, out of which 19 had code clones.
+This indicates that a bug with disjoint coverage result is very likely to contain code clones in its
+human patch. This result could suggest future APR techniques to apply the same edits to multiple locations
+if the coverage result of the bug can be categorized as "Disjoint".
+
+
 \section{Related Work}
 
 Qi et al.~\cite{patch-correctness} evaluated the patches generated 
