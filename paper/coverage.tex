@@ -82,20 +82,5 @@ bugs while the bugs in Bears are taken scraped directly from the commits.
 \end{figure}
 
 
-\input{symptoms.tex}
+%\input{symptoms.tex}
 
-\subsection{Discussion}
-\todo{trying to elicit some takeaways here, not sure if this will stay in.}
-
-We learned:
-\begin{itemize}
-	\item There are lots of multi-edit bugs in which no portion of the patch is covered by all failing 
-	tests.
-	\item However, there are also lots of multi-edit bugs that are covered exactly the same way by all 
-	failing tests.
-	\item Maybe next work includes what makes a disjoint bug disjoint; what makes a same patch 
-	same? Correlate with symptoms? oooh.
-	\item Speaking of symptoms, symptoms in the parsing category seems to correlate with 
-	multi-chunk bugs as well as decreased repair success by existing APR tools, suggesting that ... 
-	APR tools don't work well on multi-edit bugs?
-\end{itemize}
