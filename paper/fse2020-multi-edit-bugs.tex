@@ -221,7 +221,7 @@ those multi-entity fixes involved syntactic dependencies~\cite{wang2018}.
 Test cases are used to evaluate candidate repairs in virtually all dynamic
 generate-and-validate repair techniques, but, anecdotally, may not be effective
 at identifying partial repairs in a multi-location
-context~\cite{fitness10,maybeeric}.  
+context~\cite{better-fitness}.  
 Although multi-location repair has been discussed in the context of other analyses
 that study bug fix characteristics in general~\cite{d4j-dissection} as well as for
 repair applicability specifically~\cite{zhong2015, wang2018}, to the best of our
@@ -803,7 +803,7 @@ repair by asking:
 In evolutionary or search-based approaches, test case quality is
 even more pressing, as they are typicalyl used to define an objective or
 fitness function.  In these contexts, ideally, test cases could usefully
-identify partial solutions~\cite{fcd}, or subsets of edits that comprise the eventual
+identify partial solutions~\cite{better-fitness}, or subsets of edits that comprise the eventual
 patch. Whether test cases are suitable for this purpose in a multi-edit context
 is a matter of debate that motivates some techniques to simply target
 single-edit bugs~\cite{ae,rsrepair}. We study this phenomenon directly for
@@ -902,7 +902,7 @@ is exacerbated when bugs are not manually isolated to exclude potentially tangle
 changes (note the difference in behavior on Bears and Defects4J).  
 Although this could
 be a sign of tangled changes, such changes are excluded from Defects4J by
-construction~\cite{defect4j}; suggesting
+construction~\cite{defects4j}; suggesting
 that bug benchmarks that rely on real bugs differ from the expected behavior and 
 functionality of program repair techniques.  These results further suggest test
 suite inadequacy in fully testing multi-location
@@ -916,7 +916,7 @@ provided human patch that are necessary
 to pass all unit tests (Minimized).
 Some bugs are minimized to a single edit location, and are thus excluded 
 from the Minimized results. The minimized results 
-include 75 remaining bugs (544 partial repairs) in defects4j and 38 remaining bugs (156 partial repairs) of Bears. 
+include 75 remaining bugs (544 partial repairs) in Defects4j and 38 remaining bugs (156 partial repairs) of Bears. 
 
 Since each bug may have a different 
 number of partial repairs (based on the number of implicated locations per
