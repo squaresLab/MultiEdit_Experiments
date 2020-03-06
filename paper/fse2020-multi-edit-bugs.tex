@@ -935,15 +935,19 @@ More granular fitness functions are generally better at positively identifying p
 \end{table}
 
 
-Under highest granularity, we are able to identify above 45\% of the partial repairs in Defects4j
-and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50-60\%
+Using the highest, class-level test granularity correctly identifies more than
+45\% of the partial repairs in Defects4j \todo{What are the actual numberes for
+  this paragraph? Not ``About'' or ``more than'' --- what's the actual percentage?}
+and more than 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50-60\%
 of Bears partial repairs are neutral and below 15\% of bugs in both datasets are negatively identified. This shows that, 
-under high granularity, test case results can be a reasonably good indicator of partial repairs, as it makes much
+under high granularity, test cases \emph{can} provide a suitable
+indication of partial repairs, as they much more often positively identify
+partial repairs (than 
 more positive partial repair identifications than negative ones.
  
-The experiment result shows that higher granularity levels are better at identifying partial repairs positively, 
-but they also increase the chance of identifying partial repairs negatively.
-This tradeoff can behave differently on different datasets. For example,
+Our results show that higher granularity levels are better at identifying partial repairs positively, 
+but they also increase the chance of erroneously mis-identifying partial repairs. 
+This tradeoff behaves differently on our different datasets. For example,
 Assertion Level Granularity performed much better than Method Level Granularity
 in Defects4j (close to 10\% more positively identified partial repairs, with less than
 0.5\% more negatively identified), but this is not the case in Bears (less than 0.6\%
