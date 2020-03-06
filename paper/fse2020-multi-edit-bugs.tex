@@ -966,7 +966,10 @@ and online mutation-based fault localization~\cite{mut-analysis}.
 Some approaches require additional input, such as suspicious variables~\cite{source-code-checkpoint} 
 or known patches for the bug under repair~\cite{better-fitness}, 
 while others exhibit limited performance improvements~\cite{dinglyu, mut-analysis}.
-\todo{Describe how our work can spark future work in better evaluating candidate patches.}
+Our work shows the potential benefit of using more granular objective functions such as
+assertion level granularity compared to class/method level granularity, and maybe
+future research can look into even more granular objective functions such as sub-assertion
+level (different assert distance in AssertEqual, etc).
 
 Schulte et al.~\cite{schulte} did an empirical study on software mutation robustness 
 (i.e. how often do code mutations remain neutral in test results). 
