@@ -195,34 +195,39 @@ contributions are
 as follows:
 
 \begin{itemize}
-\item An analysis of multi-location patches in Defects4J and Bears.
-\item A study characterizing the ways that failing tests cover faulty locations
+\item An analysis and enumeration of multi-location patches in Defects4J and Bears.
+\item A study characterizing the coverage of failing tests on faulty locations
   as a means of testing whether the underlying hypothesis in current fault
-  localization techniques still hold for bugs requiring multi-location
-  patches. We find that 58\% of such bugs have faulty locations that are not
+  localization techniques still holds for bugs requiring multi-location
+  patches. We find that 58\% of relevant bugs have faulty locations that are not
   covered by all failing tests, thus the underlying assumptions do not
   necessarily hold.
-\item A study characterizing fix code.  We find that half of bug patches contain
-  dependent edits and over 30\% contain code clones.
-\item A new fitness function that measures patch quality using the number of
-  passing and failing assertions within test cases.
-\item A study of test cases as a means of evaluating both partial and full
-  multi-location repairs.  We find that there are significant amount of edits
-  that are not captured by test cases: one third of bugs with multi-location
-  patches in Defects4j more than half in Bears do not require the edits at every
-  location in their provided human patches to pass all test cases. Other than
-  that, we found that, under highest granularity (assertion level), test case
-  based validation methods can positively identify close to 40\% of partial repairs,
-  while only about 45\% partial repairs are neutral in test cases and less than
-  15\% are identified negatively. Moreover, we found that higher granularity
-  will increase the number of positively identified partial repairs, but it will
-  also increase the number of negatively identified partial repairs, and the
-  amount of increase/decrease may vary between datasets.
+\item A study characterizing the relationship between fix code at different locations.  We 
+find that half of bug patches contain dependent edits.
 \item A study of code clones. We find that over 30\% of bugs with multi-location
-  patches have very similar edits applied to different locations. Moreover, bugs
-  that have "disjoint" coverage tend to be much more likely (19 out of 23) to
-  have code clones.
-\item \todo{A set of recommendations?}
+patches have very similar edits applied to different locations, suggesting the viability of 
+program repair techniques designed to utilize code clones. Moreover, bugs in which 
+none of the faulty locations are covered by all failing tests tend to have code clones, 
+suggesting a way to tell when we should use a program repair technique designed for code 
+clones.
+\item A study of test cases as a means of evaluating both partial and full
+  multi-location repairs.  We find that one third of bugs with multi-location
+  patches in Defects4j more than half in Bears do not require the edits at every
+  location in their provided human patches to pass all test cases, suggesting that a 
+  significant portion of patches have auxiliary or unneeded edits. We also found that test 
+  case based validation methods can positively identify close to 40\% of partial repairs
+  while less than
+  15\% of partial repairs cause more test assertions to fail. Moreover, we found that the 
+  granularity in which you measure the affect of a partial repair on a test suite (i.e., by 
+  measuring assertions failed, methods failed, or classes failed) can have a significant 
+  influence on the ability to identify a partial repair.
+\item Differences between the Defects4J dataset and the Bears dataset. We identified a 
+few cases where the results differ significantly between datasets. For example, in 
+characterizing how failing tests cover faulty code, we discovered that Defects4J had 
+significantly more likely to have bugs in which faulty locations were not covered by all 
+failing tests than Bears. Similarly, Partial repairs were identified by failing tests more often 
+in Defects4J than in Bears. These differences emphasize the value in evaluating program 
+repair techniques against multiple different datasets.
 \end{itemize}
 
 \todo{The rest of this paper is organized as follows.  We provide background on
