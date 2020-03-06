@@ -6,6 +6,7 @@
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{fancybox}
+\usepackage{enumitem}
 
 %% Rights management information.  This information is sent to you
 %% when you complete the rights form.  These commands have SAMPLE
@@ -92,7 +93,7 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
   \vspace{0.5em}
   \begin{center}
   \Ovalbox{\begin{minipage}{0.9\linewidth}
-    \textbf{Research Question:} #1
+    \textbf{RQ#1:} #2
     \end{minipage}}
   \end{center}
   \vspace{0.5em}}
@@ -101,19 +102,22 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
-population~\cite{tricentis}. This motivates significant research in techniques
-to automatically find and fix them~\cite{whatever}, with the ultimate goal of
-reducing Quality Assurance costs while improving software quality.
+population~\cite{tricentis}. Software, and thus buggy software, has become
+ubiquitous. The increased developer workload has motivated research in
+techniques to automatically find and fix bugs, which have become integrated into
+real-world development: Facebook now includes automated repair in their
+production
+environment.\footnote{https://engineering.fb.com/developer-tools/getafix-how-facebook-tools-learn-to-fix-bugs-automatically/}
 
 A significant class of program repair techniques in both
-research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test cases to guide
-patch construction, typically by following what's known as a
+research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test
+cases to guide patch construction, typically by following what's known as a
 generate-and-validate paradigm. At a high level, these techniques use test cases
 to localize a defect --- identified by at least one failing test --- to a set of
 likely-suspicious program locations. Then, they use a variety of techniques to
 construct (or \emph{generate}) patch candidates for the bug in question,
 checking each to see (or \emph{validate}) if any of them cause the program to
-pass all of the provided test cases.  
+pass all of the provided test cases.
 %
 Patches are constructed in a variety of ways, ranging from heuristic, syntactic
 program manipulation~\cite{par,genprog,rsrepair,ae,prophet,hdrepair}, to specially adapted program
@@ -270,17 +274,19 @@ along the following axes:
   entire statement~\cite{genprog}, while PAR's \emph{Calling another method with
     the same parameters} mutation replaces a method call with any other method
   that takes the same number and type of parameters~\cite{par}.
-\item \emph{Objective function.} \todo{HERE}
+
+\item \emph{Objective function.} After candidate patches are generated, we must
+evaluate them in some way. The most common objective functions are test case based
+(such as GenProg's fitness function \cite{genprog}), where passing more unit tests
+is viewed as better. This approach, however, has problems, as individual correct edits do not
+necessarily make the code pass more tests. This poses as a serious challenge for 
+crafting correct multi-edit repairs. Attempts were made to tackle this problem
+by incorporating program invariants into objective function alongside test results
+\cite{dinglyu}, but no significant improvement in repair success rate was achieved. 
+
 \end{itemize}
 
 
-
-\paragraph{Edit granularity in bug-fixing patches.}  Developer patches for
-program bugs naturally vary in length and complexity.  Estimates range from
-\todo{FIXME} to \todo{FIXME}\% of bugs are repaired using fewer than
-\todo{FIXME} lines of code.  \todo{rephrpase/repeat stuff in intro about
-  studies/prevalence of multi-edit bugs, but expand the rephrase of the results
-  in that prior work to contrast with incidence of single-edit bugs.}  
 
 There are several plausible definitions of multi- vs. single-location bugs, with
 implications for how they are studied. For the purpose of this study, we define
@@ -303,15 +309,15 @@ search problems into multiple subspaces informs our empirical study of those
 spaces for the purposes of understanding multi-edit repair.  We address the
 following research questions:
 
-\begin{enumerate}
-\item \emph{RQ1: How prevalent are multi-location human patches are in Defects4J and Bears?}
-\item \emph{RQ2: Do failing tests cover different portions of the fault?}
-\item \emph{RQ3: How prevalent are dependencies between edited code?}
-\item \emph{RQ4: How often do code clones occur in bugs with multi-location
+\begin{enumerate}[label=RQ\arabic*:]
+\item \emph{How prevalent are multi-location human patches are in Defects4J and Bears?}
+\item \emph{Do failing tests cover different portions of the fault?}
+\item \emph{How prevalent are dependencies between edited code?}
+\item \emph{How often do code clones occur in bugs with multi-location
   patches? Is the existence of code clones in a human patch correlated with specific
   patterns of fault localization?}
-\item \emph{RQ5: Do test cases fully capture the effects of multi-location patches?}
-\item \emph{RQ6: How well do test case based validation methods identify partial repairs?}
+\item \emph{Do test cases fully capture the effects of multi-location patches?}
+\item \emph{How well do test case based validation methods identify partial repairs?}
 
 \end{enumerate}
 
@@ -378,7 +384,7 @@ We thus limit our analysis of Bears to 183 bugs from 30 single-module projects.
 We intend to address the remaining multi-module software projects in future work.
 
 \subsection{Multi-location Patch Prevalence}
-\rqorinsight{RQ1: How prevalent are multi-location human patches are in Defects4J and Bears?}
+\rqorinsight{1}{How prevalent are multi-location human patches are in Defects4J and Bears?}
 
 We start our analysis of multi-location patches by asking how many such patches 
 exist in our benchmarks.
@@ -440,16 +446,13 @@ implications for how they should be designed in new techniques moving forward.
 In particular, we examine the \emph{relationship} between multiple edits, along
 two dimensions:
 
-\rqorinsight{
-What are the dependencies (control flow- or data-) between multiple edits or
-edit locations?
-}
+\rqorinsight{2}{ What are the dependencies (control flow- or data-) between
+  multiple edits or edit locations?  }
 
 and
 
-\rqorinsight{
-What is the \emph{syntactic relationship} between multiple edits or edit
-locations?}
+\rqorinsight{3}{ What is the \emph{syntactic relationship} between multiple
+  edits or edit locations?}
 
 
 
@@ -537,7 +540,7 @@ add complexity to the search for a repair.
 
 \subsection{Cloned code}
 
-\rqorinsight{RQ4: How often do code clones occur in multi-location bugs? Are existence of 
+\rqorinsight{4}{How often do code clones occur in multi-location bugs? Are existence of 
 	code
 	clones in human patch correlated with specific patterns of fault localization?}
 
@@ -682,7 +685,7 @@ sets of code clones.
 \end{table}
 
 In Table \ref{tab:cov_clones}, we show the incidence of code clones among the three 
-coverage patterns identified in Section \ref{secFL}. Out of 25 bugs labeled as 
+coverage patterns identified in Section \ref{secFL}. Note that out of 216 bugs evaluated for code clones, only 91 of them have multiple failing tests, so only these bugs are included in the table.  Out of 25 bugs labeled as 
 \emph{disjoint} in the coverage 
 experiment, 19 had code clones (14 Same, 4 Literal, 1 Composite). In contrast, the 
 \emph{overlap} and \emph{identical} categories respectively had 2 and 5 bugs with code clones, 
@@ -703,7 +706,7 @@ candidate patches by
 measuring how "close" a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
 
-\rqorinsight{RQ5: Do test cases fully capture the effects of multiple edits?}
+\rqorinsight{5}{Do test cases fully capture the effects of multiple edits?}
 
 Sometimes not all edits in a human patch is necessary to pass all tests. This could be
 due to human patch including refactoring or other changes that does not actually
@@ -711,7 +714,7 @@ change code behavior, or it could be due to the unit tests not being able to cat
 an incorrect behavior that the remaining edits correct. We would like to explore
 to what extent does this phenomenon affect the bugs in our benchmarks.
 
-\rqorinsight{RQ6: How well do test case based validation methods identify partial repairs?}
+\rqorinsight{6}{How well do test case based validation methods identify partial repairs?}
 
 Given a buggy program and a valid repair, if we apply a part of the valid repair to 
 the buggy program (a partial repair), then semanticly the partial repair is closer
@@ -809,7 +812,7 @@ $\frac{1}{n}$. We record the percentage of partial repairs that performed better
 or worse (worse) compared to original code in each assertion level. Non compiling
 partial repairs do not count towards any of the three categories.
 
-The full unminimized result and minimized results in Table ?.
+The full unminimized result and minimized results in Table \ref{yiweitable}.
 
 
 \begin{table}
@@ -837,6 +840,7 @@ Negative & Assertion & 12.90\% & 14.39 \% & 11.29 \% &  14.44\%  \\
 \caption{Identification results of partial repairs using test case results
 at all granularity levels, "U" stands for Unminimized, "M" stands for minimized.
 Shows that at high granularity test case based validation performs pretty well}
+\label{yiweitable}
 \end{table}
 
     
