@@ -886,7 +886,17 @@ in APR research.
 
 \section{Limitations and Threats}
 
-\todo{Please list all limitations and threats you can think of for your experiments, in something approaching a reasonable order, so we can integrate.  If you can, pull that discussion from previous sections, I didn't look for it beyond test cases.}
+\todo{Please list all limitations and threats you can think of for your experiments, in 
+something approaching a reasonable order, so we can integrate.  If you can, pull that 
+discussion from previous sections, I didn't look for it beyond test cases.}
+
+\paragraph{Coverage}
+
+There are statements that Jacoco can't get coverage for, like inserted cases for switch 
+statements, inserted else statements, method signatures, and other things that are compiled 
+away in bytecode. We might have been able to get around these with some engineering 
+effort, but since our focus is on how the coverage of different failing tests compared to each 
+other, we felt that using Jacoco's coverage was a good enough approximation.
 
 \paragraph{Code clones.}
 
