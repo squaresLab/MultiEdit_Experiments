@@ -935,25 +935,25 @@ More granular fitness functions are generally better at positively identifying p
 \end{table}
 
 
-Using the highest, class-level test granularity correctly identifies more than
-45\% of the partial repairs in Defects4j \todo{What are the actual numberes for
-  this paragraph? Not ``About'' or ``more than'' --- what's the actual
-  percentage?  Please address throughout the paper, this is just where I was
-  when I thought to put this todo in.}
-and more than 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50-60\%
-of Bears partial repairs are neutral and below 15\% of bugs in both datasets are negatively identified. This shows that, 
-under high granularity, test cases \emph{can} provide a suitable
-indication of partial repairs, as they much more often positively identify
-partial repairs (than 
+Under highest granularity, 48.25\% (unminimized) and 45.91\% (minimized) of the partial repairs in Defects4j
+and 31.60\% (unminimized) and 20.24 (minimized) of the partial repairs in Bears are
+identified positively. 
+Only 31.73\% (unminimized) and 30.30\% (minimized) of Defects4j partial repairs and 
+47.48\% (unminimized) and 59.19\% (miniized)
+of Bears partial repairs are neutral. Below 15\% of bugs in both datasets 
+(minimized and unminimized) are negatively identified. This shows that, 
+under high granularity, test case results can be a reasonably good indicator of partial repairs, as it makes much
 more positive partial repair identifications than negative ones.
  
 Our results show that higher granularity levels are better at identifying partial repairs positively, 
 but they also increase the chance of erroneously mis-identifying partial repairs. 
 This tradeoff behaves differently on our different datasets. For example,
 Assertion Level Granularity performed much better than Method Level Granularity
-in Defects4j (close to 10\% more positively identified partial repairs, with less than
-0.5\% more negatively identified), but this is not the case in Bears (less than 0.6\%
-more positively identified partial repairs, with about 4\% more negatively identified).
+in Defects4j (7.00\% (unminimized) and 9.11\% (minimized) more positively identified partial repairs, with less than
+0.4\% more negatively identified), but this is not the case in Bears (0.31\% 
+(unminimized) and 0.5\% (minimized)
+more positively identified partial repairs, with about 3.03\% (unminimized) and 3.60\% (minimized)
+ more negatively identified).
 Thus, it is recommended that researchers should 
 carefully balance the tradeoffs in granularity level in test case based validation
 in APR research.
