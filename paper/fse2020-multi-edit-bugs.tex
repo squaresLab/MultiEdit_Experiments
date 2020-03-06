@@ -486,8 +486,8 @@ We find that 44\% of Defects4J patches, 61\% of Bears patches,
 and 49\% of the combined datasets' patches contain dependencies 
 between edited statements.
 Our finding supports earlier results on edit dependencies in 
-bug patches~\cite{zhong2015}. 
-
+bug patches~\cite{zhong2015} and shows that neither type of 
+patches should be ignored.
 
 \begin{table}
 {\begin{center}
@@ -512,25 +512,28 @@ bug patches~\cite{zhong2015}.
 	\end{tabular}
  \end{center}
 }
-	\caption{Frequency of multi-line patches with respect to the presence of 
+	\caption{Number and percent of multi-line patches with respect to the presence of 
 	dependent line edits and whether an APR tool successfully 
 	repaired the bug in~\cite{durieux-repair-them-all}.}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
 
-\todo{Why are we asking this question/discussing these results?} 
-Tables~\ref{tab:dependency-repair-contingency-table} and~\ref{tab:dependency-repair-percents}
+To examine how the presence of edit dependencies may impact 
+APR performance, we compare how often APR techniques 
+successfully repair bugs whose patches do (not) contain edit dependencies.
+Tables~\ref{tab:dependency-repair-contingency-table}
 show the frequencies and percentages of multi-line patches with respect to edit dependency 
 and whether an APR tool successfully repaired bug in~\cite{durieux-repair-them-all}.
-
-We find that the presence of edit dependencies generally reduces the likelihood of APR tool success.
-Using a $\chi^2$ test, we find statistically significant relationships ($p < 0.001$)
-between APR success and control, data, and the disjunction of either dependencies 
-for Defects4J patches. We fail to find statistically 
+We find that the presence of edit dependencies 
+reduces the likelihood of APR tool success for Defects4J bugs.
+Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
+between APR success and the presence of edit dependencies for Defects4J patches. 
+We fail to find statistically 
 significant relationships over only Bears patches, possibly due to the small number (16) of 
 successfully auto-repaired Bears bugs with multi-line human patches.
-\todo{What are the implications, in straightforward English prose?}
-
+The generally lower auto-repairability of bugs with edit dependent patches compared 
+to their non-edit dependent brethren suggest that such dependencies indeed 
+add complexity to the search for a repair.
 
 \subsection{Cloned code}
 
