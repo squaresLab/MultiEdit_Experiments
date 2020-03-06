@@ -366,7 +366,7 @@ comments, whitespace, or import statements.
 
 Although alternative definitions may have bearing on our results, we believe this is an intuitive definition consistent with the general APR paradigm.Moreover, our aim is to understand properties of 
 complex bugs for the purposes of understanding the limitations of
-existing repiaar techniques, and key future directions to
+existing repair techniques, and key future directions to
 adapting or extending them to improve expressivity. 
 
 \paragraph{Research questions.}  The parameterization of the program repair
@@ -445,13 +445,13 @@ Bears offers 251 bugs from 72 software projects, providing a greater diversity o
 projects compared to Defects4J. 
 Several projects in Bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
-We thus limit our analysis of Bears to 183 bugs from 30 single-module projects.
+We thus limit our analysis of Bears to 183 bugs from 34 single-module projects.
 
 
 We start our analysis of multi-location patches by asking the following research question:
 \rqorinsight{1}{How prevalent are multi-location human patches are in Defects4J and Bears?}
 
-Table~\ref{tab:dataset-characteristics} lists the number and percentages of
+Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and Bears. 
 We find that multi-location patches comprise over half of Bears and almost half of Defects4J.
 Although a multi-location human patch for a bug does not imply the 
@@ -585,7 +585,7 @@ reduces the likelihood of APR tool success for Defects4J bugs.
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
 between APR success and the presence of edit dependencies for Defects4J patches. 
 We fail to find statistically 
-significant relationships over only Bears patches, possibly due to the small number (16) of 
+significant relationships over Bears patches, possibly due to the small number (16) of 
 successfully auto-repaired Bears bugs with multi-line human patches.
 The generally lower auto-repairability of bugs with edit dependent patches compared 
 to their non-edit dependent brethren suggest that such dependencies indeed 
@@ -639,11 +639,11 @@ In comparing these results with the results of the coverage experiment in
 Section~\ref{secFL}, we will focus on the multi-test and multi-location bugs used in the coverage 
 experiment, a total of 91 bugs.
 
-We call the partial patches at two locations code clones if it is one of the following four cases
+We call the edits at two locations code clones if it is one of the following four cases:
 \begin{enumerate}
 	\item Same Case: The two locations are alpha-equivalent. 
 	\item Literal Case: The two locations differ by at most one constant or arithmetic operator,
-	or replacement of one constant with variable 
+	or replacement of one constant with variable.
 	\item Composite Case: The patch at one location is exactly copied and contained within the patch at 
 	the 
 	second location (the second location  has additional lines in the patch).
@@ -716,7 +716,7 @@ Same Method means the code clones occur in the same method, Same Class means the
 clones are in the same class but not in the same method, and Diff Class means the
 code clones are in different classes.
 The majority of code clones occur within the same method, and are of
-the ``Same'' category}
+the ``Same'' category.}
 \label{tab:clones_loc}
 \end{table}
 
@@ -812,7 +812,7 @@ partial repairs at different granularity levels.
 \label{sec:partial-repair-methodology}
 
 For each bug in  Defects4j 
-(excluding Clojure, which does not use JUnit)
+(excluding Closure, which uses a non-standard testing setup)
 and Bears (single-module only), we generate and test all combinations of partial repairs, as follows: 
 
 \subsubsection{Partial Repairs}
@@ -880,7 +880,7 @@ construction~\cite{defects4j}; suggesting
 that bug benchmarks that rely on real bugs differ from the expected behavior and 
 functionality of program repair techniques.  These results further suggest test
 suite inadequacy in fully testing multi-location
-changes~\cite{something-mutation-testing}.  This provides concrete evidence that
+changes. This provides concrete evidence that
 test cases are an imperfect oracle for multi-location changes in particular. 
 
 Due to the phenomenon above, we present the results for RQ6 in two ways:
