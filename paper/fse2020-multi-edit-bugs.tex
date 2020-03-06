@@ -887,57 +887,52 @@ in APR research.
 
 
 \section{Limitations and Threats}
-
-\todo{Please list all limitations and threats you can think of for your experiments, in 
-something approaching a reasonable order, so we can integrate.  If you can, pull that 
-discussion from previous sections, I didn't look for it beyond test cases.}
-
+In this section we examine the limitations and threats to validity of our
+experiments.
 \paragraph{Coverage}
 
-There are statements that Jacoco can't get coverage for, like inserted cases for switch 
-statements, inserted else statements, method signatures, and other things that are compiled 
-away in bytecode. We might have been able to get around these with some engineering 
-effort, but since our focus is on how the coverage of different failing tests compared to each 
-other, we felt that using Jacoco's coverage was a good enough approximation.
+We use JaCoCo to collect coverage for experiments, but it has some
+limitations. For example, it cannot collect coverage information for inserted
+cases for \texttt{switch} statements, \texttt{else} statements, method
+signatures, and other code constructs that are compiled away during the
+transformation to bytecode. Since our focus is on how the coverage of different
+failing tests compared to each other, we felt that JaCoCo's coverage was a good
+enough approximation for these experiments.
 
 \paragraph{Dependency analysis.}
-Since we use intraprocedural control and data dependency analysis, 
-we may miss certain interprocedural dependencies between edited statements.
-Although our heuristics for method invocations may account for certain 
-interprocedural data dependencies, these heuristics may also introduce 
-false positive data reads and writes, which may lead to inaccurate determinations 
-of dependency.
+For simplicity, our dependency analysis was intraprocedural, and it
+does not account for interprocedural dependencies between edited statements.  Although our
+heuristics for method invocations may account for certain interprocedural data
+dependencies, these heuristics may also introduce false positive data reads and
+writes, which may lead to inaccurate determinations of dependency.
 
 \paragraph{Code clones.}
 
-This experiment only looks at location level code clones, 
-but there could also be code clones within a single edit 
-location. This experiment also defined code clones with four categories 
-(Same, Literal, Composite, Move), and there could be other categories as well. 
+This paper only examines code clones at the ``location'' level, as defined in
+Section~\ref{sec:background}. However, code clones can also occur at the
+granularity of individual lines~\cite{JiaClones}, or even
+subexpressions~\cite{microclones}. We also classified clones into four
+categories (Same, Literal, Composite, Move), but it is possible to decompose
+them in other ways.
 
-A set of code clones could contain two or more locations with similar edits, 
-but we did not 
-distinguish the actual number of edit locations in the experiment and treated all of them
-as just one set of code clones.
+Additionally, when looking at clones, we did not distinguish between the number
+of edit locations in a particular set of clones. It is possible that a set of
+clones could contain two or more locations with similar edits, but this paper
+does not examine that case.
 
 \paragraph{Partial repair construction.}
-The construction of partial repairs, as described in 
-Section~\ref{sec:partial-repair-methodology},
- breaks up full repairs into locations and treats each edit location as a 
-single edit action. However, in reality most APR techniques mutate code at 
-a more granular level.
-Also, this experiment only checks whether fitness functions 
-can identify partial repairs, and not concerned with how to come up with these 
-partial repairs (depending on specifics of the APR 
-techniques, some may not be in the search space).
-
-Regardless of its limitations, this experiment is provides valid and valuable 
-information to tackling the challenge of automatically repairing bugs that 
-requires multiple edit actions to fully repair 
-and provides insight in future APR research.
-
-
-
+The construction of partial repairs, as described in
+Section~\ref{sec:partial-repair-methodology}, breaks up multi-location patches
+into single-location edits. However, in
+reality most automated repair techniques mutate code at a finer granularity, so
+these edits may not be representative.  Additionally, we only observe if fitness
+functions can be used to identify partial repairs,
+instead of the generation of partial repairs. It may be the case that the
+partial repairs in our experiments would be outside of the search space of a
+particular automated repair technique.
+Regardless of this limitation, this experiment provides valuable 
+insight into the challenge of automatically repairing bugs requiring
+multi-location patches.
 
 \section{Related Work}
 
