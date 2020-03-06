@@ -414,7 +414,7 @@ changes added for non-repair reasons.
 
 Given suitably selected fault locations, APR techniques vary in the types of
 mutation operators they consider, how they select between them, and how they
-select new fix code to instantiate them, as necessary.  For example, a naive
+select new fix code to instantiate them, as necessary.  For example, a na{\"i}ve
 approach with only \texttt{insert}, \texttt{replace}, and \texttt{delete}
 operators must choose between them at a location and, in the case of
 \texttt{insert} and \texttt{replace}, choose code to insert/replace at that
@@ -638,15 +638,15 @@ that
 belong to different categories.
 
 
-i\begin{table}
+\begin{table}
 {\begin{center}
 \begin{tabular} {lrrr}
 \toprule
 & Same Method & Same Class & Different Class \\
 \hline
-iSame & 24 & 18 & 5  \\ 
-tLiteral & 9 & 4 & 1  \\
-atComposite & 3 & 5 & 0  \\
+Same & 24 & 18 & 5  \\ 
+Literal & 9 & 4 & 1  \\
+Composite & 3 & 5 & 0  \\
 Move & 5 & 1 & 1  \\
 \midrule
 Total & 41 & 26 & 7 \\
@@ -654,10 +654,12 @@ Total & 41 & 26 & 7 \\
 \end{tabular}
 \end{center}
 }
-\caption{\todo{(JL: polish this caption, explicitly describe what each of''Same
-    Method'', ``Same Class'', etc mean, especially that ``Same Class'' means
-    ``Same class different method'')Relative locations of sets of code clones in each category (defined in \ref{sec52}).
-Shows that the majority of code clones occur within the same method}}
+\caption{
+    Relative locations of sets of code clones in each category (defined in \ref{sec52}).
+Same Method means the code clones occur in the same method, Same Class means the code
+clones are in the same class but not in the same method, and Different Class means the
+code clones are in different classes.
+Shows that the majority of code clones occur within the same method}
 \label{tab:clones_loc}
 \end{table}
 
