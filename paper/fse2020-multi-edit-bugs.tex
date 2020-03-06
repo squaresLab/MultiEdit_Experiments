@@ -183,7 +183,7 @@ that can in principle generate repairs with multi-location patches typically
 don't~\cite{genprog,others}.
 
 This leaves a large proportion of real-world bugs unrepairable by modern
-research techniques in program repair.  Over half of the bugs in popular bug
+research techniques in program repair.  Over half of the bugs in the popular bug
 benchmark Defects4J are patched by humans using multi-part
 patches~\cite{d4j-dissection}. Approximately 70\% of buggy source files in a
 large study of bugs in Apache projects required edits at two or more
@@ -217,7 +217,7 @@ One key question for applicability of these types of techniques is how prevalent
 such bugs are, and how often multi-location patches instead require multiple
 coordinating (but ultimately different) edits or pieces of fix code.  Over 50\% of the fixes in four 
 Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
-those multi-entity fixes involved syntactic dependencies.~\cite{wang2018}. 
+those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
 Test cases are used to evaluate candidate repairs in virtually all dynamic
 generate-and-validate repair techniques, but, anecdotally, may not be effective
 at identifying partial repairs in a multi-location
@@ -252,7 +252,8 @@ as follows:
   covered by all failing tests, thus the underlying assumptions do not
   necessarily hold.
 \item A study characterizing the relationship between fix code at different locations.  We 
-find that half of bug patches contain dependent edits.
+find that half of bug patches contain dependent edits, and that bugs with dependent 
+edits in their patches may be more difficult to automatically repair.
 \item A study of code clones. We find that over 30\% of bugs with multi-location
 patches have very similar edits applied to different locations, suggesting the viability of 
 program repair techniques designed to utilize code clones. Moreover, bugs in which 
@@ -944,9 +945,9 @@ of Bears partial repairs are neutral. Below 15\% of bugs in both datasets
 under high granularity, test case results can be a reasonably good indicator of partial repairs, as it makes much
 more positive partial repair identifications than negative ones.
  
-The experiment result shows that higher granularity levels are better at identifying partial repairs positively, 
-but they also increase the chance of identifying partial repairs negatively.
-This tradeoff can behave differently on different datasets. For example,
+Our results show that higher granularity levels are better at identifying partial repairs positively, 
+but they also increase the chance of erroneously mis-identifying partial repairs. 
+This tradeoff behaves differently on our different datasets. For example,
 Assertion Level Granularity performed much better than Method Level Granularity
 in Defects4j (7.00\% (unminimized) and 9.11\% (minimized) more positively identified partial repairs, with less than
 0.4\% more negatively identified), but this is not the case in Bears (0.31\% 
@@ -958,9 +959,8 @@ carefully balance the tradeoffs in granularity level in test case based validati
 in APR research.
 
 
-\section{Limitations and Threats}
-In this section we examine the limitations and threats to validity of our
-experiments.
+\section{Limitations}
+
 \paragraph{Coverage}
 
 We use JaCoCo to collect coverage for experiments, but it has some
