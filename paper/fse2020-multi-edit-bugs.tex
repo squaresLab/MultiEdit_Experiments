@@ -684,10 +684,16 @@ sets of code clones.
 			\end{tabular}
 		\end{center}
 	}
-	\caption{\todo{(JL: this caption should explain All Things. What is
-        ``Identical''? A reader usually shouldn't have to cross-reference another
-        section to understand a table)} Multi-location and multi-test bugs categorized on coverage patterns (Section 
-		\ref{secFL}) and code clones}
+	\caption{Multi-location and multi-test bugs categorized on coverage patterns along the top 
+	and code clones to the left. The coverage patterns are assigned based on how the failing 
+	tests of a bug cover the different faulty locations. ``Disjoint," refers to bugs in which none 
+	of the faulty 
+	locations were covered by all 
+	failing tests.  ``Overlap," refers to bugs with some faulty locations covered by all failing 
+	tests, and 
+	other faulty locations covered by a subset of failing tests. ``Same" refers to bugs in 
+	which the 
+	failing tests all covered the exact same faulty locations.}
 	\label{tab:cov_clones}
 \end{table}
 
