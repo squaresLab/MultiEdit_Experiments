@@ -1154,7 +1154,7 @@ multi-location bug patches. We find that 49\% of bugs with multi-location
 patches contain dependent edits in their human patches, \emph{which may be
   difficult for automated techniques to repair}.  We also find that 32\% of bugs
 with multi-location patches contain code clones. Moreover, we found that bugs
-that were found to be \emph{disjoint} in our coverage analysis (i.e., had no
+that were found to be disjoint in our coverage analysis (i.e., had no
 patch location covered by all failing tests) were more likely to be code
 clones. This indicates that \emph{program repair techniques that focus on fix
   patterns based on code clones are viable for a significant portion of
@@ -1162,29 +1162,20 @@ clones. This indicates that \emph{program repair techniques that focus on fix
 patterns of coverage, \emph{we can use this information during fault localization and
 patch generation to identify which bugs would benefit most from clone-specific techniques}.
 
-Finally, we measured how test cases respond to the application of partial
-repairs. We found that test case based validation methods can be good at
-identifying partial repairs at when measuring the effect of the partial repair
-on the test suite at a higher granularity level such as method level or
-assertion level. This suggests that for a generate and validate program repair
-approach, applying a partial patch can still guide the approach towards the
-correct patch. Moreover, we observed that the number of both positively and
-negatively identified partial repairs increase as we increase the granularity,
-so we advise a careful balance of the tradeoffs of granularity levels in future
-search based APR development.
+Finally, we measured how test cases interact with multi-location patches.  We
+found that not all edits in a patch were always required to pass all failing
+tests in a test suite. Thus, test cases do not always test the full
+functionality of a patch and \emph{test cases alone may not be enough to guide
+  multi-location automated repair}.  However, we also found that test case based
+validation methods can be good at identifying partial repairs, especially when
+measuring effects higher granularity levels. This suggests that for a generate
+and validate program repair approach, \emph{applying a partial patch can still guide
+the automated techniques towards the correct patch}.
 
-As an additional insight gained from measuring test case response to partial patches, we 
-also found that test case based validation methods cannot capture all effects of human 
-patches,
-as between a third and a half of multi-location bugs are still able to pass all the tests 
-without all partial patches being present. This builds on previous work and motivates 
-future work on the minimality of human patches.
-
-These findings have implications for using program repair for multi-location bugs, both in 
-terms of how existing program repair techniques can repair multi-location bugs and how 
-we should design future repair techniques.
-
-To ensure reproducibility and encourage further investigation, we intend to release a 
+Our findings suggest deep implications for program repair targeting
+multi-location patches, both in terms of the applicability of existing program
+repair techniques and the design future repair techniques. To ensure
+reproducibility and encourage further investigation, we intend to release a
 replication package post-review.
 
 \bibliographystyle{ACM-Reference-Format}
