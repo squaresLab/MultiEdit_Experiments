@@ -293,7 +293,7 @@ by incorporating program invariants into objective function alongside test resul
 
 
 
-There are several plausible definitions of multi- vs. single-location bugs, with
+\paragraph{Multi-location bugs.} There are several plausible definitions of multi- vs. single-location bugs, with
 implications for how they are studied. For the purpose of this study, we define
 a \emph{patch location} as a contiguous sequence of edited lines of
 code. Additionally, since we would like to observe the behavior of code as edits
@@ -822,21 +822,21 @@ The full unminimized result and minimized results in Table \ref{yiweitable}.
 \multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4j} & \multicolumn{2}{c}{Bears} \\
 \multicolumn{2}{c}{Minimized?} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes}  \\
 \midrule
-Positive & Class & 20.46\% & 9.78 \% & 27.60\% & 10.59\%  \\
-Positive & Method & 41.25\% & 36.80 \% & 31.29 \% & 19.71\%  \\
-Positive & Assertion & 48.25\% & 45.91 \% & 31.60 \% & 20.24\%  \\ 
+\multirow{3}{*}{Positive} & Class & 20.46\% & 9.78 \% & 27.60\% & 10.59\%  \\
+ & Method & 41.25\% & 36.80 \% & 31.29 \% & 19.71\%  \\
+ & Assertion & 48.25\% & 45.91 \% & 31.60 \% & 20.24\%  \\ 
 \midrule
-Neutral & Class & 65.53\% & 73.56 \% & 56.84 \% & 73.75\% \\
-Neutral & Method & 39.33\% & 39.95 \% & 51.60 \% & 64.62\%  \\
-Neutral & Assertion & 31.73\% & 30.30 \% & 47.48 \% &  59.19\%  \\ 
+\multirow{3}{*}{Neutral} & Class & 65.53\% & 73.56 \% & 56.84 \% & 73.75\% \\
+ & Method & 39.33\% & 39.95 \% & 51.60 \% & 64.62\%  \\
+ & Assertion & 31.73\% & 30.30 \% & 47.48 \% &  59.19\%  \\ 
 \midrule
-Negative & Class & 7.18\% & 7.64 \% & 6.70 \% & 10.84\%  \\
-Negative & Method & 12.52\% & 14.13 \% & 8.26 \% & 10.84\%  \\
-Negative & Assertion & 12.90\% & 14.39 \% & 11.29 \% &  14.44\%  \\ 
+\multirow{3}{*}{Negative} & Class & 7.18\% & 7.64 \% & 6.70 \% & 10.84\%  \\
+ & Method & 12.52\% & 14.13 \% & 8.26 \% & 10.84\%  \\
+ & Assertion & 12.90\% & 14.39 \% & 11.29 \% &  14.44\%  \\ 
 \bottomrule
 \end{tabular}
 \end{center}}
-\caption{Identification results of partial repairs using test case results
+\caption{Results of partial repairs using test case results
 at all granularity levels.
 More granular fitness functions are generally better at positively identifying partial repairs.}
 \label{yiweitable}
