@@ -1012,7 +1012,7 @@ multi-location patches.
 There have been a few fairly recent empirical studies on fault localization. They find that 
 SBFL is a more effective fault localization technique than a host of other techniques, such as 
 mutation-based fault localization~\cite{pearson2017evaluating, mut-analysis}, program 
-slicing, predicate switching,  information retrieval techniques, and other techniques. 
+slicing, predicate switching,  information retrieval, and other techniques. 
 However, a fault localization 
 technique that outperforms all of these can be created by using machine learning to combine 
 multiple fault localization techniques, implying that different fault localization techniques can 
@@ -1066,14 +1066,16 @@ studied fault localization dificulty, bug fix complexity, necessary
 mutations, relevance of API knowledge to those mutations, and buggy file types
 on more than 9000 real-world bugs
 collected via BUGSTAT.  
-Both our paper and Zhong and Su's paper aims to provide useful guidance and insights for 
+Both our paper and the previous study aim to provide useful guidance and insights for 
 improving state-of-the-art APR techniques through empirical studies of bugs and bug fixes. 
-In contrast, our study focuses on one specific category of bugs: 
+Our study differs in that it focuses on one specific category of bugs: 
 source file bugs that requires multiple edit actions in multiple locations to successfully repair, 
 drawing insights on their behaviors in fault localization, fix mutations, and test-based 
-fitness evaluations. We also study the program repair benchmark datasets Defects4J 
+fitness evaluations. Additionally unlike the previous study, we study the program repair 
+benchmark datasets Defects4J 
 and Bears; we believe that the program repair community would derive greater 
 benefit from a study of APR benchmarks.
+% fix this phrasing for the camera ready
 
 Wang et al.~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
 (where each entity is a class, method or field). Their research questions mostly focused on 
