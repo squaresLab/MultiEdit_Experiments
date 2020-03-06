@@ -93,7 +93,7 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
   \vspace{0.5em}
   \begin{center}
   \Ovalbox{\begin{minipage}{0.9\linewidth}
-    \textbf{Research Question:} #1
+    \textbf{RQ#1:} #2
     \end{minipage}}
   \end{center}
   \vspace{0.5em}}
@@ -384,7 +384,7 @@ We thus limit our analysis of Bears to 183 bugs from 30 single-module projects.
 We intend to address the remaining multi-module software projects in future work.
 
 \subsection{Multi-location Patch Prevalence}
-\rqorinsight{RQ1: How prevalent are multi-location human patches are in Defects4J and Bears?}
+\rqorinsight{1}{How prevalent are multi-location human patches are in Defects4J and Bears?}
 
 We start our analysis of multi-location patches by asking how many such patches 
 exist in our benchmarks.
@@ -446,16 +446,13 @@ implications for how they should be designed in new techniques moving forward.
 In particular, we examine the \emph{relationship} between multiple edits, along
 two dimensions:
 
-\rqorinsight{
-What are the dependencies (control flow- or data-) between multiple edits or
-edit locations?
-}
+\rqorinsight{2}{ What are the dependencies (control flow- or data-) between
+  multiple edits or edit locations?  }
 
 and
 
-\rqorinsight{
-What is the \emph{syntactic relationship} between multiple edits or edit
-locations?}
+\rqorinsight{3}{ What is the \emph{syntactic relationship} between multiple
+  edits or edit locations?}
 
 
 
@@ -540,7 +537,7 @@ successfully auto-repaired Bears bugs with multi-line human patches.
 
 \subsection{Cloned code}
 
-\rqorinsight{RQ4: How often do code clones occur in multi-location bugs? Are existence of 
+\rqorinsight{4}{How often do code clones occur in multi-location bugs? Are existence of 
 	code
 	clones in human patch correlated with specific patterns of fault localization?}
 
@@ -706,7 +703,7 @@ candidate patches by
 measuring how "close" a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
 
-\rqorinsight{RQ5: Do test cases fully capture the effects of multiple edits?}
+\rqorinsight{5}{Do test cases fully capture the effects of multiple edits?}
 
 Sometimes not all edits in a human patch is necessary to pass all tests. This could be
 due to human patch including refactoring or other changes that does not actually
@@ -714,7 +711,7 @@ change code behavior, or it could be due to the unit tests not being able to cat
 an incorrect behavior that the remaining edits correct. We would like to explore
 to what extent does this phenomenon affect the bugs in our benchmarks.
 
-\rqorinsight{RQ6: How well do test case based validation methods identify partial repairs?}
+\rqorinsight{6}{How well do test case based validation methods identify partial repairs?}
 
 Given a buggy program and a valid repair, if we apply a part of the valid repair to 
 the buggy program (a partial repair), then semanticly the partial repair is closer
