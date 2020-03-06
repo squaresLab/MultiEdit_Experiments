@@ -586,8 +586,8 @@ successfully repair bugs whose patches do (not) contain edit dependencies.
 Tables~\ref{tab:dependency-repair-contingency-table}
 show the frequencies and percentages of multi-line patches with respect to edit dependency 
 and whether an APR tool successfully repaired bug in 
-RepairThemAll~\cite{durieux-repair-them-all}, a \todo{...a what? This sentence
-  trails off, I think someone deleted something...}
+RepairThemAll~\cite{durieux-repair-them-all}, a repair experiment running 
+11 APR tools on 5 benchmarks, including Defects4J and Bears.
 We find that the presence of edit dependencies 
 reduces the likelihood of APR tool success for Defects4J bugs.
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
@@ -706,7 +706,7 @@ belong to different categories.
 {\begin{center}
 \begin{tabular} {lrrrr}
 \toprule
-& Same Method & Same Class & Different Class & Total\\
+& Same Method & Same Class & Diff Class & Total\\
 \hline
 Same & 24 & 18 & 5 & 47 \\ 
 Literal & 9 & 4 & 1 & 14 \\
@@ -721,10 +721,10 @@ Total & 41 & 28 & 7  & 76\\
 \caption{
     Relative locations of sets of code clones in each category (defined in \ref{sec52}).
 Same Method means the code clones occur in the same method, Same Class means the code
-clones are in the same class but not in the same method, and Different Class means the
+clones are in the same class but not in the same method, and Diff Class means the
 code clones are in different classes.
-Shows that the majority of code clones occur within the same method\todo{This is not a complete sentence}
-and majority of code clones are of ``Same'' category}
+This table shows that the majority of code clones occur within the same method
+and the majority of code clones are of ``Same'' category}
 \label{tab:clones_loc}
 \end{table}
 
@@ -781,10 +781,9 @@ leave a concrete investigation of this possibility to future work.
 
 \section{Test case-based validation}
 
-Dynamic program repair most commonly uses test cases to validate candidate patch
-solutions.  Test cases may or may not be \todo{...has there been a bad merge?...} In search based program repair, one key area of research is to find ways to validate
+In search based program repair, one key area of research is to find ways to validate
 candidate patches by
-measuring how ''close'' a candidate patch is to a full repair (a fitness function),
+measuring how ``close'' a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
 
 \rqorinsight{5}{Do test cases fully capture the effects of multiple edits?}
@@ -1051,10 +1050,11 @@ collected via BUGSTAT.
 Both our paper and Zhong and Su's paper aims to provide useful guidance and insights for 
 improving state-of-the-art APR techniques through empirical studies of bugs and bug fixes. 
 In contrast, our study focuses on one specific category of bugs: 
-source file bugs that requires multiple edit actions to successfully repair, 
-drawing insights on their behaviors in fault localization, fitness evaluations and dependency.
-\todo{more detail needed.  This is very closely related.  Why should we exist,
-  given that they do? What do we add?}
+source file bugs that requires multiple edit actions in multiple locations to successfully repair, 
+drawing insights on their behaviors in fault localization, fix mutations, and test-based 
+fitness evaluations. We also study the program repair benchmark datasets Defects4J 
+and Bears; we believe that the program repair community would derive greater 
+benefit from a study of APR benchmarks.
 
 Wang et al.~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
 (where each entity is a class, method or field). Their research questions mostly focused on 
