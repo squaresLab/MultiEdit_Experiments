@@ -180,7 +180,7 @@ limit the repair search space to single-location patches for
 tractability~\cite{rsrepair,ae,hdrepair}, while others only target certain
 classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. However, even techniques
 that can in principle generate repairs with multi-location patches typically
-don't~\cite{genprog,others}.
+don't~\cite{patch-correctness}.
 
 This leaves a large proportion of real-world bugs unrepairable by modern
 research techniques in program repair.  Over half of the bugs in the popular bug
@@ -241,7 +241,7 @@ human developer using edits at multiple locations.  We look at characteristics a
 relevant axes of the program repair search problem: fault locations, mutation
 operators, fix code, and evaluation (or fitness or objective) using test cases.  Our 
 contributions are
-as follows:
+as follows:\footnote{We will complete the presentation of our replication package post review, as an additional contribution.}
 
 \begin{itemize}
 \item An analysis and enumeration of multi-location patches in Defects4J and Bears.
@@ -267,24 +267,23 @@ clones.
   while less than
   15\% of partial repairs cause more test assertions to fail. Additionally, the 
   \emph{granularity} at which test suite behavior is measured (i.e., at the class,
-  method, or assertion level) matters in terms of ability to identify partial
+  method, or assertion level) influences ability to identify partial
   repairs. 
-\item A replication package, which we shall publish post-review.
 \end{itemize}
 
-The rest of this paper is organized as follows.  In Section~\ref{sec:background}, we provide background on
-generate-and-validate program repair, with a focus on the key parameters of the
-program repair search p; outline our definition of a multi-edit repair for the
-purposes of this study; and outline our research questions.  We overview the key
-characteristics of the datasets that we use in our study in
-Section~\ref{sec:data-rq1}.  We then describe the results of our study along
-three key axes of program repair: fault localization (Section~\ref{secFL}),
-mutation operators and fix code (Section~\ref{mutops}), and test cases as
-the patch validation mechanism (Section~\ref{sec:tests}).  We conclude by
-outlining limitations (Section~\ref{sec:limits}), related work
-(Section~\ref{sec:related}), and summarizing discussion  (Section~\ref{conclusions}).
+% In Section~\ref{sec:background}, we provide background on
+% generate-and-validate program repair, with a focus on the key parameters of the
+% program repair search; outline our definition of a multi-edit repair for the
+% purposes of this study; and outline our research questions.  We overview the key
+% characteristics of the datasets that we use in our study in
+% Section~\ref{sec:data-rq1}.  We then describe the results of our study along
+% three key axes of program repair: fault localization (Section~\ref{secFL}),
+% mutation operators and fix code (Section~\ref{sec:mutops}), and test cases as
+% the patch validation mechanism (Section~\ref{sec:tests}).  We conclude by
+% outlining limitations (Section~\ref{sec:limits}), related work
+% (Section~\ref{sec:related}), and summarizing discussion  (Section~\ref{sec:conclusions}).
 
-\section{Key Concepts and Research Questions}
+\section{Key Terms and Concepts}
 \label{sec:background}
 
 \paragraph{Search spaces in automatic program repair.} Automatic program repair (APR) techniques aim to find patches for bugs in
@@ -365,9 +364,7 @@ inserted by the other. That is, conceptually:
 is treated as a single-location edit in our study.  We ignore changes to
 comments, whitespace, or import statements. 
 
-Alternative definitions may have bearing on our results.  We argue that this
-definition is natural for the purposes of our study.  Fault location is a key
-primitive in program repair. Moreover, our aim is to understand properties of 
+Although alternative definitions may have bearing on our results, we believe this is an intuitive definition consistent with the general APR paradigm.Moreover, our aim is to understand properties of 
 complex bugs for the purposes of understanding the limitations of
 existing repiaar techniques, and key future directions to
 adapting or extending them to improve expressivity. 
@@ -504,10 +501,9 @@ shape of the search space to render it tractably constrained --- in particular,
 targeting bugs that can be repaired by multiple syntactically similar pieces of
 fix code.
 
-These kinds of targeted techniques surface the general questions about
-multi-edit repairs we seek to answer, with
-implications for how they should be designed in new techniques moving forward.
-In particular, we want to examine the \emph{relationship} between multiple edits.
+These kinds of targeted techniques surface general questions about the
+\emph{relationship} between multiple edits, with implications for how edits
+should be designed for automatic multi-location repair. 
 
 \subsection{Dependencies}
 
@@ -571,7 +567,7 @@ and neither type of patches should be ignored.
 	\end{tabular}
  \end{center}
 }
-	\caption{Number and percent of multi-line patches with respect to the presence of 
+	\caption{Multi-line patches with respect to the presence of 
 	dependent line edits and whether an APR tool successfully 
 	repaired the bug in RepairThemAll~\cite{durieux-repair-them-all}.}
 	\label{tab:dependency-repair-contingency-table}
@@ -719,8 +715,8 @@ Total & 41 & 28 & 7  & 76\\
 Same Method means the code clones occur in the same method, Same Class means the code
 clones are in the same class but not in the same method, and Diff Class means the
 code clones are in different classes.
-This table shows that the majority of code clones occur within the same method
-and the majority of code clones are of ``Same'' category}
+The majority of code clones occur within the same method, and are of
+the ``Same'' category}
 \label{tab:clones_loc}
 \end{table}
 
@@ -743,16 +739,7 @@ alpha-equivalent edit locations within them.
 			\end{tabular}
 		\end{center}
 	}
-	\caption{Multi-location and multi-test bugs categorized on coverage patterns along the top 
-	and code clones to the left. The coverage patterns are assigned based on how the failing 
-	tests of a bug cover the different faulty locations. ``Disjoint'' refers to bugs in which none 
-	of the faulty 
-	locations were covered by all 
-	failing tests.  ``Overlap'' refers to bugs with some faulty locations covered by all failing 
-	tests, and 
-	other faulty locations covered by a subset of failing tests. ``Same'' refers to bugs in 
-	which the 
-	failing tests all covered the exact same faulty locations.}
+	\caption{Multi-location and multi-test bugs categorized by coverage pattern and presence of clones; definitions for Overlap, Disjoint, and Identical are taken from our experiments on fault localization.}
 	\label{tab:cov_clones}
 \end{table}
 
@@ -824,13 +811,9 @@ partial repairs at different granularity levels.
 \subsection{Methodology}
 \label{sec:partial-repair-methodology}
 
-To address RQ5 and RQ6, we designed the following experiment: for each bug in 
-Defects4j 
-(excluding Clojure bugs because they dont use JUnit) 
-and Bears (single-module only), we generate all of its partial repairs using method described in 
-the Partial Repairs subsubsection, and then run unit tests through all partial repairs
-as well as the original buggy program on three different granularity levels (described
-in details in the Granularity subsubsection), and compare the results.
+For each bug in  Defects4j 
+(excluding Clojure, which does not use JUnit)
+and Bears (single-module only), we generate and test all combinations of partial repairs, as follows: 
 
 \subsubsection{Partial Repairs}
 
@@ -842,9 +825,7 @@ import statements, helper methods, and variable declarations.
 For example, if a patch contains an edit location that declares a new variable 
 \texttt{var} and a second edit location that might use \texttt{var}, then we 
 pre-add the declaration of \texttt{var} from the first edit location. 
-We argue that the semantic behavior of partial edits is more interesting 
-than their syntactic correctness, which prompts us to apply the 
-aforementioned preprocessing.
+This allows us to examine semantic behavior of partial edits directly.
 
 We do not split edit locations into two when applying any of our preprocessing steps. 
 If an edit location, however, only contains edits that we pre-apply or remove during 
@@ -861,14 +842,12 @@ their nonstandard test suite setup.
 We are left with 97 Defects4J and 64 Bears bugs, a total of 898 partial repairs for Defects4j 
 and 444 partial repairs for Bears.
 
-\subsubsection{Granularity}
+\subsubsection{Test Granularity}
 
-There are different ways to compare unit test results, and the most common ways 
-are class-level granularity and method-level granularity. At Class-level granularity, 
-we only look at which test classes passed and which failed; at method-level 
-granularity, we look at which test methods passed and which failed.
-
-Here we introduce a third level of granularity: assertion-level granularity. 
+There are different ways to evaluate and compare JUnit test results. The Class-level granularity 
+considers only which test classes passed and which failed; at method-level 
+granularity, we look at which test methods passed/failed.
+We also consider \emph{assertion-level} granularity, defined as follows:
 For each test method $M$, let $A(M)$ be the set of all assert statements in $M$. 
 When $M$ is run, if an assertion failed, the failure is recorded and the method 
 is allowed to continue to run (as opposed to normally the test method throws an 
@@ -952,6 +931,7 @@ excluded from the count.
 at all granularity levels.
 More granular fitness functions are generally better at positively identifying partial repairs.}
 \label{yiweitable}
+%\vspace{-0.5in}
 \end{table}
 
 Table \ref{yiweitable} shows results.
@@ -962,8 +942,8 @@ Only 31.73\% (unminimized) and 30.30\% (minimized) of Defects4j partial repairs 
 47.48\% (unminimized) and 59.19\% (minimized)
 of Bears partial repairs are neutral. Less than 15\% of bugs in both datasets 
 (minimized and unminimized) are negatively identified. This shows that
-test suite results can still provide a reasonably good
-indication of partial repairs, as erroneous identification happens rarely. 
+test suite results can still often identify
+partial repairs; erroneous identification happens rarely. 
  
 Our results show that higher granularity levels are better at identifying partial repairs positively, 
 but they also increase the chance of erroneously mis-identifying partial repairs. 
@@ -982,9 +962,7 @@ in APR research.
 \section{Limitations}
 \label{sec:limits}
 
-
-\paragraph{Coverage}
-
+\noindent\textbf{Coverage.}
 We use JaCoCo to collect coverage for experiments, but it has some
 limitations. For example, it cannot collect coverage information for inserted
 cases for \texttt{switch} statements, \texttt{else} statements, method
@@ -993,28 +971,28 @@ transformation to bytecode. Since our focus is on how the coverage of different
 failing tests compared to each other, we felt that JaCoCo's coverage was a good
 enough approximation for these experiments.
 
-\paragraph{Dependency analysis.}
+\vspace{1ex}
+\noindent\textbf{Dependency analysis.}
 For simplicity, our dependency analysis was intraprocedural, and it
 does not account for interprocedural dependencies between edited statements.  Although our
 heuristics for method invocations may account for certain interprocedural data
 dependencies, these heuristics may also introduce false positive data reads and
 writes, which may lead to inaccurate determinations of dependency.
 
-\paragraph{Code clones.}
-
-This paper only examines code clones at the ``location'' level, as defined in
-Section~\ref{sec:background}. However, code clones can also occur at the
+\vspace{1ex}
+\noindent\textbf{Code clones.}
+We only examines code clones at the ``location'' level.  However, code clones can also occur at the
 granularity of individual lines~\cite{JiaClones}, or even
 subexpressions~\cite{microclones}. We also classified clones into four
 categories (Same, Literal, Composite, Move), but it is possible to decompose
 them in other ways.
-
-Additionally, when looking at clones, we did not distinguish between the number
+%
+Additionally we did not distinguish between the number
 of edit locations in a particular set of clones. It is possible that a set of
-clones could contain two or more locations with similar edits, but this paper
-does not examine that case.
+clones could contain two or more locations with similar edits, which we do not examine. 
 
-\paragraph{Partial repair construction.}
+\vspace{1ex}
+\noindent\textbf{Partial repair construction.}
 The construction of partial repairs, as described in
 Section~\ref{sec:partial-repair-methodology}, breaks up multi-location patches
 into single-location edits. However, in
@@ -1029,6 +1007,7 @@ insight into the challenge of automatically repairing bugs requiring
 multi-location patches.
 
 \section{Related Work}
+\label{sec:related}
 
 There have been a few fairly recent empirical studies on fault localization. They find that 
 SBFL is a more effective fault localization technique than a host of other techniques, such as 
@@ -1064,9 +1043,8 @@ high-quality repairs in response to a single test suite.   Later work found patc
 also problematic in Defects4J~\cite{d4j-eval} and in semantics-based 
 repair techniques~\cite{Le2018}.  We similarly find that test suites provide
 imperfect semantic coverage over multi-location edits: many bugs can be fixed
-with only a subset of the edits included in a multi-location human patch.  We do
-also find, however, that test cases can often correctly identify partial patches
-in a multi-location context. 
+with only a subset of the edits included in a multi-location human patch.  We 
+also find, however, that test cases can often identify partial patches. 
 
 % I know I'm referring to the work by the authors' names,
 % but I can't find a good way to refactor their names out without writing awkwardly.
@@ -1123,11 +1101,11 @@ assertion level granularity compared to class/method level granularity, and mayb
 future research can look into even more granular objective functions such as sub-assertion
 level (different assert distance in AssertEqual, etc).
 
-Schulte et al.~\cite{schulte} did an empirical study on software mutation robustness 
-(i.e. how often do code mutations remain neutral in test results). 
-They found that in a large collection of off-the-shelf softwares the mutation robustness is about 37\%, 
-and discussed potential application of mutation robustness to proactive bug repair. 
-\todo{How do their results compare with our results specifically? Do we find more or less neutral mutations?}
+Schulte et al.~\cite{schulte} studied software mutation robustness, in terms of 
+how often code do code mutations have no effect on test results.
+They found that in a large collection of off-the-shelf software, mutational robustness is about 37\%, 
+and discussed potential application of mutation robustness to proactive bug repair. Although our context is different --- they studied random mutations, we study changes associated with specific bug fixes --- we also find a non-trivial proportion of neutral edits in multi-location repairs.  
+
 In contrast, our study focuses on automatically fixing current bugs (i.e. bugs that fail an existing unit test), 
 and we do not restrict our repair actions to neutral variants of the program.
 
