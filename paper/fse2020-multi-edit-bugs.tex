@@ -229,6 +229,7 @@ significantly more likely to have bugs in which faulty locations were not covere
 failing tests than Bears. Similarly, Partial repairs were identified by failing tests more often 
 in Defects4J than in Bears. These differences emphasize the value in evaluating program 
 repair techniques against multiple different datasets.
+\item A replication package, which we shall publish post-review.
 \end{itemize}
 
 \todo{The rest of this paper is organized as follows.  We provide background on
@@ -317,7 +318,7 @@ following research questions:
 \item \emph{Do failing tests cover different portions of the fault?}
 \item \emph{How prevalent are dependencies between edited code?}
 \item \emph{How often do code clones occur in bugs with multi-location
-  patches? Is the existence of code clones in a human patch correlated with specific
+  patches? Is the existence of code clones in human patches correlated with specific
   patterns of fault localization?}
 \item \emph{Do test cases fully capture the effects of multi-location patches?}
 \item \emph{How well do test case based validation methods identify partial repairs?}
@@ -439,18 +440,18 @@ shape of the search space to render it tractably constrained --- in particular,
 targeting bugs that can be repaired by multiple syntactically similar pieces of
 fix code.
 
-These kinds of targeted technique surface the general questions about
-multi-edit repairs that we seek to answer, with
+These kinds of targeted techniques surface the general questions about
+multi-edit repairs we seek to answer, with
 implications for how they should be designed in new techniques moving forward.
-In particular, we examine the \emph{relationship} between multiple edits 
-along the dimensions of dependency and syntactic similarity.
+In particular, we want to examine the \emph{relationship} between multiple edits.
 
 \subsection{Dependencies}
 
+One of the dimensions of the relationship between multi-location patches is
+\emph{dependency}. Specifically, we ask the following research question:
 \rqorinsight{3}{How prevalent are dependencies between edited code?}
 
-\paragraph{Methodology.} 
-For dependency analysis, we broaden the scope of multi-location patches to 
+To answer this question, we broaden the scope of multi-location patches to 
 include all patches containing at least two added, removed, or modified lines.
 We consider a patch to contain dependent edits if there exists 
 control or data dependencies between added, deleted, or modified statements.
@@ -531,9 +532,13 @@ add complexity to the search for a repair.
 
 \subsection{Cloned code}
 
-\rqorinsight{4}{How often do code clones occur in multi-location bugs? Are existence of 
+In addition to dependency, multi-location patches can be related through syntactic
+similarity. That is, a patch can consist of a code edit applied repeatedly in
+multiple locations. Thus, we ask the following research question:
+
+\rqorinsight{4}{How often do code clones occur in multi-location bugs? Is the existence of 
 	code
-	clones in human patch correlated with specific patterns of fault localization?}
+	clones in human patches correlated with specific patterns of fault localization?}
 
 Previous research ~\cite{wang2018} suggested that one potential way to enhance
 APR techniques is to allow them to apply a single edits to multiple locations.
@@ -772,7 +777,8 @@ to the number of available edit operations, we evaluate bugs whose patches
 contain between two and six edit locations after preprocessing.
 Moreover, we exclude Defect4J's Closure compiler bugs due to 
 their nonstandard test suite setup.
-We are left with 97 Defects4J and 64 Bears bugs.
+We are left with 97 Defects4J and 64 Bears bugs, a total of 898 partial repairs for Defects4j 
+and 444 partial repairs for Bears.
 
 \subsubsection{Granularity}
 
@@ -796,17 +802,26 @@ assertions in $M$, there should be an increase in $AS(M)$.
 
 \subsection{Results}
 
-With 97 Defects4J and 64 Bears bugs, we evaluate
-a total of 898 partial repairs for Defects4j and 444 partial repairs for Bears.
-Out of these bugs, 32 out of 97 bugs in Defects4j and 
-34 out of 64 bugs in Bears has at least one edit location that
-is unnecessary to pass all unit tests.
+To answer RQ5, we report that about a 
+third (32 out of 97) of Defects4j bugs and over half (34 out of 64) of
+Bears bugs in this experiment do not need all edit locations in the provided human patches 
+to pass
+all unit tests. This suggests that significant portion of multi-location bugs contains some
+edit locations that has completely no effect on the test case behavior. This could be due to a 
+human developer refactoring code that doesn't change code behavior, which is a 
+phenomenon that has been studied in previous work~\cite{tangledchanges}. This would 
+suggest that bug benchmarks that rely on real bugs differ from the expected behavior and 
+functionality of program repair techniques. Another reason for the seemingly extraneous 
+partial repairs could be due to test cases not being able to detect incorrect behavior that is 
+fixed
+by the "unnecessary" edit location, which could elicit particular drawback to using tests as an 
+oracle.
 
-Due to the phenomenon above, we decided to present the
-data of this experiment in two ways: always view full provided human patch as full repair
+Due to the phenomenon above, we decided to present the results for RQ6 in two ways: 
+always view full provided human patch as full repair
 (Unminimized), and viewing minimum set of edit locations in provided human patch necessary
 to pass all unit tests as full repair (Minimized).
-Some bugs ends up with 1 edit location after minimization, 
+Some bugs ends up with one edit location after minimization, 
 so they are not included in the Minimized results. The minimized results 
 include 75 remaining bugs (544 partial repairs) in defects4j and 38 remaining bugs (156 partial repairs) of Bears. 
 
@@ -817,7 +832,7 @@ $\frac{1}{n}$. We record the percentage of partial repairs that performed better
 or worse (worse) compared to original code in each assertion level. Non compiling
 partial repairs do not count towards any of the three categories.
 
-The full unminimized result and minimized results in Table \ref{yiweitable}.
+The full unminimized and minimized results in Table \ref{yiweitable}.
 
 
 \begin{table}
@@ -847,16 +862,6 @@ More granular fitness functions are generally better at positively identifying p
 \label{yiweitable}
 \end{table}
 
-\subsubsection{Results for RQ5}
-About a third of Defects4j bugs and over half of
-Bears bugs in this experiment do not need all edit locations in the provided human patches to pass
-all unit tests. This suggests that significant portion of multi-location bugs contains some
-edit locations that has completely no effect on the test case behavior. This could be due to some
-edit location is just human developer refactoring code that doesn't change code behavior,
-or it could be due to test cases not being able to detect incorrect behavior that is fixed
-by the "unnecessary" edit location.
-
-\subsubsection{Results for RQ6}
 
 Under highest granularity, we are able to identify above 45\% of the partial repairs in Defects4j
 and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50-60\%
@@ -879,6 +884,18 @@ in APR research.
 \section{Limitations and Threats}
 
 \todo{Please list all limitations and threats you can think of for your experiments, in something approaching a reasonable order, so we can integrate.  If you can, pull that discussion from previous sections, I didn't look for it beyond test cases.}
+
+\paragraph{Code clones.}
+
+This experiment only looks at location level code clones, 
+but there could also be code clones within a single edit 
+location. This experiment also defined code clones with four categories 
+(Same, Literal, Composite, Move), and there could be other categories as well. 
+
+A set of code clones could contain two or more locations with similaar edits, 
+but we did not 
+distinguish the actual number of edit locations in the experiment and treated all of them
+as just one set of code clones.
 
 \paragraph{Test cases.}
 This experiment breaks up full repairs into locations and treats each edit location as a 
@@ -1030,6 +1047,8 @@ These findings have implications for using program repair for multi-location bug
 terms of how existing program repair techniques can repair multi-location bugs and how 
 we should design future repair techniques.
 
+To ensure reproducibility and encourage further investigation, we intend to release a 
+replication package post-review.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
