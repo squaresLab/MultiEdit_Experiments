@@ -6,6 +6,7 @@
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{fancybox}
+\usepackage{enumitem}
 
 %% Rights management information.  This information is sent to you
 %% when you complete the rights form.  These commands have SAMPLE
@@ -308,15 +309,15 @@ search problems into multiple subspaces informs our empirical study of those
 spaces for the purposes of understanding multi-edit repair.  We address the
 following research questions:
 
-\begin{enumerate}
-\item \emph{RQ1: How prevalent are multi-location human patches are in Defects4J and Bears?}
-\item \emph{RQ2: Do failing tests cover different portions of the fault?}
-\item \emph{RQ3: How prevalent are dependencies between edited code?}
-\item \emph{RQ4: How often do code clones occur in bugs with multi-location
+\begin{enumerate}[label=RQ\arabic*:]
+\item \emph{How prevalent are multi-location human patches are in Defects4J and Bears?}
+\item \emph{Do failing tests cover different portions of the fault?}
+\item \emph{How prevalent are dependencies between edited code?}
+\item \emph{How often do code clones occur in bugs with multi-location
   patches? Is the existence of code clones in a human patch correlated with specific
   patterns of fault localization?}
-\item \emph{RQ5: Do test cases fully capture the effects of multi-location patches?}
-\item \emph{RQ6: How well do test case based validation methods identify partial repairs?}
+\item \emph{Do test cases fully capture the effects of multi-location patches?}
+\item \emph{How well do test case based validation methods identify partial repairs?}
 
 \end{enumerate}
 
