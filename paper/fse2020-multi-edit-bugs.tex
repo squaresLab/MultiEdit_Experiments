@@ -1032,17 +1032,29 @@ multi-location patches.
 
 \section{Related Work}
 
-\cite{zou2019empirical}: Empirical study on fault localization, SBFL is the most effective standalone 
-technique, except for faults with crashes, in which stack trace analysis is the most effective. They 
-also combined different fault localization techniques by training a machine learning model, 
-specifically using a learning to rank model. Their learning to rank model outperformed all the 
-individual fault localization techniques. In their analysis, they considered a multi-edit bug to be 
-localized if any faulty line is localized.
+There have been a few fairly recent empirical studies on fault localization. They find that 
+SBFL is a more effective fault localization technique than a host of other techniques, such as 
+mutation-based fault localization~\cite{pearson2017evaluating, mut-analysis}, program 
+slicing, predicate switching,  information retrieval techniques, and other techniques. 
+However, a fault localization 
+technique that outperforms all of these can be created by using machine learning to combine 
+multiple fault localization techniques, implying that different fault localization techniques can 
+be used to localize different kinds of faults.~\cite{zou2019empirical} Most of the empirical 
+studies on fault localization evaluate techniques by determining whether the fault localization 
+technique can localize any faulty line. This is a useful evaluation for single line or single 
+location faults, but not necessarily multi-location faults.
 
-\cite{pearson2017evaluating}: Empirical study of multiple SBFL and mutation based faultlocalization 
-techniques on Defects4J. Since many of these techniques were evaluated with artificial faults, the 
-authors look at whether their effectiveness on artificial faults translates to effectiveness on real 
-faults. This is not the case. They also show that SBFL outperforms mutation based fault localization.
+Mutation testing contains parallels to program repair, as seen in the generate and validate 
+approach to program repair~\cite{weimer2013leveraging} and well as proposed fault 
+localization techniques~\cite{metallaxis,muse,mbfl-survey}. With regards to multi-location 
+bugs, there has been recent work on higher order mutants, which is interested in finding 
+certain combinations of mutants with particular behaviors. Higher order mutation testing 
+shares similar difficulties with multi-location bugs, particularly due to exponential growth of 
+an already large search 
+space~\cite{long-search-spaces}. The current state of the art in finding specific classes of 
+higher order mutants is using search based approaches; in particular, the best approach 
+currently identified is a genetic search, which is reminiscent of program repair~\cite{homs, 
+genprog}.
 
 Qi et al.~\cite{patch-correctness} evaluated the patches generated 
 by three G\&V repair tools~\cite{genprog, ae, rsrepair} and presented 
