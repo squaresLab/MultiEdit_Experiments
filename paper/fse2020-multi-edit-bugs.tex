@@ -639,11 +639,11 @@ In comparing these results with the results of the coverage experiment in
 Section~\ref{secFL}, we will focus on the multi-test and multi-location bugs used in the coverage 
 experiment, a total of 91 bugs.
 
-We call the edits at two locations code clones if it is one of the following four cases
+We call the edits at two locations code clones if it is one of the following four cases:
 \begin{enumerate}
 	\item Same Case: The two locations are alpha-equivalent. 
 	\item Literal Case: The two locations differ by at most one constant or arithmetic operator,
-	or replacement of one constant with variable 
+	or replacement of one constant with variable.
 	\item Composite Case: The patch at one location is exactly copied and contained within the patch at 
 	the 
 	second location (the second location  has additional lines in the patch).
