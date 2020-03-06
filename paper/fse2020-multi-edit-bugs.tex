@@ -317,7 +317,7 @@ following research questions:
 \item \emph{Do failing tests cover different portions of the fault?}
 \item \emph{How prevalent are dependencies between edited code?}
 \item \emph{How often do code clones occur in bugs with multi-location
-  patches? Is the existence of code clones in a human patch correlated with specific
+  patches? Is the existence of code clones in human patches correlated with specific
   patterns of fault localization?}
 \item \emph{Do test cases fully capture the effects of multi-location patches?}
 \item \emph{How well do test case based validation methods identify partial repairs?}
@@ -439,18 +439,18 @@ shape of the search space to render it tractably constrained --- in particular,
 targeting bugs that can be repaired by multiple syntactically similar pieces of
 fix code.
 
-These kinds of targeted technique surface the general questions about
-multi-edit repairs that we seek to answer, with
+These kinds of targeted techniques surface the general questions about
+multi-edit repairs we seek to answer, with
 implications for how they should be designed in new techniques moving forward.
-In particular, we examine the \emph{relationship} between multiple edits 
-along the dimensions of dependency and syntactic similarity.
+In particular, we want to examine the \emph{relationship} between multiple edits.
 
 \subsection{Dependencies}
 
+One of the dimensions of the relationship between multi-location patches is
+\emph{dependency}. Specifically, we ask the following research question:
 \rqorinsight{3}{How prevalent are dependencies between edited code?}
 
-\paragraph{Methodology.} 
-For dependency analysis, we broaden the scope of multi-location patches to 
+To answer this question, we broaden the scope of multi-location patches to 
 include all patches containing at least two added, removed, or modified lines.
 We consider a patch to contain dependent edits if there exists 
 control or data dependencies between added, deleted, or modified statements.
@@ -531,9 +531,13 @@ add complexity to the search for a repair.
 
 \subsection{Cloned code}
 
-\rqorinsight{4}{How often do code clones occur in multi-location bugs? Are existence of 
+In addition to dependency, multi-location patches can be related through syntactic
+similarity. That is, a patch can consist of a code edit applied repeatedly in
+multiple locations. Thus, we ask the following research question:
+
+\rqorinsight{4}{How often do code clones occur in multi-location bugs? Is the existence of 
 	code
-	clones in human patch correlated with specific patterns of fault localization?}
+	clones in human patches correlated with specific patterns of fault localization?}
 
 Previous research ~\cite{wang2018} suggested that one potential way to enhance
 APR techniques is to allow them to apply a single edits to multiple locations.
@@ -1007,13 +1011,11 @@ locations in the code are executed more often by failing tests, does not necessa
 for multi-location patches. Thus, we need to develop alternative fault localization 
 techniques that are scalable and effective for multi-location patches.
 
-We characterized the relationships between patches at diferent locations in a bug, with 
-respect to dependency relationships and syntactic relationships.
-
-In terms of dependency relationships,
-\todo{Fill sec 5.1 conclusion}.
-
-With regards to syntactic relationships, we found that over 30\%
+We characterized the relationships between multiple edits in a bug
+We find that approximately half of multi-edit bugs 
+contain dependent edits in their human patches, and such bugs may be more 
+difficult for APR techniques to repair.
+We also find that over 30\%
 of multi-location bugs have some kind of code clones, making code clones fairly prevalent 
 among bugs. Moreover, we found that multi-location bugs that were found to be 
 \emph{disjoint} in our coverage analysis (i.e., had no location that was executed by all 
