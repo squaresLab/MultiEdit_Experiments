@@ -619,25 +619,22 @@ Total & 152 & 64 & 216 \\
 \end{tabular}
 \end{center}
 }
-\caption{Multi-Location bugs with each kind of code clones. 
-     Same, Literal, composite and move corresponds to the
-    four types of code clones described in \ref{sec52}. Any means the bug
-    contains any of the four types of code clones. Note that "Any" may not be
-    the sum of the previous four rows because some bug could contain multiple
-    pairs of code clones that belong to different categories. "No Clones" means
-    these bugs do not have any code clones in it, and "Total" means the total
-    number of bugs in each dataset being included in this experiment.
-    Shows that over
+\caption{Code clone information for multi-location bugs. 
+     \emph{Same}, \emph{Literal}, \emph{Composite} and \emph{Move} corresponds to the
+    four types of code clones considered, as described in Section~\ref{sec52}. ``Any'' means the bug
+    contains any of the four types of clone; some bugs contain
+    pairs of clones that belong to different categories. 
+    Over
     30\% of multi-location bugs has code clones.}
 \label{tab:clones}
 \end{table}
 
-As shown in Table \ref{tab:clones}, out of the 216 multi-location bugs,
-69 of them, or over 30\%, had some flavor of code clone between faulty locations, indicating a 
+As shown in Table~\ref{tab:clones}, out of the 216 multi-location bugs,
+69 of them, or  32\%, included at least one type of cloning between fault locations, indicating a 
 significant 
-prevalence of code clones in human patches. In addition, 44 of code clones, or 62\% of code clones 
-found, are classified as "same," indicating that the majority of code clones found are exactly 
-lalpha-equivalent. Note that "Any" may not
+prevalence of code clones in multi-location human patches. In addition, 44 of code clones, or 62\% of code clones 
+found, are classified as ``Same'' indicating that the majority of code clones found are exactly 
+alpha-equivalent. \todo{I think this paragraph changes types of the thing being discussed.  Is it bugs with clones, or clones? I think it's bugs with clones but I'm being argued with.} Note that "Any" may not
 be the sum of the previous four rows because some bug could contain multiple pairs of code clones 
 that
 belong to different categories.
