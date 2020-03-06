@@ -995,13 +995,11 @@ locations in the code are executed more often by failing tests, does not necessa
 for multi-location patches. Thus, we need to develop alternative fault localization 
 techniques that are scalable and effective for multi-location patches.
 
-We characterized the relationships between patches at diferent locations in a bug, with 
-respect to dependency relationships and syntactic relationships.
-
-In terms of dependency relationships,
-\todo{Fill sec 5.1 conclusion}.
-
-With regards to syntactic relationships, we found that over 30\%
+We characterized the relationships between multiple edits in a bug
+We find that approximately half of multi-edit bugs 
+contain dependent edits in their human patches, and such bugs may be more 
+difficult for APR techniques to repair.
+We also find that over 30\%
 of multi-location bugs have some kind of code clones, making code clones fairly prevalent 
 among bugs. Moreover, we found that multi-location bugs that were found to be 
 \emph{disjoint} in our coverage analysis (i.e., had no location that was executed by all 
