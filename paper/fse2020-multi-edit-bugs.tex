@@ -633,21 +633,21 @@ As shown in Table \ref{tab:clones}, out of the 216 multi-location bugs,
 significant 
 prevalence of code clones in human patches. In addition, 44 of code clones, or 62\% of code clones 
 found, are classified as "same," indicating that the majority of code clones found are exactly 
-alpha-equivalent. Note that "Any" may not
+lalpha-equivalent. Note that "Any" may not
 be the sum of the previous four rows because some bug could contain multiple pairs of code clones 
 that
 belong to different categories.
 
 
-\begin{table}
+i\begin{table}
 {\begin{center}
 \begin{tabular} {lrrr}
-\toprule
+m\toprule
 & Same Method & Same Class & Different Class \\
 \hline
-Same & 24 & 18 & 5  \\ 
-Literal & 9 & 4 & 1  \\
-Composite & 3 & 5 & 0  \\
+iSame & 24 & 18 & 5  \\ 
+tLiteral & 9 & 4 & 1  \\
+atComposite & 3 & 5 & 0  \\
 Move & 5 & 1 & 1  \\
 \midrule
 Total & 41 & 26 & 7 \\
@@ -842,7 +842,7 @@ Negative & Assertion & 12.90\% & 14.39 \% & 11.29 \% &  14.44\%  \\
 \end{center}}
 \caption{Identification results of partial repairs using test case results
 at all granularity levels.
-More granular fitness functions are generally better at positively identifying partial repairs. }
+\todo{(JL: Fix this sentence)Shows that at high granularity test case based validation performs pretty well}}
 \label{yiweitable}
 \end{table}
 
@@ -875,8 +875,11 @@ carefully balance the tradeoffs in granularity level in test case based validati
 in APR research.
 
 
-\subsection{Limitations}
+\section{Limitations and Threats}
 
+\todo{Please list all limitations and threats you can think of for your experiments, in something approaching a reasonable order, so we can integrate.  If you can, pull that discussion from previous sections, I didn't look for it beyond test cases.}
+
+\paragraph{Test cases.}
 This experiment breaks up full repairs into locations and treats each edit location as a 
 single edit action. However, in reality most APR techniques mutate code at 
 a more granular level.
