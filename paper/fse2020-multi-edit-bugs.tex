@@ -782,14 +782,14 @@ leave a concrete investigation of this possibility to future work.
 \section{Test case-based validation}
 
 Dynamic program repair most commonly uses test cases to validate candidate patch
-solutions.  Test cases may or may not be In search based program repair, one key area of research is to find ways to validate
+solutions.  Test cases may or may not be \todo{...has there been a bad merge?...} In search based program repair, one key area of research is to find ways to validate
 candidate patches by
 measuring how ''close'' a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
 
 \rqorinsight{5}{Do test cases fully capture the effects of multiple edits?}
 
-Sometimes not all edits in a human patch is necessary to pass all tests. This could be
+Sometimes not all edits in a human patch are necessary to pass all tests. This could be
 due to human patch including refactoring or other changes that does not actually
 change code behavior, or it could be due to the unit tests not being able to catch
 an incorrect behavior that the remaining edits correct. We would like to explore
