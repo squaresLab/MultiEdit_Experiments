@@ -34,7 +34,7 @@ faults~\cite{zou2019empirical}.
 Assigning a suspiciousness score to each line of code is well-suited to single
 location repair. Indeed, the evaluation of most SBFL techniques asks exactly the
 question of interest when considering a technique's suitability for
-single-location repair: how often does a given technique correctly, highly rank
+single-location repair: how often does a given technique assign high scores to 
 individual buggy lines of code?
 
 Such evaluations, by and large, do not consider the implications of
@@ -61,9 +61,8 @@ make use of the off-the-shelf ranking these techniques currently provide
 tests exercise \emph{different} portions of the buggy code---SBFL off-the-shelf
 will by definition be less effective in guiding APR to correctly modifying
 multiple buggy locations at once.
-
-Therefore, for these bugs, do the different failing tests cover exactly the same
-patch locations, exactly disjoint patch locations, or some combination?
+Fundamentally, we ask whether multiple failing tests cover exactly the same
+patch locations, exactly disjoint patch locations, or some combination.
 
 \paragraph{Methodology}
 
@@ -122,29 +121,28 @@ not executed by all failing test cases.
 
 Note, however, that the behavior varies considerably by dataset;
 Figure~\ref{fig:coverage-datasets} shows results.  Defects4J and 
-Bears have very different distributions with respect to the 
-disjoint and same categories. In Defects4J, 36\% of bugs are \emph{disjoint} and 
+Bears have different distributions with respect to the 
+\emph{disjoint} and \emph{same} categories. In Defects4J, 36\% of bugs are \emph{disjoint} and 
 22\% are \emph{overlap}; in Bears, the proportions are 12\% and 47\%, respectively.
 We hypothesize that this may be due to differences in how the two  
-datasets were selected and minimized: Defects4J is a dataset of minimized and curated 
+datasets were selected and constructed: Defects4J is a dataset of hand-isolated, and curated 
 bugs, while the bugs in Bears are scraped directly from the
 commits. The Defects4J dataset specifically enforces a requirement that the patches in the 
 dataset be isolated, i.e., not containing any refactorings or new features, to improve the 
 usability of the dataset. The authors specifically chose patches that met this requirement, 
-and in some cases, isolated the bug themselves, manually~\cite{defects4j}. In contrast, the 
-only requirements for inclusion of bugs in Bears is that it must be reproducible and 
+and in some cases, isolated the bug themselves, manually~\cite{defects4j}. By contrast, the 
+only requirements for inclusion of bugs in Bears is that it must be reproducible, and that
 the patch must be written by a human. In addition, Bears was designed to be evolvable 
-and relatively easily expanded, which is at odds with manual inspection and isolation of 
+and relatively easily expanded as a dataset, which is at odds with manual inspection and isolation of 
 bugs~\cite{bears}.
 Given that these two datasets were designed with different values and demonstrate very 
 different behavior, these findings highlight the importance of using diverse datasets in 
-evaluating program repair.
+evaluating program repair techniques.
 
-SBFL assumes that faulty locations are executed more often by identifying 
-or failing test cases and is not designed to find many of these multi-location faults. Since 
-SBFL 
-is the most common fault localization technique in APR, most APR techniques 
-are not well suited to fix a majority of these multi-location and multi-test 
-bugs.
+Overall, SBFL assumes that faulty locations are executed more often by identifying 
+or failing test cases and is not designed to find many of these multi-location
+faults. Our results suggest that off-the-shelf SBFL techniques are not
+well-suited to guiding APR techniques that conform to the the dominant paradigm to reparining
+these types of multi-location, multi-test bugs.
 
 
