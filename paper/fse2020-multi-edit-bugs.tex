@@ -496,7 +496,7 @@ locations as a conjunction of multiple constraints to simultaneously solve,
 bounded by some number of edits that are computationally feasible, while
 restricted to a relatively small library of possible code components for use in
 the inductive synthesis problem.    At the other extreme, search-based or
-evolutionary techniques~\cite{genprog,others} typically treat different mutation
+evolutionary techniques~\cite{genprog,par} typically treat different mutation
 operators independently.  That is, a modification in one location does not
 inform the selection of a modifications to apply in a second location; instead,
 the heuristic search is trusted to identify copacetic combinations.  The size of
@@ -515,8 +515,8 @@ In particular, we want to examine the \emph{relationship} between multiple edits
 
 \subsection{Dependencies}
 
-One of the dimensions of the relationship between multi-location patches is
-\emph{dependency}. Specifically, we ask the following research question:
+One of the dimensions of the relationship between multi-location patches is potential
+\emph{dependency} between the edits. Specifically, we ask the following research question:
 \rqorinsight{3}{How prevalent are dependencies between edited code?}
 
 To answer this question, we broaden the scope of multi-location patches to 
@@ -1045,16 +1045,18 @@ correct patches, but APR tool performance might actually degrade due to a
 simultaneous increase in incorrect plausible patches and the combinatorial 
 growth of the search space.
 
-Zhong and Su~\cite{zhong2015} did an empirical study on real bug fixes. 
-They studied the difficulty of fault localization, the complexity of fixing bugs, 
-necessary mutation operators, importance of API knowledge, the types of buggy files, 
-and addition/deletion of files in bug fixing on over 9000 real-world bugs collected via BUGSTAT, 
-and identifies key insights on fault localization, faulty code fix, search space and non-source bugs. 
+A previous empirical study on real bug fixes~\cite{zhong2015} 
+studied fault localization dificulty, bug fix complexity, necessary
+mutations, relevance of API knowledge to those mutations, and buggy file types
+(and prevalance of file addition in bug fixing)on more than 9000 real-world bugs
+collected via BUGSTAT.  
 Both our paper and Zhong and Su's paper aims to provide useful guidance and insights for 
 improving state-of-the-art APR techniques through empirical studies of bugs and bug fixes. 
 In contrast, our study focuses on one specific category of bugs: 
 source file bugs that requires multiple edit actions to successfully repair, 
 drawing insights on their behaviors in fault localization, fitness evaluations and dependency.
+\todo{more detail needed.  This is very closely related.  Why should we exist,
+  given that they do? What do we add?}
 
 Wang et al.~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
 (where each entity is a class, method or field). Their research questions mostly focused on 
@@ -1069,7 +1071,7 @@ requires multiple edits to fix, where the edits may be in the same entity. We de
 changes (single edit) differently, and we studied interactions between edits 
 (i.e. the lines that changed in the bug fix) instead of entire entities.
 
-Previous efforts in G\&V program repair to derive more search-guiding information 
+Previous efforts in program repair to derive more search-guiding information 
 during candidate patch evaluation 
 include using program invariants~\cite{better-fitness, dinglyu}, 
 intermediate program values~\cite{source-code-checkpoint}, 
