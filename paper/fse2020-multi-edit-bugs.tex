@@ -812,29 +812,28 @@ The full unminimized result and minimized results in Table \ref{yiweitable}.
 
 \begin{table}
 {\begin{center}
-\begin{tabular}{| l | l | r | r | r | r | r | r |}
-\hline
-\multicolumn{2}{|c|}{Dataset} &\multicolumn{2}{|c|}{Defects4j} & \multicolumn{2}{|c|}{Bears} \\
-\hline
-\multicolumn{2}{|c|}{Minimization} & U & M & U & M  \\
-\hline
+\begin{tabular}{ll|rr|rrrr}
+\toprule
+\multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4j} & \multicolumn{2}{c}{Bears} \\
+\multicolumn{2}{c}{Minimized?} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes}  \\
+\midrule
 Positive & Class & 20.46\% & 9.78 \% & 27.60\% & 10.59\%  \\
 Positive & Method & 41.25\% & 36.80 \% & 31.29 \% & 19.71\%  \\
 Positive & Assertion & 48.25\% & 45.91 \% & 31.60 \% & 20.24\%  \\ 
-\hline
+\midrule
 Neutral & Class & 65.53\% & 73.56 \% & 56.84 \% & 73.75\% \\
 Neutral & Method & 39.33\% & 39.95 \% & 51.60 \% & 64.62\%  \\
 Neutral & Assertion & 31.73\% & 30.30 \% & 47.48 \% &  59.19\%  \\ 
-\hline
+\midrule
 Negative & Class & 7.18\% & 7.64 \% & 6.70 \% & 10.84\%  \\
 Negative & Method & 12.52\% & 14.13 \% & 8.26 \% & 10.84\%  \\
 Negative & Assertion & 12.90\% & 14.39 \% & 11.29 \% &  14.44\%  \\ 
-\hline
+\bottomrule
 \end{tabular}
 \end{center}}
 \caption{Identification results of partial repairs using test case results
-at all granularity levels, "U" stands for Unminimized, "M" stands for minimized.
-Shows that at high granularity test case based validation performs pretty well}
+at all granularity levels.
+\todo{(JL: Fix this sentence)Shows that at high granularity test case based validation performs pretty well}}
 \label{yiweitable}
 \end{table}
 
