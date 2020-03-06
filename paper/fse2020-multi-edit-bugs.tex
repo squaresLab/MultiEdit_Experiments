@@ -633,9 +633,8 @@ Total & 152 & 64 & 216 \\
 As shown in Table~\ref{tab:clones}, out of the 216 multi-location bugs,
 69 of them, or  32\%, included at least one type of cloning between fault locations, indicating a 
 significant 
-prevalence of code clones in multi-location human patches. In addition, 44 of code clones, or 62\% of code clones 
-found, are classified as ``Same'' indicating that the majority of code clones found are exactly 
-alpha-equivalent. \todo{I think this paragraph changes types of the thing being discussed.  Is it bugs with clones, or clones? I think it's bugs with clones but I'm being argued with.} Note that "Any" may not
+prevalence of code clones in multi-location human patches.
+Note that "Any" may not
 be the sum of the previous four rows because some bug could contain multiple pairs of code clones 
 that
 belong to different categories.
@@ -643,16 +642,16 @@ belong to different categories.
 
 \begin{table}
 {\begin{center}
-\begin{tabular} {lrrr}
+\begin{tabular} {lrrrr}
 \toprule
-& Same Method & Same Class & Different Class \\
+& Same Method & Same Class & Different Class & Total\\
 \hline
-Same & 24 & 18 & 5  \\ 
-Literal & 9 & 4 & 1  \\
-Composite & 3 & 5 & 0  \\
-Move & 5 & 1 & 1  \\
+Same & 24 & 18 & 5 & 47 \\ 
+Literal & 9 & 4 & 1 & 14 \\
+Composite & 3 & 5 & 0 & 8 \\
+Move & 5 & 1 & 1 & 7 \\
 \midrule
-Total & 41 & 26 & 7 \\
+Total & 41 & 28 & 7  & 76\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -662,14 +661,15 @@ Total & 41 & 26 & 7 \\
 Same Method means the code clones occur in the same method, Same Class means the code
 clones are in the same class but not in the same method, and Different Class means the
 code clones are in different classes.
-Shows that the majority of code clones occur within the same method}
+Shows that the majority of code clones occur within the same method
+and majority of code clones are of ``Same'' category}
 \label{tab:clones_loc}
 \end{table}
 
 As shown in Table \ref{tab:clones_loc}, over half of code clones are in the same method, while less than
-one tenth of the code clones occur in different classes. Note that the total is greater
-than the total number of bugs that has code clones because a bug could have multiple different 
-sets of code clones.
+one tenth of the code clones occur in different classes. Moreover, out of the 76 sets of code clones,
+47 of them belongs to the ``same'' category, which means that 62\% of sets of code clones have completely
+alpha-equivalent edit locations within them.
 
 \begin{table}
 	{\begin{center}
