@@ -981,23 +981,52 @@ and we do not restrict our repair actions to neutral variants of the program.
 
 In conclusion, \todo{Fill sec 3 conclusion}
 
-\todo{Fill sec 4 conclusion}
+In assessing the validity of assumptions underlying SBFL in reference to multi-location 
+bugs, we found that 58\% of bugs that were multi-location and had multiple failing tests 
+had faulty locations 
+that were covered by some but not all the tests. In addition, 27\% of multi-location and 
+multi-test patches  This indicates that the assumption underlying SBFL, namely that faulty 
+locations in the code are executed more often by failing tests, does not necessarily hold 
+for multi-location patches. Thus, we need to develop alternative fault localization 
+techniques that are scalable and effective for multi-location patches.
 
+We characterized the relationships between patches at diferent locations in a bug, with 
+respect to dependency relationships and syntactic relationships.
+
+In terms of dependency relationships,
 \todo{Fill sec 5.1 conclusion}.
 
-We found that code clones are prevalent in human patches. Over 30\%
-of multi-location bugs have some kind of code clones. Moreover, we found that multi-location bugs with Disjoint
-coverage result is much more likely to have code clones.
+With regards to syntactic relationships, we found that over 30\%
+of multi-location bugs have some kind of code clones, making code clones fairly prevalent 
+among bugs. Moreover, we found that multi-location bugs that were found to be 
+\emph{disjoint} in our coverage analysis (i.e., had no location that was executed by all 
+failing tests) were more likely to be code clones. This indicates that program repair 
+techniques that focus on fix patterns based on code clones are viable for a significant 
+portion of bugs. In addition, since code clones are more common in bugs with certain 
+patterns of coverage, we can use that in fault localization and patch generation to identify 
+which bugs would benefit most from the aforementioned program repair techniques.
 
-We found that test case based validation methods cannot capture all effects of human patches,
-as between a third and a half of multi-location bugs do not require all edit locations in human patch to
-past all tests.
-
-We found that test case based validation methods can be reasonably good at identifying partial
-repairs at higher granularity levels such as method level or assertion level. Moreover, 
+In measuring how test cases respond to the application of partial repairs, we found that 
+test case based validation methods can be reasonably good at identifying partial
+repairs at when measuring the effect of the partial repair on the test suite at a higher 
+granularity level such as method level or assertion level. This suggests that for a generate 
+and validate program repair approach, applying a partial patch can still guide the approach 
+towards the correct patch. Moreover, 
 we observed that the number of both positively and negatively identified partial repairs
-increase as we increase the granularity, so we advice a careful balance of the tradeoffs of
+increase as we increase the granularity, so we advise a careful balance of the tradeoffs of
 granularity levels in future search based APR development.
+
+As an additional insight gained from measuring test case response to partial patches, we 
+also found that test case based validation methods cannot capture all effects of human 
+patches,
+as between a third and a half of multi-location bugs are still able to pass all the tests 
+without all partial patches being present. This builds on previous work and motivates 
+future work on the minimality of human patches.
+
+These findings have implications for using program repair for multi-location bugs, both in 
+terms of how existing program repair techniques can repair multi-location bugs and how 
+we should design future repair techniques.
+
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
