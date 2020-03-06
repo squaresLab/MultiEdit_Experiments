@@ -768,7 +768,8 @@ to the number of available edit operations, we evaluate bugs whose patches
 contain between two and six edit locations after preprocessing.
 Moreover, we exclude Defect4J's Closure compiler bugs due to 
 their nonstandard test suite setup.
-We are left with 97 Defects4J and 64 Bears bugs.
+We are left with 97 Defects4J and 64 Bears bugs, a total of 898 partial repairs for Defects4j 
+and 444 partial repairs for Bears.
 
 \subsubsection{Granularity}
 
@@ -792,17 +793,26 @@ assertions in $M$, there should be an increase in $AS(M)$.
 
 \subsection{Results}
 
-With 97 Defects4J and 64 Bears bugs, we evaluate
-a total of 898 partial repairs for Defects4j and 444 partial repairs for Bears.
-Out of these bugs, 32 out of 97 bugs in Defects4j and 
-34 out of 64 bugs in Bears has at least one edit location that
-is unnecessary to pass all unit tests.
+To answer RQ5, we report that about a 
+third (32 out of 97) of Defects4j bugs and over half (34 out of 64) of
+Bears bugs in this experiment do not need all edit locations in the provided human patches 
+to pass
+all unit tests. This suggests that significant portion of multi-location bugs contains some
+edit locations that has completely no effect on the test case behavior. This could be due to a 
+human developer refactoring code that doesn't change code behavior, which is a 
+phenomenon that has been studied in previous work~\cite{tangledchanges}. This would 
+suggest that bug benchmarks that rely on real bugs differ from the expected behavior and 
+functionality of program repair techniques. Another reason for the seemingly extraneous 
+partial repairs could be due to test cases not being able to detect incorrect behavior that is 
+fixed
+by the "unnecessary" edit location, which could elicit particular drawback to using tests as an 
+oracle.
 
-Due to the phenomenon above, we decided to present the
-data of this experiment in two ways: always view full provided human patch as full repair
+Due to the phenomenon above, we decided to present the results for RQ6 in two ways: 
+always view full provided human patch as full repair
 (Unminimized), and viewing minimum set of edit locations in provided human patch necessary
 to pass all unit tests as full repair (Minimized).
-Some bugs ends up with 1 edit location after minimization, 
+Some bugs ends up with one edit location after minimization, 
 so they are not included in the Minimized results. The minimized results 
 include 75 remaining bugs (544 partial repairs) in defects4j and 38 remaining bugs (156 partial repairs) of Bears. 
 
@@ -813,7 +823,7 @@ $\frac{1}{n}$. We record the percentage of partial repairs that performed better
 or worse (worse) compared to original code in each assertion level. Non compiling
 partial repairs do not count towards any of the three categories.
 
-The full unminimized result and minimized results in Table \ref{yiweitable}.
+The full unminimized and minimized results in Table \ref{yiweitable}.
 
 
 \begin{table}
@@ -843,16 +853,6 @@ More granular fitness functions are generally better at positively identifying p
 \label{yiweitable}
 \end{table}
 
-\subsubsection{Results for RQ5}
-About a third of Defects4j bugs and over half of
-Bears bugs in this experiment do not need all edit locations in the provided human patches to pass
-all unit tests. This suggests that significant portion of multi-location bugs contains some
-edit locations that has completely no effect on the test case behavior. This could be due to some
-edit location is just human developer refactoring code that doesn't change code behavior,
-or it could be due to test cases not being able to detect incorrect behavior that is fixed
-by the "unnecessary" edit location.
-
-\subsubsection{Results for RQ6}
 
 Under highest granularity, we are able to identify above 45\% of the partial repairs in Defects4j
 and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50-60\%
