@@ -8,6 +8,54 @@
 \usepackage{fancybox}
 \usepackage{enumitem}
 
+
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\definecolor{dkgreen}{rgb}{0,0.5,0}
+\definecolor{dkred}{rgb}{0.5,0,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{cyan(process)}{rgb}{0.0, 0.72, 0.92}
+\definecolor{safetyorange}{rgb}{1.0, 0.4, 0.0}
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35}
+\definecolor{metalgrey}{rgb}{0.43, 0.5, 0.5}
+ % comments
+%basicstyle=\ttfamily\bfseries\footnotesize,
+
+
+\lstdefinestyle{JavaStyle}{
+    language=Java,      % choose the language of the code
+    keywords=[2]{View, LayoutInflater, ViewGroup, Bundle, ListView, Fragment, Activity},
+    keywords=[3]{onCreateView, inflate, getActivity, DLE, findViewById, setAdapter},
+    keywords=[4]{@Override, listView, DirList},
+    basicstyle=\ttfamily\bfseries,
+    keywordstyle=\color[RGB]{69,97,189},
+    keywordstyle=[2]{\color{cyan(process)}},
+    keywordstyle=[3]\color{javagreen},
+    keywordstyle=[4]\color{metalgrey},
+    %safetyorange
+    commentstyle=\itshape\color{green!60!black},
+    moredelim=[l][\itshape\color{gray}]{//}, %<--- overrides line-comment style
+    stringstyle=\color[RGB]{192,8,8},
+    numberstyle=\itshape\color{yellow!50!black},
+%   backgroundcolor=\color{lbcolor},
+    tabsize=4,
+%   rulecolor=,
+    upquote=true,
+    aboveskip={1.5\baselineskip},
+    columns=fixed,
+    showstringspaces=false,
+    extendedchars=false,
+    breaklines=true,
+    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=single,
+    numbers=left,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    %autodedent,%<--- removes indentation
+}
+\lstset{style=JavaStyle}
+
 %% Rights management information.  This information is sent to you
 %% when you complete the rights form.  These commands have SAMPLE
 %% values in them; it is your responsibility as an author to replace
@@ -253,7 +301,7 @@ failing, corresponding to the bug to be repaired.
 At a high level, any APR technique aims to solve a search or optimization
 problem, seeking a set of edits (or patch) to the program that will lead it to
 pass all of the provided tests. The repair search space is typically defined
-along the following axes:
+along the following axes~\cite{ae,sqjo}:
 \begin{itemize}
 
 \item \emph{Fault space.} The first problem in fixing a bug concerns
@@ -261,36 +309,48 @@ along the following axes:
   techniques begin by using test cases as input to a fault localization
   technique. Such techniques identify (and typically score) suspicious code
   based on which test cases execute which pieces of code. Although the
-  particulars of the fault localization employed can vary, most APR use some
+  particulars of the fault localization employed can vary, most APR techniques use some
   variant of spectrum-based fault localization (SBFL)~\cite{ochiai} in this first
   step. The resulting computation defines the fault space, or the candidate
   locations or code entities considered for repair.
 
 \item \emph{Mutation space.} The mutation space is the set of applicable
-  modifications at a specific program location. Examples include GenProg's
+  modifications at a given program location. Examples include GenProg's
   \emph{append}, \emph{replace}, and \emph{delete} mutation operators over
-  statements~\cite{genprog-operators} and Nopol's condition replacement over
+  statements~\cite{genprog-operators}; Par's human patch inspired edit
+  templates~\cite{par} and Nopol's condition replacement over 
   \texttt{if} statements and missing precondition addition over non-branch and
   non-loop statements~\cite{Xuan17}.  A larger mutation space generates a richer
   search space with potentially more repairs, but increases its size
   combinatorially~\cite{long-search-spaces}.
 
-\item \emph{Fix space.} Once a particular mutation is selected, code must be
-  generated. The size fix space is often a function of the chosen mutation
-  operator: for instance GenProg's \emph{delete} mutation can only delete an
-  entire statement~\cite{genprog}, while PAR's \emph{Calling another method with
-    the same parameters} mutation replaces a method call with any other method
-  that takes the same number and type of parameters~\cite{par}.
+\item \emph{Fix space.} Often, given a selected mutation, code must be generated
+  or selected to instantiate the mutation in question.  For example, if a
+  technique elects to insert a null
+  pointer check, the object being checked for null must be selected to
+  instantiate the templated repair from suitable variables at the code location;
+  if a technique choose to insert a new piece of code at a location, suitable
+  code must be generated or selected for insertion. Some APR
+  techniques tackle the resultant explosion of this fix space by taking
+  advantage of the \emph{plastic surgery hypothesis}~\cite{plastic}, which
+  assumes that a bug can be repaired by code available in other parts of the
+  same program.  Learning-based approaches, by contrast, can learn models of
+  code or repairs to inform modifications~\cite{prophet}; synthesis-based
+  approaches constrain the synthesis engine to a small vocabulary of fix
+  ingredients, possibly informed by the code near the selected faulty
+  location~\cite{angelix,s3}. 
 
-\item \emph{Objective function.} After candidate patches are generated, we must
-evaluate them in some way. The most common objective functions are test case based
-(such as GenProg's fitness function \cite{genprog}), where passing more unit tests
-is viewed as better. This approach, however, has problems, as individual correct edits do not
-necessarily make the code pass more tests. This poses as a serious challenge for 
-crafting correct multi-edit repairs. Attempts were made to tackle this problem
-by incorporating program invariants into objective function alongside test results
-\cite{dinglyu}, but no significant improvement in repair success rate was achieved. 
-
+\item \emph{Validation.} Candidate patches are typically validated using the
+  provided test cases as the objective function.  In an evolutionary or
+  search-based context, test cases can also be used as the fitness
+  function~\cite{genprog}; techniques have supplemented the test
+  case objective with partial correctness measures like program
+  invariants~\cite{dinglyu}, memory snapshots~\cite{source-code-checkpoint}, or
+  similarity to human edits~\cite{hdrepair}, with maximization of tests passed
+  maintained as one of possibly many objectives.  In a multi-edit context,
+  ideally, multiple tests would be able to idnetify partial repairs that could
+  be composed.  However, evidence suggests that this does not always
+  apply~\cite{better-fitness,schulte}. 
 \end{itemize}
 
 
@@ -298,15 +358,23 @@ by incorporating program invariants into objective function alongside test resul
 \paragraph{Multi-location bugs.} There are several plausible definitions of multi- vs. single-location bugs, with
 implications for how they are studied. For the purpose of this study, we define
 a \emph{patch location} as a contiguous sequence of edited lines of
-code. Additionally, since we would like to observe the behavior of code as edits
-are applied one-by-one, we combine two locations if one starts block with
-\texttt{\{} and the other closes it with \texttt{\}} (as they are not
-independent). We ignore changes to comments, whitespace, or import statements.
+code.  We combine two locations if one simply opens or closes a syntactic block
+inserted by the other. That is, conceptually:
+\begin{lstlisting}
++ Some_edit {
++ New code
+  Existing code 
++}
+\end{lstlisting}
+is treated as a single-location edit in our study.  We ignore changes to
+comments, whitespace, or import statements. 
 
 Alternative definitions may have bearing on our results.  We argue that this
-definition is natural for the purposes of our study, which focuses in particular
-on understanding larger bugs for the purposes of 
-adapting, extending, or applying new program repair techniques to address them. 
+definition is natural for the purposes of our study.  Fault location is a key
+primitive in program repair. Moreover, our aim is to understand properties of 
+complex bugs for the purposes of understanding the limitations of
+existing repiaar techniques, and key future directions to
+adapting or extending them to improve expressivity. 
 
 \paragraph{Research questions.}  The parameterization of the program repair
 search problems into multiple subspaces informs our empirical study of those
@@ -428,7 +496,7 @@ locations as a conjunction of multiple constraints to simultaneously solve,
 bounded by some number of edits that are computationally feasible, while
 restricted to a relatively small library of possible code components for use in
 the inductive synthesis problem.    At the other extreme, search-based or
-evolutionary techniques~\cite{genprog,others} typically treat different mutation
+evolutionary techniques~\cite{genprog,par} typically treat different mutation
 operators independently.  That is, a modification in one location does not
 inform the selection of a modifications to apply in a second location; instead,
 the heuristic search is trusted to identify copacetic combinations.  The size of
@@ -447,8 +515,8 @@ In particular, we want to examine the \emph{relationship} between multiple edits
 
 \subsection{Dependencies}
 
-One of the dimensions of the relationship between multi-location patches is
-\emph{dependency}. Specifically, we ask the following research question:
+One of the dimensions of the relationship between multi-location patches is potential
+\emph{dependency} between the edits. Specifically, we ask the following research question:
 \rqorinsight{3}{How prevalent are dependencies between edited code?}
 
 To answer this question, we broaden the scope of multi-location patches to 
@@ -715,9 +783,10 @@ if the coverage result of the bug can be categorized as \emph{disjoint}.
 
 \section{Test case-based validation}
 
-In search based program repair, one key area of research is to find ways to validate
+Dynamic program repair most commonly uses test cases to validate candidate patch
+solutions.  Test cases may or may not be In search based program repair, one key area of research is to find ways to validate
 candidate patches by
-measuring how "close" a candidate patch is to a full repair (a fitness function),
+measuring how ''close'' a candidate patch is to a full repair (a fitness function),
 and this is usually done via measuring unit test performance of the candidate patch. 
 
 \rqorinsight{5}{Do test cases fully capture the effects of multiple edits?}
@@ -736,7 +805,7 @@ the buggy program (a partial repair), then semanticly the partial repair is clos
 Ideally, we would want the fitness function to guide the search towards a full 
 repair by identifying partial repairs as "closer" to full repair than original.
 
-However, sometimes partial repairs will perform no different in unit tests compared 
+However, sometimes partial repairs will perform no differently on unit tests compared 
 to the original program, and other times they could perform worse. We want to find 
 out how often each of these situations happen.
 
@@ -971,16 +1040,18 @@ correct patches, but APR tool performance might actually degrade due to a
 simultaneous increase in incorrect plausible patches and the combinatorial 
 growth of the search space.
 
-Zhong and Su~\cite{zhong2015} did an empirical study on real bug fixes. 
-They studied the difficulty of fault localization, the complexity of fixing bugs, 
-necessary mutation operators, importance of API knowledge, the types of buggy files, 
-and addition/deletion of files in bug fixing on over 9000 real-world bugs collected via BUGSTAT, 
-and identifies key insights on fault localization, faulty code fix, search space and non-source bugs. 
+A previous empirical study on real bug fixes~\cite{zhong2015} 
+studied fault localization dificulty, bug fix complexity, necessary
+mutations, relevance of API knowledge to those mutations, and buggy file types
+(and prevalance of file addition in bug fixing)on more than 9000 real-world bugs
+collected via BUGSTAT.  
 Both our paper and Zhong and Su's paper aims to provide useful guidance and insights for 
 improving state-of-the-art APR techniques through empirical studies of bugs and bug fixes. 
 In contrast, our study focuses on one specific category of bugs: 
 source file bugs that requires multiple edit actions to successfully repair, 
 drawing insights on their behaviors in fault localization, fitness evaluations and dependency.
+\todo{more detail needed.  This is very closely related.  Why should we exist,
+  given that they do? What do we add?}
 
 Wang et al.~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
 (where each entity is a class, method or field). Their research questions mostly focused on 
@@ -995,7 +1066,7 @@ requires multiple edits to fix, where the edits may be in the same entity. We de
 changes (single edit) differently, and we studied interactions between edits 
 (i.e. the lines that changed in the bug fix) instead of entire entities.
 
-Previous efforts in G\&V program repair to derive more search-guiding information 
+Previous efforts in program repair to derive more search-guiding information 
 during candidate patch evaluation 
 include using program invariants~\cite{better-fitness, dinglyu}, 
 intermediate program values~\cite{source-code-checkpoint}, 
