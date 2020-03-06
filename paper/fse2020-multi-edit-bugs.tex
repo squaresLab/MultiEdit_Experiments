@@ -743,16 +743,7 @@ alpha-equivalent edit locations within them.
 			\end{tabular}
 		\end{center}
 	}
-	\caption{Multi-location and multi-test bugs categorized on coverage patterns along the top 
-	and code clones to the left. The coverage patterns are assigned based on how the failing 
-	tests of a bug cover the different faulty locations. ``Disjoint'' refers to bugs in which none 
-	of the faulty 
-	locations were covered by all 
-	failing tests.  ``Overlap'' refers to bugs with some faulty locations covered by all failing 
-	tests, and 
-	other faulty locations covered by a subset of failing tests. ``Same'' refers to bugs in 
-	which the 
-	failing tests all covered the exact same faulty locations.}
+	\caption{Multi-location and multi-test bugs categorized by coverage pattern and presence of clones; definitions for Overlap, Disjoint, and Identical are taken from our experiments on fault localization.}
 	\label{tab:cov_clones}
 \end{table}
 
@@ -944,6 +935,7 @@ excluded from the count.
 at all granularity levels.
 More granular fitness functions are generally better at positively identifying partial repairs.}
 \label{yiweitable}
+%\vspace{-0.5in}
 \end{table}
 
 Table \ref{yiweitable} shows results.
