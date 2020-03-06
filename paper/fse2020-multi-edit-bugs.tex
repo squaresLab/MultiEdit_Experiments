@@ -362,20 +362,20 @@ Combined (Defects4J \& Bears) & 578 & >808.2 & >496.8 & 295 & 51\% & 216 & 37\% 
 \caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
 \end{table*}
 
-\paragraph{Datasets}  Our study requires a dataset of indicative, real-world,
-multi-location defects.  We study both the defects in Defects4J
+Our study requires a dataset of indicative, real-world,
+multi-location defects.  We study both the defects in
 Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 395 bugs from 
-six Java software projects, and is currently very popular dataset for evaluating 
+six Java software projects, and is a popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.
 The dataset's patches are manually minimized to isolate the bug fix 
-and exclude non-repair edits such as refactorings, feature additions, et cetera.
+and exclude non-repair edits such as refactorings and feature additions.
 
 With any dataset, however, there is a risk associated that tools may overfit
 to the defects in question, and there is evidence that this situation applies to
-program repair and Defects4j~\cite{durieux-repair-them-all}. 
+program repair and Defects4J~\cite{durieux-repair-them-all}. 
 We thus also study bugs from Bears~\cite{bears}, 
 a set of Java bugs derived from failed Travis-CI builds of GitHub projects. 
 Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
@@ -383,15 +383,11 @@ projects compared to Defects4J.
 Several projects in Bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
 We thus limit our analysis of Bears to 183 bugs from 30 single-module projects.
-We intend to address the remaining multi-module software projects in future work.
 
-\subsection{Multi-location Patch Prevalence}
+
+We start our analysis of multi-location patches by asking the following research question:
 \rqorinsight{1}{How prevalent are multi-location human patches are in Defects4J and Bears?}
 
-We start our analysis of multi-location patches by asking how many such patches 
-exist in our benchmarks.
-
-\paragraph{Results} 
 Table~\ref{tab:dataset-characteristics} lists the number and percentages of
 multi-location patches in Defects4J and Bears. 
 We find that multi-location patches comprise over half of Bears and almost half of Defects4J.
@@ -842,7 +838,7 @@ Negative & Assertion & 12.90\% & 14.39 \% & 11.29 \% &  14.44\%  \\
 \end{center}}
 \caption{Identification results of partial repairs using test case results
 at all granularity levels.
-\todo{(JL: Fix this sentence)Shows that at high granularity test case based validation performs pretty well}}
+More granular fitness functions are generally better at positively identifying partial repairs.}
 \label{yiweitable}
 \end{table}
 
