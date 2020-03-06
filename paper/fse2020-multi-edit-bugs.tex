@@ -585,7 +585,7 @@ reduces the likelihood of APR tool success for Defects4J bugs.
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
 between APR success and the presence of edit dependencies for Defects4J patches. 
 We fail to find statistically 
-significant relationships over only Bears patches, possibly due to the small number (16) of 
+significant relationships over Bears patches, possibly due to the small number (16) of 
 successfully auto-repaired Bears bugs with multi-line human patches.
 The generally lower auto-repairability of bugs with edit dependent patches compared 
 to their non-edit dependent brethren suggest that such dependencies indeed 
@@ -639,7 +639,7 @@ In comparing these results with the results of the coverage experiment in
 Section~\ref{secFL}, we will focus on the multi-test and multi-location bugs used in the coverage 
 experiment, a total of 91 bugs.
 
-We call the partial patches at two locations code clones if it is one of the following four cases
+We call the edits at two locations code clones if it is one of the following four cases
 \begin{enumerate}
 	\item Same Case: The two locations are alpha-equivalent. 
 	\item Literal Case: The two locations differ by at most one constant or arithmetic operator,
