@@ -609,33 +609,27 @@ multiple locations. Thus, we ask the following research question:
 	code
 	clones in human patches correlated with specific patterns of fault localization?}
 
-Previous research ~\cite{wang2018} suggested that one potential way to enhance
-APR techniques is to allow them to apply a single edits to multiple locations.
+Previous work~\cite{wang2018} suggests that one potential fruitful way to enhance
+APR techniques is to allow them to apply a single edit to multiple locations.
 This is based on the observation that human developers tend to make exactly the 
 same edits in multiple locations when fixing bugs. 
 
-Therefore, as a proxy for measuring how often this style of repair occurs, we want to study the
+As a proxy for measuring how often this style of repair actually occurs, we seek
+to understand the 
 prevalence of code clones in human patches. If a large proportion of multi-location bugs contains code 
 clones, then we can corroborate the usefulness of previous repair techniques that specifically apply 
 similar 
 edits for a bug~\cite{saha2019harnessing}.
 
-We will also attempt to correlate the coverage patterns outlines in Section \ref{secFL} with the 
-existence of 
-code clones in 
-human patches. Intuitively, we might expect that a \emph{disjoint} bug may occur when a developer 
-needs 
-to apply the same fix at multiple independent locations; hence, we hypothesize that \emph{disjoint} 
-bugs 
-will have a higher incidence of code clones. In contrast, bugs categorized as \emph{same} or 
-\emph{disjoint} may have more inter-related parts that are not merely the same statements copied to 
+We further attempt to correlate the coverage patterns outlines in
+Section~\ref{secFL} with the existence of code clones in human patches.  Our 
+intuition is that a \emph{disjoint} bug may be more likely to occur when a
+developer needs to apply the same fix at multiple independent locations, that
+can or should be tested separately.  We therefore 
+ hypothesize that \emph{disjoint} bugs will have a higher incidence of code
+clones. By contrast, bugs categorized as \emph{same} or \emph{disjoint} may have
+more inter-related parts that are not merely the same statements copied to
 multiple locations.
-
-In addition, if code clones occur more often with specific coverage patterns, the insights gained from 
-fault 
-localization can also help us identify the right repair technique --- i.e., if \emph{disjoint} bugs are more 
-likely to have code clones, then we can use Wang et. al's suggestion to apply the same edits at multiple 
-locations.
 
 %Possible intuition: if we can find some kind of correlation between fault localization results
 %and code clones, then if some APR research decided to follow Wang et al's suggestion and
@@ -776,9 +770,13 @@ bug with \emph{disjoint} coverage result is very likely to contain code clones i
 human patch. 
 
 This result qualitatively supports the hypothesis that \emph{disjoint} bugs are more likely to contain 
-code clones, while the other two classifications have comparatively less code clones. This suggests that 
-future APR techniques to apply the same edits to multiple locations
-if the coverage result of the bug can be categorized as \emph{disjoint}.
+code clones, while the other two classifications have comparatively less code
+clones. This has potential implications for technique design: that is, if there
+appears to be relatively less coverage overlap between multiple tests, it is
+possible that, if multi-location, the bug may be \emph{disjoint}.  If so,
+applying the same edits at multiple locations may be more likely to succeed.  We
+leave a concrete investigation of this possibility to future work.
+
 
 
 \section{Test case-based validation}
