@@ -1142,8 +1142,8 @@ our study on the possibility of extending current program repair work to
 multi-location patches.
 
 First, we measured the applicability of Spectrum-based fault localization
-(SBFL), the most common automated repair localization technique, to the
-automatic generation of multi-location patches.  In our investigation, we found
+(SBFL), the most common automated repair localization technique, to  multi-location 
+patches.  In our investigation, we found
 that 58\% of bugs that were repaired with multi-location patches and
 characterized by multiple failing tests had patch locations that were covered by
 some but not all tests. Additionally, 27\% of these patches were fully
@@ -1157,7 +1157,7 @@ Next, we studied and characterized the relationships between edits in
 multi-location bug patches. We find that 49\% of bugs with multi-location
 patches contain dependent edits in their human patches, \emph{which may be
   difficult for automated techniques to repair}.  We also find that 32\% of bugs
-with multi-location patches contain code clones. Moreover, we found that bugs
+with multi-location patches contain code clones. Moreover, bugs
 that were found to be disjoint in our coverage analysis (i.e., had no
 patch location covered by all failing tests) were more likely to be code
 clones. This indicates that \emph{program repair techniques that focus on fix
@@ -1172,7 +1172,7 @@ tests in a test suite. Thus, test cases do not always test the full
 functionality of a patch and \emph{test cases alone may not be enough to guide
   multi-location automated repair}.  However, we also found that test case based
 validation methods can be good at identifying partial repairs, especially when
-measuring effects higher granularity levels. This suggests that for a generate
+measuring effects at higher granularity levels. This suggests that for a generate
 and validate program repair approach, \emph{applying a partial patch can still guide
 the automated techniques towards the correct patch}.
 
