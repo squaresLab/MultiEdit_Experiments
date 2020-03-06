@@ -670,17 +670,21 @@ sets of code clones.
 
 \begin{table}
 	{\begin{center}
-			\begin{tabular} {| l | r r r | r |}
-				\hline
+			\begin{tabular} {lrrrr}
+				\toprule
 				& Disjoint & Overlap & Identical & Total \\
-				\hline
+				\midrule
 				Has Clone & 19 & 2 & 5 & 26 \\
-				No Clone & 6 & 26 & 33 &  65\\ \hline
-				Total & 25 & 28 & 38 & 91 \\ \hline
+				No Clone & 6 & 26 & 33 &  65\\
+                \midrule
+				Total & 25 & 28 & 38 & 91 \\
+                \bottomrule
 			\end{tabular}
 		\end{center}
 	}
-	\caption{Multi-location and multi-test bugs categorized on coverage patterns (Section 
+	\caption{\todo{(JL: this caption should explain All Things. What is
+        ``Identical''? A reader usually shouldn't have to cross-reference another
+        section to understand a table)} Multi-location and multi-test bugs categorized on coverage patterns (Section 
 		\ref{secFL}) and code clones}
 	\label{tab:cov_clones}
 \end{table}
