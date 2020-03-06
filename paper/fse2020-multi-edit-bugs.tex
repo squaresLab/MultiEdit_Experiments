@@ -509,7 +509,7 @@ and neither type of patches should be ignored.
 }
 	\caption{Number and percent of multi-line patches with respect to the presence of 
 	dependent line edits and whether an APR tool successfully 
-	repaired the bug in~\cite{durieux-repair-them-all}.}
+	repaired the bug in RepairThemAll~\cite{durieux-repair-them-all}.}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
 
@@ -518,7 +518,8 @@ APR performance, we compare how often APR techniques
 successfully repair bugs whose patches do (not) contain edit dependencies.
 Tables~\ref{tab:dependency-repair-contingency-table}
 show the frequencies and percentages of multi-line patches with respect to edit dependency 
-and whether an APR tool successfully repaired bug in~\cite{durieux-repair-them-all}.
+and whether an APR tool successfully repaired bug in 
+RepairThemAll~\cite{durieux-repair-them-all}, a 
 We find that the presence of edit dependencies 
 reduces the likelihood of APR tool success for Defects4J bugs.
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
@@ -741,7 +742,8 @@ We would like to compare the performance of the fitness functions at identifying
 partial repairs at different granularity levels.
 
 
-\subsection{Method}
+\subsection{Methodology}
+\ref{sec:partial-repair-methodology}
 
 To address RQ5 and RQ6, we designed the following experiment: for each bug in 
 Defects4j 
@@ -897,8 +899,10 @@ but we did not
 distinguish the actual number of edit locations in the experiment and treated all of them
 as just one set of code clones.
 
-\paragraph{Test cases.}
-This experiment breaks up full repairs into locations and treats each edit location as a 
+\paragraph{Partial repair construction.}
+The construction of partial repairs, as described in 
+Section~\ref{sec:partial-repair-methodology},
+ breaks up full repairs into locations and treats each edit location as a 
 single edit action. However, in reality most APR techniques mutate code at 
 a more granular level.
 Also, this experiment only checks whether fitness functions 
