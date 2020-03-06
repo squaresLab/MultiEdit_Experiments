@@ -270,7 +270,16 @@ along the following axes:
   entire statement~\cite{genprog}, while PAR's \emph{Calling another method with
     the same parameters} mutation replaces a method call with any other method
   that takes the same number and type of parameters~\cite{par}.
-\item \emph{Objective function.} \todo{HERE}
+
+\item \emph{Objective function.} After candidate patches are generated, we must
+evaluate them in some way. The most common objective functions are test case based
+(such as GenProg's fitness function \cite{genprog}), where passing more unit tests
+is viewed as better. This approach, however, has problems, as individual correct edits do not
+necessarily make the code pass more tests. This poses as a serious challenge for 
+crafting correct multi-edit repairs. Attempts were made to tackle this problem
+by incorporating program invariants into objective function alongside test results
+\cite{dinglyu}, but no significant improvement in repair success rate was achieved. 
+
 \end{itemize}
 
 
