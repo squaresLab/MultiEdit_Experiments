@@ -811,12 +811,11 @@ multi-location bugs:
 
 \rqorinsight{6}{How well do test case based validation methods identify partial repairs?}
 
-Given a buggy program and a valid repair, if we apply a part of the valid repair to 
-the buggy program (a partial repair), then semanticly the partial repair is closer
+Given a buggy program and a multi-location repair, if we apply a part of the valid repair to 
+the buggy program (a partial repair), then semantically, the partial repair should be considered closer
  to the full repair compared to the original. 
-Ideally, we would want the fitness function to guide the search towards a full 
-repair by identifying partial repairs as "closer" to full repair than original.
-
+Ideally, test cases would suitably identify partial repairs as ``closer'' to a full repair than the original (unmodified program).  This could provide suggestions for composing partial repairs into full repairs (or guidance for an evolutionary search algorithm attempting the same).
+%
 However, sometimes partial repairs will perform no differently on unit tests compared 
 to the original program, and other times they could perform worse. We want to find 
 out how often each of these situations happen.
