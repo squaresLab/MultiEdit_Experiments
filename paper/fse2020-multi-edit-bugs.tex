@@ -688,7 +688,7 @@ sets of code clones.
 \end{table}
 
 In Table \ref{tab:cov_clones}, we show the incidence of code clones among the three 
-coverage patterns identified in Section \ref{secFL}. Out of 25 bugs labeled as 
+coverage patterns identified in Section \ref{secFL}. Note that out of 216 bugs evaluated for code clones, only 91 of them have multiple failing tests, so only these bugs are included in the table.  Out of 25 bugs labeled as 
 \emph{disjoint} in the coverage 
 experiment, 19 had code clones (14 Same, 4 Literal, 1 Composite). In contrast, the 
 \emph{overlap} and \emph{identical} categories respectively had 2 and 5 bugs with code clones, 
@@ -815,7 +815,7 @@ $\frac{1}{n}$. We record the percentage of partial repairs that performed better
 or worse (worse) compared to original code in each assertion level. Non compiling
 partial repairs do not count towards any of the three categories.
 
-The full unminimized result and minimized results in Table ?.
+The full unminimized result and minimized results in Table \ref{yiweitable}.
 
 
 \begin{table}
@@ -843,6 +843,7 @@ Negative & Assertion & 12.90\% & 14.39 \% & 11.29 \% &  14.44\%  \\
 \caption{Identification results of partial repairs using test case results
 at all granularity levels, "U" stands for Unminimized, "M" stands for minimized.
 Shows that at high granularity test case based validation performs pretty well}
+\label{yiweitable}
 \end{table}
 
     
