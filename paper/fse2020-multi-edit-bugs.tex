@@ -1085,44 +1085,48 @@ and we do not restrict our repair actions to neutral variants of the program.
 
 \section{Conclusions}
 \label{sec:conclusions}
+To date, most automated program repair techniques have been limited to bugs that
+can be localized to and repaired at a single program location. However, we find
+that 47\% of bugs in the Defects4J dataset and 61\% of bugs in the Bears dataset
+were repaired by a human developer with multi-location patches. This motivates
+our study on the possibility of extending current program repair work to
+multi-location patches.
 
-\todo{Write me, plz, summarize takeaways and why we care.  We have established a
-  roadmap of research directions for multi-edit repair.}
+First, we measured the applicability of Spectrum-based fault localization
+(SBFL), the most common automated repair localization technique, to the
+automatic generation of multi-location patches.  In our investigation, we found
+that 58\% of bugs that were repaired with multi-location patches and
+characterized by multiple failing tests had patch locations that were covered by
+some but not all tests. Additionally, 27\% of these patches were fully
+disjoint. This indicates that the core assumption underlying SBFL, namely that
+faulty locations in the code are executed more often by failing tests,
+\emph{does not necessarily hold for multi-location patches}. Thus, we need to
+develop alternative fault localization techniques that are scalable and
+effective for multi-location patches.
 
-In conclusion, \todo{Fill sec 3 conclusion}
+Next, we studied and characterized the relationships between edits in
+multi-location bug patches. We find that 49\% of bugs with multi-location
+patches contain dependent edits in their human patches, \emph{which may be
+  difficult for automated techniques to repair}.  We also find that 32\% of bugs
+with multi-location patches contain code clones. Moreover, we found that bugs
+that were found to be \emph{disjoint} in our coverage analysis (i.e., had no
+patch location covered by all failing tests) were more likely to be code
+clones. This indicates that \emph{program repair techniques that focus on fix
+  patterns based on code clones are viable for a significant portion of
+  bugs}. In addition, since code clones are more common in bugs with certain
+patterns of coverage, \emph{we can use this information during fault localization and
+patch generation to identify which bugs would benefit most from clone-specific techniques}.
 
-In assessing the validity of assumptions underlying SBFL in reference to multi-location 
-bugs, we found that 58\% of bugs that were multi-location and had multiple failing tests 
-had faulty locations 
-that were covered by some but not all the tests. In addition, 27\% of multi-location and 
-multi-test patches  This indicates that the assumption underlying SBFL, namely that faulty 
-locations in the code are executed more often by failing tests, does not necessarily hold 
-for multi-location patches. Thus, we need to develop alternative fault localization 
-techniques that are scalable and effective for multi-location patches.
-
-We characterized the relationships between multiple edits in a bug
-We find that approximately half of multi-edit bugs 
-contain dependent edits in their human patches, and such bugs may be more 
-difficult for APR techniques to repair.
-We also find that over 30\%
-of multi-location bugs have some kind of code clones, making code clones fairly prevalent 
-among bugs. Moreover, we found that multi-location bugs that were found to be 
-\emph{disjoint} in our coverage analysis (i.e., had no location that was executed by all 
-failing tests) were more likely to be code clones. This indicates that program repair 
-techniques that focus on fix patterns based on code clones are viable for a significant 
-portion of bugs. In addition, since code clones are more common in bugs with certain 
-patterns of coverage, we can use that in fault localization and patch generation to identify 
-which bugs would benefit most from the aforementioned program repair techniques.
-
-In measuring how test cases respond to the application of partial repairs, we found that 
-test case based validation methods can be reasonably good at identifying partial
-repairs at when measuring the effect of the partial repair on the test suite at a higher 
-granularity level such as method level or assertion level. This suggests that for a generate 
-and validate program repair approach, applying a partial patch can still guide the approach 
-towards the correct patch. Moreover, 
-we observed that the number of both positively and negatively identified partial repairs
-increase as we increase the granularity, so we advise a careful balance of the tradeoffs of
-granularity levels in future search based APR development.
+Finally, we measured how test cases respond to the application of partial
+repairs. We found that test case based validation methods can be good at
+identifying partial repairs at when measuring the effect of the partial repair
+on the test suite at a higher granularity level such as method level or
+assertion level. This suggests that for a generate and validate program repair
+approach, applying a partial patch can still guide the approach towards the
+correct patch. Moreover, we observed that the number of both positively and
+negatively identified partial repairs increase as we increase the granularity,
+so we advise a careful balance of the tradeoffs of granularity levels in future
+search based APR development.
 
 As an additional insight gained from measuring test case response to partial patches, we 
 also found that test case based validation methods cannot capture all effects of human 
