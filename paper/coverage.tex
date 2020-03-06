@@ -44,15 +44,15 @@ set of changed lines as highly-ranked or likely-suspicious.  While appropriate
 for the question being asked in such evaluations, this does not address
 suitability for multi-location program repair.  Identifying one of several buggy
 locations is generally inadequate in a context where multiple locations must be
-modified. Thus, we ask the following research question:
+modified. In order to investigate how well the SBFL assumption
+applies to tests that identify bugs that require multi-location patches, we ask 
+the following research question:
 
 
 \rqorinsight{How well do multiple tests cover the multiple locations
   implicated in bugs that require multi-location patches?}
 
-To answer this research question, we investigate how well the SBFL assumption
-applies to tests that identify bugs that require multi-location patches. We
-focus especially on bugs that are associated with multiple failing tests: a bug
+We focus especially on bugs that are associated with multiple failing tests: a bug
 with only a single failing test trivially and equally implicates all the lines
 that test executes.  If multiple tests cover the modified locations well, then
 SBFL's core assumption holds and multi-location repair can expect to effectively
@@ -68,16 +68,15 @@ patch locations, exactly disjoint patch locations, or some combination?
 \paragraph{Methodology}
 
 Between both datasets, there are 92 total bugs that both require multi-location
-patches and contain multiple failing tests: 59 in Defects4J, and 33 in
-Bears. \todo{There is one bug in bears that I couldn't get coverage for through
-  my tool or by inspection; what do I do about that?  (It's currently
-  counted in the 92 bugs but not in the graphs)}
+patches and contain multiple failing tests. However, we were not able to obtain coverage 
+data for one of the bugs in Bears, leaving 91 total bugs: 59 in Defects4J, and 32 in
+Bears. 
 For each of these bugs, we used JaCoCo\footnote{https://www.eclemma.org/jacoco/}
 to determine which of the patched locations were executed (at least once) by
 each failing test. Using this coverage data, we categorized each bug as follows:
 \begin{itemize}
 \item \emph{disjoint} bugs are those for which no patch location is covered by all
-failing tests.  Inutitively, these are the bugs for which the core SBFL
+failing tests.  Intuitively, these are the bugs for which the core SBFL
 assumption is violated.
 \item \emph{overlap} bugs are those for which some faulty locations are covered
 by all failing tests, but some are only covered by a subset of the failing
@@ -121,11 +120,6 @@ buggy locations were executed by all failing tests. In all, over half of
 the bugs that were both multi-location and multi-test contained chunks that were 
 not executed by all failing test cases.
 
-\todo{Ooooooh I have a question about results we can't ansewr in 24 hours but
-  can answer in refinement to this work: do those failing tests have \emph{any}
-  overlap, as in, on the \emph{non-buggy} code?  Because if so, that's
-  \emph{much} worse for FL of multi-edit bugs.}
-
 Note, however, that the behavior varies considerably by dataset;
 Figure~\ref{fig:coverage-datasets} shows results.  Defects4J and 
 Bears have very different distributions with respect to the 
@@ -143,30 +137,15 @@ the patch must be written by a human. In addition, Bears was designed to be evol
 and relatively easily expanded, which is at odds with manual inspection and isolation of 
 bugs~\cite{bears}.
 Given that these two datasets were designed with different values and demonstrate very 
-different behavior, these findings highlight the importance of using diverse datasets. 
-\todo{I don't actually know of work that argues that we should be using diverse dataset ? 
-But maybe Claire you have an idea.}
-
-\todo{below is original todo, which I've tried to address:}
-\todo{references to the original papers in citations would be good,
-  here.}  \todo{1--2 more sentences...what's the implication?  Something like
-  ``this supports recent work arguing for a diversity of datasets and
-  identifying the risk of overfitting to our datasets.''  But also, as
-  discussed, I think this may not be a terrible thing about Defects4J....like,
-  maybe the minimization means that D4J is more focused on the edits actually
-  necessary to fix a bug, and that the results on D4J are subsequently more
-  indicative in terms of what fault localization needs to do to work for
-  multi-edit repair.  I'm comfortable with that level of speculation, but we
-  need to spell it out here (and we are not currently spelling it out).  If we
-  do, then I'm comfortable with the claim in the concluding/next paragraph.}
+different behavior, these findings highlight the importance of using diverse datasets in 
+evaluating program repair.
 
 SBFL assumes that faulty locations are executed more often by identifying 
-or failing test cases and is not designed to find faults like these. Since SBFL 
+or failing test cases and is not designed to find many of these multi-location faults. Since 
+SBFL 
 is the most common fault localization technique in APR, most APR techniques 
 are not well suited to fix a majority of these multi-location and multi-test 
 bugs.
-
-
 
 %\input{symptoms.tex}
 
