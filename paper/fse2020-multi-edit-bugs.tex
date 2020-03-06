@@ -101,19 +101,22 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
-population~\cite{tricentis}. This motivates significant research in techniques
-to automatically find and fix them~\cite{whatever}, with the ultimate goal of
-reducing Quality Assurance costs while improving software quality.
+population~\cite{tricentis}. Software, and thus buggy software, has become
+ubiquitous. The increased developer workload has motivated research in
+techniques to automatically find and fix bugs, which have become integrated into
+real-world development: Facebook now includes automated repair in their
+production
+environment.\footnote{https://engineering.fb.com/developer-tools/getafix-how-facebook-tools-learn-to-fix-bugs-automatically/}
 
 A significant class of program repair techniques in both
-research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test cases to guide
-patch construction, typically by following what's known as a
+research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test
+cases to guide patch construction, typically by following what's known as a
 generate-and-validate paradigm. At a high level, these techniques use test cases
 to localize a defect --- identified by at least one failing test --- to a set of
 likely-suspicious program locations. Then, they use a variety of techniques to
 construct (or \emph{generate}) patch candidates for the bug in question,
 checking each to see (or \emph{validate}) if any of them cause the program to
-pass all of the provided test cases.  
+pass all of the provided test cases.
 %
 Patches are constructed in a variety of ways, ranging from heuristic, syntactic
 program manipulation~\cite{par,genprog,rsrepair,ae,prophet,hdrepair}, to specially adapted program
