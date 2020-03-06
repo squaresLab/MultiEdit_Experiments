@@ -746,7 +746,7 @@ partial repairs at different granularity levels.
 
 
 \subsection{Methodology}
-\ref{sec:partial-repair-methodology}
+\label{sec:partial-repair-methodology}
 
 To address RQ5 and RQ6, we designed the following experiment: for each bug in 
 Defects4j 
@@ -890,6 +890,14 @@ in APR research.
 
 \todo{Please list all limitations and threats you can think of for your experiments, in something approaching a reasonable order, so we can integrate.  If you can, pull that discussion from previous sections, I didn't look for it beyond test cases.}
 
+\paragraph{Dependency analysis.}
+Since we use intraprocedural control and data dependency analysis, 
+we may miss certain interprocedural dependencies between edited statements.
+Although our heuristics for method invocations may account for certain 
+interprocedural data dependencies, these heuristics may also introduce 
+false positive data reads and writes, which may lead to inaccurate determinations 
+of dependency.
+
 \paragraph{Code clones.}
 
 This experiment only looks at location level code clones, 
@@ -897,7 +905,7 @@ but there could also be code clones within a single edit
 location. This experiment also defined code clones with four categories 
 (Same, Literal, Composite, Move), and there could be other categories as well. 
 
-A set of code clones could contain two or more locations with similaar edits, 
+A set of code clones could contain two or more locations with similar edits, 
 but we did not 
 distinguish the actual number of edit locations in the experiment and treated all of them
 as just one set of code clones.
