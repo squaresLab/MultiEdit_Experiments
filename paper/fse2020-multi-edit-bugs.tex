@@ -601,29 +601,31 @@ We call the partial patches at two locations code clones if it is one of the fol
 
 \begin{table}
 {\begin{center}
-\begin{tabular} {| l | r | r | r |}
-\hline
-& Defects4j & Bears & Combined \\
-\hline
+\begin{tabular} {lrrr}
+\toprule
+& Defects4J & Bears & Combined \\
+\midrule
 Same & 35 & 9 & 44  \\ 
 Literal & 11 & 2 & 13  \\
 Composite & 7 & 1 & 8  \\
-Move & 5 & 1 & 6  \\ \hline
-Any & 56 & 13 & 69  \\ \hline
-No clones & 96  &  51 & 147 \\ \hline
-Total & 152 & 64 & 216 \\ \hline
-\% with Clones & 36.8\% & 20.3\% & 31.9\% \\ \hline
+Move & 5 & 1 & 6  \\
+\midrule
+Any & 56 & 13 & 69  \\
+No clones & 96  &  51 & 147 \\
+Total & 152 & 64 & 216 \\
+\% with Clones & 36.8\% & 20.3\% & 31.9\% \\
+\bottomrule
 \end{tabular}
 \end{center}
 }
-\caption{Multi-chunk bugs with each kind of chunk-level code clones. Same, Literal, composite and 
-move corresponds to
-the four types of code clones described in \ref{sec52}. Any means the bug contains any of the four 
-types of code clones. Note that "Any" may not
-be the sum of the previous four rows because some bug could contain multiple pairs of code clones 
-that
-belong to different categories.
-Shows that over 30\% of multi-chunk bugs has code clones.}
+\caption{Multi-chunk bugs with each kind of chunk-level code clones. \todo{(JL:
+    polish this caption, actually say what ``Total'', ``no clones'', ``\% with
+    clones'' means) Same, Literal, composite and move corresponds to the
+    four types of code clones described in \ref{sec52}. Any means the bug
+    contains any of the four types of code clones. Note that "Any" may not be
+    the sum of the previous four rows because some bug could contain multiple
+    pairs of code clones that belong to different categories.  Shows that over
+    30\% of multi-chunk bugs has code clones.}}
 \label{tab:clones}
 \end{table}
 
