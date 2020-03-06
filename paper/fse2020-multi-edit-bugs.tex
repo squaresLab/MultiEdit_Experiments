@@ -35,9 +35,10 @@ on the Foundations of Software Engineering}{November 8-13, 2020}{Sacramento, CA,
 
 %%
 %% end of the preamble, start of the body of the document source.
+\title{A Study of Multi-Location Bug Patches}
 \begin{document}
 
-\title{A Study of Multi-Location Bug Patches}
+
 
 %add authors & shortauthors if we are lucky :)
 
@@ -413,7 +414,7 @@ changes added for non-repair reasons.
 
 Given suitably selected fault locations, APR techniques vary in the types of
 mutation operators they consider, how they select between them, and how they
-select new fix code to instantiate them, as necessary.  For example, a naive
+select new fix code to instantiate them, as necessary.  For example, a na{\"i}ve
 approach with only \texttt{insert}, \texttt{replace}, and \texttt{delete}
 operators must choose between them at a location and, in the case of
 \texttt{insert} and \texttt{replace}, choose code to insert/replace at that
@@ -477,8 +478,10 @@ We find that 44\% of Defects4J patches, 61\% of Bears patches,
 and 49\% of the combined datasets' patches contain dependencies 
 between edited statements.
 Our finding supports earlier results on edit dependencies in 
-bug patches~\cite{zhong2015} and shows that neither type of 
-patches should be ignored.
+bug patches~\cite{zhong2015}.
+Patches with and without edit dependencies both form a substantial
+portion of multi-line patches,
+and neither type of patches should be ignored.
 
 \begin{table}
 {\begin{center}
@@ -635,15 +638,15 @@ that
 belong to different categories.
 
 
-i\begin{table}
+\begin{table}
 {\begin{center}
 \begin{tabular} {lrrr}
 \toprule
 & Same Method & Same Class & Different Class \\
 \hline
-iSame & 24 & 18 & 5  \\ 
-tLiteral & 9 & 4 & 1  \\
-atComposite & 3 & 5 & 0  \\
+Same & 24 & 18 & 5  \\ 
+Literal & 9 & 4 & 1  \\
+Composite & 3 & 5 & 0  \\
 Move & 5 & 1 & 1  \\
 \midrule
 Total & 41 & 26 & 7 \\
@@ -651,10 +654,12 @@ Total & 41 & 26 & 7 \\
 \end{tabular}
 \end{center}
 }
-\caption{\todo{(JL: polish this caption, explicitly describe what each of''Same
-    Method'', ``Same Class'', etc mean, especially that ``Same Class'' means
-    ``Same class different method'')Relative locations of sets of code clones in each category (defined in \ref{sec52}).
-Shows that the majority of code clones occur within the same method}}
+\caption{
+    Relative locations of sets of code clones in each category (defined in \ref{sec52}).
+Same Method means the code clones occur in the same method, Same Class means the code
+clones are in the same class but not in the same method, and Different Class means the
+code clones are in different classes.
+Shows that the majority of code clones occur within the same method}
 \label{tab:clones_loc}
 \end{table}
 
@@ -990,13 +995,11 @@ locations in the code are executed more often by failing tests, does not necessa
 for multi-location patches. Thus, we need to develop alternative fault localization 
 techniques that are scalable and effective for multi-location patches.
 
-We characterized the relationships between patches at diferent locations in a bug, with 
-respect to dependency relationships and syntactic relationships.
-
-In terms of dependency relationships,
-\todo{Fill sec 5.1 conclusion}.
-
-With regards to syntactic relationships, we found that over 30\%
+We characterized the relationships between multiple edits in a bug
+We find that approximately half of multi-edit bugs 
+contain dependent edits in their human patches, and such bugs may be more 
+difficult for APR techniques to repair.
+We also find that over 30\%
 of multi-location bugs have some kind of code clones, making code clones fairly prevalent 
 among bugs. Moreover, we found that multi-location bugs that were found to be 
 \emph{disjoint} in our coverage analysis (i.e., had no location that was executed by all 
