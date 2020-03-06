@@ -183,7 +183,7 @@ that can in principle generate repairs with multi-location patches typically
 don't~\cite{genprog,others}.
 
 This leaves a large proportion of real-world bugs unrepairable by modern
-research techniques in program repair.  Over half of the bugs in popular bug
+research techniques in program repair.  Over half of the bugs in the popular bug
 benchmark Defects4J are patched by humans using multi-part
 patches~\cite{d4j-dissection}. Approximately 70\% of buggy source files in a
 large study of bugs in Apache projects required edits at two or more
@@ -217,7 +217,7 @@ One key question for applicability of these types of techniques is how prevalent
 such bugs are, and how often multi-location patches instead require multiple
 coordinating (but ultimately different) edits or pieces of fix code.  Over 50\% of the fixes in four 
 Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
-those multi-entity fixes involved syntactic dependencies.~\cite{wang2018}. 
+those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
 Test cases are used to evaluate candidate repairs in virtually all dynamic
 generate-and-validate repair techniques, but, anecdotally, may not be effective
 at identifying partial repairs in a multi-location
@@ -252,7 +252,8 @@ as follows:
   covered by all failing tests, thus the underlying assumptions do not
   necessarily hold.
 \item A study characterizing the relationship between fix code at different locations.  We 
-find that half of bug patches contain dependent edits.
+find that half of bug patches contain dependent edits, and that bugs with dependent 
+edits in their patches may be more difficult to automatically repair.
 \item A study of code clones. We find that over 30\% of bugs with multi-location
 patches have very similar edits applied to different locations, suggesting the viability of 
 program repair techniques designed to utilize code clones. Moreover, bugs in which 
@@ -723,8 +724,8 @@ Total & 41 & 28 & 7  & 76\\
 Same Method means the code clones occur in the same method, Same Class means the code
 clones are in the same class but not in the same method, and Diff Class means the
 code clones are in different classes.
-Shows that the majority of code clones occur within the same method\todo{This is not a complete sentence}
-and majority of code clones are of ``Same'' category}
+This table shows that the majority of code clones occur within the same method
+and the majority of code clones are of ``Same'' category}
 \label{tab:clones_loc}
 \end{table}
 
@@ -934,15 +935,21 @@ More granular fitness functions are generally better at positively identifying p
 \end{table}
 
 
-Under highest granularity, we are able to identify above 45\% of the partial repairs in Defects4j
-and above 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50-60\%
+Using the highest, class-level test granularity correctly identifies more than
+45\% of the partial repairs in Defects4j \todo{What are the actual numberes for
+  this paragraph? Not ``About'' or ``more than'' --- what's the actual
+  percentage?  Please address throughout the paper, this is just where I was
+  when I thought to put this todo in.}
+and more than 20\% of the partial repairs in Bears. Only about 30\% of Defects4j partial repairs and 50-60\%
 of Bears partial repairs are neutral and below 15\% of bugs in both datasets are negatively identified. This shows that, 
-under high granularity, test case results can be a reasonably good indicator of partial repairs, as it makes much
+under high granularity, test cases \emph{can} provide a suitable
+indication of partial repairs, as they much more often positively identify
+partial repairs (than 
 more positive partial repair identifications than negative ones.
  
-The experiment result shows that higher granularity levels are better at identifying partial repairs positively, 
-but they also increase the chance of identifying partial repairs negatively.
-This tradeoff can behave differently on different datasets. For example,
+Our results show that higher granularity levels are better at identifying partial repairs positively, 
+but they also increase the chance of erroneously mis-identifying partial repairs. 
+This tradeoff behaves differently on our different datasets. For example,
 Assertion Level Granularity performed much better than Method Level Granularity
 in Defects4j (close to 10\% more positively identified partial repairs, with less than
 0.5\% more negatively identified), but this is not the case in Bears (less than 0.6\%
@@ -952,9 +959,8 @@ carefully balance the tradeoffs in granularity level in test case based validati
 in APR research.
 
 
-\section{Limitations and Threats}
-In this section we examine the limitations and threats to validity of our
-experiments.
+\section{Limitations}
+
 \paragraph{Coverage}
 
 We use JaCoCo to collect coverage for experiments, but it has some
@@ -1045,10 +1051,11 @@ collected via BUGSTAT.
 Both our paper and Zhong and Su's paper aims to provide useful guidance and insights for 
 improving state-of-the-art APR techniques through empirical studies of bugs and bug fixes. 
 In contrast, our study focuses on one specific category of bugs: 
-source file bugs that requires multiple edit actions to successfully repair, 
-drawing insights on their behaviors in fault localization, fitness evaluations and dependency.
-\todo{more detail needed.  This is very closely related.  Why should we exist,
-  given that they do? What do we add?}
+source file bugs that requires multiple edit actions in multiple locations to successfully repair, 
+drawing insights on their behaviors in fault localization, fix mutations, and test-based 
+fitness evaluations. We also study the program repair benchmark datasets Defects4J 
+and Bears; we believe that the program repair community would derive greater 
+benefit from a study of APR benchmarks.
 
 Wang et al.~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
 (where each entity is a class, method or field). Their research questions mostly focused on 
