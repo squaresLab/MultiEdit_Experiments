@@ -98,11 +98,6 @@ public class ParseScript{
     
     
 
-    Scanner input2 = new Scanner(new File(filename));
-    ArrayList<String> edittext = new ArrayList<String>();
-    while(input2.hasNextLine()){
-      edittext.add(input2.nextLine());
-    }
     
     PrintWriter reporter = new PrintWriter(new FileWriter(new File(args[3])));
     for(PartialEdits pe : powerset){
@@ -111,30 +106,42 @@ public class ParseScript{
         nums += a;
       }
       makebugcopy(nums, args[0]);
-      int splitindex = filename.indexOf("bugorig");
-      String newname = filename.substring(0,splitindex) + "bug"+nums+filename.substring(splitindex+7);
-      PrintWriter writer = new PrintWriter( new BufferedWriter( new FileWriter( newname )));
-      for(int i = 0; i < edittext.size(); i++){
-        boolean del = false;
-        for(ParseLineObject plo : pe.edits){
-          if(plo.del && plo.linenum == i+1){
-            del=true;
-            break;
-          }
-        }
-        if(!del)writer.println(edittext.get(i));
-        PriorityQueue<ParseLineObject> pq = new PriorityQueue<ParseLineObject>();
-        for(ParseLineObject plo : pe.edits){
-          if(plo.del == false && plo.linenum == i+1){
-            pq.add(plo);
-          }
-        }
-        while(!pq.isEmpty()){
-          ParseLineObject plo = pq.poll();
-          writer.println(plo.line);
-        }
+      Set<String> fileset = new HashSet<String>();
+      for(ParseLineObject plo : pe.edits){
+        if(!fileset.contains(plo.filename))fileset.add(plo.filename);
       }
-      writer.close();
+      for(String locfilename : fileset){
+        Scanner input2 = new Scanner(new File(locfilename));
+        ArrayList<String> edittext = new ArrayList<String>();
+        while(input2.hasNextLine()){
+          edittext.add(input2.nextLine());
+        }
+        int splitindex = locfilename.indexOf("bugorig");
+        String newname = locfilename.substring(0,splitindex) + "bug"+nums+locfilename.substring(splitindex+7);
+        PrintWriter writer = new PrintWriter( new BufferedWriter( new FileWriter( newname )));
+        for(int i = 0; i < edittext.size(); i++){
+          boolean del = false;
+          for(ParseLineObject plo : pe.edits){
+            if(plo.filename.equals(locfilename) && plo.del && plo.linenum == i+1){
+              del=true;
+              break;
+            }
+          }
+          if(!del)writer.println(edittext.get(i));
+          PriorityQueue<ParseLineObject> pq = new PriorityQueue<ParseLineObject>();
+          for(ParseLineObject plo : pe.edits){
+            if(plo.filename.equals(locfilename) && plo.del == false && plo.linenum == i+1){
+              pq.add(plo);
+            }
+          }
+          while(!pq.isEmpty()){
+            ParseLineObject plo = pq.poll();
+            writer.println(plo.line);
+          }
+        }
+
+        writer.close();
+      }
       String evalresult = evalpartialrepair(nums, args[0], args[1], args[2], args[3], args[4]);
       if(evalresult == null) continue;
       Scanner input3 = new Scanner(evalresult);
