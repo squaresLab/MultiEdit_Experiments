@@ -9,11 +9,48 @@ DEPENDENCY_TUPLE_INDEX_OUTPUT=3
 DEPENDENCY_TUPLE_INDEX_DATA=4
 DEPENDENCY_TUPLE_INDEX_ANY=5
 
-bears_single_module_bugs = list(range(1,141+1)) + [143,184,185,188,189,194,198, \
+bears_single_module_bugs = list(range(1,141+1)) + [143,184,185,188,189,190,191,192,194,198, \
     201,202,204,207,209,210,213,215,216,217,218,219,220,221,223,224,225,226,230, \
     231,232,234,235,238,239,243,244,245,246,247,249,250,251]
 
-bears_falsely_multiedit_bugs=[49,53,76,133]
+def get_bears_proj(bugId):
+    fxml_name = 'FasterXML-jackson-databind'
+    fxml_nums = set(range(1, 26+1))
+    inria_name = 'INRIA-Spoon'
+    inria_nums = set(range(27, 83+1)) | set(range(215, 219+1))
+    spring_name = 'Spring-data-commons'
+    spring_nums = set(range(84, 97+1)) | {244}
+    traccar_name = 'Traccar-traccar'
+    traccar_nums = set(range(98, 139+1))
+    other_name = 'Other-Bears'
+
+    bugnum = int(bugId.split('-')[1])
+    if bugnum in fxml_nums:
+        return fxml_name
+    elif bugnum in inria_nums:
+        return inria_name
+    elif bugnum in spring_nums:
+        return spring_name
+    elif bugnum in traccar_nums:
+        return traccar_name
+    else:
+        return other_name
+
+def get_d4j_proj(bugId):
+    if 'Chart' in bugId:
+        return 'Chart'
+    elif 'Closure' in bugId:
+        return 'Closure'
+    elif 'Lang' in bugId:
+        return 'Lang'
+    elif 'Math' in bugId:
+        return 'Math'
+    elif 'Mockito' in bugId:
+        return 'Mockito'
+    elif 'Time' in bugId:
+        return 'Time'
+    else:
+        raise ValueError('WTF is this bugID: {}'.format(bugId))
 
 def get_all_d4j_bugs():
     d4j_bugs = list()
@@ -29,7 +66,7 @@ def get_all_bears_bugs(): #all = all single-module bugs
     return {'Bears-{}'.format(n) for n in bears_single_module_bugs}
 
 def get_multi_line_bugs():
-    global bears_single_module_bugs
+    all_bugs = get_all_d4j_bugs() | get_all_bears_bugs()
 
     with open('patch_locs.json') as f:
         patch_locs_json = json.load(f)
@@ -40,15 +77,47 @@ def get_multi_line_bugs():
         bugId = str(entry['bugId']).replace(' ', '') #Remove the space in D4J bugIds
         patch = entry['patch']
         lines_edited = sum(len(edits) for edits in patch.values())
-        if lines_edited > 1:
+        if bugId in all_bugs and lines_edited > 1:
             if bugId[:5] == 'Bears':
-                bugnum = int(bugId[6:])
-                if bugnum in bears_single_module_bugs and bugnum not in bears_falsely_multiedit_bugs:
-                    multi_edit_bugs_bears.append(bugId)
+                multi_edit_bugs_bears.append(bugId)
             else:
                 multi_edit_bugs_d4j.append(bugId)
 
     return set(multi_edit_bugs_d4j), set(multi_edit_bugs_bears)
+
+def get_bugs_by_file_distribution():
+    all_bugs = get_all_d4j_bugs() | get_all_bears_bugs()
+    with open('patch_locs.json') as f:
+        patch_locs_json = json.load(f)
+
+    same_file_bugs = set()
+
+    for entry in patch_locs_json:
+        bugId = str(entry['bugId']).replace(' ', '') #Remove the space in D4J bugIds
+        if bugId in all_bugs: #skip multi-module Bears bugs
+            patch = entry['patch'] #dict of files to lines changed by file
+            num_files_edited = len(patch.keys())
+            if num_files_edited == 1:
+                same_file_bugs.add(bugId)
+
+    multi_file_bugs = all_bugs - same_file_bugs
+
+    return same_file_bugs, multi_file_bugs
+
+def get_bugs_by_method_distribution():
+    all_bugs = get_all_d4j_bugs() | get_all_bears_bugs()
+
+    multi_method_bugs = set()
+
+    with open('multi-method-bugs.data') as f:
+        for line in f:
+            bugId = line.strip()
+            if bugId in all_bugs:
+                multi_method_bugs.add(bugId)
+
+    same_method_bugs = all_bugs - multi_method_bugs
+
+    return same_method_bugs, multi_method_bugs
 
 def get_bugId_from_Serenas_data_line_d4j(coverage_line):
     coverage_line_stripped = coverage_line.strip()
@@ -66,17 +135,22 @@ def get_bugId_from_Serenas_data_line_bears(coverage_line):
     return bugId
 
 def get_multi_chunk_bugs():
+    all_bugs = get_all_d4j_bugs() | get_all_bears_bugs()
     multi_chunk_bugs_d4j = list()
     with open('multi-chunk-bugs/multi_chunk_d4j.data') as f:
         for line in f:
             bugId = get_bugId_from_Serenas_data_line_d4j(line)
-            multi_chunk_bugs_d4j.append(bugId)
+            if bugId in all_bugs:
+                multi_chunk_bugs_d4j.append(bugId)
 
     multi_chunk_bugs_bears = list()
     with open('multi-chunk-bugs/multi_chunk_bears.data') as f:
         for line in f:
             bugId = get_bugId_from_Serenas_data_line_bears(line)
-            multi_chunk_bugs_bears.append(bugId)
+            if bugId in all_bugs:
+                multi_chunk_bugs_bears.append(bugId)
+            else: #debug
+                print(bugId)
 
     return set(multi_chunk_bugs_d4j), set(multi_chunk_bugs_bears)
 
@@ -244,6 +318,7 @@ def get_multi_test_bugs():
 
 def percent(n_part, n_whole):
     p = 100 * n_part/n_whole
+    p = round(p)
     return "{}%".format(p)
 
 def print_dependency_stats(multi_edit_bugs_d4j, multi_edit_bugs_bears, dependencies):
@@ -598,15 +673,62 @@ def print_edit_and_test_info(all_bugs, multi_edit_bugs, multi_test_bugs):
     single_test_bugs = all_bugs - multi_test_bugs
     run_contingency_analysis(single_test_bugs, multi_test_bugs, single_edit_bugs, multi_edit_bugs, \
             "Num edits and num tests",
-            'single edit', 'multi-edits', 'single chunk', 'multi-chunk')
+            'single test', 'multi-tests', 'single chunk', 'multi-chunk')
 
+def partition_bugs_by_project(bugs):
+    proj_to_bugs = dict()
+
+    for bugId in bugs:
+        if 'Bears' in bugId:
+            proj = get_bears_proj(bugId)
+        else:
+            proj = get_d4j_proj(bugId)
+
+        if proj not in proj_to_bugs.keys():
+            proj_to_bugs[proj] = set()
+
+        proj_to_bugs[proj].add(bugId)
+
+    return proj_to_bugs
+
+def get_multi_edit_frequencies_per_proj():
+    all_bugs = get_all_d4j_bugs() | get_all_bears_bugs()
+    multi_line_bugs_d4j, multi_line_bugs_bears = get_multi_line_bugs()
+    multi_line_bugs = multi_line_bugs_d4j | multi_line_bugs_bears
+    multi_chunk_bugs_d4j, multi_chunk_bugs_bears = get_multi_chunk_bugs()
+    multi_chunk_bugs = multi_chunk_bugs_d4j | multi_chunk_bugs_bears
+    multi_test_bugs = get_multi_test_bugs()
+    mchunk_mtest_bugs = multi_chunk_bugs & multi_test_bugs #intersection
+
+    proj_to_bugs = partition_bugs_by_project(all_bugs)
+    proj_to_multi_line_bugs = partition_bugs_by_project(multi_line_bugs)
+    proj_to_multi_chunk_bugs = partition_bugs_by_project(multi_chunk_bugs)
+    proj_to_multi_test_bugs = partition_bugs_by_project(multi_test_bugs)
+    proj_to_mtest_mchunk_bugs = partition_bugs_by_project(mchunk_mtest_bugs)
+
+    print("Proj\tTotal\tMLine\tMChunk\tMTest\tMTestMChunk")
+    for proj in proj_to_bugs.keys():
+        total = len(proj_to_bugs[proj])
+        mline = len(proj_to_multi_line_bugs[proj])
+        p_mline = percent(mline, total)
+        mchunk = len(proj_to_multi_chunk_bugs[proj])
+        p_mchunk = percent(mchunk, total)
+        mtest = len(proj_to_multi_test_bugs[proj])
+        p_mtest = percent(mtest, total)
+        mtestmchunk = len(proj_to_mtest_mchunk_bugs[proj])
+        p_mtestmchunk = percent(mtestmchunk, total)
+        print('{}\t{}\t{}({})\t{}({})\t{}({})\t{}({})' \
+                .format(proj, total, mline, p_mline, mchunk, p_mchunk, mtest, p_mtest, mtestmchunk, p_mtestmchunk))
 
 if __name__=='__main__':
-    all_bugs_d4j, all_bugs_bears = get_all_d4j_bugs(), get_all_bears_bugs()
-    multi_line_bugs_d4j, multi_line_bugs_bears = get_multi_line_bugs() #lists of multi-edit bugs
-    multi_chunk_bugs_d4j, multi_chunk_bugs_bears = get_multi_chunk_bugs()
+    #get_multi_edit_frequencies_per_proj()
+    print(len(get_multi_chunk_bugs()[1]))
+
+    #all_bugs_d4j, all_bugs_bears = get_all_d4j_bugs(), get_all_bears_bugs()
+    #multi_line_bugs_d4j, multi_line_bugs_bears = get_multi_line_bugs()
+    #multi_chunk_bugs_d4j, multi_chunk_bugs_bears = get_multi_chunk_bugs()
     #dependencies = get_dependencies() #maps bugId -> dependency 6-tuple
-    tool_to_repaired_bugs = get_tool_to_repaired_bugs()
+    #tool_to_repaired_bugs = get_tool_to_repaired_bugs()
     #coverage_partitions_d4j, coverage_partitions_bears = get_coverage_d4j(), get_coverage_bears()
     #symptoms_to_bugs_aonly = get_symptoms('asserts_only')
     #symptoms_to_bugs_g1 = get_symptoms('grouping1')
@@ -615,12 +737,14 @@ if __name__=='__main__':
     #pos_neg_neu_proportions = get_pos_neg_neu_proportions()
     #multi_test_bugs = get_multi_test_bugs()
 
-    print("D4J repairability:")
-    print_repairability_stats(all_bugs_d4j, multi_line_bugs_d4j, multi_chunk_bugs_d4j, tool_to_repaired_bugs)
-    print("Bears repairability:")
-    print_repairability_stats(all_bugs_bears, multi_line_bugs_bears, multi_chunk_bugs_bears, tool_to_repaired_bugs)
-    print("Combined repairability:")
-    print_repairability_stats(all_bugs_d4j|all_bugs_bears, multi_line_bugs_d4j|multi_line_bugs_bears, multi_chunk_bugs_d4j|multi_chunk_bugs_bears, tool_to_repaired_bugs)
+
+    #print(len(all_bugs_bears - multi_line_bugs_bears))
+    #print("D4J repairability:")
+    #print_repairability_stats(all_bugs_d4j, multi_line_bugs_d4j, multi_chunk_bugs_d4j, tool_to_repaired_bugs)
+    #print("Bears repairability:")
+    #print_repairability_stats(all_bugs_bears, multi_line_bugs_bears, multi_chunk_bugs_bears, tool_to_repaired_bugs)
+    #print("Combined repairability:")
+    #print_repairability_stats(all_bugs_d4j|all_bugs_bears, multi_line_bugs_d4j|multi_line_bugs_bears, multi_chunk_bugs_d4j|multi_chunk_bugs_bears, tool_to_repaired_bugs)
 
     #print("D4J chunks and tests:")
     #print_edit_and_test_info(all_bugs_d4j, multi_chunk_bugs_d4j, multi_test_bugs)
