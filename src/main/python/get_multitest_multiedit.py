@@ -6,8 +6,12 @@ with open("data/bears-bugs.json") as f:
 with open("data/defects4j-bugs.json") as f:
     d4j_bugs = json.load(f)
 
-with open("data/multi_edit.txt") as f:
-    multi_edit = set([s.strip() for s in f])
+multi_edit = set()
+with open("data/multi-location-bugs/multi_location_bears.data") as f:
+    multi_edit.update([s.strip() for s in f])
+
+with open("data/multi-location-bugs/multi_location_d4j.data") as f:
+    multi_edit.update([s.strip() for s in f])
 
 multi_test = []
 both = []
