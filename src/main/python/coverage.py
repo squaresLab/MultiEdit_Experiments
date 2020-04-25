@@ -1,16 +1,14 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# folders = ["data/coverage-experiments/dec16-Chart1-Lang24",
-# 			"data/coverage-experiments/dec16-Lang26-Lang41",
-# 			"data/coverage-experiments/dec16-Lang43-Lang61",
-# 			"data/coverage-experiments/dec16-Lang63-Time11"]
+"""
+This is the script we used to generate the plots of the coverage categories.
+"""
 
 # folders = ["data/coverage-experiments/mar4-bears"]
 # folders = ["data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
 folders = ["data/coverage-experiments/mar4-bears", "data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
 
-import matplotlib.pyplot as plt
 plt.rcParams.update({'font.size': 17})
 # plt.rcParams.update({'font.family': 'serif'})
 

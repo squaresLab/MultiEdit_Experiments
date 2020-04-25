@@ -1,6 +1,9 @@
 import pandas
 from collections import defaultdict
 
+"""
+This is an experiment we performed to see whether there was a correlation between symptom (i.e. error) and coverage result.
+"""
 
 symptoms = pandas.read_csv("data/symptoms/assertion-symptoms.csv")
 

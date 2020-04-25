@@ -1,5 +1,9 @@
 import json
 
+"""
+This parses the git diffs that are provided in the data files for Bears and Defects4J [dissection] to extract the patch locations.
+"""
+
 def parse_diff(diff):
     patch = {}
     chunks = {}

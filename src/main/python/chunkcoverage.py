@@ -1,6 +1,36 @@
 import json
 import re
 
+"""
+This script is used to identify bugs for which the coverage category identified by the experiment based on Jacoco differs
+from the coverage category that would be assigned based on looking at whether the tests covered any patched line at a location.
+
+For example, this script identifies bugs where the patch looks like:
+
+location 1:
+```
+x = foo();
+
+if (x > 0) {
+	bar();
+}
+```
+
+location 2:
+```
+baz();
+```
+
+If the failing tests execute both locations, but one test fails the if statement and the other enters the if statement,
+the program would have classified this as "overlap."
+
+However, it should have been classified as "same," since both locations were executed.
+"""
+
+raw_coverage_files = ["data/coverage-experiments/mar4-bears/rawCoverage.data",
+					  "data/coverage-experiments/mar4-d4j/rawCoverage.data",
+					  "data/coverage-experiments/mar4-mockito/rawCoverage.data"]
+
 with open("data/patch_locs.json") as f:
 	patch_json = json.load(f)
 
@@ -50,15 +80,9 @@ def parse_cov(f):
 	all_cov[name] = { "INTERSECT": intersect, "UNION": union }
 
 
-
-with open("data/coverage-experiments/mar4-bears/rawCoverage.data") as f:
-	parse_cov(f)
-
-with open("data/coverage-experiments/mar4-d4j/rawCoverage.data") as f:
-	parse_cov(f)
-
-with open("data/coverage-experiments/mar4-mockito/rawCoverage.data") as f:
-	parse_cov(f)
+for fname in raw_coverage_files:
+	with open(fname) as f:
+		parse_cov(f)
 
 print(all_cov)
 print(len(all_cov))

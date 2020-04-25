@@ -1,5 +1,8 @@
 import json
 
+"""
+This script automatically generates a file containing the multi-test and multi-edit bugs, for coverage experiments.
+"""
 with open("data/bears-bugs.json") as f:
     bears_bugs = json.load(f)
 
