@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import org.apache.commons.exec.*;
 import org.jacoco.core.analysis.Analyzer;
@@ -18,24 +17,23 @@ import org.jacoco.core.data.ExecutionDataStore;
 import org.jacoco.core.data.IExecutionDataVisitor;
 import org.jacoco.core.data.ISessionInfoVisitor;
 import org.jacoco.core.data.SessionInfo;
-import projects.BearsPatch;
 import projects.Patch;
 
 public class JacocoCoverage {
 
-    public Collection<CoverageSubset> getCoveragePassingTests(Patch patch, Patch.Version whichVersion) {
+    public static Collection<CoverageSubset> getCoveragePassingTests(Patch patch, Patch.Version whichVersion) {
         return getCoverageSomeTests(patch, patch.getPassingTests(), whichVersion);
     }
 
-    public Collection<CoverageSubset> getCoverageFailingTests(Patch patch, Patch.Version whichVersion) {
+    public static Collection<CoverageSubset> getCoverageFailingTests(Patch patch, Patch.Version whichVersion) {
         return getCoverageSomeTests(patch, patch.getFailingTests(), whichVersion);
     }
 
-    public Collection<CoverageSubset> getCoverageRelevantTests(Patch patch, Patch.Version whichVersion) {
+    public static Collection<CoverageSubset> getCoverageRelevantTests(Patch patch, Patch.Version whichVersion) {
         return getCoverageSomeTests(patch, patch.getRelevantTests(), whichVersion);
     }
 
-    public Collection<CoverageSubset> getCoverageSomeTests(Patch p, Collection<String> whichTests, Patch.Version whichVersion) {
+    public static Collection<CoverageSubset> getCoverageSomeTests(Patch p, Collection<String> whichTests, Patch.Version whichVersion) {
         List<CoverageSubset> testCaseCoverage = new ArrayList<>();
 
         for (String t : whichTests) {
@@ -47,7 +45,7 @@ public class JacocoCoverage {
         return testCaseCoverage;
     }
 
-    public CoverageSubset getCoverageForTest(Patch patch, String tc, Patch.Version whichVersion) {
+    public static CoverageSubset getCoverageForTest(Patch patch, String tc, Patch.Version whichVersion) {
         internalTestCase(tc, patch, whichVersion);
 
         Map<String, Set<Integer>> coverageInfo;
@@ -65,7 +63,7 @@ public class JacocoCoverage {
     }
 
     // code copied from genprog4java DefaultLocalization.getCoverageInfo()
-    protected Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, Patch patch, Patch.Version whichVersion) throws IOException {
+    protected static Map<String, Set<Integer>> getCoverageInfo(File jacocoFile, Patch patch, Patch.Version whichVersion) throws IOException {
         Map<String, Set<Integer>> classCoverage = new HashMap<String, Set<Integer>>();
 
         File classFiles;
@@ -139,7 +137,7 @@ public class JacocoCoverage {
 
     }
 
-    protected void internalTestCase(String thisTest, Patch patch, Patch.Version whichVersion) {
+    protected static void internalTestCase(String thisTest, Patch patch, Patch.Version whichVersion) {
 
         CommandLine command = patch.getTestCommand(thisTest, whichVersion);
         System.out.println(command);

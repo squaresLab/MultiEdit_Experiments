@@ -17,6 +17,8 @@ public class Defects4JPatch implements Patch {
     private String pathToBuggySubjectClasses, pathToBuggyTestClasses, pathToPatchedSubjectClasses, pathToPatchedTestClasses;
     private String buggyClassPath, patchedClassPath;
     private CoverageSubset patchLocations;
+    private final Scanner sysin = new Scanner(System.in);
+
 
     public Defects4JPatch(D4JName projectName, int bugNumber) {
         if (bugNumber <= 0 || bugNumber > projectName.numBugs) {
@@ -147,11 +149,9 @@ public class Defects4JPatch implements Patch {
         System.out.println(String.join(" ", command.toStrings()));
         if (projectName == D4JName.MOCKITO || (projectName == D4JName.CHART && bugNumber == 5)) {
             // defects4j commands are super flaky through the command line runner, but work perfectly fine in my shell
-            try {
-                Thread.sleep(300_000); // run the damn thing yourself.
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            System.out.println("Run the above command in your shell, and press <enter> when it finishes.");
+            System.out.println("(Defects4J commands are very flaky for Mockito when run through the CommandLineRunner)");
+            sysin.nextLine();
         }
         else {
             int tries = 0;

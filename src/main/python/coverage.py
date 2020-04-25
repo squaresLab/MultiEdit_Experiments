@@ -6,15 +6,27 @@ import seaborn as sns
 # 			"data/coverage-experiments/dec16-Lang43-Lang61",
 # 			"data/coverage-experiments/dec16-Lang63-Time11"]
 
-folders = ["data/coverage-experiments/mar4-bears"]
+# folders = ["data/coverage-experiments/mar4-bears"]
 # folders = ["data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
-# folders = ["data/coverage-experiments/mar4-bears", "data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
+folders = ["data/coverage-experiments/mar4-bears", "data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
+
+import matplotlib.pyplot as plt
+plt.rcParams.update({'font.size': 17})
+# plt.rcParams.update({'font.family': 'serif'})
+
+
 
 with open("data/more_than_one_test.txt") as f:
     more_than_one_test = set([x.strip() for x in f.readlines()])
 
-with open("data/multi_edit.txt") as f:
-    multi_edit = set([x.strip() for x in f.readlines()])
+with open("data/multi-location-bugs/multi_location_d4j.data") as f:
+    multi_edit = [x.strip() for x in f.readlines()]
+
+with open("data/multi-location-bugs/multi_location_bears.data") as f:
+    multi_edit.extend([x.strip() for x in f.readlines()])
+
+multi_edit = set(multi_edit)
+
 
 disjoint = 0
 same = 0
@@ -120,9 +132,9 @@ overlap_percent = round(100 * multichunk_inBetween / sum_mchunk)
 # plt.ylabel("Number patches")
 
 plt.figure()
-ax = plt.bar(["disjoint", "overlap", "identical"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])
-plt.title("Bears: Distribution of coverage patterns")
-plt.yticks(range(0, 25, 5))
+ax = plt.bar(["disjoint", "overlap", "identical"], [multichunk_disjoint, multichunk_inBetween, multichunk_same], color='#e6b8afff')
+plt.title("All multi-location and multi-test:\nDistribution of coverage patterns")
+plt.ylim(0, 45)
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
 

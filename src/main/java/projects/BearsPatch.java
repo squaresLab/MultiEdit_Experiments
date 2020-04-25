@@ -68,7 +68,7 @@ public class BearsPatch implements Patch {
 
     @Override
     public String getPatchName() {
-        return String.format("%s:%03d", branchName, bugNumber);
+        return String.format("BEARS:%03d", bugNumber);
     }
 
     /**
@@ -241,10 +241,10 @@ public class BearsPatch implements Patch {
             xmlOutput.output(doc, new FileWriter(pathToPom + "/" + pomName));
 
             if (build.getName().contains("pluginManagement")) {
+                // idk how to generalize this. maybe case by case is the best policy
                 if (this.bugNumber == 191 || this.bugNumber == 192){
                     modifyXML(pathToPom + "/src/server", "pom.xml");
                 } else {
-                    // gonna try this, for bug 165. but idk how to generalize this. maybe case by case is the best policy
                     modifyXML(pathToPom + "/dhis-api", "pom.xml");
                 }
             }
@@ -314,7 +314,7 @@ public class BearsPatch implements Patch {
 
     @Override
     public String toString() {
-        return String.format("BEARS:%03d", bugNumber);
+        return this.getPatchName();
     }
 
 }
