@@ -1,0 +1,895 @@
+PATCH : CHART:002
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/jfree/data/general/DatasetUtilities: [1249, 755, 1252, 1253, 758, 1254, 759, 760, 1258, 764, 1261, 767]
+
+PATCH : CHART:014
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/jfree/chart/plot/XYPlot: [2532, 2533, 2293, 2294]
+org/jfree/chart/plot/CategoryPlot: [2451, 2452, 2166, 2167]
+
+PATCH : CHART:016
+INTERSECT
+intersect all failing tests
+org/jfree/data/category/DefaultIntervalCategoryDataset: [208, 207]
+
+UNION
+aggregate all failing tests
+org/jfree/data/category/DefaultIntervalCategoryDataset: [208, 338, 207]
+
+PATCH : CHART:018
+INTERSECT
+intersect all failing tests
+org/jfree/data/DefaultKeyedValues: [317, 318, 319]
+
+UNION
+aggregate all failing tests
+org/jfree/data/DefaultKeyedValues: [317, 333, 318, 319]
+org/jfree/data/DefaultKeyedValues2D: [464, 465, 455, 458, 459]
+
+PATCH : CHART:019
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/jfree/chart/plot/CategoryPlot: [976, 977, 698, 699]
+
+PATCH : CHART:022
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/jfree/data/KeyedObjects2D: [321, 322, 323, 324, 325, 231, 232, 233, 234, 331, 332, 333, 334, 335, 367, 336, 368, 404, 340, 405, 406, 319]
+
+PATCH : CHART:025
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/jfree/chart/renderer/category/StatisticalBarRenderer: [320, 259, 468, 260, 469, 470, 409, 410, 318, 319]
+
+PATCH : CLOSURE:100
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/CheckGlobalThis: [99, 100, 104, 153]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/CheckGlobalThis: [99, 100, 104, 153]
+
+PATCH : CLOSURE:103
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/DisambiguateProperties: [769, 770, 763, 764]
+
+PATCH : CLOSURE:106
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+com/google/javascript/rhino/JSDocInfoBuilder: [189, 190]
+com/google/javascript/jscomp/GlobalNamespace: [907, 908, 909]
+
+PATCH : CLOSURE:115
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/FunctionInjector: [721]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/FunctionInjector: [721]
+
+PATCH : CLOSURE:116
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/FunctionInjector: [697, 698, 699, 732, 700, 733, 701, 702]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/FunctionInjector: [697, 698, 699, 732, 700, 733, 701, 702]
+
+PATCH : CLOSURE:131
+INTERSECT
+intersect all failing tests
+com/google/javascript/rhino/TokenStream: [200]
+
+UNION
+aggregate all failing tests
+com/google/javascript/rhino/TokenStream: [200]
+
+PATCH : LANG:010
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/time/FastDateParser: [304, 305, 306]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/time/FastDateParser: [304, 305, 306]
+
+PATCH : LANG:012
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/RandomStringUtils: [230]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/RandomStringUtils: [230, 231, 235, 236]
+
+PATCH : LANG:015
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/reflect/TypeUtils: [675]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/reflect/TypeUtils: [675, 219, 220, 221]
+
+PATCH : LANG:019
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/text/translate/NumericEntityUnescaper: [50, 40]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/text/translate/NumericEntityUnescaper: [50, 51, 84, 86, 40, 57]
+
+PATCH : LANG:020
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/StringUtils: [3298, 3383]
+
+PATCH : LANG:022
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/math/Fraction: [583, 590]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/math/Fraction: [583, 590]
+
+PATCH : LANG:030
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/StringUtils: [1601, 1602, 1544, 1546, 1552, 1553, 1554, 1376, 1378, 1383, 1705, 1385, 1386, 1707, 1712, 1713, 1715, 1717, 1718, 1463, 1464, 1466, 1595, 1468, 1596, 1597, 1598]
+
+PATCH : LANG:031
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/StringUtils: [1446, 1447, 1452, 1454, 1455]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/StringUtils: [1446, 1447, 1452, 1454, 1455]
+
+PATCH : LANG:034
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/builder/ToStringStyle: [148, 164]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/builder/ToStringStyle: [148, 164]
+
+PATCH : LANG:036
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/math/NumberUtils: [491]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/math/NumberUtils: [1394, 491, 1388, 1389]
+
+PATCH : LANG:041
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang/ClassUtils: [194, 258, 195, 196, 197, 263, 200, 264, 201, 267, 268, 205, 206, 216, 191]
+
+PATCH : LANG:047
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang/text/StrBuilder: [1233, 1186, 1234, 1187]
+
+PATCH : LANG:050
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang/time/FastDateFormat: [464, 289, 466, 292, 469, 285, 286, 463]
+
+PATCH : MATH:001
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math3/fraction/BigFraction: [306, 307]
+org/apache/commons/math3/fraction/Fraction: [215, 216]
+
+PATCH : MATH:004
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math3/geometry/euclidean/threed/SubLine: [114, 115]
+org/apache/commons/math3/geometry/euclidean/twod/SubLine: [118, 119]
+
+PATCH : MATH:006
+INTERSECT
+intersect all failing tests
+org/apache/commons/math3/optim/BaseOptimizer: [51]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer: [192, 190]
+org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer: [158, 175]
+org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer: [276, 213, 214, 216, 222]
+org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer: [388]
+org/apache/commons/math3/optim/BaseOptimizer: [51]
+org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer: [321, 322, 324]
+org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer: [105, 106, 107, 159]
+
+PATCH : MATH:012
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+
+PATCH : MATH:016
+INTERSECT
+intersect all failing tests
+org/apache/commons/math3/util/FastMath: [82]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math3/util/FastMath: [395, 397, 398, 465, 82, 402, 467, 403, 468, 405, 406, 472, 473, 475, 476]
+
+PATCH : MATH:021
+INTERSECT
+intersect all failing tests
+org/apache/commons/math3/linear/RectangularCholeskyDecomposition: [131, 69, 78, 81, 82, 83, 89, 90, 91, 92, 93, 94, 126, 95]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math3/linear/RectangularCholeskyDecomposition: [131, 69, 78, 81, 82, 83, 89, 90, 91, 92, 93, 94, 126, 95]
+
+PATCH : MATH:022
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math3/distribution/FDistribution: [275]
+org/apache/commons/math3/distribution/UniformRealDistribution: [184]
+
+PATCH : MATH:029
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math3/linear/OpenMapRealVector: [373, 374, 375, 376, 377, 379, 380, 349, 381, 350, 351]
+
+PATCH : MATH:035
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+
+PATCH : MATH:036
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/fraction/BigFraction: [689, 739, 691, 742, 744, 686]
+
+PATCH : MATH:037
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/complex/Complex: [1072, 1024, 1073, 1025, 1075, 1076, 1018, 1069, 1021, 1022]
+
+PATCH : MATH:043
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/stat/descriptive/SummaryStatistics: [161, 164, 158]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/stat/descriptive/SummaryStatistics: [161, 164, 158]
+
+PATCH : MATH:046
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/complex/Complex: [260]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/complex/Complex: [260]
+
+PATCH : MATH:047
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/complex/Complex: [258, 259, 106]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/complex/Complex: [258, 259, 106]
+
+PATCH : MATH:064
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer: [352, 321, 353, 449, 258, 450, 259, 451, 356, 430, 272, 273, 433, 374, 283, 351]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer: [352, 321, 353, 449, 258, 450, 259, 451, 356, 430, 272, 273, 433, 374, 283, 351]
+
+PATCH : MATH:066
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/optimization/univariate/BrentOptimizer: [228, 231, 232, 57, 44, 46, 190, 110, 47, 191, 111]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/optimization/univariate/BrentOptimizer: [228, 231, 232, 57, 44, 46, 190, 110, 47, 191, 111]
+
+PATCH : MATH:068
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer: [417, 166, 248, 348, 428, 254]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer: [417, 166, 248, 348, 428, 254]
+
+PATCH : MATH:071
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator: [300, 301, 302, 303]
+org/apache/commons/math/ode/nonstiff/RungeKuttaIntegrator: [180, 181, 182]
+
+PATCH : MATH:076
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/linear/SingularValueDecompositionImpl: [177, 166, 171]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/linear/SingularValueDecompositionImpl: [177, 166, 171]
+
+PATCH : MATH:084
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/optimization/direct/MultiDirectional: [64, 97, 98, 99, 100, 102]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/optimization/direct/MultiDirectional: [64, 97, 98, 99, 100, 102, 93]
+
+PATCH : MATH:086
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/linear/CholeskyDecompositionImpl: [134, 135]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/linear/CholeskyDecompositionImpl: [134, 135]
+
+PATCH : MATH:098
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/linear/BigMatrixImpl: [991]
+org/apache/commons/math/linear/RealMatrixImpl: [779]
+
+PATCH : MATH:099
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/util/MathUtils: [544, 720, 543, 719]
+
+PATCH : MATH:102
+INTERSECT
+intersect all failing tests
+org/apache/commons/math/stat/inference/ChiSquareTestImpl: [74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 89, 90, 91]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math/stat/inference/ChiSquareTestImpl: [74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 89, 90, 91]
+
+PATCH : MOCKITO:002
+INTERSECT
+intersect all failing tests
+org/mockito/internal/util/Timer: [31]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/util/Timer: [31]
+
+PATCH : MOCKITO:003
+INTERSECT
+intersect all failing tests
+org/mockito/internal/invocation/InvocationMatcher: [146, 147, 148, 149, 150, 155, 127]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/invocation/InvocationMatcher: [129, 130, 146, 131, 147, 148, 149, 150, 155, 127]
+
+PATCH : MOCKITO:004
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/mockito/exceptions/Reporter: [434, 677, 678, 424]
+
+PATCH : MOCKITO:011
+INTERSECT
+intersect all failing tests
+org/mockito/internal/creation/DelegatingMethod: [55]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/creation/DelegatingMethod: [55, 56, 58, 59, 60]
+
+PATCH : MOCKITO:020
+INTERSECT
+intersect all failing tests
+org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker: [32]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker: [32, 35]
+
+PATCH : MOCKITO:025
+INTERSECT
+intersect all failing tests
+org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs: [81, 98, 82, 83, 71, 88, 56, 89, 91, 93, 94]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs: [98, 101, 71, 81, 82, 83, 88, 56, 89, 90, 91, 93, 94]
+
+PATCH : MOCKITO:035
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/mockito/Matchers: [516, 362, 479]
+
+PATCH : MOCKITO:037
+INTERSECT
+intersect all failing tests
+org/mockito/internal/stubbing/answers/AnswersValidator: [34, 28]
+
+UNION
+aggregate all failing tests
+org/mockito/internal/stubbing/answers/AnswersValidator: [34, 28]
+
+PATCH : TIME:003
+INTERSECT
+intersect all failing tests
+org/joda/time/MutableDateTime: [797]
+
+UNION
+aggregate all failing tests
+org/joda/time/MutableDateTime: [708, 662, 774, 731, 797, 639]
+
+PATCH : TIME:005
+INTERSECT
+intersect all failing tests
+org/joda/time/Period: [1634, 1635, 1636, 1637, 1639, 1628, 1629]
+
+UNION
+aggregate all failing tests
+org/joda/time/Period: [1634, 1635, 1636, 1637, 1639, 1628, 1629]
+
+PATCH : TIME:006
+INTERSECT
+intersect all failing tests
+org/joda/time/chrono/GJChronology: [196, 197]
+
+UNION
+aggregate all failing tests
+org/joda/time/chrono/GJChronology: [196, 197, 198, 983, 984, 985, 986, 988, 989, 990, 991]
+
+PATCH : TIME:007
+INTERSECT
+intersect all failing tests
+org/joda/time/format/DateTimeFormatter: [708, 710]
+
+UNION
+aggregate all failing tests
+org/joda/time/format/DateTimeFormatter: [708, 710]
+
+PATCH : TIME:010
+INTERSECT
+intersect all failing tests
+org/joda/time/base/BaseSingleFieldPeriod: [105]
+
+UNION
+aggregate all failing tests
+org/joda/time/base/BaseSingleFieldPeriod: [105]
+
+PATCH : TIME:012
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/joda/time/LocalDateTime: [240, 241, 199, 237, 239]
+org/joda/time/LocalDate: [210, 244, 246, 247, 248]
+
+PATCH : TIME:021
+INTERSECT
+intersect all failing tests
+org/joda/time/tz/DefaultNameProvider: [66, 67, 83, 68, 69]
+
+UNION
+aggregate all failing tests
+org/joda/time/tz/DefaultNameProvider: [66, 67, 83, 68, 69]
+
+PATCH : TIME:022
+INTERSECT
+intersect all failing tests
+org/joda/time/base/BasePeriod: [224, 225, 226, 227, 228, 222]
+
+UNION
+aggregate all failing tests
+org/joda/time/base/BasePeriod: [224, 225, 226, 227, 228, 222]
+
+PATCH : TIME:026
+INTERSECT
+intersect all failing tests
+org/joda/time/chrono/ZonedChronology: [467]
+
+UNION
+aggregate all failing tests
+org/joda/time/chrono/ZonedChronology: [467]
+
+PATCH : BEARS:007
+INTERSECT
+intersect all failing tests
+com/fasterxml/jackson/databind/deser/std/EnumDeserializer: [170]
+
+UNION
+aggregate all failing tests
+com/fasterxml/jackson/databind/deser/std/EnumDeserializer: [170]
+
+PATCH : BEARS:012
+INTERSECT
+intersect all failing tests
+com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer: [583]
+
+UNION
+aggregate all failing tests
+com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer: [583]
+
+PATCH : BEARS:031
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [677, 622]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [677, 622]
+
+PATCH : BEARS:039
+INTERSECT
+intersect all failing tests
+spoon/reflect/visitor/filter/SiblingsFunction: [64, 69, 70, 71, 72, 73, 76, 78, 79, 80, 81, 83, 84, 87, 89, 39, 40, 41, 42, 45, 46, 48, 49, 63]
+
+UNION
+aggregate all failing tests
+spoon/reflect/visitor/filter/LocalVariableReferenceFunction: [67, 69, 72, 47, 48, 49, 51, 54, 57, 58, 59, 60, 61, 63]
+spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction: [64, 69, 71, 73, 74, 75, 76, 78, 79, 80, 81, 82, 83, 85, 87, 88, 89, 90, 91, 92, 97, 98, 99, 61, 63]
+spoon/reflect/visitor/filter/LocalVariableScopeFunction: [47]
+spoon/reflect/visitor/filter/SiblingsFunction: [64, 69, 70, 71, 72, 73, 76, 78, 79, 80, 81, 83, 84, 87, 89, 39, 40, 41, 42, 45, 46, 48, 49, 55, 56, 63]
+spoon/support/reflect/reference/CtLocalVariableReferenceImpl: [80, 73, 76, 60, 78, 79, 63]
+
+PATCH : BEARS:040
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [641, 642, 646, 678, 273, 274, 275, 276, 278, 662, 663, 669]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [641, 642, 646, 678, 650, 273, 274, 275, 276, 278, 662, 663, 280, 669]
+
+PATCH : BEARS:041
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [577, 578, 536]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [577, 578, 536, 537, 538, 539]
+
+PATCH : BEARS:045
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/reference/CtFieldReferenceImpl: [131]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/reference/CtFieldReferenceImpl: [131]
+
+PATCH : BEARS:055
+INTERSECT
+intersect all failing tests
+spoon/reflect/visitor/ImportScannerImpl: [580, 619, 622, 143, 623, 624, 625, 626, 595, 148, 597, 149, 600, 633]
+
+UNION
+aggregate all failing tests
+spoon/reflect/visitor/printer/ElementPrinterHelper: [286]
+spoon/reflect/visitor/ImportScannerImpl: [640, 580, 644, 645, 581, 646, 647, 143, 145, 595, 659, 148, 597, 149, 598, 600, 612, 615, 105, 107, 619, 622, 623, 624, 625, 626, 633, 634, 639]
+spoon/reflect/visitor/MinimalImportScanner: [80, 81, 82, 58, 59, 60]
+
+PATCH : BEARS:058
+INTERSECT
+intersect all failing tests
+spoon/reflect/visitor/printer/ElementPrinterHelper: [263, 264]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [532, 1817]
+spoon/reflect/visitor/printer/PrinterHelper: [179, 185]
+
+UNION
+aggregate all failing tests
+spoon/reflect/visitor/printer/ElementPrinterHelper: [263, 264, 91]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [532, 439, 1817, 442, 1819, 285, 1821]
+spoon/reflect/visitor/printer/PrinterHelper: [163, 179, 181, 182, 185, 175]
+
+PATCH : BEARS:059
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [707, 711, 840, 105, 714, 715, 657, 658, 659, 693, 694, 695, 697, 701]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [707, 708, 711, 840, 105, 714, 715, 657, 658, 659, 756, 693, 694, 695, 759, 697, 763, 764, 701, 702]
+spoon/support/reflect/reference/CtExecutableReferenceImpl: [320, 318, 319]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [544, 548, 549, 1605, 550, 1609, 554, 1612, 1613, 1614, 1618, 1619, 1624, 538, 539, 542, 543]
+
+PATCH : BEARS:062
+INTERSECT
+intersect all failing tests
+spoon/template/Substitution: [192, 193, 185, 186, 187, 188, 190, 175]
+spoon/support/visitor/ClassTypingContext: [699]
+
+UNION
+aggregate all failing tests
+spoon/template/Substitution: [192, 193, 185, 186, 187, 188, 190, 175]
+spoon/support/visitor/ClassTypingContext: [699, 700, 701, 702, 703]
+
+PATCH : BEARS:063
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [656, 657, 658, 659, 661, 662, 103, 663, 655]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [656, 657, 658, 659, 661, 662, 103, 663, 655]
+
+PATCH : BEARS:067
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/declaration/CtTypeImpl: [899, 900, 904, 905, 906, 910]
+spoon/support/visitor/ClassTypingContext: [649, 426]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/declaration/CtTypeImpl: [899, 900, 904, 905, 906, 910]
+spoon/support/visitor/ClassTypingContext: [649, 426]
+
+PATCH : BEARS:068
+INTERSECT
+intersect all failing tests
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [1102]
+
+UNION
+aggregate all failing tests
+spoon/reflect/visitor/ImportScannerImpl: [417, 418, 429, 371, 403, 372, 373, 405, 374, 375, 407, 408, 379, 411, 380, 412, 382]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [1104, 1105, 1107, 1109, 1110, 1102, 1103]
+
+PATCH : BEARS:071
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [635]
+spoon/support/visitor/AbstractTypingContext: [73, 74]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [705, 710, 711, 635]
+spoon/support/visitor/AbstractTypingContext: [73, 74]
+
+PATCH : BEARS:075
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/PositionBuilder: [256, 257, 258, 259, 68, 261, 262, 137, 201, 138, 75, 76, 77, 270, 271, 79, 272, 273, 275, 276, 222, 160, 61, 62, 63]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/PositionBuilder: [256, 257, 258, 130, 259, 68, 261, 69, 262, 70, 72, 137, 201, 73, 138, 75, 203, 76, 204, 77, 205, 270, 206, 271, 79, 272, 80, 273, 275, 276, 222, 160, 163, 229, 230, 231, 232, 234, 61, 62, 63]
+
+PATCH : BEARS:079
+INTERSECT
+intersect all failing tests
+spoon/support/visitor/ProcessingVisitor: [48, 49, 52]
+
+UNION
+aggregate all failing tests
+spoon/support/visitor/ProcessingVisitor: [48, 49, 52]
+
+PATCH : BEARS:080
+INTERSECT
+intersect all failing tests
+spoon/support/StandardEnvironment: [357, 359, 363]
+
+UNION
+aggregate all failing tests
+spoon/support/StandardEnvironment: [368, 369, 370, 357, 359, 360, 363, 364, 365, 366]
+
+PATCH : BEARS:082
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+spoon/support/template/SubstitutionVisitor: [246, 285]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [790]
+
+PATCH : BEARS:086
+INTERSECT
+intersect all failing tests
+org/springframework/data/web/ProxyingHandlerMethodArgumentResolver: [48, 113, 101, 118, 103, 119, 120, 108]
+
+UNION
+aggregate all failing tests
+org/springframework/data/web/ProxyingHandlerMethodArgumentResolver: [48, 113, 101, 118, 103, 119, 120, 122, 108]
+
+PATCH : BEARS:092
+INTERSECT
+intersect all failing tests
+org/springframework/data/history/AnnotationRevisionMetadata: [88, 89, 90]
+
+UNION
+aggregate all failing tests
+org/springframework/data/history/AnnotationRevisionMetadata: [88, 89, 90]
+org/springframework/data/history/RevisionMetadata: [43, 44, 61, 62]
+
+PATCH : BEARS:103
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/traccar/protocol/MeitrackProtocolDecoder: [127]
+org/traccar/protocol/TotemProtocolDecoder: [293]
+org/traccar/protocol/AquilaProtocolDecoder: [135]
+
+PATCH : BEARS:123
+INTERSECT
+intersect all failing tests
+org/traccar/reports/ReportUtils: [288, 289, 292, 293, 296, 297, 298, 299, 300, 287]
+
+UNION
+aggregate all failing tests
+org/traccar/reports/ReportUtils: [288, 289, 292, 293, 294, 296, 297, 298, 299, 300, 301, 287]
+
+PATCH : BEARS:140
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+edu/harvard/h2ms/service/utils/H2msRestUtils: [128, 96, 131, 99, 132, 100, 54, 55, 58, 59, 127, 95]
+
+PATCH : BEARS:141
+INTERSECT
+intersect all failing tests
+edu/harvard/h2ms/domain/core/User: [97, 150, 151]
+
+UNION
+aggregate all failing tests
+edu/harvard/h2ms/service/UserDetailsServiceImpl: [19]
+edu/harvard/h2ms/domain/core/User: [97, 150, 151]
+
+PATCH : BEARS:189
+INTERSECT
+intersect all failing tests
+hu/oe/nik/szfmv/environment/World: [33, 31]
+
+UNION
+aggregate all failing tests
+hu/oe/nik/szfmv/environment/World: [33, 31]
+hu/oe/nik/szfmv/automatedcar/AutomatedCar: [65, 66]
+
+PATCH : BEARS:204
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+client/presenter/controller/messages/LoginResponseMessage: [33, 34, 30]
+client/presenter/controller/messages/ViewValidMovesResponse: [24, 27, 28]
+client/presenter/controller/messages/RegisterResponseMessage: [34, 35, 31]
+client/presenter/controller/messages/MenuMessageResponse: [32, 35, 36]
+client/presenter/controller/messages/UnregisterResponseMessage: [34, 35, 31]
+
+PATCH : BEARS:209
+INTERSECT
+intersect all failing tests
+com/github/example/holder/impl/LockHolderImpl: [37, 29]
+
+UNION
+aggregate all failing tests
+com/github/example/holder/impl/LockHolderImpl: [37, 29]
+
+PATCH : BEARS:216
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/SnippetCompilationHelper: [97]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/SnippetCompilationHelper: [97, 113, 116, 117, 119]
+
+PATCH : BEARS:225
+INTERSECT
+intersect all failing tests
+io/lettuce/core/dynamic/DeclaredCommandMethod: [82]
+
+UNION
+aggregate all failing tests
+io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory: [66, 52, 54, 55, 57]
+io/lettuce/core/dynamic/DeclaredCommandMethod: [82]
+
+PATCH : BEARS:250
+INTERSECT
+intersect all failing tests
+org/la4j/vector/sparse/CompressedVector: [210, 211, 215]
+
+UNION
+aggregate all failing tests
+org/la4j/vector/sparse/CompressedVector: [210, 211, 215]
+
