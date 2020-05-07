@@ -48,8 +48,8 @@ public class PatchDiffUtils {
         return sourceCode;
     }
 
-    public static CoverageSubset getPatchLineNumbers(String pathToBuggySource, String pathToPatchedSource,
-                                                     Collection<String> modifiedClasses) throws Exception {
+    public static CoverageSubset getPatchLineNumbersTarget(String pathToBuggySource, String pathToPatchedSource,
+                                                           Collection<String> modifiedClasses) throws Exception {
         CoverageSubset patchLines = new CoverageSubset("Patch");
 
         for (String c : modifiedClasses) {
@@ -59,14 +59,14 @@ public class PatchDiffUtils {
             List<String> original = Files.readAllLines(new File(pathToBuggySource + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
             List<String> revised = Files.readAllLines(new File(pathToPatchedSource+ "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
 
-            CoverageSubset classDiff = getPatchLineNumbers(original, revised, pathToClass);
+            CoverageSubset classDiff = getPatchLineNumbersTarget(original, revised, pathToClass);
             patchLines.addAllClasses(classDiff.getClassCoverageMap());
         }
 
         return patchLines;
     }
 
-    public static CoverageSubset getPatchLineNumbers(List<String> originalSource, List<String> patchedSource, String className) throws DiffException {
+    public static CoverageSubset getPatchLineNumbersTarget(List<String> originalSource, List<String> patchedSource, String className) throws DiffException {
         CoverageSubset patchLines = new CoverageSubset("Patch");
         Patch<String> patch = DiffUtils.diff(originalSource, patchedSource);
 
@@ -78,6 +78,45 @@ public class PatchDiffUtils {
                 lineNumbers.add(delta.getTarget().getPosition() + 1);
             } else {
                 for (int i = 1; i <= delta.getTarget().size(); i++) {
+                    lineNumbers.add(start + i);
+                }
+            }
+        }
+        patchLines.addClass(className, new HashSet<>(lineNumbers));
+        return patchLines;
+    }
+
+    public static CoverageSubset getPatchLineNumbersSource(String pathToBuggySource, String pathToPatchedSource,
+                                                           Collection<String> modifiedClasses) throws Exception {
+        CoverageSubset patchLines = new CoverageSubset("Patch");
+
+        for (String c : modifiedClasses) {
+            String pathToClass = c.replace('.', '/');
+
+            //build simple lists of the lines of the two testfiles
+            List<String> original = Files.readAllLines(new File(pathToBuggySource + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            List<String> revised = Files.readAllLines(new File(pathToPatchedSource+ "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+
+            CoverageSubset classDiff = getPatchLineNumbersSource(original, revised, pathToClass);
+            patchLines.addAllClasses(classDiff.getClassCoverageMap());
+        }
+
+        return patchLines;
+    }
+
+
+    public static CoverageSubset getPatchLineNumbersSource(List<String> originalSource, List<String> patchedSource, String className) throws DiffException {
+        CoverageSubset patchLines = new CoverageSubset("Patch");
+        Patch<String> patch = DiffUtils.diff(originalSource, patchedSource);
+
+        List<Integer> lineNumbers = new ArrayList<>();
+        for (AbstractDelta<String> delta : patch.getDeltas()) {
+            int start = delta.getSource().getPosition();
+            if (delta.getType().equals(DeltaType.INSERT)) {
+                lineNumbers.add(delta.getSource().getPosition());
+                lineNumbers.add(delta.getSource().getPosition() + 1);
+            } else {
+                for (int i = 1; i <= delta.getSource().size(); i++) {
                     lineNumbers.add(start + i);
                 }
             }

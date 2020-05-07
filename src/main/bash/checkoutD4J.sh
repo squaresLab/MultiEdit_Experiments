@@ -22,6 +22,7 @@ TARGETCLASSB=$(defects4j export -p dir.bin.classes)
 TARGETTESTB=$(defects4j export -p dir.bin.tests)
 COMPILECPB=$(defects4j export -p cp.compile)
 TESTCPB=$(defects4j export -p cp.test)
+defects4j compile # this is purely for some mockito bugs where the test classes disappear?
 
 
 cd ../patched || exit

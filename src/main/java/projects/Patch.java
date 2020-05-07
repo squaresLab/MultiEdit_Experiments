@@ -25,5 +25,6 @@ public interface Patch {
 
     CommandLine getTestCommand(String test, Version version);
 
-    CoverageSubset getPatchLocations();
+    CoverageSubset getPatchLocationsInPatched();
+    CoverageSubset getPatchLocationsInBuggy();
 }

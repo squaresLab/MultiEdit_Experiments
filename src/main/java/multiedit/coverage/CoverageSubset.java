@@ -71,4 +71,12 @@ public class CoverageSubset {
         return cs.classCoverageMap.equals(this.classCoverageMap);
     }
 
+    public int getTotalNumLines() {
+        int sum = 0;
+        for (Set<Integer> s : classCoverageMap.values()) {
+            sum += s.size();
+        }
+        return sum;
+    }
+
 }

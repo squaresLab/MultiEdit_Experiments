@@ -16,7 +16,8 @@ public class Defects4JPatch implements Patch {
     private Collection<String> passingTests, failingTests, relevantTests;
     private String pathToBuggySubjectClasses, pathToBuggyTestClasses, pathToPatchedSubjectClasses, pathToPatchedTestClasses;
     private String buggyClassPath, patchedClassPath;
-    private CoverageSubset patchLocations;
+    private CoverageSubset patchLocationsInPatched;
+    private CoverageSubset patchLocationsInBuggy;
     private final Scanner sysin = new Scanner(System.in);
 
 
@@ -129,8 +130,13 @@ public class Defects4JPatch implements Patch {
     }
 
     @Override
-    public CoverageSubset getPatchLocations() {
-        return patchLocations;
+    public CoverageSubset getPatchLocationsInPatched() {
+        return patchLocationsInPatched;
+    }
+
+    @Override
+    public CoverageSubset getPatchLocationsInBuggy() {
+        return patchLocationsInBuggy;
     }
 
     public void deleteDirectories() throws IOException {
@@ -203,7 +209,8 @@ public class Defects4JPatch implements Patch {
         // calculate diff
         Collection<String> modifiedClasses = Arrays.asList(properties.get("modifiedClasses").split(":"));
         
-        this.patchLocations = PatchDiffUtils.getPatchLineNumbers(properties.get("buggySource"), properties.get("patchedSource"), modifiedClasses);
+        this.patchLocationsInPatched = PatchDiffUtils.getPatchLineNumbersTarget(properties.get("buggySource"), properties.get("patchedSource"), modifiedClasses);
+        this.patchLocationsInBuggy = PatchDiffUtils.getPatchLineNumbersSource(properties.get("buggySource"), properties.get("patchedSource"), modifiedClasses);
 
     }
 
