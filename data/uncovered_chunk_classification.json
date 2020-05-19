@@ -1,0 +1,479 @@
+{
+   "BEARS:007": [
+      {
+         "else": 1,
+         "comment": 1
+      }
+   ],
+   "BEARS:012": [
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "separators": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "comment": 1
+      },
+      {
+         "separators": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "separators": 1
+      },
+      {
+         "empty": 1
+      },
+      {
+         "continuestatement": 1
+      },
+      {
+         "methodinvocation": 1
+      },
+      {
+         "separators": 1
+      }
+   ],
+   "BEARS:039": [
+      {
+         "public void apply(CtLocalVariable<?> localVariable, CtConsumer<Object> outputConsumer) {": 1
+      },
+      {
+         "import_package": 2,
+         "empty": 1
+      },
+      {
+         "import_package": 2
+      },
+      {
+         "import_package": 1
+      },
+      {
+         "import_package": 2
+      },
+      {
+         "import_package": 2,
+         "empty": 1
+      },
+      {
+         "comment": 3
+      },
+      {
+         "catch": 1
+      }
+   ],
+   "BEARS:040": [
+      {
+         "throwstatement": 1
+      }
+   ],
+   "BEARS:045": [
+      {
+         "returnstatement": 1
+      },
+      {
+         "methodinvocation": 2
+      },
+      {
+         "import_package": 1
+      },
+      {
+         "import_package": 1
+      }
+   ],
+   "BEARS:055": [
+      {
+         "if": 1
+      },
+      {
+         "else": 1
+      },
+      {
+         "loop": 1
+      },
+      {
+         "comment": 1
+      }
+   ],
+   "BEARS:058": [
+      {
+         "methodinvocation": 1
+      },
+      {
+         "methodinvocation": 1
+      },
+      {
+         "methodinvocation": 1
+      },
+      {
+         "import_package": 1
+      }
+   ],
+   "BEARS:059": [
+      {
+         "static_field": 3,
+         "empty": 2,
+         "import_package": 9
+      },
+      {
+         "empty": 1
+      }
+   ],
+   "BEARS:063": [
+      {
+         "import_package": 1
+      },
+      {
+         "import_package": 1
+      }
+   ],
+   "BEARS:067": [
+      {
+         "returnstatement": 1
+      }
+   ],
+   "BEARS:071": [
+      {
+         "returnstatement": 1
+      }
+   ],
+   "BEARS:075": [
+      {
+         "mid_expression": 1
+      }
+   ],
+   "BEARS:080": [
+      {
+         "methodinvocation": 1
+      }
+   ],
+   "BEARS:082": [
+      {
+         "private static <T> List<T> getParameterValueAsListOfClones(Class<T> itemClass, Object parameterValue) {": 1
+      },
+      {
+         "private static List<Object> getParameterValueAsNewList(Object parameterValue) {": 1
+      },
+      {
+         "private static <T> T getParameterValueAsClass(Class<T> itemClass, Object parameterValue) {": 1
+      },
+      {
+         "returnstatement": 1
+      },
+      {
+         "method_signature": 1
+      },
+      {
+         "private static <T> T getParameterValueAtIndex(Class<T> itemClass, Object parameterValue, Integer index) {": 1
+      },
+      {
+         "comment": 1
+      },
+      {
+         "comment": 1
+      },
+      {
+         "comment": 1
+      },
+      {
+         "comment": 2
+      },
+      {
+         "comment": 1
+      },
+      {
+         "comment": 1
+      }
+   ],
+   "BEARS:092": [
+      {
+         "return getRevisionNumber()": 1,
+         ".orElseThrow(() -> new IllegalStateException(String.format(\"No revision number found on %s!\", getDelegate())));": 1
+      },
+      {
+         "return getRevisionDate()": 1,
+         ".orElseThrow(() -> new IllegalStateException(String.format(\"No revision date found on %s!\", getDelegate())));": 1
+      }
+   ],
+   "BEARS:140": [
+      {
+         "comment": 1
+      },
+      {
+         "else": 1
+      },
+      {
+         "returnstatement": 1
+      },
+      {
+         "comment": 1
+      }
+   ],
+   "BEARS:141": [
+      {
+         "assignment": 1
+      }
+   ],
+   "BEARS:189": [
+      {
+         "comment": 2,
+         "memberreference": 1,
+         "methodinvocation": 1
+      },
+      {
+         "empty": 1
+      }
+   ],
+   "BEARS:191": [
+      {
+         "private static final Pattern ENDPOINT_NAME_PATTERN": 1
+      },
+      {
+         "methodinvocation": 1
+      }
+   ],
+   "BEARS:192": [
+      {
+         "if": 1
+      },
+      {
+         "duration = DurationFormatUtils.formatDurationWords(": 1,
+         "classcreator": 1
+      },
+      {
+         "if": 1
+      }
+   ],
+   "BEARS:209": [
+      {
+         "methodinvocation": 1
+      },
+      {
+         "returnstatement": 1
+      }
+   ],
+   "BEARS:225": [
+      {
+         "public ReactiveCommandSegmentCommandFactory(CommandSegments commandSegments, CommandMethod commandMethod,": 1
+      },
+      {
+         "returnstatement": 1
+      },
+      {
+         "method_signature": 1
+      }
+   ],
+   "CHART:018": [
+      {
+         "separators": 1
+      }
+   ],
+   "CHART:016": [
+      {
+         "if": 1
+      }
+   ],
+   "CLOSURE:106": [
+      {
+         "separators": 1
+      }
+   ],
+   "LANG:019": [
+      {
+         "returnstatement": 1
+      }
+   ],
+   "LANG:030": [
+      {
+         "method_signature": 1
+      },
+      {
+         "if": 1
+      },
+      {
+         "method_signature": 1
+      }
+   ],
+   "MATH:006": [
+      {
+         "assignment": 1
+      },
+      {
+         "if": 1
+      }
+   ],
+   "MATH:012": [
+      {
+         "implements RandomGenerator {": 1
+      }
+   ],
+   "MATH:016": [
+      {
+         "if": 1
+      }
+   ],
+   "MATH:047": [
+      {
+         "returnstatement": 1
+      }
+   ],
+   "MATH:046": [
+      {
+         "returnstatement": 1
+      }
+   ],
+   "MATH:066": [
+      {
+         "mid_expression": 1
+      },
+      {
+         "mid_expression": 2
+      },
+      {
+         "throwstatement": 1
+      }
+   ],
+   "MATH:064": [
+      {
+         "else": 1,
+         "if": 1,
+         "returnstatement": 1,
+         "separators": 1
+      }
+   ],
+   "MATH:068": [
+      {
+         "returnstatement": 1
+      }
+   ],
+   "MATH:076": [
+      {
+         "methodinvocation": 1
+      },
+      {
+         "separators": 1
+      },
+      {
+         "methodinvocation": 1
+      },
+      {
+         "loop": 1
+      },
+      {
+         "separators": 1
+      },
+      {
+         "assignment": 1
+      }
+   ],
+   "MOCKITO:004": [
+      {
+         "mid_expression": 1
+      },
+      {
+         "mid_expression": 1
+      }
+   ],
+   "MOCKITO:011": [
+      {
+         "returnstatement": 1
+      }
+   ],
+   "MOCKITO:020": [
+      {
+         "mid_expression": 1
+      }
+   ],
+   "MOCKITO:025": [
+      {
+         "method_signature": 1
+      }
+   ],
+   "TIME:005": [
+      {
+         "if": 1,
+         "assignment": 1
+      }
+   ],
+   "TIME:012": [
+      {
+         "mid_expression": 1
+      },
+      {
+         "mid_expression": 1
+      }
+   ],
+   "TIME:021": [
+      {
+         "methodinvocation": 1
+      },
+      {
+         "if": 1,
+         "methodinvocation": 1
+      },
+      {
+         "methodinvocation": 1,
+         "separators": 1,
+         "breakstatement": 1
+      }
+   ],
+   "TIME:026": [
+      {
+         "returnstatement": 1
+      },
+      {
+         "returnstatement": 1
+      },
+      {
+         "returnstatement": 1
+      },
+      {
+         "returnstatement": 1
+      },
+      {
+         "returnstatement": 1
+      },
+      {
+         "returnstatement": 1
+      }
+   ]
+}

@@ -7,7 +7,8 @@ This is the script we used to generate the plots of the coverage categories.
 
 # folders = ["data/coverage-experiments/mar4-bears"]
 # folders = ["data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
-folders = ["data/coverage-experiments/mar4-bears", "data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
+# folders = ["data/coverage-experiments/mar4-bears", "data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
+folders = ["data/coverage-experiments/coverage-data-final"]
 
 plt.rcParams.update({'font.size': 17})
 # plt.rcParams.update({'font.family': 'serif'})
@@ -130,9 +131,9 @@ overlap_percent = round(100 * multichunk_inBetween / sum_mchunk)
 # plt.ylabel("Number patches")
 
 plt.figure()
-ax = plt.bar(["disjoint", "overlap", "identical"], [multichunk_disjoint, multichunk_inBetween, multichunk_same], color='#e6b8afff')
+ax = plt.bar(["disjoint", "overlap", "identical"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])#, color='#e6b8afff')
 plt.title("All multi-location and multi-test:\nDistribution of coverage patterns")
-plt.ylim(0, 45)
+plt.ylim(0, 50)
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
 
