@@ -3,6 +3,9 @@ from collections import defaultdict
 from statement_classifier import classify_line
 from parse_raw_coverage import read_raw_coverage
 
+coverage_buggy = ["data/coverage-experiments/buggy-versions/rawCoverage.data", "data/coverage-experiments/buggy-versions-only-bears/rawCoverage.data"]
+coverage_patched = ["data/coverage-experiments/coverage-data-final/rawCoverage.data"]
+
 """
 This parses the git diffs that are provided in the data files for Bears and Defects4J [dissection] to identify different kinds of statements
 """
@@ -20,14 +23,15 @@ def get_coverage_dict(list_entries):
         coverage[classname] = set([int(x) for x in loc_array])
     return coverage
 
-for fname in ["data/coverage-experiments/buggy-versions/rawCoverage.data", "data/coverage-experiments/buggy-versions-only-bears/rawCoverage.data"]:
+for fname in coverage_buggy:
     bug_coverage = read_raw_coverage(fname)
     for bugname, intersect, aggregate in bug_coverage:
         calculated_coverage_buggy[bugname] = get_coverage_dict(aggregate)
 
-bug_coverage = read_raw_coverage("data/coverage-experiments/coverage-data-final/rawCoverage.data")
-for bugname, intersect, aggregate in bug_coverage:
-    calculated_coverage_patched[bugname] = get_coverage_dict(aggregate)
+for fname in coverage_patched:
+    bug_coverage = read_raw_coverage(fname)
+    for bugname, intersect, aggregate in bug_coverage:
+        calculated_coverage_patched[bugname] = get_coverage_dict(aggregate)
 
 # these have no coverage whatsoever
 calculated_coverage_buggy["BEARS:191"] = {}
@@ -61,12 +65,10 @@ def classify_added_line(line):
 
 def classify_deleted_line(line):
     global classified_lines, num_classified_lines
-    print(line)
     num_classified_lines += 1
     classification = classify_line(line)
-    if classification == "classcreator" or classification == "memberreference":
-        print("check", classification, line)
-    # classified_lines[classification] += 1
+    # if classification == "classcreator" or classification == "memberreference":
+    #     print("check", classification, line)
     return classification
 
 
@@ -86,7 +88,6 @@ def parse_diff(diff, bug):
 
     uncovered_classification_for_deleted_chunk = defaultdict(int)
 
-    print(bug)
     for line in diff:
         if line.startswith("---") or line.startswith("+++"):
             current_class = line[:-5] # strip .java
@@ -104,7 +105,7 @@ def parse_diff(diff, bug):
                     class_found = True
             if not class_found:
                 class_coverage_patched = set()
-                print("MISSING: " + current_class)
+                # print("MISSING: " + current_class)
 
 
         elif "diff --git" in line or line.startswith("index"):
@@ -149,7 +150,7 @@ def parse_diff(diff, bug):
 
                 prev_op = "+"
                 if current_patch_line_no not in class_coverage_patched:
-                    print(current_patch_line_no)
+                    # print(current_patch_line_no)
                     classified = classify_added_line(line)
                 current_patch_line_no += 1
 
@@ -167,7 +168,7 @@ def parse_diff(diff, bug):
                 if current_orig_line_no in class_coverage_buggy:
                     curr_chunk_covered = True
                 else:
-                    print(current_orig_line_no)
+                    # print(current_orig_line_no)
                     classification = classify_deleted_line(line)
                     uncovered_classification_for_deleted_chunk[classification] += 1
 
@@ -177,7 +178,7 @@ def parse_diff(diff, bug):
 
 #############################################################################################
 
-with open("/home/serenach/bears-benchmark/docs/data/bears-bugs.json") as f:
+with open("data/bears-bugs.json") as f:
     bears_data = json.load(f)
 
 with open("data/defects4j-bugs.json") as f:
@@ -198,9 +199,11 @@ for d in d4j_data:
     if bug_name in multiedit_multitest:
         parse_diff(diff, bug_name)
 
+# deletions
 with open("data/uncovered_chunk_classification.json", "w") as f:
     json.dump(uncovered_deleted_modified_chunks, f, indent=3)
 
+# additions
 results = [ (k, classified_lines[k]) for k in classified_lines.keys() ]
 
 for k, v in sorted(results, key=lambda x: x[1]):

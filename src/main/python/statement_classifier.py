@@ -25,8 +25,8 @@ def classify_line(line):
 	except (javalang.tokenizer.LexerError, TypeError)  as e:
 		if line.startswith("*"): # in comment block; there's something weird in the comment
 			return "comment"
-		print(repr(e))
-		print(line)
+		# print(repr(e))
+		# print(line)
 		return line
 
 	# if the whole line is just separators, like a closing bracket, for instance
@@ -86,7 +86,7 @@ def classify_line(line):
 			if is_basic_method_signature(tokens):
 				return "method_signature"
 
-			print(repr(e))
-			print(line)
+			# print(repr(e))
+			# print(line)
 			return line
 
