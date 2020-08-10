@@ -58,7 +58,8 @@ public class BearsPatch implements Patch {
 
     private int bugNumber;
     private String branchName;
-    private CoverageSubset patchLocations;
+    private CoverageSubset patchLocationsInPatched;
+    private CoverageSubset patchLocationsInBuggy;
     private final Scanner sysin = new Scanner(System.in);
 
     public BearsPatch(int bugNumber) {
@@ -129,7 +130,11 @@ public class BearsPatch implements Patch {
     @Override
     public CommandLine getTestCommand(String test, Version version) {
         try {
-            checkoutPatched();
+            if (version == Version.PATCHED) {
+                checkoutPatched();
+            } else {
+                checkoutBuggy();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -255,45 +260,66 @@ public class BearsPatch implements Patch {
     }
 
     @Override
-    public CoverageSubset getPatchLocations() {
-        if (patchLocations == null) {
-            List<String[]> repairedFiles = patchFiles.get(bugNumber);
-
-            CoverageSubset patch = new CoverageSubset(branchName);
-            try {
-                checkoutBuggy();
-                List<String> originalFiles = repairedFiles.stream().map(files -> pathToBears + "/" + files[0]).collect(Collectors.toList());
-                Map<String, List<String>> buggySources = PatchDiffUtils.getSourceCodeForClasses(originalFiles);
-                checkoutPatched();
-                List<String> patchedFiles = repairedFiles.stream().map(files -> pathToBears + "/" + files[1]).collect(Collectors.toList());
-                Map<String, List<String>> patchedSources = PatchDiffUtils.getSourceCodeForClasses(patchedFiles);
-
-                for (int i = 0; i < originalFiles.size(); i++) {
-                    String className;
-                    String path = originalFiles.get(i);
-                    System.out.println("Path: " + path);
-                    if (branchName.startsWith("traccar-traccar")) {
-                        String filename = path.split("/src/")[1];
-                        className = filename.substring(0, filename.length() - 5);
-                    } else {
-                        className = path.split(".java.?")[1]; // should remove the "src/main/java/ and ".java"
-                    }
-
-                    System.out.println("Classname: " + className);
-
-                    CoverageSubset classDiff = PatchDiffUtils.getPatchLineNumbers(
-                            buggySources.get(originalFiles.get(i)),
-                            patchedSources.get(patchedFiles.get(i)),
-                            className);
-                    patch.addAllClasses(classDiff.getClassCoverageMap());
-                }
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-            this.patchLocations = patch;
+    public CoverageSubset getPatchLocationsInPatched() {
+        if (patchLocationsInPatched == null) {
+            setPatchLocations();
         }
 
-        return this.patchLocations;
+        return this.patchLocationsInPatched;
+    }
+
+    @Override
+    public CoverageSubset getPatchLocationsInBuggy() {
+        if (patchLocationsInBuggy == null) {
+            setPatchLocations();
+        }
+
+        return this.patchLocationsInBuggy;
+    }
+
+    private void setPatchLocations() {
+        List<String[]> repairedFiles = patchFiles.get(bugNumber);
+
+        CoverageSubset locationsInPatched = new CoverageSubset(branchName + " patch");
+        CoverageSubset locationsInBuggy = new CoverageSubset(branchName + " buggy");
+        try {
+            checkoutBuggy();
+            List<String> originalFiles = repairedFiles.stream().map(files -> pathToBears + "/" + files[0]).collect(Collectors.toList());
+            Map<String, List<String>> buggySources = PatchDiffUtils.getSourceCodeForClasses(originalFiles);
+            checkoutPatched();
+            List<String> patchedFiles = repairedFiles.stream().map(files -> pathToBears + "/" + files[1]).collect(Collectors.toList());
+            Map<String, List<String>> patchedSources = PatchDiffUtils.getSourceCodeForClasses(patchedFiles);
+
+            for (int i = 0; i < originalFiles.size(); i++) {
+                String className;
+                String path = originalFiles.get(i);
+                System.out.println("Path: " + path);
+                if (branchName.startsWith("traccar-traccar")) {
+                    String filename = path.split("/src/")[1];
+                    className = filename.substring(0, filename.length() - 5);
+                } else {
+                    className = path.split(".java.?")[1]; // should remove the "src/main/java/ and ".java"
+                }
+
+                System.out.println("Classname: " + className);
+
+                CoverageSubset classDiff = PatchDiffUtils.getPatchLineNumbersTarget(
+                        buggySources.get(originalFiles.get(i)),
+                        patchedSources.get(patchedFiles.get(i)),
+                        className);
+                locationsInPatched.addAllClasses(classDiff.getClassCoverageMap());
+
+                classDiff = PatchDiffUtils.getPatchLineNumbersSource(
+                        buggySources.get(originalFiles.get(i)),
+                        patchedSources.get(patchedFiles.get(i)),
+                        className);
+                locationsInBuggy.addAllClasses(classDiff.getClassCoverageMap());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        this.patchLocationsInPatched = locationsInPatched;
+        this.patchLocationsInBuggy = locationsInBuggy;
     }
 
     private void checkoutBuggy() throws IOException {

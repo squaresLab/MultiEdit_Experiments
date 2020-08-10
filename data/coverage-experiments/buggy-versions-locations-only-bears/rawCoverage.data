@@ -1,0 +1,297 @@
+PATCH : BEARS:007
+INTERSECT
+intersect all failing tests
+com/fasterxml/jackson/databind/deser/std/EnumDeserializer: [176]
+
+UNION
+aggregate all failing tests
+com/fasterxml/jackson/databind/deser/std/EnumDeserializer: [176]
+
+PATCH : BEARS:012
+INTERSECT
+intersect all failing tests
+com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer: [592, 594, 595, 596, 597, 599, 584, 600, 585, 588, 606]
+
+UNION
+aggregate all failing tests
+com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer: [592, 594, 595, 596, 597, 599, 584, 600, 585, 588, 606]
+
+PATCH : BEARS:031
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [677, 622]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [677, 622]
+
+PATCH : BEARS:039
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+spoon/reflect/visitor/filter/LocalVariableReferenceFunction: [46]
+spoon/reflect/visitor/filter/LocalVariableScopeFunction: [64, 67, 68, 53, 54, 59, 60, 62, 63]
+spoon/support/reflect/reference/CtLocalVariableReferenceImpl: [66, 68, 69, 70, 102, 103, 104, 76, 108, 77, 78, 81, 60]
+
+PATCH : BEARS:040
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [634, 638]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/reference/CtTypeReferenceImpl: [624, 634, 638]
+
+PATCH : BEARS:041
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [535, 536, 537, 538, 574]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [535, 536, 537, 538, 574, 575]
+
+PATCH : BEARS:045
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/declaration/CtNamedElementImpl: [46]
+spoon/support/reflect/reference/CtFieldReferenceImpl: [133, 134, 135, 141, 142, 143, 146, 147, 150, 151, 152, 154, 155, 158, 159]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/declaration/CtNamedElementImpl: [46]
+spoon/support/reflect/reference/CtFieldReferenceImpl: [133, 134, 135, 141, 142, 143, 146, 147, 150, 151, 152, 154, 155, 158, 159]
+
+PATCH : BEARS:055
+INTERSECT
+intersect all failing tests
+spoon/reflect/visitor/ImportScannerImpl: [280, 139, 140, 141]
+
+UNION
+aggregate all failing tests
+spoon/reflect/visitor/printer/ElementPrinterHelper: [286]
+spoon/reflect/visitor/ImportScannerImpl: [580, 139, 140, 141, 591, 143, 592, 280, 281, 604, 285, 608, 611, 613, 102, 614, 103, 104, 616, 617, 105, 618, 620, 628, 629, 632]
+spoon/reflect/visitor/MinimalImportScanner: [57, 73]
+
+PATCH : BEARS:058
+INTERSECT
+intersect all failing tests
+spoon/reflect/visitor/printer/ElementPrinterHelper: [264]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [531, 1816]
+
+UNION
+aggregate all failing tests
+spoon/reflect/visitor/printer/ElementPrinterHelper: [264, 91]
+spoon/support/compiler/jdt/JDTBasedSpoonCompiler: [507]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [531, 438, 439, 1816, 441, 285]
+spoon/reflect/visitor/printer/PrinterHelper: [176, 164, 181, 171, 172, 173, 174, 175]
+
+PATCH : BEARS:059
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [803, 723, 804, 102, 679, 684, 653]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [803, 723, 804, 724, 725, 102, 679, 729, 730, 684, 653, 733]
+spoon/support/reflect/reference/CtExecutableReferenceImpl: [318]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [1600, 1601, 1588, 1589, 538, 1594]
+spoon/support/reflect/reference/CtTypeParameterReferenceImpl: [181]
+
+PATCH : BEARS:062
+INTERSECT
+intersect all failing tests
+spoon/template/Substitution: [182]
+
+UNION
+aggregate all failing tests
+spoon/template/Substitution: [182]
+
+PATCH : BEARS:063
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [657, 658, 659, 661, 105]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [657, 658, 659, 661, 105]
+
+PATCH : BEARS:067
+INTERSECT
+intersect all failing tests
+spoon/support/reflect/declaration/CtTypeImpl: [898, 899, 903, 904, 906]
+
+UNION
+aggregate all failing tests
+spoon/support/reflect/declaration/CtTypeImpl: [898, 899, 903, 904, 906]
+
+PATCH : BEARS:068
+INTERSECT
+intersect all failing tests
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [1104, 1106, 1108, 1109, 1102, 1103]
+
+UNION
+aggregate all failing tests
+spoon/reflect/visitor/ImportScannerImpl: [370, 371, 374, 390, 399]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [1104, 1106, 1108, 1109, 1102, 1103]
+
+PATCH : BEARS:071
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [634, 635]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/ReferenceBuilder: [705, 634, 635]
+spoon/support/visitor/AbstractTypingContext: [74]
+
+PATCH : BEARS:075
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/jdt/PositionBuilder: [138, 173, 182, 183, 184, 120, 57, 186, 59, 61, 62, 191]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/jdt/PositionBuilder: [138, 173, 113, 182, 183, 184, 120, 57, 186, 59, 187, 61, 62, 191, 63]
+
+PATCH : BEARS:079
+INTERSECT
+intersect all failing tests
+spoon/support/visitor/ProcessingVisitor: [48, 49, 51]
+
+UNION
+aggregate all failing tests
+spoon/support/visitor/ProcessingVisitor: [48, 49, 51]
+
+PATCH : BEARS:080
+INTERSECT
+intersect all failing tests
+spoon/support/StandardEnvironment: [356, 358]
+
+UNION
+aggregate all failing tests
+spoon/support/StandardEnvironment: [356, 358]
+
+PATCH : BEARS:082
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+spoon/support/template/SubstitutionVisitor: [250]
+spoon/reflect/visitor/DefaultJavaPrettyPrinter: [789, 790]
+
+PATCH : BEARS:086
+INTERSECT
+intersect all failing tests
+org/springframework/data/web/ProxyingHandlerMethodArgumentResolver: [93]
+
+UNION
+aggregate all failing tests
+org/springframework/data/web/ProxyingHandlerMethodArgumentResolver: [93]
+
+PATCH : BEARS:092
+INTERSECT
+intersect all failing tests
+org/springframework/data/history/AnnotationRevisionMetadata: [88, 89]
+
+UNION
+aggregate all failing tests
+org/springframework/data/history/AnnotationRevisionMetadata: [88, 89, 90]
+
+PATCH : BEARS:103
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/traccar/protocol/MeitrackProtocolDecoder: [127]
+org/traccar/protocol/TotemProtocolDecoder: [293]
+org/traccar/protocol/AquilaProtocolDecoder: [135]
+
+PATCH : BEARS:123
+INTERSECT
+intersect all failing tests
+org/traccar/reports/ReportUtils: [288, 290, 292, 293, 294, 295, 296, 287]
+
+UNION
+aggregate all failing tests
+org/traccar/reports/ReportUtils: [288, 290, 292, 293, 294, 295, 296, 287]
+
+PATCH : BEARS:140
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+
+PATCH : BEARS:141
+INTERSECT
+intersect all failing tests
+edu/harvard/h2ms/domain/core/User: [97]
+
+UNION
+aggregate all failing tests
+edu/harvard/h2ms/service/UserDetailsServiceImpl: [19]
+edu/harvard/h2ms/domain/core/User: [97]
+
+PATCH : BEARS:189
+INTERSECT
+intersect all failing tests
+hu/oe/nik/szfmv/environment/World: [16, 28, 29]
+
+UNION
+aggregate all failing tests
+hu/oe/nik/szfmv/environment/World: [16, 28, 29]
+
+PATCH : BEARS:204
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+client/presenter/controller/messages/LoginResponseMessage: [26]
+client/presenter/controller/messages/ViewValidMovesResponse: [19]
+client/presenter/controller/messages/RegisterResponseMessage: [26]
+client/presenter/controller/messages/MenuMessageResponse: [27]
+client/presenter/controller/messages/UnregisterResponseMessage: [26]
+
+PATCH : BEARS:209
+INTERSECT
+intersect all failing tests
+com/github/example/holder/impl/LockHolderImpl: [34, 28]
+
+UNION
+aggregate all failing tests
+com/github/example/holder/impl/LockHolderImpl: [34, 28]
+
+PATCH : BEARS:216
+INTERSECT
+intersect all failing tests
+spoon/support/compiler/SnippetCompilationHelper: [96]
+
+UNION
+aggregate all failing tests
+spoon/support/compiler/SnippetCompilationHelper: [96, 112]
+
+PATCH : BEARS:225
+INTERSECT
+intersect all failing tests
+io/lettuce/core/dynamic/DeclaredCommandMethod: [82, 83]
+
+UNION
+aggregate all failing tests
+io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory: [52, 54, 55, 56]
+io/lettuce/core/dynamic/DeclaredCommandMethod: [82, 83]
+
+PATCH : BEARS:250
+INTERSECT
+intersect all failing tests
+org/la4j/vector/sparse/CompressedVector: [210, 214]
+
+UNION
+aggregate all failing tests
+org/la4j/vector/sparse/CompressedVector: [210, 214]
+

@@ -52,7 +52,7 @@ public class DoCoverageExperiments {
               and union of the
              */
             BiConsumer<Patch, Collection<CoverageSubset>> writeCoverage = (p, coverageFailingTests) -> {
-                CoverageSubset patchLocation = p.getPatchLocations();
+                CoverageSubset patchLocation = p.getPatchLocationsInPatched();
 
                 Collection<CoverageSubset> intersectPatch = new ArrayList<>();
                 coverageFailingTests.forEach(cs -> intersectPatch.add(cs.intersection(patchLocation, cs.getDescription())));
