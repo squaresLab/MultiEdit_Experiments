@@ -8,7 +8,6 @@ import projects.Patch;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.BiConsumer;
 
@@ -102,12 +101,12 @@ public class DoCoverageExperimentsBuggy {
               Defects4J
              */
             for (D4JName n : D4JName.values()) {
-//                if (n != D4JName.MOCKITO) continue;
-                if(true) continue;
-                for (int i = 1; i <= n.numBugs; i++) {
-                    if (!d4jMultitestMultiedit.get(n).contains(i)) {
-                        continue;
-                    }
+                if (n == D4JName.MOCKITO) continue;
+//                if(true) continue;
+                for (int i : n.bugs) {
+//                    if (!d4jMultitestMultiedit.get(n).contains(i)) {
+//                        continue;
+//                    }
 
                     Defects4JPatch p;
                     Collection<CoverageSubset> coverageFailingTests;
@@ -136,11 +135,12 @@ public class DoCoverageExperimentsBuggy {
               Bears
              */
             for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
+                if (true) continue;
 
 //                if (i == 95 || i == 209) continue; // these have malformed test names
 
 //                if (i != 191 && i != 192 && i != 204) continue;
-                if (!bearsMultitestMultiedit.contains(i)) continue;
+//                if (!bearsMultitestMultiedit.contains(i)) continue;
 
                 try {
                     BearsPatch b = new BearsPatch(i);

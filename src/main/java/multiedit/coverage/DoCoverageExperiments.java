@@ -82,7 +82,7 @@ public class DoCoverageExperiments {
             for (D4JName n : D4JName.values()) {
 //                if (n != D4JName.MOCKITO) continue;
 //                if(true) continue;
-                for (int i = 1; i <= n.numBugs; i++) {
+                for (int i: n.bugs) {
                     if (!d4jMultitestMultiedit.get(n).contains(i)) {
                         continue;
                     }
