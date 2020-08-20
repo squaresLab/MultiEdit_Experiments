@@ -104,9 +104,9 @@ public class DoCoverageExperimentsBuggy {
                 if (n == D4JName.MOCKITO) continue;
 //                if(true) continue;
                 for (int i : n.bugs) {
-//                    if (!d4jMultitestMultiedit.get(n).contains(i)) {
-//                        continue;
-//                    }
+                    if (!d4jMultitestMultiedit.get(n).contains(i)) {
+                        continue;
+                    }
 
                     Defects4JPatch p;
                     Collection<CoverageSubset> coverageFailingTests;
