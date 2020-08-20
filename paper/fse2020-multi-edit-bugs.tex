@@ -773,7 +773,7 @@ higher-level specification~\cite{Smith15fse}.
 %
 Indeed, not all edits in a human patch are always necessary to pass all tests. This could be
 due to a human patch including refactoring or other changes that does not actually
-change code behavior~\cite{tangledchanges}, or it could be a sign that the test
+change code behavior~\cite{api-refactoring, tangledchanges}, or it could be a sign that the test
 suite is inadequate.  
 Thus, the adequacy of the test
 cases and their suitability for identifying patch correctness is a key problem
@@ -1156,7 +1156,7 @@ Many bugs do not need all patch locations to pass all tests,
 offering further evidence of the incompleteness of test cases as a 
 proxy for correctness~\cite{patch-correctness} and the 
 presence of non-corrective changes (e.g.: refactoring, enhancements)
-in handwritten bug patches~\cite{api-refactoring}.
+in handwritten bug patches~\cite{api-refactoring, tangledchanges}.
 
 \vspace{1ex}
 \noindent\textbf{Class-level granularity validation has tradeoffs.} 
