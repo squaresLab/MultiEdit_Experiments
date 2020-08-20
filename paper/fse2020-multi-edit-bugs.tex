@@ -286,6 +286,11 @@ clones.
 \section{Key Concepts and Research Questions}
 \label{sec:background}
 
+We have parameterized program repair search problems into multiple subspaces.
+These subspaces inform our empirical study of those
+spaces for the purposes of understanding multi-edit repair.  Here, we will
+present the spaces we are exploring and the research questions that arise.
+
 \paragraph{Multi-location bugs.} There are several plausible definitions of multi- vs. 
 single-location bugs, with
 implications for how they are studied. For the purpose of this study, we define
@@ -302,14 +307,20 @@ is treated as a single-location edit in our study.  We ignore changes to
 comments, whitespace, or import statements. 
 
 Although alternative definitions may have bearing on our results, we believe this is an 
-intuitive definition consistent with the general APR paradigm.Moreover, our aim is to 
+intuitive definition consistent with the general APR paradigm. Moreover, our aim is 
+to 
 understand properties of 
 complex bugs for the purposes of understanding the limitations of
 existing repair techniques, and key future directions to
 adapting or extending them to improve expressivity. 
 
+To understand how often the results of this paper are applicable, we ask our first
+research question:
+
+\medskip
 \begin{enumerate}[label=RQ\arabic*:]
-	\item \emph{How prevalent are multi-location human patches are in Defects4J and Bears?}
+	\item \emph{How prevalent are multi-location human patches are in our
+		dataset?}
 \end{enumerate}
 
 \paragraph{Search spaces in automatic program repair.} Automatic program repair (APR) techniques aim to find patches for bugs in
@@ -323,8 +334,6 @@ At a high level, any APR technique aims to solve a search or optimization
 problem, seeking a set of edits (or patch) to the program that will lead it to
 pass all of the provided tests. The repair search space is typically defined
 along the following axes:
-fault space, mutation space, fix space, and validation~\cite{ae,sqjo}. 
-We will define these axes and present our research questions:
 
 \begin{itemize}
 
@@ -333,14 +342,21 @@ We will define these axes and present our research questions:
   techniques begin by using test cases as input to a fault localization
   technique. Such techniques identify (and typically score) suspicious code
   based on which test cases execute which pieces of code. Although the
-  particulars of the fault localization employed can vary, most APR techniques use some
-  variant of spectrum-based fault localization (SBFL)~\cite{ochiai} in this first
+  particulars of the fault localization employed can vary, most APR techniques use 
+  some variant of spectrum-based fault localization (SBFL)~\cite{ochiai} in this first
   step. The resulting computation defines the fault space, or the candidate
   locations or code entities considered for repair.
   
+  Since SBFL largely relies on code coverage, we wanted to explore the potential
+  efficacy of SBFL on multi-location faults, and whether there were insights we
+  could gain from how failing tests cover the faulty program.
+  Our next research question addresses this:
+  
+  \medskip
   \begin{enumerate}[label=RQ\arabic*:,resume]
   	\item \emph{Do failing tests cover different portions of the fault?}
   \end{enumerate}
+\medskip
 
 \item \emph{Mutation space.} The mutation space is the set of applicable
   modifications at a given program location. Examples include GenProg's
@@ -351,6 +367,20 @@ We will define these axes and present our research questions:
   non-loop statements~\cite{Xuan17}.  A larger mutation space generates a richer
   search space with potentially more repairs, but increases its size
   combinatorially~\cite{long-search-spaces}.
+  
+  One particularly relevant kind of mutation for multi-location repairs are code
+  clones. A previous repair technique utilized code clones in their
+  patches~\cite{saha2019harnessing}. We ask the following research questions to
+  build on this work and gain more insight into code clones:
+  
+\medskip
+  \begin{enumerate}[label=RQ\arabic*:,resume]
+  	\item \emph{How often do code clones occur in bugs with multi-location
+  		patches? Is the existence of code clones in human patches correlated with 
+  		specific
+  		patterns of fault localization?}
+  	\end{enumerate}
+  \medskip
 
 \item \emph{Fix space.} Often, given a selected mutation, code must be generated
   or selected to instantiate the mutation in question.  For example, if a
@@ -367,6 +397,21 @@ We will define these axes and present our research questions:
   approaches constrain the synthesis engine to a small vocabulary of fix
   ingredients, possibly informed by the code near the selected faulty
   location~\cite{angelix,s3}. 
+  
+  For multi-location bugs, another source for deriving a fix space is building off of 
+  previously generated pieces of the patch. For example, if a patch will have three 
+  locations and the repair technique is able to generate the patch at one of those 
+  locations, by looking at pieces of code that relate to or interact with the first 
+  patch location, we can create a potential fix space for the other two locations. 
+  However, this potential for deriving a fix space is contigent on whether or not 
+  different patch locations actually interact with each other, which motivates our 
+  next research question:
+
+\medskip
+\begin{enumerate}[label=RQ\arabic*:,resume]
+	\item \emph{How prevalent are dependencies between edited code?}
+\end{enumerate}
+\medskip
 
 \item \emph{Validation.} Candidate patches are typically validated using the
   provided test cases as the objective function.  In an evolutionary or
@@ -375,30 +420,25 @@ We will define these axes and present our research questions:
   case objective with partial correctness measures like program
   invariants~\cite{dinglyu}, memory snapshots~\cite{source-code-checkpoint}, or
   similarity to human edits~\cite{hdrepair}, with maximization of tests passed
-  maintained as one of possibly many objectives.  In a multi-edit context,
-  ideally, multiple tests would be able to idnetify partial repairs that could
-  be composed.  However, evidence suggests that this does not always
-  apply~\cite{better-fitness,schulte}. 
-\end{itemize}
-
-
-
-\paragraph{Research questions.}  The parameterization of the program repair
-search problems into multiple subspaces informs our empirical study of those
-spaces for the purposes of understanding multi-edit repair.  We address the
-following research questions:
-
+  maintained as one of possibly many objectives. 
+  
+  In a multi-location context, our fitness function would ideally be able to identify 
+  partial repairs or indicate that these repairs are partially correct by giving a higher 
+  score.  However, evidence suggests that this does not always 
+  apply~\cite{better-fitness,schulte}. In addition, when there are code changes at 
+  multiple locations, there may be some portions of the patch that have no effect 
+  on the test suite. Thus, we ask the following research questions:
+  
+  
+\medskip
 \begin{enumerate}[label=RQ\arabic*:,resume]
-\item \emph{How prevalent are dependencies between edited code?}
-\item \emph{How often do code clones occur in bugs with multi-location
-  patches? Is the existence of code clones in human patches correlated with specific
-  patterns of fault localization?}
 \item \emph{How often are multi-location bugs minimal with respect to their provided test cases?}
-\item \emph{How well do test case based validation methods identify partial repairs?}
-
+\item \emph{How well do test case based validation methods identify partial 
+repairs?}
 \end{enumerate}
 
 
+\end{itemize}
 
 
 
