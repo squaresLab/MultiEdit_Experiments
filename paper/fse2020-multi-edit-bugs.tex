@@ -1108,8 +1108,71 @@ how often code do code mutations have no effect on test results.
 They found that in a large collection of off-the-shelf software, mutational robustness is about 37\%, 
 and discussed potential application of mutation robustness to proactive bug repair. Although our context is different --- they studied random mutations, we study changes associated with specific bug fixes --- we also find a non-trivial proportion of neutral edits in multi-location repairs.  
 
+
+\section{Takeaways for FL \& APR}
+\label{sec:takeaways}
+
+\noindent\textbf{Core assumption of spectrum based fault localization does not always hold}. 
+SBFL's core assumption---faulty locations are executed more often by negative test 
+cases---is not true for a substantial number of bugs. Other fault localization techniques may 
+perform better on bugs with disjoint or overlapping fault coverage.
+
+\vspace{1ex}
+\noindent\textbf{Patches with dependencies are common and harder to construct.} 
+A significant number of multi-location bugs contain dependencies within the patch, 
+and these bugs are less likely to be repaired by a diverse range of repair tools. 
+Thus, there is an opportunity to exploit these dependencies by existing or new 
+techniques to improve APR for this large class of hard-to-repair bugs.
+
+\vspace{1ex}
+\noindent\textbf{Code clones are prevalent in multi-location patches}. 
+Existing~\cite{saha2019harnessing} and future work exploiting clones 
+can profit from a large collection of potentially suitable bugs.
+
+\vspace{1ex}
+\noindent\textbf{Surprisingly few correct partial repairs caused more failing tests.}
+Contrary to prior work \todo{(find citations)}, 
+the test case objective landscape is not frequently hostile to partial repairs. 
+An APR technique can often use test cases to identify, evaluate, and compose 
+smaller partial repairs into larger patches.
+
+\vspace{1ex}
+\noindent\textbf{Consider patch coverage when determining the confidence of a test suite's assessment of partial correctness.} 
+Test cases are a more accurate metric of partial correctness if 
+overlapping coverage of candidate patch components is minimized.
+We can reduce the possibility of overlapping coverage by 
+\textbf{decomposing tests into smaller units}.
+Potential methods to decompose tests include refactoring~\cite{b-refactoring}
+and using a finer level of granularity for measuring test suite success, 
+such as the assertion level granularity proposed in Section~\ref{sec:partial-repair-methodology}.
+
+\vspace{1ex}
+\noindent\textbf{Human patches are often not test-minimal.} 
+Many bugs do not need all patch locations to pass all tests, 
+offering further evidence of the incompleteness of test cases as a 
+proxy for correctness~\cite{patch-correctness} and the 
+presence of non-corrective changes (e.g.: refactoring, enhancements)
+in handwritten bug patches~\cite{api-refactoring}.
+
+\vspace{1ex}
+\noindent\textbf{Class-level granularity validation has tradeoffs.} 
+Some repair frameworks use class-level granularity for faster validation. 
+This may come at the cost of modestly less accurate detection of partial patches.
+However, this tradeoff may be worthwhile in Java, given the non-trivial challenges
+involved in decomposing JUnit test classes into individual methods.
+
+\vspace{1ex}
+\noindent\textbf{Use diverse benchmarks.} Our two datasets, Defects4J and Bears, 
+exhibited different characteristics in our experiments. The differing characteristics 
+may help explain why APR tools perform unevenly across different 
+benchmark datasets~\cite{durieux-repair-them-all}. We reinforce the 
+call to use diverse benchmarks when evaluating tools.
+
+
 \section{Conclusions}
 \label{sec:conclusions}
+
+\todo{Cut most of the conclusion, now that we have an explicit set of takeaways.}
 
 To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
