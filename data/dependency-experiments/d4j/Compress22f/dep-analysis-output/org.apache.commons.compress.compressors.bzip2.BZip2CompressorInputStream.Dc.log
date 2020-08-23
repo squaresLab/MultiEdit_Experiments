@@ -1,0 +1,66 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Wed Aug 19 17:17:32 EDT 2020
+Transforming org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream... 
+[Thread-5] ERROR heros.solver.CountingThreadPoolExecutor - Worker thread execution failed: PDG construction: A and B are not supposed to be the same node!
+java.lang.RuntimeException: PDG construction: A and B are not supposed to be the same node!
+	at soot.toolkits.graph.pdg.HashMutablePDG.constructPDG(HashMutablePDG.java:218)
+	at soot.toolkits.graph.pdg.HashMutablePDG.<init>(HashMutablePDG.java:114)
+	at io.github.squareslab.analysis.ControlDependencyAnalysis.internalTransform(ControlDependencyAnalysis.java:35)
+	at soot.BodyTransformer.transform(BodyTransformer.java:54)
+	at soot.Transform.apply(Transform.java:105)
+	at soot.BodyPack.internalApply(BodyPack.java:49)
+	at soot.Pack.apply(Pack.java:125)
+	at soot.PackManager.runBodyPacks(PackManager.java:991)
+	at soot.PackManager.access$000(PackManager.java:138)
+	at soot.PackManager$1.run(PackManager.java:633)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Exception in thread "Thread-5" java.lang.RuntimeException: PDG construction: A and B are not supposed to be the same node!
+	at soot.toolkits.graph.pdg.HashMutablePDG.constructPDG(HashMutablePDG.java:218)
+	at soot.toolkits.graph.pdg.HashMutablePDG.<init>(HashMutablePDG.java:114)
+	at io.github.squareslab.analysis.ControlDependencyAnalysis.internalTransform(ControlDependencyAnalysis.java:35)
+	at soot.BodyTransformer.transform(BodyTransformer.java:54)
+	at soot.Transform.apply(Transform.java:105)
+	at soot.BodyPack.internalApply(BodyPack.java:49)
+	at soot.Pack.apply(Pack.java:125)
+	at soot.PackManager.runBodyPacks(PackManager.java:991)
+	at soot.PackManager.access$000(PackManager.java:138)
+	at soot.PackManager$1.run(PackManager.java:633)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+java.lang.RuntimeException: PDG construction: A and B are not supposed to be the same node!
+	at soot.toolkits.graph.pdg.HashMutablePDG.constructPDG(HashMutablePDG.java:218)
+	at soot.toolkits.graph.pdg.HashMutablePDG.<init>(HashMutablePDG.java:114)
+	at io.github.squareslab.analysis.ControlDependencyAnalysis.internalTransform(ControlDependencyAnalysis.java:35)
+	at soot.BodyTransformer.transform(BodyTransformer.java:54)
+	at soot.Transform.apply(Transform.java:105)
+	at soot.BodyPack.internalApply(BodyPack.java:49)
+	at soot.Pack.apply(Pack.java:125)
+	at soot.PackManager.runBodyPacks(PackManager.java:991)
+	at soot.PackManager.access$000(PackManager.java:138)
+	at soot.PackManager$1.run(PackManager.java:633)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+Ouuups... something went wrong! Sorry about that.
+Follow these steps to fix the problem:
+1.) Are you sure you used the right command line?
+    Click here to double-check:
+    https://ssebuild.cased.de/nightly/soot/doc/soot_options.htm
+
+2.) Not sure whether it's a bug? Feel free to discuss
+    the issue on the Soot mailing list:
+    https://github.com/Sable/soot/wiki/Getting-help
+
+3.) Sure it's a bug? Click this link to report it.
+    https://github.com/Sable/soot/issues/new?title=java.lang.RuntimeException+when+...&body=Steps+to+reproduce%3A%0A1.%29+...%0A%0AFiles+used+to+reproduce%3A+%0A...%0A%0ASoot+version%3A+%3Cpre%3Etrunk%3C%2Fpre%3E%0A%0ACommand+line%3A%0A%3Cpre%3E-cp+%2FUsers%2Fzhendeveloper%2FDesktop%2FLabBox%2FMultiEdit_Experiments%2FDependencyAnalyzer%2Fjar%2FDependencyAnalyzer.jar%3Atarget%2Fclasses+-keep-line-number+-f+J+-p+jap.ControlDependencyAnalysis+on+org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream%3C%2Fpre%3E%0A%0AMax+Memory%3A%0A%3Cpre%3E1820MB%3C%2Fpre%3E%0A%0AStack+trace%3A%0A%3Cpre%3Ejava.lang.RuntimeException%3A+PDG+construction%3A+A+and+B+are+not+supposed+to+be+the+same+node%21%0A%09at+soot.toolkits.graph.pdg.HashMutablePDG.constructPDG%28HashMutablePDG.java%3A218%29%0A%09at+soot.toolkits.graph.pdg.HashMutablePDG.%26%2360%3Binit%26%2362%3B%28HashMutablePDG.java%3A114%29%0A%09at+io.github.squareslab.analysis.ControlDependencyAnalysis.internalTransform%28ControlDependencyAnalysis.java%3A35%29%0A%09at+soot.BodyTransformer.transform%28BodyTransformer.java%3A54%29%0A%09at+soot.Transform.apply%28Transform.java%3A105%29%0A%09at+soot.BodyPack.internalApply%28BodyPack.java%3A49%29%0A%09at+soot.Pack.apply%28Pack.java%3A125%29%0A%09at+soot.PackManager.runBodyPacks%28PackManager.java%3A991%29%0A%09at+soot.PackManager.access%24000%28PackManager.java%3A138%29%0A%09at+soot.PackManager%241.run%28PackManager.java%3A633%29%0A%09at+java.util.concurrent.ThreadPoolExecutor.runWorker%28ThreadPoolExecutor.java%3A1142%29%0A%09at+java.util.concurrent.ThreadPoolExecutor%24Worker.run%28ThreadPoolExecutor.java%3A617%29%0A%09at+java.lang.Thread.run%28Thread.java%3A745%29%0A%3C%2Fpre%3E
+    Please be as precise as possible when giving us
+    information on how to reproduce the problem. Thanks!

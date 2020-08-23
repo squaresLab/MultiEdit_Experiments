@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Wed Aug 19 17:01:56 EDT 2020
+Transforming org.apache.commons.compress.archivers.zip.ZipArchiveEntry... 
+Writing to sootOutput/org.apache.commons.compress.archivers.zip.ZipArchiveEntry.jimple
+Soot finished on Wed Aug 19 17:01:59 EDT 2020
+Soot has run for 0 min. 2 sec.

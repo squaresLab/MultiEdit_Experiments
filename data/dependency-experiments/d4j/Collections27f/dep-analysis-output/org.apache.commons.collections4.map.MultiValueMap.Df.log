@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Wed Aug 19 16:28:25 EDT 2020
+Transforming org.apache.commons.collections4.map.MultiValueMap... 
+Writing to sootOutput/org.apache.commons.collections4.map.MultiValueMap.jimple
+Soot finished on Wed Aug 19 16:28:29 EDT 2020
+Soot has run for 0 min. 3 sec.

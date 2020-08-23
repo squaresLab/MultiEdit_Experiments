@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Sun Aug 23 00:50:07 EDT 2020
+Transforming com.google.javascript.jscomp.CodeGenerator... 
+Writing to sootOutput/com.google.javascript.jscomp.CodeGenerator.jimple
+Soot finished on Sun Aug 23 00:50:09 EDT 2020
+Soot has run for 0 min. 2 sec.

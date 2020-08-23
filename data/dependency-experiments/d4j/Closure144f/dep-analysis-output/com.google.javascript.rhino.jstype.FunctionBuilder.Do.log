@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Sat Aug 22 23:38:45 EDT 2020
+Transforming com.google.javascript.rhino.jstype.FunctionBuilder... 
+Writing to sootOutput/com.google.javascript.rhino.jstype.FunctionBuilder.jimple
+Soot finished on Sat Aug 22 23:38:49 EDT 2020
+Soot has run for 0 min. 3 sec.

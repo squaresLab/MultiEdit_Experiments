@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Thu Aug 20 11:14:23 EDT 2020
+Transforming org.apache.commons.jxpath.ri.axes.AttributeContext... 
+Writing to sootOutput/org.apache.commons.jxpath.ri.axes.AttributeContext.jimple
+Soot finished on Thu Aug 20 11:14:24 EDT 2020
+Soot has run for 0 min. 1 sec.

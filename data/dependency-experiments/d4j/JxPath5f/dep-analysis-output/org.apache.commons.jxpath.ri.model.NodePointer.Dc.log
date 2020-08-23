@@ -1,0 +1,10 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Thu Aug 20 10:58:59 EDT 2020
+Transforming org.apache.commons.jxpath.ri.model.NodePointer... 
+Writing to sootOutput/org.apache.commons.jxpath.ri.model.NodePointer.jimple
+Soot finished on Thu Aug 20 10:59:02 EDT 2020
+Soot has run for 0 min. 3 sec.

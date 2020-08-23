@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Wed Aug 19 23:36:38 EDT 2020
+Transforming org.apache.commons.csv.CSVParser... 
+Writing to sootOutput/org.apache.commons.csv.CSVParser.jimple
+Soot finished on Wed Aug 19 23:36:41 EDT 2020
+Soot has run for 0 min. 3 sec.

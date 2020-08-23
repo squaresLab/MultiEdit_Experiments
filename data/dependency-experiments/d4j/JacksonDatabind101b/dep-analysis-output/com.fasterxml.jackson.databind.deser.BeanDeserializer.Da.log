@@ -1,0 +1,32 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Thu Aug 20 09:53:09 EDT 2020
+soot.SootResolver$SootClassNotFoundException: couldn't find class: com.fasterxml.jackson.core.JsonParser (is your soot-class-path set properly?)
+	at soot.SootResolver.bringToHierarchy(SootResolver.java:232)
+	at soot.SootResolver.processResolveWorklist(SootResolver.java:176)
+	at soot.SootResolver.resolveClass(SootResolver.java:134)
+	at soot.Scene.loadClass(Scene.java:873)
+	at soot.Scene.loadClassAndSupport(Scene.java:858)
+	at soot.Scene.loadNecessaryClass(Scene.java:1575)
+	at soot.Scene.loadNecessaryClasses(Scene.java:1586)
+	at soot.Main.run(Main.java:250)
+	at soot.Main.main(Main.java:147)
+	at io.github.squareslab.common.Utils.runSoot(Utils.java:40)
+	at io.github.squareslab.Main.main(Main.java:240)
+
+
+Ouuups... something went wrong! Sorry about that.
+Follow these steps to fix the problem:
+1.) Are you sure you used the right command line?
+    Click here to double-check:
+    https://ssebuild.cased.de/nightly/soot/doc/soot_options.htm
+
+2.) Not sure whether it's a bug? Feel free to discuss
+    the issue on the Soot mailing list:
+    https://github.com/Sable/soot/wiki/Getting-help
+
+3.) Sure it's a bug? Click this link to report it.
+    https://github.com/Sable/soot/issues/new?title=soot.SootResolver%24SootClassNotFoundException+when+...&body=Steps+to+reproduce%3A%0A1.%29+...%0A%0AFiles+used+to+reproduce%3A+%0A...%0A%0ASoot+version%3A+%3Cpre%3Etrunk%3C%2Fpre%3E%0A%0ACommand+line%3A%0A%3Cpre%3E-cp+%2FUsers%2Fzhendeveloper%2FDesktop%2FLabBox%2FMultiEdit_Experiments%2FDependencyAnalyzer%2Fjar%2FDependencyAnalyzer.jar%3Atarget%2Fclasses+-keep-line-number+-f+J+-p+jap.DataDependencyAnalysis+on+com.fasterxml.jackson.databind.deser.BeanDeserializer%3C%2Fpre%3E%0A%0AMax+Memory%3A%0A%3Cpre%3E1820MB%3C%2Fpre%3E%0A%0AStack+trace%3A%0A%3Cpre%3Esoot.SootResolver%24SootClassNotFoundException%3A+couldn%26%2339%3Bt+find+class%3A+com.fasterxml.jackson.core.JsonParser+%28is+your+soot-class-path+set+properly%3F%29%0A%09at+soot.SootResolver.bringToHierarchy%28SootResolver.java%3A232%29%0A%09at+soot.SootResolver.processResolveWorklist%28SootResolver.java%3A176%29%0A%09at+soot.SootResolver.resolveClass%28SootResolver.java%3A134%29%0A%09at+soot.Scene.loadClass%28Scene.java%3A873%29%0A%09at+soot.Scene.loadClassAndSupport%28Scene.java%3A858%29%0A%09at+soot.Scene.loadNecessaryClass%28Scene.java%3A1575%29%0A%09at+soot.Scene.loadNecessaryClasses%28Scene.java%3A1586%29%0A%09at+soot.Main.run%28Main.java%3A250%29%0A%09at+soot.Main.main%28Main.java%3A147%29%0A%09at+io.github.squareslab.common.Utils.runSoot%28Utils.java%3A40%29%0A%09at+io.github.squareslab.Main.main%28Main.java%3A240%29%0A%3C%2Fpre%3E
+    Please be as precise as possible when giving us
+    information on how to reproduce the problem. Thanks!

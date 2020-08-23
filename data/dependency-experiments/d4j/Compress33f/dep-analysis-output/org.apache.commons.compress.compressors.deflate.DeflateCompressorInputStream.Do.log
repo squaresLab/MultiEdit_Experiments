@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Wed Aug 19 17:34:37 EDT 2020
+Transforming org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream... 
+Writing to sootOutput/org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream.jimple
+Soot finished on Wed Aug 19 17:34:39 EDT 2020
+Soot has run for 0 min. 1 sec.

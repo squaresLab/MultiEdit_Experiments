@@ -1,0 +1,10 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ OK
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Wed Aug 19 17:51:08 EDT 2020
+Transforming org.apache.commons.compress.utils.ChecksumCalculatingInputStream... 
+Writing to sootOutput/org.apache.commons.compress.utils.ChecksumCalculatingInputStream.jimple
+Soot finished on Wed Aug 19 17:51:10 EDT 2020
+Soot has run for 0 min. 2 sec.
