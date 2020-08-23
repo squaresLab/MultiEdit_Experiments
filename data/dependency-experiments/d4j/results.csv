@@ -683,6 +683,12 @@ Compress44,True,False,False,False,False,True
 Compress45,False,False,False,False,False,False
 Compress46,False,False,False,False,False,False
 Compress47,True,False,False,False,False,True
+JacksonXml1,False,False,False,False,False,False
+JacksonXml2,False,False,False,False,False,False
+JacksonXml3,False,False,False,False,False,False
+JacksonXml4,False,False,False,False,False,False
+JacksonXml5,False,False,False,False,False,False
+JacksonXml6,False,False,False,False,False,False
 JacksonCore1,True,False,False,False,False,True
 JacksonCore2,False,False,False,False,False,False
 JacksonCore3,False,False,False,False,False,False
