@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from parse_raw_coverage import read_raw_coverage
 
-buggy_coverage_folders = ["data/coverage-experiments/buggy-versions/rawCoverage.data", "data/coverage-experiments/buggy-versions-only-bears/rawCoverage.data"]
+buggy_coverage_files = ["data/coverage-experiments/buggy-coverage-final/rawCoverage.data"]
 exp_1_folder_name = "data/coverage-experiments/coverage-data-final"
 
 def count_num_lines(list_entries):
@@ -38,7 +38,7 @@ originally_disjoint = []
 originally_identical = []
 originally_overlap = []
 
-for fname in buggy_coverage_folders:
+for fname in buggy_coverage_files:
 	bug_coverage = read_raw_coverage(fname)
 
 	for bugname, intersect, aggregate in bug_coverage:

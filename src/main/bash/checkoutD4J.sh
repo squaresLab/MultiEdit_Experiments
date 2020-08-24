@@ -8,6 +8,11 @@ mkdir -p "$WORKINGDIR"
 defects4j checkout -p "$PROJECT" -v "$NUMBER"b -w "$WORKINGDIR"/buggy
 defects4j checkout -p "$PROJECT" -v "$NUMBER"f -w "$WORKINGDIR"/patched
 
+if [[ $PROJECT == "Mockito" ]]
+  then
+  rm "$WORKINGDIR"/buggy/buildSrc/src/test/groovy/testutil/OfflineCheckerTest.groovy
+  rm "$WORKINGDIR"/patched/buildSrc/src/test/groovy/testutil/OfflineCheckerTest.groovy
+fi
 
 cd "$WORKINGDIR"/buggy || exit
 defects4j compile

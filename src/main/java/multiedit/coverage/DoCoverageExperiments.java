@@ -80,9 +80,11 @@ public class DoCoverageExperiments {
               Defects4J
              */
             for (D4JName n : D4JName.values()) {
-//                if (n != D4JName.MOCKITO) continue;
+                if (n == D4JName.MOCKITO) continue;
 //                if(true) continue;
-                for (int i = 1; i <= n.numBugs; i++) {
+                for (int i: n.bugs) {
+                    if (!((n == D4JName.CSV && i == 3) || (n == D4JName.CLOSURE && i > 133))) continue;
+
                     if (!d4jMultitestMultiedit.get(n).contains(i)) {
                         continue;
                     }
@@ -108,6 +110,7 @@ public class DoCoverageExperiments {
               Bears
              */
             for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
+                if (true) continue;
 
 //                if (i == 95 || i == 209) continue; // these have malformed test names
 

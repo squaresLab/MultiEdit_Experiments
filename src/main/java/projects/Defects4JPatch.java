@@ -19,14 +19,24 @@ public class Defects4JPatch implements Patch {
     private CoverageSubset patchLocationsInPatched;
     private CoverageSubset patchLocationsInBuggy;
     private final Scanner sysin = new Scanner(System.in);
+    private String java8path = "/usr/lib/jvm/java-8-openjdk-amd64/bin/java";
 
 
     public Defects4JPatch(D4JName projectName, int bugNumber) {
-        if (bugNumber <= 0 || bugNumber > projectName.numBugs) {
+//        TODO: get this to work
+//        try {
+//            Properties prop = new Properties();
+//            InputStream is = getClass().getResourceAsStream("d4j_config.properties");
+//            prop.load(is);
+//            java8path = prop.getProperty("java8path");
+//        } catch (IOException e) {
+//            throw new IllegalStateException("No Java 8 path found; Defects4J requires Java 8");
+//        }
+        if (!projectName.bugs.contains(bugNumber)) {
             throw new IllegalArgumentException("Invalid bug number " + bugNumber + " for " + projectName);
         }
 
-        String d4jWorkingDir = String.format("tmp/%s-%03d", projectName.getID(), bugNumber);
+        String d4jWorkingDir = String.format("tmp/%s-%03d", projectName.id, bugNumber);
 
         this.projectName = projectName;
         this.bugNumber = bugNumber;
@@ -99,7 +109,7 @@ public class Defects4JPatch implements Patch {
         // hacks on StackOverflow, but for the time being I just want something
         // that works at all
         // rather than a perfect implementation. One thing at a time.
-        CommandLine command = CommandLine.parse("java");
+        CommandLine command = CommandLine.parse(java8path);
         String outputDir = "target/classes";
 
         String classPath = outputDir;
@@ -149,11 +159,11 @@ public class Defects4JPatch implements Patch {
 
     private void checkoutD4JProject() throws IOException {
         CommandLine command = new CommandLine("src/main/bash/checkoutD4J.sh");
-        command.addArgument(projectName.getID());
+        command.addArgument(projectName.id);
         command.addArgument(String.valueOf(bugNumber));
         command.addArgument(d4jWorkingDir);
         System.out.println(String.join(" ", command.toStrings()));
-        if (projectName == D4JName.MOCKITO || (projectName == D4JName.CHART && bugNumber == 5)) {
+        if (projectName == D4JName.MOCKITO) { // || (projectName == D4JName.CHART && bugNumber == 5)) {
             // defects4j commands are super flaky through the command line runner, but work perfectly fine in my shell
             System.out.println("Run the above command in your shell, and press <enter> when it finishes.");
             System.out.println("(Defects4J commands are very flaky for Mockito when run through the CommandLineRunner)");
@@ -165,7 +175,7 @@ public class Defects4JPatch implements Patch {
                 try {
                     CommandLineRunner.runCommand(command);
                 } catch (Exception e) {
-                    if (tries >= 5) {
+                    if (tries >= 0) {
                         throw new RuntimeException(e);
                     }
                     System.out.println(++tries);

@@ -43,6 +43,8 @@ multichunk_disjoint_projects = {}
 multichunk_same_projects = {}
 multichunk_inBetween_projects = {}
 
+bugs = set()
+
 for dir in folders:
     with open(dir+"/disjoint.data") as f:
         for line in f:
@@ -91,14 +93,14 @@ for dir in folders:
                         print(f'overlap {line}')
 
 
-print(f"Total projects with multiple tests: {disjoint + same + inBetween}")
+print(f"Total bugs with multiple tests: {disjoint + same + inBetween}")
 print(f"Multiple tests disjoint: {disjoint}")
 print(f"Multiple tests same: {same}")
 print(f"Multiple tests inBetween: {inBetween}")
 
 sum_mchunk = multichunk_disjoint + multichunk_same + multichunk_inBetween
 
-print(f"Total projects with multiple tests & multiple chunks: {sum_mchunk}")
+print(f"Total bugs with multiple tests & multiple chunks: {sum_mchunk}")
 print(f"Multitest/multichunk disjoint: {multichunk_disjoint}")
 print(f"Multitest/multichunk same: {multichunk_same}")
 print(f"Multitest/multichunk inBetween: {multichunk_inBetween}")
@@ -117,7 +119,7 @@ overlap_percent = round(100 * multichunk_inBetween / sum_mchunk)
 plt.figure()
 ax = plt.bar(["disjoint", "overlap", "identical"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])#, color='#e6b8afff')
 plt.title("All multi-location and multi-test:\nDistribution of coverage patterns")
-plt.ylim(0, 50)
+plt.ylim(0, 80)
 plt.xlabel("Coverage pattern")
 plt.ylabel("Number patches")
 
