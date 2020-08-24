@@ -34,6 +34,7 @@ public class ParseScript{
         filename = splitted[2];
       }
       else if(line.length()>= 3 && line.substring(0,3).equals("---")) continue;
+      else if(line.charAt(0)=='\\')continue;
       else if(line.length()>= 7 && line.substring(0,7).equals("Only in")) continue;
       else if(line.length()> 0 && line.charAt(0)=='<'){
         ParseLineObject plo = new ParseLineObject(filename, linenum+delcounter, priocounter, true, line.substring(2));
@@ -65,7 +66,11 @@ public class ParseScript{
         if(firstd < 0)firstd = 100000000;
         if(firstc < 0)firstc = 100000000;
         if(firstcom < 0)firstcom = 100000000;
-        linenum = Integer.parseInt(line.substring(0,min4(firsta,firstd,firstc,firstcom)));
+        //try{
+          linenum = Integer.parseInt(line.substring(0,min4(firsta,firstd,firstc,firstcom)));
+        ////}catch(Exception e){
+         // continue;
+        //}
         delcounter = 0;
       }
     }

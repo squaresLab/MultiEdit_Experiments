@@ -129,6 +129,7 @@ public class JUnitCore {
      * Do not use. Testing purposes only.
      */
     public Result run(Runner runner) {
+        System.out.println("Fake-JUnit is on");
         Result result = new Result();
         RunListener listener = result.createListener();
         notifier.addFirstListener(listener);
