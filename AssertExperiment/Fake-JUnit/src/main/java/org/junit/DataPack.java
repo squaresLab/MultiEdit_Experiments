@@ -63,7 +63,8 @@ public class DataPack {
                 finalscore += scoremap.get(key);
 		        if(scoremap.get(key) == 1.0) finalscore2 += 1.0;
             }
-            //finalscore = finalscore /scoremap.size();
+            finalscore = finalscore /scoremap.size();
+            finalscore2 = finalscore2 / scoremap.size();
         }
         ArrayList<Double> finalscores = new ArrayList<Double>();
         finalscores.add(finalscore);

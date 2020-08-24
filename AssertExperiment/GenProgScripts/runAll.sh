@@ -21,5 +21,7 @@ mv $D4J_HOME/zemp/"$LOWERCASEPACKAGE""$2"Buggy $3/"$1""$2"/bugorig
 rm -rf $3/"$1""$2"/bugorig/tmp
 rm -rf $3/"$1""$2"/bugorig/$5
 
+cat $3/"$1""$2"/diff.diff
+
 java -cp .:$GP4J_HOME/target/uber-GenProg4Java-0.0.1-SNAPSHOT.jar ParseScript $3/"$1""$2" $GP4J_HOME $D4J_HOME/zemp/"$LOWERCASEPACKAGE""$2"Buggy $MULTIEDIT_HOME/AssertExperiment/results/"$1""$2".out
 
