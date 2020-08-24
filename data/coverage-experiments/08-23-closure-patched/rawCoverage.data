@@ -1,0 +1,256 @@
+PATCH : CLOSURE:134
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/TypedScopeCreator: [564, 565, 566, 567, 569]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/AmbiguateProperties: [593, 209, 594, 210, 595, 355, 596, 597, 599, 556, 365]
+com/google/javascript/jscomp/TypedScopeCreator: [564, 565, 566, 567, 569]
+
+PATCH : CLOSURE:135
+INTERSECT
+intersect all failing tests
+com/google/javascript/rhino/jstype/FunctionType: [476]
+
+UNION
+aggregate all failing tests
+com/google/javascript/rhino/jstype/FunctionType: [476, 477, 414]
+com/google/javascript/jscomp/DevirtualizePrototypeMethods: [362]
+
+PATCH : CLOSURE:136
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/MethodCompilerPass: [102]
+com/google/javascript/jscomp/RenameVars: [208, 209, 203, 205]
+
+PATCH : CLOSURE:137
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/MakeDeclaredNamesUnique: [425, 414]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/NodeUtil: [1044]
+com/google/javascript/jscomp/MakeDeclaredNamesUnique: [274, 275, 278, 279, 414, 287, 291, 292, 293, 294, 425, 298, 299, 303, 304, 306, 314, 315, 316, 318, 321, 324, 325, 326, 327, 328, 329, 330, 333, 335, 339, 344, 345, 348, 349, 352, 354, 355, 486, 361, 362, 363, 364, 366, 367, 241, 244, 247]
+com/google/javascript/jscomp/Normalize: [101]
+
+PATCH : CLOSURE:138
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/ClosureReverseAbstractInterpreter: [208, 207]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/TypeInference: [645, 632, 650, 638, 639]
+com/google/javascript/jscomp/ClosureReverseAbstractInterpreter: [208, 207]
+
+PATCH : CLOSURE:139
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/Normalize: [544, 321, 546, 322, 547, 323, 548, 324, 549, 550, 327, 296, 553, 297, 330, 299, 331, 332, 301, 334, 335, 282, 542]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/Normalize: [544, 321, 546, 322, 547, 323, 548, 324, 549, 550, 327, 296, 553, 297, 330, 299, 331, 332, 301, 334, 335, 282, 542]
+
+PATCH : CLOSURE:141
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/NodeUtil: [605, 606]
+com/google/javascript/jscomp/PureFunctionIdentifier: [208, 177, 209, 210, 180, 196, 198, 199, 201, 204, 206]
+
+PATCH : CLOSURE:142
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/CoalesceVariableNames: [108, 109]
+com/google/javascript/jscomp/parsing/JsDocInfoParser: [1168]
+
+PATCH : CLOSURE:143
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+
+PATCH : CLOSURE:144
+INTERSECT
+intersect all failing tests
+com/google/javascript/rhino/jstype/FunctionBuilder: [102, 103, 104]
+com/google/javascript/jscomp/FunctionTypeBuilder: [224, 225, 229, 231, 232, 233, 74, 236, 238, 239, 240, 243, 215, 218, 219, 220, 221, 222, 223]
+com/google/javascript/jscomp/TypedScopeCreator: [577]
+
+UNION
+aggregate all failing tests
+com/google/javascript/rhino/jstype/FunctionBuilder: [102, 103, 104]
+com/google/javascript/jscomp/FunctionTypeBuilder: [224, 225, 227, 228, 229, 231, 232, 233, 74, 236, 238, 239, 240, 243, 215, 216, 218, 219, 220, 221, 222, 223]
+com/google/javascript/jscomp/TypedScopeCreator: [577]
+
+PATCH : CLOSURE:147
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/RuntimeTypeCheck: [247, 248, 249, 250]
+
+PATCH : CLOSURE:148
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/SourceMap: [129, 131, 134, 519, 392, 393, 396, 525, 141, 397, 142, 143, 399, 145, 401, 146, 402, 403, 404, 534, 406, 535, 536, 412, 421, 424, 425, 431, 432, 433, 51, 435, 441, 442, 444, 193, 579, 323, 451, 452, 453, 198, 455, 201, 457, 203, 459, 588, 204, 589, 591, 592, 593, 465, 86, 472, 345, 89, 473, 475, 604, 605, 93, 94, 95, 96, 353, 356, 613, 357, 358, 359, 360, 361, 105, 362, 364, 108, 109, 110, 367, 112, 496, 114, 117, 501, 118, 502, 119, 121, 506, 123, 379, 380, 126]
+com/google/javascript/jscomp/PeepholeFoldConstants: [183, 184]
+
+PATCH : CLOSURE:153
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/SyntacticScopeCreator: [241, 232, 186, 234, 235, 124]
+com/google/javascript/jscomp/Normalize: [641, 644, 631, 649, 650, 651]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/SyntacticScopeCreator: [241, 102, 151, 232, 186, 234, 235, 139, 124, 94]
+com/google/javascript/jscomp/Normalize: [641, 689, 644, 631, 649, 650, 651]
+
+PATCH : CLOSURE:155
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/ReferenceCollectingCallback: [124, 125, 127]
+com/google/javascript/jscomp/InlineVariables: [229, 230, 199, 231, 232, 233, 234, 235, 238, 304, 241, 246, 222]
+com/google/javascript/jscomp/Scope: [305, 293, 486, 487, 489, 317]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/ReferenceCollectingCallback: [124, 125, 127]
+com/google/javascript/jscomp/InlineVariables: [229, 230, 199, 231, 232, 233, 234, 235, 238, 304, 241, 243, 246, 250, 251, 222]
+com/google/javascript/jscomp/Scope: [305, 293, 486, 487, 489, 317]
+
+PATCH : CLOSURE:156
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/CollapseProperties: [752, 705, 594, 706, 597, 455, 456, 590, 655]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/CollapseProperties: [752, 705, 594, 706, 597, 455, 456, 590, 655]
+
+PATCH : CLOSURE:157
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/parsing/IRFactory: [256, 257, 258, 261, 262, 266, 364, 269, 365, 270, 366, 371]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/parsing/IRFactory: [256, 257, 258, 259, 261, 262, 266, 364, 269, 365, 270, 366, 272, 368, 369, 371]
+com/google/javascript/jscomp/CodeGenerator: [352, 673, 737, 353, 674, 738, 675, 739, 355, 740, 677, 741, 744, 748, 749, 750, 751, 754, 660, 661, 343, 664, 670, 351]
+
+PATCH : CLOSURE:158
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/CommandLineRunner: [546, 419, 420, 423, 427, 428, 429, 430, 400, 401, 437, 438, 439, 409, 411, 95]
+com/google/javascript/jscomp/DiagnosticGroups: [189, 190]
+com/google/javascript/jscomp/AbstractCommandLineRunner: [1633, 1634, 197, 198, 199, 200, 1614, 1619, 1620, 1621, 1622, 1496, 1626, 1629, 1630, 1502]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/CommandLineRunner: [546, 419, 420, 423, 427, 428, 429, 430, 400, 401, 437, 438, 439, 409, 411, 95]
+com/google/javascript/jscomp/DiagnosticGroups: [189, 190]
+com/google/javascript/jscomp/AbstractCommandLineRunner: [1633, 1634, 197, 198, 199, 200, 1614, 1619, 1620, 1621, 1622, 1496, 1626, 1629, 1630, 1502]
+
+PATCH : CLOSURE:163
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/AnalyzePrototypeProperties: [256, 257, 391, 264, 392, 397, 400, 273, 274, 402, 405, 278, 406, 280, 281, 410, 411, 412, 415, 690, 695, 455, 328, 457, 203, 204, 205, 206, 207, 211, 736, 224, 353, 354, 738, 226, 227, 356, 228, 234, 492, 366, 367, 240, 241, 372, 380, 254]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/AnalyzePrototypeProperties: [256, 257, 391, 264, 392, 397, 400, 273, 274, 402, 405, 278, 406, 280, 281, 410, 411, 412, 415, 425, 303, 690, 695, 569, 570, 701, 575, 455, 328, 457, 203, 204, 205, 206, 207, 211, 212, 213, 216, 218, 736, 224, 353, 354, 738, 226, 227, 356, 228, 234, 492, 366, 367, 240, 369, 241, 372, 380, 254]
+com/google/javascript/jscomp/CrossModuleMethodMotion: [141, 142]
+
+PATCH : CLOSURE:164
+INTERSECT
+intersect all failing tests
+com/google/javascript/rhino/jstype/ArrowType: [164, 167]
+
+UNION
+aggregate all failing tests
+com/google/javascript/rhino/jstype/ArrowType: [128, 129, 164, 132, 167]
+
+PATCH : CLOSURE:167
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+com/google/javascript/rhino/jstype/JSType: [883, 884]
+com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter: [394, 430]
+
+PATCH : CLOSURE:169
+INTERSECT
+intersect all failing tests
+com/google/javascript/rhino/jstype/EquivalenceMethod: [82, 53, 71, 46]
+com/google/javascript/rhino/jstype/JSType: [528, 531, 532, 500, 492]
+com/google/javascript/rhino/jstype/RecordType: [266, 267]
+com/google/javascript/rhino/jstype/ArrowType: [209, 206]
+
+UNION
+aggregate all failing tests
+com/google/javascript/rhino/jstype/EquivalenceMethod: [82, 53, 71, 46]
+com/google/javascript/rhino/jstype/JSType: [528, 531, 532, 500, 492]
+com/google/javascript/rhino/jstype/FunctionType: [918]
+com/google/javascript/rhino/jstype/RecordType: [266, 267]
+com/google/javascript/rhino/jstype/ArrowType: [209, 206]
+
+PATCH : CLOSURE:171
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/TypeInference: [731]
+com/google/javascript/jscomp/TypedScopeCreator: [1669, 1670]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/TypeInference: [731]
+com/google/javascript/jscomp/TypedScopeCreator: [1669, 1670]
+
+PATCH : CLOSURE:173
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/CodeGenerator: [130]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax: [128, 130, 131, 132, 134, 108, 116, 119, 120, 121, 122, 123, 124, 125, 126]
+com/google/javascript/jscomp/CodeGenerator: [130]
+
+PATCH : CLOSURE:174
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/JsAst: [96, 82]
+com/google/javascript/jscomp/ScopedAliases: [356, 357, 379, 365, 366]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/NodeUtil: [2371, 2372, 2367]
+com/google/javascript/jscomp/JsAst: [96, 82]
+com/google/javascript/jscomp/ScopedAliases: [356, 357, 379, 365, 366]
+
+PATCH : CSV:003
+INTERSECT
+intersect all failing tests
+org/apache/commons/csv/Lexer: [115, 111]
+
+UNION
+aggregate all failing tests
+org/apache/commons/csv/Lexer: [115, 111]
+

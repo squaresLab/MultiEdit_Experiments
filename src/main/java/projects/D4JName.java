@@ -18,7 +18,15 @@ public enum D4JName {
     TIME("Time", getBugLists(pair(1, 20), pair(22, 27))),
     JSOUP("Jsoup", getBugLists(pair(1, 93))),
     JACKSONCORE("JacksonCore", getBugLists(pair(1, 26))),
-    CLI("Cli", getBugLists(pair(1,5), pair(7,40)));
+    CLI("Cli", getBugLists(pair(1,5), pair(7,40))),
+    JACKSONDATABIND("JacksonDatabind", getBugLists(pair(1, 112))),
+    COMPRESS("Compress", getBugLists(pair(1, 47))),
+    JXPATH("JxPath", getBugLists(pair(1, 22))),
+    GSON("Gson", getBugLists(pair(1, 18))),
+    CODEC("Codec", getBugLists(pair(1, 18))),
+    CSV("Csv", getBugLists(pair(1, 16))),
+    JACKSONXML("JacksonXml", getBugLists(pair(1, 6))),
+    COLLECTIONS("Collections", getBugLists(pair(25, 28)));
 
 
     public final List<Integer> bugs;

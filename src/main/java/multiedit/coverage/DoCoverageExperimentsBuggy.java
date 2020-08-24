@@ -101,9 +101,10 @@ public class DoCoverageExperimentsBuggy {
               Defects4J
              */
             for (D4JName n : D4JName.values()) {
-                if (n == D4JName.MOCKITO) continue;
+//                if (n == D4JName.MOCKITO) continue;
 //                if(true) continue;
                 for (int i : n.bugs) {
+                    if (!((n == D4JName.JSOUP && i == 71) || (n == D4JName.CSV && i == 3) || (n == D4JName.CLOSURE && i > 133))) continue;
                     if (!d4jMultitestMultiedit.get(n).contains(i)) {
                         continue;
                     }

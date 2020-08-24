@@ -101,6 +101,10 @@ public class SpotCheckTargetCoverage {
         this.d4jCoverage(D4JName.MATH, 35);
     }
 
+    @Test
+    public void testJsoup71() {
+        this.d4jCoverage(D4JName.JSOUP, 71);
+    }
 
     public void bearsCoverage(int i) {
         BearsPatch b = new BearsPatch(i);

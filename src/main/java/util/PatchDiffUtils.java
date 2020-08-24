@@ -56,8 +56,19 @@ public class PatchDiffUtils {
             String pathToClass = c.replace('.', '/');
 
             //build simple lists of the lines of the two testfiles
-            List<String> original = Files.readAllLines(new File(pathToBuggySource + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
-            List<String> revised = Files.readAllLines(new File(pathToPatchedSource+ "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            List<String> original;
+            try {
+                original = Files.readAllLines(new File(pathToBuggySource + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            } catch (NoSuchFileException e) {
+                original = new ArrayList<>();
+            }
+
+            List<String> revised;
+            try {
+                revised = Files.readAllLines(new File(pathToPatchedSource + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            } catch (NoSuchFileException e) {
+                revised = new ArrayList<>();
+            }
 
             CoverageSubset classDiff = getPatchLineNumbersTarget(original, revised, pathToClass);
             patchLines.addAllClasses(classDiff.getClassCoverageMap());
@@ -94,9 +105,19 @@ public class PatchDiffUtils {
             String pathToClass = c.replace('.', '/');
 
             //build simple lists of the lines of the two testfiles
-            List<String> original = Files.readAllLines(new File(pathToBuggySource + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
-            List<String> revised = Files.readAllLines(new File(pathToPatchedSource+ "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            List<String> original;
+            try {
+                original = Files.readAllLines(new File(pathToBuggySource + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            } catch (NoSuchFileException e) {
+                original = new ArrayList<>();
+            }
 
+            List<String> revised;
+            try {
+                revised = Files.readAllLines(new File(pathToPatchedSource + "/" + pathToClass + ".java").toPath(), StandardCharsets.ISO_8859_1);
+            } catch (NoSuchFileException e) {
+                revised = new ArrayList<>();
+            }
             CoverageSubset classDiff = getPatchLineNumbersSource(original, revised, pathToClass);
             patchLines.addAllClasses(classDiff.getClassCoverageMap());
         }
