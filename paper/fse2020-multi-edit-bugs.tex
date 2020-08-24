@@ -821,7 +821,7 @@ To construct partial repairs for each bug, we apply a struct, non-empty subset
 of location-granularity edits from the human patch to the broken code.
 In order to minimize the number of syntactically invalid partial repairs, 
 we pre-add, prevent the deletion of, or prevent the narrowing of scope of 
-import statements, helper methods, and variable declarations.
+import statements, helper methods, helper classes, and variable declarations.
 For example, if a patch contains an edit location that declares a new variable 
 \texttt{var} and a second edit location that might use \texttt{var}, then we 
 pre-add the declaration of \texttt{var} from the first edit location. 
@@ -839,7 +839,7 @@ to the number of available edit operations, we evaluate bugs whose patches
 contain between two and six edit locations after preprocessing.
 Moreover, we exclude Defect4J's Closure compiler bugs due to 
 their nonstandard test suite setup.
-We are left with 104 Defects4J and 74 Bears bugs, a total of 920 partial repairs for Defects4j 
+We are left with 240 Defects4J and 74 Bears bugs, a total of 1884 partial repairs for Defects4j 
 and 596 partial repairs for Bears.
 
 \subsubsection{Test Granularity}
@@ -862,8 +862,7 @@ assertions in $M$, there should be an increase in $AS(M)$.
 
 \subsection{Results}
 
-To answer RQ5, we report that about a 
-third (34 out of 104) of Defects4j bugs and over half (39 out of 74) of
+To answer RQ5, we report that about 41.3\%  (99 out of 240) of Defects4j bugs and 52.7\% (39 out of 74) of
 Bears bugs in this experiment do not need all edit locations in the provided human patches 
 to pass
 all unit tests. A significant portion of multi-location bugs contains some
@@ -890,7 +889,7 @@ provided human patch that are necessary
 to pass all unit tests (Minimized).
 Some bugs are minimized to a single edit location, and are thus excluded 
 from the Minimized results. The minimized results 
-include 79 remaining bugs (574 partial repairs) in Defects4j and 44 remaining bugs (232 partial repairs) of Bears. 
+include 165 remaining bugs (942 partial repairs) in Defects4j and 44 remaining bugs (232 partial repairs) of Bears. 
 
 Since each bug may have a different 
 number of partial repairs (based on the number of implicated locations per
@@ -913,17 +912,17 @@ excluded from the count.
 \multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4j} & \multicolumn{2}{c}{Bears} \\
 \multicolumn{2}{c}{Minimized?} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes}  \\
 \midrule
-\multirow{3}{*}{Positive} & Class & 22.28\% & 23.87 \% & 27.60\% & 9.22\%  \\
- & Method & 41.67\% & 37.47 \% & 28.41 \% & 18.23\%  \\
- & Assertion & 48.21\% & 46.11 \% & 28.68 \% & 18.69\%  \\ 
+\multirow{3}{*}{Positive} & Class & 25.95\% & 12.77 \% & 27.60\% & 9.22\%  \\
+ & Method & 40.82\% & 34.58 \% & 28.41 \% & 18.23\%  \\
+ & Assertion & 44.49\% & 39.93 \% & 28.68 \% & 18.69\%  \\ 
 \midrule
-\multirow{3}{*}{Neutral} & Class & 63.52\% & 71.73 \% & 58.97 \% & 73.31\% \\
- & Method & 38.93\% & 39.83 \% & 53.08 \% & 64.30\%  \\
- & Assertion & 31.84\% & 30.67\% & 49.52 \% &  59.60\%  \\ 
+\multirow{3}{*}{Neutral} & Class & 59.56\% & 68.30 \% & 58.97 \% & 73.31\% \\
+ & Method & 39.62\% & 40.05 \% & 53.08 \% & 64.30\%  \\
+ & Assertion & 33.73\% & 31.52\% & 49.52 \% &  59.60\%  \\ 
 \midrule
-\multirow{3}{*}{Negative} & Class & 7.82\% & 7.89 \% & 8.78 \% & 13.30\%  \\
- & Method & 12.80\% & 14.04 \% & 10.13 \% & 13.30\%  \\
- & Assertion & 13.16\% & 14.29 \% & 12.75 \% &  16.41\%  \\ 
+\multirow{3}{*}{Negative} & Class & 9.30\% & 11.57 \% & 8.78 \% & 13.30\%  \\
+ & Method & 13.51\% & 17.16 \% & 10.13 \% & 13.30\%  \\
+ & Assertion & 15.37\% & 19.80 \% & 12.75 \% &  16.41\%  \\ 
 \bottomrule
 \end{tabular}
 \end{center}}
@@ -936,21 +935,20 @@ More granular fitness functions are generally better at positively identifying p
 
 Table \ref{yiweitable} shows results.
 %
-Using the highest, assertion-level granularity correctively positively identifies 48.21\% (unminimized) and 46.11\% (minimized) of the partial repairs in Defects4j
+Using the highest, assertion-level granularity correctively positively identifies 44.49\% (unminimized) and 39.93\% (minimized) of the partial repairs in Defects4j
 and 28.68\% (unminimized) and 18.69 (minimized) of the partial repairs in Bears.
-Only 31.84\% (unminimized) and 30.67\% (minimized) of Defects4j partial repairs and 
+Only 33.73\% (unminimized) and 31.52\% (minimized) of Defects4j partial repairs and 
 49.52\% (unminimized) and 59.60\% (minimized)
-of Bears partial repairs are neutral. Less than 17\% of bugs in both datasets 
-(minimized and unminimized) are negatively identified. This shows that
+of Bears partial repairs are neutral. Less than 20\% of bugs in both datasets 
+(minimized or unminimized) are negatively identified. This shows that
 test suite results can still often identify
 partial repairs; erroneous identification happens rarely. 
  
 Our results show that higher granularity levels are better at identifying partial repairs positively, 
 but they also increase the chance of erroneously mis-identifying partial repairs. 
 This tradeoff behaves differently on our different datasets. For example,
-Assertion Level Granularity performed much better than Method Level Granularity
-in Defects4j (6.56\% (unminimized) and 8.64\% (minimized) more positively identified partial repairs, with less than
-0.4\% more negatively identified), but this is not the case in Bears (0.27\% 
+Assertion Level Granularity performed better than Method Level Granularity
+in Defects4j (3.67\% (unminimized) and 5.35\% (minimized) more positively identified partial repairs, with only 1.86\% (unminimized) and 2.64\% (minimized) more negatively identified), but this is not the case in Bears (0.27\% 
 (unminimized) and 0.46\% (minimized)
 more positively identified partial repairs, with about 2.62\% (unminimized) and 3.11\% (minimized)
  more negatively identified).
