@@ -661,15 +661,15 @@ We call the edits at two locations code clones if it is one of the following fou
 \toprule
 & Defects4J & Bears & Combined \\
 \midrule
-Same & 35 & 9 & 44  \\ 
-Literal & 11 & 2 & 13  \\
-Composite & 7 & 1 & 8  \\
-Move & 5 & 1 & 6  \\
+Same & 71 & 9 & 80  \\ 
+Literal & 23 & 2 & 25  \\
+Composite & 11 & 1 & 12  \\
+Move & 11 & 1 & 12  \\
 \midrule
-Any & 56 & 13 & 69  \\
-No clones & 96  &  51 & 147 \\
-Total & 152 & 64 & 216 \\
-\% with Clones & 36.8\% & 20.3\% & 31.9\% \\
+Any & 108 & 13 & 121  \\
+No clones & 200  &  51 & 251 \\
+Total & 308 & 64 & 372 \\
+\% with Clones & 35.1\% & 20.3\% & 32.5\% \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -684,8 +684,8 @@ Total & 152 & 64 & 216 \\
 \label{tab:clones}
 \end{table}
 
-As shown in Table~\ref{tab:clones}, out of the 216 multi-location bugs,
-69 of them, or  32\%, included at least one type of cloning between fault locations, indicating a 
+As shown in Table~\ref{tab:clones}, out of the 372 multi-location bugs,
+121 of them, or  32.5\%, included at least one type of cloning between fault locations, indicating a 
 significant 
 prevalence of code clones in multi-location human patches.
 Note that "Any" may not
@@ -700,12 +700,12 @@ belong to different categories.
 \toprule
 & Same Method & Same Class & Diff Class & Total\\
 \hline
-Same & 24 & 18 & 5 & 47 \\ 
-Literal & 9 & 4 & 1 & 14 \\
-Composite & 3 & 5 & 0 & 8 \\
-Move & 5 & 1 & 1 & 7 \\
+Same & 35 & 33 & 12 & 80 \\ 
+Literal & 12 & 8 & 5 & 25 \\
+Composite & 4 & 8 & 0 & 12 \\
+Move & 9 & 1 & 2 & 12 \\
 \midrule
-Total & 41 & 28 & 7  & 76\\
+Total & 60 & 50 & 19  & 129\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -720,9 +720,9 @@ the ``Same'' category.}
 \label{tab:clones_loc}
 \end{table}
 
-As shown in Table \ref{tab:clones_loc}, over half of code clones are in the same method, while less than
-one tenth of the code clones occur in different classes. Moreover, out of the 76 sets of code clones,
-47 of them belongs to the ``same'' category, which means that 62\% of sets of code clones have completely
+As shown in Table \ref{tab:clones_loc}, close to half of code clones are in the same method, while less than
+15\% of the code clones occur in different classes. Moreover, out of the 129 sets of code clones,
+80 of them belongs to the ``same'' category, which means that 62\% of sets of code clones have completely
 alpha-equivalent edit locations within them.
 
 \begin{table}
@@ -731,10 +731,10 @@ alpha-equivalent edit locations within them.
 				\toprule
 				& Disjoint & Overlap & Identical & Total \\
 				\midrule
-				Has Clone & 19 & 2 & 5 & 26 \\
-				No Clone & 6 & 26 & 33 &  65\\
+				Has Clone & 25 & 12 & 7 & 44 \\
+				No Clone & 23 & 48 & 51 &  122 \\
                 \midrule
-				Total & 25 & 28 & 38 & 91 \\
+				Total & 48 & 60 & 58 & 166 \\
                 \bottomrule
 			\end{tabular}
 		\end{center}
@@ -744,13 +744,12 @@ alpha-equivalent edit locations within them.
 \end{table}
 
 In Table \ref{tab:cov_clones}, we show the incidence of code clones among the three 
-coverage patterns identified in Section \ref{secFL}. Note that out of 216 bugs evaluated for code clones, only 91 of them have multiple failing tests, so only these bugs are included in the table.  Out of 25 bugs labeled as 
-\emph{disjoint} in the coverage 
-experiment, 19 had code clones (14 Same, 4 Literal, 1 Composite). In contrast, the 
-\emph{overlap} and \emph{identical} categories respectively had 2 and 5 bugs with code clones, 
-making up only a small proportion of the bugs in those categories. This indicates that a 
-bug with \emph{disjoint} coverage result is very likely to contain code clones in its
-human patch. 
+coverage patterns identified in Section \ref{secFL}. Note that out of 372 bugs evaluated for code clones, only 166 of them have multiple failing tests, so only these bugs are included in the table.  Out of 48 bugs labeled as 
+\emph{disjoint} in the coverage, over half of them has code clones. In contrast, the 
+\emph{overlap} and \emph{identical} categories respectively had 20\% and 12\% bugs with code clones, 
+This indicates that a 
+bug with \emph{disjoint} coverage result is more likely to contain code clones in its
+human patch than bugs with other coverage results. 
 
 This result qualitatively supports the hypothesis that \emph{disjoint} bugs are more likely to contain 
 code clones, while the other two classifications have comparatively less code
