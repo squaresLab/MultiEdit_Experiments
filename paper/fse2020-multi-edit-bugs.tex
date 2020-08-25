@@ -955,6 +955,49 @@ Thus, it is recommended that researchers should
 carefully balance the tradeoffs in granularity level in test case based validation
 in APR research.
 
+\subsection{[TODO:Add appropriate title] Correlations between disjointness and partial repair performance (minimized)}
+
+\begin{table}
+        {\begin{center}
+                        \begin{tabular} {lrrrr}
+                                \toprule
+                                & Disjoint & Overlap & Identical & Total \\
+                                \midrule
+                                Has positive PR & 40 & 30 & 12 & 82 \\
+                                No positive PR & 1 & 4 & 16 &  21 \\
+                \midrule
+                                Has negative PR & 2 & 8 & 16 & 26 \\
+                                No negative PR & 39 & 26 & 12 & 77 \\
+                \midrule
+                                Total & 41 & 34 & 28 & 113 \\
+                \bottomrule
+                        \end{tabular}
+                \end{center}
+        }
+        \caption{Multi-location and multi-test bugs that are included in both the fitness experiment (minimized) and the coverage experiment categorized by coverage pattern and presence of at least one partial repair that is strictly positive/negative; definitions for Overlap, Disjoint, and Identical are taken from our experiments on fault localization.}
+        \label{tab:cov_fitness}
+\end{table}
+
+
+
+
+\todo{[TODO]: Actually put text here}
+
+Possible conclusions (very rough draft): 
+
+1. Multi-test bugs are very likely to have positive PR
+
+2. Disjoint and Overlap likely gives more positive PR, while Same likely gives more negative PR
+
+\todo{[TODO]: Is this section actually interesting?}
+
+Possible explanation: If a bug is disjoint, then applying parts of the human patch that is covered by one test should pass an additional test without affecting others, so this is strictly positive PR. 
+
+If a bug is same, then applying one part of the repair will affect all tests, so more likely to mess up??
+
+Possible application: Use coverage result to guide fitness function on tolerance of negative performance of candidate patch, or selection pressure
+
+\todo{[TODO]: Fix the above or delete the section}
 
 \section{Limitations}
 \label{sec:limits}
