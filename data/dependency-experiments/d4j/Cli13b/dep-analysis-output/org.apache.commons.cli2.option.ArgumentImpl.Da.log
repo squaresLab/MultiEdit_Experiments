@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Wed Aug 19 16:19:55 EDT 2020
+Transforming org.apache.commons.cli2.option.ArgumentImpl... 
+Writing to sootOutput/org.apache.commons.cli2.option.ArgumentImpl.jimple
+Soot finished on Wed Aug 19 16:19:57 EDT 2020
+Soot has run for 0 min. 1 sec.

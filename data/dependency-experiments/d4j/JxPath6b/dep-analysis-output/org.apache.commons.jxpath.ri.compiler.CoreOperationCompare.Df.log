@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Thu Aug 20 10:59:46 EDT 2020
+Transforming org.apache.commons.jxpath.ri.compiler.CoreOperationCompare... 
+Writing to sootOutput/org.apache.commons.jxpath.ri.compiler.CoreOperationCompare.jimple
+Soot finished on Thu Aug 20 10:59:48 EDT 2020
+Soot has run for 0 min. 1 sec.

@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Thu Aug 20 06:59:13 EDT 2020
+Transforming com.fasterxml.jackson.core.json.ReaderBasedJsonParser... 
+Writing to sootOutput/com.fasterxml.jackson.core.json.ReaderBasedJsonParser.jimple
+Soot finished on Thu Aug 20 06:59:18 EDT 2020
+Soot has run for 0 min. 4 sec.

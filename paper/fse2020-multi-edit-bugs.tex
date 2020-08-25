@@ -512,7 +512,9 @@ One of the dimensions of the relationship between multi-location patches is pote
 \rqorinsight{3}{How prevalent are dependencies between edited code?}
 
 To answer this question, we broaden the scope of multi-location patches to 
-include all patches containing at least two added, removed, or modified lines.
+include all patches containing at least two added, removed, or modified lines, 
+ignoring edits to comments, whitespace, or imports.
+This expanded dataset contains 659 Defects4J v2 and 151 Bears bugs.
 We consider a patch to contain dependent edits if there exists 
 control or data dependencies between added, deleted, or modified statements.
 We analyze deleted/modified statements in the pre-patch code 
@@ -535,8 +537,8 @@ using the following heuristics:
 
 \paragraph{Results}
 
-We find that 44\% of Defects4J patches, 61\% of Bears patches, 
-and 49\% of the combined datasets' patches contain dependencies 
+We find that 40\% of Defects4J patches, 63\% of Bears patches, 
+and 45\% of the combined datasets' patches contain dependencies 
 between edited statements.
 Our finding supports earlier results on edit dependencies in 
 bug patches~\cite{zhong2015}.
@@ -546,30 +548,36 @@ and neither type of patches should be ignored.
 
 \begin{table}
 {\begin{center}
-	\begin{tabular}{l | rr | rr | rr}
+	\begin{tabular}{l  rr  rr  rr}
 		\toprule
 		\multicolumn{7}{c}{\textbf{Patches with Dependent Edits}} \\
 		\midrule
-		APR & \multicolumn{2}{c}{Defects4J} & \multicolumn{2}{c}{Bears} & \multicolumn{2}{c}{Combined} \\
+		APR (RepairThemAll) & \multicolumn{2}{c}{Defects4J} & \multicolumn{2}{c}{Bears} & \multicolumn{2}{c}{Combined} \\
 		\midrule
-		Success & 39 & 30\% & 9 & 9\% & 48 & 26\% \\
-		Failure & 93 & 70\% & 86 & 91\% & 139 & 74\% \\
+		Success by any tool & 43 & 32\% & 9 & 9\% & 52 & 23\% \\
+		Failure by all tools & 93 & 68\% & 86 & 91\% & 179 & 77 \% \\
+		Not evaluated & 130 & --- & 0 & --- & 130 & --- \\
 		\midrule
-		Total & 132 & 100\% & 95 & 100\% & 187 & 100\% \\
+		Total evaluated & 136 & 100\% & 95 & 100\% & 231 & 100\% \\
+		Total & 266 & --- & 95 & --- & 361 & --- \\
 		\midrule
 		\multicolumn{7}{c}{\textbf{Patches without Dependent Edits}} \\
 		\midrule
-		Success & 94 & 55\% & 8 & 13\% & 102 & 44\% \\
-		Failure & 77 & 45\% & 53 & 87\% & 130 & 56\% \\
+		Success by any tool & 96 & 57\% & 7 & 13\% & 103 & 46\% \\
+		Failure by all tools & 73 & 43\% & 49 & 87\% & 122 & 54\% \\
+		Not evaluated & 224 & --- & 0 & --- & 224 & --- \\
 		\midrule
-		Total & 171 & 100\% & 61 & 100\% & 232 & 100\% \\
+		Total evaluated & 169 & 100\% & 56 & 100\% & 225 & 100\% \\
+		Total & 393 & --- & 56 & --- & 449 & --- \\
 		\bottomrule
 	\end{tabular}
  \end{center}
 }
 	\caption{Multi-line patches with respect to the presence of 
-	dependent line edits and whether an APR tool successfully 
-	repaired the bug in RepairThemAll~\cite{durieux-repair-them-all}.}
+	dependent edits and whether any APR tool successfully 
+	repaired the bug in RepairThemAll~\cite{durieux-repair-them-all}.
+	Bugs categorized as {\normalfont Not evaluated} are those introduced in 
+	v2 of Defects4J, which RepairThemAll didn't study.}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
 
@@ -579,17 +587,26 @@ Table~\ref{tab:dependency-repair-contingency-table}
 show the frequencies and percentages of multi-line patches with respect to edit dependency 
 and whether an APR tool successfully repaired bug in 
 RepairThemAll~\cite{durieux-repair-them-all}, a repair experiment running 
-11 APR tools on 5 benchmarks, including Defects4J and Bears.
+11 APR tools on 5 benchmarks, including Defects4J v1 (containing a subset of Defects4J v2) and Bears.
+
 We find that the presence of edit dependencies 
 reduces the likelihood of APR tool success for Defects4J bugs.
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
 between APR success and the presence of edit dependencies for Defects4J patches. 
 We fail to find statistically 
-significant relationships over Bears patches, possibly due to the small number (16) of 
+significant relationships over Bears patches, likely due to the small number (16) of 
 successfully auto-repaired Bears bugs with multi-line human patches.
 The generally lower auto-repairability of bugs with edit dependent patches compared 
 to their non-edit dependent brethren suggest that such dependencies indeed 
 add complexity to the search for a repair.
+
+Our results substantiate prior research~\cite{zhong2015} on the frequency of 
+bugs with dependent edits in human patches. A diverse range of APR 
+techniques are less likely to repair such bugs. Dependent edits, however, may 
+be an opportunity to constrain the search space by creating constraints between 
+otherwise independent mutations. There is an opportunity to profit from edit 
+dependencies to repair a large class of difficult bugs.
+
 
 \subsection{Cloned code}
 
@@ -1159,7 +1176,7 @@ perform better on bugs with disjoint or overlapping fault coverage.
 
 \vspace{1ex}
 \noindent\textbf{Patches with dependencies are common and harder to construct.} 
-A significant number of multi-location bugs contain dependencies within the patch, 
+A significant number of bugs contain dependencies within the patch, 
 and these bugs are less likely to be repaired by a diverse range of repair tools. 
 Thus, there is an opportunity to exploit these dependencies by existing or new 
 techniques to improve APR for this large class of hard-to-repair bugs.

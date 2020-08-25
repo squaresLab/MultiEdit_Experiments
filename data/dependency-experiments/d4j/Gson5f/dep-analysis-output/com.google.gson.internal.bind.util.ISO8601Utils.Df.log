@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Thu Aug 20 02:38:52 EDT 2020
+Transforming com.google.gson.internal.bind.util.ISO8601Utils... 
+Writing to sootOutput/com.google.gson.internal.bind.util.ISO8601Utils.jimple
+Soot finished on Thu Aug 20 02:38:56 EDT 2020
+Soot has run for 0 min. 4 sec.

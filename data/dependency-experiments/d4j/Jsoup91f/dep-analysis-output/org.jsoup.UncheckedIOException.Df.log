@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Thu Aug 20 22:42:03 EDT 2020
+Transforming org.jsoup.UncheckedIOException... 
+Writing to sootOutput/org.jsoup.UncheckedIOException.jimple
+Soot finished on Thu Aug 20 22:42:05 EDT 2020
+Soot has run for 0 min. 1 sec.

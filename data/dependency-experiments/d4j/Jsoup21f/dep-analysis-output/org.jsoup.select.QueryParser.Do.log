@@ -1,0 +1,8 @@
+Running ant (export.dir.bin.classes)....................................... OK
+
+/Users/zhendeveloper/Desktop/LabBox/MultiEdit_Experiments/DependencyAnalyzer/jar/DependencyAnalyzer.jar
+Soot started on Thu Aug 20 08:38:08 EDT 2020
+Transforming org.jsoup.select.QueryParser... 
+Writing to sootOutput/org.jsoup.select.QueryParser.jimple
+Soot finished on Thu Aug 20 08:38:09 EDT 2020
+Soot has run for 0 min. 1 sec.
