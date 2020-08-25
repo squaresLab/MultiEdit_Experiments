@@ -387,26 +387,11 @@ We believe this is an intuitive definition consistent with the general APR
 paradigm. As a shorthand, we refer to bugs with multi-location human-written
 patches as \emph{multi-location bugs}.
 
-\subsection{Research questions.}  Decomposing the problem of dynamic APR into
-multiple subproblems allows us to ask research questions specific to each. We
-address the following research questions:
-
-\begin{enumerate}[label=RQ\arabic*:]
-\item \emph{How prevalent are human-written multi-location patches?}
-By measuring how often humans write multi-location patches we can increase our
-understanding of how many patches are missed by single-location APR and estimate
-the value of multi-location repair research.
-
-\item \emph{Do failing tests cover different portions of the fault?}
-  \todo{JL is here}
-\item \emph{How prevalent are dependencies between edited code?}
-\item \emph{How often do code clones occur in bugs with multi-location
-  patches? Is the existence of code clones in human patches correlated with specific
-  patterns of fault localization?}
-\item \emph{How often are multi-location bugs minimal with respect to their provided test cases?}
-\item \emph{How well do test case based validation methods identify partial repairs?}
-
-\end{enumerate}
+Decomposing the problem of dynamic APR into multiple subproblems allows us to
+ask research questions specific to each. Our research questions are divided into
+the categories \emph{fault localization} (corresponding to the fault space),
+\emph{mutation operators and fix code} (corresponding to the mutation and fix
+spaces), and \emph{validation}. \todo{JL: probably forward refs to the sections.}
 
 \section{Dataset Characteristics}
 \label{sec:data-rq1}
