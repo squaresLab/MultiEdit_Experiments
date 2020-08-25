@@ -14,6 +14,7 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage[export]{adjustbox}
+\usepackage{xspace}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125em X}}
 
@@ -66,6 +67,7 @@
 \lstset{style=JavaStyle}
 
 \newcommand\todo[1]{\textcolor{red}{#1}}
+\newcommand\bears{\textsc{Bears}\xspace}
 
 \begin{document}
 
@@ -237,7 +239,7 @@ looking specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
 We study the bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
-and BEARS~\cite{bears}, in total, 578 bugs in 40 projects. 
+and \bears~\cite{bears}, in total, 578 bugs in 40 projects.
 More than half of these bugs were repaired by a
 human developer using edits at multiple locations.  We look at characteristics along each of the
 relevant axes of the program repair search problem: fault locations, mutation
@@ -246,7 +248,7 @@ contributions are
 as follows:\footnote{We will complete the presentation of our replication package post review, as an additional contribution.}
 
 \begin{itemize}
-\item An analysis and enumeration of multi-location patches in Defects4J and Bears.
+\item An analysis and enumeration of multi-location patches in Defects4J and \bears.
 \item \textbf{Fault Localization.}  We find that 58\% of relevant bugs have faulty locations that are not
   covered by all failing tests, thus the assumptions underlying spectrum-based
   fault localization may not necessarily hold when used off-the-shelf for
@@ -261,7 +263,7 @@ none of the faulty locations are covered by all failing tests tend to have code 
 suggesting a way to tell when we should use a program repair technique designed for code 
 clones.
 \item \textbf{Test cases for patch validation.} We find that over 40\% of bugs with multi-location
-  patches in Defects4j more than half in Bears do not require the edits at every
+  patches in Defects4j more than half in \bears do not require the edits at every
   location in their provided human patches to pass all test cases, suggesting
   that either patches contain unecessary edits or (more likely) that test cases
   do not fully capture the desired behavioral specification.  We also find that test 
@@ -417,7 +419,7 @@ Joda-Time & 27 & 82.9 & 70.4 & 17 & 63\% & 13 & 48\% & 9 & 33\%\\
 \midrule
 All (Defects4J) & 395 & 552.6 & 375.0 & 184 & 47\% & 144 & 36\% & 90 & 23\%\\
 \midrule
-\multicolumn{10}{c}{\textbf{Bears (single-module)}} \\
+\multicolumn{10}{c}{\textbf{\bears (single-module)}} \\
 \midrule
 FasterXML-jackson-databind & 26 & 95.7 & 53.6 & 17 & 65\% & 4 & 15\% & 2 & 8\%\\
 INRIA-Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
@@ -425,18 +427,18 @@ spring-data-commons & 15 & 45.8 & 28.8  & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
 traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
 30 other projects & 38 & - & - & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
 \midrule
-All (Bears) & 183 & >255.6 & >121.8 & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
+All (\bears) & 183 & >255.6 & >121.8 & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
 \midrule
-Combined (Defects4J \& Bears) & 578 & >808.2 & >496.8 & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
+Combined (Defects4J \& \bears) & 578 & >808.2 & >496.8 & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J (top) and Bears (bottom) datasets.}
+\caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J (top) and \bears (bottom) datasets.}
 \end{table*}
 
 Our study requires a dataset of indicative, real-world,
 multi-location defects.  We study both the defects in
-Defects4J~\cite{defects4j} and Bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
+Defects4J~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 395 bugs from 
@@ -448,31 +450,31 @@ and exclude non-repair edits such as refactorings and feature additions.
 With any dataset, however, there is a risk associated that tools may overfit
 to the defects in question, and there is evidence that this situation applies to
 program repair and Defects4J~\cite{durieux-repair-them-all}. 
-We thus also study bugs from Bears~\cite{bears}, 
+We thus also study bugs from \bears~\cite{bears}, 
 a set of Java bugs derived from failed Travis-CI builds of GitHub projects. 
-Bears offers 251 bugs from 72 software projects, providing a greater diversity of 
+\bears offers 251 bugs from 72 software projects, providing a greater diversity of 
 projects compared to Defects4J. 
-Several projects in Bears, however, are structured as multi-module projects, 
+Several projects in \bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
-We thus limit our analysis of Bears to 183 bugs from 34 single-module projects.
+We thus limit our analysis of \bears to 183 bugs from 34 single-module projects.
 
 
 We start our analysis of multi-location patches by asking the following research question:
 \rqorinsight{1}{How prevalent are human-written multi-location patches?}
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
-multi-location patches in Defects4J and Bears. 
-We find that multi-location patches comprise over half of Bears and almost half of Defects4J.
+multi-location patches in Defects4J and \bears. 
+We find that multi-location patches comprise over half of \bears and almost half of Defects4J.
 Although a multi-location human patch for a bug does not imply the 
 non-existence of a simpler patch, the high proportion of bugs that have 
 multi-location patches demonstrates the relevance of such bugs to fault localization and
 program repair. 
 
-Bears contains a greater proportion of 
+\bears contains a greater proportion of 
 multi-location patches compared to Defects4J. This may be the 
 result of manual patch minimization in Defects4J~\cite{defects4j} 
-and lack thereof in Bears.
-Thus, some Bears patches may be multi-location as a result of additional 
+and lack thereof in \bears.
+Thus, some \bears patches may be multi-location as a result of additional 
 changes added for non-repair reasons.
 
 
@@ -523,7 +525,7 @@ One of the dimensions of the relationship between multi-location patches is pote
 To answer this question, we broaden the scope of multi-location patches to 
 include all patches containing at least two added, removed, or modified lines, 
 ignoring edits to comments, whitespace, or imports.
-This expanded dataset contains 659 Defects4J v2 and 151 Bears bugs.
+This expanded dataset contains 659 Defects4J v2 and 151 \bears bugs.
 We consider a patch to contain dependent edits if there exists 
 control or data dependencies between added, deleted, or modified statements.
 We analyze deleted/modified statements in the pre-patch code 
@@ -546,7 +548,7 @@ using the following heuristics:
 
 \paragraph{Results}
 
-We find that 40\% of Defects4J patches, 63\% of Bears patches, 
+We find that 40\% of Defects4J patches, 63\% of \bears patches, 
 and 45\% of the combined datasets' patches contain dependencies 
 between edited statements.
 Our finding supports earlier results on edit dependencies in 
@@ -561,7 +563,7 @@ and neither type of patches should be ignored.
 		\toprule
 		\multicolumn{7}{c}{\textbf{Patches with Dependent Edits}} \\
 		\midrule
-		APR (RepairThemAll) & \multicolumn{2}{c}{Defects4J} & \multicolumn{2}{c}{Bears} & \multicolumn{2}{c}{Combined} \\
+		APR (RepairThemAll) & \multicolumn{2}{c}{Defects4J} & \multicolumn{2}{c}{\bears} & \multicolumn{2}{c}{Combined} \\
 		\midrule
 		Success by any tool & 43 & 32\% & 9 & 9\% & 52 & 23\% \\
 		Failure by all tools & 93 & 68\% & 86 & 91\% & 179 & 77\% \\
@@ -596,15 +598,15 @@ Table~\ref{tab:dependency-repair-contingency-table}
 show the frequencies and percentages of multi-line patches with respect to edit dependency 
 and whether an APR tool successfully repaired bug in 
 RepairThemAll~\cite{durieux-repair-them-all}, a repair experiment running 
-11 APR tools on 5 benchmarks, including Defects4J v1 (containing a subset of Defects4J v2) and Bears.
+11 APR tools on 5 benchmarks, including Defects4J v1 (containing a subset of Defects4J v2) and \bears.
 
 We find that the presence of edit dependencies 
 reduces the likelihood of APR tool success for Defects4J bugs.
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
 between APR success and the presence of edit dependencies for Defects4J patches. 
 We fail to find statistically 
-significant relationships over Bears patches, likely due to the small number (16) of 
-successfully auto-repaired Bears bugs with multi-line human patches.
+significant relationships over \bears patches, likely due to the small number (16) of 
+successfully auto-repaired \bears bugs with multi-line human patches.
 The generally lower auto-repairability of bugs with edit dependent patches compared 
 to their non-edit dependent brethren suggest that such dependencies indeed 
 add complexity to the search for a repair.
@@ -685,7 +687,7 @@ We call the edits at two locations code clones if it is one of the following fou
 {\begin{center}
 \begin{tabular} {lrrr}
 \toprule
-& Defects4J & Bears & Combined \\
+& Defects4J & \bears & Combined \\
 \midrule
 Same & 71 & 9 & 80  \\ 
 Literal & 23 & 2 & 25  \\
@@ -838,7 +840,7 @@ partial repairs at different granularity levels.
 
 For each bug in  Defects4j 
 (excluding Closure, which uses a non-standard testing setup)
-and Bears (single-module only), we generate and test all combinations of partial repairs, as follows: 
+and \bears (single-module only), we generate and test all combinations of partial repairs, as follows: 
 
 \subsubsection{Partial Repairs}
 
@@ -864,8 +866,8 @@ to the number of available edit operations, we evaluate bugs whose patches
 contain between two and six edit locations after preprocessing.
 Moreover, we exclude Defect4J's Closure compiler bugs due to 
 their nonstandard test suite setup.
-We are left with 240 Defects4J and 74 Bears bugs, a total of 1884 partial repairs for Defects4j 
-and 596 partial repairs for Bears.
+We are left with 240 Defects4J and 74 \bears bugs, a total of 1884 partial repairs for Defects4j 
+and 596 partial repairs for \bears.
 
 \subsubsection{Test Granularity}
 
@@ -888,16 +890,16 @@ assertions in $M$, there should be an increase in $AS(M)$.
 \subsection{Results}
 
 To answer RQ5, we report that about 41.3\%  (99 out of 240) of Defects4j bugs and 52.7\% (39 out of 74) of
-Bears bugs in this experiment do not need all edit locations in the provided human patches 
+\bears bugs in this experiment do not need all edit locations in the provided human patches 
 to pass
 all unit tests. A significant portion of multi-location bugs contains some
 edits that have no effect on test case behavior.  Defects4J bugs are curated by
-default to exclude tangled changes; the Bears bugs are not manually modified in
+default to exclude tangled changes; the \bears bugs are not manually modified in
 this way.  This suggests first, that changes that are expliclity considered bug
 relevant by a human annotator (and thus included in the Defects4J set) are still
 not always necessary to pass all provided test cases, and that this phenomenon
 is exacerbated when bugs are not manually isolated to exclude potentially tangled
-changes (note the difference in behavior on Bears and Defects4J).  
+changes (note the difference in behavior on \bears and Defects4J).  
 Although this could
 be a sign of tangled changes, such changes are excluded from Defects4J by
 construction~\cite{defects4j}; suggesting
@@ -914,7 +916,7 @@ provided human patch that are necessary
 to pass all unit tests (Minimized).
 Some bugs are minimized to a single edit location, and are thus excluded 
 from the Minimized results. The minimized results 
-include 165 remaining bugs (942 partial repairs) in Defects4j and 44 remaining bugs (232 partial repairs) of Bears. 
+include 165 remaining bugs (942 partial repairs) in Defects4j and 44 remaining bugs (232 partial repairs) of \bears. 
 
 Since each bug may have a different 
 number of partial repairs (based on the number of implicated locations per
@@ -934,7 +936,7 @@ excluded from the count.
 {\begin{center}
 \begin{tabular}{ll|rr|rrrr}
 \toprule
-\multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4j} & \multicolumn{2}{c}{Bears} \\
+\multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4j} & \multicolumn{2}{c}{\bears} \\
 \multicolumn{2}{c}{Minimized?} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes}  \\
 \midrule
 \multirow{3}{*}{Positive} & Class & 25.95\% & 12.77 \% & 27.60\% & 9.22\%  \\
@@ -961,10 +963,10 @@ More granular fitness functions are generally better at positively identifying p
 Table \ref{yiweitable} shows results.
 %
 Using the highest, assertion-level granularity correctively positively identifies 44.49\% (unminimized) and 39.93\% (minimized) of the partial repairs in Defects4j
-and 28.68\% (unminimized) and 18.69 (minimized) of the partial repairs in Bears.
+and 28.68\% (unminimized) and 18.69 (minimized) of the partial repairs in \bears.
 Only 33.73\% (unminimized) and 31.52\% (minimized) of Defects4j partial repairs and 
 49.52\% (unminimized) and 59.60\% (minimized)
-of Bears partial repairs are neutral. Less than 20\% of bugs in both datasets 
+of \bears partial repairs are neutral. Less than 20\% of bugs in both datasets 
 (minimized or unminimized) are negatively identified. This shows that
 test suite results can still often identify
 partial repairs; erroneous identification happens rarely. 
@@ -973,7 +975,7 @@ Our results show that higher granularity levels are better at identifying partia
 but they also increase the chance of erroneously mis-identifying partial repairs. 
 This tradeoff behaves differently on our different datasets. For example,
 Assertion Level Granularity performed better than Method Level Granularity
-in Defects4j (3.67\% (unminimized) and 5.35\% (minimized) more positively identified partial repairs, with only 1.86\% (unminimized) and 2.64\% (minimized) more negatively identified), but this is not the case in Bears (0.27\% 
+in Defects4j (3.67\% (unminimized) and 5.35\% (minimized) more positively identified partial repairs, with only 1.86\% (unminimized) and 2.64\% (minimized) more negatively identified), but this is not the case in \bears (0.27\% 
 (unminimized) and 0.46\% (minimized)
 more positively identified partial repairs, with about 2.62\% (unminimized) and 3.11\% (minimized)
  more negatively identified).
@@ -1139,7 +1141,7 @@ source file bugs that requires multiple edit actions in multiple locations to su
 drawing insights on their behaviors in fault localization, fix mutations, and test-based 
 fitness evaluations. Additionally unlike the previous study, we study the program repair 
 benchmark datasets Defects4J 
-and Bears; we believe that the program repair community would derive greater 
+and \bears; we believe that the program repair community would derive greater 
 benefit from a study of APR benchmarks.
 % fix this phrasing for the camera ready
 
@@ -1245,7 +1247,7 @@ presence of non-corrective changes (e.g., refactoring, enhancements)
 in handwritten bug patches~\cite{api-refactoring, tangledchanges}.
 
 \item\textbf{Techniques need to be evaluated on diverse benchmarks.}
-Our two datasets, Defects4J and Bears, exhibited different characteristics.
+Our two datasets, Defects4J and \bears, exhibited different characteristics.
 These characteristics may explain why APR tools perform unevenly across
 different benchmark datasets~\cite{durieux-repair-them-all}. Our findings
 provide evidence reinforcing the call for the use of diverse benchmarks when
@@ -1259,7 +1261,7 @@ evaluating tools.
 
 To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
-that 47\% of bugs in the Defects4J dataset and 61\% of bugs in the Bears dataset
+that 47\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
 were repaired by a human developer with multi-location patches. This motivated
 our study on the possibility of extending current program repair work to
 multi-location patches.
