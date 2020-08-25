@@ -388,10 +388,12 @@ paradigm. As a shorthand, we refer to bugs with multi-location human-written
 patches as \emph{multi-location bugs}.
 
 Decomposing the problem of dynamic APR into multiple subproblems allows us to
-ask research questions specific to each. Our research questions are divided into
-the categories \emph{fault localization} (corresponding to the fault space),
-\emph{mutation operators and fix code} (corresponding to the mutation and fix
-spaces), and \emph{validation}. \todo{JL: probably forward refs to the sections.}
+ask research questions specific to each. First, we investigate the prevalence of
+human-written multi-location patches in Section~\ref{sec:data-rq1}.  Then we
+investigate properties of the multi-location fault space (Section~\ref{secFL}),
+mutation and fix spaces (Section~\ref{sec:mutops}), and validation
+(Section~\ref{sec:tests}). We discuss the implications of our findings on
+multi-location repair in Section~\ref{sec:takeaways}.
 
 \section{Dataset Characteristics}
 \label{sec:data-rq1}
