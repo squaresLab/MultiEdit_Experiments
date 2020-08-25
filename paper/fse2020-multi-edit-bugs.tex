@@ -284,74 +284,79 @@ clones.
 % outlining limitations (Section~\ref{sec:limits}), related work
 % (Section~\ref{sec:related}), and summarizing discussion  (Section~\ref{sec:conclusions}).
 
-\section{Key Terms and Concepts}
+\section{Background and Motivation}
 \label{sec:background}
 
-\paragraph{Search spaces in automatic program repair.} Automatic program repair (APR) techniques aim to find patches for bugs in
-programs.  We restrict attention to dynamic or test-case guided program repair,
-which describes the majority of research advancements over the past ten years.
-Such techniques take as input a program and a set of test cases that serve as
-the oracle for program correctness.  At least one of those tests should be
-failing, corresponding to the bug to be repaired.
+In this section we overview the background of automated program repair (APR) and
+introduce key concepts that directly motivate our research questions.
 
-At a high level, any APR technique aims to solve a search or optimization
-problem, seeking a set of edits (or patch) to the program that will lead it to
-pass all of the provided tests. The repair search space is typically defined
-along the following axes~\cite{ae,sqjo}:
-\begin{itemize}
+\subsection{Automated Program Repair and Search Spaces.}
+The central goal of automated program repair (APR) techniques is to
+automatically generate patches for bugs in programs. We restrict attention to
+\emph{dynamic} or \emph{test-case guided} program repair, which describes the
+majority of research advancements over the past decade. Dynamic APR techniques
+take as input a program and a set of test cases that serve as the oracle for
+program correctness, at least one of which is failing (i.e., exercises the bug
+to be repaired).
 
-\item \emph{Fault space.} The first problem in fixing a bug concerns
-  \emph{where} in the code modifications should be applied. Dynamic repair
+At a high level, dynamic APR techniques aim to solve a search or optimization
+problem, searching for a set of edits to the program that will cause it to pass
+all of the provided tests. To do this, they first \emph{generate} a candidate
+patch, then run the test suite to \emph{validate} it; for this reason they are
+often called \emph{generate and validate} repair techniques. Generating a patch
+requires navigating a search space, which is typically defined along the
+following axes~\cite{ae,sqjo}:
+\begin{enumerate}[wide]
+
+\item \emph{Fault space.} The first problem with generating a patch concerns
+  \emph{where} in the code a patch should be applied. Most dynamic repair
   techniques begin by using test cases as input to a fault localization
   technique. Such techniques identify (and typically score) suspicious code
   based on which test cases execute which pieces of code. Although the
-  particulars of the fault localization employed can vary, most APR techniques use some
-  variant of spectrum-based fault localization (SBFL)~\cite{ochiai} in this first
-  step. The resulting computation defines the fault space, or the candidate
-  locations or code entities considered for repair.
+  particulars of the fault localization employed can vary, most APR techniques
+  use some variant of spectrum-based fault localization (SBFL)~\cite{ochiai} in
+  this stage. The resulting computation defines the \emph{fault space}, or the
+  candidate code locations considered for repair.
 
-\item \emph{Mutation space.} The mutation space is the set of applicable
-  modifications at a given program location. Examples include GenProg's
-  \emph{append}, \emph{replace}, and \emph{delete} mutation operators over
-  statements~\cite{genprog-operators}; Par's human patch inspired edit
-  templates~\cite{par} and Nopol's condition replacement over 
-  \texttt{if} statements and missing precondition addition over non-branch and
-  non-loop statements~\cite{Xuan17}.  A larger mutation space generates a richer
-  search space with potentially more repairs, but increases its size
-  combinatorially~\cite{long-search-spaces}.
+\item \emph{Mutation space.} After identifying a faulty program location, an APR
+  technique must choose from the set of applicable modifications at the given
+  point. Examples include GenProg's \emph{append}, \emph{replace}, and
+  \emph{delete} mutation operators over statements~\cite{genprog-operators};
+  PAR's human patch inspired edit templates~\cite{par}; and Nopol's condition
+  replacement over \texttt{if} statements~\cite{Xuan17}. Although a larger
+  mutation space allows the generation of a wider variety of patches with
+  potentially more repairs, adding more mutations grows the entire generation
+  search space combinatorially~\cite{long-search-spaces}.
 
-\item \emph{Fix space.} Often, given a selected mutation, code must be generated
-  or selected to instantiate the mutation in question.  For example, if a
-  technique elects to insert a null
-  pointer check, the object being checked for null must be selected to
-  instantiate the templated repair from suitable variables at the code location;
-  if a technique choose to insert a new piece of code at a location, suitable
-  code must be generated or selected for insertion. Some APR
-  techniques tackle the resultant explosion of this fix space by taking
-  advantage of the \emph{plastic surgery hypothesis}~\cite{plastic}, which
-  assumes that a bug can be repaired by code available in other parts of the
-  same program.  Learning-based approaches, by contrast, can learn models of
-  code or repairs to inform modifications~\cite{prophet}; synthesis-based
-  approaches constrain the synthesis engine to a small vocabulary of fix
-  ingredients, possibly informed by the code near the selected faulty
-  location~\cite{angelix,s3}. 
+\item \emph{Fix space.} Certain mutations must be instantiated with generated or
+  selected code before they can be applied. For example, if a technique elects
+  to insert a null pointer check, the specific object being checked for
+  \texttt{null} must be chosen to generate a patch. This search space that must
+  be navigated to instantiate a patch is referred to as the \emph{fix space}.
+  The fix space can be quite large (or even infinite), and different APR
+  techniques use different strategies to make it tractable. Some techniques
+  tackle the problem by taking advantage of the \emph{plastic surgery
+    hypothesis}~\cite{plastic}, which assumes that a bug can be repaired by code
+  available in other parts of the same program. By contrast, learning-based
+  approaches use models of code or repairs to inform
+  modifications~\cite{prophet}, whereas synthesis-based approaches constrain a
+  synthesis engine to a small vocabulary of fix ingredients, possibly informed
+  by the code near the selected faulty location~\cite{angelix,s3}.
 
-\item \emph{Validation.} Candidate patches are typically validated using the
-  provided test cases as the objective function.  In an evolutionary or
-  search-based context, test cases can also be used as the fitness
-  function~\cite{genprog}; techniques have supplemented the test
-  case objective with partial correctness measures like program
-  invariants~\cite{dinglyu}, memory snapshots~\cite{source-code-checkpoint}, or
-  similarity to human edits~\cite{hdrepair}, with maximization of tests passed
-  maintained as one of possibly many objectives.  In a multi-edit context,
-  ideally, multiple tests would be able to idnetify partial repairs that could
-  be composed.  However, evidence suggests that this does not always
-  apply~\cite{better-fitness,schulte}. 
-\end{itemize}
+\vspace{1ex}
+After generation, patches must be validated. Candidate patches are typically
+validated using the provided test cases as the objective function.  In an
+evolutionary or search-based context, test cases can also be used as the fitness
+function~\cite{genprog}; techniques have supplemented the test case objective
+with partial correctness measures like program invariants~\cite{dinglyu}, memory
+snapshots~\cite{source-code-checkpoint}, or similarity to human
+edits~\cite{hdrepair}, with maximization of tests passed maintained as one of
+possibly many objectives.  In a multi-edit context, ideally, multiple tests
+would be able to idnetify partial repairs that could be composed.  However,
+evidence suggests that this does not always apply~\cite{better-fitness,schulte}.
+\end{enumerate}
 
-
-
-\paragraph{Multi-location bugs.} There are several plausible definitions of multi- vs. single-location bugs, with
+\subsection{Multi-location bugs.} There are several plausible definitions of multi- vs. single-location bugs, with
 implications for how they are studied. For the purpose of this study, we define
 a \emph{patch location} as a contiguous sequence of edited lines of
 code.  We combine two locations if one simply opens or closes a syntactic block
@@ -370,7 +375,7 @@ complex bugs for the purposes of understanding the limitations of
 existing repair techniques, and key future directions to
 adapting or extending them to improve expressivity. 
 
-\paragraph{Research questions.}  The parameterization of the program repair
+\subsection{Research questions.}  The parameterization of the program repair
 search problems into multiple subspaces informs our empirical study of those
 spaces for the purposes of understanding multi-edit repair.  We address the
 following research questions:
