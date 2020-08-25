@@ -342,47 +342,62 @@ following axes~\cite{ae,sqjo}:
   modifications~\cite{prophet}, whereas synthesis-based approaches constrain a
   synthesis engine to a small vocabulary of fix ingredients, possibly informed
   by the code near the selected faulty location~\cite{angelix,s3}.
-
-\vspace{1ex}
-After generation, patches must be validated. Candidate patches are typically
-validated using the provided test cases as the objective function.  In an
-evolutionary or search-based context, test cases can also be used as the fitness
-function~\cite{genprog}; techniques have supplemented the test case objective
-with partial correctness measures like program invariants~\cite{dinglyu}, memory
-snapshots~\cite{source-code-checkpoint}, or similarity to human
-edits~\cite{hdrepair}, with maximization of tests passed maintained as one of
-possibly many objectives.  In a multi-edit context, ideally, multiple tests
-would be able to idnetify partial repairs that could be composed.  However,
-evidence suggests that this does not always apply~\cite{better-fitness,schulte}.
 \end{enumerate}
 
-\subsection{Multi-location bugs.} There are several plausible definitions of multi- vs. single-location bugs, with
+After generation, patches must be validated. Candidate patches are typically
+validated using the provided test cases as the objective function. In techniques
+that require one, test cases can also be used as the \emph{fitness
+  function}~\cite{genprog}; although some have supplemented the test case
+objective with partial correctness measures like program
+invariants~\cite{dinglyu}, memory snapshots~\cite{source-code-checkpoint}, or
+similarity to human edits~\cite{hdrepair}, with maximization of tests passed
+maintained as one of possibly many objectives.
+%% JL: This might be too early, since we haven't talked about multi-location yet.
+%% In a multi-edit context, ideally,
+%% multiple tests would be able to idnetify partial repairs that could be composed.
+%% However, evidence suggests that this does not always
+%% apply~\cite{better-fitness,schulte}.
+
+
+\subsection{Multi-Location Patches and Bugs}
+State-of-the-art dynamic APR techniques typically generate small patches that
+are confined to a small portion of a program's code, rather than larger patches
+that span multiple logical units of code (e.g., multiple control flow blocks,
+functions, or files). The primary motivation of this study is to understand what
+makes the generation of larger patches difficult, and identify properties of
+larger human-written patches that can be exploited by future APR tools.
+
+More precisely, this work focuses on \emph{multi-location} patches. There are
+several plausible definitions of multi- vs. single-location patches, with
 implications for how they are studied. For the purpose of this study, we define
-a \emph{patch location} as a contiguous sequence of edited lines of
-code.  We combine two locations if one simply opens or closes a syntactic block
-inserted by the other. That is, conceptually:
+a \emph{patch location} as a contiguous sequence of edited lines of code.  We
+combine two locations if one simply opens or closes a syntactic block inserted
+by the other. That is, conceptually:
 \begin{lstlisting}
 + Some_edit {
 + New code
-  Existing code 
+  Existing code
 +}
 \end{lstlisting}
-is treated as a single-location edit in our study.  We ignore changes to
-comments, whitespace, or import statements. 
+is treated as a single-location edit in our study. We ignore changes to
+comments, whitespace, or \texttt{import} statements.
 
-Although alternative definitions may have bearing on our results, we believe this is an intuitive definition consistent with the general APR paradigm.Moreover, our aim is to understand properties of 
-complex bugs for the purposes of understanding the limitations of
-existing repair techniques, and key future directions to
-adapting or extending them to improve expressivity. 
+We believe this is an intuitive definition consistent with the general APR
+paradigm. As a shorthand, we refer to bugs with multi-location human-written
+patches as \emph{multi-location bugs}.
 
-\subsection{Research questions.}  The parameterization of the program repair
-search problems into multiple subspaces informs our empirical study of those
-spaces for the purposes of understanding multi-edit repair.  We address the
-following research questions:
+\subsection{Research questions.}  Decomposing the problem of dynamic APR into
+multiple subproblems allows us to ask research questions specific to each. We
+address the following research questions:
 
 \begin{enumerate}[label=RQ\arabic*:]
-\item \emph{How prevalent are multi-location human patches are in Defects4J and Bears?}
+\item \emph{How prevalent are human-written multi-location patches?}
+By measuring how often humans write multi-location patches we can increase our
+understanding of how many patches are missed by single-location APR and estimate
+the value of multi-location repair research.
+
 \item \emph{Do failing tests cover different portions of the fault?}
+  \todo{JL is here}
 \item \emph{How prevalent are dependencies between edited code?}
 \item \emph{How often do code clones occur in bugs with multi-location
   patches? Is the existence of code clones in human patches correlated with specific
@@ -455,7 +470,7 @@ We thus limit our analysis of Bears to 183 bugs from 34 single-module projects.
 
 
 We start our analysis of multi-location patches by asking the following research question:
-\rqorinsight{1}{How prevalent are multi-location human patches are in Defects4J and Bears?}
+\rqorinsight{1}{How prevalent are human-written multi-location patches?}
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and Bears. 
