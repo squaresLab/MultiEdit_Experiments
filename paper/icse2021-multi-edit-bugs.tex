@@ -1264,11 +1264,8 @@ but they also increase the chance of erroneously mis-identifying partial repairs
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
 is negligible in Bears (less than 0.5\%) but greater in Defects4J (3.67\% unminimized and 5.35\% minimized).
-Moreover, evaluating patches at finer granularity levels often adds overhead, depending on the specific implementation.
-Method level granularity may require executing set-up
-and tear-down processes for each method rather than for
-an entire test class.
-Assertion level granularity requires instrumenting JUnit with additional
+Moreover, evaluating patches at finer granularity levels can add overhead.
+For example, assertion level granularity requires instrumenting JUnit with additional
 logic to continue execution when assertions fail.
 Such overhead lowers the number of
 candidate patches that a G\&V tool can validate per unit time.
