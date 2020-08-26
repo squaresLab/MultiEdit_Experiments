@@ -1001,7 +1001,7 @@ We call the edits at two locations code clones if it is one of the following fou
 \begin{enumerate}
 \item Same: The two locations are alpha-equivalent (i.e. the two locations are identical or would be
 identical if we substitute all occurrances of a variable in one location with another same-type variable)
-\item One-change: The two locations are alpha-equivalent except the difference by at most one constant or arithmetic operator,
+\item Near-same: The two locations are alpha-equivalent except the difference by at most one constant or arithmetic operator,
 or replacement of one constant with variable
 \item Composite: The patch at one location is exactly copied and contained within the patch at 
 the 
@@ -1022,7 +1022,7 @@ another).
 & Total & Defects4J & \bears & Method & Class & Neither\\
 \midrule
 Same      &  80 &  71 & 9 & 35 & 33 & 12 \\
-One-change   &  25 &  23 & 2 & 12 &  8 &  5 \\
+Near-same   &  25 &  23 & 2 & 12 &  8 &  5 \\
 Composite &  12 &  11 & 1 &  4 &  8 &  0 \\
 Move      &  12 &  11 & 1 &  9 &  1 &  2 \\
 \midrule
@@ -1035,7 +1035,7 @@ Total     & 372 & 308 & 64\\
 \caption{\todo{JL: Finish fixing this table and also delete the other table that
     I took the locality stuff from.} Code clone information for multi-location bugs. \todo{I advocate minor
     renaming as mentioned above; must update this table/text/caption accordingly.}
-     \emph{Same}, \emph{One-change}, \emph{Composite} and \emph{Move} correspond to the
+     \emph{Same}, \emph{Near-same}, \emph{Composite} and \emph{Move} correspond to the
     four types of code clones considered, as described in Section~\ref{sec52}. ``Any'' means the bug
     contains any of the four types of clone; some bugs contain
     pairs of clones that belong to different categories. 
@@ -1061,7 +1061,7 @@ belong to different categories.
 & Same Method & Same Class & Diff Class & Total\\
 \hline
 Same & 35 & 33 & 12 & 80 \\ 
-One-change & 12 & 8 & 5 & 25 \\
+Near-same & 12 & 8 & 5 & 25 \\
 Composite & 4 & 8 & 0 & 12 \\
 Move & 9 & 1 & 2 & 12 \\
 \midrule
@@ -1182,13 +1182,12 @@ partial repairs into full repairs.
 \subsection{Methodology}
 \label{sec:partial-repair-methodology}
 
-In this experiment, we effectively apply all partial repairs for our
-multi-location bugs, excluding Closure (which uses a non-standard testing
-setup).\todo{Where/how is this dataset visible in table 1?} We 
+In this experiment, we effectively apply all partial repairs for
+a subset of multi-location bugs, and
 evaluate how well the partially-patched programs perform 
 as compared to both the original and the fully-patched versions. 
 
-\subsubsection{Partial Repairs}
+\subsubsection{Partial Repairs and Bug Selection}
 We apply each non-empty subset of all location-level edits for a given bug to
 its buggy program.  To minimize semantically invalid partial repairs, we \emph{always}
 include edits that add import statements, helper methods/classes, or variable declarations
@@ -1204,6 +1203,7 @@ helper method in one location and calls it in the other).
 Due to the exponential growth of partial patches with respect to overall patch size,
 we evaluate multi-location bugs whose patches 
 contain between two and six edit locations after preprocessing.
+Also, we exclude any bugs from Closure project in Defects4J since they use non-standard testing setups
 Overall, we generated and evaluated 1884 Defects4J and 596 \bears partial repairs,
 derived from 240 Defects4J and 74 \bears bugs.
 
@@ -1414,7 +1414,7 @@ analysis's scalability to large, real world software.
 We examined code clones at the location level.  However, clones also occur at the
 granularity of lines~\cite{JiaClones} or
 subexpressions~\cite{microclones}. We classified clones into four
-categories (Same, One-change, Composite, Move), but other categorizations 
+categories (Same, Near-same, Composite, Move), but other categorizations 
 are possible.
 %
 We did not distinguish between the number
