@@ -1268,7 +1268,7 @@ but they also increase the chance of erroneously mis-identifying partial repairs
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
 is negligible in Bears (less than 0.5\%) but greater in Defects4J (3.67\% unminimized and 5.35\% minimized).
-Moreover, evaluating patches at finer granularity levels often adds overhead.
+Moreover, evaluating patches at finer granularity levels often adds overhead, depending on the specific implementation.
 Method level granularity may require executing set-up
 and tear-down processes for each method rather than for
 an entire test class.
@@ -1291,7 +1291,7 @@ multiple axes of APR performance.
                                 $\exists$ negative partial repair & 2 & 8 & 16 & 26 \\
                                 $\nexists$ negative partial repair & 39 & 26 & 12 & 77 \\
                 \midrule
-                                Total & 41 & 34 & 28 & 113 \\
+                                Total & 41 & 34 & 28 & 103 \\
                 \bottomrule
                         \end{tabular}
                 \end{center}
@@ -1301,7 +1301,7 @@ multiple axes of APR performance.
         \label{tab:cov_fitness}
 \end{table}
 
-Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ negative tests
+Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ failing tests
 and 2--6 edit locations in the minimized patch, grouped by patch coverage
 under fault-revealing tests and the existence of positively/negatively test-identified
 partial repairs at any granularity level.
