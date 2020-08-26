@@ -1017,24 +1017,24 @@ another).
 
 \begin{table}
 {\begin{center}
-\begin{tabular} {lrrr}
+\begin{tabular} {lrrrrrr}
 \toprule
-& Defects4J & \bears & Combined \\
+&&\multicolumn{2}{c}{Dataset} &\multicolumn{3}{c}{Locality}\\
+& Total & Defects4J & \bears & Method & Class & Neither\\
 \midrule
-Same & 71 & 9 & 80  \\ 
-Literal & 23 & 2 & 25  \\
-Composite & 11 & 1 & 12  \\
-Move & 11 & 1 & 12  \\
+Same      &  80 &  71 & 9 & 35 & 33 & 12 \\
+Literal   &  25 &  23 & 2 & 12 &  8 &  5 \\
+Composite &  12 &  11 & 1 &  4 &  8 &  0 \\
+Move      &  12 &  11 & 1 &  9 &  1 &  2 \\
 \midrule
-Any & 108 & 13 & 121  \\
-No clones & 200  &  51 & 251 \\
-Total & 308 & 64 & 372 \\
-\% with Clones & 35.1\% & 20.3\% & 32.5\% \\
+Any       & 121 & 108 & 13\\
+Total     & 372 & 308 & 64\\
 \bottomrule
 \end{tabular}
 \end{center}
 }
-\caption{Code clone information for multi-location bugs. \todo{I advocate minor
+\caption{\todo{JL: Finish fixing this table and also delete the other table that
+    I took the locality stuff from.} Code clone information for multi-location bugs. \todo{I advocate minor
     renaming as mentioned above; must update this table/text/caption accordingly.}
      \emph{Same}, \emph{Literal}, \emph{Composite} and \emph{Move} correspond to the
     four types of code clones considered, as described in Section~\ref{sec52}. ``Any'' means the bug
