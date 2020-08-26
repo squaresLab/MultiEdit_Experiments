@@ -999,11 +999,10 @@ experiment and exclude bugs with more than 6 faulty locations, leaving 166 bugs.
 
 We call the edits at two locations code clones if it is one of the following four cases:
 \begin{enumerate}
-\item Same: The two locations are alpha-equivalent. \todo{do you mean ``they are
-    literally identical modulo whitespace?  If so, can we just say that?}
-\item Literal: The two locations differ by at most one constant or arithmetic operator,
-or replacement of one constant with variable.\todo{The other names are OK, but I
-  don't like ``literal''.  Is there a better name for this, perhaps?}
+\item Same: The two locations are alpha-equivalent (i.e. the two locations are identical or would be
+identical if we substitute all occurrances of a variable in one location with another same-type variable)
+\item One-change: The two locations are alpha-equivalent except the difference by at most one constant or arithmetic operator,
+or replacement of one constant with variable
 \item Composite: The patch at one location is exactly copied and contained within the patch at 
 the 
 second location (the second location  has additional lines in the patch).
@@ -1023,7 +1022,7 @@ another).
 & Total & Defects4J & \bears & Method & Class & Neither\\
 \midrule
 Same      &  80 &  71 & 9 & 35 & 33 & 12 \\
-Literal   &  25 &  23 & 2 & 12 &  8 &  5 \\
+One-change   &  25 &  23 & 2 & 12 &  8 &  5 \\
 Composite &  12 &  11 & 1 &  4 &  8 &  0 \\
 Move      &  12 &  11 & 1 &  9 &  1 &  2 \\
 \midrule
@@ -1036,7 +1035,7 @@ Total     & 372 & 308 & 64\\
 \caption{\todo{JL: Finish fixing this table and also delete the other table that
     I took the locality stuff from.} Code clone information for multi-location bugs. \todo{I advocate minor
     renaming as mentioned above; must update this table/text/caption accordingly.}
-     \emph{Same}, \emph{Literal}, \emph{Composite} and \emph{Move} correspond to the
+     \emph{Same}, \emph{One-change}, \emph{Composite} and \emph{Move} correspond to the
     four types of code clones considered, as described in Section~\ref{sec52}. ``Any'' means the bug
     contains any of the four types of clone; some bugs contain
     pairs of clones that belong to different categories. 
@@ -1062,7 +1061,7 @@ belong to different categories.
 & Same Method & Same Class & Diff Class & Total\\
 \hline
 Same & 35 & 33 & 12 & 80 \\ 
-Literal & 12 & 8 & 5 & 25 \\
+One-change & 12 & 8 & 5 & 25 \\
 Composite & 4 & 8 & 0 & 12 \\
 Move & 9 & 1 & 2 & 12 \\
 \midrule
@@ -1415,7 +1414,7 @@ analysis's scalability to large, real world software.
 We examined code clones at the location level.  However, clones also occur at the
 granularity of lines~\cite{JiaClones} or
 subexpressions~\cite{microclones}. We classified clones into four
-categories (Same, Literal, Composite, Move), but other categorizations 
+categories (Same, One-change, Composite, Move), but other categorizations 
 are possible.
 %
 We did not distinguish between the number
