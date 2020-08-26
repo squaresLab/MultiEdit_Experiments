@@ -155,6 +155,9 @@
 
 %\renewcommand\todo[1]{}
 
+\todo{TODO THROUGHOUT: virtually all of the figure/table captions are
+  inadequate; they need takeaways.  Update those for which you're responsible,
+  and make sure all tables/figures have a responsible person.}
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
 population~\cite{tricentis}.  This motivates research in
@@ -222,6 +225,9 @@ that constrain the \emph{fix space} of possible multi-location repairs according
 But, one key question for applicability of these types of techniques is how prevalent
 such bugs are, relative to bugs that require multiple
 coordinating (but ultimately different) edits.
+Note for example that over 50\% of the fixes in four 
+Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
+those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
 Test cases are used to evaluate candidate repairs in dynamic
 repair techniques, but, anecdotally, may not be effective
 at identifying partial repairs in a multi-location
@@ -776,70 +782,83 @@ code are not effective predictors for the eventual coverage pattern for the bug.
 
 Given suitably selected fault locations, APR techniques vary in the types of
 mutation operators they consider, how they select between them, and how they
-select new fix code to instantiate them, as necessary.  For example, a na{\"i}ve
-approach with only \texttt{insert}, \texttt{replace}, and \texttt{delete}
-operators must choose between them at a location and, in the case of
-\texttt{insert} and \texttt{replace}, choose code to insert/replace at that
-location.  
+select new fix code to instantiate them, as necessary. 
+%  For example, a na{\"i}ve
+% approach with only \texttt{insert}, \texttt{replace}, and \texttt{delete}
+% operators must choose between them at a location and, in the case of
+% \texttt{insert} and \texttt{replace}, choose code to insert/replace at that
+% location.  
 %
 The few techniques that handle or at least enable multi-edit patches vary in their
 handling of mutation operator selection and instantiation.  At one
 extreme, semantics-based repair~\cite{s3,angelix} can represent dependent edits between multiple
 locations as a conjunction of multiple constraints to simultaneously solve,
-bounded by some number of edits that are computationally feasible, while
-restricted to a relatively small library of possible code components for use in
-the inductive synthesis problem.    At the other extreme, search-based or
+bounded by some number of edits and code components that are computationally feasible. 
+At the other extreme, search-based or
 evolutionary techniques~\cite{genprog,par} typically treat different mutation
-operators independently.  That is, a modification in one location does not
-inform the selection of a modifications to apply in a second location; instead,
-the heuristic search is trusted to identify copacetic combinations.  The size of
+operators independently, relying on the search to 
+% That is, a modification in one location does not
+%inform the selection of a modifications to apply in a second location; instead,
+%the heuristic search is trusted to 
+identify copacetic combinations.  The size of
 the search space increases combinatorially in this context, however, rendering
 the chances of finding suitable multi-edit repairs without additional guidance
-quite low~\cite{ae,long-search-spaces}. Accordingly, heuristic techniques targeted at multi-edit
-repair contexts~\cite{saha2019harnessing} make assumptions about the
-shape of the search space to render it tractably constrained --- in particular,
-targeting bugs that can be repaired by multiple syntactically similar pieces of
+quite low~\cite{ae,long-search-spaces}. Accordingly, heuristic multi-location
+techniques~\cite{saha2019harnessing} make assumptions about the 
+shape of the search space, 
+targeting in particular bugs that can be repaired by multiple syntactically similar pieces of
 fix code.
 
-These kinds of targeted techniques surface general questions about the
-\emph{relationship} between multiple edits, with implications for how edits
-should be designed for automatic multi-location repair. 
+Note that the types of edits included in human patches has been
+studied~\cite{examples}, with references for both search space size generally
+and, potentially, patch quality~\cite{moreexamples}.  Here, we are especially
+concerned about the 
+\emph{relationships} between multiple edits, because such relationships have
+key implications for how edits should be designed, selected, and instantiated 
+in automatic multi-location repair. 
 
 \subsection{Dependencies}
 
-
-\todo{note to self/Claire: make sure this is in here somewhere, it's good}
-  Over 50\% of the fixes in four 
-Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
-those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
-
 One of the dimensions of the relationship between multi-location patches is potential
-\emph{dependency} between the edits. Specifically, we ask the following research question:
-\rqorinsight{3}{How prevalent are dependencies between edited code?}
+\emph{dependency} between the edits, because edit dependency can and should
+inform how those edits are selected and applied (i.e., consider the difference
+between a multi-location
+bugs repaired by applying the same independent edit in four places, as
+compared to a bug repaired by applying  four control- and data-dependent
+modifications).  Specifically, we ask:
+\todo{This is our second RQ3}
+\rqorinsight{3}{How prevalent are dependencies between edited code in
+  multi-location patches?}
 
 To answer this question, we broaden the scope of multi-location patches to 
 include all patches containing at least two added, removed, or modified lines, 
-ignoring edits to comments, whitespace, or imports.
+again ignoring edits to comments, whitespace, or imports.
+\todo{why?  And, which part of Table 1 shows this set?  Or should we be modifying the
+text in the previous section?}
 This expanded dataset contains 659 Defects4J v2 and 151 \bears bugs.
-We consider a patch to contain dependent edits if there exists 
+We consider a patch to contain \emph{dependent edits} if there exists 
 control or data dependencies between added, deleted, or modified statements.
 We analyze deleted/modified statements in the pre-patch code 
-and added/modified statements in the post-patch code for dependencies.
+and added/modified statements in the post-patch code for
+dependencies.\todo{Somehow, I'm not able to parse this preceding sentence.}
   
 For practical performance and scalability reasons, 
 we perform intraprocedural analysis. 
 We do, however, gather some interprocedural data dependency information 
 using the following heuristics:
 \begin{itemize}
-	\item If a statement invokes a method, then we assume that
-	the statement reads all variables used in the method arguments.
+	\item We treat all method call statements as dependent on all variables
+          passed as arguments. 
 	\item If a statement invokes a getter method \texttt{Class.getX()} 
-	(for any \texttt{Class} and \texttt{X}), then we heuristically 
-	assume that the statement reads \texttt{Class.X}. 
-	Note that \texttt{Class.X} does not need to actually exist.
+          we heuristically  assume that the statement reads \texttt{Class.X},
+          whether or not \texttt{Class.X} exists.
 	\item If a statement invokes a setter method \texttt{Class.setX()}, 
-	then we heuristically assume that the statement writes to \texttt{Class.X}. 
+	we again heuristically assume that the statement writes to \texttt{Class.X}. 
 \end{itemize}
+
+\todo{We need one more paragraph acknowledging the limitations, here, or a
+  little more detail above. Is this is a sound overapproximation?  Do we reason
+  about aliases at all?  We wrote this code? Is it in our replication package?}
 
 \paragraph{Results}
 
@@ -847,10 +866,16 @@ We find that 40\% of Defects4J patches, 63\% of \bears patches,
 and 45\% of the combined datasets' patches contain dependencies 
 between edited statements.
 Our finding supports earlier results on edit dependencies in 
-bug patches~\cite{zhong2015}.
+bug patches~\cite{zhong2015}.\todo{Preceding sentence, and honestly likely this
+  whole paragraph, is redundant with the last paragraph of this results
+  subsection.  I think this redundancy can be reduced by fixing the RQ to
+  actually match the question being asked in this subsection.}
 Patches with and without edit dependencies both form a substantial
 portion of multi-line patches,
-and neither type of patches should be ignored.
+and neither type of patch should be ignored.\todo{Are these results in a table
+  somewhere? Short answer is ``only kind of, but it's hard to reference right
+  here because the table answers a sort of different question.'' See below for
+  my suggestion on changing the question.}
 
 \begin{table}
 {\begin{center}
@@ -883,10 +908,15 @@ and neither type of patches should be ignored.
 	dependent edits and whether any APR tool successfully 
 	repaired the bug in RepairThemAll~\cite{durieux-repair-them-all}.
 	Bugs categorized as {\normalfont Not evaluated} are those introduced in 
-	v2 of Defects4J, which RepairThemAll didn't study.}
+	v2 of Defects4J, which RepairThemAll didn't study.\todo{Is it possible
+          or reasonable for this to be one or more Venn diagrams instead?}}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
 
+\todo{Feels like these results come out of nowhere/are not associated with an
+  RQ.  Can we modify the RQ to include this question in its scope? That would be
+  nice and add clear novelty to answering it.  The text here should be updated
+  to reflect that it's answering an RQ in that case.}
 We further compare how often APR techniques 
 successfully repair bugs whose patches do (not) contain edit dependencies.
 Table~\ref{tab:dependency-repair-contingency-table}
@@ -904,7 +934,10 @@ significant relationships over \bears patches, likely due to the small number (1
 successfully auto-repaired \bears bugs with multi-line human patches.
 The generally lower auto-repairability of bugs with edit dependent patches compared 
 to their non-edit dependent brethren suggest that such dependencies indeed 
-add complexity to the search for a repair.
+add complexity to the search for a repair.\todo{What happens if we aggregate the
+  two datasets? Do we have a good (scientific) reason to treat them separately?
+  (I'm kind of thinking, what's the point of using both datasets if we don't
+  aggregate them to get more statistical power....)}
 
 Our results substantiate prior research~\cite{zhong2015} on the frequency of 
 bugs with dependent edits in human patches. A diverse range of APR 
