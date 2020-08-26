@@ -1060,7 +1060,7 @@ writes, which may lead to inaccurate determinations of dependency.
 
 \vspace{1ex}
 \noindent\textbf{Code clones.}
-We only examines code clones at the ``location'' level.  However, code clones can also occur at the
+We only examined code clones at the location level.  However, code clones can also occur at the
 granularity of individual lines~\cite{JiaClones}, or even
 subexpressions~\cite{microclones}. We also classified clones into four
 categories (Same, Literal, Composite, Move), but it is possible to decompose
@@ -1088,20 +1088,20 @@ multi-location patches.
 \section{Related Work}
 \label{sec:related}
 
-There have been a few fairly recent empirical studies on fault localization. They find that 
+Recent empirical studies on fault localization find that 
 SBFL is a more effective fault localization technique than a host of other techniques, such as 
 mutation-based fault localization~\cite{pearson2017evaluating, mut-analysis}, program 
 slicing, predicate switching,  information retrieval, and other techniques. 
 However, a fault localization 
 technique that outperforms all of these can be created by using machine learning to combine 
 multiple fault localization techniques, implying that different fault localization techniques can 
-be used to localize different kinds of faults.~\cite{zou2019empirical} Most of the empirical 
-studies on fault localization evaluate techniques by determining whether the fault localization 
-technique can localize any faulty line. This is a useful evaluation for single line or single 
+be used to localize different kinds of faults~\cite{zou2019empirical}. Most empirical 
+studies on fault localization evaluate techniques by determining whether the 
+technique can localize any faulty line. This usefully evaluates single line or single 
 location faults, but not necessarily multi-location faults.
 
-Mutation testing contains parallels to program repair, as seen in the generate and validate 
-approach to program repair~\cite{weimer2013leveraging} and well as proposed fault 
+Mutation testing contains parallels to program repair, as seen in G\&V
+program repair~\cite{weimer2013leveraging} and fault 
 localization techniques~\cite{metallaxis,muse,mbfl-survey}. With regards to multi-location 
 bugs, there has been recent work on higher order mutants, which is interested in finding 
 certain combinations of mutants with particular behaviors. Higher order mutation testing 
