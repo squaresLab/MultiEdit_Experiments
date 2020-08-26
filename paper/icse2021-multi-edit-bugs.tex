@@ -299,9 +299,11 @@ three key axes of program repair: fault localization (Section~\ref{secFL}),
 mutation operators and fix code (Section~\ref{sec:mutops}), and test cases as
 the patch validation mechanism (Section~\ref{sec:tests}).  We conclude by
 outlining limitations (Section~\ref{sec:limits}), related work
-(Section~\ref{sec:related}), and summarizing discussion  (Section~\ref{sec:conclusions}).
+(Section~\ref{sec:related}).  Finally, 
 % don't give up on this yet.  It's a complicated paper, roadmaps might actually
 % meaningfully help
+we summarize our takeaways for 
+multi-location repair (Section~\ref{sec:takeaways}).
 
 \section{Problem Definition}
 \label{sec:background}
@@ -378,22 +380,33 @@ maintained as one of possibly many objectives.
 %% However, evidence suggests that this does not always
 %% apply~\cite{better-fitness,schulte}.
 
+A practical implication of the size and complexity of this search space is
+that APR techniques must engage in trade offs to render the problem tractable. 
+Some techniques limit the \emph{fault space},
+searching explicitly for single-edit patches~\cite{rsrepair,ae,hdrepair}.
+\todo{let's add techniques post 2017 to this paragraph wherever they belong
+  plz.}
+All consider a constrained mutation space, varying in how constrained that space
+is; some implicitly limit the mutation or fix space by targeting only certain
+classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. Regardless, even techniques
+that can in principle generate repairs with multi-location patches typically
+don't~\cite{patch-correctness}.
+%
+Meanwhile, many real-world bugs require multi-edit patches: over half of the
+bugs in the popular bug benchmark Defects4J~\cite{defects4j} are patched by
+humans using multi-part patches~\cite{d4j-dissection}. Approximately 70\% of
+buggy source files in a large study of bugs in Apache projects required edits at
+two or more locations~\cite{zhong2015}.
+
+Our goal in this study is to understand what makes the generation of larger
+patches difficult, and identify properties of these bugs and their associated
+patches that can be exploited by future APR tools.  
+We define this problem precisely and characterize our datasets next.
 
 \subsection{Multi-Location Patches and Dataset}
 
-\todo{note to self/Claire: make sure this is in here somewhere, it's good}
-  Over 50\% of the fixes in four 
-Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
-those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
 
-State-of-the-art dynamic APR techniques typically generate small patches that
-are confined to a small portion of a program's code, rather than larger patches
-that span multiple logical units of code (e.g., multiple control flow blocks,
-functions, or files). The primary motivation of this study is to understand what
-makes the generation of larger patches difficult, and identify properties of
-larger human-written patches that can be exploited by future APR tools.
-
-More precisely, this work focuses on \emph{multi-location} patches. There are
+We focus in this study on the properties of \emph{multi-location} patches. There are
 several plausible definitions of multi- vs. single-location patches, with
 implications for how they are studied. For the purpose of this study, we define
 a \emph{patch location} as a contiguous sequence of edited lines of code.  We
@@ -407,21 +420,14 @@ by the other. That is, conceptually:
 \end{lstlisting}
 is treated as a single-location edit in our study. We ignore changes to
 comments, whitespace, or \texttt{import} statements.
-
-We believe this is an intuitive definition consistent with the general APR
-paradigm. As a shorthand, we refer to bugs with multi-location human-written
-patches as \emph{multi-location bugs}.
-
-Decomposing the problem of dynamic APR into multiple subproblems allows us to
-ask research questions specific to each. First, we investigate the prevalence of
-human-written multi-location patches in Section~\ref{sec:data-rq1}.  Then we
-investigate properties of the multi-location fault space (Section~\ref{secFL}),
-mutation and fix spaces (Section~\ref{sec:mutops}), and validation
-(Section~\ref{sec:tests}). We discuss the implications of our findings on
-multi-location repair in Section~\ref{sec:takeaways}.
-
-\section{Dataset Characteristics}
-\label{sec:data-rq1}
+%
+This intuitive definition is reasonably consistent with the general APR
+paradigm. 
+\todo{is it worth elaborating on which we exclude, anything that might be
+  counterintuitive? Do we include declarations as separate edits? I know our
+  philosophy is different from D4J, which is why I ask.}
+%As a shorthand, we refer to bugs with multi-location human-written
+%patches as \emph{multi-location bugs}.
 
 \begin{table*}
 \begin{center}
@@ -510,6 +516,16 @@ result of manual patch minimization in Defects4J~\cite{defects4j}
 and lack thereof in \bears.
 Thus, some \bears patches may be multi-location as a result of additional 
 changes added for non-repair reasons.
+
+
+Having established both that multi-location edits are common in real-world
+programs, and established a suitable, plausibly indicative dataset to study
+them, we decompose dynamic APR into multiple subproblems, driven by the
+shape of the search problem it seeks to solve. We 
+investigate properties of the multi-location fault space (Section~\ref{secFL}),
+mutation and fix spaces (Section~\ref{sec:mutops}), and validation
+(Section~\ref{sec:tests}). 
+
 
 
 % !TeX root = fse2020-multi-edit-bugs.tex
@@ -776,6 +792,12 @@ These kinds of targeted techniques surface general questions about the
 should be designed for automatic multi-location repair. 
 
 \subsection{Dependencies}
+
+
+\todo{note to self/Claire: make sure this is in here somewhere, it's good}
+  Over 50\% of the fixes in four 
+Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
+those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
 
 One of the dimensions of the relationship between multi-location patches is potential
 \emph{dependency} between the edits. Specifically, we ask the following research question:
@@ -1457,7 +1479,7 @@ They found that in a large collection of off-the-shelf software, mutational robu
 and discussed potential application of mutation robustness to proactive bug repair. Although our context is different --- they studied random mutations, we study changes associated with specific bug fixes --- we also find a non-trivial proportion of neutral edits in multi-location repairs.  
 
 
-\section{Discussion and Takeaways}
+\section{Takeaways and Conclusions}
 \label{sec:takeaways}
 
 Our findings demonstrate that bugs repaired with multi-location patches have
@@ -1535,13 +1557,6 @@ provide evidence reinforcing the call for the use of diverse benchmarks when
 evaluating tools.
 \end{itemize}
 
-We hope that our findings and insights inspire future work to advance 
-the state of the art of APR and take on this large, difficult class of 
-multi-location bugs.
-
-\section{Conclusions}
-\label{sec:conclusions}
-
 To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
 that 47\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
@@ -1554,6 +1569,9 @@ multi-location patches, both in terms of the applicability of existing program
 repair techniques and the design future repair techniques. \todo{To ensure
 reproducibility and encourage further investigation, we intend to release a
 replication package post-review.}
+We hope that our findings and insights inspire future work to advance 
+the state of the art of APR and take on this large, difficult class of 
+multi-location bugs.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
