@@ -402,7 +402,7 @@ multi-location repair in Section~\ref{sec:takeaways}.
 
 \begin{table*}
 \begin{center}
-\begin{tabular}{l | rrr  | rr | rr | rr}
+\begin{tabular}{l  rrr | rr | rr | rr}
 \toprule
 \multicolumn{10}{c}{\textbf{Defects4J}} \\
 \midrule
@@ -411,25 +411,36 @@ Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location}
 &&&&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{Multi-test bugs}\\
 \midrule
 JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 10 & 38\% & 7 & 27\%\\
-Closure compiler & 133 & 150.6 & 112.6 & 55 & 41\% & 58 & 44\% & 31 & 23\%\\
-Apache commons-lang & 65 & 57.8 & 47.4  & 32 & 49\% & 17 & 26\% & 13 & 20\%\\
+Closure compiler & 174 & 150.6 & 112.6 & 55 & 41\% & 58 & 44\% & 31 & 23\%\\
+Apache commons-lang & 64 & 57.8 & 47.4  & 32 & 49\% & 17 & 26\% & 13 & 20\%\\
 Apache commons-math & 106 & 45.0 & 41.5 & 53 & 50\% & 28 & 26\% & 22 & 21\%\\
 Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 18 & 47\% & 8 & 21\%\\
-Joda-Time & 27 & 82.9 & 70.4 & 17 & 63\% & 13 & 48\% & 9 & 33\%\\
+Joda-Time & 26 & 82.9 & 70.4 & 17 & 63\% & 13 & 48\% & 9 & 33\%\\
+Apache commons-cli & 39 & 5.7 & 4.6 \\
+Apache commons-codec & 18 & 5.8 & 5.8 \\
+Apache commons-collections & 4 & 64.9 & 47.6 \\
+Apache commons-compress & 47 & 12.8 & 3.1 \\ 
+Apache commons-csv & 16 & 2.6 & 3.9 \\
+Gson & 18 & 16.8 & 12.8 \\
+FasterXML jackson-core & 26 & 27.9 & 8.1 \\
+FasterXML jackson-databind & 112 & 80.7 & 41.2 \\
+FasterXML jackson-dataformat-xml & 6 & 7.5 & 6.2 \\
+Jsoup & 93 & 7.9 & 2.2 \\
+Apache commons-jxpath & 22 & 28.7 & 7.6 \\
 \midrule
-All (Defects4J) & 395 & 552.6 & 375.0 & 184 & 47\% & 144 & 36\% & 90 & 23\%\\
+All (Defects4J) & 395 & 813.9 & 518.1 & 184 & 47\% & 144 & 36\% & 90 & 23\%\\
 \midrule
 \multicolumn{10}{c}{\textbf{\bears (single-module)}} \\
 \midrule
-FasterXML-jackson-databind & 26 & 95.7 & 53.6 & 17 & 65\% & 4 & 15\% & 2 & 8\%\\
-INRIA-Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
+FasterXML jackson-databind & 26 & 80.7 & 41.2 & 17 & 65\% & 4 & 15\% & 2 & 8\%\\
+INRIA Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
 spring-data-commons & 15 & 45.8 & 28.8  & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
 traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
-30 other projects & 38 & - & - & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
+30 other projects & 38 & --- & --- & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
 \midrule
-All (\bears) & 183 & >255.6 & >121.8 & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
+All (\bears) & 183 & $>$240.6 & $>$109.4 & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
 \midrule
-Combined (Defects4J \& \bears) & 578 & >808.2 & >496.8 & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
+Combined (Defects4J \& \bears) & 578 & $>$1054.5 & $>$627.5 & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
 \bottomrule
 \end{tabular}
 \end{center}
