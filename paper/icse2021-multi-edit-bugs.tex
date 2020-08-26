@@ -949,26 +949,23 @@ dependencies to repair a large class of difficult bugs.
 
 \subsection{Cloned code}
 
-In addition to dependency, multi-location patches can be related through syntactic
-similarity. That is, a patch can consist of a code edit applied repeatedly in
-multiple locations. Thus, we ask the following research question:
+If multi-location patches composed of multiple, dependent edits constitute one
+extreme, at the other extreme lies patches consisting of the same code applied
+in several locations (of course, between those extremes lie patches consisting
+of a mix of both). Previous techniques have targeted exectly these types of
+bugs~\cite{wang2018,saha2019harnessing}.  We evaluate how often this relationship applies to
+multi-location bugs, and thus the usefulness of techniques that assume it, by asking: 
 
+\todo{I don't love mushing these two questions into 1.  It's not obvious why
+  we're asking the second question, nor why it's so closely tied to the first
+  question that it doesn't deserve it's own number.}
 \rqorinsight{4}{How often do code clones occur in multi-location bugs? Is the existence of 
 	code
 	clones in human patches correlated with specific patterns of fault localization?}
 
-Previous work~\cite{wang2018} suggests that one potential fruitful way to enhance
-APR techniques is to allow them to apply a single edit to multiple locations.
-This is based on the observation that human developers tend to make exactly the 
-same edits in multiple locations when fixing bugs. 
-
-As a proxy for measuring how often this style of repair actually occurs, we seek
-to understand the 
-prevalence of code clones in human patches. If a large proportion of multi-location bugs contains code 
-clones, then we can corroborate the usefulness of previous repair techniques that specifically apply 
-similar 
-edits for a bug~\cite{saha2019harnessing}.
-
+\todo{This whole section needs to be updated to match Leo's rephrase of that section.  And, I
+  advocate a decoupling of the two research questions, as above, so this will
+  need to be updated to flow accordingly.}
 We further attempt to correlate the coverage patterns outlines in
 Section~\ref{secFL} with the existence of code clones in human patches.  Our 
 intuition is that a \emph{disjoint} bug may be more likely to occur when a
@@ -986,7 +983,7 @@ multiple locations.
 %result matches specific patterns.
 
 \subsubsection{Methodology}
-\label{sec52}
+\label{sec52}%...sec 52? wha?
 Our dataset includes all multi-location bugs excluding those with more than 6 faulty locations to 
 constrain the search space, leaving 216 bugs to analyze. We determine the existence of code 
 clones through manual inspection.
@@ -1003,16 +1000,18 @@ experiment and exclude bugs with more than 6 faulty locations, leaving 166 bugs.
 
 We call the edits at two locations code clones if it is one of the following four cases:
 \begin{enumerate}
-	\item Same Case: The two locations are alpha-equivalent. 
-	\item Literal Case: The two locations differ by at most one constant or arithmetic operator,
-	or replacement of one constant with variable.
-	\item Composite Case: The patch at one location is exactly copied and contained within the patch at 
-	the 
-	second location (the second location  has additional lines in the patch).
-	\item Move Case: Two locations forms a "movement" of code (i.e., one location is an insertion of 
-	code 
-	while the other is a deletion of the same code, essentially moving the code from one location to 
-	another).
+\item Same: The two locations are alpha-equivalent. \todo{do you mean ``they are
+    literally identical modulo whitespace?  If so, can we just say that?}
+\item Literal: The two locations differ by at most one constant or arithmetic operator,
+or replacement of one constant with variable.\todo{The other names are OK, but I
+  don't like ``literal''.  Is there a better name for this, perhaps?}
+\item Composite: The patch at one location is exactly copied and contained within the patch at 
+the 
+second location (the second location  has additional lines in the patch).
+\item Move: Two locations forms a "movement" of code (i.e., one location is an insertion of 
+code 
+while the other is a deletion of the same code, essentially moving the code from one location to 
+another).
 \end{enumerate}
 
 \subsubsection{Results}
@@ -1036,7 +1035,8 @@ Total & 308 & 64 & 372 \\
 \end{tabular}
 \end{center}
 }
-\caption{Code clone information for multi-location bugs. 
+\caption{Code clone information for multi-location bugs. \todo{I advocate minor
+    renaming as mentioned above; must update this table/text/caption accordingly.}
      \emph{Same}, \emph{Literal}, \emph{Composite} and \emph{Move} correspond to the
     four types of code clones considered, as described in Section~\ref{sec52}. ``Any'' means the bug
     contains any of the four types of clone; some bugs contain
@@ -1110,7 +1110,12 @@ alpha-equivalent edit locations within them.
 			\end{tabular}
 		\end{center}
 	}
-	\caption{Multi-location and multi-test bugs categorized by coverage pattern and presence of clones; definitions for Overlap, Disjoint, and Identical are taken from our experiments on fault localization.}
+	\caption{Multi-location and multi-test bugs categorized by coverage
+          pattern and presence of clones; definitions for Overlap, Disjoint, and
+          Identical are taken from our experiments on fault
+          localization.\todo{would it make sense to present this as a venn
+            diagram?  Maybe not, I'm just wondering if a table is the best
+            visulalization here....maybe it is.}}
 	\label{tab:cov_clones}
 \end{table}
 
@@ -1122,7 +1127,7 @@ This indicates that a
 bug with \emph{disjoint} coverage result is more likely to contain code clones in its
 human patch than bugs with other coverage results. 
 
-This result qualitatively supports the hypothesis that \emph{disjoint} bugs are more likely to contain 
+This result supports the hypothesis that \emph{disjoint} bugs are more likely to contain 
 code clones, while the other two classifications have comparatively less code
 clones. This has potential implications for technique design: that is, if there
 appears to be relatively less coverage overlap between multiple tests, it is
