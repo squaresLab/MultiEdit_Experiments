@@ -482,12 +482,14 @@ Defects4J v2.0.0~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:datas
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 835 bugs from 
+\todo{This text doesn't match the table.}
 six Java software projects, and is a popular dataset for evaluating 
-program repair tools that target Java~\cite{durieux-repair-them-all}.
+program repair tools that target Java~\cite{durieux-repair-them-all}.\todo{add
+  more references, there are other papers that use d4j to evaluate}
 The dataset's patches are manually minimized to isolate the bug fix 
 and exclude non-repair edits such as refactorings and feature additions.
 
-With any dataset, however, there is a risk associated that tools may overfit
+With any dataset, however, there is a risk that tools may overfit
 to the defects in question, and there is evidence that this situation applies to
 program repair and Defects4J~\cite{durieux-repair-them-all}. 
 We thus also study bugs from \bears~\cite{bears}, 
@@ -496,10 +498,11 @@ a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
 projects compared to Defects4J. 
 Several projects in \bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
+\todo{Is it worth expanding slightly on why/what this means? And, are these
+  numbers accurate?}
 We thus limit our analysis of \bears to 183 bugs from 34 single-module projects.
 
-
-We start our analysis of multi-location patches by asking the following research question:
+We start our analysis of multi-location patches by asking:
 \rqorinsight{1}{How prevalent are human-written multi-location patches?}
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
@@ -517,7 +520,6 @@ and lack thereof in \bears.
 Thus, some \bears patches may be multi-location as a result of additional 
 changes added for non-repair reasons.
 
-
 Having established both that multi-location edits are common in real-world
 programs, and established a suitable, plausibly indicative dataset to study
 them, we decompose dynamic APR into multiple subproblems, driven by the
@@ -525,10 +527,6 @@ shape of the search problem it seeks to solve. We
 investigate properties of the multi-location fault space (Section~\ref{secFL}),
 mutation and fix spaces (Section~\ref{sec:mutops}), and validation
 (Section~\ref{sec:tests}). 
-
-
-
-% !TeX root = fse2020-multi-edit-bugs.tex
 
 \section{Fault localization} \label{secFL}
 
