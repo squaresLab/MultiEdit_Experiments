@@ -541,29 +541,29 @@ mutation and fix spaces (Section~\ref{sec:mutops}), and validation
 %% what are the claims, what are we studying, why are we studying it
 
 Spectrum-based fault localization (SBFL) is a commonly-studied dynamic
-fault localization technique, including techniques like Tarantula~\cite{tarantula},
+fault localization technique, and includes techniques like Tarantula~\cite{tarantula},
 Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}, among others.
 %, and is often more effective than alternatives (like mutation-based fault 
 %localization~\cite{mut-analysis} or dynamic program
 %slicing~\cite{zou2019empirical}). 
-Fault loclaization in general is a key first step to characterizing the
+Fault localization in general is a first key step to characterizing the
 \emph{fault space} in automatic program repair; the majority of dynamic APR
 techniques use some variant of SBFL for this purpose.
 
 SBFL techniques compute a suspiciousness score by
 measuring how often a line is executed by failing tests as compared to passing
 tests, typically via some (linear) combination of their respective
-coverage of a line. SBFL techniques include but are not limited to Tarantula~\cite{tarantula},
-Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}; in general, though more
-recent approaches are typically more effective, such approaches tend to localize similar
-faults~\cite{zou2019empirical}.
-
-SBFL techniques are often evaluated by asking: how often does a given technique assign a high 
+coverage of a line. 
+%SBFL techniques include but are not limited to Tarantula~\cite{tarantula},
+%Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}; in general, though more
+%recent approaches are typically more effective, such approaches tend to localize similar
+%faults~\cite{zou2019empirical}.
+These techniques are often evaluated by asking: how often does a given technique assign a high 
 score for a buggy line of code? This is straightforward for single location repairs, but for 
 multi-location repairs, evaluations
 typically consider a technique ``successful'' if it highly ranks or scores \emph{any} line in a
 set of buggy lines. 
-While appropriatefor the question being asked in such evaluations, this does not address
+While appropriate for the question being asked in such evaluations, this does not address
 suitability for multi-location program repair.%  Identifying one of several buggy
 %locations is generally inadequate in a context where multiple locations must be
 %modified. 
@@ -575,8 +575,8 @@ in multi-location contexts, we start by assessing the
 relationship of multi-location repairs to the assumptions underlying SBFL. 
 Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
 execute buggy portions of the code relatively more often than passing tests.} Relatedly, we can 
-often assume that \emph{the portions of code that are more likely to be buggy 
-are the portions of code executed by all failing tests.} Though this second assumption is not 
+often assume that \emph{code executed by all failing tests are more likely to be buggy.} Though 
+this second assumption is not 
 always true, we derive it in order to explore the relationship of failing test executions with each 
 other.
 % Thus, if all failing tests execute a particular line of code, then that line of
@@ -615,20 +615,16 @@ that test executes.
 %Fundamentally, we ask whether multiple failing tests cover exactly the same
 %patch locations, exactly different patch locations, or some combination.
 
-In addition, RQ2 determines which multi-location bugs may be more suited for SBFL than others 
+In addition, RQ2 determines which multi-location bugs may be more suited for SBFL 
 based on how well the failing tests cover different patch locations. However, to pragmatically 
-make use of this classification and dynamically choose fault localization and program repair 
-techniques, we want to determine which bugs are well suited for SBFL before knowing 
+make use of this classification and be able to dynamically choose fault localization and program 
+repair techniques, we want to determine which bugs are well suited for SBFL before knowing 
 the patch locations. Since our proxy for suitability is based on whether failing tests execute 
-the same patch locations or not, we ask:
+the same patch locations, we ask:
 
 \rqorinsight{2.5}{Do failing tests that cover different (resp. same) fault locations also cover 
 different 
 (resp. same) code locations in general?}
-
-\todo{Throughout methodology and results: rename disjoint/overlap/identical on
-  both charts and in text, update text accordingly.  Include caveat to mitigate
-  identified risk of new naming.}
 
 \subsection{Methodology}
 
@@ -644,8 +640,8 @@ To answer RQ2, we used the patch lines that were executed by the tests to catego
 each bug into three \emph{localization categories}: \emph{holds}, \emph{contradicts}, and 
 \emph{partially holds}. These three localization categories refer to the relationship each bug has 
 with 
-the assumption that failing tests execute buggy portions of the code relatively more often than 
-passing tests. Each bug is categorized using the following criteria:
+the assumption that code executed by all failing tests are more likely to be buggy. Each bug is 
+categorized using the following criteria:
 
 \begin{itemize}
 \item \emph{holds}:  all failing tests execute the exact same set of patch lines.
