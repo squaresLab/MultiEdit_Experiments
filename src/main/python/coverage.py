@@ -10,13 +10,15 @@ This is the script we used to generate the plots of the coverage categories.
 # folders = ["data/coverage-experiments/mar4-bears", "data/coverage-experiments/mar4-d4j", "data/coverage-experiments/mar4-mockito"]
 folders = ["data/coverage-experiments/coverage-data-final"]
 
-plt.rcParams.update({'font.size': 17})
+plt.rcParams.update({'font.size': 20})
 # plt.rcParams.update({'font.family': 'serif'})
 
 
 
 with open("data/more_than_one_test.txt") as f:
     more_than_one_test = set([x.strip() for x in f.readlines()])
+
+multi_edit = []
 
 with open("data/multi-location-bugs/multi_location_d4j.data") as f:
     multi_edit = [x.strip() for x in f.readlines()]
@@ -118,16 +120,16 @@ overlap_percent = round(100 * multichunk_inBetween / sum_mchunk)
 
 plt.figure()
 ax = plt.bar(["disjoint", "overlap", "identical"], [multichunk_disjoint, multichunk_inBetween, multichunk_same])#, color='#e6b8afff')
-plt.title("All multi-location and multi-test:\nDistribution of coverage patterns")
-plt.ylim(0, 80)
+# plt.title("All multi-location and multi-test:\nDistribution of coverage patterns")
+plt.ylim(0, 85)
 plt.xlabel("Coverage pattern")
-plt.ylabel("Number patches")
+plt.ylabel("Number of patches")
 
 
 # Add this loop to add the annotations
-for p, percent in zip(ax.patches, [disjoint_percent, overlap_percent, identical_percent]):
+for p, percent, raw in zip(ax.patches, [disjoint_percent, overlap_percent, identical_percent], [multichunk_disjoint, multichunk_inBetween, multichunk_same]):
     width, height = p.get_width(), p.get_height()
     x, y = p.get_xy() 
-    plt.annotate(f'{percent}%', (x + (width/2) - 0.05, y + height + 0.5))
+    plt.annotate(f'{raw} ({percent}%)', (x + (width/2) - 0.25, y + height + 0.75))
 
 plt.show()
