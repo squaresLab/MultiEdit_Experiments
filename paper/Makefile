@@ -12,7 +12,7 @@ pdf: $(DOC:.tex=.pdf)
 
 all: pdf
 
-%.pdf: %.tex $(OTHERSOURCES)
+%.pdf: %.tex $(DOC) $(OTHERSOURCES)
 	${PDFLATEX} $<
 	egrep -c $(RERUNBIB) $*.log && ($(BIBTEX) $*;$(PDFLATEX) $<; $(PDFLATEX) $<) ; true
 
