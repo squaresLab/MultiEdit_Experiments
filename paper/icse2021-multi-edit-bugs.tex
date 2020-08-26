@@ -153,46 +153,48 @@
 
 \section{Introduction}
 
+%\renewcommand\todo[1]{}
+
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
-population~\cite{tricentis}. Software, and thus buggy software, has become
-ubiquitous. The increased developer workload has motivated research in
-techniques to automatically find and fix bugs, which have become integrated into
-real-world development: Facebook now includes automated repair in their
-production
-environment.\footnote{https://engineering.fb.com/developer-tools/getafix-how-facebook-tools-learn-to-fix-bugs-automatically/}
+population~\cite{tricentis}.  This motivates research in
+techniques to automatically find and fix bugs.  Some of these techniques have
+begun to be integrated  which have become integrated into
+real-world development practices~\cite{iceland,sapfix}.\footnote{https://engineering.fb.com/developer-tools/getafix-how-facebook-tools-learn-to-fix-bugs-automatically/}
 
 A significant class of program repair techniques in both
+\todo{update this citation list to include stuff published since 2017, plz}
 research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test
-cases to guide patch construction, typically by following what's known as a
-generate-and-validate paradigm. At a high level, these techniques use test cases
-to localize a defect --- identified by at least one failing test --- to a set of
-likely-suspicious program locations. Then, they use a variety of techniques to
-construct (or \emph{generate}) patch candidates for the bug in question,
-checking each to see (or \emph{validate}) if any of them cause the program to
-pass all of the provided test cases.
+cases to guide patch construction. At a high level, these techniques use test cases
+to localize a defect --- identified by at least one failing test --- and to
+validate which (if any) of the generated patch candidates lead
+the program to pass all tests.
 %
 Patches are constructed in a variety of ways, ranging from heuristic, syntactic
+\todo{as above, let's join the roaring 20s}
 program manipulation~\cite{par,genprog,rsrepair,ae,prophet,hdrepair}, to specially adapted program
 synthesis techniques~\cite{Konighofer11,Konighofer12,semfix,DeMarco14,angelix}. These techniques have successfully
 repaired real, meaningful defects in large, complex
 programs~\cite{angelix,genprog-eight-dollars,prophet,sapfix}.
 
-Practically speaking, these techniques are typically limited in the types and
-variety of defects they can repair. Often this is by design: techniques may
+Practically speaking, though, these techniques are typically limited in the types and
+complexity of defects they can repair. Often this is by design: techniques may
 limit the repair search space to single-location patches for
 tractability~\cite{rsrepair,ae,hdrepair}, while others only target certain
 classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. However, even techniques
 that can in principle generate repairs with multi-location patches typically
 don't~\cite{patch-correctness}.
+%
+Meanwhile, many real-world bugs require multi-edit patches~\cite{d4j-dissection,zhong2015}, leaving a large
+propertion of them  unrepairable by modern
+research techniques in program repair.  
+%Over half of the bugs in the popular bug
+%benchmark Defects4J are patched by humans using multi-part
+%patches~\cite{d4j-dissection}. Approximately 70\% of buggy source files in a
+%large study of bugs in Apache projects required edits at two or more
+%locations~\cite{zhong2015}.
 
-This leaves a large proportion of real-world bugs unrepairable by modern
-research techniques in program repair.  Over half of the bugs in the popular bug
-benchmark Defects4J are patched by humans using multi-part
-patches~\cite{d4j-dissection}. Approximately 70\% of buggy source files in a
-large study of bugs in Apache projects required edits at two or more
-locations~\cite{zhong2015}.
-
+This is a difficult problem.
 A key tension in the design of an automated repair technique is the balance
 between giving users confidence in patch correctness by maximizing its
 subjective quality while managing a trivially-infinite search space. This space
@@ -207,48 +209,51 @@ be compared in terms of their choices along each of these axes, and traversal
 strategies have first-order implications for scalability and for the type and
 quality of patches produced.
 
-Multi-location repair poses distinct challenges for each of these axes for repair.
+Multi-location repair poses distinct challenges for each of these repair axes.
 Spectrum-based fault localization~\cite{ochiai}, the most prevalent class of
-fault localization techniques used in program repair, does not specifically
-identify sets of locations that might be related or repaired together; indeed,
+fault localization used in program repair, does not specifically
+identify sets of potentially-related locations; indeed,
 the evaluation of most fault localization techniques typicaly assumes that a bug
 is localized if any one buggy line is identified~\cite{fl-survey-wong}.
-Researchers have observed that some bugs are
+Some bugs \emph{are}
 repaired in multiple locations using very similar
 code~\cite{saha2019harnessing,jiang2019cmsuggester}, informing novel techniques
 that constrain the \emph{fix space} of possible multi-location repairs accordingly.
-One key question for applicability of these types of techniques is how prevalent
-such bugs are, and how often multi-location patches instead require multiple
-coordinating (but ultimately different) edits or pieces of fix code.  Over 50\% of the fixes in four 
-Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
-those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
-Test cases are used to evaluate candidate repairs in virtually all dynamic
-generate-and-validate repair techniques, but, anecdotally, may not be effective
+But, one key question for applicability of these types of techniques is how prevalent
+such bugs are, relative to bugs that require multiple
+coordinating (but ultimately different) edits.
+Test cases are used to evaluate candidate repairs in dynamic
+repair techniques, but, anecdotally, may not be effective
 at identifying partial repairs in a multi-location
 context~\cite{better-fitness}.  
 Although multi-location repair has been discussed in the context of other analyses
 that study bug fix characteristics in general~\cite{d4j-dissection} as well as for
 repair applicability specifically~\cite{zhong2015, wang2018}, to the best of our
 knowledge there has been no significant previous study of the characteristics of
-multi-location repairs in terms of their implications for repairability or, more
-broadly, program repair.  
+multi-location repairs in terms of their implications for automatic
+repairability.  \todo{Something like: Instead, we chip away at pieces like the
+  blind man at the elephant, or some some dumb analogy.  But punchy.}
 
-In this paper, we present a systematic study of real-world bugs with
-multi-location patches,
-looking specifically at their characteristics with respect to the problem of the
+To fill in this gap, and lay groundwork for more informed, systematic research
+efforts in the space of multi-edit repair, we conduct a systematic study of real-world bugs with
+multi-location patches.  We
+look specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
-We study the bugs curated in two
+We study bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
 and \bears~\cite{bears}, in total, 1018 bugs in 51 projects.
+% CLG asks: are these numbers accurate
 More than half of these bugs were repaired by a
 human developer using edits at multiple locations.  We look at characteristics along each of the
 relevant axes of the program repair search problem: fault locations, mutation
-operators, fix code, and evaluation (or fitness or objective) using test cases.  Our 
-contributions are
-as follows:\footnote{We will complete the presentation of our replication package post review, as an additional contribution.}
+operators, fix code, and evaluation (or fitness or objective) using test cases,
+and find both important and, in some cases, unintuitive, implications for
+automated techniques.  Our contributions are:
 
 \begin{itemize}
-\item An analysis and enumeration of multi-location patches in Defects4J and \bears.
+%\item An analysis and enumeration of multi-location patches in Defects4J and
+%\bears.
+% I think the above is addressed by the summary in the preceding paragraph.
 \item \textbf{Fault Localization.}  We find that 58\% of relevant bugs have faulty locations that are not
   covered by all failing tests, thus the assumptions underlying spectrum-based
   fault localization may not necessarily hold when used off-the-shelf for
@@ -273,25 +278,34 @@ clones.
   \emph{granularity} at which test suite behavior is measured (i.e., at the class,
   method, or assertion level) influences ability to identify partial
   repairs. 
+\item dataset replication etc \todo{FIXME: Our dataset and analysis results,
+    linked here anonymously, will be prettier for the camera ready we promise.}
 \end{itemize}
 
-% In Section~\ref{sec:background}, we provide background on
-% generate-and-validate program repair, with a focus on the key parameters of the
-% program repair search; outline our definition of a multi-edit repair for the
-% purposes of this study; and outline our research questions.  We overview the key
-% characteristics of the datasets that we use in our study in
-% Section~\ref{sec:data-rq1}.  We then describe the results of our study along
-% three key axes of program repair: fault localization (Section~\ref{secFL}),
-% mutation operators and fix code (Section~\ref{sec:mutops}), and test cases as
-% the patch validation mechanism (Section~\ref{sec:tests}).  We conclude by
-% outlining limitations (Section~\ref{sec:limits}), related work
-% (Section~\ref{sec:related}), and summarizing discussion  (Section~\ref{sec:conclusions}).
+In Section~\ref{sec:background}, we overview the problem domain to
+motivate/outline our research questions, and characterize our datasets.
+% We overview the key
+%characteristics of the datasets that we use in our study in
+%Section~\ref{sec:data-rq1}.  
+We then describe the results of our study along the
+three key axes of program repair: fault localization (Section~\ref{secFL}),
+mutation operators and fix code (Section~\ref{sec:mutops}), and test cases as
+the patch validation mechanism (Section~\ref{sec:tests}).  We conclude by
+outlining limitations (Section~\ref{sec:limits}), related work
+(Section~\ref{sec:related}), and summarizing discussion  (Section~\ref{sec:conclusions}).
+% don't give up on this yet.  It's a complicated paper, roadmaps might actually
+% meaningfully help
 
-\section{Background and Motivation}
+\section{Problem Characterization}
 \label{sec:background}
 
 In this section we overview the background of automated program repair (APR) and
 introduce key concepts that directly motivate our research questions.
+
+\todo{note to self/Claire: make sure this is in here somewhere, it's good}
+  Over 50\% of the fixes in four 
+Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
+those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
 
 \subsection{Automated Program Repair and Search Spaces.}
 The central goal of automated program repair (APR) techniques is to
