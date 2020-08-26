@@ -1079,17 +1079,16 @@ clones could contain two or more locations with similar edits, which we do not e
 
 \vspace{1ex}
 \noindent\textbf{Partial repair construction.}
-The construction of partial repairs, as described in
+Constructing partial repairs, as described in
 Section~\ref{sec:partial-repair-methodology}, breaks up multi-location patches
-into single-location edits. However, in
-reality most automated repair techniques mutate code at a finer granularity, so
+into single-location edits.
+In reality, most APR techniques mutate code at a finer granularity, so
 these edits may not be representative.  Additionally, we only observe if fitness
-functions can be used to identify partial repairs,
-instead of the generation of partial repairs. It may be the case that the
-partial repairs in our experiments would be outside of the search space of a
-particular automated repair technique.
+functions can identify partial repairs. Perhaps the
+partial repairs in our experiments are outside of the search space of a
+particular APR technique.
 Regardless of this limitation, this experiment provides valuable 
-insight into the challenge of automatically repairing bugs requiring
+insight into the challenge of automatically constructing
 multi-location patches.
 
 \section{Related Work}
