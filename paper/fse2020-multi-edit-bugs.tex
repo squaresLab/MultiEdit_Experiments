@@ -886,8 +886,8 @@ derived from 240 Defects4J and 74 \bears bugs.
 \subsubsection{Test Granularity}
 
 There are different ways to evaluate and compare JUnit test results. Class level granularity
-only asks which test classes passed and which failed; at method-level
-granularity, we ask which test methods passed/failed.
+looks at which test classes passed and which failed; at method-level
+granularity, we look at which test methods passed/failed.
 We also consider \emph{assertion-level} granularity, defined as follows:
 for each test method $M$, let $A(M)$ be the set of all assert statements in $M$. 
 When $M$ is run, if an assertion failed, the failure is recorded and the method 
@@ -961,7 +961,7 @@ excluded from the count.
 \end{center}}
 \caption{Weighed percent of partial repairs exhibiting a {\normalfont Positive}, {\normalfont Neutral},
 	or {\normalfont Negative} change in test passage, measured at different levels of granularity
-	and with both test-minimized and unminimized patches.}
+	and with both minimized and unminimized patches.}
 \label{yiweitable}
 %\vspace{-0.5in}
 \end{table}
@@ -980,17 +980,17 @@ tests are not often adversarial towards partial repairs, contrary to prior work~
 
 Finer granularity levels are better at identifying partial repairs positively,
 but they also increase the chance of erroneously mis-identifying partial repairs.
-%Zhen: deleted discussion of performance differences between datasets
-%since I don't think it's interesting enough to warrant that much text.
-Moreover, evaluating patches at finer granularity levels often require additional
-computation time.
+Improvements between granularity levels vary across datasets --- the improvement 
+in positively identified partial repairs between method and assertion level granularities
+is negligible in Bears but greater in Defects4J.
+Moreover, evaluating patches at finer granularity levels often adds overhead.
 Method level granularity may require executing set-up
 and tear-down processes for each method rather than for
 an entire test class.
 Assertion level granularity requires instrumenting tests with additional
 logic to continue execution when assertions fail.
-The overhead associated with finer granularity levels lessens the number of
-candidate patches that a G\&V tool can evaluate per unit time.
+Such overhead lowers the number of
+candidate patches that a G\&V tool can validate per unit time.
 The choice of a granularity level is a balancing act with implications on
 multiple axes of APR performance.
 
@@ -1017,7 +1017,7 @@ multiple axes of APR performance.
 \end{table}
 
 Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ negative tests
-and 2--6 edit locations in the test-minimized patch, grouped by patch coverage
+and 2--6 edit locations in the minimized patch, grouped by patch coverage
 under fault-revealing tests and the existence of positively/negatively test-identified
 partial repairs at any granularity level.
 The vast majority of analyzed multi-test, multi-location patches have at least
