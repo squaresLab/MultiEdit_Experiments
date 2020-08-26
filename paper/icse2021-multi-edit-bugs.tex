@@ -832,22 +832,24 @@ between a multi-location
 bugs repaired by applying the same independent edit in four places, as
 compared to a bug repaired by applying  four control- and data-dependent
 modifications).  Specifically, we ask:
-\todo{This is our second RQ3}
-\rqorinsight{3}{How prevalent are dependencies between edited code in
-  multi-location patches?}
+\rqorinsight{4}{How prevalent and hard to construct are
+patches with intra-patch dependencies?}
 
-To answer this question, we broaden the scope of multi-location patches to 
+
+\paragraph{Methodology}
+We consider a patch to contain \emph{dependent edits} if there exist 
+control or data dependencies between added, deleted, or modified statements.
+Since we analyze dependent statements, we broaden the scope of multi-location patches to 
 include all patches containing at least two added, removed, or modified lines, 
 again ignoring edits to comments, whitespace, or imports.
-\todo{why?  And, which part of Table 1 shows this set?  Or should we be modifying the
-text in the previous section?}
-This expanded dataset contains 659 Defects4J v2 and 151 \bears bugs.
-We consider a patch to contain \emph{dependent edits} if there exists 
-control or data dependencies between added, deleted, or modified statements.
-We analyze deleted/modified statements in the pre-patch code 
-and added/modified statements in the post-patch code for
-dependencies.\todo{Somehow, I'm not able to parse this preceding sentence.}
-  
+We denote such patches as \emph{multi-line patches}.
+This expanded dataset contains 659 Defects4J v2 and 151 \bears 
+multi-line patches.
+% We explicitly got rid of Table 1 stats on multi-line 
+% patches for ESEC/FSE. We did so since we didn't wish to divert attention 
+% from multi-location patches during our discussion of the datasets in Sec 2.
+% Dependency analysis is the only experiment that analyzes patches at the
+% edit granularity of lines, rather than locations.
 For practical performance and scalability reasons, 
 we perform intraprocedural analysis. 
 We do, however, gather some interprocedural data dependency information 
@@ -856,32 +858,25 @@ using the following heuristics:
 	\item We treat all method call statements as dependent on all variables
           passed as arguments. 
 	\item If a statement invokes a getter method \texttt{Class.getX()} 
-          we heuristically  assume that the statement reads \texttt{Class.X},
+          we heuristically assume that the statement reads \texttt{Class.X},
           whether or not \texttt{Class.X} exists.
 	\item If a statement invokes a setter method \texttt{Class.setX()}, 
 	we again heuristically assume that the statement writes to \texttt{Class.X}. 
 \end{itemize}
 
-\todo{We need one more paragraph acknowledging the limitations, here, or a
-  little more detail above. Is this is a sound overapproximation?  Do we reason
-  about aliases at all?  We wrote this code? Is it in our replication package?}
+These heuristics are not sound, but they derive from common 
+practices in Java. We use these heuristics to estimate interprocedural 
+dataflow while retaining the scalability of intraprocedural analysis.
+We provide our dependency analyzer in our replication package.
+
+We estimate the difficulty of auto-constructing edit-dependent patches 
+by examining whether APR techniques have successfully patched the
+bug in question. We use APR success data from 
+RepairThemAll~\cite{durieux-repair-them-all}, an experiment 
+running 11 APR tools on 5 benchmarks, including Defects4J v1
+(containing a subset of Defects4J v2) and \bears.
 
 \paragraph{Results}
-
-We find that 40\% of Defects4J patches, 63\% of \bears patches, 
-and 45\% of the combined datasets' patches contain dependencies 
-between edited statements.
-Our finding supports earlier results on edit dependencies in 
-bug patches~\cite{zhong2015}.\todo{Preceding sentence, and honestly likely this
-  whole paragraph, is redundant with the last paragraph of this results
-  subsection.  I think this redundancy can be reduced by fixing the RQ to
-  actually match the question being asked in this subsection.}
-Patches with and without edit dependencies both form a substantial
-portion of multi-line patches,
-and neither type of patch should be ignored.\todo{Are these results in a table
-  somewhere? Short answer is ``only kind of, but it's hard to reference right
-  here because the table answers a sort of different question.'' See below for
-  my suggestion on changing the question.}
 
 \begin{table}
 {\begin{center}
@@ -910,44 +905,28 @@ and neither type of patch should be ignored.\todo{Are these results in a table
 	\end{tabular}
  \end{center}
 }
-	\caption{Multi-line patches with respect to the presence of 
-	dependent edits and whether any APR tool successfully 
-	repaired the bug in RepairThemAll~\cite{durieux-repair-them-all}.
-	Bugs categorized as {\normalfont Not evaluated} are those introduced in 
-	v2 of Defects4J, which RepairThemAll didn't study.\todo{Is it possible
-          or reasonable for this to be one or more Venn diagrams instead?}}
+	\caption{APR success of 
+	bugs with(out) edit dependencies in their multi-line patches. 
+	Bugs with intra-patch dependencies are harder to auto-repair. }
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
 
-\todo{Feels like these results come out of nowhere/are not associated with an
-  RQ.  Can we modify the RQ to include this question in its scope? That would be
-  nice and add clear novelty to answering it.  The text here should be updated
-  to reflect that it's answering an RQ in that case.}
-We further compare how often APR techniques 
-successfully repair bugs whose patches do (not) contain edit dependencies.
 Table~\ref{tab:dependency-repair-contingency-table}
-show the frequencies and percentages of multi-line patches with respect to edit dependency 
-and whether an APR tool successfully repaired bug in 
-RepairThemAll~\cite{durieux-repair-them-all}, a repair experiment running 
-11 APR tools on 5 benchmarks, including Defects4J v1 (containing a subset of Defects4J v2) and \bears.
+shows frequencies of multi-line patches with respect to edit dependence 
+and whether an APR tool successfully repaired the bug.
+With 45\% of multi-line patches exhibiting intra-patch dependencies, 
+our data substantiates prior research~\cite{zhong2015} on 
+such dependencies.
 
-We find that the presence of edit dependencies 
-reduces the likelihood of APR tool success for Defects4J bugs.
+
+We find the presence of edit dependencies 
+reduces APR tool success.
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
-between APR success and the presence of edit dependencies for Defects4J patches. 
-We fail to find statistically 
-significant relationships over \bears patches, likely due to the small number (16) of 
-successfully auto-repaired \bears bugs with multi-line human patches.
+between APR success and intra-patch dependencies.
 The generally lower auto-repairability of bugs with edit dependent patches compared 
 to their non-edit dependent brethren suggest that such dependencies indeed 
-add complexity to the search for a repair.\todo{What happens if we aggregate the
-  two datasets? Do we have a good (scientific) reason to treat them separately?
-  (I'm kind of thinking, what's the point of using both datasets if we don't
-  aggregate them to get more statistical power....)}
-
-Our results substantiate prior research~\cite{zhong2015} on the frequency of 
-bugs with dependent edits in human patches. A diverse range of APR 
-techniques are less likely to repair such bugs. Dependent edits, however, may 
+add complexity to the search for a repair.
+Dependent edits, however, may 
 be an opportunity to constrain the search space by creating constraints between 
 otherwise independent mutations. There is an opportunity to profit from edit 
 dependencies to repair a large class of difficult bugs.
