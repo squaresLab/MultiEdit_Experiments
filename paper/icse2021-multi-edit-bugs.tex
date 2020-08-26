@@ -684,13 +684,19 @@ multiple locations.
 
 \subsubsection{Methodology}
 \label{sec52}
-We look at the existence of code clones in multi-location bugs, including bugs in Closure (which are 
-excluded from other experiments that require execution of tests), leaving 216 bugs to analyze. We 
-excluded bugs with more than 6 faulty locations to constrain the search space.
+Our dataset includes all multi-location bugs excluding those with more than 6 faulty locations to 
+constrain the search space, leaving 216 bugs to analyze. We determine the existence of code 
+clones through manual inspection.
+
+% We cross validate our list of bugs with clones with results from previous work proposing and 
+%evaluating an APR tool named Hercules~\cite{saha2019harnessing}. Hercules is a generate and 
+%validate approach that could also exploit similar code locations to generate patches with code 
+%clones. It was evaluated with the bugs in Defects4J version 1, which consists of 395 total bugs 
+%and 187 multi-location bugs. 
 
 In comparing these results with the results of the coverage experiment in
 Section~\ref{secFL}, we focus on the multi-test and multi-location bugs used in the coverage 
-experiment, a total of 91 bugs.
+experiment and exclude bugs with more than 6 faulty locations, leaving 166 bugs.
 
 We call the edits at two locations code clones if it is one of the following four cases:
 \begin{enumerate}
@@ -777,6 +783,15 @@ As shown in Table \ref{tab:clones_loc}, close to half of code clones are in the 
 15\% of the code clones occur in different classes. Moreover, out of the 129 sets of code clones,
 80 of them belongs to the ``same'' category, which means that 62\% of sets of code clones have completely
 alpha-equivalent edit locations within them.
+
+% code clones <-> hercules data
+% idk how what the conclusion from this information is so I'm just gonna put numbers in
+% Hercules successfully repaired 15 multi-location bugs in their dataset. We found 56 
+%multi-location bugs with clones. 14 of the bugs that Hercules successfully repaired were among 
+%the bugs with code clones we found. The remaining bug that Hercules successfully repaired 
+%was 
+%a bug whose patch required 6 or more locations, and in going back, the human patch also 
+%contained code clones. 
 
 \begin{table}
 	{\begin{center}
