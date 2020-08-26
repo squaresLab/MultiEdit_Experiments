@@ -473,7 +473,10 @@ Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 476 & 47\% & 321 
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J (top) and \bears (bottom) datasets.}
+\caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J
+  (top) and \bears (bottom) datasets.\todo{multi-location vs multi-test: don't
+    belabor the point, but this caption should say SOMETHING about how to read
+    the table.}}
 \end{table*}
 
 Our study requires a dataset of indicative, real-world,
@@ -501,6 +504,7 @@ which are not currently compatible with our automation tools.
 \todo{Is it worth expanding slightly on why/what this means? And, are these
   numbers accurate?}
 We thus limit our analysis of \bears to 183 bugs from 34 single-module projects.
+\todo{what's going on with multi-location versus multi-test}
 
 We start our analysis of multi-location patches by asking:
 \rqorinsight{1}{How prevalent are human-written multi-location patches?}
@@ -532,33 +536,36 @@ mutation and fix spaces (Section~\ref{sec:mutops}), and validation
 
 %% what are the claims, what are we studying, why are we studying it
 
-
-Spectrum-based fault localization (SBFL) is the most commonly studied dynamic
-fault localization technique, and studies have shown that it is more effective
-than other techniques such as Mutation-based fault
+Spectrum-based fault localization (SBFL) is a commonly-studied dynamic
+fault localization technique, and is often more effective than alternatives (like mutation-based fault 
 localization~\cite{mut-analysis} or dynamic program
-slicing~\cite{zou2019empirical}. It is a key first step to characterizing the
-\emph{fault space} in automatic program repair, narrowing it to a portion of the
-program most likely to correspond to the fault.
+slicing~\cite{zou2019empirical}). It is a key first step to characterizing the
+\emph{fault space} in automatic program repair; the majority of dynamic APR
+techniques use some variant of SBFL for this purpose.
 
 Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
   execute buggy portions of the code relatively more often than passing tests.}
-Thus, if all failing tests execute a particular line of code, then that line of
-code is highly suspicious.  SBFL techniques compute a suspiciousness by
+% Thus, if all failing tests execute a particular line of code, then that line of
+% code is highly suspicious.  
+SBFL techniques compute a suspiciousness by
 measuring how often a line is executed by failing tests as compared to passing
-tests. This suspiciousness score can be calculated a few different ways, but is
-typically a linear combination of the passing and failing test coverage. One of
-the oldest and commonly studied SBFL technique is Tarantula~\cite{tarantula}. In
-Tarantula, the suspiciousness score for a line $s$ is calculated by:
+tests, typically via some (linear) combination of their respective
+coverage of a line.
+% This suspiciousness score can be calculated a few different ways, but is
+% typically a linear combination of the passing and failing test coverage. One of
+% the oldest and commonly studied SBFL technique is Tarantula~\cite{tarantula}. In
+% Tarantula, the suspiciousness score for a line $s$ is calculated by:
 
-$$\mathit{susp(s)} 
-=\frac{\mathit{\%F(s)}}{\mathit{\%F(s)} + \mathit{\%P(s)}}$$
+% $$\mathit{susp(s)} 
+% =\frac{\mathit{\%F(s)}}{\mathit{\%F(s)} + \mathit{\%P(s)}}$$
 
-where  $\mathit{\%F(s)}$ and $\mathit{\%P(s)}$ are, respectively, the percentage of failing 
-tests and passing tests that execute $s$. There are newer, more effective 
-SBFL techniques that calculate this score differently, such as Ochiai~\cite{ochiai} and 
-DStar~\cite{wong2013dstar}. Both of these were included in an empirical study 
-comparing fault localization techniques and were found to localize a similar set of 
+% where  $\mathit{\%F(s)}$ and $\mathit{\%P(s)}$ are, respectively, the percentage of failing 
+% tests and passing tests that execute $s$. There are newer, more effective 
+% SBFL techniques that calculate this score differently, such as Ochiai~\cite{ochiai} and 
+%DStar~\cite{wong2013dstar}. 
+SBFL techniques include but are not limited to Tarantula~\cite{tarantula},
+Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}; in general, though more
+recent approaches are typically more effective, such approaches tend to localize similar
 faults~\cite{zou2019empirical}.
 
 Assigning a suspiciousness score to each line of code is well-suited to single
@@ -572,12 +579,11 @@ suspiciousness scoring in a multi-location repair context.  Instead, evaluations
 typically consider a technique ``successful'' if it identifies \emph{any} of a
 set of changed lines as highly-ranked or likely-suspicious.  While appropriate
 for the question being asked in such evaluations, this does not address
-suitability for multi-location program repair.  Identifying one of several buggy
-locations is generally inadequate in a context where multiple locations must be
-modified. In order to investigate how well the SBFL assumption
-applies to tests that identify bugs that require multi-location patches, we ask 
-the following research question:
-
+suitability for multi-location program repair.%  Identifying one of several buggy
+%locations is generally inadequate in a context where multiple locations must be
+%modified. 
+We investigate how well the SBFL assumption
+applies to tests that identify bugs that require multi-location patches, asking: 
 
 \rqorinsight{2}{Do failing tests of a multi-location bug execute all the same patch locations or 
 all different patch locations?}
@@ -594,12 +600,19 @@ multiple buggy locations at once.
 Fundamentally, we ask whether multiple failing tests cover exactly the same
 patch locations, exactly disjoint patch locations, or some combination.
 
+\todo{I think this RQ doesn't have enough context for the reader to understand
+  what it's about at this point.  Please add some text to give more
+  explanation/motivation for it.}
 In addition, for purposes of fault localization, we want to know if we can detect 
 whether tests will cover disjoint or same fault locations given only the buggy code. 
 Thus, we also ask:
 
 \rqorinsight{3}{Do tests that cover different (resp. same) fault locations also cover different 
 (resp. same) code locations in general?}
+
+\todo{Throughout methodology and results: rename disjoint/overlap/identical on
+  both charts and in text, update text accordingly.  Include caveat to mitigate
+  identified risk of new naming.}
 
 \subsection{Methodology}
 
@@ -630,9 +643,9 @@ coverage of
 patch locations (where a patch location is considered covered if any line at that patch location 
 is 
 executed). For the purposes of fault localization, coverage of patch locations is more valuable 
-than coverage of patch lines, and we analyzed 66 Defects4J bugs\footnote{All the
-bugs in Defects4J version 1; we did not have enough time to do the analysis on bugs added in 
-Defects4J version 2.}  and all the Bears bugs, a total of 98 bugs, to see whether categorization 
+than coverage of patch lines, and we analyzed 66 Defects4J bugs\footnote{All 
+bugs in Defects4J version 1, because of the way we calculate coverage information.}
+ and all the Bears bugs, a total of 98 bugs, to see whether categorization 
 based on patch line 
 coverage matched categorization based on patch location coverage.
 
@@ -646,7 +659,9 @@ respectively.
 After calculating the percentages, we split the bugs based on whether we categorized the bug 
 as \emph{disjoint}, \emph{identical}, or \emph{overlap} in the previous experiment.
 We qualitatively observed the degree to which the percentage corresponded to its coverage 
-pattern. \todo{Use a real statistical measure}
+pattern. \todo{Use a real statistical measure}\todo{Yes, really.}
+
+\todo{Combine these three figures into 1}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage-all.png}
@@ -735,7 +750,10 @@ these types of multi-location, multi-test bugs.
 \end{figure}
 
 \subsubsection{Generalization of Coverage Patterns}
-
+\todo{As above, this question doesn't have enough motivation/context, so as a
+  reader I'm struggling to figure out what we're asking/why the answer matters.
+  This problem may be solved by fixing the text above, but it may require some
+  text here as well.}
 Our results in Figure \ref{fig:coverage-buggy} answer RQ3. Here, we see three distributions, 
 separated by coverage pattern, and plotted based on the percentage of lines executed by all 
 failing tests. 
