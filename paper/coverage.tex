@@ -51,8 +51,8 @@ applies to tests that identify bugs that require multi-location patches, we ask
 the following research question:
 
 
-\rqorinsight{2}{How well do multiple tests cover the multiple locations
-  implicated in bugs that require multi-location patches?}
+\rqorinsight{2}{Do failing tests of a multi-location bug execute all the same patch locations or 
+all different patch locations?}
 
 We focus especially on bugs that are associated with multiple failing tests: a bug
 with only a single failing test trivially and equally implicates all the lines
@@ -70,8 +70,8 @@ In addition, for purposes of fault localization, we want to know if we can detec
 whether tests will cover disjoint or same fault locations given only the buggy code. 
 Thus, we also ask:
 
-\rqorinsight{3}{Do tests that cover multiple faulty locations also cover multiple code 
-locations in general?}
+\rqorinsight{3}{Do tests that cover different (resp. same) fault locations also cover different 
+(resp. same) code locations in general?}
 
 \subsection{Methodology}
 
@@ -150,14 +150,13 @@ pattern. \todo{Use a real statistical measure}
 
 \subsubsection{Distribution of Coverage Patterns} \label{sec:cov_patterns}
 
-Figure~\ref{fig:coverage-all} shows results for the overall distribution,
-combining the bugs in both datasets. 29\%
-of the bugs were \emph{disjoint}.  Thus, for a significant portion of multi-location bugs,
-none of the faulty lines were executed by all failing tests.  
-In addition, another 39\% were classified as \emph{overlap}: only some of the
-buggy locations were executed by all failing tests. In all, over half of 
-the bugs that were both multi-location and multi-test contained edit locations that were 
-not executed by all failing test cases.
+Figure~\ref{fig:coverage-all} shows results for the overall distribution of coverage patterns, 
+answering RQ2. 
+For a 29\% bugs, none of the patch lines were executed by all failing tests as they were 
+shown to be \emph{disjoint}.  An almost equal proportion of bugs, 32\%, were classified as 
+\emph{identical}, indicating that all failing tests executed the same patch lines.
+In addition, another 39\% were classified as \emph{overlap}, exhibiting a combination of the 
+\emph{disjoint} and \emph{identical} characteristics.
 
 Note, however, that the behavior varies considerably by dataset;
 Figure~\ref{fig:coverage-datasets} shows results. In Defects4J, the patterns all have similar 
@@ -207,17 +206,22 @@ these types of multi-location, multi-test bugs.
 	\label{fig:coverage-buggy}
 \end{figure}
 
-\subsubsection{Identification of Coverage Patterns} \todo{There's a more accurate word 
-here 
-than "identification"}
+\subsubsection{Generalization of Coverage Patterns}
 
-Our results are shown in Figure \ref{fig:coverage-buggy}. Here, we see three distributions, 
+Our results in Figure \ref{fig:coverage-buggy} answer RQ3. Here, we see three distributions, 
 separated by coverage pattern, and plotted based on the percentage of lines executed by all 
-failing tests. We can see some qualitative differences between the three distributions. In 
-particular, \emph{identical} bugs are more likely to have failing tests that execute the same lines 
-of code, as we might expect. However, in practice, it would be difficult to determine the 
-coverage pattern of a bug based on the coverage of failing tests alone, as all the distributions 
-range from 5\% to 100\% (note that a bug categorized as disjoint can be scored 100\%, as the 
-patch can introduce if statements that break the control flow and cause certain patch locations 
-not to be executed). Thus, more work may be needed to identify the different coverage patterns 
-from the buggy program.
+failing tests. 
+
+The distributions of \emph{disjoint} bugs (and to a lesser extent, \emph{overlap} bugs) are 
+distributed almost uniformly across the 0\% to 100\%, indicating that \emph{disjoint} bugs are 
+not more or less likely to have failing tests that cover the same or different parts of the code 
+base. Note that a bug categorized as \emph{disjoint} can be scored 100\%, as the 
+patch can introduce if statements that change the control flow.
+
+In contrast, we can qualitatively observe that \emph{identical} bugs are more likely to have 
+failing tests that execute the same lines of code, as we might expect. However, this is not a 
+definitive characteristic, as \emph{identical} bugs in our dataset scored anywhere between 
+5\% to 100\%.
+
+From these observations, we conclude that the degree to which failing tests cover the buggy 
+code are not effective predictors for the eventual coverage pattern for the bug. 
