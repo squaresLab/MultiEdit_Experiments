@@ -482,8 +482,7 @@ Defects4J v2.0.0~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:datas
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 835 bugs from 
-\todo{This text doesn't match the table.}
-six Java software projects, and is a popular dataset for evaluating 
+17 Java software projects, and is a popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.\todo{add
   more references, there are other papers that use d4j to evaluate}
 The dataset's patches are manually minimized to isolate the bug fix 
@@ -498,8 +497,7 @@ a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
 projects compared to Defects4J. 
 Several projects in \bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
-\todo{Is it worth expanding slightly on why/what this means? And, are these
-  numbers accurate?}
+\todo{Is it worth expanding slightly on why/what this means?}
 We thus limit our analysis of \bears to 183 bugs from 34 single-module projects.
 
 We start our analysis of multi-location patches by asking:
@@ -507,7 +505,7 @@ We start our analysis of multi-location patches by asking:
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and \bears. 
-We find that multi-location patches comprise over half of \bears and almost half of Defects4J.
+We find that multi-location patches comprise 61\% of \bears and 44\% of Defects4J.
 Although a multi-location human patch for a bug does not imply the 
 non-existence of a simpler patch, the high proportion of bugs that have 
 multi-location patches demonstrates the relevance of such bugs to fault localization and
@@ -515,10 +513,10 @@ program repair.
 
 \bears contains a greater proportion of 
 multi-location patches compared to Defects4J. This may be the 
-result of manual patch minimization in Defects4J~\cite{defects4j} 
+result of manual patch minimization in Defects4J
 and lack thereof in \bears.
-Thus, some \bears patches may be multi-location as a result of additional 
-changes added for non-repair reasons.
+Thus, some \bears patches may be multi-location due to
+non-corrective edits (e.g.: refactorings, feature additions).
 
 Having established both that multi-location edits are common in real-world
 programs, and established a suitable, plausibly indicative dataset to study
