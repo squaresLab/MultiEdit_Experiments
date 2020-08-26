@@ -1059,11 +1059,11 @@ enough approximation for these experiments.
 
 \vspace{1ex}
 \noindent\textbf{Dependency analysis.}
-For simplicity, our dependency analysis was intraprocedural, and it
-does not account for interprocedural dependencies between edited statements.  Although our
-heuristics for method invocations may account for certain interprocedural data
-dependencies, these heuristics may also introduce false positive data reads and
-writes, which may lead to inaccurate determinations of dependency.
+We analyzed dependencies intraprocedurally with some interprocedural 
+heuristics, which make assumptions derived from common Java practices.
+These assumptions are not always true. We use heuristics to add some
+approximated interprocedural data while retaining interprocedural 
+analysis's scalability to large, real world software.
 
 \vspace{1ex}
 \noindent\textbf{Code clones.}
