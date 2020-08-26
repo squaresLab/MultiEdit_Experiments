@@ -27,14 +27,28 @@ the program would have classified this as "overlap."
 However, it should have been classified as "same," since both locations were executed.
 """
 
-raw_coverage_files = ["data/coverage-experiments/mar4-bears/rawCoverage.data",
-					  "data/coverage-experiments/mar4-d4j/rawCoverage.data",
-					  "data/coverage-experiments/mar4-mockito/rawCoverage.data"]
+raw_coverage_files = ["data/coverage-experiments/coverage-data-final/rawCoverage.data"]
 
 with open("data/patch_locs.json") as f:
 	patch_json = json.load(f)
 
-d4jnames = {"CHART": "Chart ", "CLOSURE": "Closure ", "LANG": "Lang ", "MATH": "Math ", "MOCKITO": "Mockito ", "TIME": "Time "}
+d4jnames = {"CHART": "Chart ", 
+"CLOSURE": "Closure ", 
+"LANG": "Lang ", 
+"MATH": "Math ", 
+"MOCKITO": "Mockito ", 
+"TIME": "Time ", 
+"JSOUP":"Jsoup ",
+"JACKSONCORE":"JacksonCore ",
+"CLI":"Cli ",
+"JACKSONDATABIND":"JacksonDatabind ",
+"COMPRESS": "Compress ",
+"JXPATH":"JxPath ",
+"GSON":"Gson ",
+"CODEC": "Codec ",
+"CSV":"Csv ",
+"JACKSONXML":"JacksonXml ",
+"COLLECTIONS": "Collections "}
 
 mode = "PATCH"
 patch_pattern = re.compile("(.+): \[(.+)]")
@@ -130,6 +144,8 @@ print(len(multitest_multichunk))
 classify = {}
 
 for bug in multitest_multichunk:
+	if bug == "JSOUP:071":
+		continue
 	name, num = bug.split(":")
 	if name in d4jnames:
 		chunkmap, num_chunks = get_chunk_ranges(f'{d4jnames[name]}{int(num)}')
