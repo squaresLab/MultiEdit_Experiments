@@ -8,6 +8,7 @@ from typing import Set, List, Dict, Tuple, Collection
 from scipy import stats
 
 BugId = str
+Project = str
 APRTool = str
 
 DEPENDENCY_TUPLE_INDEX_CTRL=0
@@ -117,7 +118,7 @@ def is_table_analyzable(contingency_table):
     #no row or column is full of zeroes
     return True
 
-def get_bears_proj(bugId):
+def get_bears_proj(bugId) -> Project:
     fxml_name = 'FasterXML-jackson-databind'
     fxml_nums = set(range(1, 26+1))
     inria_name = 'INRIA-Spoon'
@@ -140,15 +141,21 @@ def get_bears_proj(bugId):
     else:
         return other_name
 
-def get_d4j_proj(bugId: BugId) -> str:
-    valid_d4j_projects = ['Chart', 'Cli', 'Closure', 'Codec', 'Collections', 'Compress', 'Csv', 'Gson', 'JacksonCore',
-                       'JacksonDatabind', 'JacksonXml', 'Jsoup', 'JxPath', 'Lang', 'Math', 'Mockito', 'Time']
+def get_d4j_proj(bugId: BugId) -> Project:
+    valid_d4j_projects = ['Chart', 'Cli', 'Closure', 'Codec', 'Collections', 'Compress', 'Csv', 'Gson', 'Jacksoncore',
+                       'Jacksondatabind', 'Jacksonxml', 'Jsoup', 'Jxpath', 'Lang', 'Math', 'Mockito', 'Time']
 
     for d4j_proj in valid_d4j_projects:
         if d4j_proj in bugId:
             return d4j_proj
 
     raise ValueError('WTF is this bugID: {}'.format(bugId))
+
+def get_proj(bugId: BugId) -> Project:
+    if 'Bears' in bugId:
+        return get_bears_proj(bugId)
+    else:
+        return get_d4j_proj(bugId)
 
 def get_all_d4j_bugs() -> Set[BugId]:
     d4j_bugs = list()
@@ -163,11 +170,11 @@ def get_all_d4j_bugs() -> Set[BugId]:
     d4j_bugs += ['Compress{}'.format(n) for n in range(1, 47+1)]
     d4j_bugs += ['Csv{}'.format(n) for n in range(1, 16+1)]
     d4j_bugs += ['Gson{}'.format(n) for n in range(1, 18+1)]
-    d4j_bugs += ['JacksonCore{}'.format(n) for n in range(1, 26+1)]
-    d4j_bugs += ['JacksonDatabind{}'.format(n) for n in range(1, 112+1)]
-    d4j_bugs += ['JacksonXml{}'.format(n) for n in range(1, 6+1)]
+    d4j_bugs += ['Jacksoncore{}'.format(n) for n in range(1, 26+1)]
+    d4j_bugs += ['Jacksondatabind{}'.format(n) for n in range(1, 112+1)]
+    d4j_bugs += ['Jacksonxml{}'.format(n) for n in range(1, 6+1)]
     d4j_bugs += ['Jsoup{}'.format(n) for n in range(1, 93+1)]
-    d4j_bugs += ['JxPath{}'.format(n) for n in range(1, 22+1)]
+    d4j_bugs += ['Jxpath{}'.format(n) for n in range(1, 22+1)]
     d4j_bugs += ['Lang{}'.format(n) for n in range(1, 1+1)]
     d4j_bugs += ['Lang{}'.format(n) for n in range(3, 65+1)]
     d4j_bugs += ['Math{}'.format(n) for n in range(1, 106+1)]
@@ -233,14 +240,13 @@ def get_bug_list(path_to_bug_list_file: str) -> List[BugId]:
 
 
 def get_bugs_by_file_distribution():
-    all_bugs = get_all_d4j_bugs() | get_all_bears_bugs()
     with open('patch_locs.json') as f:
         patch_locs_json = json.load(f)
 
     same_file_bugs = set()
 
     for entry in patch_locs_json:
-        bugId = str(entry['bugId']).replace(' ', '') #Remove the space in D4J bugIds
+        bugId = normalize_bugId(str(entry['bugId']))
         if bugId in all_bugs: #skip multi-module Bears or deprecated bugs
             patch = entry['patch'] #dict of files to lines changed by file
             num_files_edited = len(patch.keys())
@@ -325,6 +331,22 @@ def get_tool_to_repaired_bugs() -> Dict[APRTool, List[BugId]]:
 
     return tools_to_repaired_bugs
 
+def partition_bugs_by_project(bugs: Collection[BugId]) -> Dict[str, Set[BugId]]:
+    proj_to_bugs = dict()
+
+    for bugId in bugs:
+        if 'Bears' in bugId:
+            proj = get_bears_proj(bugId)
+        else:
+            proj = get_d4j_proj(bugId)
+
+        if proj not in proj_to_bugs.keys():
+            proj_to_bugs[proj] = set()
+
+        proj_to_bugs[proj].add(bugId)
+
+    return proj_to_bugs
+
 
 ######################################################################################################
 
@@ -336,6 +358,13 @@ all_bugs: Set[BugId]  = all_d4j_bugs | all_bears_bugs
 multi_line_bugs_d4j: Set[BugId] = set(get_bug_list('../multi-line-bugs/multi_line_d4j.data'))
 multi_line_bugs_bears: Set[BugId]  = set(get_bug_list('../multi-line-bugs/multi_line_bears.data'))
 multi_line_bugs: Set[BugId]  = multi_line_bugs_d4j | multi_line_bugs_bears
+
+multi_location_bugs_d4j: Set[BugId] = set(get_bug_list('../multi-location-bugs/multi_location_d4j.data'))
+multi_location_bugs_bears: Set[BugId] = set(get_bug_list('../multi-location-bugs/multi_location_bears.data'))
+multi_location_bugs = multi_location_bugs_d4j | multi_location_bugs_bears
+
+multi_test_bugs: Set[BugId] = set(get_bug_list('../more_than_one_test.txt'))
+mlocation_mtest_bugs: Set[BugId] = set(get_bug_list('../multitest_multiedit.txt'))
 
 dependencies: Dict[BugId, Tuple[bool, bool, bool, bool, bool, bool]] = get_dependencies()
 
@@ -632,48 +661,29 @@ def print_edit_and_test_info(all_bugs, multi_edit_bugs, multi_test_bugs):
             "Num edits and num tests",
             'single test', 'multi-tests', 'single chunk', 'multi-chunk')
 
-def partition_bugs_by_project(bugs):
-    proj_to_bugs = dict()
-
-    for bugId in bugs:
-        if 'Bears' in bugId:
-            proj = get_bears_proj(bugId)
-        else:
-            proj = get_d4j_proj(bugId)
-
-        if proj not in proj_to_bugs.keys():
-            proj_to_bugs[proj] = set()
-
-        proj_to_bugs[proj].add(bugId)
-
-    return proj_to_bugs
-
 def get_multi_edit_frequencies_per_proj():
-    multi_location_bugs_d4j, multi_location_bugs_bears = get_multi_chunk_bugs()
-    multi_location_bugs = multi_location_bugs_d4j | multi_location_bugs_bears
-    multi_test_bugs = get_multi_test_bugs()
-    mchunk_mtest_bugs = multi_location_bugs & multi_test_bugs #intersection
+    # override definition
+    mlocation_mtest_bugs = multi_location_bugs & multi_test_bugs
 
     proj_to_bugs = partition_bugs_by_project(all_bugs)
     proj_to_multi_line_bugs = partition_bugs_by_project(multi_line_bugs)
-    proj_to_multi_chunk_bugs = partition_bugs_by_project(multi_location_bugs)
+    proj_to_multi_location_bugs = partition_bugs_by_project(multi_location_bugs)
     proj_to_multi_test_bugs = partition_bugs_by_project(multi_test_bugs)
-    proj_to_mtest_mchunk_bugs = partition_bugs_by_project(mchunk_mtest_bugs)
+    proj_to_mlocation_mtest_bugs = partition_bugs_by_project(mlocation_mtest_bugs)
 
-    print("Proj\tTotal\tMLine\tMChunk\tMTest\tMTestMChunk")
+    print("Proj\tTotal\tMChunk\tMTest\tMTestMChunk")
     for proj in proj_to_bugs.keys():
         total = len(proj_to_bugs[proj])
-        mline = len(proj_to_multi_line_bugs[proj])
-        p_mline = percent(mline, total)
-        mchunk = len(proj_to_multi_chunk_bugs[proj])
-        p_mchunk = percent(mchunk, total)
-        mtest = len(proj_to_multi_test_bugs[proj])
+        #mline = len(proj_to_multi_line_bugs[proj])
+        #p_mline = percent(mline, total)
+        mlocation = len(proj_to_multi_location_bugs[proj])
+        p_mlocation = percent(mlocation, total)
+        mtest = len(proj_to_multi_test_bugs.get(proj, []))
         p_mtest = percent(mtest, total)
-        mtestmchunk = len(proj_to_mtest_mchunk_bugs[proj])
-        p_mtestmchunk = percent(mtestmchunk, total)
-        print('{}\t{}\t{}({})\t{}({})\t{}({})\t{}({})' \
-                .format(proj, total, mline, p_mline, mchunk, p_mchunk, mtest, p_mtest, mtestmchunk, p_mtestmchunk))
+        mlocationmtest = len(proj_to_mlocation_mtest_bugs.get(proj, []))
+        p_mlocationmtest = percent(mlocationmtest, total)
+        print('{}\t{}\t{}({})\t{}({})\t{}({})' \
+                .format(proj, total, mlocation, p_mlocation, mtest, p_mtest, mlocationmtest, p_mlocationmtest))
 
 if __name__=='__main__':
-    #test_dependency_and_repairability()
-    print_dependency_stats()
+    get_multi_edit_frequencies_per_proj()
