@@ -248,30 +248,37 @@ human developer using edits at multiple locations.  We look at characteristics a
 relevant axes of the program repair search problem: fault locations, mutation
 operators, fix code, and evaluation (or fitness or objective) using test cases,
 and find both important and, in some cases, unintuitive, implications for
-automated techniques.  Our contributions are:
+automated techniques.  Our findings and contributions are:
 
 \begin{itemize}
 %\item An analysis and enumeration of multi-location patches in Defects4J and
 %\bears.
 % I think the above is addressed by the summary in the preceding paragraph.
-\item \textbf{Fault Localization.}  We find that 58\% of relevant bugs have faulty locations that are not
-  covered by all failing tests, thus the assumptions underlying spectrum-based
-  fault localization may not necessarily hold when used off-the-shelf for
-  multi-location repair.
+\item \textbf{Fault Localization.}  We find that 58\% of multi-edit bugs have faulty locations that are not
+  covered by all failing tests.  This is important because the assumptions underlying spectrum-based
+  fault localization may not hold when used off-the-shelf for
+  multi-edit bug repair, motivating the development of novel localization
+  techniques. 
 \item \textbf{Edit dependency.} We 
-find that 45\% of bug patches contain dependent edits, and that bugs with dependent 
-edits in their patches may be more difficult to automatically repair.
+find that 45\% of bug patches contain dependent edits, and that such bugs
+may be more difficult for current, state-of-the-art
+techniques to automatically repair.  This means that APR techniques assuming edit
+independence~\cite{hercules,theotherone} are applicable to a nontrivial propertion of complex bugs, while
+still motivating development of new analyses that can reason about multiple,
+related edits at once. 
 \item \textbf{Cloning in multi-location repair} We find that over 30\% of bugs with multi-location
 patches have very similar edits applied to different locations, suggesting the viability of 
-program repair techniques designed to utilize code clones. Moreover, bugs in which 
-none of the faulty locations are covered by all failing tests tend to have code clones, 
-suggesting a way to tell when we should use a program repair technique designed for code 
-clones.
-\item \textbf{Test cases for patch validation.} We find that over 40\% of bugs with multi-location
+program repair techniques designed to utilize code clones. Moreover, importantly, bugs in which 
+none of the faulty locations are covered by all failing tests tend to include
+such clones in their patches.  This suggests a path forward for predicting, a
+priori, which type of technique may apply to a given bug. 
+\item \textbf{Test cases for multi-edit patch validation.} We find that over 40\% of bugs with multi-location
   patches in Defects4J and over half in \bears do not require the edits at every
   location in their provided human patches to pass all test cases, suggesting
-  that either patches contain unnecessary edits or (more likely) that test cases
-  do not fully capture the desired behavioral specification.  We also find that test 
+  that either patches contain unnecessary edits or that test cases
+  do not fully capture the desired behavioral specification.  \todo{Think about
+    how to ephrase this a bit more intuitively, and consider breaking up this
+    bullet into multiple findings.} We also find that test 
   case based validation methods can positively identify close to 40\% of partial repairs,
   while less than
   17\% of partial repairs cause more test assertions to fail. Additionally, the 
@@ -296,28 +303,24 @@ outlining limitations (Section~\ref{sec:limits}), related work
 % don't give up on this yet.  It's a complicated paper, roadmaps might actually
 % meaningfully help
 
-\section{Problem Characterization}
+\section{Problem Definition}
 \label{sec:background}
 
 In this section we overview the background of automated program repair (APR) and
 introduce key concepts that directly motivate our research questions.
 
-\todo{note to self/Claire: make sure this is in here somewhere, it's good}
-  Over 50\% of the fixes in four 
-Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
-those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
+\subsection{Automated Program Repair: a Search Problem}
 
-\subsection{Automated Program Repair and Search Spaces.}
-The central goal of automated program repair (APR) techniques is to
+The central goal of source-level automated program repair (APR) is to
 automatically generate patches for bugs in programs. We restrict attention to
-\emph{dynamic} or \emph{test-case guided} program repair, which describes the
-majority of research advancements over the past decade. Dynamic APR techniques
-take as input a program and a set of test cases that serve as the oracle for
+\emph{dynamic} or \emph{test-case guided} program repair, a prevalent class of
+research techniques over the past decade~\cite{cacm19}.  Dynamic APR techniques
+are characterized by their use of test cases that serve as the oracle for
 program correctness, at least one of which is failing (i.e., exercises the bug
 to be repaired).
 
-At a high level, dynamic APR techniques aim to solve a search or optimization
-problem, searching for a set of edits to the program that will cause it to pass
+At a high level, source level program repair is a \emph{search problem}, where
+the objective is a set of source-level program edits that will cause it to pass
 all of the provided tests. To do this, they first \emph{generate} a candidate
 patch, then run the test suite to \emph{validate} it; for this reason they are
 often called \emph{generate and validate} repair techniques. Generating a patch
@@ -377,6 +380,12 @@ maintained as one of possibly many objectives.
 
 
 \subsection{Multi-Location Patches and Bugs}
+
+\todo{note to self/Claire: make sure this is in here somewhere, it's good}
+  Over 50\% of the fixes in four 
+Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
+those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
+
 State-of-the-art dynamic APR techniques typically generate small patches that
 are confined to a small portion of a program's code, rather than larger patches
 that span multiple logical units of code (e.g., multiple control flow blocks,
