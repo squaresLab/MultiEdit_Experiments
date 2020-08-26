@@ -818,8 +818,8 @@ leave a concrete investigation of this possibility to future work.
 \section{Test case-based validation}
 \label{sec:tests}
 
-Dynamic program repair uses test cases to validate patch plausibility, and are
-typically used as a proxy for a full correctness specification.  Program repair
+Dynamic program repair uses test cases to validate patch plausibility, and tests are
+often used as a proxy for a full correctness specification.  Program repair
 techniques can suffer from \emph{overfitting} --- that is, they can produce
 patches that satisfy the provided tests, but do not generalize to the
 higher-level specification~\cite{Smith15fse}.  
@@ -849,11 +849,14 @@ multi-location bugs:
 
 Given a buggy program and a multi-location repair, if we apply a part of the valid repair to 
 the buggy program (a partial repair), then semantically, the partial repair should be considered closer
- to the full repair compared to the original. 
-Ideally, test cases would suitably identify partial repairs as ``closer'' to a full repair than the original (unmodified program).  This could provide suggestions for composing partial repairs into full repairs (or guidance for an evolutionary search algorithm attempting the same).
-%
-However, sometimes partial repairs will perform no differently on unit tests compared 
-to the original program, and other times they could perform worse. We want to find 
+ to the full repair compared to the original.
+Ideally, test cases would suitably identify partial repairs as ``closer'' to a 
+full repair than the original (unmodified program).
+This could provide suggestions for composing partial repairs into full repairs 
+(or guidance for an evolutionary search algorithm attempting the same).
+However, sometimes partial repairs will perform no differently on unit tests compared
+to the original program~\cite{chris-thesis, source-code-checkpoint},
+and other times they could perform worse~\cite{gecco09}. We want to find
 out how often each of these situations happen.
 
 Moreover, unit test performance can be measured in different granularity levels. 
@@ -864,18 +867,18 @@ partial repairs at different granularity levels.
 \subsection{Methodology}
 \label{sec:partial-repair-methodology}
 
-For each bug in  Defects4j 
+For each bug in Defects4J
 (excluding Closure, which uses a non-standard testing setup)
 and \bears (single-module only), we generate and test all combinations of partial repairs, as follows: 
 
 \subsubsection{Partial Repairs}
 
-To construct partial repairs for each bug, we apply a struct, non-empty subset 
-of location-granularity edits from the human patch to the broken code.
+To construct partial repairs for each bug, we apply a non-empty subset 
+of location-level edits from the human patch to the broken code.
 In order to minimize the number of syntactically invalid partial repairs, 
 we pre-add, prevent the deletion of, or prevent the narrowing of scope of 
 import statements, helper methods, helper classes, and variable declarations.
-For example, if a patch contains an edit location that declares a new variable 
+For example, if a patch contains one edit location that declares a new variable 
 \texttt{var} and a second edit location that might use \texttt{var}, then we 
 pre-add the declaration of \texttt{var} from the first edit location. 
 This allows us to examine semantic behavior of partial edits directly.
@@ -890,20 +893,20 @@ helper method in one edit location and invokes the helper method in the other).
 Due to the exponential growth of the number of partial repairs with respect 
 to the number of available edit operations, we evaluate bugs whose patches 
 contain between two and six edit locations after preprocessing.
-Moreover, we exclude Defect4J's Closure compiler bugs due to 
+Moreover, we exclude Defect4J's Closure bugs due to 
 their nonstandard test suite setup.
-We are left with 240 Defects4J and 74 \bears bugs, a total of 1884 partial repairs for Defects4j 
-and 596 partial repairs for \bears.
+We generate and evaluate 1884 Defects4J and 596 \bears partial repairs,
+derived from 240 Defects4J and 74 \bears bugs.
 
 \subsubsection{Test Granularity}
 
-There are different ways to evaluate and compare JUnit test results. The Class-level granularity 
-considers only which test classes passed and which failed; at method-level 
+There are different ways to evaluate and compare JUnit test results. Class level granularity
+looks at which test classes passed and which failed; at method-level
 granularity, we look at which test methods passed/failed.
 We also consider \emph{assertion-level} granularity, defined as follows:
-For each test method $M$, let $A(M)$ be the set of all assert statements in $M$. 
+for each test method $M$, let $A(M)$ be the set of all assert statements in $M$. 
 When $M$ is run, if an assertion failed, the failure is recorded and the method 
-is allowed to continue to run (as opposed to normally the test method throws an 
+is allowed to continue to run (normally, the test method throws an 
 error and terminates). After running the method, for each assert statement 
 $a\in A(M)$, let $b(a)$ be 1 if $a$ never failed once during the running of $M$, 
 and 0 otherwise. We define the assertion score of $M$ to be 
@@ -915,34 +918,26 @@ assertions in $M$, there should be an increase in $AS(M)$.
 
 \subsection{Results}
 
-To answer RQ5, we report that about 41.3\%  (99 out of 240) of Defects4j bugs and 52.7\% (39 out of 74) of
-\bears bugs in this experiment do not need all edit locations in the provided human patches 
-to pass
-all unit tests. A significant portion of multi-location bugs contains some
-edits that have no effect on test case behavior.  Defects4J bugs are curated by
-default to exclude tangled changes; the \bears bugs are not manually modified in
-this way.  This suggests first, that changes that are expliclity considered bug
-relevant by a human annotator (and thus included in the Defects4J set) are still
-not always necessary to pass all provided test cases, and that this phenomenon
-is exacerbated when bugs are not manually isolated to exclude potentially tangled
-changes (note the difference in behavior on \bears and Defects4J).  
-Although this could
-be a sign of tangled changes, such changes are excluded from Defects4J by
-construction~\cite{defects4j}; suggesting
-that bug benchmarks that rely on real bugs differ from the expected behavior and 
-functionality of program repair techniques.  These results further suggest test
-suite inadequacy in fully testing multi-location
-changes. This provides concrete evidence that
-test cases are an imperfect oracle for multi-location changes in particular. 
+To answer RQ5, we find that 41.3\%  (99 out of 240) of Defects4J bugs and 52.7\% (39 out of 74) of
+\bears bugs do not need all edit locations in the human patches
+to pass all tests.
+A $\chi^2$ test reveals a statistically significant ($p < 0.001$) difference in the frequency
+of non-minimal patches between the two datasets.
+Since Defects4J maintainers manually minimized patches to exclude
+non-corrective changes, the substantial minority of non-test minimal patches
+(41.3\%) is further evidence of test suites' weakness as a proxy for correctness.
+\bears patches, unlike Defects4J, are not minimized. Lack of patch minimization
+is a likely reason for the greater percentage of non-test minimal patches (52.7\%).
 
 Due to the phenomenon above, we present the results for RQ6 in two ways:
 treating the provided human patch as the full repair
 (Unminimized), and considering only the minimum set of edit locations in the
 provided human patch that are necessary
 to pass all unit tests (Minimized).
-Some bugs are minimized to a single edit location, and are thus excluded 
-from the Minimized results. The minimized results 
-include 165 remaining bugs (942 partial repairs) in Defects4j and 44 remaining bugs (232 partial repairs) of \bears. 
+Some bugs are minimized to a single edit location, and are thus excluded
+from the Minimized results. The minimized results
+include 942 Defects4J and 232 \bears partial repairs, derived from
+165 Defects4J and 44 \bears bugs.
 
 Since each bug may have a different 
 number of partial repairs (based on the number of implicated locations per
@@ -962,7 +957,7 @@ excluded from the count.
 {\begin{center}
 \begin{tabular}{ll|rr|rrrr}
 \toprule
-\multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4j} & \multicolumn{2}{c}{\bears} \\
+\multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4J} & \multicolumn{2}{c}{\bears} \\
 \multicolumn{2}{c}{Minimized?} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes}  \\
 \midrule
 \multirow{3}{*}{Positive} & Class & 25.95\% & 12.77 \% & 27.60\% & 9.22\%  \\
@@ -979,37 +974,40 @@ excluded from the count.
 \bottomrule
 \end{tabular}
 \end{center}}
-\caption{Results of partial repairs using test case results
-at all granularity levels.
-More granular fitness functions are generally better at positively identifying partial repairs.}
+\caption{Weighed percent of partial repairs exhibiting a {\normalfont Positive}, {\normalfont Neutral},
+	or {\normalfont Negative} change in test passage, measured at different levels of granularity
+	and with both minimized and unminimized patches.}
 \label{yiweitable}
 %\vspace{-0.5in}
 \end{table}
 
-Table \ref{yiweitable} shows results.
-%
-Using the highest, assertion-level granularity correctively positively identifies 44.49\% (unminimized) and 39.93\% (minimized) of the partial repairs in Defects4j
+Table \ref{yiweitable} shows weighted percentages of partial repairs exhibiting
+different changes in test suite behavior.
+Assertion level granularity correctively positively identifies
+44.49\% (unminimized) and 39.93\% (minimized) of the partial repairs in Defects4J
 and 28.68\% (unminimized) and 18.69 (minimized) of the partial repairs in \bears.
-Only 33.73\% (unminimized) and 31.52\% (minimized) of Defects4j partial repairs and 
+Only 33.73\% (unminimized) and 31.52\% (minimized) of Defects4J partial repairs and 
 49.52\% (unminimized) and 59.60\% (minimized)
-of \bears partial repairs are neutral. Less than 20\% of bugs in both datasets 
-(minimized or unminimized) are negatively identified. This shows that
-test suite results can still often identify
-partial repairs; erroneous identification happens rarely. 
- 
-Our results show that higher granularity levels are better at identifying partial repairs positively, 
-but they also increase the chance of erroneously mis-identifying partial repairs. 
-This tradeoff behaves differently on our different datasets. For example,
-Assertion Level Granularity performed better than Method Level Granularity
-in Defects4j (3.67\% (unminimized) and 5.35\% (minimized) more positively identified partial repairs, with only 1.86\% (unminimized) and 2.64\% (minimized) more negatively identified), but this is not the case in \bears (0.27\% 
-(unminimized) and 0.46\% (minimized)
-more positively identified partial repairs, with about 2.62\% (unminimized) and 3.11\% (minimized)
- more negatively identified).
-Thus, it is recommended that researchers should 
-carefully balance the tradeoffs in granularity level in test case based validation
-in APR research.
+of \bears partial repairs are neutral. Less than 20\% of bugs in both datasets
+(minimized or unminimized) are negatively identified.
+Although the rate of positive and correct identification of partial repairs varies between datasets,
+tests are not often adversarial towards partial repairs, contrary to prior work~\cite{gecco09}.
 
-\subsection{[TODO:Add appropriate title] Correlations between disjointness and partial repair performance (minimized)}
+Finer granularity levels are better at identifying partial repairs positively,
+but they also increase the chance of erroneously mis-identifying partial repairs.
+Improvements between granularity levels vary across datasets --- the improvement 
+in positively identified partial repairs between method and assertion level granularities
+is negligible in Bears but greater in Defects4J.
+Moreover, evaluating patches at finer granularity levels often adds overhead.
+Method level granularity may require executing set-up
+and tear-down processes for each method rather than for
+an entire test class.
+Assertion level granularity requires instrumenting tests with additional
+logic to continue execution when assertions fail.
+Such overhead lowers the number of
+candidate patches that a G\&V tool can validate per unit time.
+The choice of a granularity level is a balancing act with implications on
+multiple axes of APR performance.
 
 \begin{table}
         {\begin{center}
@@ -1017,41 +1015,50 @@ in APR research.
                                 \toprule
                                 & Disjoint & Overlap & Identical & Total \\
                                 \midrule
-                                Has positive PR & 40 & 30 & 12 & 82 \\
-                                No positive PR & 1 & 4 & 16 &  21 \\
+                                $\exists$ positive partial repair & 40 & 30 & 12 & 82 \\
+                                $\nexists$ positive partial repair & 1 & 4 & 16 &  21 \\
                 \midrule
-                                Has negative PR & 2 & 8 & 16 & 26 \\
-                                No negative PR & 39 & 26 & 12 & 77 \\
+                                $\exists$ negative partial repair & 2 & 8 & 16 & 26 \\
+                                $\nexists$ negative partial repair & 39 & 26 & 12 & 77 \\
                 \midrule
                                 Total & 41 & 34 & 28 & 113 \\
                 \bottomrule
                         \end{tabular}
                 \end{center}
         }
-        \caption{Multi-location and multi-test bugs that are included in both the fitness experiment (minimized) and the coverage experiment categorized by coverage pattern and presence of at least one partial repair that is strictly positive/negative; definitions for Overlap, Disjoint, and Identical are taken from our experiments on fault localization.}
+        \caption{Comparison of patch coverage and partial repair
+        test passage.}
         \label{tab:cov_fitness}
 \end{table}
 
+Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ negative tests
+and 2--6 edit locations in the minimized patch, grouped by patch coverage
+under fault-revealing tests and the existence of positively/negatively test-identified
+partial repairs at any granularity level.
+The vast majority of analyzed multi-test, multi-location patches have at least
+one positively identified partial repair.
+Moreover, a $\chi^2$ test finds statistically significant relationships ($p < 0.001$)
+between (non-)identical patch coverage and the existence of positive and
+negative partial repairs. Bugs with identical coverage are less likely to have
+positive partial repairs and more likely to have negative partial repairs.
+Thus, identical coverage correlates with an
+\emph{adversarial} test-based fitness landscape.
+Partial patches with identical coverage may be difficult for a test-based
+fitness function to identify.
 
+These connections between coverage and partial repair test passage
+suggest that fault-revealing tests' patch coverage reflect the tests' ability
+to detect components of a patch.
+%text migrated from Discussion & Takeaways
+Intuitively, if a patch can be
+assembled from two components \textbf{A} and \textbf{B}, two tests that both
+fully cover \textbf{A} and \textbf{B} are less effective at assessing partial
+correctness than two tests that only cover \textbf{A} and \textbf{B} separately.
+In the case of identical coverage, the presence (or absence) of either \textbf{A} or 
+\textbf{B} interferes with both tests; in the case of disjoint coverage, the presence of 
+\textbf{A} or \textbf{B} affects only its covering test.
+Coverage thus influences the accuracy of tests as a judge of partial correctness.
 
-
-\todo{[TODO]: Actually put text here}
-
-Possible conclusions (very rough draft): 
-
-1. Multi-test bugs are very likely to have positive PR
-
-2. Disjoint and Overlap likely gives more positive PR, while Same likely gives more negative PR
-
-\todo{[TODO]: Is this section actually interesting?}
-
-Possible explanation: If a bug is disjoint, then applying parts of the human patch that is covered by one test should pass an additional test without affecting others, so this is strictly positive PR. 
-
-If a bug is same, then applying one part of the repair will affect all tests, so more likely to mess up??
-
-Possible application: Use coverage result to guide fitness function on tolerance of negative performance of candidate patch, or selection pressure
-
-\todo{[TODO]: Fix the above or delete the section}
 
 \section{Limitations}
 \label{sec:limits}
@@ -1067,11 +1074,11 @@ enough approximation for these experiments.
 
 \vspace{1ex}
 \noindent\textbf{Dependency analysis.}
-For simplicity, our dependency analysis was intraprocedural, and it
-does not account for interprocedural dependencies between edited statements.  Although our
-heuristics for method invocations may account for certain interprocedural data
-dependencies, these heuristics may also introduce false positive data reads and
-writes, which may lead to inaccurate determinations of dependency.
+We analyzed dependencies intraprocedurally with some interprocedural 
+heuristics, which make assumptions derived from common Java practices.
+These assumptions are not always true. We use heuristics to add some
+approximated interprocedural data while retaining interprocedural 
+analysis's scalability to large, real world software.
 
 \vspace{1ex}
 \noindent\textbf{Code clones.}
@@ -1087,17 +1094,16 @@ clones could contain two or more locations with similar edits, which we do not e
 
 \vspace{1ex}
 \noindent\textbf{Partial repair construction.}
-The construction of partial repairs, as described in
+Constructing partial repairs, as described in
 Section~\ref{sec:partial-repair-methodology}, breaks up multi-location patches
-into single-location edits. However, in
-reality most automated repair techniques mutate code at a finer granularity, so
+into single-location edits.
+In reality, most APR techniques mutate code at a finer granularity, so
 these edits may not be representative.  Additionally, we only observe if fitness
-functions can be used to identify partial repairs,
-instead of the generation of partial repairs. It may be the case that the
-partial repairs in our experiments would be outside of the search space of a
-particular automated repair technique.
+functions can identify partial repairs. Perhaps the
+partial repairs in our experiments are outside of the search space of a
+particular APR technique.
 Regardless of this limitation, this experiment provides valuable 
-insight into the challenge of automatically repairing bugs requiring
+insight into the challenge of automatically constructing
 multi-location patches.
 
 \section{Related Work}
@@ -1253,10 +1259,7 @@ generate and validate APR techniques can assemble correct patches from partial r
 \item\textbf{Patch coverage should be considered when determining the
   confidence of a test suite's assessment of partial correctness.}
 Test cases are a more accurate metric of partial correctness when coverage
-overlap of patch components is minimized. Intuitively, if a patch can be
-assembled from two components \textbf{A} and \textbf{B}, two tests that both
-fully cover \textbf{A} and \textbf{B} are less effective at assessing partial
-correctness than two tests that only cover \textbf{A} and \textbf{B} separately.
+overlap of patch components is minimized.
 We can reduce the possibility of overlapping coverage by decomposing tests into
 smaller units. Potential methods to decompose tests include
 refactoring~\cite{b-refactoring} or using a finer level of granularity for
