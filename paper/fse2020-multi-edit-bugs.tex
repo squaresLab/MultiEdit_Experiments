@@ -239,7 +239,7 @@ looking specifically at their characteristics with respect to the problem of the
 automatic repair search space.  
 We study the bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
-and \bears~\cite{bears}, in total, 578 bugs in 40 projects.
+and \bears~\cite{bears}, in total, 1018 bugs in 51 projects.
 More than half of these bugs were repaired by a
 human developer using edits at multiple locations.  We look at characteristics along each of the
 relevant axes of the program repair search problem: fault locations, mutation
@@ -428,7 +428,7 @@ FasterXML jackson-dataformat-xml & 6 & 7.5 & 6.2 \\
 Jsoup & 93 & 7.9 & 2.2 \\
 Apache commons-jxpath & 22 & 28.7 & 7.6 \\
 \midrule
-All (Defects4J) & 395 & 813.9 & 518.1 & 184 & 47\% & 144 & 36\% & 90 & 23\%\\
+All (Defects4J) & 835 & 813.9 & 518.1 & 184 & 47\% & 144 & 36\% & 90 & 23\%\\
 \midrule
 \multicolumn{10}{c}{\textbf{\bears (single-module)}} \\
 \midrule
@@ -440,7 +440,7 @@ traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
 \midrule
 All (\bears) & 183 & $>$240.6 & $>$109.4 & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
 \midrule
-Combined (Defects4J \& \bears) & 578 & $>$1054.5 & $>$627.5 & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
+Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 295 & 51\% & 216 & 37\% & 123 & 21\%\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -449,10 +449,10 @@ Combined (Defects4J \& \bears) & 578 & $>$1054.5 & $>$627.5 & 295 & 51\% & 216 &
 
 Our study requires a dataset of indicative, real-world,
 multi-location defects.  We study both the defects in
-Defects4J~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
+Defects4J v2.0.0~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
 summarizes these datasets, both of which
 consist of historical
-bugs found in real world software projects. Defects4J contains 395 bugs from 
+bugs found in real world software projects. Defects4J contains 835 bugs from 
 six Java software projects, and is a popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.
 The dataset's patches are manually minimized to isolate the bug fix 
