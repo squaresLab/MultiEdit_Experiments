@@ -1,5 +1,7 @@
 #From: https://github.com/github/gitignore/blob/master/TeX.gitignore
 
+icse2021-multi-edit-bugs.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
