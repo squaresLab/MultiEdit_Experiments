@@ -1374,13 +1374,13 @@ Coverage thus influences the accuracy of tests as a judge of partial correctness
 \label{sec:limits}
 
 \noindent\textbf{Coverage.}
-We use JaCoCo to collect coverage for experiments, but it has some
-limitations. For example, it cannot collect coverage information for inserted
+We use JaCoCo to collect coverage, but it has some
+limitations. It cannot analyze coverage for inserted
 cases for \texttt{switch} statements, \texttt{else} statements, method
 signatures, and other code constructs that are compiled away during the
-transformation to bytecode. Since our focus is on how the coverage of different
-failing tests compared to each other, we felt that JaCoCo's coverage was a good
-enough approximation for these experiments.
+transformation to bytecode. Since we focus on how the coverage of different
+failing tests compared to each other, we posit that JaCoCo's coverage was a
+sufficient approximation.
 
 \vspace{1ex}
 \noindent\textbf{Dependency analysis.}
@@ -1392,29 +1392,28 @@ analysis's scalability to large, real world software.
 
 \vspace{1ex}
 \noindent\textbf{Code clones.}
-We only examined code clones at the location level.  However, code clones can also occur at the
-granularity of individual lines~\cite{JiaClones}, or even
-subexpressions~\cite{microclones}. We also classified clones into four
-categories (Same, Literal, Composite, Move), but it is possible to decompose
-them in other ways.
+We examined code clones at the location level.  However, clones also occur at the
+granularity of lines~\cite{JiaClones} or
+subexpressions~\cite{microclones}. We classified clones into four
+categories (Same, Literal, Composite, Move), but other categorizations 
+are possible.
 %
-Additionally we did not distinguish between the number
+We did not distinguish between the number
 of edit locations in a particular set of clones. It is possible that a set of
-clones could contain two or more locations with similar edits, which we do not examine. 
+clones contains two or more locations with similar edits, which we do not examine. 
 
 \vspace{1ex}
 \noindent\textbf{Partial repair construction.}
-Constructing partial repairs, as described in
-Section~\ref{sec:partial-repair-methodology}, breaks up multi-location patches
+We constructed partial repairs by breaking up multi-location patches
 into single-location edits.
 In reality, most APR techniques mutate code at a finer granularity, so
-these edits may not be representative.  Additionally, we only observe if fitness
-functions can identify partial repairs. Perhaps the
-partial repairs in our experiments are outside of the search space of a
+these edits may not be representative.  Additionally, we only observe if test suites
+can identify partial repairs. Perhaps our evaluated partial repairs
+are outside of the search space of a
 particular APR technique.
-Regardless of this limitation, this experiment provides valuable 
-insight into the challenge of automatically constructing
-multi-location patches.
+%Regardless of this limitation, this experiment provides valuable 
+%insight into the challenge of automatically constructing
+%multi-location patches.
 
 \section{Related Work}
 \label{sec:related}
