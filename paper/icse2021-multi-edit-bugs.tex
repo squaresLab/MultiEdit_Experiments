@@ -1482,25 +1482,26 @@ improving state-of-the-art APR techniques through empirical studies of bugs and 
 Our study differs in that we focus on 
 source code bugs patched by multiple edits in multiple locations. 
 We draw insights in fault localization, fix mutations, and test-based 
-fitness evaluations. Additionally, we study the program repair 
+patch evaluations. Additionally, we study the program repair 
 benchmark datasets Defects4J 
 and \bears; we believe that the program repair community would derive 
 benefit from a study of APR benchmarks.
 
-Wang et al.~\cite{wang2018} did an empirical study of multi-entity changes in real bug fixes 
-(where each entity is a class, method or field). Their research questions mostly focused on 
-how often and why do real-world bug fixes have multi-entity changes, the relationship 
-between co-changed entities, and the recurring patterns of those multi-entity changes. 
-Through analyzing 2854 real-world bugs from four projects, they found that 66\%-76\% 
-multi-entity fixes are closely related to each other via syntactic dependencies, 
+Wang et al.~\cite{wang2018} empirically studied multi-entity changes in bug patches 
+(where each entity is a class, method or field). They queried
+why and how often do patches have multi-entity changes, relationships 
+between co-changed entities, and recurring patterns of multi-entity changes. 
+By analyzing 2854 real-world bugs from four projects, they found that 66\%-76\% of
+multi-entity fixes contain dependencies, 
 and they identified three major recurring patterns that connects co-changed entities. 
-They suggested a potential way to close the gap between APR fixes and real fixes by 
-enhancing APR to incorporate multi-entity changes. In contrast, our study on bugs that
-requires multiple edits to fix, where the edits may be in the same entity. We define atomic 
-changes (single edit) differently, and we studied interactions between edits 
-(i.e. the lines that changed in the bug fix) instead of entire entities.
+They suggested a potential way to 
+enhance APR by incorporating multi-entity changes. In contrast, we on bugs that
+requires multiple edits to fix, where the edits may be in the same entity. In addition 
+to reinforcing their earlier findings on intra-patch dependencies, we discover 
+additional insights for enhancing APR in the axes of fault localization, 
+fix mutations, and patch validation.
 
-Previous efforts in program repair to derive more search-guiding information 
+Prior work in program repair to use more search-guiding information 
 during candidate patch evaluation 
 include using program invariants~\cite{better-fitness, dinglyu}, 
 intermediate program values~\cite{source-code-checkpoint}, 
@@ -1508,15 +1509,17 @@ and online mutation-based fault localization~\cite{mut-analysis}.
 Some approaches require additional input, such as suspicious variables~\cite{source-code-checkpoint} 
 or known patches for the bug under repair~\cite{better-fitness}, 
 while others exhibit limited performance improvements~\cite{dinglyu, mut-analysis}.
-Our work shows the potential benefit of using more granular objective functions such as
-assertion level granularity compared to class/method level granularity, and maybe
-future research can look into even more granular objective functions such as at a sub-assertion
-level (e.g: different assert distance in AssertEqual, etc).
+We show the potential benefit of deriving more information from tests
+with assertion level granularity.
+Future work may explore more methods to mine information from tests 
+beyond passage or failure.
 
-Schulte et al.~\cite{schulte} studied software mutation robustness, in terms of 
-how often do code mutations have no effect on test results.
-They found that in a large collection of off-the-shelf software, mutational robustness is about 37\%, 
-and discussed potential application of mutation robustness to proactive bug repair. Although our context is different --- they studied random mutations, we study changes associated with specific bug fixes --- we also find a non-trivial proportion of neutral edits in multi-location repairs.  
+Schulte et al.~\cite{schulte} found that 37\% of code mutations 
+do not change test case passage and discussed potential applications 
+of mutation robustness in proactive bug repair. 
+Although our context differs --- they studied random mutations, 
+we study changes associated with specific bug fixes --- we also find a 
+non-trivial proportion of neutral edits in multi-location repairs.  
 
 
 \section{Takeaways and Conclusions}
