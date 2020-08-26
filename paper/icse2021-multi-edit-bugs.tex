@@ -541,12 +541,15 @@ mutation and fix spaces (Section~\ref{sec:mutops}), and validation
 %% what are the claims, what are we studying, why are we studying it
 
 Spectrum-based fault localization (SBFL) is a commonly-studied dynamic
-fault localization technique, and is often more effective than alternatives (like mutation-based fault 
-localization~\cite{mut-analysis} or dynamic program
-slicing~\cite{zou2019empirical}). It is a key first step to characterizing the
+fault localization technique, including techniques like Tarantula~\cite{tarantula},
+Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}, among others.
+%, and is often more effective than alternatives (like mutation-based fault 
+%localization~\cite{mut-analysis} or dynamic program
+%slicing~\cite{zou2019empirical}). 
+Fault loclaization in general is a key first step to characterizing the
 \emph{fault space} in automatic program repair; the majority of dynamic APR
 techniques use some variant of SBFL for this purpose.
-
+%
 Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
   execute buggy portions of the code relatively more often than passing tests.}
 % Thus, if all failing tests execute a particular line of code, then that line of
@@ -567,10 +570,6 @@ coverage of a line.
 % tests and passing tests that execute $s$. There are newer, more effective 
 % SBFL techniques that calculate this score differently, such as Ochiai~\cite{ochiai} and 
 %DStar~\cite{wong2013dstar}. 
-SBFL techniques include but are not limited to Tarantula~\cite{tarantula},
-Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}; in general, though more
-recent approaches are typically more effective, such approaches tend to localize similar
-faults~\cite{zou2019empirical}.
 
 Assigning a suspiciousness score to each line of code is well-suited to single
 location repair. Indeed, the evaluation of most SBFL techniques asks exactly the
