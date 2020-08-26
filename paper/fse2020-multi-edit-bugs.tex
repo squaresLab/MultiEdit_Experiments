@@ -254,7 +254,7 @@ as follows:\footnote{We will complete the presentation of our replication packag
   fault localization may not necessarily hold when used off-the-shelf for
   multi-location repair.
 \item \textbf{Edit dependency.} We 
-find that half of bug patches contain dependent edits, and that bugs with dependent 
+find that 45\% of bug patches contain dependent edits, and that bugs with dependent 
 edits in their patches may be more difficult to automatically repair.
 \item \textbf{Cloning in multi-location repair} We find that over 30\% of bugs with multi-location
 patches have very similar edits applied to different locations, suggesting the viability of 
@@ -263,7 +263,7 @@ none of the faulty locations are covered by all failing tests tend to have code 
 suggesting a way to tell when we should use a program repair technique designed for code 
 clones.
 \item \textbf{Test cases for patch validation.} We find that over 40\% of bugs with multi-location
-  patches in Defects4j more than half in \bears do not require the edits at every
+  patches in Defects4J and over half in \bears do not require the edits at every
   location in their provided human patches to pass all test cases, suggesting
   that either patches contain unnecessary edits or (more likely) that test cases
   do not fully capture the desired behavioral specification.  We also find that test 
