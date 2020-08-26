@@ -281,7 +281,7 @@ priori, which type of technique may apply to a given bug.
     bullet into multiple findings.} We also find that test 
   case based validation methods can positively identify close to 40\% of partial repairs,
   while less than
-  17\% of partial repairs cause more test assertions to fail. Additionally, the 
+  20\% of partial repairs cause more test assertions to fail. Additionally, the 
   \emph{granularity} at which test suite behavior is measured (i.e., at the class,
   method, or assertion level) influences ability to identify partial
   repairs. 
@@ -1245,12 +1245,12 @@ Finer granularity levels are better at identifying partial repairs positively,
 but they also increase the chance of erroneously mis-identifying partial repairs.
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
-is negligible in Bears but greater in Defects4J.
+is negligible in Bears (less than 0.5\%) but greater in Defects4J (3.67\% unminimized and 5.35\% minimized).
 Moreover, evaluating patches at finer granularity levels often adds overhead.
 Method level granularity may require executing set-up
 and tear-down processes for each method rather than for
 an entire test class.
-Assertion level granularity requires instrumenting tests with additional
+Assertion level granularity requires instrumenting JUnit with additional
 logic to continue execution when assertions fail.
 Such overhead lowers the number of
 candidate patches that a G\&V tool can validate per unit time.
