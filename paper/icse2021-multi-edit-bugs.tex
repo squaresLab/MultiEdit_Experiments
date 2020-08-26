@@ -485,8 +485,7 @@ Defects4J v2.0.0~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:datas
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 835 bugs from 
-\todo{This text doesn't match the table.}
-six Java software projects, and is a popular dataset for evaluating 
+17 Java software projects, and is a popular dataset for evaluating 
 program repair tools that target Java~\cite{durieux-repair-them-all}.\todo{add
   more references, there are other papers that use d4j to evaluate}
 The dataset's patches are manually minimized to isolate the bug fix 
@@ -501,8 +500,7 @@ a set of Java bugs derived from failed Travis-CI builds of GitHub projects.
 projects compared to Defects4J. 
 Several projects in \bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
-\todo{Is it worth expanding slightly on why/what this means? And, are these
-  numbers accurate?}
+\todo{Is it worth expanding slightly on why/what this means?}
 We thus limit our analysis of \bears to 183 bugs from 34 single-module projects.
 \todo{what's going on with multi-location versus multi-test}
 
@@ -511,7 +509,7 @@ We start our analysis of multi-location patches by asking:
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and \bears. 
-We find that multi-location patches comprise over half of \bears and almost half of Defects4J.
+We find that multi-location patches comprise 61\% of \bears and 44\% of Defects4J.
 Although a multi-location human patch for a bug does not imply the 
 non-existence of a simpler patch, the high proportion of bugs that have 
 multi-location patches demonstrates the relevance of such bugs to fault localization and
@@ -519,10 +517,10 @@ program repair.
 
 \bears contains a greater proportion of 
 multi-location patches compared to Defects4J. This may be the 
-result of manual patch minimization in Defects4J~\cite{defects4j} 
+result of manual patch minimization in Defects4J
 and lack thereof in \bears.
-Thus, some \bears patches may be multi-location as a result of additional 
-changes added for non-repair reasons.
+Thus, some \bears patches may be multi-location due to
+non-corrective edits (e.g.: refactorings, feature additions).
 
 Having established both that multi-location edits are common in real-world
 programs, and established a suitable, plausibly indicative dataset to study
@@ -1284,11 +1282,8 @@ but they also increase the chance of erroneously mis-identifying partial repairs
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
 is negligible in Bears (less than 0.5\%) but greater in Defects4J (3.67\% unminimized and 5.35\% minimized).
-Moreover, evaluating patches at finer granularity levels often adds overhead.
-Method level granularity may require executing set-up
-and tear-down processes for each method rather than for
-an entire test class.
-Assertion level granularity requires instrumenting JUnit with additional
+Moreover, evaluating patches at finer granularity levels can add overhead.
+For example, assertion level granularity requires instrumenting JUnit with additional
 logic to continue execution when assertions fail.
 Such overhead lowers the number of
 candidate patches that a G\&V tool can validate per unit time.
@@ -1307,7 +1302,7 @@ multiple axes of APR performance.
                                 $\exists$ negative partial repair & 2 & 8 & 16 & 26 \\
                                 $\nexists$ negative partial repair & 39 & 26 & 12 & 77 \\
                 \midrule
-                                Total & 41 & 34 & 28 & 113 \\
+                                Total & 41 & 34 & 28 & 103 \\
                 \bottomrule
                         \end{tabular}
                 \end{center}
@@ -1317,7 +1312,7 @@ multiple axes of APR performance.
         \label{tab:cov_fitness}
 \end{table}
 
-Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ negative tests
+Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ failing tests
 and 2--6 edit locations in the minimized patch, grouped by patch coverage
 under fault-revealing tests and the existence of positively/negatively test-identified
 partial repairs at any granularity level.
