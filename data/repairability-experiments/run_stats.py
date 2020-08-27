@@ -214,8 +214,11 @@ def normalize_bugId(not_normalized_bugId: str) -> BugId:
     """
     not_normalized_bugId = not_normalized_bugId.strip()
 
-    proj_raw = proj_pattern.search(not_normalized_bugId).group(1)
-    bugnum_raw = bugnum_pattern.search(not_normalized_bugId).group(1)
+    try:
+        proj_raw = proj_pattern.search(not_normalized_bugId).group(1)
+        bugnum_raw = bugnum_pattern.search(not_normalized_bugId).group(1)
+    except AttributeError:
+        raise Exception(f'Cannot interpret: {not_normalized_bugId}')
 
     proj = proj_raw[0].upper() + proj_raw[1:].lower()
     bugnum = int(bugnum_raw)
@@ -231,6 +234,9 @@ def get_bug_list(path_to_bug_list_file: str) -> List[BugId]:
 
     with open(path_to_bug_list_file) as f:
         for line in f:
+            if len(line.strip()) == 0:
+                continue #ignore empty lines
+
             not_normalized_bugId = line
             bugId = normalize_bugId(not_normalized_bugId)
             bug_list.append(bugId)
@@ -371,6 +377,10 @@ dependencies: Dict[BugId, Tuple[bool, bool, bool, bool, bool, bool]] = get_depen
 tool_to_repaired_bugs: Dict[APRTool, List[BugId]] = get_tool_to_repaired_bugs()
 
 all_repairable_bugs: Set[BugId] = set(chain.from_iterable(tool_to_repaired_bugs.values()))
+
+two_six_location_bugs = set(get_bug_list('../2_6_locs_bugs.data'))
+
+validation_experiment_bugs = set(get_bug_list('partial-repair/unminimized-evaluated-bugs.data'))
 
 
 
@@ -661,7 +671,7 @@ def print_edit_and_test_info(all_bugs, multi_edit_bugs, multi_test_bugs):
             "Num edits and num tests",
             'single test', 'multi-tests', 'single chunk', 'multi-chunk')
 
-def get_multi_edit_frequencies_per_proj():
+def get_table_1_stats():
     # override definition
     mlocation_mtest_bugs = multi_location_bugs & multi_test_bugs
 
@@ -670,20 +680,65 @@ def get_multi_edit_frequencies_per_proj():
     proj_to_multi_location_bugs = partition_bugs_by_project(multi_location_bugs)
     proj_to_multi_test_bugs = partition_bugs_by_project(multi_test_bugs)
     proj_to_mlocation_mtest_bugs = partition_bugs_by_project(mlocation_mtest_bugs)
+    proj_to_two_six_location_bugs = partition_bugs_by_project(two_six_location_bugs)
+    proj_to_validation_exp_bugs = partition_bugs_by_project(validation_experiment_bugs)
 
-    print("Proj\tTotal\tMChunk\tMTest\tMTestMChunk")
+    table = []
+    table.append(['Proj', 'Total', 'MLoc', '%', 'MLocMTest', '%', '2-6Loc', '%', 'MLine', '%']) # header row
+
     for proj in proj_to_bugs.keys():
-        total = len(proj_to_bugs[proj])
-        #mline = len(proj_to_multi_line_bugs[proj])
-        #p_mline = percent(mline, total)
-        mlocation = len(proj_to_multi_location_bugs[proj])
+        total = len(proj_to_bugs.get(proj, []))
+
+        mlocation = len(proj_to_multi_location_bugs.get(proj, []))
         p_mlocation = percent(mlocation, total)
-        mtest = len(proj_to_multi_test_bugs.get(proj, []))
-        p_mtest = percent(mtest, total)
+
         mlocationmtest = len(proj_to_mlocation_mtest_bugs.get(proj, []))
         p_mlocationmtest = percent(mlocationmtest, total)
-        print('{}\t{}\t{}({})\t{}({})\t{}({})' \
-                .format(proj, total, mlocation, p_mlocation, mtest, p_mtest, mlocationmtest, p_mlocationmtest))
+
+        two_six_loc = len(proj_to_two_six_location_bugs.get(proj, []))
+        p_two_six = percent(two_six_loc, total)
+
+        mline = len(proj_to_multi_line_bugs.get(proj, []))
+        p_mline = percent(mline, total)
+
+        #validation_exp = len(proj_to_validation_exp_bugs.get(proj, []))
+        #p_validation_exp = percent(validation_exp, total)
+
+        proj_row = [proj, total,
+                    mlocation, p_mlocation,
+                    mlocationmtest, p_mlocationmtest,
+                    two_six_loc, p_two_six,
+                    mline, p_mline,
+                    #validation_exp, p_validation_exp]
+                    ]
+
+        latex_line = f'{mlocation} & {p_mlocation} & {mlocationmtest} & {p_mlocationmtest} ' \
+                     f'& {two_six_loc} & {p_two_six} & {mline} & {p_mline}'
+        latex_line = latex_line.replace('%', '\\%')
+
+        table.append(proj_row)
+        #table.append([proj, latex_line])
+
+
+    table_proj_rank = {'Proj': 0, 'Chart': 1, 'Closure': 2, 'Lang': 3, 'Math': 4, 'Mockito': 5, 'Time': 6, 'Cli': 7,
+                       'Codec': 8, 'Collections': 9, 'Compress': 10, 'Csv': 11, 'Gson': 12, 'Jacksoncore': 13, 'Jacksondatabind': 14,
+                       'Jacksonxml': 15, 'Jsoup': 16, 'Jxpath': 17,
+                       'FasterXML-jackson-databind': 18, 'INRIA-Spoon': 19, 'Spring-data-commons': 20,
+                       'Traccar-traccar': 21, 'Other-Bears': 22}
+    table.sort(key=lambda row: table_proj_rank[row[0]])
+
+    from tabulate import tabulate
+    print(tabulate(table))
+
+    print('D4J MLoc', (x := sum(row[2] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
+    print('D4J MLocMTest', (x := sum(row[4] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
+    print('D4J 2-6Loc', (x := sum(row[6] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
+    print('D4J MLine', (x := sum(row[8] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
+
+    print('Bears MLoc', (x := sum(row[2] for row in table[-5:])), percent(x, len(all_bears_bugs)))
+    print('Bears MLocMTest', (x := sum(row[4] for row in table[-5:])), percent(x, len(all_bears_bugs)))
+    print('Bears 2-6Loc', (x := sum(row[6] for row in table[-5:])), percent(x, len(all_bears_bugs)))
+    print('Bears MLine', (x := sum(row[8] for row in table[-5:])), percent(x, len(all_bears_bugs)))
 
 if __name__=='__main__':
-    get_multi_edit_frequencies_per_proj()
+    get_table_1_stats()
