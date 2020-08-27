@@ -459,7 +459,7 @@ paradigm.
 \begin{center}
 \begin{tabular}{l  rrr | rr | rr | rr | rr }
 \toprule
-\multicolumn{10}{c}{\textbf{Defects4J}} \\
+\multicolumn{12}{c}{\textbf{Defects4J v2.0.0}} \\
 \midrule
 Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location} & \multicolumn{2}{c}{Multi-location \&}      & \multicolumn{2}{c}{2--6 location} & \multicolumn{2}{c}{Multi-line} \\
             &          &                  &                  & \multicolumn{2}{c}{bugs}              & \multicolumn{2}{c}{multi-failing test}   & \multicolumn{2}{c}{bugs}             & \multicolumn{2}{c}{bugs} \\
@@ -484,7 +484,7 @@ Apache commons-jxpath & 22 & 28.7 & 7.6 & 16 & 73\% & 8 & 36\% & 13 & 59\% & 21 
 \midrule
 All (Defects4J) & 835 & 813.9 & 518.1 & 399 & 48\% & 183 & 22\% & 308 & 37\% & 659 & 79\%\\
 \midrule
-\multicolumn{10}{c}{\textbf{\bears (single-module)}} \\
+\multicolumn{12}{c}{\textbf{\bears (single-module)}} \\
 \midrule
 FasterXML jackson-databind & 26 & 80.7 & 41.2 & 17 & 65\% & 2 & 8\% & 10 & 38\% & 23 & 88\% \\
 INRIA Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 18 & 29\% & 17 & 27\% & 52 & 84\% \\
@@ -498,10 +498,10 @@ Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:dataset-characteristics} Characteristics of the Defects4J
-  (top) and \bears (bottom) datasets.\todo{multi-location vs multi-test: don't
-    belabor the point, but this caption should say SOMETHING about how to read
-    the table.}}
+\caption{\label{tab:dataset-characteristics} Characteristics of Defects4J
+  (top) and \bears (bottom) datasets.
+  Out of a total of 1018 bugs, 50\% are multi-location.
+  }
 \end{table*}
 
 Our study requires a dataset of indicative, real-world,
