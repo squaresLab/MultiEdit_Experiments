@@ -76,7 +76,7 @@ for dir in folders:
 
                     if line in multi_edit:
                         multichunk_same+=1
-                        multichunk_same_projects[project] = disjoint_projects.get(project, 0) + 1
+                        multichunk_same_projects[project] = same_projects.get(project, 0) + 1
                         print(f'same {line}')
 
     with open(dir+"/inBetween.data") as f:
@@ -91,7 +91,7 @@ for dir in folders:
 
                     if line in multi_edit:
                         multichunk_inBetween+=1
-                        multichunk_inBetween_projects[project] = disjoint_projects.get(project, 0) + 1
+                        multichunk_inBetween_projects[project] = inBetween_projects.get(project, 0) + 1
                         print(f'overlap {line}')
 
 

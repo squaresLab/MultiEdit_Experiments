@@ -63,7 +63,15 @@ print("overlap", originally_overlap)
 plt.rcParams.update({'font.size': 20})
 # plt.rcParams.update({'font.family': 'serif'})
 
-plt.boxplot([originally_disjoint, originally_overlap, originally_identical], labels=["disjoint", "overlap", "identical"])
+prop = {'linewidth':3}
+
+plt.boxplot([originally_disjoint, originally_overlap, originally_identical], labels=["Contradicts", "Partially Holds", "Holds"],
+	boxprops=prop,
+	capprops=prop,
+	whiskerprops=prop,
+	flierprops=prop,
+	medianprops=prop,
+	meanprops=prop)
 plt.ylabel("Percent coverage by all failing tests",labelpad=15)
 plt.yticks(ticks=[0.0, 0.2, 0.4, 0.6, 0.8, 1.0], labels=['0%', '20%', '40%', '60%', '80%', '100%'])
 plt.xlabel("Coverage pattern",labelpad=15)

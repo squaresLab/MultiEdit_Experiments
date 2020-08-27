@@ -676,29 +676,13 @@ pattern. \todo{Use a real statistical measure}\todo{Yes, really.}
 \todo{Combine these three figures into 1}
 
 \begin{figure}
-	\includegraphics[width=\linewidth]{img/coverage-all.pdf}
+	\includegraphics[width=\linewidth]{img/coverage_hist_all.pdf}
 	\caption{Distribution of localization categories for bugs with multiple failing
-      tests that are repaired with multi-location patches in Bears and Defects4J.}
+      tests that are repaired with multi-location patches. In general, the categories are relatively 
+      evenly populated, with a slightly higher proportion of bugs in \emph{partially holds}. In 
+      addition, the two datasets produce different distributions, reflecting the different 
+      ways these datasets were collected.}
 	\label{fig:coverage-all}
-\end{figure}
-
-
-\begin{figure}
-	\begin{subfigure}{\linewidth}
-		\includegraphics[width=\linewidth]{img/coverage-d4j.pdf}
-		\caption{Distribution of localization categories for Defects4J.}
-	\end{subfigure}
-
-\vspace{0.5cm}
-
-	\begin{subfigure}{\linewidth}
-		\includegraphics[width=\linewidth]{img/coverage-bears.pdf}
-		\caption{Distribution of localization categories for Bears.}
-	\end{subfigure}
-	\caption{Distribution of localization categories by dataset,
-          indicating significant differences between the multi-location bugs in
-          Bears and Defects4J.}
-	\label{fig:coverage-datasets}
 \end{figure}
 
 \subsection{Results}
@@ -752,12 +736,13 @@ these types of multi-location, multi-test bugs.}
 \begin{figure}
 	\includegraphics[width=\linewidth,left]{img/coverage-buggy.pdf}
 	\caption{Boxplots representing the distribution of bugs based on it's percentage of lines 
-	executed 
-	by all failing tests. A bug scored at 100\% indicates that all failing tests executed the same 
-	lines of 
-	code, whereas a bug scored at 0\% indicates failing tests all executed different lines of 
-	code. 
-	These boxplots are split by localization category, as categorized before.}
+	executed by all failing tests, measuring the degree to which failing tests execute the same 
+	code. The distributions for the \emph{contradicts} and \emph{partially holds} are more or 
+	less uniformly distributed in the percent of code executed by all failing tests. The 
+	distribution for the \emph{holds} category skews towards higher percentages, but the range 
+	still spans across 5\% to 100\%. Thus, there seems to be little correlation between 
+	localization categories and whether failing tests all execute the same code in the buggy 
+	program.}
 	\label{fig:coverage-buggy}
 \end{figure}
 
