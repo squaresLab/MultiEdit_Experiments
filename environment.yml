@@ -15,4 +15,3 @@ dependencies:
   - seaborn=0.10.1
   - pip:
     - javalang==0.13.0
-prefix: /home/serenach/anaconda3/envs/multiedit-empiricalstudy
