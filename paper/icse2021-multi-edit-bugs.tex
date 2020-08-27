@@ -932,6 +932,8 @@ dependencies to repair a large class of difficult bugs.
 
 \subsection{Cloned code}
 
+\subsubsection{Occurrances of cloned code}
+
 If multi-location patches composed of multiple, dependent edits constitute one
 extreme, at the other extreme lies patches consisting of the same code applied
 in several locations (of course, between those extremes lie patches consisting
@@ -939,25 +941,7 @@ of a mix of both). Previous techniques have targeted exectly these types of
 bugs~\cite{wang2018,saha2019harnessing}.  We evaluate how often this relationship applies to
 multi-location bugs, and thus the usefulness of techniques that assume it, by asking: 
 
-\todo{I don't love mushing these two questions into 1.  It's not obvious why
-  we're asking the second question, nor why it's so closely tied to the first
-  question that it doesn't deserve it's own number.}
-\rqorinsight{4}{How often do code clones occur in multi-location bugs? Is the existence of 
-	code
-	clones in human patches correlated with specific patterns of fault localization?}
-
-\todo{This whole section needs to be updated to match Leo's rephrase of that section.  And, I
-  advocate a decoupling of the two research questions, as above, so this will
-  need to be updated to flow accordingly.}
-We further attempt to correlate the coverage patterns outlines in
-Section~\ref{secFL} with the existence of code clones in human patches.  Our 
-intuition is that a \emph{contradicts} bug may be more likely to occur when a
-developer needs to apply the same fix at multiple independent locations, that
-can or should be tested separately.  We therefore 
- hypothesize that \emph{contradicts} bugs will have a higher incidence of code
-clones. By contrast, bugs categorized as \emph{partially holds} or \emph{holds} may have
-more inter-related parts that are not merely the same statements copied to
-multiple locations.
+\rqorinsight{4}{How often do code clones occur in multi-location bugs?}
 
 %Possible intuition: if we can find some kind of correlation between fault localization results
 %and code clones, then if some APR research decided to follow Wang et al's suggestion and
@@ -965,8 +949,7 @@ multiple locations.
 %the APR to be more likely to apply the repeat edit operator when the fault localization
 %result matches specific patterns.
 
-\subsubsection{Methodology}
-\label{sec52}%...sec 52? wha?
+%\paragraph{Methodology}
 Our dataset includes all multi-location bugs excluding those with more than 6 faulty locations to 
 constrain the search space, leaving 216 bugs to analyze. We determine the existence of code 
 clones through manual inspection.
@@ -996,8 +979,7 @@ while the other is a deletion of the same code, essentially moving the code from
 another).
 \end{enumerate}
 
-\subsubsection{Results}
-
+%\paragraph{Results}
 \begin{table}
 {\begin{center}
 \begin{tabular} {lrrrrrr}
@@ -1035,10 +1017,10 @@ patches.  Note that "Any" may not be the sum of the previous four rows because
 some bug could contain multiple pairs of code clones that belong to different
 categories.
 
-\todo{JL: Make this reference the other table. As shown in Table \ref{tab:clones_loc}, close to half of code clones are in the same method, while less than
+Moreover, close to half of code clones are in the same method, while less than
 15\% of the code clones occur in different classes. Moreover, out of the 129 sets of code clones,
 80 of them belongs to the ``same'' category, which means that 62\% of sets of code clones have completely
-alpha-equivalent edit locations within them.}
+alpha-equivalent edit locations within them.
 
 % code clones <-> hercules data
 % idk how what the conclusion from this information is so I'm just gonna put numbers in
@@ -1048,7 +1030,21 @@ alpha-equivalent edit locations within them.}
 %was 
 %a bug whose patch required 6 or more locations, and in going back, the human patch also 
 %contained code clones. 
+\subsubsection{Correlations between test coverage and code clones}
 
+To harness the presence of code clones in repairs, it would be great if APR tools can get information about the bug from fault localization that may indicate that a correct repair may contain code clones. Therefore we ask: 
+
+\rqorinsight{5}{Is the existence of code clones in human patches correlated with specific patterns of fault localization?}
+
+In order to do that, we further attempt to correlate the coverage patterns outlines in
+Section~\ref{secFL} with the existence of code clones in human patches.  Our 
+intuition is that a \emph{contradicts} bug may be more likely to occur when a
+developer needs to apply the same fix at multiple independent locations, that
+can or should be tested separately.  We therefore 
+ hypothesize that \emph{contradicts} bugs will have a higher incidence of code
+clones. By contrast, bugs categorized as \emph{partially holds} or \emph{holds} may have
+more inter-related parts that are not merely the same statements copied to
+multiple locations.
 \begin{table}
   {\begin{center}
       \begin{tabular} {lrrrr}
@@ -1335,10 +1331,10 @@ partial repairs at any granularity level.
 The vast majority of analyzed multi-test, multi-location patches have at least
 one positively identified partial repair.
 Moreover, a $\chi^2$ test finds statistically significant relationships ($p < 0.001$)
-between (non-)HOLDS patch coverage and the existence of positive and
-negative partial repairs. Bugs with HOLDS coverage are less likely to have
+between (non-)\emph{holds} patch coverage and the existence of positive and
+negative partial repairs. Bugs with \emph{holds} coverage are less likely to have
 positive partial repairs and more likely to have negative partial repairs.
-Thus, HOLDS coverage correlates with an
+Thus, \emph{holds} coverage correlates with an
 \emph{adversarial} test-based fitness landscape.
 Partial patches with holds coverage may be difficult for a test-based
 fitness function to identify.
@@ -1351,17 +1347,17 @@ Intuitively, if a patch can be
 assembled from two components \textbf{A} and \textbf{B}, two tests that both
 fully cover \textbf{A} and \textbf{B} are less effective at assessing partial
 correctness than two tests that only cover \textbf{A} and \textbf{B} separately.
-In the case of HOLDS coverage, the presence (or absence) of either \textbf{A} or 
-\textbf{B} interferes with both tests; in the case of CONTRADICTS coverage, the presence of 
+In the case of \emph{holds} coverage, the presence (or absence) of either \textbf{A} or 
+\textbf{B} interferes with both tests; in the case of \emph{contradicts} coverage, the presence of 
 \textbf{A} or \textbf{B} affects only its covering test.
 Coverage thus influences the accuracy of tests as a judge of partial correctness.
 
 Of course, in actual APR we cannot classify the coverage into these three categories 
 because we don't know the correct repair and its components. However, if we can infer the
-likelihood of a bug belonging to the HOLDS category by the number of lines covered by all
-failing tests (since HOLDS requires all failing tests to cover the entire repair), then we
+likelihood of a bug belonging to the \emph{holds} category by the number of lines covered by all
+failing tests (since \emph{holds} requires all failing tests to cover the entire repair), then we
 may use that information to adjust tolerance of neutral or negative candidate patches, as
-the correlation shows that HOLDS bugs are more likely to have correct partial repairs that
+the correlation shows that \emph{holds} bugs are more likely to have correct partial repairs that
 are neutral or negative in tests. \todo{YL: I don't know whether what I wrote in this paragraph
 makes sense at all. I'm just trying to come up
 with something that justifies this RQ. If it is not, we can either come up with a better justification
