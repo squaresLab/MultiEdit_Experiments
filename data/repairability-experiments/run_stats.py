@@ -361,16 +361,16 @@ all_d4j_bugs: Set[BugId]  = get_all_d4j_bugs()
 all_bears_bugs: Set[BugId]  = get_all_bears_bugs()
 all_bugs: Set[BugId]  = all_d4j_bugs | all_bears_bugs
 
-multi_line_bugs_d4j: Set[BugId] = set(get_bug_list('../multi-line-bugs/multi_line_d4j.data'))
-multi_line_bugs_bears: Set[BugId]  = set(get_bug_list('../multi-line-bugs/multi_line_bears.data'))
+multi_line_bugs_d4j: Set[BugId] = all_bugs & set(get_bug_list('../multi-line-bugs/multi_line_d4j.data'))
+multi_line_bugs_bears: Set[BugId]  = all_bugs & set(get_bug_list('../multi-line-bugs/multi_line_bears.data'))
 multi_line_bugs: Set[BugId]  = multi_line_bugs_d4j | multi_line_bugs_bears
 
-multi_location_bugs_d4j: Set[BugId] = set(get_bug_list('../multi-location-bugs/multi_location_d4j.data'))
-multi_location_bugs_bears: Set[BugId] = set(get_bug_list('../multi-location-bugs/multi_location_bears.data'))
+multi_location_bugs_d4j: Set[BugId] = all_bugs & set(get_bug_list('../multi-location-bugs/multi_location_d4j.data'))
+multi_location_bugs_bears: Set[BugId] = all_bugs & set(get_bug_list('../multi-location-bugs/multi_location_bears.data'))
 multi_location_bugs = multi_location_bugs_d4j | multi_location_bugs_bears
 
-multi_test_bugs: Set[BugId] = set(get_bug_list('../more_than_one_test.txt'))
-mlocation_mtest_bugs: Set[BugId] = set(get_bug_list('../multitest_multiedit.txt'))
+multi_test_bugs: Set[BugId] = all_bugs & set(get_bug_list('../more_than_one_test.txt'))
+mlocation_mtest_bugs: Set[BugId] = all_bugs & set(get_bug_list('../multitest_multiedit.txt'))
 
 dependencies: Dict[BugId, Tuple[bool, bool, bool, bool, bool, bool]] = get_dependencies()
 
@@ -700,9 +700,6 @@ def get_table_1_stats():
 
         mline = len(proj_to_multi_line_bugs.get(proj, []))
         p_mline = percent(mline, total)
-
-        #validation_exp = len(proj_to_validation_exp_bugs.get(proj, []))
-        #p_validation_exp = percent(validation_exp, total)
 
         proj_row = [proj, total,
                     mlocation, p_mlocation,
