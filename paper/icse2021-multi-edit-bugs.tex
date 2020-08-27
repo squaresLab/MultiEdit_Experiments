@@ -457,45 +457,44 @@ paradigm.
 
 \begin{table*}
 \begin{center}
-\begin{tabular}{l  rrr | rr | rr | rr}
+\begin{tabular}{l  rrr | rr | rr | rr | rr }
 \toprule
 \multicolumn{10}{c}{\textbf{Defects4J}} \\
 \midrule
-Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location} 
-		& \multicolumn{2}{c}{Multi-test} & \multicolumn{2}{c}{Multi-location \&}\\
-&&&&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{bugs}&\multicolumn{2}{c}{Multi-test bugs}\\
+Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location} & \multicolumn{2}{c}{Multi-location \&}      & \multicolumn{2}{c}{2--6 location} & \multicolumn{2}{c}{Multi-line} \\
+            &          &                  &                  & \multicolumn{2}{c}{bugs}              & \multicolumn{2}{c}{multi-negative test}   & \multicolumn{2}{c}{bugs}             & \multicolumn{2}{c}{bugs} \\
 \midrule
-JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 10 & 38\% & 7 & 27\%\\
-Closure compiler & 174 & 150.6 & 112.6 & 55 & 41\% & 58 & 44\% & 31 & 23\%\\
-Apache commons-lang & 64 & 57.8 & 47.4  & 32 & 49\% & 17 & 26\% & 13 & 20\%\\
-Apache commons-math & 106 & 45.0 & 41.5 & 53 & 50\% & 28 & 26\% & 22 & 21\%\\
-Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 18 & 47\% & 8 & 21\%\\
-Joda-Time & 26 & 82.9 & 70.4 & 17 & 63\% & 13 & 48\% & 9 & 33\%\\
-Apache commons-cli & 39 & 5.7 & 4.6 & 19 & 49\% & 13 & 33\% & 8 & 21\%\\
-Apache commons-codec & 18 & 5.8 & 5.8 & 4 & 22\% & 9 & 50\% & 2 & 11\% \\
-Apache commons-collections & 4 & 64.9 & 47.6 & 1 & 25\% & 0 & 0\% & 0 & 0\%\\
-Apache commons-compress & 47 & 12.8 & 3.1 & 24 & 51\% & 9 & 19\% & 6 & 13\%\\ 
-Apache commons-csv & 16 & 2.6 & 3.9 & 3 & 19\% & 3 & 19\% & 2 & 12\%\\
-Gson & 18 & 16.8 & 12.8 & 6 & 33\% & 9 & 50\% & 5 & 28\%\\
-FasterXML jackson-core & 26 & 27.9 & 8.1 & 13 & 50\% & 8 & 31\% & 5 & 19\%\\
-FasterXML jackson-databind & 112 & 80.7 & 41.2 & 58 & 52\% & 14 & 12\% & 9 & 8\%\\
-FasterXML jackson-dataformat-xml & 6 & 7.5 & 6.2 & 5 & 83\% & 2 & 33\% & 2 & 33\%\\
-Jsoup & 93 & 7.9 & 2.2 & 32 & 34\% & 29 & 31\% & 21 & 23\%\\
-Apache commons-jxpath & 22 & 28.7 & 7.6 & 16 & 73\% & 9 & 41\% & 8 & 36\%\\
+JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 7 & 27\% & 11 & 42\% & 17 & 65\%\\
+Closure compiler & 174 & 150.6 & 112.6 & 87 & 50\% & 55 & 32\% & 75 & 43\% & 145 & 83\% \\
+Apache commons-lang & 64 & 57.8 & 47.4  & 32 & 50\% & 13 & 20\% & 26 & 41\% & 50 & 78\% \\
+Apache commons-math & 106 & 45.0 & 41.5 & 56 & 53\% & 24 & 23\% & 44 & 42\% & 82 & 77\% \\
+Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 8 & 21\% & 7 & 18\% & 30 & 79\% \\
+Joda-Time & 26 & 82.9 & 70.4 & 17 & 65\% & 9 & 35\% & 10 & 38\% & 22 & 85\% \\
+Apache commons-cli & 39 & 5.7 & 4.6 & 19 & 49\% & 8 & 21\% & 15 & 38\% & 33 & 85\% \\
+Apache commons-codec & 18 & 5.8 & 5.8 & 4 & 22\% & 2 & 11\% & 2 & 11\% & 8 & 44\% \\
+Apache commons-collections & 4 & 64.9 & 47.6 & 1 & 25\% & 0 & 0\% & 1 & 25\% & 3 & 75\% \\
+Apache commons-compress & 47 & 12.8 & 3.1 & 24 & 51\% & 6 & 13\% & 19 & 40\% & 42 & 89\% \\ 
+Apache commons-csv & 16 & 2.6 & 3.9 & 3 & 19\% & 2 & 12\% & 2 & 12\% & 11 & 69\% \\
+Gson & 18 & 16.8 & 12.8 & 6 & 33\% & 5 & 28\% & 5 & 28\% & 11 & 61\% \\
+FasterXML jackson-core & 26 & 27.9 & 8.1 & 13 & 50\% & 5 & 19\% & 12 & 46\% & 21 & 81\% \\
+FasterXML jackson-databind & 112 & 80.7 & 41.2 & 58 & 52\% & 9 & 8\% & 39 & 35\% & 97 & 87\% \\
+FasterXML jackson-dataformat-xml & 6 & 7.5 & 6.2 & 5 & 83\% & 2 & 33\% & 4 & 67\% & 6 & 100\% \\
+Jsoup & 93 & 7.9 & 2.2 & 32 & 34\% & 21 & 23\% & 23 & 25\% & 60 & 65\% \\
+Apache commons-jxpath & 22 & 28.7 & 7.6 & 16 & 73\% & 8 & 36\% & 13 & 59\% & 21 & 95\% \\
 \midrule
-All (Defects4J) & 835 & 813.9 & 518.1 & 365 & 44\% & 249 & 30\% & 158 & 20\%\\
+All (Defects4J) & 835 & 813.9 & 518.1 & 400 & 48\% & 184 & 22\% & 308 & 37\% & 659 & 79\%\\
 \midrule
 \multicolumn{10}{c}{\textbf{\bears (single-module)}} \\
 \midrule
-FasterXML jackson-databind & 26 & 80.7 & 41.2 & 17 & 65\% & 4 & 15\% & 2 & 8\%\\
-INRIA Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 23 & 37\% & 18 & 29\%\\
-spring-data-commons & 15 & 45.8 & 28.8  & 9 & 60\% & 6 & 40\% & 2 & 13\%\\
-traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 3 & 7\% & 2 & 5\%\\
-30 other projects & 38 & --- & --- & 22 & 58\% & 36 & 95\% & 9 & 24\%\\
+FasterXML jackson-databind & 26 & 80.7 & 41.2 & 17 & 65\% & 2 & 8\% & 10 & 38\% & 23 & 88\% \\
+INRIA Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 18 & 29\% & 17 & 27\% & 52 & 84\% \\
+spring-data-commons & 15 & 45.8 & 28.8  & 9 & 60\% & 2 & 13\% & 2 & 13\% & 14 & 93\% \\
+traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 23 & 55\% & 33 & 79\% \\
+30 other projects & 39 & --- & --- & 23 & 59\% & 9 & 23\% & 12 & 31\% & 29 & 74\% \\
 \midrule
-All (\bears) & 183 & $>$240.6 & $>$109.4 & 111 & 61\% & 72 & 39\% & 33 & 18\% \\
+All (\bears) & 184 & $>$240.6 & $>$109.4 & 112 & 61\% & 33 & 18\% & 64 & 35\% & 151 & 82\% \\
 \midrule
-Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 476 & 47\% & 321 & 32\% & 191 & 19\%\\
+Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 512 & 50\% & 217 & 21\% & 372 & 37\% & 810 & 80\%\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -527,7 +526,7 @@ projects compared to Defects4J.
 Several projects in \bears, however, are structured as multi-module projects, 
 which are not currently compatible with our automation tools.
 \todo{Is it worth expanding slightly on why/what this means?}
-We thus limit our analysis of \bears to 183 bugs from 34 single-module projects.
+We thus limit our analysis of \bears to 184 bugs from 34 single-module projects.
 \todo{what's going on with multi-location versus multi-test}
 
 We start our analysis of multi-location patches by asking:
@@ -535,7 +534,7 @@ We start our analysis of multi-location patches by asking:
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and \bears. 
-We find that multi-location patches comprise 61\% of \bears and 44\% of Defects4J.
+We find that multi-location patches comprise 61\% of \bears and 48\% of Defects4J.
 Although a multi-location human patch for a bug does not imply the 
 non-existence of a simpler patch, the high proportion of bugs that have 
 multi-location patches demonstrates the relevance of such bugs to fault localization and
@@ -1602,7 +1601,7 @@ evaluating tools.
 
 To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
-that 47\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
+that 50\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
 were repaired by a human developer with multi-location patches. This motivated
 our study on the possibility of extending current program repair work to
 multi-location patches.
