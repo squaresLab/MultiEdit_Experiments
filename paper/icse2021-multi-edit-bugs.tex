@@ -1097,9 +1097,7 @@ alpha-equivalent edit locations within them.
 	\caption{Multi-location and multi-test bugs categorized by coverage
           pattern and presence of clones; definitions for Overlap, Disjoint, and
           Identical are taken from our experiments on fault
-          localization.\todo{would it make sense to present this as a venn
-            diagram?  Maybe not, I'm just wondering if a table is the best
-            visulalization here....maybe it is.}}
+          localization.}
 	\label{tab:cov_clones}
 \end{table}
 
@@ -1325,11 +1323,27 @@ candidate patches that a G\&V tool can validate per unit time.
 The choice of a granularity level is a balancing act with implications for
 multiple axes of APR performance.
 
+\subsection{Correlation studies between coverage results and parial repair validation}
+
+As shown in the previous subsections, correct partial repairs of bugs sometimes has better test
+performance than the original buggy code, but sometimes they perform worse. In a search based APR technique that
+uses test results to guide the search, ideally we want to never discard a correct partial repair, so if the bug
+is likely to have correct partial repairs that are neutral or negative in tests, the 
+APR tool may want to loosen the selection criteria such that the correct partial repair may survive. 
+One likely source of information about the bug is the fault localization.
+Therefore, we did a
+correlational study between the patch coverage of failing tests and the existence of strictly positively/negatively
+identified partial repairs, in hopes of discovering some interesting correlations that may inform
+Search based APR research in controlling selective pressure with fault localization informations.
+
+\rqorinsight{7}{Are there correlations between patch coverage and existence of positively/negatively 
+identified partial repairs in multi-test, multi-location bugs?}
+
 \begin{table}
         {\begin{center}
                         \begin{tabular} {lrrrr}
                                 \toprule
-                                & Disjoint & Overlap & Identical & Total \\
+                                & CONTRADICTS & Partially HOLDS & HOLDS & Total \\
                                 \midrule
                                 $\exists$ positive partial repair & 40 & 30 & 12 & 82 \\
                                 $\nexists$ positive partial repair & 1 & 4 & 16 &  21 \\
@@ -1347,10 +1361,6 @@ multiple axes of APR performance.
         \label{tab:cov_fitness}
 \end{table}
 
-\todo{Update this to reflect Leo's new phrasing.}
-\todo{also, these results come out of nowhere.  Motivate them, and connect them
-  to a research question (either an existing one, or a new one).  When you do
-  that, I'll re-read}
 Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ failing tests
 and 2--6 edit locations in the minimized patch, grouped by patch coverage
 under fault-revealing tests and the existence of positively/negatively test-identified
@@ -1358,12 +1368,12 @@ partial repairs at any granularity level.
 The vast majority of analyzed multi-test, multi-location patches have at least
 one positively identified partial repair.
 Moreover, a $\chi^2$ test finds statistically significant relationships ($p < 0.001$)
-between (non-)identical patch coverage and the existence of positive and
-negative partial repairs. Bugs with identical coverage are less likely to have
+between (non-)HOLDS patch coverage and the existence of positive and
+negative partial repairs. Bugs with HOLDS coverage are less likely to have
 positive partial repairs and more likely to have negative partial repairs.
-Thus, identical coverage correlates with an
+Thus, HOLDS coverage correlates with an
 \emph{adversarial} test-based fitness landscape.
-Partial patches with identical coverage may be difficult for a test-based
+Partial patches with holds coverage may be difficult for a test-based
 fitness function to identify.
 
 These connections between coverage and partial repair test passage
@@ -1374,11 +1384,21 @@ Intuitively, if a patch can be
 assembled from two components \textbf{A} and \textbf{B}, two tests that both
 fully cover \textbf{A} and \textbf{B} are less effective at assessing partial
 correctness than two tests that only cover \textbf{A} and \textbf{B} separately.
-In the case of identical coverage, the presence (or absence) of either \textbf{A} or 
-\textbf{B} interferes with both tests; in the case of disjoint coverage, the presence of 
+In the case of HOLDS coverage, the presence (or absence) of either \textbf{A} or 
+\textbf{B} interferes with both tests; in the case of CONTRADICTS coverage, the presence of 
 \textbf{A} or \textbf{B} affects only its covering test.
 Coverage thus influences the accuracy of tests as a judge of partial correctness.
 
+Of course, in actual APR we cannot classify the coverage into these three categories 
+because we don't know the correct repair and its components. However, if we can infer the
+likelihood of a bug belonging to the HOLDS category by the number of lines covered by all
+failing tests (since HOLDS requires all failing tests to cover the entire repair), then we
+may use that information to adjust tolerance of neutral or negative candidate patches, as
+the correlation shows that HOLDS bugs are more likely to have correct partial repairs that
+are neutral or negative in tests. \todo{YL: I don't know whether what I wrote in this paragraph
+makes sense at all. I'm just trying to come up
+with something that justifies this RQ. If it is not, we can either come up with a better justification
+remove this entire Subsection}
 
 \section{Limitations}
 \label{sec:limits}
