@@ -64,6 +64,25 @@
     showstringspaces=false,
     %autodedent,%<--- removes indentation
 }
+\lstdefinestyle{examplestyle}{
+    language=C,      % choose the language of the code
+    basicstyle=\ttfamily\footnotesize\bfseries,
+    tabsize=4,
+    aboveskip={.25\baselineskip},
+    belowskip={.25\baselineskip},
+    columns=fixed,
+    showstringspaces=false,
+    extendedchars=false,
+    breaklines=true,
+    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    numbers=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    %autodedent,%<--- removes indentation
+}
+
 \lstset{style=JavaStyle}
 
 \newcommand\todo[1]{\textcolor{red}{#1}}
@@ -418,11 +437,12 @@ implications for how they are studied. For the purpose of this study, we define
 a \emph{patch location} as a contiguous sequence of edited lines of code.  We
 combine two locations if one simply opens or closes a syntactic block inserted
 by the other. That is, conceptually:
-\begin{lstlisting}
-+ Some_edit {
-+ New code
+\lstset{escapeinside={<@}{@>}}
+\begin{lstlisting}[style=examplestyle]
+<@\textcolor{dkgreen}{+ Some\_edit \{}@>
+<@\textcolor{dkgreen}{+ New code}@>
   Existing code
-+}
+<@\textcolor{dkgreen}{+\}}@>
 \end{lstlisting}
 is treated as a single-location edit in our study. We ignore changes to
 comments, whitespace, or \texttt{import} statements.
