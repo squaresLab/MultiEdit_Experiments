@@ -1325,25 +1325,24 @@ Search based APR research in controlling selective pressure with fault localizat
 identified partial repairs in multi-test, multi-location bugs?}
 
 \begin{table}
-        {\begin{center}
-                        \begin{tabular} {lrrrr}
-                                \toprule
-                                & CONTRADICTS & Partially HOLDS & HOLDS & Total \\
-                                \midrule
-                                $\exists$ positive partial repair & 40 & 30 & 12 & 82 \\
-                                $\nexists$ positive partial repair & 1 & 4 & 16 &  21 \\
-                \midrule
-                                $\exists$ negative partial repair & 2 & 8 & 16 & 26 \\
-                                $\nexists$ negative partial repair & 39 & 26 & 12 & 77 \\
-                \midrule
-                                Total & 41 & 34 & 28 & 103 \\
-                \bottomrule
-                        \end{tabular}
-                \end{center}
-        }
-        \caption{Comparison of patch coverage and partial repair
-        test passage.}
-        \label{tab:cov_fitness}
+  {\begin{center}
+      \begin{tabular} {llrrrr}
+        \toprule
+        \multicolumn{2}{c}{Partial Repair} & Contradicts & Partially Holds & Holds & Total \\
+        \midrule
+        \multirow{2}{*}{Positive} & $\exists$  & 40 & 30 & 12 &  82 \\
+                                  & $\nexists$ &  1 &  4 & 16 &  21 \\
+        \midrule
+        \multirow{2}{*}{Negative} & $\exists$  &  2 &  8 & 16 &  26 \\
+                                  & $\nexists$ & 39 & 26 & 12 &  77 \\
+        \midrule
+        Total                     &            & 41 & 34 & 28 & 103 \\
+        \bottomrule
+      \end{tabular}
+    \end{center}
+  }
+  \caption{Comparison of patch coverage and partial repair test passage.}
+  \label{tab:cov_fitness}
 \end{table}
 
 Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ failing tests
