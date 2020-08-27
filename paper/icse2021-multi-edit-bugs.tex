@@ -938,11 +938,11 @@ multi-location bugs, and thus the usefulness of techniques that assume it, by as
   need to be updated to flow accordingly.}
 We further attempt to correlate the coverage patterns outlines in
 Section~\ref{secFL} with the existence of code clones in human patches.  Our 
-intuition is that a \emph{disjoint} bug may be more likely to occur when a
+intuition is that a \emph{contradicts} bug may be more likely to occur when a
 developer needs to apply the same fix at multiple independent locations, that
 can or should be tested separately.  We therefore 
- hypothesize that \emph{disjoint} bugs will have a higher incidence of code
-clones. By contrast, bugs categorized as \emph{same} or \emph{overlap} may have
+ hypothesize that \emph{contradicts} bugs will have a higher incidence of code
+clones. By contrast, bugs categorized as \emph{partially holds} or \emph{holds} may have
 more inter-related parts that are not merely the same statements copied to
 multiple locations.
 
@@ -1066,39 +1066,38 @@ alpha-equivalent edit locations within them.
 %contained code clones. 
 
 \begin{table}
-	{\begin{center}
-			\begin{tabular} {lrrrr}
-				\toprule
-				& Disjoint & Overlap & Identical & Total \\
-				\midrule
-				Has Clone & 25 & 12 & 7 & 44 \\
-				No Clone & 23 & 48 & 51 &  122 \\
-                \midrule
-				Total & 48 & 60 & 58 & 166 \\
-                \bottomrule
-			\end{tabular}
-		\end{center}
-	}
-	\caption{Multi-location and multi-test bugs categorized by coverage
-          pattern and presence of clones; definitions for Overlap, Disjoint, and
-          Identical are taken from our experiments on fault
-          localization.}
-	\label{tab:cov_clones}
+  {\begin{center}
+      \begin{tabular} {lrrrr}
+        \toprule
+        & Contradicts & Partially Holds & Holds & Total \\
+        \midrule
+        Has Clone & 25 & 12 &  7 &  44 \\
+        No Clone  & 23 & 48 & 51 & 122 \\
+        \midrule
+        Total     & 48 & 60 & 58 & 166 \\
+        \bottomrule
+      \end{tabular}
+    \end{center}
+  }
+  \caption{Multi-location and multi-test bugs categorized by coverage pattern
+    and presence of clones; definitions for Contradicts, Partially Holds, and
+    Holds are taken from our experiments on fault localization.}
+  \label{tab:cov_clones}
 \end{table}
 
 In Table \ref{tab:cov_clones}, we show the incidence of code clones among the three 
 coverage patterns identified in Section \ref{secFL}. Note that out of 372 bugs evaluated for code clones, only 166 of them have multiple failing tests, so only these bugs are included in the table.  Out of 48 bugs labeled as 
-\emph{disjoint} in the coverage, over half of them has code clones. In contrast, the 
-\emph{overlap} and \emph{identical} categories respectively had 20\% and 12\% bugs with code clones, 
+\emph{contradicts} in the coverage, over half of them has code clones. In contrast, the 
+\emph{partially holds} and \emph{holds} categories respectively had 20\% and 12\% bugs with code clones, 
 This indicates that a 
-bug with \emph{disjoint} coverage result is more likely to contain code clones in its
+bug with \emph{contradicts} coverage result is more likely to contain code clones in its
 human patch than bugs with other coverage results. 
 
-This result supports the hypothesis that \emph{disjoint} bugs are more likely to contain 
+This result supports the hypothesis that \emph{contradicts} bugs are more likely to contain 
 code clones, while the other two classifications have comparatively less code
 clones. This has potential implications for technique design: that is, if there
 appears to be relatively less coverage overlap between multiple tests, it is
-possible that, if multi-location, the bug may be \emph{disjoint}.  If so,
+possible that, if multi-location, the bug may be \emph{contradicts}.  If so,
 applying the same edits at multiple locations may be more likely to succeed.  We
 leave a concrete investigation of this possibility to future work.
 
@@ -1553,9 +1552,9 @@ The core assumption of spectrum-based fault localization---that faulty locations
 are executed more often by negative test cases---was not true for a substantial
 number of bugs in our study. In our study \todo{58\%} of bugs repaired with
 multi-location patches and characterized by multiple failing tests had patch
-locations that executed by some but not all tests. Additionally, \todo{27\%} of
+locations that executed by some but not all tests. \todo{Additionally, \todo{27\%} of
 these patches were disjoint (i.e., had no patch location covered by all failing
-tests).  In these cases SBFL is unlikely to be the most appropriate choice for a
+tests).}  In these cases SBFL is unlikely to be the most appropriate choice for a
 fault localization technique. This finding suggests that there is still progress
 to be made in fault localization for automated repair.
 
@@ -1574,9 +1573,9 @@ bugs.
 \item\textbf{Code clones are prevalent in multi-location patches.}
 We found code clones in \todo{32\%} of bugs with multi-location
 patches. This observation supports recent work that leverages code clones to
-generate repairs~\cite{saha2019harnessing}. Moreover, we found that there is a
+generate repairs~\cite{saha2019harnessing}. \todo{Moreover, we found that there is a
 correlation between negative tests with disjoint coverage and code clones in
-human-written patches. This suggests the existence of a heuristic for
+human-written patches.} This suggests the existence of a heuristic for
 identifying which bugs would benefit most from code clone-specific techniques.
 
 \item\textbf{Correct partial repairs rarely cause more failing tests.}
