@@ -1277,44 +1277,49 @@ repairs that do not compile are
 excluded from the count.\footnote{e.g., by throwing errors like ``missing return statement.''}
 
 
-\begin{table}
-{\begin{center}
-\begin{tabular}{ll|rr|rr|rr}
-\toprule
-\multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4J} & \multicolumn{2}{c}{\bears} &\multicolumn{2}{c}{Combined}  \\
-\multicolumn{2}{c}{Minimized?} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes}  \\
-\midrule
-\multirow{3}{*}{Positive} & Class & 25.95\% & 12.77\% & 23.87\% & 9.22\% & 25.46\% & 12.02\% \\
- & Method & 40.82\% & 34.58\% & 28.41\% & 18.23\% & 37.90\% & 31.14\% \\
- & Assertion & 44.49\% & 39.93\% & 28.68\% & 18.69\% & 40.76\% & 35.46\% \\ 
-\midrule
-\multirow{3}{*}{Neutral} & Class & 59.56\% & 68.30\% & 58.97\% & 73.31\% & 59.42\% & 69.35\% \\
- & Method & 39.62\% & 40.05\% & 53.08\% & 64.30\% & 39.93\% & 40.83\% \\
- & Assertion & 33.73\% & 31.52\% & 49.52\% &  59.60\% & 37.45\% & 37.43\% \\ 
-\midrule
-\multirow{3}{*}{Negative} & Class & 9.30\% & 11.57\% & 8.78\% & 13.30\% & 9.18\% & 12.16\% \\
- & Method & 13.51\% & 17.16\% & 10.13\% & 13.30\% & 12.71\% & 16.35\% \\
- & Assertion & 15.37\% & 19.80\% & 12.75\% &  16.41\% & 14.75\% & 19.09\% \\ 
-\bottomrule
-\end{tabular}
-\end{center}}
-\caption{Weighed percent of partial repairs exhibiting a {\normalfont Positive}, {\normalfont Neutral},
-	or {\normalfont Negative} change in test passage, measured at different levels of granularity
-	and with both minimized and unminimized patches.\todo{big ole todo: cut
-          the ``unminimized'' results and turn this into a histogram; see my bad
-          sketch in Slack.}}
-\label{yiweitable}
+%\begin{table}
+%{\begin{center}
+%\begin{tabular}{ll|rr|rr|rr}
+%\toprule
+%\multicolumn{2}{c}{}&\multicolumn{2}{c}{Defects4J} & \multicolumn{2}{c}{\bears} &\multicolumn{2}{c}{Combined}  \\
+%\multicolumn{2}{c}{Minimized?} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes} & \multicolumn{1}{c}{No} & \multicolumn{1}{c}{Yes}  \\
+%\midrule
+%\multirow{3}{*}{Positive} & Class & 25.95\% & 12.77\% & 23.87\% & 9.22\% & 25.46\% & 12.02\% \\
+% & Method & 40.82\% & 34.58\% & 28.41\% & 18.23\% & 37.90\% & 31.14\% \\
+% & Assertion & 44.49\% & 39.93\% & 28.68\% & 18.69\% & 40.76\% & 35.46\% \\ 
+%\midrule
+%\multirow{3}{*}{Neutral} & Class & 59.56\% & 68.30\% & 58.97\% & 73.31\% & 59.42\% & 69.35\% \\
+% & Method & 39.62\% & 40.05\% & 53.08\% & 64.30\% & 39.93\% & 40.83\% \\
+% & Assertion & 33.73\% & 31.52\% & 49.52\% &  59.60\% & 37.45\% & 37.43\% \\ 
+%\midrule
+%\multirow{3}{*}{Negative} & Class & 9.30\% & 11.57\% & 8.78\% & 13.30\% & 9.18\% & 12.16\% \\
+% & Method & 13.51\% & 17.16\% & 10.13\% & 13.30\% & 12.71\% & 16.35\% \\
+% & Assertion & 15.37\% & 19.80\% & 12.75\% &  16.41\% & 14.75\% & 19.09\% \\ 
+%\bottomrule
+%\end{tabular}
+%\end{center}}
+%\caption{Weighed percent of partial repairs exhibiting a {\normalfont Positive}, {\normalfont Neutral},
+%	or {\normalfont Negative} change in test passage, measured at different levels of granularity
+%	and with both minimized and unminimized patches.\todo{big ole todo: cut
+%          the ``unminimized'' results and turn this into a histogram; see my bad
+%          sketch in Slack.}}
+%\label{yiweitable}
 %\vspace{-0.5in}
-\end{table}
+%\end{table}
 
-\todo{modify this text to not discuss unminimized results.}
-Figure~\ref{yiweitable} shows results. \todo{Can aggregates be added to the
-  results and this text? You can fight me on this}
+\begin{figure}
+        \includegraphics[width=1.2\linewidth]{img/table6.png}
+        \caption{Weighted percent of partial repairs exhibiting a {\normalfont Positive}, {\normalfont Neutral}, or {\normalfont Negative} change measured at different levels of granularity on minimized patches}
+        \label{fig:fitness}
+\end{figure}
+
+
+Figure~\ref{fig:fitness} shows results.
 Assertion level granularity correctively positively identifies
-44.49\% (unminimized) and 39.93\% (minimized) of the partial repairs in Defects4J
-and 28.68\% (unminimized) and 18.69 (minimized) of the partial repairs in \bears.
-Only 33.73\% (unminimized) and 31.52\% (minimized) of Defects4J partial repairs and 
-49.52\% (unminimized) and 59.60\% (minimized)
+39.93\% of the partial repairs in Defects4J
+and 18.69\% of the partial repairs in \bears.
+Only 31.52\% of Defects4J partial repairs and 
+59.60\% 
 of \bears partial repairs are neutral. Less than 20\% of bugs in both datasets
 (minimized or unminimized) produce negative test case behavior.
 Although the rate of positive and correct identification of partial repairs varies between datasets,
@@ -1325,7 +1330,7 @@ Finer granularity levels are better at identifying partial repairs positively,
 but they also increase the chance of erroneously mis-identifying partial repairs.
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
-is negligible in Bears (less than 0.5\%) but greater in Defects4J (3.67\% unminimized and 5.35\% minimized).
+is negligible in Bears (0.46\%) but greater in Defects4J (5.35\%), while both had around 3\% increase in negatively identified partial repairs.
 Moreover, evaluating patches at finer granularity levels can add overhead.
 For example, assertion level granularity requires instrumenting JUnit with additional
 logic to continue execution when assertions fail.
