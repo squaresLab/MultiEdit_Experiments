@@ -1023,26 +1023,24 @@ Total     & 372 & 308 & 64\\
 \end{tabular}
 \end{center}
 }
-\caption{\todo{JL: Finish fixing this table and also delete the other table that
-    I took the locality stuff from.} Code clone information for multi-location bugs. \todo{I advocate minor
-    renaming as mentioned above; must update this table/text/caption accordingly.}
-     \emph{Same}, \emph{Near-same}, \emph{Composite} and \emph{Move} correspond to the
-    four types of code clones considered, as described in Section~\ref{sec52}. ``Any'' means the bug
-    contains any of the four types of clone; some bugs contain
-    pairs of clones that belong to different categories. 
-    Over
-    30\% of multi-location bugs has code clones.}
+\caption{Code clone breakdown for multi-location patches, broken down
+  per-dataset and by the location of the clone. \emph{Same}, \emph{Near-same},
+  \emph{Composite} and \emph{Move} correspond to the four types of code clones
+  considered, as described in Section~\ref{sec52}.  The \emph{Any} row is the
+  number of patches that contain any type of clone; note that some patches can
+  contain clones that belong to multiple categories. The \emph{Locality} columns
+  show the relative location of the clones in a patch: inside the same method,
+  inside the same class, or neither, respectively. 32.5\% of multi-location bugs
+  in our dataset contain code clones.}
 \label{tab:clones}
 \end{table}
 
-As shown in Table~\ref{tab:clones}, out of the 372 multi-location bugs,
-121 of them, or  32.5\%, included at least one type of cloning between fault locations, indicating a 
-significant 
-prevalence of code clones in multi-location human patches.
-Note that "Any" may not
-be the sum of the previous four rows because some bug could contain multiple pairs of code clones 
-that
-belong to different categories.
+As shown in Table~\ref{tab:clones}, 121 out of the 372 multi-location bugs
+(32.5\%), included at least one type of cloning between fault locations,
+indicating a significant prevalence of code clones in multi-location human
+patches.  Note that "Any" may not be the sum of the previous four rows because
+some bug could contain multiple pairs of code clones that belong to different
+categories.
 
 \todo{JL: Make this reference the other table. As shown in Table \ref{tab:clones_loc}, close to half of code clones are in the same method, while less than
 15\% of the code clones occur in different classes. Moreover, out of the 129 sets of code clones,
@@ -1064,7 +1062,7 @@ alpha-equivalent edit locations within them.}
         \toprule
         & Contradicts & Partially Holds & Holds & Total \\
         \midrule
-        Has Clone & 25 & 12 &  7 &  44 \\
+        Clone & 25 & 12 &  7 &  44 \\
         No Clone  & 23 & 48 & 51 & 122 \\
         \midrule
         Total     & 48 & 60 & 58 & 166 \\
