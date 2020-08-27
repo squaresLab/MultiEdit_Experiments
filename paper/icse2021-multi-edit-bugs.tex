@@ -541,25 +541,49 @@ mutation and fix spaces (Section~\ref{sec:mutops}), and validation
 %% what are the claims, what are we studying, why are we studying it
 
 Spectrum-based fault localization (SBFL) is a commonly-studied dynamic
-fault localization technique, including techniques like Tarantula~\cite{tarantula},
+fault localization technique, and includes techniques like Tarantula~\cite{tarantula},
 Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}, among others.
 %, and is often more effective than alternatives (like mutation-based fault 
 %localization~\cite{mut-analysis} or dynamic program
 %slicing~\cite{zou2019empirical}). 
-Fault loclaization in general is a key first step to characterizing the
+Fault localization in general is a first key step to characterizing the
 \emph{fault space} in automatic program repair; the majority of dynamic APR
 techniques use some variant of SBFL for this purpose.
-%
-Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
-  execute buggy portions of the code relatively more often than passing tests.}
-% Thus, if all failing tests execute a particular line of code, then that line of
-% code is highly suspicious.  
-SBFL techniques compute a suspiciousness by
+
+SBFL techniques compute a suspiciousness score by
 measuring how often a line is executed by failing tests as compared to passing
 tests, typically via some (linear) combination of their respective
-coverage of a line.
-% This suspiciousness score can be calculated a few different ways, but is
-% typically a linear combination of the passing and failing test coverage. One of
+coverage of a line. 
+%SBFL techniques include but are not limited to Tarantula~\cite{tarantula},
+%Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}; in general, though more
+%recent approaches are typically more effective, such approaches tend to localize similar
+%faults~\cite{zou2019empirical}.
+These techniques are often evaluated by asking: how often does a given technique assign a high 
+score for a buggy line of code? This is straightforward for single location repairs, but for 
+multi-location repairs, evaluations
+typically consider a technique ``successful'' if it highly ranks or scores \emph{any} line in a
+set of buggy lines. 
+While appropriate for the question being asked in such evaluations, this does not address
+suitability for multi-location program repair.%  Identifying one of several buggy
+%locations is generally inadequate in a context where multiple locations must be
+%modified. 
+
+\todo{Does this paragraph make a strong enough case for why we focus on just the failing 
+tests?}
+To figure out how to evaluate SBFL and other fault localization techniques 
+in multi-location contexts, we start by assessing the 
+relationship of multi-location repairs to the assumptions underlying SBFL. 
+Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
+execute buggy portions of the code relatively more often than passing tests.} Relatedly, we can 
+often assume that \emph{code executed by all failing tests are more likely to be buggy.} Though 
+this second assumption is not 
+always true, we derive it in order to explore the relationship of failing test executions with each 
+other.
+% Thus, if all failing tests execute a particular line of code, then that line of
+% code is highly suspicious.  
+
+
+% One of
 % the oldest and commonly studied SBFL technique is Tarantula~\cite{tarantula}. In
 % Tarantula, the suspiciousness score for a line $s$ is calculated by:
 
@@ -571,51 +595,36 @@ coverage of a line.
 % SBFL techniques that calculate this score differently, such as Ochiai~\cite{ochiai} and 
 %DStar~\cite{wong2013dstar}. 
 
-Assigning a suspiciousness score to each line of code is well-suited to single
-location repair. Indeed, the evaluation of most SBFL techniques asks exactly the
-question of interest when considering a technique's suitability for
-single-location repair: how often does a given technique assign high scores to 
-individual buggy lines of code?
 
-Such evaluations, by and large, do not consider the implications of
-suspiciousness scoring in a multi-location repair context.  Instead, evaluations
-typically consider a technique ``successful'' if it identifies \emph{any} of a
-set of changed lines as highly-ranked or likely-suspicious.  While appropriate
-for the question being asked in such evaluations, this does not address
-suitability for multi-location program repair.%  Identifying one of several buggy
-%locations is generally inadequate in a context where multiple locations must be
-%modified. 
-We investigate how well the SBFL assumption
-applies to tests that identify bugs that require multi-location patches, asking: 
+From these assumptions, we derive our research question: 
 
 \rqorinsight{2}{Do failing tests of a multi-location bug execute all the same patch locations or 
 all different patch locations?}
 
 We focus especially on bugs that are associated with multiple failing tests: a bug
 with only a single failing test trivially and equally implicates all the lines
-that test executes.  If multiple tests cover the modified locations well, then
-SBFL's core assumption holds and multi-location repair can expect to effectively
-make use of the off-the-shelf ranking these techniques currently provide
-(indeed, this has been tried~\cite{angelix}). If not---that is, if multiple
-tests exercise \emph{different} portions of the buggy code---SBFL off-the-shelf
-will by definition be less effective in guiding APR to correctly modifying
-multiple buggy locations at once.
-Fundamentally, we ask whether multiple failing tests cover exactly the same
-patch locations, exactly disjoint patch locations, or some combination.
+that test executes. 
 
-\todo{I think this RQ doesn't have enough context for the reader to understand
-  what it's about at this point.  Please add some text to give more
-  explanation/motivation for it.}
-In addition, for purposes of fault localization, we want to know if we can detect 
-whether tests will cover disjoint or same fault locations given only the buggy code. 
-Thus, we also ask:
+%If multiple tests cover the modified locations well, then multi-location repair can expect to 
+%effectively
+%make use of the off-the-shelf ranking these techniques currently provide
+%(indeed, this has been tried~\cite{angelix}). If not---that is, if multiple
+%tests exercise \emph{different} portions of the buggy code---SBFL off-the-shelf
+%will by definition be less effective in guiding APR to correctly modifying
+%multiple buggy locations at once.
+%Fundamentally, we ask whether multiple failing tests cover exactly the same
+%patch locations, exactly different patch locations, or some combination.
 
-\rqorinsight{3}{Do tests that cover different (resp. same) fault locations also cover different 
+In addition, RQ2 determines which multi-location bugs may be more suited for SBFL 
+based on how well the failing tests cover different patch locations. However, to pragmatically 
+make use of this classification and be able to dynamically choose fault localization and program 
+repair techniques, we want to determine which bugs are well suited for SBFL before knowing 
+the patch locations. Since our proxy for suitability is based on whether failing tests execute 
+the same patch locations, we ask:
+
+\rqorinsight{2.5}{Do failing tests that cover different (resp. same) fault locations also cover 
+different 
 (resp. same) code locations in general?}
-
-\todo{Throughout methodology and results: rename disjoint/overlap/identical on
-  both charts and in text, update text accordingly.  Include caveat to mitigate
-  identified risk of new naming.}
 
 \subsection{Methodology}
 
@@ -624,21 +633,21 @@ patches and contain multiple failing tests. However, we were not able to obtain 
 data for one of the bugs in Bears, leaving 190 total bugs: 158 in Defects4J, and 32 in
 Bears. 
 For each of these bugs, we used JaCoCo\footnote{https://www.eclemma.org/jacoco/}
-to determine which code locations in both the buggy and patched versions were executed
-(at least once) by each failing test.
+to determine which lines of code in both the buggy and patched versions were executed
+by each failing test.
 
-To answer RQ2, we used the patch locations that were executed by the tests to categorize 
-each bug into three \emph{coverage patterns}, as follows:
+To answer RQ2, we used the patch lines that were executed by the tests to categorize 
+each bug into three \emph{localization categories}: \emph{holds}, \emph{contradicts}, and 
+\emph{partially holds}. These three localization categories refer to the relationship each bug has 
+with 
+the assumption that code executed by all failing tests are more likely to be buggy. Each bug is 
+categorized using the following criteria:
+
 \begin{itemize}
-\item \emph{disjoint} bugs are those for which no line in the patch is covered by all
-failing tests.  Intuitively, these are the bugs for which the core SBFL
-assumption is violated.
-\item \emph{overlap} bugs are those for which some patch lines are covered
-by all failing tests, but some are only covered by a subset of the failing
-tests. These bugs also violate the core assumption of SBFL, albeit to a lesser
-extent.
-\item \emph{identical} bugs are those for which all tests cover the exact same
-  set of patch lines.
+\item \emph{holds}:  all failing tests execute the exact same set of patch lines.
+\item \emph{contradicts}: no patch line is covered by all failing tests.
+\item \emph{partially holds}: some patch lines are covered by all failing tests, but some are only 
+covered by a subset of the failing tests.
 \end{itemize}
 
 In our experiments, we classify bugs using coverage of the patch lines, as opposed to 
@@ -646,29 +655,29 @@ coverage of
 patch locations (where a patch location is considered covered if any line at that patch location 
 is 
 executed). For the purposes of fault localization, coverage of patch locations is more valuable 
-than coverage of patch lines, and we analyzed 66 Defects4J bugs\footnote{All 
+than coverage of patch lines, and we analyzed 66 Defects4J bugs\footnote{Only the 
 bugs in Defects4J version 1, because of the way we calculate coverage information.}
  and all the Bears bugs, a total of 98 bugs, to see whether categorization 
 based on patch line 
 coverage matched categorization based on patch location coverage.
 
-To answer RQ3, we took all code locations executed by tests in the buggy version and
+To answer RQ2.5, we took all code locations executed by tests in the buggy version and
 calculated the percentage of lines that were executed by all failing tests. 
 A lower percentage indicates that the failing tests execute different portions of the buggy 
 code, whereas a higher percentage indicates that the failing tests all execute a similar
-set of code, corresponding to bugs we expect to be \emph{disjoint} and \emph{identical},
+set of code, corresponding to bugs we expect to be in \emph{contradicts} and \emph{holds},
 respectively.
 
 After calculating the percentages, we split the bugs based on whether we categorized the bug 
-as \emph{disjoint}, \emph{identical}, or \emph{overlap} in the previous experiment.
+as \emph{contradicts}, \emph{holds}, or \emph{partially holds} in the previous experiment.
 We qualitatively observed the degree to which the percentage corresponded to its coverage 
 pattern. \todo{Use a real statistical measure}\todo{Yes, really.}
 
 \todo{Combine these three figures into 1}
 
 \begin{figure}
-	\includegraphics[width=\linewidth]{img/coverage-all.png}
-	\caption{Distribution of coverage patterns for bugs with multiple failing
+	\includegraphics[width=\linewidth]{img/coverage-all.pdf}
+	\caption{Distribution of localization categories for bugs with multiple failing
       tests that are repaired with multi-location patches in Bears and Defects4J.}
 	\label{fig:coverage-all}
 \end{figure}
@@ -676,17 +685,17 @@ pattern. \todo{Use a real statistical measure}\todo{Yes, really.}
 
 \begin{figure}
 	\begin{subfigure}{\linewidth}
-		\includegraphics[width=\linewidth]{img/coverage-d4j.png}
-		\caption{Distribution of coverage patterns for Defects4J.}
+		\includegraphics[width=\linewidth]{img/coverage-d4j.pdf}
+		\caption{Distribution of localization categories for Defects4J.}
 	\end{subfigure}
 
 \vspace{0.5cm}
 
 	\begin{subfigure}{\linewidth}
-		\includegraphics[width=\linewidth]{img/coverage-bears.png}
-		\caption{Distribution of coverage patterns for Bears.}
+		\includegraphics[width=\linewidth]{img/coverage-bears.pdf}
+		\caption{Distribution of localization categories for Bears.}
 	\end{subfigure}
-	\caption{Distribution of coverage patterns by dataset,
+	\caption{Distribution of localization categories by dataset,
           indicating significant differences between the multi-location bugs in
           Bears and Defects4J.}
 	\label{fig:coverage-datasets}
@@ -694,21 +703,20 @@ pattern. \todo{Use a real statistical measure}\todo{Yes, really.}
 
 \subsection{Results}
 
-\subsubsection{Distribution of Coverage Patterns} \label{sec:cov_patterns}
+\subsubsection{Distribution of Localization Categories} \label{sec:cov_patterns}
 
-Figure~\ref{fig:coverage-all} shows results for the overall distribution of coverage patterns, 
+Figure~\ref{fig:coverage-all} shows results for the overall distribution of localization categories, 
 answering RQ2. 
 For a 29\% bugs, none of the patch lines were executed by all failing tests as they were 
-shown to be \emph{disjoint}.  An almost equal proportion of bugs, 32\%, were classified as 
-\emph{identical}, indicating that all failing tests executed the same patch lines.
-In addition, another 39\% were classified as \emph{overlap}, exhibiting a combination of the 
-\emph{disjoint} and \emph{identical} characteristics.
+categorized as \emph{contradicts}.  An almost equal proportion of bugs, 32\%, were classified 
+as 
+\emph{holds}, indicating that all failing tests executed the same patch lines.
+In addition, another 39\% were classified as \emph{partially holds}.
 
 Note, however, that the behavior varies considerably by dataset;
 Figure~\ref{fig:coverage-datasets} shows results. In Defects4J, the patterns all have similar 
-numbers of bugs, while in Bears, there are fewer \emph{disjoint} bugs and more 
-\emph{overlap} 
-bugs.
+numbers of bugs, while in Bears, there are fewer bugs in \emph{contradicts} and more  bugs in 
+\emph{partially holds}.
 We hypothesize that this may be due to differences in how the two  
 datasets were selected and constructed:
 The Defects4J dataset specifically enforces a requirement that the patches in the 
@@ -725,56 +733,55 @@ Given that these two datasets were designed with different values and demonstrat
 different behavior, these findings highlight the importance of using diverse datasets in 
 evaluating program repair techniques.
 
-Out of the 98 bugs we checked, only seven bugs had differing coverage patterns when 
+Out of the 98 bugs we checked, only seven bugs had differing localization categories when 
 classified based on coverage of patch lines vs. coverage of patch locations. All seven of these 
 bugs 
-were classified as \emph{overlap} when classified by line coverage, but were classified as 
-\emph{identical} when classifying by patch coverage, indicating that all the failing tests were 
+were classified as \emph{partially holds} when classified by line coverage, but were classified as 
+\emph{holds} when classifying by patch coverage, indicating that all the failing tests were 
 executing different paths within the same patch locations. \todo{Is this discussion confusingly 
 worded? Because patch locations refer to the patch chunk, made up of one or more lines of 
 code.}
 
-Overall, SBFL assumes that faulty locations are executed more often by identifying 
-or failing test cases and is not designed to find many of these multi-location
-faults. Our results suggest that off-the-shelf SBFL techniques are not
+Overall, we cannot assume that the failing tests in multi-location repairs will execute all the 
+faulty locations -- in fact our results suggests that assumption only holds 32\% of the time. 
+\todo{The original paragraph had this claim, but IDK if we can say something like this anymore:
+Our results suggest that off-the-shelf SBFL techniques are not
 well-suited to guiding APR techniques that conform to the dominant paradigm to repairing
-these types of multi-location, multi-test bugs.
+these types of multi-location, multi-test bugs.}
 
 \begin{figure}
-	\includegraphics[width=.9\linewidth,left]{img/coverage-buggy.png}
+	\includegraphics[width=\linewidth,left]{img/coverage-buggy.pdf}
 	\caption{Boxplots representing the distribution of bugs based on it's percentage of lines 
 	executed 
 	by all failing tests. A bug scored at 100\% indicates that all failing tests executed the same 
 	lines of 
 	code, whereas a bug scored at 0\% indicates failing tests all executed different lines of 
 	code. 
-	These boxplots are split by coverage pattern, as categorized before.}
+	These boxplots are split by localization category, as categorized before.}
 	\label{fig:coverage-buggy}
 \end{figure}
 
-\subsubsection{Generalization of Coverage Patterns}
-\todo{As above, this question doesn't have enough motivation/context, so as a
-  reader I'm struggling to figure out what we're asking/why the answer matters.
-  This problem may be solved by fixing the text above, but it may require some
-  text here as well.}
-Our results in Figure \ref{fig:coverage-buggy} answer RQ3. Here, we see three distributions, 
-separated by coverage pattern, and plotted based on the percentage of lines executed by all 
+\subsubsection{Generalization of localization categories}
+Our results in Figure \ref{fig:coverage-buggy} answer RQ2.5. Here, we see three distributions, 
+separated by localization category, and plotted based on the percentage of lines executed by all 
 failing tests. 
 
-The distributions of \emph{disjoint} bugs (and to a lesser extent, \emph{overlap} bugs) are 
-distributed almost uniformly across the 0\% to 100\%, indicating that \emph{disjoint} bugs are 
+The distributions of bugs in \emph{contradicts} (and to a lesser extent, bugs in \emph{partially 
+holds}) are 
+distributed almost uniformly across the 0\% to 100\%, indicating that \emph{contradicts} bugs 
+are 
 not more or less likely to have failing tests that cover the same or different parts of the code 
-base. Note that a bug categorized as \emph{disjoint} can be scored 100\%, as the 
-patch can introduce if statements that change the control flow.
+base. Note that a bug categorized as \emph{contradicts} can be scored 100\% as the 
+patch can introduce if statements that change the control flow and cause all failing tests to 
+eventaully execute all different parts of the patch.
 
-In contrast, we can qualitatively observe that \emph{identical} bugs are more likely to have 
+In contrast, we can qualitatively observe that bugs in \emph{holds} are more likely to have 
 failing tests that execute the same lines of code, as we might expect. However, this is not a 
-definitive characteristic, as \emph{identical} bugs in our dataset scored anywhere between 
+definitive characteristic, as \emph{holds} bugs in our dataset scored anywhere between 
 5\% to 100\%.
 
 From these observations, we conclude that the degree to which failing tests cover the buggy 
-code are not effective predictors for the eventual coverage pattern for the bug. 
-
+code are not effective predictors for the eventual localization category for the bug. 
 
 \section{Mutation Operators and Fix Code}
 \label{sec:mutops}
@@ -825,22 +832,24 @@ between a multi-location
 bugs repaired by applying the same independent edit in four places, as
 compared to a bug repaired by applying  four control- and data-dependent
 modifications).  Specifically, we ask:
-\todo{This is our second RQ3}
-\rqorinsight{3}{How prevalent are dependencies between edited code in
-  multi-location patches?}
+\rqorinsight{4}{How prevalent and hard to construct are
+patches with intra-patch dependencies?}
 
-To answer this question, we broaden the scope of multi-location patches to 
+
+\paragraph{Methodology}
+We consider a patch to contain \emph{dependent edits} if there exist 
+control or data dependencies between added, deleted, or modified statements.
+Since we analyze dependent statements, we broaden the scope of multi-location patches to 
 include all patches containing at least two added, removed, or modified lines, 
 again ignoring edits to comments, whitespace, or imports.
-\todo{why?  And, which part of Table 1 shows this set?  Or should we be modifying the
-text in the previous section?}
-This expanded dataset contains 659 Defects4J v2 and 151 \bears bugs.
-We consider a patch to contain \emph{dependent edits} if there exists 
-control or data dependencies between added, deleted, or modified statements.
-We analyze deleted/modified statements in the pre-patch code 
-and added/modified statements in the post-patch code for
-dependencies.\todo{Somehow, I'm not able to parse this preceding sentence.}
-  
+We denote such patches as \emph{multi-line patches}.
+This expanded dataset contains 659 Defects4J v2 and 151 \bears 
+multi-line patches.
+% We explicitly got rid of Table 1 stats on multi-line 
+% patches for ESEC/FSE. We did so since we didn't wish to divert attention 
+% from multi-location patches during our discussion of the datasets in Sec 2.
+% Dependency analysis is the only experiment that analyzes patches at the
+% edit granularity of lines, rather than locations.
 For practical performance and scalability reasons, 
 we perform intraprocedural analysis. 
 We do, however, gather some interprocedural data dependency information 
@@ -849,32 +858,25 @@ using the following heuristics:
 	\item We treat all method call statements as dependent on all variables
           passed as arguments. 
 	\item If a statement invokes a getter method \texttt{Class.getX()} 
-          we heuristically  assume that the statement reads \texttt{Class.X},
+          we heuristically assume that the statement reads \texttt{Class.X},
           whether or not \texttt{Class.X} exists.
 	\item If a statement invokes a setter method \texttt{Class.setX()}, 
 	we again heuristically assume that the statement writes to \texttt{Class.X}. 
 \end{itemize}
 
-\todo{We need one more paragraph acknowledging the limitations, here, or a
-  little more detail above. Is this is a sound overapproximation?  Do we reason
-  about aliases at all?  We wrote this code? Is it in our replication package?}
+These heuristics are not sound, but they derive from common 
+practices in Java. We use these heuristics to estimate interprocedural 
+dataflow while retaining the scalability of intraprocedural analysis.
+We provide our dependency analyzer in our replication package.
+
+We estimate the difficulty of auto-constructing edit-dependent patches 
+by examining whether APR techniques have successfully patched the
+bug in question. We use APR success data from 
+RepairThemAll~\cite{durieux-repair-them-all}, an experiment 
+running 11 APR tools on 5 benchmarks, including Defects4J v1
+(containing a subset of Defects4J v2) and \bears.
 
 \paragraph{Results}
-
-We find that 40\% of Defects4J patches, 63\% of \bears patches, 
-and 45\% of the combined datasets' patches contain dependencies 
-between edited statements.
-Our finding supports earlier results on edit dependencies in 
-bug patches~\cite{zhong2015}.\todo{Preceding sentence, and honestly likely this
-  whole paragraph, is redundant with the last paragraph of this results
-  subsection.  I think this redundancy can be reduced by fixing the RQ to
-  actually match the question being asked in this subsection.}
-Patches with and without edit dependencies both form a substantial
-portion of multi-line patches,
-and neither type of patch should be ignored.\todo{Are these results in a table
-  somewhere? Short answer is ``only kind of, but it's hard to reference right
-  here because the table answers a sort of different question.'' See below for
-  my suggestion on changing the question.}
 
 \begin{table}
 {\begin{center}
@@ -903,44 +905,28 @@ and neither type of patch should be ignored.\todo{Are these results in a table
 	\end{tabular}
  \end{center}
 }
-	\caption{Multi-line patches with respect to the presence of 
-	dependent edits and whether any APR tool successfully 
-	repaired the bug in RepairThemAll~\cite{durieux-repair-them-all}.
-	Bugs categorized as {\normalfont Not evaluated} are those introduced in 
-	v2 of Defects4J, which RepairThemAll didn't study.\todo{Is it possible
-          or reasonable for this to be one or more Venn diagrams instead?}}
+	\caption{APR success of 
+	bugs with(out) edit dependencies in their multi-line patches. 
+	Bugs with intra-patch dependencies are harder to auto-repair. }
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
 
-\todo{Feels like these results come out of nowhere/are not associated with an
-  RQ.  Can we modify the RQ to include this question in its scope? That would be
-  nice and add clear novelty to answering it.  The text here should be updated
-  to reflect that it's answering an RQ in that case.}
-We further compare how often APR techniques 
-successfully repair bugs whose patches do (not) contain edit dependencies.
 Table~\ref{tab:dependency-repair-contingency-table}
-show the frequencies and percentages of multi-line patches with respect to edit dependency 
-and whether an APR tool successfully repaired bug in 
-RepairThemAll~\cite{durieux-repair-them-all}, a repair experiment running 
-11 APR tools on 5 benchmarks, including Defects4J v1 (containing a subset of Defects4J v2) and \bears.
+shows frequencies of multi-line patches with respect to edit dependence 
+and whether an APR tool successfully repaired the bug.
+With 45\% of multi-line patches exhibiting intra-patch dependencies, 
+our data substantiates prior research~\cite{zhong2015} on 
+such dependencies.
 
-We find that the presence of edit dependencies 
-reduces the likelihood of APR tool success for Defects4J bugs.
+
+We find the presence of edit dependencies 
+reduces APR tool success.
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
-between APR success and the presence of edit dependencies for Defects4J patches. 
-We fail to find statistically 
-significant relationships over \bears patches, likely due to the small number (16) of 
-successfully auto-repaired \bears bugs with multi-line human patches.
+between APR success and intra-patch dependencies.
 The generally lower auto-repairability of bugs with edit dependent patches compared 
 to their non-edit dependent brethren suggest that such dependencies indeed 
-add complexity to the search for a repair.\todo{What happens if we aggregate the
-  two datasets? Do we have a good (scientific) reason to treat them separately?
-  (I'm kind of thinking, what's the point of using both datasets if we don't
-  aggregate them to get more statistical power....)}
-
-Our results substantiate prior research~\cite{zhong2015} on the frequency of 
-bugs with dependent edits in human patches. A diverse range of APR 
-techniques are less likely to repair such bugs. Dependent edits, however, may 
+add complexity to the search for a repair.
+Dependent edits, however, may 
 be an opportunity to constrain the search space by creating constraints between 
 otherwise independent mutations. There is an opportunity to profit from edit 
 dependencies to repair a large class of difficult bugs.

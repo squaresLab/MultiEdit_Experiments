@@ -60,13 +60,14 @@ print("disjoint", originally_disjoint)
 print("identical", originally_identical)
 print("overlap", originally_overlap)
 
-plt.rcParams.update({'font.size': 17})
+plt.rcParams.update({'font.size': 20})
 # plt.rcParams.update({'font.family': 'serif'})
 
 plt.boxplot([originally_disjoint, originally_overlap, originally_identical], labels=["disjoint", "overlap", "identical"])
-plt.ylabel("Percentage of executed lines were\ncovered by all failing tests",labelpad=30)
-plt.xlabel("The coverage category we originally identified",labelpad=30)
-plt.title("Do the failing tests of multi-edit and multi-test bugs\nexecute the same lines of code?", pad=40, fontdict={'fontsize': "xx-large",})
+plt.ylabel("Percent coverage by all failing tests",labelpad=15)
+plt.yticks(ticks=[0.0, 0.2, 0.4, 0.6, 0.8, 1.0], labels=['0%', '20%', '40%', '60%', '80%', '100%'])
+plt.xlabel("Coverage pattern",labelpad=15)
+# plt.title("Do the failing tests of multi-edit and multi-test bugs\nexecute the same lines of code?", pad=40, fontdict={'fontsize': "xx-large",})
 plt.show()
 
 
