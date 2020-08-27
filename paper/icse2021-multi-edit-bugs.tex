@@ -960,10 +960,6 @@ clones through manual inspection.
 %clones. It was evaluated with the bugs in Defects4J version 1, which consists of 395 total bugs 
 %and 187 multi-location bugs. 
 
-In comparing these results with the results of the coverage experiment in
-Section~\ref{secFL}, we focus on the multi-test and multi-location bugs used in the coverage 
-experiment and exclude bugs with more than 6 faulty locations, leaving 166 bugs.
-
 We call the edits at two locations code clones if it is one of the following four cases:
 \begin{enumerate}
 \item Same: The two locations are alpha-equivalent (i.e. the two locations are identical or would be
@@ -1045,6 +1041,11 @@ can or should be tested separately.  We therefore
 clones. By contrast, bugs categorized as \emph{partially holds} or \emph{holds} may have
 more inter-related parts that are not merely the same statements copied to
 multiple locations.
+
+In comparing these results with the results of the coverage experiment in
+Section~\ref{secFL}, we focus on the multi-test and multi-location bugs used in the coverage 
+experiment and exclude bugs with more than 6 faulty locations, leaving 166 bugs.
+
 \begin{table}
   {\begin{center}
       \begin{tabular} {lrrrr}
