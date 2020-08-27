@@ -1044,37 +1044,10 @@ be the sum of the previous four rows because some bug could contain multiple pai
 that
 belong to different categories.
 
-
-\begin{table}
-{\begin{center}
-\begin{tabular} {lrrrr}
-\toprule
-& Same Method & Same Class & Diff Class & Total\\
-\hline
-Same & 35 & 33 & 12 & 80 \\ 
-Near-same & 12 & 8 & 5 & 25 \\
-Composite & 4 & 8 & 0 & 12 \\
-Move & 9 & 1 & 2 & 12 \\
-\midrule
-Total & 60 & 50 & 19  & 129\\
-\bottomrule
-\end{tabular}
-\end{center}
-}
-\caption{
-    Relative locations of sets of code clones in each category (defined in \ref{sec52}).
-Same Method denotes that the code clones occur in the same method, Same Class denotes that the code
-clones are in the same class but not in the same method, and Diff Class denotes that the
-code clones are in different classes.
-The majority of code clones occur within the same method, and are of
-the ``Same'' category.}
-\label{tab:clones_loc}
-\end{table}
-
-As shown in Table \ref{tab:clones_loc}, close to half of code clones are in the same method, while less than
+\todo{JL: Make this reference the other table. As shown in Table \ref{tab:clones_loc}, close to half of code clones are in the same method, while less than
 15\% of the code clones occur in different classes. Moreover, out of the 129 sets of code clones,
 80 of them belongs to the ``same'' category, which means that 62\% of sets of code clones have completely
-alpha-equivalent edit locations within them.
+alpha-equivalent edit locations within them.}
 
 % code clones <-> hercules data
 % idk how what the conclusion from this information is so I'm just gonna put numbers in
