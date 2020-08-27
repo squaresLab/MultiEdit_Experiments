@@ -462,14 +462,14 @@ paradigm.
 \multicolumn{10}{c}{\textbf{Defects4J}} \\
 \midrule
 Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location} & \multicolumn{2}{c}{Multi-location \&}      & \multicolumn{2}{c}{2--6 location} & \multicolumn{2}{c}{Multi-line} \\
-            &          &                  &                  & \multicolumn{2}{c}{bugs}              & \multicolumn{2}{c}{multi-negative test}   & \multicolumn{2}{c}{bugs}             & \multicolumn{2}{c}{bugs} \\
+            &          &                  &                  & \multicolumn{2}{c}{bugs}              & \multicolumn{2}{c}{multi-failing test}   & \multicolumn{2}{c}{bugs}             & \multicolumn{2}{c}{bugs} \\
 \midrule
 JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 7 & 27\% & 11 & 42\% & 17 & 65\%\\
 Closure compiler & 174 & 150.6 & 112.6 & 87 & 50\% & 55 & 32\% & 75 & 43\% & 145 & 83\% \\
 Apache commons-lang & 64 & 57.8 & 47.4  & 32 & 50\% & 13 & 20\% & 26 & 41\% & 50 & 78\% \\
 Apache commons-math & 106 & 45.0 & 41.5 & 56 & 53\% & 24 & 23\% & 44 & 42\% & 82 & 77\% \\
 Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 8 & 21\% & 7 & 18\% & 30 & 79\% \\
-Joda-Time & 26 & 82.9 & 70.4 & 17 & 65\% & 9 & 35\% & 10 & 38\% & 22 & 85\% \\
+Joda-Time & 26 & 82.9 & 70.4 & 16 & 62\% & 8 & 31\% & 10 & 38\% & 22 & 85\% \\
 Apache commons-cli & 39 & 5.7 & 4.6 & 19 & 49\% & 8 & 21\% & 15 & 38\% & 33 & 85\% \\
 Apache commons-codec & 18 & 5.8 & 5.8 & 4 & 22\% & 2 & 11\% & 2 & 11\% & 8 & 44\% \\
 Apache commons-collections & 4 & 64.9 & 47.6 & 1 & 25\% & 0 & 0\% & 1 & 25\% & 3 & 75\% \\
@@ -482,7 +482,7 @@ FasterXML jackson-dataformat-xml & 6 & 7.5 & 6.2 & 5 & 83\% & 2 & 33\% & 4 & 67\
 Jsoup & 93 & 7.9 & 2.2 & 32 & 34\% & 21 & 23\% & 23 & 25\% & 60 & 65\% \\
 Apache commons-jxpath & 22 & 28.7 & 7.6 & 16 & 73\% & 8 & 36\% & 13 & 59\% & 21 & 95\% \\
 \midrule
-All (Defects4J) & 835 & 813.9 & 518.1 & 400 & 48\% & 184 & 22\% & 308 & 37\% & 659 & 79\%\\
+All (Defects4J) & 835 & 813.9 & 518.1 & 399 & 48\% & 183 & 22\% & 308 & 37\% & 659 & 79\%\\
 \midrule
 \multicolumn{10}{c}{\textbf{\bears (single-module)}} \\
 \midrule
@@ -494,7 +494,7 @@ traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 23 & 55\% & 33 & 79\% 
 \midrule
 All (\bears) & 184 & $>$240.6 & $>$109.4 & 112 & 61\% & 33 & 18\% & 64 & 35\% & 151 & 82\% \\
 \midrule
-Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 512 & 50\% & 217 & 21\% & 372 & 37\% & 810 & 80\%\\
+Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 & 21\% & 372 & 37\% & 810 & 80\%\\
 \bottomrule
 \end{tabular}
 \end{center}
