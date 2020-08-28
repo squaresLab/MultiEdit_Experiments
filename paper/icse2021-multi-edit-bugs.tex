@@ -202,7 +202,7 @@ programs~\cite{angelix,genprog-eight-dollars,sapfix,durieux-repair-them-all}.
 Practically speaking, though, these techniques are typically limited in the types and
 complexity of defects they can repair. Often this is by design: techniques may
 limit the repair search space to single-location patches for
-tractability~\cite{rsrepair,ae,hdrepair}, while others only target certain
+tractability~\cite{rsrepair,ae,hdrepair,capgen}, while others only target certain
 classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. However, even techniques
 that can in principle generate repairs with multi-location patches typically
 don't~\cite{patch-correctness}.
@@ -409,9 +409,7 @@ similarity to human edits~\cite{hdrepair}.
 A practical implication of the size and complexity of this search space is
 that APR techniques must engage in trade offs to render the problem tractable. 
 Some techniques limit the \emph{fault space},
-searching explicitly for single-edit patches~\cite{rsrepair,ae,hdrepair}.
-\todo{let's add techniques post 2017 to this paragraph wherever they belong
-  plz.}
+searching explicitly for single-edit patches~\cite{rsrepair,ae,hdrepair,capgen}.
 All consider a constrained mutation space. 
 Some implicitly limit the mutation or fix space by targeting only certain
 classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. Regardless, even techniques
