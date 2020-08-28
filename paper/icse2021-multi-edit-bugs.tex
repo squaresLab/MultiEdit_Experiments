@@ -794,10 +794,12 @@ holds}) are
 distributed apparently uniformly across 0\% to 100\% line coverage. This indicates that \emph{contradicts} 
 bugs are 
 not more/less likely to have failing tests that cover the same or different parts of the code 
-base.\footnote{Note that a bug categorized as \emph{contradicts} can be scored 100\% as the 
-patch can introduce if statements that change the control flow and cause all failing tests to 
-eventaully execute all different parts of the patch.\todo{I think this point may
-  be too pedantic/confusing to be necessary, but let's try it in a footnote.}}
+base.
+% JL: I agree that this is too confusing, cutting for now.
+%% \footnote{Note that a bug categorized as \emph{contradicts} can be scored 100\% as the 
+%% patch can introduce if statements that change the control flow and cause all failing tests to 
+%% eventaully execute all different parts of the patch.\todo{I think this point may
+%%   be too pedantic/confusing to be necessary, but let's try it in a footnote.}}
 %
 We qualitatively observe that bugs in \emph{holds} are more likely to have 
 failing tests that execute the same lines of code, as we might expect. However, this is not 
