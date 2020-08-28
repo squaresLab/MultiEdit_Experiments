@@ -1203,7 +1203,7 @@ assertions in $M$, there should be an increase in $AS(M)$.
 
 \subsection{Results}
 
-Our first immediate takeaway is that not all edits
+\paragraph{Minimality.} Our first immediate takeaway is that not all edits
 in a human patch are always necessary to pass all tests~\cite{api-refactoring,
   tangledchanges}:
 this is true for 41.3\%  (99 out of 240) of Defects4J and 52.7\% (39 out of 74) of
@@ -1234,7 +1234,7 @@ minimized to a single edit, leaving
 % (Unminimized), and considering only the 1-minimal set of edits in the
 % human patch with respect to the unit tests (Minimized).
 
-Our overall goal is to identify how many partial repairs pass more test than the
+\paragraph{Partial repair identification.} Our overall goal is to identify how many partial repairs pass more test than the
 original buggy program  (\emph{positive}), the  same number of tests as the
 original buggy code (\emph{neutral}) or fewer tests than the buggy code
 (\emph{negative}).  However, 
@@ -1297,7 +1297,7 @@ Although the rate of positive and correct identification of partial repairs vari
 tests are not often adversarial towards partial repairs, contrary to anecdotal
 observations in prior work~\cite{gecco09}.
 
-Finer granularity levels are better at identifying partial repairs positively,
+\paragraph{Granularity.} Finer granularity levels are better at identifying partial repairs positively,
 but they also increase the chance of erroneously mis-identifying partial repairs.
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
@@ -1310,20 +1310,6 @@ candidate patches that a G\&V tool can validate per unit time.
 The choice of a granularity level is a balancing act with implications for
 multiple axes of APR performance.
 
-\subsection{Coverage's influence on partial repair validation}
-
-A G\&V technique would, ideally, never negatively judge a partial repair.
-If an APR tool finds information about a bug that reduces the tool's 
-confidence in its judgement of partial correctness, the tool may wish to 
-relax its criteria for judging candidate patches, 
-which may preserve more partial repairs.
-A crucial source of information is fault localization.
-We thus analyze relationships between patch coverage, as 
-characterized by our localization categories, 
-and partial repair identification.
-
-\rqorinsight{8}{How does patch coverage influence test suites'
-identification of partial repairs?}
 
 \begin{table}
   {\begin{center}
@@ -1342,26 +1328,26 @@ identification of partial repairs?}
       \end{tabular}
     \end{center}
   }
-  \caption{Multi-test bugs that also have 2-6 repair locations after minimization categorized by both localization categories (defined in Section \ref{secFL}) and existence of positively/negatively identified minimized partial repair. As shown, there is a clear correlation between \emph{holds} coverage with non-existence of positively identified partial repair and existence of negatively identified partial repair}
-  \label{tab:cov_fitness}
+  \caption{\small Multi-test bugs categorized by both localization pattern (Section \ref{secFL}) and existence of positively/negatively identified minimized partial repairs. There is statistically significant indication that bugs in the \emph{holds} coverage pattern are more likely to exhibit negative partial repairs.  \label{tab:cov_fitness}}
 \end{table}
- 
-Table~\ref{tab:cov_fitness} shows the number of bugs with 2+ failing tests
-and 2--6 edit locations in the minimized patch, grouped by localization categories 
---- which describe patch coverage --- and the existence of positively/negatively
-test-identified partial repairs at any granularity level.
-The vast majority of analyzed multi-test, multi-location patches have at least
-one positively identified partial repair.
-Moreover, bugs with \emph{holds} localization are less likely to have
-positive partial repairs and more likely to have negative partial repairs.
-These differences in partial repair identification are statistically significant 
-($p < 0.001$ for both, via $\chi^2$ tests).
-Thus, \emph{holds} localization correlates with an
-\emph{adversarial} test-based fitness landscape,
-and partial repairs may be hard for a test-based
-fitness function to identify.
 
-These connections between coverage and partial repair test passage
+\paragraph{Relationship to fault localization.} 
+Finally, we assess the relationship between partial repair behavior and fault
+localization/coverage pattern. Table~\ref{tab:cov_fitness} shows 
+bugs with 2+ failing tests 
+and 2--6 edit locations in the minimized patch, grouped by localization
+categories (Section~\ref{secFL})
+and the existence of positively/negatively
+test-identified partial repairs at any granularity level.
+In general, bugs with \emph{holds} localization (where failing tests execute
+more similar locations) are less likely to have
+positive partial repairs and more likely to have negative partial repairs (statistically significant,
+$p < 0.001$ for both, via $\chi^2$ tests).
+Thus, a \emph{holds} localization pattern correlates with an
+\emph{adversarial} test-based fitness landscape,
+and partial repairs may be harder to identify using tests for such bugs. 
+
+These connections 
 suggest that fault-revealing tests' patch coverage reflect the tests' ability
 to detect components of a patch.
 Recall that \emph{holds} localization means all failing tests execute 
@@ -1371,12 +1357,9 @@ Intuitively, if a patch can be
 assembled from two components \textbf{A} and \textbf{B}, two tests that both
 fully cover \textbf{A} and \textbf{B} are less effective at assessing partial
 correctness than two tests that only cover \textbf{A} and \textbf{B} separately.
-In the case of \emph{holds} coverage, the presence (or absence) of either \textbf{A} or 
-\textbf{B} interferes with both tests; in the case of \emph{contradicts} coverage, the presence of 
-\textbf{A} or \textbf{B} affects only its covering test.
 Coverage thus influences the accuracy of tests as a judge of partial correctness.
 
-In practice, however, we do not know patch coverage \emph{a priori}  
+In practice, we do not know patch coverage \emph{a priori}  
 since we do not have a full patch yet. However, if we can infer the
 likelihood of a bug belonging to the \emph{holds} category using existing 
 fault localization (since \emph{holds} requires all failing tests to cover the 
