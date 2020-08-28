@@ -138,19 +138,19 @@
 \begin{abstract}
     Automatic program repair is a promising approach for reducing the
     cost of quality assurance practices and faulty software. To date, most
-    techniques proposed for test-driven automatic repair have succeeded
+    techniques proposed for test-driven automatic repair succeed
     primarily on bugs that benefit from short, single-location patches. Techniques
     that successfully generate multi-location patches often do so in an
     alternative, single-edit way, or by targeting particular multi-location bug
-    patterns. Empirical studies of real-world similarly tend to focus on the
+    patterns. Empirical studies of real-world bugs similarly tend to focus on the
     patterns exhibited by single-location bug patches, and have not examined repairability
     of multi-location patches in detail. We present a comprehensive empirical analysis
     of multi-location patches for bugs in open source Java programs, focusing on static and
     dynamic properties that define the repair search space for a given bug.
-    This analysis focuses on the key challenges of the dynamic program repair
+    This analysis focuses on key challenges of the dynamic program repair
     problem: the \emph{mutations and fix code} used to repair bugs in multiple locations;
-    the \emph{fault locations} and their relationships; and the \emph{objective
-      function}, and in particular how and to what degree test cases can be used
+    the \emph{fault locations} and their relationships; and the \emph{evaluation},
+    and in particular how and to what degree tests can be used
     (or not) to identify partial repairs. We identify key takeaways and
     challenges, with implications for future work in expressive, multi-location bug
     repair.
@@ -922,6 +922,7 @@ running 11 APR tools on 5 benchmarks, including Defects4J v1
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
 \footnotetext{RepairThemAll provides results on Defects4J v 1.0.}
+
 Table~\ref{tab:dependency-repair-contingency-table}
 shows frequencies of multi-line patches with respect to edit dependence 
 and whether an APR tool successfully repaired the bug.
