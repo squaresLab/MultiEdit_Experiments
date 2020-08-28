@@ -953,6 +953,7 @@ dependencies to repair a large class of difficult bugs.
 
 
 \subsection{Cloned code}
+\label{sec:clones}
 
 \subsubsection{Occurrences of cloned code}
 
@@ -1019,7 +1020,7 @@ Total     & 372 & 308 & 64\\
 \caption{Code clone breakdown for multi-location patches, broken down
   per-dataset and by the location of the clone. \emph{Same}, \emph{Near-same},
   \emph{Composite} and \emph{Move} correspond to the four types of code clones
-  considered, as described in Section~\ref{sec52}.  The \emph{Any} row is the
+  considered, as described in Section~\ref{sec:clones}.  The \emph{Any} row is the
   number of patches that contain any type of clone; note that some patches can
   contain clones that belong to multiple categories. The \emph{Locality} columns
   show the relative location of the clones in a patch: inside the same method,
@@ -1087,7 +1088,7 @@ experiment and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
   }
   \caption{Multi-location and multi-test bugs categorized by coverage pattern
     and presence of clones; definitions for Contradicts, Partially Holds, and
-    Holds are taken from our experiments on fault localization.}
+    Holds are defined in Section~\ref{secFL}.}
   \label{tab:cov_clones}
 \end{table}
 
