@@ -1,10 +1,10 @@
-package io.github.squareslab;
+package io.github.doubleblind;
 
 
-import io.github.squareslab.analysis.ControlDependencyAnalysis;
-import io.github.squareslab.analysis.DataDependencyAnalysis;
-import io.github.squareslab.common.DataAggregator;
-import io.github.squareslab.common.Utils;
+import io.github.doubleblind.analysis.ControlDependencyAnalysis;
+import io.github.doubleblind.analysis.DataDependencyAnalysis;
+import io.github.doubleblind.common.DataAggregator;
+import io.github.doubleblind.common.Utils;
 import org.apache.commons.cli.*;
 import soot.Pack;
 import soot.PackManager;
@@ -14,7 +14,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 

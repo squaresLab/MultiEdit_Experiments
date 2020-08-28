@@ -1,6 +1,6 @@
-package io.github.squareslab.common;
+package io.github.doubleblind.common;
 
-import io.github.squareslab.analysis.LineMappingAlgorithms;
+import io.github.doubleblind.analysis.LineMappingAlgorithms;
 
 import java.io.IOException;
 import java.io.Writer;

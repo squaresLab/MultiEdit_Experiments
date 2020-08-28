@@ -1,4 +1,4 @@
-package io.github.squareslab.analysis;
+package io.github.doubleblind.analysis;
 
 import soot.SootMethod;
 import soot.Unit;

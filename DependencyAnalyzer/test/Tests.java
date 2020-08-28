@@ -1,17 +1,8 @@
-import io.github.squareslab.Main;
-import io.github.squareslab.analysis.ControlDependencyAnalysis;
-import io.github.squareslab.analysis.DataDependencyAnalysis;
-import io.github.squareslab.common.Utils;
+import io.github.doubleblind.Main;
+import io.github.doubleblind.common.Utils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import soot.Pack;
-import soot.PackManager;
-import soot.Transform;
-
-import java.security.Permission;
-import java.util.ArrayList;
-import java.util.Collection;
 
 
 public class Tests

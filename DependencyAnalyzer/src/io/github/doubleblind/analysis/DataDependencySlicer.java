@@ -1,6 +1,6 @@
-package io.github.squareslab.analysis;
+package io.github.doubleblind.analysis;
 
-import io.github.squareslab.analysis.DataDependencyAnalysis.Configuration;
+import io.github.doubleblind.analysis.DataDependencyAnalysis.Configuration;
 import soot.Unit;
 import soot.toolkits.graph.UnitGraph;
 

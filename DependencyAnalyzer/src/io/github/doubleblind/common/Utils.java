@@ -1,4 +1,4 @@
-package io.github.squareslab.common;
+package io.github.doubleblind.common;
 
 import soot.Main;
 import soot.Body;

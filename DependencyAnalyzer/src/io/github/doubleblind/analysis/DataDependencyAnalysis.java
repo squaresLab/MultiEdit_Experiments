@@ -1,6 +1,6 @@
-package io.github.squareslab.analysis;
+package io.github.doubleblind.analysis;
 
-import io.github.squareslab.common.DataAggregator;
+import io.github.doubleblind.common.DataAggregator;
 import manifold.shade.org.jetbrains.annotations.Nullable;
 import soot.*;
 import soot.toolkits.graph.ExceptionalUnitGraph;
