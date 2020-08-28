@@ -1560,7 +1560,9 @@ multi-location patches and characterized by multiple failing tests had patch
 locations that executed by some but not all tests; thus the assumption was only 
 partially held. Additionally, 27\% of
 these patches had no patch location covered by all failing
-tests, and thus contradicted the assumption.  In these cases SBFL is unlikely to be the most 
+tests, and thus contradicted the assumption.  
+Patches with clones are especially likely (53\%) to contradict the assumption.
+In these cases SBFL is unlikely to be the most 
 appropriate choice for a
 fault localization technique. This finding suggests that there is still progress
 to be made in fault localization for automated repair.
@@ -1584,10 +1586,10 @@ bugs.
 \item\textbf{Code clones are prevalent in multi-location patches.}
 We found code clones in 32.5\% of bugs with multi-location
 patches. This observation supports recent work that leverages code clones to
-generate repairs~\cite{saha2019harnessing}. \todo{Moreover, we found that there is a
-correlation between negative tests with disjoint coverage and code clones in
-human-written patches.} This suggests the existence of a heuristic for
-identifying which bugs would benefit most from code clone-specific techniques.
+generate repairs~\cite{saha2019harnessing}.
+We also found that clones are more likely to contradict SBFL's assumptions 
+on coverage, which suggests both a heuristic for clone application and the
+potential benefits of other fault localization paradigms.
 
 \item\textbf{Correct partial repairs rarely cause more failing tests.}
 Contrary to prior work~\cite{gecco09}, we found that test suites are infrequently
