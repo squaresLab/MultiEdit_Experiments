@@ -202,7 +202,7 @@ programs~\cite{angelix,genprog-eight-dollars,sapfix,durieux-repair-them-all}.
 Practically speaking, though, these techniques are typically limited in the types and
 complexity of defects they can repair. Often this is by design: techniques may
 limit the repair search space to single-location patches for
-tractability~\cite{rsrepair,ae,hdrepair}, while others only target certain
+tractability~\cite{rsrepair,ae,hdrepair,capgen}, while others only target certain
 classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. However, even techniques
 that can in principle generate repairs with multi-location patches typically
 don't~\cite{patch-correctness}.
@@ -409,9 +409,7 @@ similarity to human edits~\cite{hdrepair}.
 A practical implication of the size and complexity of this search space is
 that APR techniques must engage in trade offs to render the problem tractable. 
 Some techniques limit the \emph{fault space},
-searching explicitly for single-edit patches~\cite{rsrepair,ae,hdrepair}.
-\todo{let's add techniques post 2017 to this paragraph wherever they belong
-  plz.}
+searching explicitly for single-edit patches~\cite{rsrepair,ae,hdrepair,capgen}.
 All consider a constrained mutation space. 
 Some implicitly limit the mutation or fix space by targeting only certain
 classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. Regardless, even techniques
@@ -432,38 +430,15 @@ We define this problem precisely and characterize our datasets next.
 \subsection{Multi-Location Patches and Dataset}
 \label{sec:bugs}
 
-We focus in this study on the properties of \emph{multi-location} patches. There are
-several plausible definitions of multi- vs. single-location patches, with
-implications for how they are studied. For the purpose of this study, we define
-a \emph{patch location} as a contiguous sequence of edited lines of code.  We
-combine two locations if one simply opens or closes a syntactic block inserted
-by the other. That is, conceptually:
-\lstset{escapeinside={<@}{@>}}
-\begin{lstlisting}[style=examplestyle]
-<@\textcolor{dkgreen}{+ Some\_edit \{}@>
-<@\textcolor{dkgreen}{+ New code}@>
-  Existing code
-<@\textcolor{dkgreen}{+\}}@>
-\end{lstlisting}
-is treated as a single-location edit in our study. We ignore changes to
-comments, whitespace, or \texttt{import} statements.
-%
-This intuitive definition is reasonably consistent with the general APR
-paradigm. 
-\todo{is it worth elaborating on which we exclude, anything that might be
-  counterintuitive? Do we include declarations as separate edits? I know our
-  philosophy is different from D4J, which is why I ask.}
-%As a shorthand, we refer to bugs with multi-location human-written
-%patches as \emph{multi-location bugs}.
-
 \begin{table*}
 \begin{center}
-\begin{tabular}{l  rrr | rr | rr | rr | rr }
+\begin{tabular}{l  rrr | rr rr rr rr }
 \toprule
 \multicolumn{12}{c}{\textbf{Defects4J v2.0.0}} \\
 \midrule
-Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location} & \multicolumn{2}{c}{Multi-location \&}      & \multicolumn{2}{c}{2--6 location} & \multicolumn{2}{c}{Multi-line} \\
-            &          &                  &                  & \multicolumn{2}{c}{bugs}              & \multicolumn{2}{c}{multi-failing test}   & \multicolumn{2}{c}{bugs}             & \multicolumn{2}{c}{bugs} \\
+\multirow{2}{*}{Project} & \multirow{2}{*}{Bugs} & Source Size & Test Size & \multicolumn{2}{c}{Multi-Location} & \multicolumn{2}{c}{Multi-Location,}      & \multicolumn{2}{c}{2--6 Location} & \multicolumn{2}{c}{Multi-Line} \\
+            &          &  (KLOC) & (KLOC)&
+\multicolumn{2}{c}{Patches}              & \multicolumn{2}{c}{2+ Failed Tests}   & \multicolumn{2}{c}{Patches}             & \multicolumn{2}{c}{Patches} \\
 \midrule
 JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 7 & 27\% & 11 & 42\% & 17 & 65\%\\
 Closure compiler & 174 & 150.6 & 112.6 & 87 & 50\% & 55 & 32\% & 75 & 43\% & 145 & 83\% \\
@@ -499,21 +474,25 @@ Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:dataset-characteristics} Characteristics of Defects4J
-  (top) and \bears (bottom) datasets.
-  Out of a total of 1018 bugs, 50\% are multi-location.
-  }
+\caption{\label{tab:dataset-characteristics} Summary of Defects4J and \bears
+  datasets. \emph{Project} is the project name; \emph{Source Size} and
+  \emph{Test Size} are the size of the source code and test suite in thousands
+  of lines of code respectively. The right-hand columns categorize the bugs by
+  the characteristics of their human-written patches (multi-location, 2--6
+  location, and multi-line). The \emph{2+ Failed Tests} column only includes
+  bugs that fail more than one test. Note that more than half of bugs are
+  multi-location (511/1018).  }
 \end{table*}
 
 Our study requires a dataset of indicative, real-world,
-multi-location defects.  We study both the defects in
+multi-location defects.  We study 
 Defects4J v2.0.0~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 835 bugs from 
 17 Java software projects, and is a popular dataset for evaluating 
-program repair tools that target Java~\cite{durieux-repair-them-all}.\todo{add
-  more references, there are other papers that use d4j to evaluate}
+program repair tools that target 
+Java~\cite{durieux-repair-them-all,pearson2017evaluating,saha2017elixir,saha2019harnessing,xin2017leveraging,b2016learning}.
 The dataset's patches are manually minimized to isolate the bug fix 
 and exclude non-repair edits such as refactorings and feature additions.
 
@@ -524,18 +503,51 @@ We thus also study bugs from \bears~\cite{bears},
 a set of Java bugs derived from failed Travis-CI builds of GitHub projects. 
 \bears offers 251 bugs from 72 software projects, providing a greater diversity of 
 projects compared to Defects4J. 
-Several projects in \bears, however, are structured as multi-module projects, 
-which are not currently compatible with our automation tools.
-\todo{Is it worth expanding slightly on why/what this means?}
+Several projects in \bears, however, are structured as multi-module projects, a feature 
+supported by Maven that allows developers to group multiple projects together. Multi-module 
+projects are more complex to build and are not currently compatible with our automation tools.
 We thus limit our analysis of \bears to 184 bugs from 34 single-module projects.
-\todo{what's going on with multi-location versus multi-test}
+
+We focus in this study on the properties of \emph{multi-location} patches. There are
+several plausible definitions of multi- vs. single-location patches, with
+implications for how they are studied. For the purpose of this study, we define
+a \emph{patch location} as a contiguous sequence of edited lines of code.  We
+combine two locations if one simply opens or closes a syntactic block inserted
+by the other. That is, conceptually:
+\lstset{escapeinside={<@}{@>}}
+\begin{lstlisting}[style=examplestyle]
+<@\textcolor{dkgreen}{+ Some\_edit \{}@>
+<@\textcolor{dkgreen}{+ New code}@>
+Existing code
+<@\textcolor{dkgreen}{+\}}@>
+\end{lstlisting}
+is treated as a single-location edit in our study. We ignore changes to
+comments, whitespace, or \texttt{import} statements.
+We still consider a patch location valid if a contiguous sequence of edited lines contains 
+only refactorings, variable/field declarations, or annotations. We do not perform any 
+additional minimization or changes to the program beyond those the dataset authors may 
+have performed.
+This intuitive definition is reasonably consistent with the general APR
+paradigm. 
+%As a shorthand, we refer to bugs with multi-location human-written
+%patches as \emph{multi-location bugs}.
+
+In addition, some experiments will have further restrictions on what bugs can be used. In 
+particular, we also look at bugs that have multiple failing tests, bugs with up to six patch 
+locations (for scalability), and bugs with multiple patch lines (a superset of multi-location 
+patches). In addition to providing the size of these sets in 
+Table~\ref{tab:dataset-characteristics}, each experiment will clearly state which restrictions are 
+being used and how many bugs that includes.
 
 We start our analysis of multi-location patches by asking:
 \rqorinsight{1}{How prevalent are human-written multi-location patches?}
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and \bears. 
-We find that multi-location patches comprise 61\% of \bears and 48\% of Defects4J.
+We find that multi-location patches comprise 61\% of \bears and 48\% of 
+Defects4J\footnote{There are 11 bugs that should be considered multi-location but were left 
+out of all analyses. We were unable to correct this before the deadline but will add them 
+post review. This version of the paper treats these bugs as single location.}.
 Although a multi-location human patch for a bug does not imply the 
 non-existence of a simpler patch, the high proportion of bugs that have 
 multi-location patches demonstrates the relevance of such bugs to fault localization and
@@ -901,7 +913,7 @@ running 11 APR tools on 5 benchmarks, including Defects4J v1
     \begin{tabular}{lrrrrrr}
         \toprule
         &\multicolumn{3}{c}{Without Dependent Edits} & \multicolumn{3}{c}{With Dependent Edits} \\
-        & \multicolumn{1}{c}{Defects4J} & \multicolumn{1}{c}{\bears} & \multicolumn{1}{c}{Both} & \multicolumn{1}{c}{Defects4J} & \multicolumn{1}{c}{\bears} & \multicolumn{1}{c}{Both} \\
+        Result& \multicolumn{1}{c}{Defects4J} & \multicolumn{1}{c}{\bears} & \multicolumn{1}{c}{Both} & \multicolumn{1}{c}{Defects4J} & \multicolumn{1}{c}{\bears} & \multicolumn{1}{c}{Both} \\
         \midrule
         Success & 96 & 7 & 103 & 43 & 9 &  52 \\
         Failure & 73 & 49 & 122 & 93 & 86 & 179\\
@@ -911,18 +923,18 @@ running 11 APR tools on 5 benchmarks, including Defects4J v1
     \end{tabular}
  \end{center}
 }
-	\caption{\todo{JL: footnote? about RTA using D4Jv1 vs D4Jv2.} APR success of
-      bugs with and without inter-patch edit dependencies in their multi-line
-      patches, collected from the RepairThemAll
-      dataset~\cite{durieux-repair-them-all}.  \emph{Success} means that at
-      least one of the 11 APR tools was able to find a patch, while
-      \emph{Failure} means that no tools found a patch. When the human-written
-      bug patch contained no inter-dependencies an APR tool was able to find a
-      repair 45.7\% (103/225) of the time, while the success rate was only
-      22.5\% (52/231) when a patch contained dependencies.}
+	\caption{APR performance on bugs with and without inter-patch edit
+      dependencies in multi-line patches, collected from the RepairThemAll
+      dataset~\cite{durieux-repair-them-all}.\protect\footnotemark
+      \ \emph{Success} means that at least one of the 11 APR tools was able to
+      find a patch, while \emph{Failure} means that no tools found a patch. When
+      the human-written bug patch contained no dependencies an APR tool
+      was able to find a repair 46\% (103/225) of the time, while the success
+      rate was only 23\% (52/231) when a patch contained dependencies.}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
-
+\footnotetext{RepairThemAll used the version 1 Defects4J dataset which has fewer
+  bugs than version 2, used in the rest of this paper.}
 Table~\ref{tab:dependency-repair-contingency-table}
 shows frequencies of multi-line patches with respect to edit dependence 
 and whether an APR tool successfully repaired the bug.
@@ -945,8 +957,9 @@ dependencies to repair a large class of difficult bugs.
 
 
 \subsection{Cloned code}
+\label{sec:clones}
 
-\subsubsection{Occurrances of cloned code}
+\subsubsection{Occurrences of cloned code}
 
 If multi-location patches composed of multiple, dependent edits constitute one
 extreme, at the other extreme lies patches consisting of the same code applied
@@ -977,7 +990,7 @@ clones through manual inspection.
 We call the edits at two locations code clones if it is one of the following four cases:
 \begin{enumerate}
 \item Same: The two locations are alpha-equivalent (i.e. the two locations are identical or would be
-identical if we substitute all occurrances of a variable in one location with another same-type variable)
+identical if we substitute all occurrences of a variable in one location with another same-type variable)
 \item Near-same: The two locations are alpha-equivalent except the difference by at most one constant or arithmetic operator,
 or replacement of one constant with variable
 \item Composite: The patch at one location is exactly copied and contained within the patch at 
@@ -1011,7 +1024,7 @@ Total     & 372 & 308 & 64\\
 \caption{Code clone breakdown for multi-location patches, broken down
   per-dataset and by the location of the clone. \emph{Same}, \emph{Near-same},
   \emph{Composite} and \emph{Move} correspond to the four types of code clones
-  considered, as described in Section~\ref{sec52}.  The \emph{Any} row is the
+  considered, as described in Section~\ref{sec:clones}.  The \emph{Any} row is the
   number of patches that contain any type of clone; note that some patches can
   contain clones that belong to multiple categories. The \emph{Locality} columns
   show the relative location of the clones in a patch: inside the same method,
@@ -1079,7 +1092,7 @@ experiment and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
   }
   \caption{Multi-location and multi-test bugs categorized by coverage pattern
     and presence of clones; definitions for Contradicts, Partially Holds, and
-    Holds are taken from our experiments on fault localization.}
+    Holds are defined in Section~\ref{secFL}.}
   \label{tab:cov_clones}
 \end{table}
 
@@ -1279,11 +1292,13 @@ excluded from the count.\footnote{e.g., by throwing errors like ``missing return
 %\vspace{-0.5in}
 %\end{table}
 
-\begin{figure}
-        \includegraphics[width=\columnwidth]{img/weighted_percent.pdf}
-        \caption{Weighted percent of partial repairs exhibiting a {\normalfont Positive}, {\normalfont Neutral}, or {\normalfont Negative} change measured at different levels of granularity on minimized patches}
+\begin{figure*}
+        \includegraphics[width=\textwidth]{img/weighted_percent.pdf}
+        \caption{Weighted percent of partial repairs exhibiting a {\normalfont
+            Positive}, {\normalfont Neutral}, or {\normalfont Negative} change
+          measured at Class-, Method-, and Assertion-Level granularity.}
         \label{fig:fitness}
-\end{figure}
+\end{figure*}
 
 
 Figure~\ref{fig:fitness} shows results.
