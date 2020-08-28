@@ -589,7 +589,7 @@ These techniques are often evaluated by asking: how often does a given technique
 score for a buggy line of code? This is straightforward for single location repairs, but for 
 multi-location repairs, evaluations
 typically consider a technique ``successful'' if it highly ranks or scores \emph{any} line in a
-set of buggy lines~\cite{zou2019empirical,pearson2017evaluating}.
+set of buggy lines~\cite{zou2019empirical,pearson2017evaluating,golagha2020can}.
 While appropriate for the question being asked in such evaluations, this does not address
 suitability for multi-location program repair.%  Identifying one of several buggy
 %locations is generally inadequate in a context where multiple locations must be
@@ -1445,6 +1445,13 @@ localize different kinds of faults~\cite{zou2019empirical}. Most empirical
 studies on fault localization evaluate techniques by determining whether a 
 technique can localize any faulty line. This usefully evaluates single line or single 
 location faults, but not necessarily multi-location faults.
+
+Golagha et. al~\cite{golagha2020can} analyzed the impact of 70 code metrics on SBFL, and built 
+a machine learning model to predict the bugs that would succeed with SBFL. With regards to 
+multi-location patches, the number of locations changed in the human 
+patch was among the metrics they tested and was not found to be correlated to SBFL success. 
+However, success was defined as ranking any faulty method in the top ten, which we argue is 
+not adequate for localizing multi-location faults. 
 
 Mutation testing contains parallels to program repair, as seen in G\&V
 program repair~\cite{weimer2013leveraging} and fault 
