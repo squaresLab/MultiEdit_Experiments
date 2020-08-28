@@ -380,22 +380,6 @@ all_repairable_bugs: Set[BugId] = set(chain.from_iterable(tool_to_repaired_bugs.
 
 two_six_location_bugs = set(get_bug_list('../2_6_locs_bugs.data'))
 
-validation_experiment_bugs = set(get_bug_list('partial-repair/unminimized-evaluated-bugs.data'))
-
-
-
-def get_pos_neg_neu_proportions():
-    proportions = dict() #bugId -> (pos, neg, neu proportions of partial repairs)
-
-    for dataset in ['d4j', 'bears']:
-        with open('partial-repair/{}/pos-neg-neu-proportions.csv'.format(dataset)) as f:
-            reader=csv.reader(f)
-            for row in reader:
-                bugId = normalize_bugId(row[0])
-                bugId_proportions = row[1:3]
-                proportions[bugId] = bugId_proportions
-
-    return proportions
 
 def print_dependency_stats():
     n_total_bugs_d4j = len(get_all_d4j_bugs())
@@ -681,7 +665,6 @@ def get_table_1_stats():
     proj_to_multi_test_bugs = partition_bugs_by_project(multi_test_bugs)
     proj_to_mlocation_mtest_bugs = partition_bugs_by_project(mlocation_mtest_bugs)
     proj_to_two_six_location_bugs = partition_bugs_by_project(two_six_location_bugs)
-    proj_to_validation_exp_bugs = partition_bugs_by_project(validation_experiment_bugs)
 
     table = []
     table.append(['Proj', 'Total', 'MLoc', '%', 'MLocMTest', '%', '2-6Loc', '%', 'MLine', '%']) # header row
