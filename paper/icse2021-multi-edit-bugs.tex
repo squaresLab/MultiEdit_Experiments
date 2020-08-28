@@ -974,8 +974,11 @@ clones through manual inspection.
 %
 We categorize edits as follows:
 \begin{enumerate}
-\item Same: The modifications at two locations are alpha-equivalent (i.e. the two locations are identical or would be
-identical if we substitute all occurrences of a variable in one location with another same-type variable)
+\item Same: The modifications at two locations are alpha-equivalent (i.e., the two locations are identical or would be
+identical if we substitute all occurrences of a variable in one location with
+another same-type variable). In studies on code clone detection, these are
+referred to as Type-1 (if there are no changes) and Type-2 (if identifiers are
+renamed) clones~\cite{kclone}.
 \item Near-same: The edits at two locations are almost alpha-equivalent and
   differ by at most one constant or arithmetic operator,
 or replacement of one constant with a variable.
@@ -1024,12 +1027,12 @@ categories.}
 Moreover, close to half of code clones are in the same method, while less than
 15\% of the cloning occurs across classes. Finally, 80 of 129 (62\%) of clones
 fall in the ``same'' category, corresponding to alpha-equivalent code cloning.
-\todo{ah, if someone has time, look up a code clone paper that lists code clones
-  by Type and figure out if this is type 1 or type 2.  The easier it is, the
-  more code clone papers think they're silly, but the better off we are.
-  Actually, quickly referencing any kind of code clone study here would be good,
-since I'm SURE someone has looked at clone locality in the past (though maybe
-not in patches). }
+%% \todo{ah, if someone has time, look up a code clone paper that lists code clones
+%%   by Type and figure out if this is type 1 or type 2.  The easier it is, the
+%%   more code clone papers think they're silly, but the better off we are.
+%%   Actually, quickly referencing any kind of code clone study here would be good,
+%% since I'm SURE someone has looked at clone locality in the past (though maybe
+%% not in patches). }
 \todo{more importantly: takeaway for program repair? 1 sentence, plz, this one
   is easy.}
 
