@@ -1533,6 +1533,12 @@ to reinforcing their earlier findings on intra-patch dependencies, we discover
 additional insights for enhancing APR in the axes of fault localization, 
 fix mutations, and patch validation.
 
+Hercules~\cite{saha2019harnessing} is an APR technique that takes 
+advantage of fix code similarity to generalize a single repair edit into a 
+patch consisting of multiple similar edits.
+We discuss fix code similarity and insights on Hercules in 
+Section~\ref{sec:clones}.
+
 Prior work in program repair to use more search-guiding information 
 during candidate patch evaluation 
 include using program invariants~\cite{better-fitness, dinglyu}, 
@@ -1551,7 +1557,7 @@ do not change test case passage and discussed potential applications
 of mutation robustness in proactive bug repair. 
 Although our context differs --- they studied random mutations, 
 we study changes associated with specific bug fixes --- we also find a 
-non-trivial proportion of neutral edits in multi-location repairs.  
+non-trivial proportion of neutral edits in multi-location repairs.
 
 
 \section{Takeaways and Conclusions}
