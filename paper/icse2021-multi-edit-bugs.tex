@@ -667,8 +667,8 @@ different
 
 Between both datasets, there are 216 total bugs that both require multi-location
 patches and contain multiple failing tests. However, we were not able to obtain coverage 
-data for one of the bugs in Bears, leaving 215 total bugs: 183 in Defects4J, and 32 in
-Bears. 
+data for one of the bugs in \bears, leaving 215 total bugs: 183 in Defects4J, and 32 in
+\bears. 
 For each of these bugs, we used JaCoCo~\cite{jacoco}
 to determine which lines of code in both the buggy and patched versions were executed
 by each failing test.
@@ -693,7 +693,7 @@ is
 executed). For the purposes of fault localization, coverage of patch locations is more valuable 
 than coverage of patch lines, and we analyzed 66 Defects4J bugs\footnote{Only
 bugs in Defects4J v1, because of the way we calculate coverage.}
- and all the Bears bugs, a total of 124 bugs, to see whether categorization 
+ and all the \bears bugs, a total of 124 bugs, to see whether categorization 
 based on patch line 
 coverage matched categorization based on patch location coverage.
 
@@ -733,7 +733,7 @@ as
 In addition, another 40\% were classified as \emph{partially holds}.
 
 Note, however, that the behavior varies considerably by dataset, as shown in the second and 
-third groups of bars in Figure \ref{fig:coverage-all}. In particular, Bears has fewer bugs in 
+third groups of bars in Figure \ref{fig:coverage-all}. In particular, \bears has fewer bugs in 
 \emph{contradicts} and more bugs in \emph{partially holds}.
 This difference is statistically significant, with $p = 0.032$ (Fisher's exact test).
 We hypothesize that this may be due to differences in how the two  
@@ -1313,7 +1313,7 @@ observations in prior work~\cite{gecco09}.
 but they also increase the chance of erroneously mis-identifying partial repairs.
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
-is negligible in Bears (0.46\%) but greater in Defects4J (5.35\%), while both had around 3\% increase in negatively identified partial repairs.
+is negligible in \bears (0.46\%) but greater in Defects4J (5.35\%), while both had around 3\% increase in negatively identified partial repairs.
 Moreover, evaluating patches at finer granularity levels can add overhead.
 For example, assertion level granularity requires instrumenting JUnit with additional
 logic to continue execution when assertions fail.
