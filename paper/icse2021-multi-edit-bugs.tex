@@ -292,8 +292,11 @@ related edits at once.
 \item \textbf{Cloning in multi-location repair} We find that over 30\% of bugs with multi-location
 patches have very similar edits applied to different locations, suggesting the viability of 
 program repair techniques designed to utilize code clones. Moreover, bugs in which 
-no faulty location is covered by every failing test tend to include
-clones in their patches.  This suggests a path forward for predicting which type of technique may apply to a given bug. 
+no faulty location is covered by every failing test tend to correlate with
+clones in their patches.  
+Clones are thus more likely to violate the assumptions of spectrum-based fault 
+localization, but this also suggests a path forward for predicting 
+which type of technique may apply to a given bug. 
 \item \textbf{Test cases for multi-location patch validation.} We find that over 40\% of bugs 
 with multi-location
   patches in Defects4J and over half in \bears do not require the edits at every
