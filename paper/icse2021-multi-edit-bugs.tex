@@ -196,7 +196,7 @@ program manipulation~\cite{par,genprog,rsrepair,ae,prophet,hdrepair,arja-journal
 to specially adapted program synthesis 
 techniques~\cite{Konighofer11,Konighofer12,semfix,DeMarco14,angelix,sosrepair,Xuan17}. 
 These techniques have successfully
-repaired real, meaningful defects in large, complex
+repaired meaningful defects in complex
 programs~\cite{angelix,genprog-eight-dollars,sapfix,durieux-repair-them-all}.
 
 Practically speaking, though, these techniques are typically limited in the types and
@@ -226,24 +226,21 @@ modifications may be applied at a location, and (3) the \emph{fix space}: code
 that may be instantiated for a specific mutation. For example, a repair
 technique might identify the location of a null-pointer dereference (exploring
 the fault space), decide to insert new code (mutation space), and synthesize
-code to initialize the pointer (fix space). Many dynamic repair techniques can
-be compared in terms of their choices along each of these axes, and traversal
-strategies have first-order implications for scalability and for the type and
-quality of patches produced.
+code to initialize the pointer (fix space). 
 
 Multi-location repair poses distinct challenges for each of these repair axes.
 Spectrum-based fault localization~\cite{ochiai}, the most prevalent class of
 fault localization used in program repair, does not specifically
 identify sets of potentially-related locations; indeed,
-the evaluation of most fault localization techniques typicaly assumes that a bug
+the evaluation of most fault localization techniques typically assumes that a bug
 is localized if any one buggy line is identified~\cite{fl-survey-wong}.
 Some bugs \emph{are}
 repaired in multiple locations using very similar
 code~\cite{saha2019harnessing,jiang2019cmsuggester}, informing novel techniques
 that constrain the \emph{fix space} of possible multi-location repairs accordingly.
-But, one key question for applicability of these types of techniques is how prevalent
-such bugs are, relative to bugs that require multiple
-coordinating (but ultimately different) edits.
+But, how prevalent are these bugs, 
+relative to those that require multiple
+coordinating edits?
 Note for example that over 50\% of the fixes in four 
 Apache projects involve two or more entities -- i.e., a Java class, method, or field -- and 66\%-76\% of 
 those multi-entity fixes involved syntactic dependencies~\cite{wang2018}. 
@@ -253,27 +250,25 @@ at identifying partial repairs in a multi-location
 context~\cite{better-fitness}.  
 Although multi-location repair has been discussed in the context of other analyses
 that study bug fix characteristics in general~\cite{d4j-dissection} as well as for
-repair applicability specifically~\cite{zhong2015, wang2018}, to the best of our
+repair applicability specifically~\cite{zhong2015, wang2018}, 
+% Do Motwani et al study this?
+to the best of our
 knowledge there has been no significant previous study of the characteristics of
 multi-location repairs in terms of their implications for automatic
-repairability.  \todo{Something like: Instead, we chip away at pieces like the
-  blind man at the elephant, or some some dumb analogy.  But punchy.}
+repair.
 
-To fill in this gap, and lay groundwork for more informed, systematic research
+To lay groundwork for more informed, systematic research
 efforts in the space of multi-edit repair, we conduct a systematic study of real-world bugs with
-multi-location patches.  We
-look specifically at their characteristics with respect to the problem of the
-automatic repair search space.  
-We study bugs curated in two
+multi-location patches.  We study bugs curated in two
 real-world datasets that support program repair research: Defects4J~\cite{defects4j}
 and \bears~\cite{bears}, in total, 1018 bugs in 51 projects.
-% CLG asks: are these numbers accurate
+\todo{CLG asks: are these numbers accurate?}
 More than half of these bugs were repaired by a
 human developer using edits at multiple locations.  We look at characteristics along each of the
 relevant axes of the program repair search problem: fault locations, mutation
 operators, fix code, and evaluation (or fitness or objective) using test cases,
 and find both important and, in some cases, unintuitive, implications for
-automated techniques.  Our findings and contributions are:
+APR.  Our contributions are:
 
 \begin{itemize}
 %\item An analysis and enumeration of multi-location patches in Defects4J and
@@ -341,76 +336,75 @@ multi-location repair (Section~\ref{sec:takeaways}).
 \label{sec:background}
 
 In this section we overview the background of automated program repair (APR) and
-introduce key concepts that directly motivate our research questions.
+introduce key concepts that directly motivate our research questions
+(Section~\ref{sec:apr}), and define precisely what we mean by multi-location
+repair as well as the datasets we consider in our study (Section~\ref{sec:bugs})
 
 \subsection{Automated Program Repair: a Search Problem}
+\label{sec:apr}
 
 The central goal of source-level automated program repair (APR) is to
 automatically generate patches for bugs in programs. We restrict attention to
 \emph{dynamic} or \emph{test-case guided} program repair, a prevalent class of
-research techniques over the past decade~\cite{cacm19}.  Dynamic APR techniques
-are characterized by their use of test cases that serve as the oracle for
-program correctness, at least one of which is failing (i.e., exercises the bug
+research techniques~\cite{cacm19}.  Dynamic APR techniques
+are characterized by their use of test cases as a correctness oracle,
+at least one of which is failing (i.e., exercises the bug
 to be repaired).
 
 At a high level, source level program repair is a \emph{search problem}, where
 the objective is a set of source-level program edits that will cause it to pass
-all of the provided tests. To do this, they first \emph{generate} a candidate
-patch, then run the test suite to \emph{validate} it; for this reason they are
-often called \emph{generate and validate} repair techniques. Generating a patch
+all of the provided tests. To do this, techniques first \emph{generate} a candidate
+patch, then run the test suite to \emph{validate} it. Generating a patch
 requires navigating a search space, which is typically defined along the
 following axes~\cite{ae,sqjo}:
 \begin{enumerate}[wide]
 
-\item \emph{Fault space.} The first problem with generating a patch concerns
-  \emph{where} in the code a patch should be applied. Most dynamic repair
+\item \emph{Fault space.} First, where 
+  in the code should a patch be applied? Most dynamic repair
   techniques begin by using test cases as input to a fault localization
-  technique. Such techniques identify (and typically score) suspicious code
-  based on which test cases execute which pieces of code. Although the
-  particulars of the fault localization employed can vary, most APR techniques
-  use some variant of spectrum-based fault localization (SBFL)~\cite{ochiai} in
-  this stage. The resulting computation defines the \emph{fault space}, or the
+  technique to identify (and typically score) suspicious code
+  based on test execution. Most APR techniques
+  use some variant of spectrum-based fault localization (SBFL)~\cite{ochiai}. 
+  The resulting computation defines the \emph{fault space}, or the
   candidate code locations considered for repair.
 
 \item \emph{Mutation space.} After identifying a faulty program location, an APR
   technique must choose from the set of applicable modifications at the given
-  point. Examples include GenProg's \emph{append}, \emph{replace}, and
-  \emph{delete} mutation operators over statements~\cite{genprog-operators};
-  PAR's human patch inspired edit templates~\cite{par}; and Nopol's condition
-  replacement over \texttt{if} statements~\cite{Xuan17}. Although a larger
-  mutation space allows the generation of a wider variety of patches with
-  potentially more repairs, adding more mutations grows the entire generation
-  search space combinatorially~\cite{long-search-spaces}.
+  point. Examples include statement-level mutations like statement \emph{append}
+  or \emph{delete}~\cite{genprog-operators}; hand-crafted edit
+  templates~\cite{par}; or custom condition
+  replacement over \texttt{if} statements~\cite{Xuan17}. Although more mutations
+  admit a wider variety of patches, the search space grows combinatorially as
+  they are added~\cite{long-search-spaces}.
 
 \item \emph{Fix space.} Certain mutations must be instantiated with generated or
   selected code before they can be applied. For example, if a technique elects
-  to insert a null pointer check, the specific object being checked for
-  \texttt{null} must be chosen to generate a patch. This search space that must
-  be navigated to instantiate a patch is referred to as the \emph{fix space}.
-  The fix space can be quite large (or even infinite), and different APR
-  techniques use different strategies to make it tractable. Some techniques
-  tackle the problem by taking advantage of the \emph{plastic surgery
-    hypothesis}~\cite{plastic}, which assumes that a bug can be repaired by code
-  available in other parts of the same program. By contrast, learning-based
+  to insert a null check, an object must be chosen to check for 
+  \texttt{null} to instantiate the patch. This defines
+  the \emph{fix space}. Some techniques
+  constrain the fix space by taking advantage of the \emph{plastic surgery
+    hypothesis}~\cite{plastic}, assuming a bug can be repaired by code
+  available in other parts of the same program. Learning-based
   approaches use models of code or repairs to inform
-  modifications~\cite{prophet}, whereas synthesis-based approaches constrain a
+  modifications~\cite{prophet}; synthesis-based approaches constrain a
   synthesis engine to a small vocabulary of fix ingredients, possibly informed
   by the code near the selected faulty location~\cite{angelix,s3}.
-\end{enumerate}
 
-After generation, patches must be validated. Candidate patches are typically
-validated using the provided test cases as the objective function. In techniques
+\item \emph {Validation.}
+Candidate patches are typically
+validated using the provided test cases. In techniques
 that require one, test cases can also be used as the \emph{fitness
   function}~\cite{genprog}; although some have supplemented the test case
 objective with partial correctness measures like program
 invariants~\cite{dinglyu}, memory snapshots~\cite{source-code-checkpoint}, or
-similarity to human edits~\cite{hdrepair}, with maximization of tests passed
-maintained as one of possibly many objectives.
+similarity to human edits~\cite{hdrepair}.
 %% JL: This might be too early, since we haven't talked about multi-location yet.
 %% In a multi-edit context, ideally,
 %% multiple tests would be able to idnetify partial repairs that could be composed.
 %% However, evidence suggests that this does not always
 %% apply~\cite{better-fitness,schulte}.
+
+\end{enumerate}
 
 A practical implication of the size and complexity of this search space is
 that APR techniques must engage in trade offs to render the problem tractable. 
@@ -418,25 +412,25 @@ Some techniques limit the \emph{fault space},
 searching explicitly for single-edit patches~\cite{rsrepair,ae,hdrepair}.
 \todo{let's add techniques post 2017 to this paragraph wherever they belong
   plz.}
-All consider a constrained mutation space, varying in how constrained that space
-is; some implicitly limit the mutation or fix space by targeting only certain
+All consider a constrained mutation space. 
+Some implicitly limit the mutation or fix space by targeting only certain
 classes of bugs~\cite{Xuan17,sapfix,DeMarco14,par}. Regardless, even techniques
 that can in principle generate repairs with multi-location patches typically
 don't~\cite{patch-correctness}.
 %
-Meanwhile, many real-world bugs require multi-edit patches: over half of the
-bugs in the popular bug benchmark Defects4J~\cite{defects4j} are patched by
-humans using multi-part patches~\cite{d4j-dissection}. Approximately 70\% of
-buggy source files in a large study of bugs in Apache projects required edits at
-two or more locations~\cite{zhong2015}.
+% Meanwhile, many real-world bugs require multi-edit patches: over half of the
+% bugs in the popular bug benchmark Defects4J~\cite{defects4j} are patched by
+% humans using multi-part patches~\cite{d4j-dissection}. Approximately 70\% of
+% buggy source files in a large study of bugs in Apache projects required edits at
+% two or more locations~\cite{zhong2015}.
 
-Our goal in this study is to understand what makes the generation of larger
+Our goal is to understand what makes the generation of larger
 patches difficult, and identify properties of these bugs and their associated
 patches that can be exploited by future APR tools.  
 We define this problem precisely and characterize our datasets next.
 
 \subsection{Multi-Location Patches and Dataset}
-
+\label{sec:bugs}
 
 We focus in this study on the properties of \emph{multi-location} patches. There are
 several plausible definitions of multi- vs. single-location patches, with
