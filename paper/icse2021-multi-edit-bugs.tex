@@ -529,12 +529,12 @@ paradigm.
 %As a shorthand, we refer to bugs with multi-location human-written
 %patches as \emph{multi-location bugs}.
 
-In addition, some experiments will have further restrictions on what bugs can be used. In 
-particular, we also look at bugs that have multiple failing tests, bugs with up to six patch 
+In addition, some experiments will have further restrictions on what bugs can be
+used. For example, we consider bugs that have multiple failing tests, bugs with up to six patch 
 locations (for scalability), and bugs with multiple patch lines (a superset of multi-location 
 patches). In addition to providing the size of these sets in 
-Table~\ref{tab:dataset-characteristics}, each experiment will clearly state which restrictions are 
-being used and how many bugs that includes.
+Table~\ref{tab:dataset-characteristics}, each experiment will clearly indicate
+which bugs are considered. 
 
 We start our analysis of multi-location patches by asking:
 
@@ -953,14 +953,13 @@ dependencies to repair a large class of difficult bugs.
 
 \subsubsection{Occurrences of cloned code}
 
-If multi-location patches composed of multiple, dependent edits constitute one
-extreme, at the other extreme lies patches consisting of the same code applied
-in several locations (of course, between those extremes lie patches consisting
-of a mix of both). Previous techniques have targeted exectly these types of
+A patch composed of multiple, dependent edits constitutes one
+extreme. At the other extreme lies patches that apply the same modification in several locations. 
+Previous techniques have targeted exectly these types of
 bugs~\cite{wang2018,saha2019harnessing}.  We evaluate how often this relationship applies to
-multi-location bugs, and thus the usefulness of techniques that assume it, by asking: 
+multi-location bugs, and thus the usefulness of techniques that assume it:
 
-\rqorinsight{5}{How often do code clones occur in multi-location bugs?}
+\rqorinsight{5}{How often do code clones occur in multi-location patches?}
 
 %Possible intuition: if we can find some kind of correlation between fault localization results
 %and code clones, then if some APR research decided to follow Wang et al's suggestion and
@@ -969,29 +968,28 @@ multi-location bugs, and thus the usefulness of techniques that assume it, by as
 %result matches specific patterns.
 
 %\paragraph{Methodology}
-Our dataset includes all multi-location bugs excluding those with more than 6 faulty locations to 
-constrain the search space, leaving 216 bugs to analyze. We determine the existence of code 
+Our dataset includes all 216 multi-location bugs with 6 or fewer modified
+locations (to reduce the analysis burden). We determine the existence of code 
 clones through manual inspection.
-
+%
 % We cross validate our list of bugs with clones with results from previous work proposing and 
 %evaluating an APR tool named Hercules~\cite{saha2019harnessing}. Hercules is a generate and 
 %validate approach that could also exploit similar code locations to generate patches with code 
 %clones. It was evaluated with the bugs in Defects4J version 1, which consists of 395 total bugs 
 %and 187 multi-location bugs. 
-
-We call the edits at two locations code clones if it is one of the following four cases:
+%
+We categorize edits as follows:
 \begin{enumerate}
-\item Same: The two locations are alpha-equivalent (i.e. the two locations are identical or would be
+\item Same: The modifications at two locations are alpha-equivalent (i.e. the two locations are identical or would be
 identical if we substitute all occurrences of a variable in one location with another same-type variable)
-\item Near-same: The two locations are alpha-equivalent except the difference by at most one constant or arithmetic operator,
-or replacement of one constant with variable
+\item Near-same: The edits at two locations are almost alpha-equivalent and
+  differ by at most one constant or arithmetic operator,
+or replacement of one constant with a variable.
 \item Composite: The patch at one location is exactly copied and contained within the patch at 
 the 
-second location (the second location  has additional lines in the patch).
-\item Move: Two locations forms a "movement" of code (i.e., one location is an insertion of 
-code 
-while the other is a deletion of the same code, essentially moving the code from one location to 
-another).
+second location (the second location  has additional lines).
+\item Move: One location is an insertion of 
+code deleted from the other location. 
 \end{enumerate}
 
 %\paragraph{Results}
@@ -1013,29 +1011,33 @@ Total     & 372 & 308 & 64\\
 \end{tabular}
 \end{center}
 }
-\caption{Code clone breakdown for multi-location patches, broken down
-  per-dataset and by the location of the clone. \emph{Same}, \emph{Near-same},
-  \emph{Composite} and \emph{Move} correspond to the four types of code clones
-  considered, as described in Section~\ref{sec:clones}.  The \emph{Any} row is the
-  number of patches that contain any type of clone; note that some patches can
-  contain clones that belong to multiple categories. The \emph{Locality} columns
-  show the relative location of the clones in a patch: inside the same method,
-  inside the same class, or neither, respectively. 32.5\% of multi-location bugs
-  in our dataset contain code clones.}
+\caption{Code clone incidence, type, and location in our dataset. \emph{Same}, \emph{Near-same},
+  \emph{Composite} and \emph{Move} are defined in Section~\ref{sec:clones}.
+  \emph{Any} indicates any type of clone; note that some patches can
+  contain clones from multiple categories. \emph{Locality} indicates
+  the relative locations of clones in a patch (same method, class, or neither). 32.5\% of multi-location bugs
+  in our dataset contain some form of cloning. }
 \label{tab:clones}
 \end{table}
 
-As shown in Table~\ref{tab:clones}, 121 out of the 372 multi-location bugs
-(32.5\%) included at least one type of cloning between fault locations,
+Table~\ref{tab:clones} shows that 121 of 372 multi-location bugs
+(32.5\%) included at least one type of cloning,
 indicating a significant prevalence of code clones in multi-location human
-patches.  Note that "Any" may not be the sum of the previous four rows because
-some bug could contain multiple pairs of code clones that belong to different
-categories.
-
+patches.\footnote{Note that ``Any'' may not sum the previous rows because
+bugs can contain multiple pairs of code clones belonging to different
+categories.}
+%
 Moreover, close to half of code clones are in the same method, while less than
-15\% of the code clones occur in different classes. Moreover, out of the 129 sets of code clones,
-80 of them belongs to the ``same'' category, which means that 62\% of sets of code clones have completely
-alpha-equivalent edit locations within them.
+15\% of the cloning occurs across classes. Finally, 80 of 129 (62\%) of clones
+fall in the ``same'' category, corresponding to alpha-equivalent code cloning.
+\todo{ah, if someone has time, look up a code clone paper that lists code clones
+  by Type and figure out if this is type 1 or type 2.  The easier it is, the
+  more code clone papers think they're silly, but the better off we are.
+  Actually, quickly referencing any kind of code clone study here would be good,
+since I'm SURE someone has looked at clone locality in the past (though maybe
+not in patches). }
+\todo{more importantly: takeaway for program repair? 1 sentence, plz, this one
+  is easy.}
 
 % code clones <-> hercules data
 % idk how what the conclusion from this information is so I'm just gonna put numbers in
@@ -1046,27 +1048,24 @@ alpha-equivalent edit locations within them.
 %a bug whose patch required 6 or more locations, and in going back, the human patch also 
 %contained code clones. 
 \subsubsection{Relationships between localization and clones}
-
-To harness the presence of code clones in repairs, it would be great if 
-APR tools can get information about the bug from fault localization that 
-may indicate the profitability of clones. 
-Therefore we ask: 
+Intuitively, we expect that bugs  \emph{contradicts} localization, where none of the patch is 
+covered by all failing tests, are more likely to correspond to patches where
+similar fix code is applied at multiple separately tested locations. If 
+true, this suggests that fault localization information can help 
+predict the utility of code clone-based APR mutation a priori. We ask:
 
 \rqorinsight{6}{Does the existence of code clones in human patches correlate with specific 
 localization patterns?}
 
-Our intuition is that \emph{contradicts} localization, where none of the patch is 
-covered by all failing tests, is more likely when a
-developer needs to apply similar fix code at multiple separately tested locations. 
-We thus hypothesize that \emph{contradicts} bugs have a higher incidence of code
-clones. By contrast, \emph{holds} bugs, where all failing tests execute 
-the same patch lines, may have
-more interrelated parts that are not merely the same statements copied to
-multiple locations.
-
-In comparing these results with the results of the coverage experiment in
-Section~\ref{secFL}, we focus on the multi-test and multi-location bugs used in the coverage 
-experiment and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
+% CLG sez: nice and clear, but derivable from first principles, and we have a
+% length problem.
+%By contrast, \emph{holds} bugs, where all failing tests execute 
+%the same patch lines, may have
+%more interrelated parts that are not merely the same statements copied to
+%multiple locations.
+%
+We focus on the multi-test and multi-location bugs used in the coverage 
+experiment (Section~\ref{secFL}, and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
 
 \begin{table}
   {\begin{center}
@@ -1082,26 +1081,23 @@ experiment and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
       \end{tabular}
     \end{center}
   }
-  \caption{Multi-location and multi-test bugs categorized by coverage pattern
-    and presence of clones; definitions for Contradicts, Partially Holds, and
-    Holds are defined in Section~\ref{secFL}.}
+  \caption{\small Multi-location and multi-test bugs categorized by coverage
+    pattern (Section~\ref{secFL}). 
+    and presence of clones. \todo{if there's space: what's the takeaway?}}
   \label{tab:cov_clones}
 \end{table}
 
-In Table \ref{tab:cov_clones}, we show the incidence of code clones among the three 
-coverage patterns identified in Section \ref{secFL}. Note that out of 372 bugs evaluated for code clones, only 166 of them have multiple failing tests, so only these bugs are included in the table.  
-We find a statistically significant relationship between (non-)\emph{contradicts}
-localization and clone presence ($p < 0.001$, by a $\chi^2$ test).
-Out of 50 \emph{contradicts} bugs, 52\% (26/50) have clones. In contrast,  
+Table~\ref{tab:cov_clones} shows the incidence of patch code clones among the three 
+coverage patterns identified in Section \ref{secFL}. 
+Out of 50 \emph{contradicts} bugs, 52\% (26/50) have clones; only 
 18\% (12/68) and 15\% (11/73)
-\emph{partially holds} and \emph{holds} bugs respectively have clones.
+\emph{partially holds} and \emph{holds} bugs respectively contain clones.
 A \emph{contradicts} bug is more likely to contain clones in its
-human patch than bugs with other localization. 
-The result supports the hypothesis that \emph{contradicts} bugs are more likely to contain 
-clones. This suggests a heuristic for when to try clones: if there
-appears to be less coverage overlap between multiple tests, it is
-possible that, if multi-location, the bug may be \emph{contradicts}.  If so,
-applying the same edits at multiple locations may be more likely to succeed. We
+human patch than bugs with other localization  ($p < 0.001$, by a $\chi^2$ test).. 
+This suggests a heuristic for when to try a clone-based repair technique: if there
+appears to be less coverage overlap between multiple failing tests, it is
+possible that, if multi-location, 
+applying the same edits at multiple locations~\cite{saha2019harnessing} may be more likely to succeed. We
 leave a concrete investigation of this possibility to future work.
 
 We also find that 53\% (26/49) of clone-containing patches exhibit 
