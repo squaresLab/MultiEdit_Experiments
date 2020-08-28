@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 from parse_raw_coverage import read_raw_coverage
+import scipy
 
 buggy_coverage_files = ["data/coverage-experiments/buggy-coverage-final/rawCoverage.data"]
 exp_1_folder_name = "data/coverage-experiments/coverage-data-final"
@@ -60,12 +61,16 @@ print("disjoint", originally_disjoint)
 print("identical", originally_identical)
 print("overlap", originally_overlap)
 
+print(scipy.stats.mannwhitneyu(originally_overlap, originally_disjoint, use_continuity=True, alternative='two-sided'))
+print(scipy.stats.mannwhitneyu(originally_identical, originally_disjoint, use_continuity=True, alternative='greater'))
+print(scipy.stats.mannwhitneyu(originally_identical, originally_overlap, use_continuity=True, alternative='greater'))
+
 plt.rcParams.update({'font.size': 20})
 # plt.rcParams.update({'font.family': 'serif'})
 
 prop = {'linewidth':3}
 
-plt.boxplot([originally_disjoint, originally_overlap, originally_identical], labels=["Contradicts", "Partially Holds", "Holds"],
+bp = plt.boxplot([originally_disjoint, originally_overlap, originally_identical], labels=["Contradicts", "Partially Holds", "Holds"],
 	boxprops=prop,
 	capprops=prop,
 	whiskerprops=prop,
@@ -75,6 +80,11 @@ plt.boxplot([originally_disjoint, originally_overlap, originally_identical], lab
 plt.ylabel("Percent coverage by all failing tests",labelpad=15)
 plt.yticks(ticks=[0.0, 0.2, 0.4, 0.6, 0.8, 1.0], labels=['0%', '20%', '40%', '60%', '80%', '100%'])
 plt.xlabel("Coverage pattern",labelpad=15)
+
+for medline in bp['medians']:
+    linedata = medline.get_ydata()
+    median = linedata[0]
+    print(median)
 # plt.title("Do the failing tests of multi-edit and multi-test bugs\nexecute the same lines of code?", pad=40, fontdict={'fontsize': "xx-large",})
 plt.show()
 

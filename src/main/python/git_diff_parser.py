@@ -56,7 +56,7 @@ def parse_diff(diff):
 
 #############################################################################################
 
-with open("/home/serenach/bears-benchmark/docs/data/bears-bugs.json") as f:
+with open("data/bears-bugs.json") as f:
     bears_data = json.load(f)
 
 with open("data/defects4j-bugs.json") as f:

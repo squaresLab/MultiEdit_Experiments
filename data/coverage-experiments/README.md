@@ -26,6 +26,9 @@ and `multiedit.coverage.DoCoverageExperimentsBuggy` with the following exception
 
 * Math 12 (identical)
 * Math 35 (disjoint)
+* Closure 80 (disjoint)
+* Closure 143 (overlap)
+
 
 **Bugs where the category (identical/overlap/disjoint) 
 differed for line coverage and location coverage
@@ -42,3 +45,6 @@ differed for line coverage and location coverage
 * Bears 123
 * Mockito 11
 * Mockito 25
+* Closure 30
+* Closure 49
+* Closure 85

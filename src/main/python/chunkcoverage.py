@@ -144,6 +144,9 @@ print(len(multitest_multichunk))
 classify = {}
 
 for bug in multitest_multichunk:
+	if not bug.startswith("CLOSURE"):
+		continue
+		
 	if bug == "JSOUP:071":
 		continue
 	name, num = bug.split(":")
