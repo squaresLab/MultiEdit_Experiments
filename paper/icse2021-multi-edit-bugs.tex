@@ -289,31 +289,28 @@ techniques to automatically repair.  This means that APR techniques assuming edi
 independence~\cite{saha2019harnessing, theotherone} are applicable to a nontrivial propertion of complex bugs, while
 still motivating development of new analyses that can reason about multiple,
 related edits at once. 
-\item \textbf{Cloning in multi-location repair} We find that over 30\% of bugs with multi-location
+\item \textbf{Cloning in multi-location repair.} We find that over 30\% of bugs with multi-location
 patches have very similar edits applied to different locations, suggesting the viability of 
 program repair techniques designed to utilize code clones. Moreover, bugs in which 
-no faulty location is covered by every failing test tend to correlate with
-clones in their patches.  
-Clones are thus more likely to violate the assumptions of spectrum-based fault 
-localization, but this also suggests a path forward for predicting 
-which type of technique may apply to a given bug. 
-\item \textbf{Test cases for multi-location patch validation.} We find that over 40\% of bugs 
-with multi-location
-  patches in Defects4J and over half in \bears do not require the edits at every
-  location in their provided human patches to pass all test cases, suggesting
-  that either patches contain unnecessary edits or that test cases
-  do not fully capture the desired behavioral specification.  \todo{Think about
-    how to ephrase this a bit more intuitively, and consider breaking up this
-    bullet into multiple findings.} We also find that test 
-  case based validation methods can positively identify close to 40\% of partial repairs,
-  while less than
-  20\% of partial repairs cause more test assertions to fail. Additionally, the 
-  \emph{granularity} at which test suite behavior is measured (i.e., at the class,
-  method, or assertion level) influences ability to identify partial
-  repairs. 
-\item dataset replication etc \todo{FIXME: Our dataset and analysis results,
-    linked here anonymously, will be prettier for the camera ready we promise.}
+no faulty location is covered by every failing test tend to include
+clones in their patches.  This suggests a path forward for predicting which type of technique may apply to a given bug. 
+\item \textbf{Test cases for multi-location patch validation.}
+%% JL: I'm combining these into one number. 44% comes from (99+39)/(240+74)
+%% We find that over 40\% of bugs with multi-location patches in Defects4J and
+%% over half in \bears
+  We find that 44\% of bugs with human-written multi-location patches do not
+  require edits at every location to pass all test cases. This suggests that
+  either patches contain superfluous edits or that test cases do not fully
+  capture the desired specification. We also find that tests can be used to
+  identify partial repairs, and the \emph{granularity} at which test suite
+  behavior is measured (i.e., at the class, method, or assertion level)
+  influences the ability to identify partial repairs. At the highest granularity
+  (i.e., at the assertion level), test cases can identify 36\% of
+  partially-applied patches as a positive improvement, while only 19\% of
+  partial patches cause an increase in test failures.
 \end{itemize}
+
+\todo{FIXME: HERES OUR DATA.}
 
 In Section~\ref{sec:background}, we overview the problem domain to
 motivate/outline our research questions, and characterize our datasets.
