@@ -332,8 +332,7 @@ limitations (Section~\ref{sec:limits}), related work,
 (Section~\ref{sec:related}), and a summary of
 % don't give up on this yet.  It's a complicated paper, roadmaps might actually
 % meaningfully help
-our takeaways for 
-multi-location repair (Section~\ref{sec:takeaways}).
+our takeaways (Section~\ref{sec:takeaways}).
 
 \section{Problem Definition}
 \label{sec:background}
@@ -601,8 +600,7 @@ suitability for multi-location program repair.%  Identifying one of several bugg
 %locations is generally inadequate in a context where multiple locations must be
 %modified. 
 
-To characterize the challenges that lie in statistically characterizing the
-fault space in multi-location contexts, we start by assessing the 
+We therefore start by assessing the 
 relationship of multi-location repairs to the assumptions underlying SBFL. 
 %Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
 %execute buggy portions of the code relatively more often than passing tests.} 
@@ -611,7 +609,7 @@ relationship of multi-location repairs to the assumptions underlying SBFL.
 %Though this second assumption is not 
 %always true, we derive it in order to explore the relationship of failing test executions with 
 %each other.
-One assumption that we might make in describing how SBFL is effective is that 
+One such assumption associated with SBFL is that 
 \emph{code executed by all failing tests are more likely to be buggy.}
 This is obviously true for all single-location bugs but becomes more complicated for 
 multi-location bugs -- for example, there might be a bug with two patch locations and two failing 
@@ -862,9 +860,8 @@ in multi-location repair.
 One of the dimensions of the relationship between multi-location patches is potential
 \emph{dependency} between the edits, because edit dependency can and should
 inform how those edits are selected and applied (i.e., consider the difference
-between a multi-location
-bugs repaired by applying the same independent edit in four places, as
-compared to a bug repaired by applying  four control- and data-dependent
+between a patch that applies the same edit in four places, and one that
+applies four control-dependent
 modifications).  Specifically, we ask:
 \rqorinsight{4}{How prevalent and hard to construct are
 patches with intra-patch dependencies?}
