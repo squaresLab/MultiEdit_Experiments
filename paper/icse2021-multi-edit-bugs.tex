@@ -294,7 +294,7 @@ locations that are not
 find that 45\% of bug patches contain dependent edits, and that such bugs
 may be more difficult for current, state-of-the-art
 techniques to automatically repair.  This means that APR techniques assuming edit
-independence~\cite{hercules,theotherone} are applicable to a nontrivial propertion of complex bugs, while
+independence~\cite{saha2019harnessing, theotherone} are applicable to a nontrivial propertion of complex bugs, while
 still motivating development of new analyses that can reason about multiple,
 related edits at once. 
 \item \textbf{Cloning in multi-location repair} We find that over 30\% of bugs with multi-location
@@ -1042,21 +1042,23 @@ alpha-equivalent edit locations within them.
 %was 
 %a bug whose patch required 6 or more locations, and in going back, the human patch also 
 %contained code clones. 
-\subsubsection{Correlations between test coverage and code clones}
+\subsubsection{Relationships between localization and clones}
 
-To harness the presence of code clones in repairs, it would be great if APR tools can get information about the bug from fault localization that may indicate that a correct repair may contain code clones. Therefore we ask: 
+To harness the presence of code clones in repairs, it would be great if 
+APR tools can get information about the bug from fault localization that 
+may indicate the profitability of clones. 
+Therefore we ask: 
 
-\rqorinsight{6}{Is the existence of code clones in human patches correlated with specific 
-patterns of fault localization?}
+\rqorinsight{6}{Does the existence of code clones in human patches correlate with specific 
+localization patterns?}
 
-In order to do that, we further attempt to correlate the coverage patterns outlines in
-Section~\ref{secFL} with the existence of code clones in human patches.  Our 
-intuition is that a \emph{contradicts} bug may be more likely to occur when a
-developer needs to apply the same fix at multiple independent locations, that
-can or should be tested separately.  We therefore 
- hypothesize that \emph{contradicts} bugs will have a higher incidence of code
-clones. By contrast, bugs categorized as \emph{partially holds} or \emph{holds} may have
-more inter-related parts that are not merely the same statements copied to
+Our intuition is that \emph{contradicts} localization, where none of the patch is 
+covered by all failing tests, is more likely when a
+developer needs to apply similar fix code at multiple separately tested locations. 
+We thus hypothesize that \emph{contradicts} bugs have a higher incidence of code
+clones. By contrast, \emph{holds} bugs, where all failing tests execute 
+the same patch lines, may have
+more interrelated parts that are not merely the same statements copied to
 multiple locations.
 
 In comparing these results with the results of the coverage experiment in
@@ -1084,22 +1086,28 @@ experiment and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
 \end{table}
 
 In Table \ref{tab:cov_clones}, we show the incidence of code clones among the three 
-coverage patterns identified in Section \ref{secFL}. Note that out of 372 bugs evaluated for code clones, only 166 of them have multiple failing tests, so only these bugs are included in the table.  Out of 48 bugs labeled as 
-\emph{contradicts} in the coverage, over half of them has code clones. In contrast, the 
-\emph{partially holds} and \emph{holds} categories respectively had 20\% and 12\% bugs with code clones. 
-This indicates that a 
-bug with \emph{contradicts} coverage result is more likely to contain code clones in its
-human patch than bugs with other coverage results. 
-
-This result supports the hypothesis that \emph{contradicts} bugs are more likely to contain 
-code clones, while the other two classifications have comparatively less code
-clones. This has potential implications for technique design: that is, if there
-appears to be relatively less coverage overlap between multiple tests, it is
+coverage patterns identified in Section \ref{secFL}. Note that out of 372 bugs evaluated for code clones, only 166 of them have multiple failing tests, so only these bugs are included in the table.  
+We find a statistically significant relationship between (non-)\emph{contradicts}
+localization and clone presence ($p < 0.001$, by a $\chi^2$ test).
+Out of 50 \emph{contradicts} bugs, 52\% (26/50) have clones. In contrast,  
+18\% (12/68) and 15\% (11/73)
+\emph{partially holds} and \emph{holds} bugs respectively have clones.
+A \emph{contradicts} bug is more likely to contain clones in its
+human patch than bugs with other localization. 
+The result supports the hypothesis that \emph{contradicts} bugs are more likely to contain 
+clones. This suggests a heuristic for when to try clones: if there
+appears to be less coverage overlap between multiple tests, it is
 possible that, if multi-location, the bug may be \emph{contradicts}.  If so,
-applying the same edits at multiple locations may be more likely to succeed.  We
+applying the same edits at multiple locations may be more likely to succeed. We
 leave a concrete investigation of this possibility to future work.
 
-
+We also find that 53\% (26/49) of clone-containing patches exhibit 
+\emph{contradicts} localization, compared to 17\% (24/142) of non-clones.
+Thus, clone edits are more likely to contradict SBFL's core assumptions
+on fault coverage, which suggests that clones are often contextually 
+\emph{different} enough to be not visible to all failing tests.
+Clone-oriented techniques such as Hercules~\cite{saha2019harnessing} may benefit
+from a non-SBFL technique.
 
 \section{Test case-based validation}
 \label{sec:tests}
@@ -1550,7 +1558,9 @@ multi-location patches and characterized by multiple failing tests had patch
 locations that executed by some but not all tests; thus the assumption was only 
 partially held. Additionally, 27\% of
 these patches had no patch location covered by all failing
-tests, and thus contradicted the assumption.  In these cases SBFL is unlikely to be the most 
+tests, and thus contradicted the assumption.  
+Patches with clones are especially likely (53\%) to contradict the assumption.
+In these cases SBFL is unlikely to be the most 
 appropriate choice for a
 fault localization technique. This finding suggests that there is still progress
 to be made in fault localization for automated repair.
@@ -1574,10 +1584,10 @@ bugs.
 \item\textbf{Code clones are prevalent in multi-location patches.}
 We found code clones in 32.5\% of bugs with multi-location
 patches. This observation supports recent work that leverages code clones to
-generate repairs~\cite{saha2019harnessing}. \todo{Moreover, we found that there is a
-correlation between negative tests with disjoint coverage and code clones in
-human-written patches.} This suggests the existence of a heuristic for
-identifying which bugs would benefit most from code clone-specific techniques.
+generate repairs~\cite{saha2019harnessing}.
+We also found that clones are more likely to contradict SBFL's assumptions 
+on coverage, which suggests both a heuristic for clone application and the
+potential benefits of other fault localization paradigms.
 
 \item\textbf{Correct partial repairs rarely cause more failing tests.}
 Contrary to prior work~\cite{gecco09}, we found that test suites are infrequently
