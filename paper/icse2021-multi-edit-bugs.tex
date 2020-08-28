@@ -173,7 +173,7 @@
 
 \section{Introduction}
 
-%\renewcommand\todo[1]{}
+\renewcommand\todo[1]{}
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
@@ -327,12 +327,12 @@ motivate/outline our research questions, and characterize our datasets.
 We then describe the results of our study along the
 three key axes of program repair: fault localization (Section~\ref{secFL}),
 mutation operators and fix code (Section~\ref{sec:mutops}), and test cases as
-the patch validation mechanism (Section~\ref{sec:tests}).  We conclude by
-outlining limitations (Section~\ref{sec:limits}), related work
-(Section~\ref{sec:related}).  Finally, 
+the patch validation mechanism (Section~\ref{sec:tests}).  We conclude with
+limitations (Section~\ref{sec:limits}), related work,
+(Section~\ref{sec:related}), and a summary of
 % don't give up on this yet.  It's a complicated paper, roadmaps might actually
 % meaningfully help
-we summarize our takeaways for 
+our takeaways for 
 multi-location repair (Section~\ref{sec:takeaways}).
 
 \section{Problem Definition}
@@ -472,11 +472,11 @@ don't~\cite{patch-correctness}.
 % humans using multi-part patches~\cite{d4j-dissection}. Approximately 70\% of
 % buggy source files in a large study of bugs in Apache projects required edits at
 % two or more locations~\cite{zhong2015}.
-
+%
 Our goal is to understand what makes the generation of larger
 patches difficult, and identify properties of these bugs and their associated
 patches that can be exploited by future APR tools.  
-We define this problem precisely and characterize our datasets next.
+%We define this problem precisely and characterize our datasets next.
 
 \subsection{Multi-Location Patches and Dataset}
 \label{sec:bugs}
@@ -665,6 +665,7 @@ different
 
 \subsection{Methodology}
 
+\looseness-1
 Between both datasets, there are 216 total bugs that both require multi-location
 patches and contain multiple failing tests. However, we were not able to obtain coverage 
 data for one of the bugs in \bears, leaving 215 total bugs: 183 in Defects4J, and 32 in
@@ -677,8 +678,7 @@ To answer RQ2, we used the patch lines that were executed by the tests to catego
 each bug into three \emph{localization categories}: \emph{holds}, \emph{contradicts}, and 
 \emph{partially holds}. These three localization categories refer to the relationship each bug has 
 with 
-the assumption that code executed by all failing tests are more likely to be buggy. Each bug is 
-categorized using the following criteria:
+the assumption that code executed by all failing tests are more likely to be buggy: 
 
 \begin{itemize}
 \item \emph{holds}:  all failing tests execute the exact same patch lines.
@@ -719,9 +719,9 @@ to localization category.
 \end{figure}
 
 \subsection{Results}
+ \label{sec:cov_patterns}
 
-\subsubsection{Distribution of Localization Categories} \label{sec:cov_patterns}
-
+\paragraph{Distribution of Localization Categories.}
 The first group of bars in Figure~\ref{fig:coverage-all} shows results for the overall distribution 
 of localization categories, 
 answering RQ2. 
@@ -747,8 +747,9 @@ the patch must be written by a human~\cite{bears}.
 %In addition, Bears was designed to be evolvable 
 %and relatively easily expanded as a dataset, which is at odds with manual inspection and isolation of 
 %bugs~\cite{bears}.
-Given that these two datasets were designed with different values and demonstrate very 
-different behavior, these findings highlight the importance of diverse datasets
+%Given that these two datasets were designed with different values and demonstrate very 
+%different behavior, 
+These findings highlight the importance of diverse datasets
 in APR evaluations. 
 
 Out of the 124 bugs we checked, ten bugs had differing localization categories when 
@@ -783,7 +784,7 @@ do you think of this version?}
 % just cut it for space, it's fine. 
 \end{figure}
 
-\subsubsection{Generalization of localization categories}
+\paragraph{Generalization of localization categories.}
 %<<<<<<< Updated upstream
 Figure \ref{fig:coverage-buggy} plots localization category based on the
 percentage of lines executed by all failing tests. 
@@ -823,7 +824,7 @@ succeed with SBFL.
 \section{Mutation Operators and Fix Code}
 \label{sec:mutops}
 
-Given suitably selected fault locations, APR techniques vary in the types of
+APR techniques vary in the types of
 mutation operators they consider, how they select between them, and how they
 select new fix code to instantiate them. 
 %  For example, a na{\"i}ve
