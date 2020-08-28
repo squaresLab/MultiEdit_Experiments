@@ -1288,7 +1288,7 @@ excluded from the count.\footnote{e.g., by throwing errors like ``missing return
         \includegraphics[width=\textwidth]{img/weighted_percent.pdf}
         \caption{Weighted percent of partial repairs exhibiting a {\normalfont
             Positive}, {\normalfont Neutral}, or {\normalfont Negative} change
-          measured at Class-, Method-, and Assertion-Level granularity.}
+          measured at Class-, Method-, and Assertion-Level granularity. As shown, there isn't much negatively identified partial repairs, and the more granular, the more partial repairs become positively or negatively identified.}
         \label{fig:fitness}
 \end{figure*}
 
@@ -1350,7 +1350,7 @@ identification of partial repairs?}
       \end{tabular}
     \end{center}
   }
-  \caption{Comparison of localization categories and partial repair test passage.}
+  \caption{Multi-test bugs that also have 2-6 repair locations after minimization categorized by both localization categories (defined in Section \ref{secFL}) and existence of positively/negatively identified minimized partial repair. As shown, there is a clear correlation between \emph{holds} coverage with non-existence of positively identified partial repair and existence of negatively identified partial repair}
   \label{tab:cov_fitness}
 \end{table}
  
@@ -1521,6 +1521,12 @@ to reinforcing their earlier findings on intra-patch dependencies, we discover
 additional insights for enhancing APR in the axes of fault localization, 
 fix mutations, and patch validation.
 
+Hercules~\cite{saha2019harnessing} is an APR technique that takes 
+advantage of fix code similarity to generalize a single repair edit into a 
+patch consisting of multiple similar edits.
+We discuss fix code similarity and insights on Hercules in 
+Section~\ref{sec:clones}.
+
 Prior work in program repair to use more search-guiding information 
 during candidate patch evaluation 
 include using program invariants~\cite{better-fitness, dinglyu}, 
@@ -1539,7 +1545,7 @@ do not change test case passage and discussed potential applications
 of mutation robustness in proactive bug repair. 
 Although our context differs --- they studied random mutations, 
 we study changes associated with specific bug fixes --- we also find a 
-non-trivial proportion of neutral edits in multi-location repairs.  
+non-trivial proportion of neutral edits in multi-location repairs.
 
 
 \section{Takeaways and Conclusions}
