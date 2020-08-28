@@ -1305,7 +1305,7 @@ and 18.69\% of the partial repairs in \bears.
 Only 31.52\% of Defects4J partial repairs and 
 59.60\% 
 of \bears partial repairs are neutral. Less than 20\% of bugs in both datasets
-(minimized or unminimized) produce negative test case behavior.
+produce negative test case behavior.
 Although the rate of positive and correct identification of partial repairs varies between datasets,
 tests are not often adversarial towards partial repairs, contrary to anecdotal
 observations in prior work~\cite{gecco09}.
@@ -1341,7 +1341,11 @@ multiple axes of APR performance.
       \end{tabular}
     \end{center}
   }
-  \caption{\small Multi-test bugs categorized by both localization pattern (Section \ref{secFL}) and existence of positively/negatively identified minimized partial repairs. There is statistically significant indication that bugs in the \emph{holds} coverage pattern are more likely to exhibit negative partial repairs.  \label{tab:cov_fitness}}
+  \caption{\small Multi-test bugs categorized by both localization pattern
+    (Section \ref{secFL}) and existence of positively/negatively identified
+    partial repairs. Bug patches with the \emph{holds} coverage pattern are
+    statistically significantly more likely to exhibit negative partial
+    repairs.  \label{tab:cov_fitness}}
 \end{table}
 
 \paragraph{Relationship to fault localization.} 
