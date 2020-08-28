@@ -1,4 +1,4 @@
-# Replication instructions for experiments performed for Program Analysis (17-819)
+# Replication instructions for experiments performed for Program Analysis
 
 I run this project in Intellij with Maven, so you might want to do that as well.
 
