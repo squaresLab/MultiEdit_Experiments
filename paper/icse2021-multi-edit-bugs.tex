@@ -180,24 +180,24 @@
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
 population~\cite{tricentis}.  This motivates research in
-techniques to automatically find and fix bugs.  Some of these techniques have
-begun to be integrated  which have become integrated into
-real-world development practices~\cite{iceland,sapfix}.\footnote{https://engineering.fb.com/developer-tools/getafix-how-facebook-tools-learn-to-fix-bugs-automatically/}
+techniques to automatically find and fix bugs, some of which
+began to be integrated into
+real-world development practices~\cite{iceland,sapfix}\footnote{https://engineering.fb.com/developer-tools/getafix-how-facebook-tools-learn-to-fix-bugs-automatically/}.
 
 A significant class of program repair techniques in both
-\todo{update this citation list to include stuff published since 2017, plz}
-research~\cite{genprog,angelix,Le17, Xuan17} and practice~\cite{sapfix} use test
+research~\cite{genprog,angelix,Le17,Xuan17,arja-journal,prapr,saha2019harnessing,astor}
+and practice~\cite{sapfix} use test
 cases to guide patch construction. At a high level, these techniques use test cases
 to localize a defect --- identified by at least one failing test --- and to
 validate which (if any) of the generated patch candidates lead
 the program to pass all tests.
-%
 Patches are constructed in a variety of ways, ranging from heuristic, syntactic
-\todo{as above, let's join the roaring 20s}
-program manipulation~\cite{par,genprog,rsrepair,ae,prophet,hdrepair}, to specially adapted program
-synthesis techniques~\cite{Konighofer11,Konighofer12,semfix,DeMarco14,angelix}. These techniques have successfully
+program manipulation~\cite{par,genprog,rsrepair,ae,prophet,hdrepair,arja-journal,confix,saha2019harnessing},
+to specially adapted program synthesis 
+techniques~\cite{Konighofer11,Konighofer12,semfix,DeMarco14,angelix,sosrepair,Xuan17}. 
+These techniques have successfully
 repaired real, meaningful defects in large, complex
-programs~\cite{angelix,genprog-eight-dollars,prophet,sapfix}.
+programs~\cite{angelix,genprog-eight-dollars,sapfix,durieux-repair-them-all}.
 
 Practically speaking, though, these techniques are typically limited in the types and
 complexity of defects they can repair. Often this is by design: techniques may
