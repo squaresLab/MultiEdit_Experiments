@@ -87,7 +87,7 @@ assertion_positive = (39.93, 18.69, 35.46)
 assertion_neutral = (31.52, 59.60, 37.43)
 assertion_negative = (19.80, 16.41, 19.09)
 
-add_to_plot(method_positive, method_neutral, method_negative, 28)
+add_to_plot(assertion_positive, assertion_neutral, assertion_negative, 28)
 labels = ["Positive", "Neutral\nClass-Level", "Negative", "Positive", "Neutral\nMethod-Level", "Negative", "Positive", "Neutral\nAssertion-Level", "Negative"]
 plt.xticks(ticks=[1, 5, 9, 15, 19, 23, 29, 33, 37], labels=labels, size=7)
 plt.tick_params(length=0)
