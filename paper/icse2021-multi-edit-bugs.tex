@@ -972,7 +972,8 @@ clones through manual inspection.
 %clones. It was evaluated with the bugs in Defects4J version 1, which consists of 395 total bugs 
 %and 187 multi-location bugs. 
 %
-We categorize edits as follows:
+
+Since we are studying code clones in patches, the same line of code could be inserted, deleted or modified, and conventional categorization of code clones into Type I,II,III,IV \cite{convcodeclone} does not apply to code modifications. Therefore, we devised our own standard of categorizing code clones in modifications as follows:
 \begin{enumerate}
 \item Same: The modifications at two locations are alpha-equivalent (i.e. the two locations are identical or would be
 identical if we substitute all occurrences of a variable in one location with another same-type variable)
@@ -1024,14 +1025,7 @@ categories.}
 Moreover, close to half of code clones are in the same method, while less than
 15\% of the cloning occurs across classes. Finally, 80 of 129 (62\%) of clones
 fall in the ``same'' category, corresponding to alpha-equivalent code cloning.
-\todo{ah, if someone has time, look up a code clone paper that lists code clones
-  by Type and figure out if this is type 1 or type 2.  The easier it is, the
-  more code clone papers think they're silly, but the better off we are.
-  Actually, quickly referencing any kind of code clone study here would be good,
-since I'm SURE someone has looked at clone locality in the past (though maybe
-not in patches). }
-\todo{more importantly: takeaway for program repair? 1 sentence, plz, this one
-  is easy.}
+This result suggests that when applying clones in program repair, a technique that only generates alpha-equivalent code clones should suffice in most cases.
 
 % code clones <-> hercules data
 % idk how what the conclusion from this information is so I'm just gonna put numbers in
