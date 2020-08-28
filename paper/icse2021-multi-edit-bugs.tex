@@ -1167,36 +1167,35 @@ in a partial patch.
 For example, if a 3-edit patch contains a declaration of new variable
 \texttt{var} at one location that is used at a second location, but not a third,
 we include the first edit in all partial patches.  Note that this can reduce the total
-number of partial patches considered per patch, and that we eliminate from
-consideration human patches that contain only 
-one edit location after this preprocessing step (e.g., a two-location patch that introduces a
-helper method in one location and calls it in the other).  
+number of partial patches per patch, and we eliminate
+human patches that contain only 
+one edit location after this preprocessing step. 
 
 Due to the exponential growth of partial patches with respect to overall patch size,
-we evaluate multi-location bugs whose patches 
-contain between two and six edit locations after preprocessing.
-Also, we exclude any bugs from Closure project in Defects4J since they use non-standard testing setups
-Overall, we generated and evaluated 1884 Defects4J and 596 \bears partial repairs,
-derived from 240 Defects4J and 74 \bears bugs.
+we evaluate multi-location bugs with
+between two and six edits, excluding Closure, which uses a
+non-standard test harness. 
+Overall, we evaluated 1884 Defects4J and 596 \bears partial repairs,
+of 240 Defects4J and 74 \bears bugs.
 
 \subsubsection{Test Granularity}
 
-A subtlety arising in these experiments is that there are several ways to
-evaluate and compare JUnit test results.  The standard use case for JUnit runs
+The standard use case for JUnit runs
 an entire test \emph{class}, which ``passes'' if all test \emph{methods} in
 that class also pass.  However, for the purposes of identifying partial repairs,
 we can evaluate partial correctness at both the \emph{class-level} and
-\emph{method-level} granularity. 
+\emph{method-level} (a program that passes more methods is more
+correct).
 We also introduce and consider \emph{assertion-level} granularity, looking
 roughly at how many assertions \emph{within} a method fail.  We define this as follows:
-for each test method $M$, let $A(M)$ be the set of all assert statements in $M$. 
+let $A(M)$ be the set of all \texttt{assert}
+statements in a test method $M$. 
 When $M$ is run, if an assertion failed, the failure is recorded and the method 
-is continues to run (by contrast with the normal operation, where the test
-method terminates with an error).  When the method completes, for each assertion
-$a\in A(M)$, let $b(a)$ be 1 if $a$ never failed once during the running of $M$, 
-and 0 otherwise. We define the assertion score of $M$ to be 
+continues to run.  When the method completes, for each
+$a\in A(M)$, let $b(a)$ be 1 if $a$ never failed once during execution,
+and 0 otherwise. We define the \emph{assertion score} as
 $AS(M)=\frac{\Sigma_{a\in A(M)}b(a)}{|A(M)|}$. If $M$ failed to run to completion 
-due to timeouts or exceptions that are not related to assertions, then
+due to timeouts or unrelated exceptions, then
 $AS(M)=0$. Thus by definition, $AS(M)=1$ if $M$ passes. If a program passed more 
 assertions in $M$, there should be an increase in $AS(M)$.
 
@@ -1204,27 +1203,25 @@ assertions in $M$, there should be an increase in $AS(M)$.
 \subsection{Results}
 
 Our first immediate takeaway is that not all edits
-in a human patch are always necessary to pass all tests. 
-Some patches 
-include refactoring or other semantics-preserving changes~\cite{api-refactoring,
-  tangledchanges}, while for others, test suites may be inadequate. 
-We find that 41.3\%  (99 out of 240) of Defects4J bugs and 52.7\% (39 out of 74) of
-\bears bugs do not need all edits in the human patches
-to pass all tests (the difference between the two datasets is statistically
-significant, $p < 0.001$, via a 
-$\chi^2$ test). 
+in a human patch are always necessary to pass all tests~\cite{api-refactoring,
+  tangledchanges}:
+this is true for 41.3\%  (99 out of 240) of Defects4J and 52.7\% (39 out of 74) of
+\bears bugs. 
 The relatively high proportion of Defects4J patches that are not 1-minimal is
 somewhat surprising, as Defects4J maintainers manually minimize patches to exclude
 changes deemed unrelated to the bugs in question~\cite{documentation-maybe}.
 This suggests that the test suites are weak proxies for total correctness.
 \bears patches are not minimized, which likely explains
-their higher percentage of non-minimal patches (52.7\%).
+their higher percentage of non-minimality (52.7\%) (the difference between the two datasets is statistically
+significant, $p < 0.001$, via a 
+$\chi^2$ test).
 
-We compute and present results for RQ7 using the 1-minimal set of edits
-in the human patch with respect to the unit tests as the ``full'' patch.  
+\looseness-1
+We compute results for RQ7 using the 1-minimal set of human edits
+with respect to the unit tests as the ``full'' patch.
 We do this for parsimony: including
-unminimized edits introduces some noise but does not materially change the
-the results.  And, from the point of view of an APR tool, only
+unminimized edits introduces noise without materially changing
+results.  And, from the point of view of an APR tool, only
 minimal edits are identifiable or ``visible'' via test case behavior. 
 We exclude bugs
 minimized to a single edit, leaving
@@ -1240,13 +1237,12 @@ Our overall goal is to identify how many partial repairs pass more test than the
 original buggy program  (\emph{positive}), the  same number of tests as the
 original buggy code (\emph{neutral}) or fewer tests than the buggy code
 (\emph{negative}).  However, 
-since each bug may have a different 
-number of partial repairs (based on the number of implicated locations per
-patch), scale the partial repair results such that each bug has equal weight.
-That is, for a bug with $n$ edits, each edit has weight 
-$\frac{1}{n}$. We do this for tests at each level of granularity.  Partial
-repairs that do not compile are
-excluded from the count.\footnote{e.g., by throwing errors like ``missing return statement.''}
+since each bug can have a different 
+number of partial repairs, we
+scale the partial repair results to give each bug equal weight.
+That is, for a bug with $n$ partial repairs, each edit has weight 
+$\frac{1}{n}$.\footnote{We exclude partial
+repairs that do not compile from the count, e.g., by throwing errors like ``missing return statement.''}
 
 
 %\begin{table}
