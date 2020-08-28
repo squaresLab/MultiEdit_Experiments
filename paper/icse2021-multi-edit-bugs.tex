@@ -310,7 +310,10 @@ which type of technique may apply to a given bug.
   influences the ability to identify partial repairs. At the highest granularity
   (i.e., at the assertion level), test cases can identify 36\% of
   partially-applied patches as a positive improvement, while only 19\% of
-  partial patches cause an increase in test failures.
+  partial patches cause an increase in test failures. Moreover, we find 
+  tests to measure partial correctness more accurately when patch coverage 
+  overlap is minimized, suggesting the need to adjust confidence in tests
+  in response to coverage.
 \end{itemize}
 
 \todo{FIXME: HERES OUR DATA.}
@@ -1562,9 +1565,6 @@ number of bugs in our study. In our study 40\% of bugs repaired with
 multi-location patches and characterized by multiple failing tests had patch
 locations that executed by some but not all tests; thus the assumption was only 
 partially held.
-\todo{Is this percentage supposed to be 67\%? 
-I think ``had patch locations that were executed by some but not all tests'' 
-refers to both \textit{partially holds} and \textit{contradicts} bugs} 
 Additionally, 27\% of
 these patches had no patch location covered by all failing
 tests, and thus contradicted the assumption.  
