@@ -172,7 +172,7 @@
 
 \section{Introduction}
 
-\renewcommand\todo[1]{}
+%\renewcommand\todo[1]{}
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
@@ -537,6 +537,7 @@ Table~\ref{tab:dataset-characteristics}, each experiment will clearly state whic
 being used and how many bugs that includes.
 
 We start our analysis of multi-location patches by asking:
+
 \rqorinsight{1}{How prevalent are human-written multi-location patches?}
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
@@ -822,40 +823,36 @@ we may be able to differentiate this category from the others more effectively.
 
 Given suitably selected fault locations, APR techniques vary in the types of
 mutation operators they consider, how they select between them, and how they
-select new fix code to instantiate them, as necessary. 
+select new fix code to instantiate them. 
 %  For example, a na{\"i}ve
 % approach with only \texttt{insert}, \texttt{replace}, and \texttt{delete}
 % operators must choose between them at a location and, in the case of
 % \texttt{insert} and \texttt{replace}, choose code to insert/replace at that
 % location.  
 %
-The few techniques that handle or at least enable multi-edit patches vary in their
-handling of mutation operator selection and instantiation.  At one
-extreme, semantics-based repair~\cite{s3,angelix} can represent dependent edits between multiple
-locations as a conjunction of multiple constraints to simultaneously solve,
-bounded by some number of edits and code components that are computationally feasible. 
-At the other extreme, search-based or
-evolutionary techniques~\cite{genprog,par} typically treat different mutation
-operators independently, relying on the search to 
+%The few techniques that handle or at least enable multi-edit patches vary in their
+%handling of mutation operator selection and instantiation.  
+At one extreme, semantics-based repair~\cite{s3,angelix} can represent dependent edits between multiple
+locations via as a conjunction of multiple simultaneous constraints; at the other, 
+search-based or
+evolutionary techniques~\cite{genprog,par} typically mutation
+operators independently. 
 % That is, a modification in one location does not
 %inform the selection of a modifications to apply in a second location; instead,
 %the heuristic search is trusted to 
-identify copacetic combinations.  The size of
-the search space increases combinatorially in this context, however, rendering
-the chances of finding suitable multi-edit repairs without additional guidance
-quite low~\cite{ae,long-search-spaces}. Accordingly, heuristic multi-location
+The search space increases combinatorially, however, rendering
+the chances of finding multi-edit repairs~\cite{ae,long-search-spaces}. Accordingly, heuristic multi-location
 techniques~\cite{saha2019harnessing} make assumptions about the 
 shape of the search space, 
 targeting in particular bugs that can be repaired by multiple syntactically similar pieces of
-fix code.
+code.
 
-Note that the types of edits included in human patches has been
-studied~\cite{examples}, with references for both search space size generally
-and, potentially, patch quality~\cite{moreexamples}.  Here, we are especially
+Note that the types of edits generally included in human patches has been
+studied~\cite{examples}.  Here, we are especially
 concerned about the 
 \emph{relationships} between multiple edits, because such relationships have
 key implications for how edits should be designed, selected, and instantiated 
-in automatic multi-location repair. 
+in multi-location repair. 
 
 \subsection{Dependencies}
 
@@ -885,30 +882,27 @@ multi-line patches.
 % Dependency analysis is the only experiment that analyzes patches at the
 % edit granularity of lines, rather than locations.
 For practical performance and scalability reasons, 
-we perform intraprocedural analysis. 
-We do, however, gather some interprocedural data dependency information 
-using the following heuristics:
-\begin{itemize}
-	\item We treat all method call statements as dependent on all variables
-          passed as arguments. 
-	\item If a statement invokes a getter method \texttt{Class.getX()} 
-          we heuristically assume that the statement reads \texttt{Class.X},
-          whether or not \texttt{Class.X} exists.
-	\item If a statement invokes a setter method \texttt{Class.setX()}, 
-	we again heuristically assume that the statement writes to \texttt{Class.X}. 
-\end{itemize}
-
-These heuristics are not sound, but they derive from common 
-practices in Java. We use these heuristics to estimate interprocedural 
-dataflow while retaining the scalability of intraprocedural analysis.
-We provide our dependency analyzer in our replication package.
+we perform intraprocedural analysis. We added two heuristics for
+interprocedural/field sensitive
+information, namely assuming (1) that any invocations of a getter
+method  \texttt{Class.getX()} reads \texttt{Class.X}, and (2) any invocation of 
+ \texttt{Class.setX()} writes to  \texttt{Class.X}.
+%
+% We treat all method call statements as dependent on all variables
+%passed as arguments. 
+% CLG thinks is is just correct treatment of variables passed to method calls
+While unsound, these heuristics derive from common Java
+practices.
+%We use these heuristics to estimate interprocedural 
+%dataflow while retaining the scalability of intraprocedural analysis.
+%We provide our dependency analyzer in our replication package.
 
 We estimate the difficulty of auto-constructing edit-dependent patches 
 by examining whether APR techniques have successfully patched the
 bug in question. We use APR success data from 
 RepairThemAll~\cite{durieux-repair-them-all}, an experiment 
 running 11 APR tools on 5 benchmarks, including Defects4J v1
-(containing a subset of Defects4J v2) and \bears.
+( a subset of Defects4J v2) and \bears.
 
 \paragraph{Results}
 
@@ -926,37 +920,31 @@ running 11 APR tools on 5 benchmarks, including Defects4J v1
         \bottomrule
     \end{tabular}
  \end{center}
-}
-	\caption{APR performance on bugs with and without inter-patch edit
-      dependencies in multi-line patches, collected from the RepairThemAll
-      dataset~\cite{durieux-repair-them-all}.\protect\footnotemark
-      \ \emph{Success} means that at least one of the 11 APR tools was able to
-      find a patch, while \emph{Failure} means that no tools found a patch. When
-      the human-written bug patch contained no dependencies an APR tool
-      was able to find a repair 46\% (103/225) of the time, while the success
-      rate was only 23\% (52/231) when a patch contained dependencies.}
+}	\caption{\small APR performance on bugs with and without intra-patch 
+      dependencies, from RepairThemAll~\cite{durieux-repair-them-all}.\protect\footnotemark
+      \ \emph{Success} means that at least one of 11 APR tools found a patch; 
+      \emph{Failure} means that no tool did.  APR tools found repairs 46\%
+      (103/225) of the time for bugs with dependency-free human patche, but only
+      23\% (52/231) of the time when a patch contained dependencies.}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
-\footnotetext{RepairThemAll used the version 1 Defects4J dataset which has fewer
-  bugs than version 2, used in the rest of this paper.}
+\footnotetext{RepairThemAll provides results on Defects4J v 1.0.}
 Table~\ref{tab:dependency-repair-contingency-table}
 shows frequencies of multi-line patches with respect to edit dependence 
 and whether an APR tool successfully repaired the bug.
-With 45\% of multi-line patches exhibiting intra-patch dependencies, 
-our data substantiates prior research~\cite{zhong2015} on 
-such dependencies.
-
-
-We find the presence of edit dependencies 
-reduces APR tool success.
+Our data substantiates prior research~\cite{zhong2015}:
+45\% of the multi-location patches we study exhibit intra-patch dependencies. 
+Importantly, 
+we also find the presence of edit dependencies is correlated with lower rates of
+APR tool success. 
 Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.001$)
 between APR success and intra-patch dependencies.
-The generally lower auto-repairability of bugs with edit dependent patches compared 
-to their non-edit dependent brethren suggest that such dependencies indeed 
-add complexity to the search for a repair.
+This result 
+suggests that such dependencies indeed 
+add complexity to the repair search in a way that challenges the state-of-the-art.
 Dependent edits, however, may 
 be an opportunity to constrain the search space by creating constraints between 
-otherwise independent mutations. There is an opportunity to profit from edit 
+otherwise independent mutations.  There is an opportunity to profit from edit 
 dependencies to repair a large class of difficult bugs.
 
 
