@@ -174,9 +174,6 @@
 
 %\renewcommand\todo[1]{}
 
-\todo{TODO THROUGHOUT: virtually all of the figure/table captions are
-  inadequate; they need takeaways.  Update those for which you're responsible,
-  and make sure all tables/figures have a responsible person.}
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
 population~\cite{tricentis}.  This motivates research in
@@ -572,16 +569,16 @@ mutation and fix spaces (Section~\ref{sec:mutops}), and validation
 
 %% what are the claims, what are we studying, why are we studying it
 
-Spectrum-based fault localization (SBFL) is a commonly-studied dynamic
-fault localization technique, and includes techniques like Tarantula~\cite{tarantula},
-Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}, among others.
+%Spectrum-based fault localization (SBFL) is a commonly-studied dynamic
+%fault localization technique, and includes techniques like 
 %, and is often more effective than alternatives (like mutation-based fault 
 %localization~\cite{mut-analysis} or dynamic program
 %slicing~\cite{zou2019empirical}). 
-Fault localization in general is a first key step to characterizing the
-\emph{fault space} in automatic program repair; the majority of dynamic APR
-techniques use some variant of SBFL for this purpose.
-
+Fault localization is a first key step in program repair, defining the
+\emph{fault space}. The majority of dynamic APR
+uses some variant of spectrum-based fault localization (SBFL) (e.g.,Tarantula~\cite{tarantula},
+Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}, among others) for this purpose.
+%
 SBFL techniques compute a suspiciousness score by
 measuring how often a line is executed by failing tests as compared to passing
 tests, typically via some (linear) combination of their respective
@@ -594,7 +591,7 @@ These techniques are often evaluated by asking: how often does a given technique
 score for a buggy line of code? This is straightforward for single location repairs, but for 
 multi-location repairs, evaluations
 typically consider a technique ``successful'' if it highly ranks or scores \emph{any} line in a
-set of buggy lines. 
+set of buggy lines. \todo{can we cite an indicative example paper?}
 While appropriate for the question being asked in such evaluations, this does not address
 suitability for multi-location program repair.%  Identifying one of several buggy
 %locations is generally inadequate in a context where multiple locations must be
@@ -602,6 +599,9 @@ suitability for multi-location program repair.%  Identifying one of several bugg
 
 \todo{Does this paragraph make a strong enough case for why we focus on just the failing 
 tests?}
+\todo{CLG says: ...I'm not sure.  I think I'm more confused than I used to be,
+  making me think that ``less is more'' may ultimately be better, here.  Can we
+  try to go back closer to the original phrasing?}
 To figure out how to evaluate SBFL and other fault localization techniques 
 in multi-location contexts, we start by assessing the 
 relationship of multi-location repairs to the assumptions underlying SBFL. 
