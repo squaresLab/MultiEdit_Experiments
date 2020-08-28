@@ -589,7 +589,7 @@ These techniques are often evaluated by asking: how often does a given technique
 score for a buggy line of code? This is straightforward for single location repairs, but for 
 multi-location repairs, evaluations
 typically consider a technique ``successful'' if it highly ranks or scores \emph{any} line in a
-set of buggy lines. \todo{can we cite an indicative example paper?}
+set of buggy lines~\cite{zou2019empirical,pearson2017evaluating}.
 While appropriate for the question being asked in such evaluations, this does not address
 suitability for multi-location program repair.%  Identifying one of several buggy
 %locations is generally inadequate in a context where multiple locations must be
@@ -603,14 +603,20 @@ tests?}
 To characterize the challenges that lie in statistically characterizing the
 fault space in multi-location contexts, we start by assessing the 
 relationship of multi-location repairs to the assumptions underlying SBFL. 
-Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
-execute buggy portions of the code relatively more often than passing tests.} Relatedly, we can 
-often assume that \emph{code executed by all failing tests are more likely to be buggy.} Though 
-this second assumption is not 
-always true, we derive it in order to explore the relationship of failing test executions with each 
-other.
-% Thus, if all failing tests execute a particular line of code, then that line of
-% code is highly suspicious.  
+%Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
+%execute buggy portions of the code relatively more often than passing tests.} 
+%Relatedly, we can 
+%often assume that \emph{code executed by all failing tests are more likely to be buggy.} 
+%Though this second assumption is not 
+%always true, we derive it in order to explore the relationship of failing test executions with 
+%each other.
+One assumption that we might make in describing why SBFL might be an effective fault 
+localization technique is that \emph{code executed by all failing tests are more likely to be 
+buggy.} This is obviously true for all single-location bugs but becomes more complicated for 
+multi-location bugs -- for example, a bug with two patch locations and two failing tests might 
+exhibit behavior where one failing test covers one location and the other failing test covers the 
+other location. Although holding or contradicting this assumption does not guarantee that SBFL 
+will respectively succeed or fail, 
 
 
 % One of
@@ -698,9 +704,8 @@ respectively.
 
 After calculating the percentages, we split the bugs based on whether we categorized the bug 
 as \emph{contradicts}, \emph{holds}, or \emph{partially holds} in the previous experiment.
-We qualitatively observed the degree to which the percentage corresponded to its coverage 
-pattern, and we use a Mann Whitney u-test to determine whether the three localization 
-categories exhibited statistically different distributions.
+We qualitatively and quantitatively observed the degree to which the percentage corresponded 
+to localization category.
 
 
 \begin{figure}
@@ -727,8 +732,8 @@ In addition, another 40\% were classified as \emph{partially holds}.
 
 Note, however, that the behavior varies considerably by dataset, as shown in the second and 
 third groups of bars in Figure \ref{fig:coverage-all}. In particular, Bears has fewer bugs in 
-\emph{contradicts} and more bugs in 
-\emph{partially holds}.
+\emph{contradicts} and more bugs in \emph{partially holds}.
+This difference is statistically significant, with $p = 0.032$ (Fisher's exact test).
 We hypothesize that this may be due to differences in how the two  
 datasets were selected and constructed:
 The Defects4J dataset specifically enforces a requirement that the patches in the 
@@ -778,6 +783,7 @@ do you think of this version?}
 \end{figure}
 
 \subsubsection{Generalization of localization categories}
+%<<<<<<< Updated upstream
 Figure \ref{fig:coverage-buggy} plots localization category based on the
 percentage of lines executed by all failing tests. 
 %
@@ -793,24 +799,23 @@ eventaully execute all different parts of the patch.\todo{I think this point may
 %
 We qualitatively observe that bugs in \emph{holds} are more likely to have 
 failing tests that execute the same lines of code, as we might expect. However, this is not 
-definitive, as \emph{holds} bugs covered anywhere between 
-5\% to 100\% of patch lines.\todo{...right? We mean patch lines? This previously
-  said that holds bugs ``score'' in this range but score doesn't scan for me.}
+definitive, as the failing tests in \emph{holds} bugs covered anywhere between 
+5\% to 100\% of the same lines.
 
 These observations are confirmed quantitatively: There were no statistically significant 
 differences between the distribution for \emph{contradicts} and \emph{partially holds}. 
 However, the distribution for \emph{holds} showed statistically significant differences with 
 \emph{partially holds} ($p = 0.006$)  and \emph{contradicts} ($p < 0.001$).
 
-We conclude that the degree to which failing tests cover the buggy 
-code is correlated to eventual localization category for the bug in the \emph{holds} case. 
-This is especially notable as this is the category for which the assumption holds, indicating that 
-we may be able to differentiate this category from the others more effectively.
-\todo{Do we mean ``automatically and a priori''? That might help address my
-  other todo in terms of takewaway.}
-\todo{LEO: add 1--2 sentences with a takeaway from this section,
-  connecting back to the high-level problem of localization for multi-edit
-   repair.  It prseently ends in the weeds....}
+In conclusion, 
+we are not able to solely rely on degree to which failing tests cover the buggy 
+code to always accurately classify bugs to their localization category.
+However, \emph{holds} bugs tend to have failing tests that cover more of the 
+same code than the failing tests of other bugs, indicating 
+there may be ways we can augment this statistic to determine whether bugs would eventually 
+be classified as \emph{holds}, which is 
+especially notable since these bugs uphold our assumption and are accordingly more likely to 
+succeed with SBFL.
  
 \section{Mutation Operators and Fix Code}
 \label{sec:mutops}
@@ -1079,15 +1084,16 @@ experiment (Section~\ref{secFL}, and exclude bugs with more than 6 faulty locati
       \end{tabular}
     \end{center}
   }
-  \caption{\small Multi-location and multi-test bugs categorized by coverage
-    pattern (Section~\ref{secFL}) and patch clones. The pattern
+
+  \caption{\small Multi-location and multi-test bugs categorized by localization category 
+  (Section~\ref{secFL}) and patch clones. The category
     distribution is skewed toward \emph{contradicts} when patches contain
     code clones.}
   \label{tab:cov_clones}
 \end{table}
 
 Table~\ref{tab:cov_clones} shows the incidence of patch code clones among the three 
-coverage patterns identified in Section \ref{secFL}. 
+localization categories identified in Section \ref{secFL}. 
 Out of 50 \emph{contradicts} bugs, 52\% (26/50) have clones; only 
 18\% (12/68) and 15\% (11/73)
 \emph{partially holds} and \emph{holds} bugs respectively contain clones.
