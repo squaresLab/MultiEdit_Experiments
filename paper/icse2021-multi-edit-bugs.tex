@@ -597,11 +597,6 @@ suitability for multi-location program repair.%  Identifying one of several bugg
 %locations is generally inadequate in a context where multiple locations must be
 %modified. 
 
-\todo{Does this paragraph make a strong enough case for why we focus on just the failing 
-tests?}
-\todo{CLG says: ...I'm not sure.  I think I'm more confused than I used to be,
-  making me think that ``less is more'' may ultimately be better, here.  Can we
-  try to go back closer to the original phrasing?}
 To characterize the challenges that lie in statistically characterizing the
 fault space in multi-location contexts, we start by assessing the 
 relationship of multi-location repairs to the assumptions underlying SBFL. 
@@ -612,13 +607,14 @@ relationship of multi-location repairs to the assumptions underlying SBFL.
 %Though this second assumption is not 
 %always true, we derive it in order to explore the relationship of failing test executions with 
 %each other.
-One assumption that we might make in describing why SBFL might be an effective fault 
-localization technique is that \emph{code executed by all failing tests are more likely to be 
-buggy.} This is obviously true for all single-location bugs but becomes more complicated for 
-multi-location bugs -- for example, a bug with two patch locations and two failing tests might 
-exhibit behavior where one failing test covers one location and the other failing test covers the 
+One assumption that we might make in describing how SBFL is effective is that 
+\emph{code executed by all failing tests are more likely to be buggy.}
+This is obviously true for all single-location bugs but becomes more complicated for 
+multi-location bugs -- for example, there might be a bug with two patch locations and two failing 
+tests where one failing test covers one location and the other failing test covers the 
 other location. Although holding or contradicting this assumption does not guarantee that SBFL 
-will respectively succeed or fail, 
+will respectively succeed or fail, it is a factor in SBFL success that is unique to bugs with 
+multi-location patches.
 
 
 % One of
@@ -1312,7 +1308,8 @@ observations in prior work~\cite{gecco09}.
 but they also increase the chance of erroneously mis-identifying partial repairs.
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
-is negligible in \bears (0.46\%) but greater in Defects4J (5.35\%), while both had around 3\% increase in negatively identified partial repairs.
+is negligible in \bears (0.46\%) but greater in Defects4J (5.35\%), while both had around 3\% 
+increase in negatively identified partial repairs.
 Moreover, evaluating patches at finer granularity levels can add overhead.
 For example, assertion level granularity requires instrumenting JUnit with additional
 logic to continue execution when assertions fail.
