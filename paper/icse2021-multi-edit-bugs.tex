@@ -432,12 +432,13 @@ We define this problem precisely and characterize our datasets next.
 
 \begin{table*}
 \begin{center}
-\begin{tabular}{l  rrr | rr | rr | rr | rr }
+\begin{tabular}{l  rrr | rr rr rr rr }
 \toprule
 \multicolumn{12}{c}{\textbf{Defects4J v2.0.0}} \\
 \midrule
-Project & Bugs & Src (kloc) & Test (kloc) & \multicolumn{2}{c}{Multi-location} & \multicolumn{2}{c}{Multi-location \&}      & \multicolumn{2}{c}{2--6 location} & \multicolumn{2}{c}{Multi-line} \\
-            &          &                  &                  & \multicolumn{2}{c}{bugs}              & \multicolumn{2}{c}{multi-failing test}   & \multicolumn{2}{c}{bugs}             & \multicolumn{2}{c}{bugs} \\
+\multirow{2}{*}{Project} & \multirow{2}{*}{Bugs} & Source Size & Test Size & \multicolumn{2}{c}{Multi-Location} & \multicolumn{2}{c}{Multi-Location,}      & \multicolumn{2}{c}{2--6 Location} & \multicolumn{2}{c}{Multi-Line} \\
+            &          &  (KLOC) & (KLOC)&
+\multicolumn{2}{c}{Patches}              & \multicolumn{2}{c}{2+ Failed Tests}   & \multicolumn{2}{c}{Patches}             & \multicolumn{2}{c}{Patches} \\
 \midrule
 JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 7 & 27\% & 11 & 42\% & 17 & 65\%\\
 Closure compiler & 174 & 150.6 & 112.6 & 87 & 50\% & 55 & 32\% & 75 & 43\% & 145 & 83\% \\
@@ -473,10 +474,14 @@ Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:dataset-characteristics} Characteristics of Defects4J
-  (top) and \bears (bottom) datasets.
-  Out of a total of 1018 bugs, 50\% are multi-location.
-  }
+\caption{\label{tab:dataset-characteristics} Summary of Defects4J and \bears
+  datasets. \emph{Project} is the project name; \emph{Source Size} and
+  \emph{Test Size} are the size of the source code and test suite in thousands
+  of lines of code respectively. The right-hand columns categorize the bugs by
+  the characteristics of their human-written patches (multi-location, 2--6
+  location, and multi-line). The \emph{2+ Failed Tests} column only includes
+  bugs that fail more than one test. Note that more than half of bugs are
+  multi-location (511/1018).  }
 \end{table*}
 
 Our study requires a dataset of indicative, real-world,
