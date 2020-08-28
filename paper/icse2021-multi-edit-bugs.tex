@@ -767,8 +767,8 @@ do you think of this version?}
 	executed by all failing tests, measuring the degree to which failing tests execute the same 
 	code. The coverage distributions for the \emph{contradicts} and \emph{partially holds} are more or 
 	less uniformly distributed. The coverage
-	distribution for the \emph{holds} category skews measurable higher, albeit with
-        high variance.} %Thus, there seems to be little correlation between 
+	distribution for the \emph{holds} category skews measurable higher. 
+      } %Thus, there seems to be little correlation between 
 %	localization categories and whether failing tests all execute the same code in the buggy 
 %	program.}
 % CLG sez: I know I asked for takeaways in captions but (1) I'm not sure what
@@ -1111,10 +1111,11 @@ leave a concrete investigation of these possibilities to future work.
 \section{Test case-based validation}
 \label{sec:tests}
 
-Dynamic program repair uses test cases to validate patch plausibility, and tests
-are often used as a proxy for a full correctness specification. Tests are
-imperfect for this task, and virtually all APR techniques can \emph{overfit} to
-them~\cite{Smith15fse}, but they remain accessible and widely-used in practice.
+Dynamic program repair typically uses test cases to validate patch plausibility. 
+%, and tests
+%are often used as a proxy for a full correctness specification. Tests are
+%imperfect for this task, and virtually all APR techniques can \emph{overfit} to
+%them~\cite{Smith15fse}, but they remain accessible and widely-used in practice.
 %patches that satisfy the provided tests, but do not generalize to the
 %higher-level specification~\cite{Smith15fse}.  
 %
@@ -1122,29 +1123,27 @@ them~\cite{Smith15fse}, but they remain accessible and widely-used in practice.
 %due to a human patch including refactoring or other changes that does not actually
 %change code behavior~\cite{api-refactoring, tangledchanges}, or it could be a sign that the test
 %suite is inadequate.  
-In evolutionary or search-based approaches, test case quality is even more
-pressing, as tests are typically used to define an objective or fitness
-function. In these contexts, ideally, test cases could usefully identify partial
-solutions~\cite{better-fitness}, or subsets of edits that comprise the eventual
-patch, though whether tests are suitable for this purpose is a matter of
+Test case quality is a pressing problem in this context in
+general~\cite{Smith15fse}, but perhaps especially in search-based approaches,
+where tests typically inform the fitness
+function. Here, ideally, test cases could usefully identify partial
+solutions~\cite{better-fitness}, 
+though whether tests are suitable for this purpose is a matter of
 debate~\cite{ae,rsrepair}.  Sometimes, tests perform no differently on partial
 repairs than they do on the original program~\cite{chris-thesis,
-  source-code-checkpoint}; they have also been anecodotally observed to perform
+  source-code-checkpoint}; they have also been observed to perform
 worse~\cite{gecco09}.  
-
+%
 We study this question in a principled fashion to characterize whether or how
-tests can support multi-location patch construction. To illustrate the insight
-behind this line of analysis, assume a multi-edit patch. If we apply only one of
-several of the edits in this patch to the buggy program, the result should
-ideally be identifiable as ``closer'' to the full repair as compared to the
-original buggy program. On average, do tests behave accordingly? We formalize
-this question as:
+tests can support multi-location patch construction.  That is, if we apply only one of
+several of the edits in this patch to the buggy program, is the result
+identifiable as ``closer'' to the full repair? Alternatively:
 
 \rqorinsight{7}{How well do test case based validation methods identify partial repairs?}
 
 If tests can in general identify partial repairs, this suggests the feasibility
-of techniques that construct multi-location repairs by identifying and composing
-partial repairs into full repairs.  
+of techniques that construct multi-location repairs by identifying/composing
+partial repairs.
 
 % CLG: ...can we get away without mentioning granularity here? Let's find out....
 % Moreover, unit test performance can be measured in different granularity levels. 
