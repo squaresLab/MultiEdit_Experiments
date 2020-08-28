@@ -162,13 +162,14 @@
 
 \newcommand{\rqorinsight}[2]{
   \setlength{\fboxsep}{0.8em}
-  \vspace{0.5em}
+  \vspace{-0.5em}
   \begin{center}
-  \Ovalbox{\begin{minipage}{0.9\linewidth}
+  \Ovalbox{\begin{minipage}{0.95\linewidth}
     \textbf{RQ#1:} #2
     \end{minipage}}
   \end{center}
-  \vspace{0.5em}}
+  \vspace{0.5em}
+}
 
 \section{Introduction}
 
@@ -531,7 +532,7 @@ which bugs are considered.
 
 We start our analysis of multi-location patches by asking:
 
-\rqorinsight{1}{How prevalent are human-written multi-location patches?}
+\rqorinsight{1}{How often do humans write multi-location patches?}
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and \bears. 
@@ -652,7 +653,7 @@ the same patch locations, we ask:
 
 \rqorinsight{3}{Do failing tests that cover different (resp. same) fault locations also cover 
 different 
-(resp. same) code locations in general?}
+(resp. same) code locations?}
 
 \subsection{Methodology}
 
@@ -953,7 +954,7 @@ Previous techniques have targeted exectly these types of
 bugs~\cite{wang2018,saha2019harnessing}.  We evaluate how often this relationship applies to
 multi-location bugs, and thus the usefulness of techniques that assume it:
 
-\rqorinsight{5}{How often do code clones occur in multi-location patches?}
+\rqorinsight{5}{How often do clones occur in multi-location patches?}
 
 %Possible intuition: if we can find some kind of correlation between fault localization results
 %and code clones, then if some APR research decided to follow Wang et al's suggestion and
