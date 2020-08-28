@@ -909,7 +909,7 @@ running 11 APR tools on 5 benchmarks, including Defects4J v1
     \begin{tabular}{lrrrrrr}
         \toprule
         &\multicolumn{3}{c}{Without Dependent Edits} & \multicolumn{3}{c}{With Dependent Edits} \\
-        & \multicolumn{1}{c}{Defects4J} & \multicolumn{1}{c}{\bears} & \multicolumn{1}{c}{Both} & \multicolumn{1}{c}{Defects4J} & \multicolumn{1}{c}{\bears} & \multicolumn{1}{c}{Both} \\
+        Result& \multicolumn{1}{c}{Defects4J} & \multicolumn{1}{c}{\bears} & \multicolumn{1}{c}{Both} & \multicolumn{1}{c}{Defects4J} & \multicolumn{1}{c}{\bears} & \multicolumn{1}{c}{Both} \\
         \midrule
         Success & 96 & 7 & 103 & 43 & 9 &  52 \\
         Failure & 73 & 49 & 122 & 93 & 86 & 179\\
@@ -919,18 +919,18 @@ running 11 APR tools on 5 benchmarks, including Defects4J v1
     \end{tabular}
  \end{center}
 }
-	\caption{\todo{JL: footnote? about RTA using D4Jv1 vs D4Jv2.} APR success of
-      bugs with and without inter-patch edit dependencies in their multi-line
-      patches, collected from the RepairThemAll
-      dataset~\cite{durieux-repair-them-all}.  \emph{Success} means that at
-      least one of the 11 APR tools was able to find a patch, while
-      \emph{Failure} means that no tools found a patch. When the human-written
-      bug patch contained no inter-dependencies an APR tool was able to find a
-      repair 45.7\% (103/225) of the time, while the success rate was only
-      22.5\% (52/231) when a patch contained dependencies.}
+	\caption{APR performance on bugs with and without inter-patch edit
+      dependencies in multi-line patches, collected from the RepairThemAll
+      dataset~\cite{durieux-repair-them-all}.\protect\footnotemark
+      \ \emph{Success} means that at least one of the 11 APR tools was able to
+      find a patch, while \emph{Failure} means that no tools found a patch. When
+      the human-written bug patch contained no dependencies an APR tool
+      was able to find a repair 46\% (103/225) of the time, while the success
+      rate was only 23\% (52/231) when a patch contained dependencies.}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
-
+\footnotetext{RepairThemAll used the version 1 Defects4J dataset which has fewer
+  bugs than version 2, used in the rest of this paper.}
 Table~\ref{tab:dependency-repair-contingency-table}
 shows frequencies of multi-line patches with respect to edit dependence 
 and whether an APR tool successfully repaired the bug.
