@@ -172,7 +172,7 @@
 
 \section{Introduction}
 
-%\renewcommand\todo[1]{}
+\renewcommand\todo[1]{}
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
@@ -331,6 +331,61 @@ multi-location repair (Section~\ref{sec:takeaways}).
 \section{Problem Definition}
 \label{sec:background}
 
+
+\begin{table*}
+\begin{center}
+\begin{tabular}{l  rrr | rr rr rr rr }
+\toprule
+\multicolumn{12}{c}{\textbf{Defects4J v2.0.0}} \\
+\midrule
+\multirow{2}{*}{Project} & \multirow{2}{*}{Bugs} & Source Size & Test Size & \multicolumn{2}{c}{Multi-Location} & \multicolumn{2}{c}{Multi-Location,}      & \multicolumn{2}{c}{2--6 Location} & \multicolumn{2}{c}{Multi-Line} \\
+            &          &  (KLOC) & (KLOC)&
+\multicolumn{2}{c}{Patches}              & \multicolumn{2}{c}{2+ Failed Tests}   & \multicolumn{2}{c}{Patches}             & \multicolumn{2}{c}{Patches} \\
+\midrule
+JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 7 & 27\% & 11 & 42\% & 17 & 65\%\\
+Closure compiler & 174 & 150.6 & 112.6 & 87 & 50\% & 55 & 32\% & 75 & 43\% & 145 & 83\% \\
+Apache commons-lang & 64 & 57.8 & 47.4  & 32 & 50\% & 13 & 20\% & 26 & 41\% & 50 & 78\% \\
+Apache commons-math & 106 & 45.0 & 41.5 & 56 & 53\% & 24 & 23\% & 44 & 42\% & 82 & 77\% \\
+Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 8 & 21\% & 7 & 18\% & 30 & 79\% \\
+Joda-Time & 26 & 82.9 & 70.4 & 16 & 62\% & 8 & 31\% & 10 & 38\% & 22 & 85\% \\
+Apache commons-cli & 39 & 5.7 & 4.6 & 19 & 49\% & 8 & 21\% & 15 & 38\% & 33 & 85\% \\
+Apache commons-codec & 18 & 5.8 & 5.8 & 4 & 22\% & 2 & 11\% & 2 & 11\% & 8 & 44\% \\
+Apache commons-collections & 4 & 64.9 & 47.6 & 1 & 25\% & 0 & 0\% & 1 & 25\% & 3 & 75\% \\
+Apache commons-compress & 47 & 12.8 & 3.1 & 24 & 51\% & 6 & 13\% & 19 & 40\% & 42 & 89\% \\ 
+Apache commons-csv & 16 & 2.6 & 3.9 & 3 & 19\% & 2 & 12\% & 2 & 12\% & 11 & 69\% \\
+Gson & 18 & 16.8 & 12.8 & 6 & 33\% & 5 & 28\% & 5 & 28\% & 11 & 61\% \\
+FasterXML jackson-core & 26 & 27.9 & 8.1 & 13 & 50\% & 5 & 19\% & 12 & 46\% & 21 & 81\% \\
+FasterXML jackson-databind & 112 & 80.7 & 41.2 & 58 & 52\% & 9 & 8\% & 39 & 35\% & 97 & 87\% \\
+FasterXML jackson-dataformat-xml & 6 & 7.5 & 6.2 & 5 & 83\% & 2 & 33\% & 4 & 67\% & 6 & 100\% \\
+Jsoup & 93 & 7.9 & 2.2 & 32 & 34\% & 21 & 23\% & 23 & 25\% & 60 & 65\% \\
+Apache commons-jxpath & 22 & 28.7 & 7.6 & 16 & 73\% & 8 & 36\% & 13 & 59\% & 21 & 95\% \\
+\midrule
+All (Defects4J) & 835 & 813.9 & 518.1 & 399 & 48\% & 183 & 22\% & 308 & 37\% & 659 & 79\%\\
+\midrule
+\multicolumn{12}{c}{\textbf{\bears (single-module)}} \\
+\midrule
+FasterXML jackson-databind & 26 & 80.7 & 41.2 & 17 & 65\% & 2 & 8\% & 10 & 38\% & 23 & 88\% \\
+INRIA Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 18 & 29\% & 17 & 27\% & 52 & 84\% \\
+spring-data-commons & 15 & 45.8 & 28.8  & 9 & 60\% & 2 & 13\% & 2 & 13\% & 14 & 93\% \\
+traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 23 & 55\% & 33 & 79\% \\
+30 other projects & 39 & --- & --- & 23 & 59\% & 9 & 23\% & 12 & 31\% & 29 & 74\% \\
+\midrule
+All (\bears) & 184 & $>$240.6 & $>$109.4 & 112 & 61\% & 33 & 18\% & 64 & 35\% & 151 & 82\% \\
+\midrule
+Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 & 21\% & 372 & 37\% & 810 & 80\%\\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{\label{tab:dataset-characteristics} \small Summary of Defects4J and \bears
+  datasets. \emph{Project} is the project name; \emph{Source Size} and
+  \emph{Test Size} are the size of the source code and test suite in thousands
+  of lines of code respectively. The right-hand columns categorize the bugs by
+  the characteristics of their human-written patches (multi-location, 2--6
+  location, and multi-line). The \emph{2+ Failed Tests} column only includes
+  bugs that fail more than one test. Note that more than half of bugs are
+  multi-location (511/1018).  }
+\end{table*}
+
 In this section we overview the background of automated program repair (APR) and
 introduce key concepts that directly motivate our research questions
 (Section~\ref{sec:apr}), and define precisely what we mean by multi-location
@@ -361,7 +416,7 @@ following axes~\cite{ae,sqjo}:
   technique to identify (and typically score) suspicious code
   based on test execution. Most APR techniques
   use some variant of spectrum-based fault localization (SBFL)~\cite{ochiai}. 
-  The resulting computation defines the \emph{fault space}, or the
+  The results define the \emph{fault space}, or the
   candidate code locations considered for repair.
 
 \item \emph{Mutation space.} After identifying a faulty program location, an APR
@@ -426,60 +481,6 @@ We define this problem precisely and characterize our datasets next.
 \subsection{Multi-Location Patches and Dataset}
 \label{sec:bugs}
 
-\begin{table*}
-\begin{center}
-\begin{tabular}{l  rrr | rr rr rr rr }
-\toprule
-\multicolumn{12}{c}{\textbf{Defects4J v2.0.0}} \\
-\midrule
-\multirow{2}{*}{Project} & \multirow{2}{*}{Bugs} & Source Size & Test Size & \multicolumn{2}{c}{Multi-Location} & \multicolumn{2}{c}{Multi-Location,}      & \multicolumn{2}{c}{2--6 Location} & \multicolumn{2}{c}{Multi-Line} \\
-            &          &  (KLOC) & (KLOC)&
-\multicolumn{2}{c}{Patches}              & \multicolumn{2}{c}{2+ Failed Tests}   & \multicolumn{2}{c}{Patches}             & \multicolumn{2}{c}{Patches} \\
-\midrule
-JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 7 & 27\% & 11 & 42\% & 17 & 65\%\\
-Closure compiler & 174 & 150.6 & 112.6 & 87 & 50\% & 55 & 32\% & 75 & 43\% & 145 & 83\% \\
-Apache commons-lang & 64 & 57.8 & 47.4  & 32 & 50\% & 13 & 20\% & 26 & 41\% & 50 & 78\% \\
-Apache commons-math & 106 & 45.0 & 41.5 & 56 & 53\% & 24 & 23\% & 44 & 42\% & 82 & 77\% \\
-Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 8 & 21\% & 7 & 18\% & 30 & 79\% \\
-Joda-Time & 26 & 82.9 & 70.4 & 16 & 62\% & 8 & 31\% & 10 & 38\% & 22 & 85\% \\
-Apache commons-cli & 39 & 5.7 & 4.6 & 19 & 49\% & 8 & 21\% & 15 & 38\% & 33 & 85\% \\
-Apache commons-codec & 18 & 5.8 & 5.8 & 4 & 22\% & 2 & 11\% & 2 & 11\% & 8 & 44\% \\
-Apache commons-collections & 4 & 64.9 & 47.6 & 1 & 25\% & 0 & 0\% & 1 & 25\% & 3 & 75\% \\
-Apache commons-compress & 47 & 12.8 & 3.1 & 24 & 51\% & 6 & 13\% & 19 & 40\% & 42 & 89\% \\ 
-Apache commons-csv & 16 & 2.6 & 3.9 & 3 & 19\% & 2 & 12\% & 2 & 12\% & 11 & 69\% \\
-Gson & 18 & 16.8 & 12.8 & 6 & 33\% & 5 & 28\% & 5 & 28\% & 11 & 61\% \\
-FasterXML jackson-core & 26 & 27.9 & 8.1 & 13 & 50\% & 5 & 19\% & 12 & 46\% & 21 & 81\% \\
-FasterXML jackson-databind & 112 & 80.7 & 41.2 & 58 & 52\% & 9 & 8\% & 39 & 35\% & 97 & 87\% \\
-FasterXML jackson-dataformat-xml & 6 & 7.5 & 6.2 & 5 & 83\% & 2 & 33\% & 4 & 67\% & 6 & 100\% \\
-Jsoup & 93 & 7.9 & 2.2 & 32 & 34\% & 21 & 23\% & 23 & 25\% & 60 & 65\% \\
-Apache commons-jxpath & 22 & 28.7 & 7.6 & 16 & 73\% & 8 & 36\% & 13 & 59\% & 21 & 95\% \\
-\midrule
-All (Defects4J) & 835 & 813.9 & 518.1 & 399 & 48\% & 183 & 22\% & 308 & 37\% & 659 & 79\%\\
-\midrule
-\multicolumn{12}{c}{\textbf{\bears (single-module)}} \\
-\midrule
-FasterXML jackson-databind & 26 & 80.7 & 41.2 & 17 & 65\% & 2 & 8\% & 10 & 38\% & 23 & 88\% \\
-INRIA Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 18 & 29\% & 17 & 27\% & 52 & 84\% \\
-spring-data-commons & 15 & 45.8 & 28.8  & 9 & 60\% & 2 & 13\% & 2 & 13\% & 14 & 93\% \\
-traccar-traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 23 & 55\% & 33 & 79\% \\
-30 other projects & 39 & --- & --- & 23 & 59\% & 9 & 23\% & 12 & 31\% & 29 & 74\% \\
-\midrule
-All (\bears) & 184 & $>$240.6 & $>$109.4 & 112 & 61\% & 33 & 18\% & 64 & 35\% & 151 & 82\% \\
-\midrule
-Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 & 21\% & 372 & 37\% & 810 & 80\%\\
-\bottomrule
-\end{tabular}
-\end{center}
-\caption{\label{tab:dataset-characteristics} Summary of Defects4J and \bears
-  datasets. \emph{Project} is the project name; \emph{Source Size} and
-  \emph{Test Size} are the size of the source code and test suite in thousands
-  of lines of code respectively. The right-hand columns categorize the bugs by
-  the characteristics of their human-written patches (multi-location, 2--6
-  location, and multi-line). The \emph{2+ Failed Tests} column only includes
-  bugs that fail more than one test. Note that more than half of bugs are
-  multi-location (511/1018).  }
-\end{table*}
-
 Our study requires a dataset of indicative, real-world,
 multi-location defects.  We study 
 Defects4J v2.0.0~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
@@ -541,9 +542,12 @@ We start our analysis of multi-location patches by asking:
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and \bears. 
 We find that multi-location patches comprise 61\% of \bears and 48\% of 
-Defects4J\footnote{There are 11 bugs that should be considered multi-location but were left 
-out of all analyses. We were unable to correct this before the deadline but will add them 
-post review. This version of the paper treats these bugs as single location.}.
+Defects4J.
+%\footnote{There are 11 bugs that should be considered multi-location but were left 
+%out of all analyses. We were unable to correct this before the deadline but will add them 
+%post review. This version of the paper treats these bugs as single location.}.
+% CLG: I don't think this is a critical detail, and fails to honestly advocate
+% for our work.  All it does is annoy reviewers without adding much...we can fix it in post. 
 Although a multi-location human patch for a bug does not imply the 
 non-existence of a simpler patch, the high proportion of bugs that have 
 multi-location patches demonstrates the relevance of such bugs to fault localization and
@@ -629,8 +633,7 @@ other.
 
 From these assumptions, we derive our research question: 
 
-\rqorinsight{2}{Do failing tests of a multi-location bug execute all the same patch locations or 
-all different patch locations?}
+\rqorinsight{2}{Do failing tests for a multi-location bug execute the same patch locations?}
 
 We focus especially on bugs that are associated with multiple failing tests: a bug
 with only a single failing test trivially and equally implicates all the lines
@@ -675,10 +678,9 @@ the assumption that code executed by all failing tests are more likely to be bug
 categorized using the following criteria:
 
 \begin{itemize}
-\item \emph{holds}:  all failing tests execute the exact same set of patch lines.
+\item \emph{holds}:  all failing tests execute the exact same patch lines.
 \item \emph{contradicts}: no patch line is covered by all failing tests.
-\item \emph{partially holds}: some patch lines are covered by all failing tests, but some are only 
-covered by a subset of the failing tests.
+\item \emph{partially holds}: some, but not all, patch lines are covered by all failing tests
 \end{itemize}
 
 In our experiments, we classify bugs using coverage of the patch lines, as opposed to 
@@ -708,11 +710,10 @@ categories exhibited statistically different distributions.
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage_hist_all.pdf}
-	\caption{Distribution of localization categories for bugs with multiple failing
-      tests that are repaired with multi-location patches. In general, the categories are relatively 
-      evenly populated, with a slightly higher proportion of bugs in \emph{partially holds}. In 
-      addition, the two datasets produce different distributions, reflecting the different 
-      ways these datasets were collected.}
+	\caption{\small Localization categories for multi-location bugs with multiple failing
+      tests. The categories are relatively 
+      evenly populated, with a slightly higher proportion of bugs in
+      \emph{partially holds}. The datasets demonstrate different distributions.}
 	\label{fig:coverage-all}
 \end{figure}
 
@@ -736,18 +737,18 @@ third groups of bars in Figure \ref{fig:coverage-all}. In particular, Bears has 
 We hypothesize that this may be due to differences in how the two  
 datasets were selected and constructed:
 The Defects4J dataset specifically enforces a requirement that the patches in the 
-dataset be isolated, i.e., not containing any refactorings or new features, to improve the 
-usability of the dataset. The authors specifically chose patches that met this requirement, 
-and in some cases, manually isolated the bug themselves~\cite{defects4j}. By contrast, the 
+dataset be isolated, i.e., not containing any refactorings or new features.
+The authors both saught bugs that met this requirement, in manually isolated others~\cite{defects4j}. By contrast, the 
 bugs in 
-Bears are scraped directly from continuous integration systems, and the 
+\bears bugs are scraped directly from continuous integration systems, and the 
 only requirements for inclusion is that the bug must be reproducible and that
-the patch must be written by a human. In addition, Bears was designed to be evolvable 
-and relatively easily expanded as a dataset, which is at odds with manual inspection and isolation of 
-bugs~\cite{bears}.
+the patch must be written by a human~\cite{bears}. 
+%In addition, Bears was designed to be evolvable 
+%and relatively easily expanded as a dataset, which is at odds with manual inspection and isolation of 
+%bugs~\cite{bears}.
 Given that these two datasets were designed with different values and demonstrate very 
-different behavior, these findings highlight the importance of using diverse datasets in 
-evaluating program repair techniques.
+different behavior, these findings highlight the importance of diverse datasets
+in APR evaluations. 
 
 Out of the 124 bugs we checked, ten bugs had differing localization categories when 
 classified based on coverage of patch lines vs. coverage of patch locations. All ten of these 
@@ -758,47 +759,50 @@ executing different paths within the same patch locations. \todo{Is this discuss
 worded? Because patch locations refer to the patch chunk, made up of one or more lines of 
 code.}
 
-Overall, we cannot assume that the failing tests in multi-location repairs will execute all the 
+Overall, we cannot assume that the failing tests in multi-location repairs will execute all 
 faulty locations -- in fact our results suggests that assumption only holds 32\% of the time. 
-\todo{The original paragraph had this claim, but IDK if we can say something like this anymore:
-Our results suggest that off-the-shelf SBFL techniques are not
-well-suited to guiding APR techniques that conform to the dominant paradigm to repairing
-these types of multi-location, multi-test bugs.}
+This suggests that off-the-shelf SBFL techniques may not be
+well-suited to guiding APR techniques when addressing more than half of
+real-world multi-location bugs. \todo{I think it's OK, actually.
+Maybe ``are not'' can change into ``may not be,'' to soften a little bit. What
+do you think of this version?}
 
 \begin{figure}
 	\includegraphics[width=\linewidth,left]{img/coverage-buggy.pdf}
-	\caption{Boxplots representing the distribution of bugs based on it's percentage of lines 
+	\caption{\small	\label{fig:coverage-buggy} Distribution of bugs based percentage of lines 
 	executed by all failing tests, measuring the degree to which failing tests execute the same 
-	code. The distributions for the \emph{contradicts} and \emph{partially holds} are more or 
-	less uniformly distributed in the percent of code executed by all failing tests. The 
-	distribution for the \emph{holds} category skews towards higher percentages, but the range 
-	still spans across 5\% to 100\%. Thus, there seems to be little correlation between 
-	localization categories and whether failing tests all execute the same code in the buggy 
-	program.}
-	\label{fig:coverage-buggy}
+	code. The coverage distributions for the \emph{contradicts} and \emph{partially holds} are more or 
+	less uniformly distributed. The coverage
+	distribution for the \emph{holds} category skews measurable higher, albeit with
+        high variance.} %Thus, there seems to be little correlation between 
+%	localization categories and whether failing tests all execute the same code in the buggy 
+%	program.}
+% CLG sez: I know I asked for takeaways in captions but (1) I'm not sure what
+% this last one means and (2) I think it contradicts what we say in text, so I
+% just cut it for space, it's fine. 
 \end{figure}
 
 \subsubsection{Generalization of localization categories}
-Our results in Figure \ref{fig:coverage-buggy} answer RQ3. Here, we see three distributions, 
-separated by localization category, and plotted based on the percentage of lines executed by all 
-failing tests. 
-
+Figure \ref{fig:coverage-buggy} plots localization category based on the
+percentage of lines executed by all failing tests. 
+%
 The distributions of bugs in \emph{contradicts} (and to a lesser extent, bugs in \emph{partially 
 holds}) are 
-distributed seemingly uniformly across the 0\% to 100\%, indicating that \emph{contradicts} 
-bugs 
-are 
-not more or less likely to have failing tests that cover the same or different parts of the code 
-base. Note that a bug categorized as \emph{contradicts} can be scored 100\% as the 
+distributed apparently uniformly across 0\% to 100\% line coverage. This indicates that \emph{contradicts} 
+bugs are 
+not more/less likely to have failing tests that cover the same or different parts of the code 
+base.\footnote{Note that a bug categorized as \emph{contradicts} can be scored 100\% as the 
 patch can introduce if statements that change the control flow and cause all failing tests to 
-eventaully execute all different parts of the patch.
+eventaully execute all different parts of the patch.\todo{I think this point may
+  be too pedantic/confusing to be necessary, but let's try it in a footnote.}}
+%
+We qualitatively observe that bugs in \emph{holds} are more likely to have 
+failing tests that execute the same lines of code, as we might expect. However, this is not 
+definitive, as \emph{holds} bugs covered anywhere between 
+5\% to 100\% of patch lines.\todo{...right? We mean patch lines? This previously
+  said that holds bugs ``score'' in this range but score doesn't scan for me.}
 
-In contrast, we can qualitatively observe that bugs in \emph{holds} are more likely to have 
-failing tests that execute the same lines of code, as we might expect. However, this is not a 
-definitive characteristic, as \emph{holds} bugs in our dataset scored anywhere between 
-5\% to 100\%.
-
-These observations are confirmed quantitatively. There were no statistically significant 
+These observations are confirmed quantitatively: There were no statistically significant 
 differences between the distribution for \emph{contradicts} and \emph{partially holds}. 
 However, the distribution for \emph{holds} showed statistically significant differences with 
 \emph{partially holds} ($p = 0.006$)  and \emph{contradicts} ($p < 0.001$).
@@ -806,8 +810,9 @@ However, the distribution for \emph{holds} showed statistically significant diff
 We conclude that the degree to which failing tests cover the buggy 
 code is correlated to eventual localization category for the bug in the \emph{holds} case. 
 This is especially notable as this is the category for which the assumption holds, indicating that 
-we may be able to differentiate this category from others more effectively.
-
+we may be able to differentiate this category from the others more effectively.
+\todo{Do we mean ``automatically and a priori''? That might help address my
+  other todo in terms of takewaway.}
 \todo{LEO: add 1--2 sentences with a takeaway from this section,
   connecting back to the high-level problem of localization for multi-edit
    repair.  It prseently ends in the weeds....}
@@ -1528,6 +1533,12 @@ to reinforcing their earlier findings on intra-patch dependencies, we discover
 additional insights for enhancing APR in the axes of fault localization, 
 fix mutations, and patch validation.
 
+Hercules~\cite{saha2019harnessing} is an APR technique that takes 
+advantage of fix code similarity to generalize a single repair edit into a 
+patch consisting of multiple similar edits.
+We discuss fix code similarity and insights on Hercules in 
+Section~\ref{sec:clones}.
+
 Prior work in program repair to use more search-guiding information 
 during candidate patch evaluation 
 include using program invariants~\cite{better-fitness, dinglyu}, 
@@ -1546,7 +1557,7 @@ do not change test case passage and discussed potential applications
 of mutation robustness in proactive bug repair. 
 Although our context differs --- they studied random mutations, 
 we study changes associated with specific bug fixes --- we also find a 
-non-trivial proportion of neutral edits in multi-location repairs.  
+non-trivial proportion of neutral edits in multi-location repairs.
 
 
 \section{Takeaways and Conclusions}
