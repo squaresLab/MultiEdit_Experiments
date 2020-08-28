@@ -279,11 +279,17 @@ automated techniques.  Our findings and contributions are:
 %\item An analysis and enumeration of multi-location patches in Defects4J and
 %\bears.
 % I think the above is addressed by the summary in the preceding paragraph.
-\item \textbf{Fault Localization.}  We find that 58\% of multi-edit bugs have faulty locations that are not
-  covered by all failing tests.  This is important because the assumptions underlying spectrum-based
-  fault localization may not hold when used off-the-shelf for
-  multi-edit bug repair, motivating the development of novel localization
+\item \textbf{Fault Localization.}  We find that 67\% of multi-location bugs have faulty 
+locations that are not
+  covered by all failing tests.  This is important because this violates an assumption underlying 
+  spectrum-based
+  fault localization. Thus, off-the-shelf techniques may not work for
+  multi-location bug repair, motivating the development of novel localization
   techniques. 
+  In addition, multi-location bugs whose failing tests cover the same faulty locations tend to 
+  have failing tests that cover the same lines of code in general, indicating there may be a 
+  correlation that can help us identify which bugs may be suitable for off the shelf fault 
+  localization techniques.
 \item \textbf{Edit dependency.} We 
 find that 45\% of bug patches contain dependent edits, and that such bugs
 may be more difficult for current, state-of-the-art
@@ -297,7 +303,8 @@ program repair techniques designed to utilize code clones. Moreover, importantly
 none of the faulty locations are covered by all failing tests tend to include
 such clones in their patches.  This suggests a path forward for predicting, a
 priori, which type of technique may apply to a given bug. 
-\item \textbf{Test cases for multi-edit patch validation.} We find that over 40\% of bugs with multi-location
+\item \textbf{Test cases for multi-location patch validation.} We find that over 40\% of bugs 
+with multi-location
   patches in Defects4J and over half in \bears do not require the edits at every
   location in their provided human patches to pass all test cases, suggesting
   that either patches contain unnecessary edits or that test cases
@@ -641,15 +648,15 @@ repair techniques, we want to determine which bugs are well suited for SBFL befo
 the patch locations. Since our proxy for suitability is based on whether failing tests execute 
 the same patch locations, we ask:
 
-\rqorinsight{2.5}{Do failing tests that cover different (resp. same) fault locations also cover 
+\rqorinsight{3}{Do failing tests that cover different (resp. same) fault locations also cover 
 different 
 (resp. same) code locations in general?}
 
 \subsection{Methodology}
 
-Between both datasets, there are 191 total bugs that both require multi-location
+Between both datasets, there are 216 total bugs that both require multi-location
 patches and contain multiple failing tests. However, we were not able to obtain coverage 
-data for one of the bugs in Bears, leaving 190 total bugs: 158 in Defects4J, and 32 in
+data for one of the bugs in Bears, leaving 215 total bugs: 183 in Defects4J, and 32 in
 Bears. 
 For each of these bugs, we used JaCoCo\footnote{https://www.eclemma.org/jacoco/}
 to determine which lines of code in both the buggy and patched versions were executed
@@ -676,11 +683,11 @@ is
 executed). For the purposes of fault localization, coverage of patch locations is more valuable 
 than coverage of patch lines, and we analyzed 66 Defects4J bugs\footnote{Only the 
 bugs in Defects4J version 1, because of the way we calculate coverage information.}
- and all the Bears bugs, a total of 98 bugs, to see whether categorization 
+ and all the Bears bugs, a total of 124 bugs, to see whether categorization 
 based on patch line 
 coverage matched categorization based on patch location coverage.
 
-To answer RQ2.5, we took all code locations executed by tests in the buggy version and
+To answer RQ3, we took all code locations executed by tests in the buggy version and
 calculated the percentage of lines that were executed by all failing tests. 
 A lower percentage indicates that the failing tests execute different portions of the buggy 
 code, whereas a higher percentage indicates that the failing tests all execute a similar
@@ -690,9 +697,9 @@ respectively.
 After calculating the percentages, we split the bugs based on whether we categorized the bug 
 as \emph{contradicts}, \emph{holds}, or \emph{partially holds} in the previous experiment.
 We qualitatively observed the degree to which the percentage corresponded to its coverage 
-pattern. \todo{Use a real statistical measure}\todo{Yes, really.}
+pattern, and we use a Mann Whitney u-test to determine whether the three localization 
+categories exhibited statistically different distributions.
 
-\todo{Combine these three figures into 1}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{img/coverage_hist_all.pdf}
@@ -708,17 +715,18 @@ pattern. \todo{Use a real statistical measure}\todo{Yes, really.}
 
 \subsubsection{Distribution of Localization Categories} \label{sec:cov_patterns}
 
-Figure~\ref{fig:coverage-all} shows results for the overall distribution of localization categories, 
+The first group of bars in Figure~\ref{fig:coverage-all} shows results for the overall distribution 
+of localization categories, 
 answering RQ2. 
-For a 29\% bugs, none of the patch lines were executed by all failing tests as they were 
-categorized as \emph{contradicts}.  An almost equal proportion of bugs, 32\%, were classified 
+For a 27\% bugs, none of the patch lines were executed by all failing tests as they were 
+categorized as \emph{contradicts}.  A slightly larger proportion of bugs, 34\%, were classified 
 as 
 \emph{holds}, indicating that all failing tests executed the same patch lines.
-In addition, another 39\% were classified as \emph{partially holds}.
+In addition, another 40\% were classified as \emph{partially holds}.
 
-Note, however, that the behavior varies considerably by dataset;
-Figure~\ref{fig:coverage-datasets} shows results. In Defects4J, the patterns all have similar 
-numbers of bugs, while in Bears, there are fewer bugs in \emph{contradicts} and more  bugs in 
+Note, however, that the behavior varies considerably by dataset, as shown in the second and 
+third groups of bars in Figure \ref{fig:coverage-all}. In particular, Bears has fewer bugs in 
+\emph{contradicts} and more bugs in 
 \emph{partially holds}.
 We hypothesize that this may be due to differences in how the two  
 datasets were selected and constructed:
@@ -736,8 +744,8 @@ Given that these two datasets were designed with different values and demonstrat
 different behavior, these findings highlight the importance of using diverse datasets in 
 evaluating program repair techniques.
 
-Out of the 98 bugs we checked, only seven bugs had differing localization categories when 
-classified based on coverage of patch lines vs. coverage of patch locations. All seven of these 
+Out of the 124 bugs we checked, ten bugs had differing localization categories when 
+classified based on coverage of patch lines vs. coverage of patch locations. All ten of these 
 bugs 
 were classified as \emph{partially holds} when classified by line coverage, but were classified as 
 \emph{holds} when classifying by patch coverage, indicating that all the failing tests were 
@@ -766,13 +774,14 @@ these types of multi-location, multi-test bugs.}
 \end{figure}
 
 \subsubsection{Generalization of localization categories}
-Our results in Figure \ref{fig:coverage-buggy} answer RQ2.5. Here, we see three distributions, 
+Our results in Figure \ref{fig:coverage-buggy} answer RQ3. Here, we see three distributions, 
 separated by localization category, and plotted based on the percentage of lines executed by all 
 failing tests. 
 
 The distributions of bugs in \emph{contradicts} (and to a lesser extent, bugs in \emph{partially 
 holds}) are 
-distributed almost uniformly across the 0\% to 100\%, indicating that \emph{contradicts} bugs 
+distributed seemingly uniformly across the 0\% to 100\%, indicating that \emph{contradicts} 
+bugs 
 are 
 not more or less likely to have failing tests that cover the same or different parts of the code 
 base. Note that a bug categorized as \emph{contradicts} can be scored 100\% as the 
@@ -784,8 +793,15 @@ failing tests that execute the same lines of code, as we might expect. However, 
 definitive characteristic, as \emph{holds} bugs in our dataset scored anywhere between 
 5\% to 100\%.
 
-From these observations, we conclude that the degree to which failing tests cover the buggy 
-code are not effective predictors for the eventual localization category for the bug. 
+These observations are confirmed quantitatively. There were no statistically significant 
+differences between the distribution for \emph{contradicts} and \emph{partially holds}. 
+However, the distribution for \emph{holds} showed statistically significant differences with 
+\emph{partially holds} ($p = 0.006$)  and \emph{contradicts} ($p < 0.001$).
+
+We conclude that the degree to which failing tests cover the buggy 
+code is correlated to eventual localization category for the bug in the \emph{holds} case. 
+This is especially notable as this is the category for which the assumption holds, indicating that 
+we may be able to differentiate this category from others more effectively.
 
 \section{Mutation Operators and Fix Code}
 \label{sec:mutops}
@@ -941,7 +957,7 @@ of a mix of both). Previous techniques have targeted exectly these types of
 bugs~\cite{wang2018,saha2019harnessing}.  We evaluate how often this relationship applies to
 multi-location bugs, and thus the usefulness of techniques that assume it, by asking: 
 
-\rqorinsight{4}{How often do code clones occur in multi-location bugs?}
+\rqorinsight{5}{How often do code clones occur in multi-location bugs?}
 
 %Possible intuition: if we can find some kind of correlation between fault localization results
 %and code clones, then if some APR research decided to follow Wang et al's suggestion and
@@ -1030,7 +1046,8 @@ alpha-equivalent edit locations within them.
 
 To harness the presence of code clones in repairs, it would be great if APR tools can get information about the bug from fault localization that may indicate that a correct repair may contain code clones. Therefore we ask: 
 
-\rqorinsight{5}{Is the existence of code clones in human patches correlated with specific patterns of fault localization?}
+\rqorinsight{6}{Is the existence of code clones in human patches correlated with specific 
+patterns of fault localization?}
 
 In order to do that, we further attempt to correlate the coverage patterns outlines in
 Section~\ref{secFL} with the existence of code clones in human patches.  Our 
@@ -1116,7 +1133,7 @@ ideally be identifiable as ``closer'' to the full repair as compared to the
 original buggy program. On average, do tests behave accordingly? We formalize
 this question as:
 
-\rqorinsight{6}{How well do test case based validation methods identify partial repairs?}
+\rqorinsight{7}{How well do test case based validation methods identify partial repairs?}
 
 If tests can in general identify partial repairs, this suggests the feasibility
 of techniques that construct multi-location repairs by identifying and composing
@@ -1197,7 +1214,7 @@ This suggests that the test suites are weak proxies for total correctness.
 \bears patches are not minimized, which likely explains
 their higher percentage of non-minimal patches (52.7\%).
 
-We compute and present results for RQ6 using the 1-minimal set of edits
+We compute and present results for RQ7 using the 1-minimal set of edits
 in the human patch with respect to the unit tests as the ``full'' patch.  
 We do this for parsimony: including
 unminimized edits introduces some noise but does not materially change the
@@ -1208,7 +1225,7 @@ minimized to a single edit, leaving
 942 Defects4J and 232 \bears partial repairs, from
 165 Defects4J and 44 \bears bugs.  
 
-% We therefore present our results for RQ6 in two ways:
+% We therefore present our results for RQ7 in two ways:
 % treating the provided human patch as the full repair
 % (Unminimized), and considering only the 1-minimal set of edits in the
 % human patch with respect to the unit tests (Minimized).
@@ -1301,7 +1318,8 @@ correlational study between the patch coverage of failing tests and the existenc
 identified partial repairs, in hopes of discovering some interesting correlations that may inform
 Search based APR research in controlling selective pressure with fault localization informations.
 
-\rqorinsight{7}{Are there correlations between patch coverage and existence of positively/negatively 
+\rqorinsight{8}{Are there correlations between patch coverage and existence of 
+positively/negatively 
 identified partial repairs in multi-test, multi-location bugs?}
 
 \begin{table}
@@ -1527,17 +1545,23 @@ generate multi-location bug fixes. These are our key takeaways:
   these takeaways include the data/experiments added for ICSE 2021?  Anyway,
   I'll reread at the end.}
 \begin{itemize}[wide, labelindent=0pt]
-\item \textbf{The \emph{core assumption} of spectrum-based fault
-  localization does not always hold.}
-The core assumption of spectrum-based fault localization---that faulty locations
-are executed more often by negative test cases---was not true for a substantial
-number of bugs in our study. In our study \todo{58\%} of bugs repaired with
+\item \textbf{Assumptions underlying spectrum-based fault
+  localization do not always hold in multi-location bugs.}
+In particular, the assumption that faulty locations
+are executed more often by negative test cases was not true for a substantial
+number of bugs in our study. In our study 40\% of bugs repaired with
 multi-location patches and characterized by multiple failing tests had patch
-locations that executed by some but not all tests. \todo{Additionally, \todo{27\%} of
-these patches were disjoint (i.e., had no patch location covered by all failing
-tests).}  In these cases SBFL is unlikely to be the most appropriate choice for a
+locations that executed by some but not all tests; thus the assumption was only 
+partially held. Additionally, 27\% of
+these patches had no patch location covered by all failing
+tests, and thus contradicted the assumption.  In these cases SBFL is unlikely to be the most 
+appropriate choice for a
 fault localization technique. This finding suggests that there is still progress
 to be made in fault localization for automated repair.
+
+In addition, bugs for which failing tests all execute the same faulty locations (i.e. bugs for 
+which the assumption is true) are more likely to have failing tests that execute very similar 
+parts of the program, indicating that there may be a way to identify these bugs.
 
 \item \textbf{Patches with dependencies are common and harder to construct.}
 We found that 45\% of human-written multi-location patches contained
