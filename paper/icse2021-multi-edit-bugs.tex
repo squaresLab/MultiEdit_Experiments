@@ -430,30 +430,6 @@ We define this problem precisely and characterize our datasets next.
 \subsection{Multi-Location Patches and Dataset}
 \label{sec:bugs}
 
-We focus in this study on the properties of \emph{multi-location} patches. There are
-several plausible definitions of multi- vs. single-location patches, with
-implications for how they are studied. For the purpose of this study, we define
-a \emph{patch location} as a contiguous sequence of edited lines of code.  We
-combine two locations if one simply opens or closes a syntactic block inserted
-by the other. That is, conceptually:
-\lstset{escapeinside={<@}{@>}}
-\begin{lstlisting}[style=examplestyle]
-<@\textcolor{dkgreen}{+ Some\_edit \{}@>
-<@\textcolor{dkgreen}{+ New code}@>
-  Existing code
-<@\textcolor{dkgreen}{+\}}@>
-\end{lstlisting}
-is treated as a single-location edit in our study. We ignore changes to
-comments, whitespace, or \texttt{import} statements.
-%
-This intuitive definition is reasonably consistent with the general APR
-paradigm. 
-\todo{is it worth elaborating on which we exclude, anything that might be
-  counterintuitive? Do we include declarations as separate edits? I know our
-  philosophy is different from D4J, which is why I ask.}
-%As a shorthand, we refer to bugs with multi-location human-written
-%patches as \emph{multi-location bugs}.
-
 \begin{table*}
 \begin{center}
 \begin{tabular}{l  rrr | rr | rr | rr | rr }
@@ -504,14 +480,14 @@ Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 
 \end{table*}
 
 Our study requires a dataset of indicative, real-world,
-multi-location defects.  We study both the defects in
+multi-location defects.  We study 
 Defects4J v2.0.0~\cite{defects4j} and \bears~\cite{bears}.  Table~\ref{tab:dataset-characteristics}
 summarizes these datasets, both of which
 consist of historical
 bugs found in real world software projects. Defects4J contains 835 bugs from 
 17 Java software projects, and is a popular dataset for evaluating 
-program repair tools that target Java~\cite{durieux-repair-them-all}.\todo{add
-  more references, there are other papers that use d4j to evaluate}
+program repair tools that target 
+Java~\cite{durieux-repair-them-all,pearson2017evaluating,saha2017elixir,saha2019harnessing,xin2017leveraging,b2016learning}.
 The dataset's patches are manually minimized to isolate the bug fix 
 and exclude non-repair edits such as refactorings and feature additions.
 
@@ -522,18 +498,51 @@ We thus also study bugs from \bears~\cite{bears},
 a set of Java bugs derived from failed Travis-CI builds of GitHub projects. 
 \bears offers 251 bugs from 72 software projects, providing a greater diversity of 
 projects compared to Defects4J. 
-Several projects in \bears, however, are structured as multi-module projects, 
-which are not currently compatible with our automation tools.
-\todo{Is it worth expanding slightly on why/what this means?}
+Several projects in \bears, however, are structured as multi-module projects, a feature 
+supported by Maven that allows developers to group multiple projects together. Multi-module 
+projects are more complex to build and are not currently compatible with our automation tools.
 We thus limit our analysis of \bears to 184 bugs from 34 single-module projects.
-\todo{what's going on with multi-location versus multi-test}
+
+We focus in this study on the properties of \emph{multi-location} patches. There are
+several plausible definitions of multi- vs. single-location patches, with
+implications for how they are studied. For the purpose of this study, we define
+a \emph{patch location} as a contiguous sequence of edited lines of code.  We
+combine two locations if one simply opens or closes a syntactic block inserted
+by the other. That is, conceptually:
+\lstset{escapeinside={<@}{@>}}
+\begin{lstlisting}[style=examplestyle]
+<@\textcolor{dkgreen}{+ Some\_edit \{}@>
+<@\textcolor{dkgreen}{+ New code}@>
+Existing code
+<@\textcolor{dkgreen}{+\}}@>
+\end{lstlisting}
+is treated as a single-location edit in our study. We ignore changes to
+comments, whitespace, or \texttt{import} statements.
+We still consider a patch location valid if a contiguous sequence of edited lines contains 
+only refactorings, variable/field declarations, or annotations. We do not perform any 
+additional minimization or changes to the program beyond those the dataset authors may 
+have performed.
+This intuitive definition is reasonably consistent with the general APR
+paradigm. 
+%As a shorthand, we refer to bugs with multi-location human-written
+%patches as \emph{multi-location bugs}.
+
+In addition, some experiments will have further restrictions on what bugs can be used. In 
+particular, we also look at bugs that have multiple failing tests, bugs with up to six patch 
+locations (for scalability), and bugs with multiple patch lines (a superset of multi-location 
+patches). In addition to providing the size of these sets in 
+Table~\ref{tab:dataset-characteristics}, each experiment will clearly state which restrictions are 
+being used and how many bugs that includes.
 
 We start our analysis of multi-location patches by asking:
 \rqorinsight{1}{How prevalent are human-written multi-location patches?}
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and \bears. 
-We find that multi-location patches comprise 61\% of \bears and 48\% of Defects4J.
+We find that multi-location patches comprise 61\% of \bears and 48\% of 
+Defects4J\footnote{There are 11 bugs that should be considered multi-location but were left 
+out of all analyses. We were unable to correct this before the deadline but will add them 
+post review. This version of the paper treats these bugs as single location.}.
 Although a multi-location human patch for a bug does not imply the 
 non-existence of a simpler patch, the high proportion of bugs that have 
 multi-location patches demonstrates the relevance of such bugs to fault localization and
