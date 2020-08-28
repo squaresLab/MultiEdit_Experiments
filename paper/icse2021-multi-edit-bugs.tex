@@ -1090,16 +1090,23 @@ human patch than bugs with other localization  ($p < 0.001$, by a $\chi^2$ test)
 This suggests a heuristic for when to try a clone-based repair technique: if there
 appears to be less coverage overlap between multiple failing tests, it is
 possible that, if multi-location, 
-applying the same edits at multiple locations~\cite{saha2019harnessing} may be more likely to succeed. We
-leave a concrete investigation of this possibility to future work.
+applying the same edits at multiple locations~\cite{saha2019harnessing} may be
+more likely to succeed. On the flip
+side, however, these results also suggest that SBFL may not be well-suited to
+guiding such techniques: 
+53\% (26/49) of clone-containing patches exhibit \emph{contradicts}
+localization, compared to 17\% (24/142) of non-clones. This suggests that clone
+edits  are more likely to contradict SBFL's core assumptions
+on fault coverage.  This motivates novel fault localization analyses for
+clone-oriented techniques.   We
+leave a concrete investigation of these possibilities to future work.  
 
-We also find that 53\% (26/49) of clone-containing patches exhibit 
-\emph{contradicts} localization, compared to 17\% (24/142) of non-clones.
-Thus, clone edits are more likely to contradict SBFL's core assumptions
-on fault coverage, which suggests that clones are often contextually 
-\emph{different} enough to be not visible to all failing tests.
-Clone-oriented techniques such as Hercules~\cite{saha2019harnessing} may benefit
-from a non-SBFL technique.
+% We also find that 
+% Thus, clone edits are more likely to contradict SBFL's core assumptions
+% on fault coverage, which suggests that clones are often contextually 
+% \emph{different} enough to be not visible to all failing tests.
+% Clone-oriented techniques such as Hercules~\cite{saha2019harnessing} may benefit
+% from a non-SBFL technique.
 
 \section{Test case-based validation}
 \label{sec:tests}
