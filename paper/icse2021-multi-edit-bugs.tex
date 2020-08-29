@@ -974,13 +974,12 @@ We are studying code clones in \emph{patches}, such that conventional clone cate
 \begin{enumerate}
 \item Same: The modifications at two locations are alpha-equivalent (i.e., the two locations are identical or would be
 identical, modulo alpha renaming). In the conventional code clone literature,
-this corresponds to Type-1 (identical) and Type-2 (renamed identifiers) clones~\cite{kclone}.
+this corresponds to Type-I (identical) and a Type-II (renamed identifiers) clones~\cite{kclone}.
 \item Near-same: The edits at two locations are almost alpha-equivalent and
-  differ by at most one constant or arithmetic operator,
-or replacement of one constant with a variable.
+  differ by at most one variable, constant or arithmetic operator via insertion, deletion or replacement.
 \item Composite: The patch at one location is exactly copied and contained within the patch at 
 the 
-second location (the second location  has additional lines).
+second location (the second location  has additional changed lines).
 \item Move: One location is an insertion of 
 code deleted from the other location. 
 \end{enumerate}
