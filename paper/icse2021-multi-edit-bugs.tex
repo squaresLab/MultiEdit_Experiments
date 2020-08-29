@@ -1459,83 +1459,63 @@ mutation testing uses a genetic search-based approach~\cite{homs}.
 % I know I'm referring to the work by the authors' names,
 % but I can't find a good way to refactor their names out without writing awkwardly.
 % I would need to refactor all of the usages of "they" to remove their names.
-Long and Rinard~\cite{long-search-spaces} studied
-correct and incorrect plausible patches in the search spaces of SPR~\cite{spr} 
-and Prophet~\cite{prophet}. They found incorrect plausible patches to outnumber 
-correct patches by orders of magnitude. When they increased the search space 
-by adding additional mutation operations, they found an increased number of 
-correct patches, but APR tool performance might actually degrade due to a 
-simultaneous increase in incorrect plausible patches and growth in search space.  
-While we do not study this particular problem, 
-we similarly seek to understand the 
-massively larger search space of multi-location repair. 
+Long and Rinard~\cite{long-search-spaces} studied correct and incorrect
+plausible patches in APR search spaces and found incorrect plausible patches to
+outnumber correct patches by orders of magnitude~\cite{spr, prophet}. Increasing
+the search space with additional mutation operations also increased the number
+of correct patches, but also increased the number of incorrect plausible
+patches.  While we do not study this particular problem, we similarly seek to
+understand the massively larger search space of multi-location repair.
 
-A previous empirical study on real bug fixes~\cite{zhong2015} 
-studied fault localization difficulty, bug fix complexity, necessary
-mutations, relevance of API knowledge, and buggy file types
-on more than 9000 real-world bugs.  
-Both our paper and the previous study aim to provide useful guidance and insights for 
-improving state-of-the-art APR techniques through empirical studies of bugs and bug fixes. 
-Our study differs in that we focus on 
-source code bugs patched by multiple edits in multiple locations. 
-We draw insights in fault localization, fix mutations, and test-based 
-patch evaluations. Additionally, we study the program repair 
-benchmark datasets Defects4J 
-and \bears; we believe that the program repair community would derive 
-benefit from a study of APR benchmarks.
+A previous empirical study on human bug fixes~\cite{zhong2015} studied fault
+localization difficulty, bug fix complexity, and necessary mutations on over
+9000 real-world bugs. This paper also aims to provide useful guidance and
+insights for improving APR techniques through empirical studies
+of bug fixes. Our study differs in that we focus on source code bugs
+patched by multiple edits in multiple locations, drawing insights in fault
+localization, fix mutations, and test-based patch evaluations.
 
-Wang et al.~\cite{wang2018} empirically studied multi-entity changes in bug patches 
-(where each entity is a class, method or field). They queried
-why and how often do patches have multi-entity changes, relationships 
-between co-changed entities, and recurring patterns of multi-entity changes. 
-By analyzing 2854 real-world bugs from four projects, they found that 66\%-76\% of
-multi-entity fixes contain dependencies, 
-and they identified three major recurring patterns that connects co-changed entities. 
-They suggested a potential way to 
-enhance APR by incorporating multi-entity changes. In contrast, we focus on bugs that
-requires multiple edits to fix, where the edits may be in the same entity. In addition 
-to reinforcing their earlier findings on intra-patch dependencies, we discover 
-additional insights for enhancing APR in the axes of fault localization, 
-fix mutations, and patch validation.
+Wang et al.~\cite{wang2018} empirically studied multi-entity (i.e., class,
+method, or field) changes in patches. They studied why and how often patches
+have multi-entity changes, relationships between entities, and recurring
+patterns in changes.  They found that 66\%-76\% of multi-entity fixes contain
+dependencies, and identified patterns that connect co-changed entities,
+suggesting they could be leveraged by APR. In contrast, we focus on bugs
+that require multiple edits, including edits to the same entity.
 
-Hercules~\cite{saha2019harnessing} is an APR technique that takes 
-advantage of fix code similarity to generalize a single repair edit into a 
-patch consisting of multiple similar edits.
-We discuss fix code similarity and insights on Hercules in 
+Hercules~\cite{saha2019harnessing} is an APR technique that takes advantage of
+fix code similarity to generalize a single repair edit into multiple similar
+edits. We discuss fix code similarity and insights on Hercules in
 Section~\ref{sec:clones}.
 
-Qi et al.~\cite{patch-correctness} evaluated patches generated 
-by three repair tools~\cite{genprog, ae, rsrepair}. 
-The vast majority of generated patches were incorrect and equivalent to 
-a single functionality deletion.  Patch \emph{overfitting} to the provided test
-cases can be measured via the use of held-out test
-suites~\cite{Smith15fse}, a technique that empirically validates the challenges of producing
-high-quality repairs in response to a single test suite.   Later work found patch incorrectness to be 
-also problematic in Defects4J~\cite{d4j-eval} and in semantics-based 
-repair techniques~\cite{Le2018}.  We similarly find that test suites provide
-imperfect semantic coverage over multi-location edits: many bugs can be fixed
-with only a portion of a multi-location human patch.  We 
-also find, however, that test cases can often identify partial patches. 
+Qi et al.~\cite{patch-correctness} evaluated patches generated by three repair
+tools and found that the vast majority of generated patches were incorrect and
+equivalent to a single functional deletion. This is an instance of patch
+\emph{overfitting}, which can be measured via the use of held-out test
+suites~\cite{Smith15fse}. Later work found patch incorrectness to be also
+problematic in Defects4J~\cite{d4j-eval} and in semantics-based repair
+techniques~\cite{Le2018}. We similarly find that test suites provide an
+imperfect specification of program behavior: many bugs can be fixed with only a
+portion of a multi-location human patch. However, we also find that test cases
+can often identify partial patches.
 
-Prior work in program repair to use more search-guiding information 
-during candidate patch evaluation 
-include using program invariants~\cite{better-fitness, dinglyu}, 
-intermediate program values~\cite{source-code-checkpoint}, 
-and online mutation-based fault localization~\cite{mut-analysis}.
-Some approaches require additional input, such as suspicious variables~\cite{source-code-checkpoint} 
-or known patches for the bug under repair~\cite{better-fitness}, 
-while others exhibit limited performance improvements~\cite{dinglyu, mut-analysis}.
-We show the potential benefit of deriving more information from tests
-with assertion level granularity.
-Future work may explore more methods to mine information from tests 
-beyond passage or failure.
+Prior work in program repair using search-guiding information during
+test-suite-based validation include using program
+invariants~\cite{better-fitness, dinglyu}, intermediate program
+values~\cite{source-code-checkpoint}, and mutation-based fault
+localization~\cite{mut-analysis}.
+%% Some approaches require additional input, such
+%% as suspicious variables~\cite{source-code-checkpoint} or known patches for the
+%% bug under repair~\cite{better-fitness}, while others exhibit limited performance
+%% improvements~\cite{dinglyu, mut-analysis}.
+We show that increasing test granularity can better inform search in the
+validation stage by identifying partial repairs.
 
-Schulte et al.~\cite{schulte} found that 37\% of code mutations 
-do not change test case passage and discussed potential applications 
-of mutation robustness in proactive bug repair. 
-Although our context differs --- they studied random mutations, 
-we study changes associated with specific bug fixes --- we also find a 
-non-trivial proportion of neutral edits in multi-location repairs.
+Schulte et al.~\cite{schulte} found that 37\% of code mutations do not change
+test case passage and discussed potential applications of mutational robustness
+in repair.  Although our context differs --- they studied random
+mutations, we study changes associated with specific bug fixes --- we also find
+a non-trivial proportion of neutral edits in multi-location repairs.
 
 
 \section{Takeaways and Conclusions}
