@@ -1156,18 +1156,19 @@ as compared to both the original and the fully-patched versions.
 \subsubsection{Partial Repairs and Bug Selection}
 We apply each non-empty subset of all location-level edits for a given bug to
 its buggy program.  To minimize semantically invalid partial repairs, we \emph{always}
-include edits that add import statements, helper methods/classes, or variable declarations
-in a partial patch. 
-For example, if a 3-edit patch contains a declaration of new variable
-\texttt{var} at one location that is used at a second location, but not a third,
-we include the first edit in all partial patches.  Note that this can reduce the total
-number of partial patches per patch, and we eliminate
+include lines that add new import statements, helper methods/classes, or variable declarations
+in a location. 
+For example, if a multi-location patch contains a declaration of new variable
+\texttt{var} at one edit location,
+we include this declaration in all partial repairs, and treat the rest of this location (if any) as one location.
+Note that this can reduce the total
+number of locations in a patch if an edit location is entirely declarations, and we eliminate
 human patches that contain only 
 one edit location after this preprocessing step. 
 
-Due to the exponential growth of partial patches with respect to overall patch size,
+Due to the exponential growth of partial repairs with respect to number of edit locations,
 we evaluate multi-location bugs with
-between two and six edits, excluding Closure, which uses a
+between two and six edit locations, excluding Closure, which uses a
 non-standard test harness. 
 Overall, we evaluated 1884 Defects4J and 596 \bears partial repairs,
 of 240 Defects4J and 74 \bears bugs.
