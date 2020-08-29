@@ -173,7 +173,7 @@
 
 \section{Introduction}
 
-\renewcommand\todo[1]{}
+%\renewcommand\todo[1]{}
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
@@ -400,11 +400,12 @@ are characterized by their use of test cases as a correctness oracle,
 at least one of which is failing (i.e., exercises the bug
 to be repaired).
 
+\looseness-1
 At a high level, source level program repair is a \emph{search problem}, where
 the objective is a set of source-level program edits that will cause it to pass
 all of the provided tests. To do this, techniques first \emph{generate} a candidate
 patch, then run the test suite to \emph{validate} it. Generating a patch
-requires navigating a search space, which is typically defined along the
+requires navigating a search space, often defined along the
 following axes~\cite{ae,sqjo}:
 \begin{enumerate}[wide]
 
@@ -1592,9 +1593,9 @@ offering further evidence of the incompleteness of test cases as a
 proxy for correctness~\cite{patch-correctness} and the
 presence of non-corrective changes (e.g., refactoring, enhancements)
 in handwritten bug patches~\cite{api-refactoring, tangledchanges}.  This
-challenges the practice of using a human patch as the syntactic gold standard
-for evaluating program repair tools, while suggesting that test suite quality
-and comprehensiveness continues to pose a challenge for modern repair tools.
+challenges the practice of using a human patch as the syntactic gold standard,
+while suggesting that test suite quality
+are still a challenge in modern software.
 
 \vspace{1ex}
 \noindent\textbf{Techniques need to be evaluated on diverse benchmarks.}
@@ -1609,10 +1610,9 @@ To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
 that 50\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
 were repaired by a human developer with multi-location patches. This motivated
-our study on the possibility of extending current program repair work to
-multi-location patches.
+our study on the characteristics and challenges of automatically repairing such bugs. 
 
-Our study's findings suggest deep implications for program repair targeting
+Our findings suggest deep implications for program repair targeting
 multi-location patches, both in terms of the applicability of existing program
 repair techniques and the design future repair techniques.  We hope that our
 findings and insights inspire future work to advance the state of the art of APR
