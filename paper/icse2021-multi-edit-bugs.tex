@@ -829,20 +829,20 @@ select new fix code to instantiate them.
 At one extreme, semantics-based repair~\cite{s3,angelix} can represent dependent edits between multiple
 locations via as a conjunction of multiple simultaneous constraints; at the other, 
 search-based or
-evolutionary techniques~\cite{genprog,par} typically mutation
+evolutionary techniques~\cite{genprog,par} typically represent mutation
 operators independently. 
 % That is, a modification in one location does not
 %inform the selection of a modifications to apply in a second location; instead,
 %the heuristic search is trusted to 
-The search space increases combinatorially, however, rendering
-the chances of finding multi-edit repairs~\cite{ae,long-search-spaces}. Accordingly, heuristic multi-location
+However, the search space increases combinatorially~\cite{ae,long-search-spaces}; accordingly, 
+heuristic multi-location
 techniques~\cite{saha2019harnessing} make assumptions about the 
 shape of the search space, e.g., targeting bugs that can be repaired by multiple similar edits.
 
 Note that the types of edits generally included in human patches has been
-studied~\cite{examples}.  Here, we are especially
+studied~\cite{zhong2015,soto}.  Here, we are especially
 concerned about the 
-\emph{relationships} between multiple edits, because such relationships have
+\emph{relationships} between multiple edits, as such relationships have
 key implications for how edits should be designed, selected, and instantiated 
 in multi-location repair. 
 
