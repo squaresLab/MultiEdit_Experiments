@@ -173,7 +173,7 @@
 
 \section{Introduction}
 
-%\renewcommand\todo[1]{}
+\renewcommand\todo[1]{}
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
@@ -274,15 +274,12 @@ APR.  Our contributions are:
 % I think the above is addressed by the summary in the preceding paragraph.
 \item \textbf{Fault Localization.}  We find that 67\% of multi-location bugs have faulty 
 locations that are not
-  covered by all failing tests.  This is important because this violates an assumption underlying 
-  spectrum-based
-  fault localization. Thus, off-the-shelf techniques may not work for
-  multi-location bug repair, motivating the development of novel localization
-  techniques. 
+  covered by all failing tests, violating a key assumption underlying
+  spectrum-based fault localization. This potentially 
+  motivates the development of novel localization techniques. 
   In addition, multi-location bugs whose failing tests cover the same faulty locations tend to 
-  have failing tests that cover the same lines of code in general, indicating there may be a 
-  correlation that can help us identify which bugs may be suitable for off the shelf fault 
-  localization techniques.
+  have failing tests that cover the same lines of code in general, a correlation
+  that may inform the selection of fault localization for unknown bugs. 
 \item \textbf{Edit dependency.} We 
 find that 45\% of bug patches contain dependent edits, and that such bugs
 may be more difficult for current, state-of-the-art
@@ -317,7 +314,9 @@ which type of technique may apply to a given bug.
   in response to coverage.
 \end{itemize}
 
-We offer a replication package at \url{https://bit.ly/32xPUg4}.
+We provide an anonymized package of our code and data at
+\url{https://bit.ly/32xPUg4}, which we will release and document publicly
+post-blind review.
 
 In Section~\ref{sec:background}, we overview the problem domain to
 motivate/outline our research questions, and characterize our datasets.
@@ -1280,7 +1279,7 @@ repairs that do not compile from the count, e.g., by throwing errors like ``miss
 
 \begin{figure*}
         \includegraphics[width=\textwidth]{img/weighted_percent.pdf}
-        \caption{Weighted percent of partial repairs exhibiting a {\normalfont
+        \caption{\small Weighted percent of partial repairs exhibiting a {\normalfont
             Positive}, {\normalfont Neutral}, or {\normalfont Negative} change
           measured at varying levels of granularity. As granularity increases
           the negative partial repair rate remains low, while the positive
@@ -1368,8 +1367,7 @@ fully cover \textbf{A} and \textbf{B} are less effective at assessing partial
 correctness than two tests that only cover \textbf{A} and \textbf{B} separately.
 Coverage thus influences the accuracy of tests as a judge of partial correctness.
 
-In practice, we do not know patch coverage \emph{a priori}  
-since we do not have a full patch yet. However, if we can infer the
+In practice, we do not know patch coverage \emph{a priori}.  However, if we can infer the
 likelihood of a bug belonging to the \emph{holds} category using existing 
 fault localization (since \emph{holds} requires all failing tests to cover the 
 entire patch), then we can relax judgements of partial correctness to 
@@ -1578,7 +1576,7 @@ usually does not increase the number of test case failures. This suggests that
 one assembling correct patches from partial repairs may be a feasible avenue for
 APR.  
 Moreover, test cases are a more accurate metric of partial correctness when coverage
-overlap of patch components is lower (the non-\emph{holds} localization cases).
+overlap of patch components is lower.
 
 We can reduce the possibility of overlapping coverage by decomposing tests into
 smaller units, potentially by
@@ -1589,7 +1587,7 @@ This also implies that class-level granularity validation has tradeoffs. Some
 repair frameworks use class-level granularity for faster validation. This may
 come at the cost of less accurate detection of partial patches. However, this
 tradeoff may be worthwhile in Java, given the non-trivial challenges involved in
-decomposing JUnit test classes into individual methods.
+decomposing JUnit test classes.
 
 \vspace{1ex}
 \noindent\textbf{Human patches are often not test-minimal.}
@@ -1610,6 +1608,7 @@ different benchmark datasets~\cite{durieux-repair-them-all}. Our findings
 provide evidence reinforcing the call for the use of diverse benchmarks when
 evaluating tools.
 
+\vspace{1ex}
 To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
 that 50\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
@@ -1621,8 +1620,8 @@ Our study's findings suggest deep implications for program repair targeting
 multi-location patches, both in terms of the applicability of existing program
 repair techniques and the design future repair techniques.  We hope that our
 findings and insights inspire future work to advance the state of the art of APR
-and take on difficult multi-location bugs. We offer a replication package 
-at \url{https://bit.ly/32xPUg4}.
+and take on difficult multi-location bugs.  Our anonymized data/code package is
+available at \url{https://bit.ly/32xPUg4}.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
