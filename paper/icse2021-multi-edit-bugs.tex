@@ -848,12 +848,9 @@ in multi-location repair.
 
 \subsection{Dependencies}
 
-One of the dimensions of the relationship between multi-location patches is potential
-\emph{dependency} between the edits, because edit dependency can and should
-inform how those edits are selected and applied (i.e., consider the difference
-between a patch that applies the same edit in four places, and one that
-applies four control-dependent
-modifications).  Specifically, we ask:
+One relationship between edits is
+\emph{dependency}. Selecting and applying edits can
+and should be informed by any dependencies between them.  Specifically, we ask:
 \rqorinsight{4}{How prevalent and hard to construct are
 patches with intra-patch dependencies?}
 
@@ -925,7 +922,7 @@ Table~\ref{tab:dependency-repair-contingency-table}
 shows frequencies of multi-line patches with respect to edit dependence 
 and whether an APR tool successfully repaired the bug.
 Our data substantiates prior research~\cite{zhong2015}:
-45\% of the multi-location patches we study exhibit intra-patch dependencies. 
+45\% of multi-location patches we study exhibit intra-patch dependencies. 
 Importantly, 
 we also find the presence of edit dependencies is correlated with lower rates of
 APR tool success. 
@@ -933,11 +930,10 @@ Using a $\chi^2$ test, we find a statistically significant relationship ($p < 0.
 between APR success and intra-patch dependencies.
 This result 
 suggests that such dependencies indeed 
-add complexity to the repair search in a way that challenges the state-of-the-art.
-Dependent edits, however, may 
-be an opportunity to constrain the search space by creating constraints between 
-otherwise independent mutations.  There is an opportunity to profit from edit 
-dependencies to repair a large class of difficult bugs.
+add complexity to the repair search that challenges the state-of-the-art.
+Dependent edits, however, could
+potentially narrow the search space by creating constraints between 
+otherwise independent mutations. 
 
 
 \subsection{Cloned code}
