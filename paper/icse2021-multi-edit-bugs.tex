@@ -284,7 +284,7 @@ locations that are not
 find that 45\% of bug patches contain dependent edits, and that such bugs
 may be more difficult for current, state-of-the-art
 techniques to automatically repair.  This means that APR techniques assuming edit
-independence~\cite{saha2019harnessing, theotherone} are applicable to a nontrivial proportion of complex bugs, while
+independence~\cite{saha2019harnessing} are applicable to a nontrivial proportion of complex bugs, while
 still motivating development of new analyses that can reason about multiple,
 related edits at once. 
 \item \textbf{Cloning in multi-location repair.} We find that over 30\% of bugs with multi-location
@@ -661,7 +661,7 @@ different
 \subsection{Methodology}
 
 \looseness-1
-Between both datasets, there are 372 total bugs that both require multi-location
+Between both datasets, there are 216 total bugs that both require multi-location
 patches and contain multiple failing tests. However, we were not able to obtain coverage 
 data for one of the bugs in \bears, leaving 215 total bugs: 183 in Defects4J, and 32 in
 \bears. 
@@ -956,7 +956,7 @@ multi-location bugs, and thus the usefulness of techniques that assume it:
 %result matches specific patterns.
 
 %\paragraph{Methodology}
-Our dataset includes all 216 multi-location bugs with 6 or fewer modified
+Our dataset includes all 372 multi-location bugs with 6 or fewer modified
 locations (to reduce the analysis burden). We determine the existence of code 
 clones through manual inspection.
 %
