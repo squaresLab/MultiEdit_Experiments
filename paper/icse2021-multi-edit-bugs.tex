@@ -1470,19 +1470,6 @@ higher order mutants is using search based approaches; in particular, the best a
 currently identified is a genetic search, which is reminiscent of program repair~\cite{homs, 
 genprog}.
 
-Qi et al.~\cite{patch-correctness} evaluated patches generated 
-by three G\&V repair tools~\cite{genprog, ae, rsrepair}. 
-The vast majority of generated patches were incorrect and equivalent to 
-a single functionality deletion.  Patch \emph{overfitting} to the provided test
-cases can be measured via the use of held-out test
-suites~\cite{Smith15fse}, a technique that empirically validates the challenges of producing
-high-quality repairs in response to a single test suite.   Later work found patch incorrectness to be 
-also problematic in Defects4J~\cite{d4j-eval} and in semantics-based 
-repair techniques~\cite{Le2018}.  We similarly find that test suites provide
-imperfect semantic coverage over multi-location edits: many bugs can be fixed
-with only a portion of a multi-location human patch.  We 
-also find, however, that test cases can often identify partial patches. 
-
 % I know I'm referring to the work by the authors' names,
 % but I can't find a good way to refactor their names out without writing awkwardly.
 % I would need to refactor all of the usages of "they" to remove their names.
@@ -1530,6 +1517,19 @@ advantage of fix code similarity to generalize a single repair edit into a
 patch consisting of multiple similar edits.
 We discuss fix code similarity and insights on Hercules in 
 Section~\ref{sec:clones}.
+
+Qi et al.~\cite{patch-correctness} evaluated patches generated 
+by three G\&V repair tools~\cite{genprog, ae, rsrepair}. 
+The vast majority of generated patches were incorrect and equivalent to 
+a single functionality deletion.  Patch \emph{overfitting} to the provided test
+cases can be measured via the use of held-out test
+suites~\cite{Smith15fse}, a technique that empirically validates the challenges of producing
+high-quality repairs in response to a single test suite.   Later work found patch incorrectness to be 
+also problematic in Defects4J~\cite{d4j-eval} and in semantics-based 
+repair techniques~\cite{Le2018}.  We similarly find that test suites provide
+imperfect semantic coverage over multi-location edits: many bugs can be fixed
+with only a portion of a multi-location human patch.  We 
+also find, however, that test cases can often identify partial patches. 
 
 Prior work in program repair to use more search-guiding information 
 during candidate patch evaluation 
