@@ -1020,9 +1020,9 @@ patches.
 Moreover, close to half of code clones are in the same method, while less than
 15\% of the cloning occurs across classes. Finally, 80 of 129 (62\%) of clones
 fall in the ``same'' category, corresponding to alpha-equivalent code cloning.
-These results suggest that when applying clones in program repair, 
-most clones should be applied within the same class or the same method, and
-in most cases a technique that only generates alpha-equivalent code clones should suffice.
+These results suggest that 
+most clones should be applied within the same class or method, and
+in most cases, alpha-equivalent code clones will suffice.
 
 % code clones <-> hercules data
 % idk how what the conclusion from this information is so I'm just gonna put numbers in
@@ -1033,7 +1033,7 @@ in most cases a technique that only generates alpha-equivalent code clones shoul
 %a bug whose patch required 6 or more locations, and in going back, the human patch also 
 %contained code clones. 
 \subsubsection{Relationships between localization and clones}
-Intuitively, we expect that bugs  \emph{contradicts} localization, where none of the patch is 
+Intuitively, we expect that \emph{contradicts} bugs, where no patch location is 
 covered by all failing tests, are more likely to correspond to patches where
 similar fix code is applied at multiple separately tested locations. If 
 true, this suggests that fault localization information can help 
@@ -1076,21 +1076,22 @@ experiment (Section~\ref{secFL}, and exclude bugs with more than 6 faulty locati
 Table~\ref{tab:cov_clones} shows the incidence of patch code clones among the three 
 localization categories identified in Section \ref{secFL}. 
 Out of 50 \emph{contradicts} bugs, 52\% (26/50) have clones; only 
-18\% (12/68) and 15\% (11/73)
-\emph{partially holds} and \emph{holds} bugs respectively contain clones.
+18\% (12/68) \emph{partially holds} and 15\% (11/73)
+\emph{holds} bugs contain clones.
 A \emph{contradicts} bug is more likely to contain clones in its
-human patch than bugs with other localization  ($p < 0.001$, by a $\chi^2$ test).. 
-This suggests a heuristic for when to try a clone-based repair technique: if there
-appears to be less coverage overlap between multiple failing tests, it is
-possible that, if multi-location, 
-applying the same edits at multiple locations~\cite{saha2019harnessing} may be
+human patch than bugs with other localization  ($p < 0.001$, by a $\chi^2$ test).
+This suggests a heuristic for when to try a clone-based repair technique:
+%if there appears to be less coverage overlap between multiple failing tests,
+if multiple identified patch locations are covered by different failing tests,
+it is possible that
+applying the same edits at multiple locations~\cite{saha2019harnessing} will be
 more likely to succeed. On the flip
-side, however, these results also suggest that SBFL may not be well-suited to
-guiding such techniques: 
-53\% (26/49) of clone-containing patches exhibit \emph{contradicts}
-localization, compared to 17\% (24/142) of non-clones. This suggests that clone
-edits  are more likely to contradict SBFL's assumptions
-on fault coverage.  This motivates novel fault localization analyses for
+side, however, the correlation of clone-containing patches and \emph{contradicts} bugs
+suggests that SBFL may not be well-suited for techniques utilizing clones.
+%53\% (26/49) of clone-containing patches exhibit \emph{contradicts}
+%localization, compared to 17\% (24/142) of non-clones. This suggests that
+%clone edits are more likely to contradict SBFL's assumptions.  
+This motivates novel fault localization analyses for
 clone-oriented techniques.   We
 leave a concrete investigation of these possibilities to future work.  
 
