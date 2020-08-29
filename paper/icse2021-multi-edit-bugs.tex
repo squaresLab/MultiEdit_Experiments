@@ -173,7 +173,7 @@
 
 \section{Introduction}
 
-%\renewcommand\todo[1]{}
+\renewcommand\todo[1]{}
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
@@ -327,13 +327,12 @@ motivate/outline our research questions, and characterize our datasets.
 We then describe the results of our study along the
 three key axes of program repair: fault localization (Section~\ref{secFL}),
 mutation operators and fix code (Section~\ref{sec:mutops}), and test cases as
-the patch validation mechanism (Section~\ref{sec:tests}).  We conclude by
-outlining limitations (Section~\ref{sec:limits}), related work
-(Section~\ref{sec:related}).  Finally, 
+the patch validation mechanism (Section~\ref{sec:tests}).  We conclude with
+limitations (Section~\ref{sec:limits}), related work,
+(Section~\ref{sec:related}), and a summary of
 % don't give up on this yet.  It's a complicated paper, roadmaps might actually
 % meaningfully help
-we summarize our takeaways for 
-multi-location repair (Section~\ref{sec:takeaways}).
+our takeaways (Section~\ref{sec:takeaways}).
 
 \section{Problem Definition}
 \label{sec:background}
@@ -472,11 +471,11 @@ don't~\cite{patch-correctness}.
 % humans using multi-part patches~\cite{d4j-dissection}. Approximately 70\% of
 % buggy source files in a large study of bugs in Apache projects required edits at
 % two or more locations~\cite{zhong2015}.
-
+%
 Our goal is to understand what makes the generation of larger
 patches difficult, and identify properties of these bugs and their associated
 patches that can be exploited by future APR tools.  
-We define this problem precisely and characterize our datasets next.
+%We define this problem precisely and characterize our datasets next.
 
 \subsection{Multi-Location Patches and Dataset}
 \label{sec:bugs}
@@ -601,8 +600,7 @@ suitability for multi-location program repair.%  Identifying one of several bugg
 %locations is generally inadequate in a context where multiple locations must be
 %modified. 
 
-To characterize the challenges that lie in statistically characterizing the
-fault space in multi-location contexts, we start by assessing the 
+We therefore start by assessing the 
 relationship of multi-location repairs to the assumptions underlying SBFL. 
 %Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
 %execute buggy portions of the code relatively more often than passing tests.} 
@@ -611,7 +609,7 @@ relationship of multi-location repairs to the assumptions underlying SBFL.
 %Though this second assumption is not 
 %always true, we derive it in order to explore the relationship of failing test executions with 
 %each other.
-One assumption that we might make in describing how SBFL is effective is that 
+One such assumption associated with SBFL is that 
 \emph{code executed by all failing tests are more likely to be buggy.}
 This is obviously true for all single-location bugs but becomes more complicated for 
 multi-location bugs -- for example, there might be a bug with two patch locations and two failing 
@@ -665,6 +663,7 @@ different
 
 \subsection{Methodology}
 
+\looseness-1
 Between both datasets, there are 216 total bugs that both require multi-location
 patches and contain multiple failing tests. However, we were not able to obtain coverage 
 data for one of the bugs in \bears, leaving 215 total bugs: 183 in Defects4J, and 32 in
@@ -677,8 +676,7 @@ To answer RQ2, we used the patch lines that were executed by the tests to catego
 each bug into three \emph{localization categories}: \emph{holds}, \emph{contradicts}, and 
 \emph{partially holds}. These three localization categories refer to the relationship each bug has 
 with 
-the assumption that code executed by all failing tests are more likely to be buggy. Each bug is 
-categorized using the following criteria:
+the assumption that code executed by all failing tests are more likely to be buggy: 
 
 \begin{itemize}
 \item \emph{holds}:  all failing tests execute the exact same patch lines.
@@ -719,9 +717,9 @@ to localization category.
 \end{figure}
 
 \subsection{Results}
+ \label{sec:cov_patterns}
 
-\subsubsection{Distribution of Localization Categories} \label{sec:cov_patterns}
-
+\paragraph{Distribution of Localization Categories}
 The first group of bars in Figure~\ref{fig:coverage-all} shows results for the overall distribution 
 of localization categories, 
 answering RQ2. 
@@ -747,8 +745,9 @@ the patch must be written by a human~\cite{bears}.
 %In addition, Bears was designed to be evolvable 
 %and relatively easily expanded as a dataset, which is at odds with manual inspection and isolation of 
 %bugs~\cite{bears}.
-Given that these two datasets were designed with different values and demonstrate very 
-different behavior, these findings highlight the importance of diverse datasets
+%Given that these two datasets were designed with different values and demonstrate very 
+%different behavior, 
+These findings highlight the importance of diverse datasets
 in APR evaluations. 
 
 Out of the 124 bugs we checked, ten bugs had differing localization categories when 
@@ -783,7 +782,7 @@ do you think of this version?}
 % just cut it for space, it's fine. 
 \end{figure}
 
-\subsubsection{Generalization of localization categories}
+\paragraph{Generalization of localization categories}
 %<<<<<<< Updated upstream
 Figure \ref{fig:coverage-buggy} plots localization category based on the
 percentage of lines executed by all failing tests. 
@@ -823,7 +822,7 @@ succeed with SBFL.
 \section{Mutation Operators and Fix Code}
 \label{sec:mutops}
 
-Given suitably selected fault locations, APR techniques vary in the types of
+APR techniques vary in the types of
 mutation operators they consider, how they select between them, and how they
 select new fix code to instantiate them. 
 %  For example, a na{\"i}ve
@@ -861,9 +860,8 @@ in multi-location repair.
 One of the dimensions of the relationship between multi-location patches is potential
 \emph{dependency} between the edits, because edit dependency can and should
 inform how those edits are selected and applied (i.e., consider the difference
-between a multi-location
-bugs repaired by applying the same independent edit in four places, as
-compared to a bug repaired by applying  four control- and data-dependent
+between a patch that applies the same edit in four places, and one that
+applies four control-dependent
 modifications).  Specifically, we ask:
 \rqorinsight{4}{How prevalent and hard to construct are
 patches with intra-patch dependencies?}
@@ -923,14 +921,14 @@ running 11 APR tools on 5 benchmarks, including Defects4J v1
     \end{tabular}
  \end{center}
 }	\caption{\small APR performance on bugs with and without intra-patch 
-      dependencies, from RepairThemAll~\cite{durieux-repair-them-all}.\protect\footnotemark
+      dependencies, from RepairThemAll~\cite{durieux-repair-them-all}.%\protect\footnotemark
       \ \emph{Success} means that at least one of 11 APR tools found a patch; 
       \emph{Failure} means that no tool did.  APR tools found repairs 46\%
       (103/225) of the time for bugs with dependency-free human patches, but only
       23\% (52/231) of the time when a patch contained dependencies.}
 	\label{tab:dependency-repair-contingency-table}
 \end{table}
-\footnotetext{RepairThemAll provides results for Defects4J v1.}
+%\footnotetext{RepairThemAll provides results for Defects4J v1.}
 
 Table~\ref{tab:dependency-repair-contingency-table}
 shows frequencies of multi-line patches with respect to edit dependence 
@@ -1030,9 +1028,10 @@ Total     & 372 & 308 & 64\\
 Table~\ref{tab:clones} shows that 121 of 372 multi-location bugs
 (32.5\%) included at least one type of cloning,
 indicating a significant prevalence of code clones in multi-location human
-patches.\footnote{Note that ``Any'' may not sum the previous rows because
-bugs can contain multiple pairs of code clones belonging to different
-categories.}
+patches.
+%\footnote{Note that ``Any'' may not sum the previous rows because
+%bugs can contain multiple pairs of code clones belonging to different
+%categories.}
 %
 Moreover, close to half of code clones are in the same method, while less than
 15\% of the cloning occurs across classes. Finally, 80 of 129 (62\%) of clones
@@ -1212,7 +1211,7 @@ assertions in $M$, there should be an increase in $AS(M)$.
 
 \subsection{Results}
 
-\paragraph{Minimality.} Our first immediate takeaway is that not all edits
+\paragraph{Minimality} Our first immediate takeaway is that not all edits
 in a human patch are always necessary to pass all tests~\cite{api-refactoring,
   tangledchanges}:
 this is true for 41.3\%  (99 out of 240) of Defects4J and 52.7\% (39 out of 74) of
@@ -1243,7 +1242,7 @@ minimized to a single edit, leaving
 % (Unminimized), and considering only the 1-minimal set of edits in the
 % human patch with respect to the unit tests (Minimized).
 
-\paragraph{Partial repair identification.} Our overall goal is to identify how many partial repairs pass more test than the
+\paragraph{Partial repair identification} Our overall goal is to identify how many partial repairs pass more test than the
 original buggy program  (\emph{positive}), the  same number of tests as the
 original buggy code (\emph{neutral}) or fewer tests than the buggy code
 (\emph{negative}).  However, 
@@ -1308,7 +1307,7 @@ Although the rate of positive and correct identification of partial repairs vari
 tests are not often adversarial towards partial repairs, contrary to anecdotal
 observations in prior work~\cite{gecco09}.
 
-\paragraph{Granularity.} Finer granularity levels are better at identifying partial repairs positively,
+\paragraph{Granularity} Finer granularity levels are better at identifying partial repairs positively,
 but they also increase the chance of erroneously mis-identifying partial repairs.
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
@@ -1347,7 +1346,7 @@ multiple axes of APR performance.
     repairs.  \label{tab:cov_fitness}}
 \end{table}
 
-\paragraph{Relationship to fault localization.} 
+\paragraph{Relationship to fault localization} 
 Finally, we assess the relationship between partial repair behavior and fault
 localization/coverage pattern. Table~\ref{tab:cov_fitness} shows 
 bugs with 2+ failing tests 
