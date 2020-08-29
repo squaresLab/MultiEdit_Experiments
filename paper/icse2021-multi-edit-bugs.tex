@@ -848,12 +848,9 @@ in multi-location repair.
 
 \subsection{Dependencies}
 
-One of the dimensions of the relationship between multi-location patches is potential
-\emph{dependency} between the edits, because edit dependency can and should
-inform how those edits are selected and applied (i.e., consider the difference
-between a patch that applies the same edit in four places, and one that
-applies four control-dependent
-modifications).  Specifically, we ask:
+One relationship between edits in multi-location patches is
+\emph{dependency}. Selecting and applying edits can
+and should be informed by any dependencies between them.  Specifically, we ask:
 \rqorinsight{4}{How prevalent and hard to construct are
 patches with intra-patch dependencies?}
 
