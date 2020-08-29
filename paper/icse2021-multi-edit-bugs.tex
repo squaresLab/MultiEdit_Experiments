@@ -1159,10 +1159,10 @@ as compared to both the original and the fully-patched versions.
 \subsubsection{Partial Repairs and Bug Selection}
 We apply each non-empty subset of all location-level edits for a given bug to
 its buggy program.  To minimize semantically invalid partial repairs, we \emph{always}
-include edits that add import statements, helper methods/classes, or variable declarations
+include lines that add new import statements, helper methods/classes, or variable declarations
 in a location. 
-For example, if a multi-edit patch contains a declaration of new variable
-\texttt{var} at one location that is used at other edit locations,
+For example, if a multi-location patch contains a declaration of new variable
+\texttt{var} at one edit location,
 we include this declaration in all partial repairs, and treat the rest of this location (if any) as one location.
 Note that this can reduce the total
 number of locations in a patch if an edit location is entirely declarations, and we eliminate
