@@ -1448,17 +1448,12 @@ considered a fault localization successful if the faulty method was one of the
 top-10 most-suspicious predictions, which we argue is inadequate for
 identifying multi-location faults for APR.
 
-Mutation testing contains parallels to program repair, as seen in dynamic
-program repair~\cite{weimer2013leveraging} and fault 
-localization techniques~\cite{metallaxis,muse,mbfl-survey}. 
-There is recent work on higher order mutants, which is interested in finding 
-certain combinations of mutants with particular behaviors. Higher order mutation testing 
-shares similar difficulties with multi-location bugs, particularly due to 
-exponential search space growth~\cite{long-search-spaces}. 
-The current state of the art in finding specific classes of 
-higher order mutants is using search based approaches; in particular, the best approach 
-currently identified is a genetic search, which is reminiscent of program repair~\cite{homs, 
-genprog}.
+Mutation testing contains parallels to APR~\cite{weimer2013leveraging} and fault
+localization techniques~\cite{metallaxis,muse,mbfl-survey}. Higher-order
+mutation testing, where several mutations can beOB composed, shares similar
+difficulties with multi-location APR due to exponential search space
+growth~\cite{long-search-spaces}. The current state of the art in higher-order
+mutation testing uses a genetic search-based approach~\cite{homs}.
 
 % I know I'm referring to the work by the authors' names,
 % but I can't find a good way to refactor their names out without writing awkwardly.
