@@ -1106,7 +1106,7 @@ side, however, these results also suggest that SBFL may not be well-suited to
 guiding such techniques: 
 53\% (26/49) of clone-containing patches exhibit \emph{contradicts}
 localization, compared to 17\% (24/142) of non-clones. This suggests that clone
-edits  are more likely to contradict SBFL's core assumptions
+edits  are more likely to contradict SBFL's assumptions
 on fault coverage.  This motivates novel fault localization analyses for
 clone-oriented techniques.   We
 leave a concrete investigation of these possibilities to future work.  
@@ -1383,8 +1383,15 @@ entire patch), then we can relax judgements of partial correctness to
 preserve more partial repairs that might otherwise be rejected.
 
 \section{Limitations}
-\label{sec:limits}
 
+\label{sec:limits}
+\noindent\textbf{Dataset.}
+We use two datasets, Defects4J and \bears, totalling 1018 bugs in 51 projects. 
+Although these datasets come from different sources who have created them to be broadly 
+applicable for evaluating program repair, there is a risk that our results do not generalize to other 
+bugs.
+
+\vspace{1ex}
 \noindent\textbf{Coverage.}
 We use JaCoCo to collect coverage, but it has some
 limitations. It cannot analyze coverage for inserted
