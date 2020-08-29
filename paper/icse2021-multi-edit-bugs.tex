@@ -1430,27 +1430,23 @@ particular APR technique.
 \section{Related Work}
 \label{sec:related}
 
-\todo{Does this include related work since ESEC/FSE?  Quickly check out this
-  year's ICSE, if nothing else.}
-\todo{Also, this is long, but we can do a cutting pass when we're focusing on length.}
 Recent empirical studies on fault localization find that 
 SBFL is more effective than various other techniques, such as 
-mutation-based fault localization~\cite{pearson2017evaluating, mut-analysis}, program 
-slicing, predicate switching,  information retrieval, and other techniques. 
-However, a 
-technique that outperforms all of these can be created using machine learning to combine 
-multiple fault localization techniques, implying that different techniques can 
-localize different kinds of faults~\cite{zou2019empirical}. Most empirical 
-studies on fault localization evaluate techniques by determining whether a 
-technique can localize any faulty line. This usefully evaluates single line or single 
-location faults, but not necessarily multi-location faults.
+mutation-based fault localization~\cite{pearson2017evaluating, mut-analysis}.
+%% , program 
+%% slicing, predicate switching,  information retrieval, and other techniques. 
+However, research has shown that multiple fault localization techniques can be
+combined to localize different kinds of faults~\cite{zou2019empirical}. Most
+empirical studies on fault localization evaluate techniques by determining
+whether a technique can localize any faulty line. This usefully evaluates single
+line or single location faults, but not necessarily multi-location faults.
 
-Golagha et. al~\cite{golagha2020can} analyzed the impact of 70 code metrics on SBFL, and built 
-a machine learning model to predict the bugs that would succeed with SBFL. With regards to 
-multi-location patches, the number of locations changed in the human 
-patch was among the metrics they tested and was not found to be correlated to SBFL success. 
-However, success was defined as ranking any faulty method in the top ten, which we argue is 
-not adequate for localizing multi-location faults. 
+Golagha et. al~\cite{golagha2020can} analyzed the impact of 70 code metrics on
+SBFL, including multi-location patches.  They found that the number of locations
+changed in the human patch was not correlated to SBFL success.  However, they
+considered a fault localization successful if the faulty method was one of the
+top-10 most-suspicious predictions, which we argue is inadequate for
+identifying multi-location faults for APR.
 
 Mutation testing contains parallels to program repair, as seen in dynamic
 program repair~\cite{weimer2013leveraging} and fault 
