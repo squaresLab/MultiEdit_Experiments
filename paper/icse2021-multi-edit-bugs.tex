@@ -1317,7 +1317,7 @@ Moreover, evaluating patches at finer granularity levels can add overhead.
 For example, assertion level granularity requires instrumenting JUnit with additional
 logic to continue execution when assertions fail.
 Such overhead lowers the number of
-candidate patches that a G\&V tool can validate per unit time.
+candidate patches that can be validated per unit time.
 The choice of a granularity level is a balancing act with implications for
 multiple axes of APR performance.
 
@@ -1458,7 +1458,7 @@ patch was among the metrics they tested and was not found to be correlated to SB
 However, success was defined as ranking any faulty method in the top ten, which we argue is 
 not adequate for localizing multi-location faults. 
 
-Mutation testing contains parallels to program repair, as seen in G\&V
+Mutation testing contains parallels to program repair, as seen in dynamic
 program repair~\cite{weimer2013leveraging} and fault 
 localization techniques~\cite{metallaxis,muse,mbfl-survey}. 
 There is recent work on higher order mutants, which is interested in finding 
@@ -1471,7 +1471,7 @@ currently identified is a genetic search, which is reminiscent of program repair
 genprog}.
 
 Qi et al.~\cite{patch-correctness} evaluated patches generated 
-by three G\&V repair tools~\cite{genprog, ae, rsrepair}. 
+by three repair tools~\cite{genprog, ae, rsrepair}. 
 The vast majority of generated patches were incorrect and equivalent to 
 a single functionality deletion.  Patch \emph{overfitting} to the provided test
 cases can be measured via the use of held-out test
