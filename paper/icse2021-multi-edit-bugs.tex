@@ -842,9 +842,7 @@ operators independently.
 The search space increases combinatorially, however, rendering
 the chances of finding multi-edit repairs~\cite{ae,long-search-spaces}. Accordingly, heuristic multi-location
 techniques~\cite{saha2019harnessing} make assumptions about the 
-shape of the search space, 
-targeting in particular bugs that can be repaired by multiple syntactically similar pieces of
-code.
+shape of the search space, e.g., targeting bugs that can be repaired by multiple similar edits.
 
 Note that the types of edits generally included in human patches has been
 studied~\cite{examples}.  Here, we are especially
@@ -977,14 +975,12 @@ clones through manual inspection.
 %clones. It was evaluated with the bugs in Defects4J version 1, which consists of 395 total bugs 
 %and 187 multi-location bugs. 
 %
-
-Since we are studying code clones in patches, the same line of code could be inserted, deleted or modified, and conventional categorization of code clones into Type I,II,III,IV \cite{convcodeclone} does not apply to code modifications. Therefore, we devised our own standard of categorizing code clones in modifications as follows:
+%
+We are studying code clones in \emph{patches}, such that conventional clone categories (Type I,II,III,IV)~\cite{convcodeclone} do not apply. We categorize clones in \emph{modifications} as follows:
 \begin{enumerate}
 \item Same: The modifications at two locations are alpha-equivalent (i.e., the two locations are identical or would be
-identical if we substitute all occurrences of a variable in one location with
-another same-type variable). In studies on code clone detection, these are
-referred to as Type-1 (if there are no changes) and Type-2 (if identifiers are
-renamed) clones~\cite{kclone}.
+identical, modulo alpha renaming). In the conventional code clone literature,
+this corresponds to Type-1 (identical) and Type-2 (renamed identifiers) clones~\cite{kclone}.
 \item Near-same: The edits at two locations are almost alpha-equivalent and
   differ by at most one constant or arithmetic operator,
 or replacement of one constant with a variable.
@@ -1014,7 +1010,7 @@ Total     & 372 & 308 & 64\\
 \end{tabular}
 \end{center}
 }
-\caption{Code clone incidence, type, and location in our dataset. \emph{Same}, \emph{Near-same},
+\caption{\small Code clone incidence, type, and location in our dataset. \emph{Same}, \emph{Near-same},
   \emph{Composite} and \emph{Move} are defined in Section~\ref{sec:clones}.
   \emph{Any} indicates any type of clone; note that some patches can
   contain clones from multiple categories. \emph{Locality} indicates
