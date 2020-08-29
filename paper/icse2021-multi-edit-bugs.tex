@@ -173,7 +173,7 @@
 
 \section{Introduction}
 
-\renewcommand\todo[1]{}
+%\renewcommand\todo[1]{}
 
 Buggy software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
@@ -400,11 +400,12 @@ are characterized by their use of test cases as a correctness oracle,
 at least one of which is failing (i.e., exercises the bug
 to be repaired).
 
+\looseness-1
 At a high level, source level program repair is a \emph{search problem}, where
 the objective is a set of source-level program edits that will cause it to pass
 all of the provided tests. To do this, techniques first \emph{generate} a candidate
 patch, then run the test suite to \emph{validate} it. Generating a patch
-requires navigating a search space, which is typically defined along the
+requires navigating a search space, often defined along the
 following axes~\cite{ae,sqjo}:
 \begin{enumerate}[wide]
 
@@ -733,7 +734,7 @@ We hypothesize that this may be due to differences in how the two
 datasets were selected and constructed:
 The Defects4J dataset specifically enforces a requirement that the patches in the 
 dataset be isolated, i.e., not containing any refactorings or new features.
-The authors both saught bugs that met this requirement, in manually isolated others~\cite{defects4j}. By contrast, the 
+The authors both sought bugs that met this requirement, in manually isolated others~\cite{defects4j}. By contrast, the 
 bugs in 
 \bears bugs are scraped directly from continuous integration systems, and the 
 only requirements for inclusion is that the bug must be reproducible and that
@@ -946,7 +947,7 @@ dependencies to repair a large class of difficult bugs.
 
 A patch composed of multiple, dependent edits constitutes one
 extreme. At the other extreme lies patches that apply the same modification in several locations. 
-Previous techniques have targeted exectly these types of
+Previous techniques have targeted exactly these types of
 bugs~\cite{wang2018,saha2019harnessing}.  We evaluate how often this relationship applies to
 multi-location bugs, and thus the usefulness of techniques that assume it:
 
@@ -1284,7 +1285,7 @@ repairs that do not compile from the count, e.g., by throwing errors like ``miss
 
 
 Figure~\ref{fig:fitness} shows results.
-Assertion level granularity correctively positively identifies
+Assertion level granularity correctly positively identifies
 39.93\% of the partial repairs in Defects4J
 and 18.69\% of the partial repairs in \bears.
 Only 31.52\% of Defects4J partial repairs and 
@@ -1365,14 +1366,14 @@ Coverage thus influences the accuracy of tests as a judge of partial correctness
 In practice, we do not know patch coverage \emph{a priori}.  However, if we can infer the
 likelihood of a bug belonging to the \emph{holds} category using existing 
 fault localization (since \emph{holds} requires all failing tests to cover the 
-entire patch), then we can relax judgements of partial correctness to 
+entire patch), then we can relax judgments of partial correctness to 
 preserve more partial repairs that might otherwise be rejected.
 
 \section{Limitations}
 
 \label{sec:limits}
 \noindent\textbf{Dataset.}
-We use two datasets, Defects4J and \bears, totalling 1018 bugs in 51 projects. 
+We use two datasets, Defects4J and \bears, totaling 1018 bugs in 51 projects. 
 Although these datasets come from different sources who have created them to be broadly 
 applicable for evaluating program repair, there is a risk that our results do not generalize to other 
 bugs.
@@ -1443,7 +1444,7 @@ identifying multi-location faults for APR.
 
 Mutation testing contains parallels to APR~\cite{weimer2013leveraging} and fault
 localization techniques~\cite{metallaxis,muse,mbfl-survey}. Higher-order
-mutation testing, where several mutations can beOB composed, shares similar
+mutation testing, where several mutations can be composed, shares similar
 difficulties with multi-location APR due to exponential search space
 growth~\cite{long-search-spaces}. The current state of the art in higher-order
 mutation testing uses a genetic search-based approach~\cite{homs}.
@@ -1564,7 +1565,7 @@ potential benefits of other fault localization paradigms.
 \vspace{1ex}
 \noindent\textbf{Tests are
     often quite effective at identifying partial repairs, and test coverage can
-    help establish confidence in a test suite's judgement of partial correctness.}
+    help establish confidence in a test suite's judgment of partial correctness.}
 Contrary to prior work~\cite{gecco09}, we found that test suites are infrequently
 hostile to partial repairs. That is, partial application of a correct patch
 usually does not increase the number of test case failures. This suggests that
@@ -1578,10 +1579,10 @@ smaller units, potentially by
 refactoring~\cite{b-refactoring} or using a finer level of granularity for
 measuring test suite success, such as the assertion level granularity proposed
 in Section~\ref{sec:partial-repair-methodology}.
-This also implies that class-level granularity validation has tradeoffs. Some
+This also implies that class-level granularity validation has trade offs. Some
 repair frameworks use class-level granularity for faster validation. This may
 come at the cost of less accurate detection of partial patches. However, this
-tradeoff may be worthwhile in Java, given the non-trivial challenges involved in
+trade off may be worthwhile in Java, given the non-trivial challenges involved in
 decomposing JUnit test classes.
 
 \vspace{1ex}
@@ -1591,9 +1592,9 @@ offering further evidence of the incompleteness of test cases as a
 proxy for correctness~\cite{patch-correctness} and the
 presence of non-corrective changes (e.g., refactoring, enhancements)
 in handwritten bug patches~\cite{api-refactoring, tangledchanges}.  This
-challenges the practice of using a human patch as the syntactic gold standard
-for evaluating program repair tools, while suggesting that test suite quality
-and comprehensiveness continues to pose a challenge for modern repair tools.
+challenges the practice of using a human patch as the syntactic gold standard,
+while suggesting that test suite quality
+are still a challenge in modern software.
 
 \vspace{1ex}
 \noindent\textbf{Techniques need to be evaluated on diverse benchmarks.}
@@ -1608,10 +1609,9 @@ To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
 that 50\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
 were repaired by a human developer with multi-location patches. This motivated
-our study on the possibility of extending current program repair work to
-multi-location patches.
+our study on the characteristics and challenges of automatically repairing such bugs. 
 
-Our study's findings suggest deep implications for program repair targeting
+Our findings suggest deep implications for program repair targeting
 multi-location patches, both in terms of the applicability of existing program
 repair techniques and the design future repair techniques.  We hope that our
 findings and insights inspire future work to advance the state of the art of APR
