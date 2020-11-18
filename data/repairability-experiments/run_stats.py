@@ -615,6 +615,42 @@ def test_dependency_and_size():
                 labels=["dependent", "non-dependent"])
     plt.show()
 
+def test_dependency_size_and_repairability():
+    bug_to_num_changed_lines = get_bug_to_num_changed_lines()
+    any_dependent_d4j, any_nondependent_d4j = partition_bugs_by_dependency(multi_line_bugs_d4j,
+                                                                           DEPENDENCY_TUPLE_INDEX_ANY)
+    any_dependent_bears, any_nondependent_bears = partition_bugs_by_dependency(multi_line_bugs_bears,
+                                                                               DEPENDENCY_TUPLE_INDEX_ANY)
+    any_dependent_all, any_nondependent_all = any_dependent_d4j | any_dependent_bears, any_nondependent_d4j | any_nondependent_bears
+    repairable_d4j, nonrepairable_d4j, notevaluated_d4j = partition_bugs_by_repairability(multi_line_bugs_d4j)
+    repairable_bears, nonrepairable_bears, notevaluated_bears = partition_bugs_by_repairability(multi_line_bugs_bears)
+    repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
+
+    # restrict consideration to only bugs analyzed for repairability
+    any_dependent_all = any_dependent_all & (repairable_all | nonrepairable_all)
+    any_nondependent_all = any_nondependent_all & (repairable_all | nonrepairable_all)
+
+    num_changed_lines_dependent_patches = [bug_to_num_changed_lines[bug]
+                                           for bug in any_dependent_all]
+    num_changed_lines_nondependent_patches = [bug_to_num_changed_lines[bug]
+                                              for bug in any_nondependent_all]
+    num_changed_lines = num_changed_lines_dependent_patches + num_changed_lines_nondependent_patches
+    any_dependent_2line = {bug for bug in any_dependent_all if bug_to_num_changed_lines[bug] == 2}
+    any_nondependent_2line = {bug for bug in any_nondependent_all if bug_to_num_changed_lines[bug] == 2}
+    run_contingency_analysis(repairable_all, nonrepairable_all, any_dependent_2line, any_nondependent_2line,
+    "Combined D4J|Bears: control|data dependency and repairability, 2 lines",
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+    any_dependent_3line = {bug for bug in any_dependent_all if bug_to_num_changed_lines[bug] == 3}
+    any_nondependent_3line = {bug for bug in any_nondependent_all if bug_to_num_changed_lines[bug] == 3}
+    run_contingency_analysis(repairable_all, nonrepairable_all, any_dependent_3line, any_nondependent_3line,
+    "Combined D4J|Bears: control|data dependency and repairability, 3 lines",
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+    any_dependent_4line = {bug for bug in any_dependent_all if bug_to_num_changed_lines[bug] == 4}
+    any_nondependent_4line = {bug for bug in any_nondependent_all if bug_to_num_changed_lines[bug] == 4}
+    run_contingency_analysis(repairable_all, nonrepairable_all, any_dependent_4line, any_nondependent_4line,
+    "Combined D4J|Bears: control|data dependency and repairability, 4 lines",
+    'repairable', 'nonrepairable', 'dependent', 'nondependent')
+
 def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs):
     disj_d4j, inbtw_d4j, same_d4j = [partition & set(multi_chunk_bugs_d4j) for partition in coverage_partitions_d4j]
     ndisj_d4j = inbtw_d4j | same_d4j
@@ -767,4 +803,4 @@ def get_table_1_stats():
     print('Bears MLine', (x := sum(row[8] for row in table[-5:])), percent(x, len(all_bears_bugs)))
 
 if __name__=='__main__':
-    test_dependency_and_size()
+    test_dependency_size_and_repairability()
