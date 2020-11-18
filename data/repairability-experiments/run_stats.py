@@ -1,6 +1,7 @@
 import json
 import csv
 import re
+import statistics
 from itertools import chain
 
 from typing import Set, List, Dict, Tuple, Collection
@@ -246,7 +247,7 @@ def get_bug_list(path_to_bug_list_file: str) -> List[BugId]:
 
 
 def get_bugs_by_file_distribution():
-    with open('patch_locs.json') as f:
+    with open('../patch_locs.json') as f:
         patch_locs_json = json.load(f)
 
     same_file_bugs = set()
@@ -352,6 +353,18 @@ def partition_bugs_by_project(bugs: Collection[BugId]) -> Dict[str, Set[BugId]]:
         proj_to_bugs[proj].add(bugId)
 
     return proj_to_bugs
+
+def get_bug_to_num_changed_lines() -> Dict[BugId, int]:
+    with open('../patch_locs.json') as f:
+        patch_locs_json = json.load(f)
+
+    bug_to_num_changed_lines: Dict[BugId, int] = dict()
+    for entry in patch_locs_json:
+        bugId = normalize_bugId(str(entry['bugId']))
+        num_lines = sum(len(changed_lines) for changed_lines in entry["patch"].values())
+        bug_to_num_changed_lines[bugId] = num_lines
+
+    return bug_to_num_changed_lines
 
 
 ######################################################################################################
@@ -569,6 +582,39 @@ def test_dependency_and_repairability():
     "Combined D4J|Bears: control|data dependency and repairability",
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
+def test_dependency_and_size():
+    bug_to_num_changed_lines = get_bug_to_num_changed_lines()
+    any_dependent_d4j, any_nondependent_d4j = partition_bugs_by_dependency(multi_line_bugs_d4j,
+                                                                           DEPENDENCY_TUPLE_INDEX_ANY)
+    any_dependent_bears, any_nondependent_bears = partition_bugs_by_dependency(multi_line_bugs_bears,
+                                                                               DEPENDENCY_TUPLE_INDEX_ANY)
+    any_dependent_all, any_nondependent_all = any_dependent_d4j | any_dependent_bears, any_nondependent_d4j | any_nondependent_bears
+    repairable_d4j, nonrepairable_d4j, notevaluated_d4j = partition_bugs_by_repairability(multi_line_bugs_d4j)
+    repairable_bears, nonrepairable_bears, notevaluated_bears = partition_bugs_by_repairability(multi_line_bugs_bears)
+    repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
+
+    # restrict consideration to only bugs analyzed for repairability
+    any_dependent_all = any_dependent_all & (repairable_all | nonrepairable_all)
+    any_nondependent_all = any_nondependent_all & (repairable_all | nonrepairable_all)
+
+    num_changed_lines_dependent_patches = [bug_to_num_changed_lines[bug]
+                                           for bug in any_dependent_all]
+    num_changed_lines_nondependent_patches = [bug_to_num_changed_lines[bug]
+                                              for bug in any_nondependent_all]
+    print(statistics.mean(num_changed_lines_dependent_patches),
+          statistics.median(num_changed_lines_dependent_patches),
+          statistics.stdev(num_changed_lines_dependent_patches))
+    print(statistics.mean(num_changed_lines_nondependent_patches),
+          statistics.median(num_changed_lines_nondependent_patches),
+          statistics.stdev(num_changed_lines_nondependent_patches))
+    ustatistic, pvalue = stats.mannwhitneyu(num_changed_lines_dependent_patches, num_changed_lines_nondependent_patches)
+    print(pvalue)
+
+    import matplotlib.pyplot as plt
+    plt.boxplot([num_changed_lines_dependent_patches, num_changed_lines_nondependent_patches],
+                labels=["dependent", "non-dependent"])
+    plt.show()
+
 def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs):
     disj_d4j, inbtw_d4j, same_d4j = [partition & set(multi_chunk_bugs_d4j) for partition in coverage_partitions_d4j]
     ndisj_d4j = inbtw_d4j | same_d4j
@@ -721,4 +767,4 @@ def get_table_1_stats():
     print('Bears MLine', (x := sum(row[8] for row in table[-5:])), percent(x, len(all_bears_bugs)))
 
 if __name__=='__main__':
-    get_table_1_stats()
+    test_dependency_and_size()
