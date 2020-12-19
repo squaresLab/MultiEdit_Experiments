@@ -971,7 +971,7 @@ We are studying code clones in \emph{patches}, such that conventional clone cate
 \begin{enumerate}
 \item Same: The modifications at two locations are alpha-equivalent (i.e., the two locations are identical or would be
 identical, modulo alpha renaming). In the conventional code clone literature,
-this corresponds to Type-I (identical) and a Type-II (renamed identifiers) clones~\cite{kclone}.
+this corresponds to Type-I (identical) and a Type-II (renamed identifiers) clones~\cite{JiaClones}.
 \item Near-same: The edits at two locations are almost alpha-equivalent and
   differ by at most one variable, constant or arithmetic operator via insertion, deletion or replacement.
 \item Composite: The patch at one location is exactly copied and contained within the patch at 
@@ -1050,7 +1050,7 @@ localization patterns?}
 %multiple locations.
 %
 We focus on the multi-test and multi-location bugs used in the coverage 
-experiment (Section~\ref{secFL}, and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
+experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
 
 \begin{table}
   {\begin{center}
@@ -1301,7 +1301,7 @@ in positively identified partial repairs between method and assertion level gran
 is negligible in \bears (0.46\%) but greater in Defects4J (5.35\%), while both had around 3\% 
 increase in negatively identified partial repairs.
 Moreover, evaluating patches at finer granularity levels can add overhead.
-For example, assertion level granularity requires instrumenting JUnit with additional
+For example, assertion level granularity may require instrumenting JUnit with additional
 logic to continue execution when assertions fail.
 Such overhead lowers the number of
 candidate patches that can be validated per unit time.
@@ -1528,7 +1528,7 @@ locations executed by some but not all tests,  27\% of
 these patches had no patch location covered by all failing
 tests.
 Patches with clones are especially likely (53\%) to fall into this latter category.
-In these cases SBFL, is unlikely to be the most 
+In these cases, SBFL is unlikely to be the most 
 appropriate choice for a
 fault localization technique. 
 %
@@ -1605,7 +1605,7 @@ evaluating tools.
 \vspace{1ex}
 To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
-that 50\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
+that 48\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
 were repaired by a human developer with multi-location patches. This motivated
 our study on the characteristics and challenges of automatically repairing such bugs. 
 
