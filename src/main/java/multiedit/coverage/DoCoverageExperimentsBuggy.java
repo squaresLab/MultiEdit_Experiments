@@ -19,7 +19,8 @@ public class DoCoverageExperimentsBuggy {
             d4jMultitestMultiedit.put(d4JName, new HashSet<>());
         }
         Set<Integer> bearsMultitestMultiedit = new HashSet<>();
-        try (Scanner relevantBugsFile = new Scanner(new File("data/multitest_multiedit.txt"))) {
+//        try (Scanner relevantBugsFile = new Scanner(new File("data/multitest_multiedit.txt"))) {
+        try (Scanner relevantBugsFile = new Scanner(new File("data/more_than_one_test.txt"))) {
             while (relevantBugsFile.hasNextLine()) {
                 String[] line = relevantBugsFile.nextLine().split(":");
                 if (line.length == 2) {
@@ -101,12 +102,10 @@ public class DoCoverageExperimentsBuggy {
               Defects4J
              */
             for (D4JName n : D4JName.values()) {
-                if (n != D4JName.CLOSURE) continue;
 
-//                if (n == D4JName.MOCKITO) continue;
+                if (n == D4JName.MOCKITO) continue;
 //                if(true) continue;
                 for (int i : n.bugs) {
-                    if (i != 4) continue;
                     if (!d4jMultitestMultiedit.get(n).contains(i)) {
                         continue;
                     }
