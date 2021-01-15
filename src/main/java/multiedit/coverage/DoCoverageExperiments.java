@@ -81,6 +81,7 @@ public class DoCoverageExperiments {
              */
             for (D4JName n : D4JName.values()) {
                 if (n == D4JName.MOCKITO) continue;
+                if (n != D4JName.CLOSURE) continue;
 //                if(true) continue;
                 for (int i: n.bugs) {
 

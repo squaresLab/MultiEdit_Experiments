@@ -4,13 +4,11 @@ Relevant data:
 
 * `coverage-data-final` 
 -- coverage of tests on patch locations in the patched version of the code.
-* `coverage-pattern.txt` 
--- same as above, in a different format.
 * `buggy-versions` and `buggy-versions-only-bears` 
 -- coverage of tests on buggy version of the code. 
 Defects4J and Bears data, resp.
 * `buggy-versions-locations-only` and `buggy-versions-locations-only-bears` 
--- coverage of tests on patch locations in the buggy version of the code. 
+-- coverage of tests on only patch locations in the buggy version of the code. 
 Defects4J and Bears data, resp.
 
 

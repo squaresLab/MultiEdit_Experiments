@@ -32,23 +32,23 @@ raw_coverage_files = ["data/coverage-experiments/coverage-data-final/rawCoverage
 with open("data/patch_locs.json") as f:
 	patch_json = json.load(f)
 
-d4jnames = {"CHART": "Chart ", 
-"CLOSURE": "Closure ", 
-"LANG": "Lang ", 
-"MATH": "Math ", 
-"MOCKITO": "Mockito ", 
-"TIME": "Time ", 
-"JSOUP":"Jsoup ",
-"JACKSONCORE":"JacksonCore ",
-"CLI":"Cli ",
-"JACKSONDATABIND":"JacksonDatabind ",
-"COMPRESS": "Compress ",
-"JXPATH":"JxPath ",
-"GSON":"Gson ",
-"CODEC": "Codec ",
-"CSV":"Csv ",
-"JACKSONXML":"JacksonXml ",
-"COLLECTIONS": "Collections "}
+d4jnames = {"CHART": "Chart", 
+"CLOSURE": "Closure", 
+"LANG": "Lang", 
+"MATH": "Math", 
+"MOCKITO": "Mockito", 
+"TIME": "Time", 
+"JSOUP":"Jsoup",
+"JACKSONCORE":"JacksonCore",
+"CLI":"Cli",
+"JACKSONDATABIND":"JacksonDatabind",
+"COMPRESS": "Compress",
+"JXPATH":"JxPath",
+"GSON":"Gson",
+"CODEC": "Codec",
+"CSV":"Csv",
+"JACKSONXML":"JacksonXml",
+"COLLECTIONS": "Collections"}
 
 mode = "PATCH"
 patch_pattern = re.compile("(.+): \[(.+)]")
@@ -102,60 +102,83 @@ print(all_cov)
 print(len(all_cov))
 print(num)
 
-def get_chunk_ranges(bugId):
-	for b in patch_json:
-		if b["bugId"] == bugId:
-			patch = b["patch"]
 
-			chunk_map = {}
-			chunk_num = 0
-			for c in patch.keys():
-				lines = patch[c]
-				c = c[6:-5]
-				if c.startswith("src/"):
-					c = c[4:]
-				if c.startswith("source/"):
-					c = c[7:]
-				if c.startswith("main/"):
-					c = c[5:]
-				if c.startswith("java/"):
-					c= c[5:]
-				print("class: " + c)
+def get_chunk_ranges(fname):
+	print(fname)
+	with open(fname) as f:
+		chunk_map = {} # {class: {line no : chunk index}}
+		chunk_num = 0
+		current_class = ""
 
-				chunks = {}
-				prev_number = -1
-				for l in lines:
-					l = int(l)
-					if l != prev_number + 1:
-						chunk_num += 1
-					chunks[l] = chunk_num
-					prev_number = l
+		for line in f:
+			print(line)
 
-				chunk_map[c] = chunks
-			return chunk_map, chunk_num
+			if line.startswith("diff"): # class
+				tokens = line.split()
+				current_class = tokens[-1]
+				chunk_map[current_class] = {}
+			elif line.startswith("Only in"):
+				tokens = line.split()
+				path = tokens[-2].strip(":")
+				current_class = f'{path}/{tokens[-1]}'
+				chunk_map[current_class] = {i: 0 for i in range(1000)}
+			elif re.match("[0-9,]+[acd][0-9,]+", line): # new chunk
+				diff_ranges = re.split("[acd]", line)
+				patch_range = diff_ranges[1].split(",")
+				if len(patch_range) == 1:
+					begin = int(patch_range[0])
+					end = begin
+				else:
+					begin, end = int(patch_range[0]), int(patch_range[1])
+
+				if 'd' in line:
+					end += 1
+
+				for i in range(begin, end+1):
+					chunk_map[current_class][i] = chunk_num
+
+				chunk_num += 1
+			else:
+				continue
+		return chunk_map, chunk_num
 	return {}, 0
+
+# This method is necessary since the file path I get from the diff is different than the classpath
+def get_chunk_num(class_name, line_no, chunkmap):
+	for k in chunkmap.keys():
+		if k.endswith(class_name+".java"):
+			try:
+				return chunkmap[k][line_no]
+			except:
+				pass
+	return -1
 
 with open("data/multitest_multiedit.txt") as f:
 	multitest_multichunk = [x.strip() for x in f]
 
 print(len(multitest_multichunk))
 
+with open("data/bug_id_and_branch.txt") as f:
+	bears_branches = {int(num) : branch.strip() for num, branch in map(lambda x:x.split(","), f) }
 
 classify = {}
 
 for bug in multitest_multichunk:
-	if not bug.startswith("CLOSURE"):
-		continue
+	# if not bug.startswith("CLOSURE"):
+	# 	continue
 		
 	if bug == "JSOUP:071":
 		continue
 	name, num = bug.split(":")
 	if name in d4jnames:
-		chunkmap, num_chunks = get_chunk_ranges(f'{d4jnames[name]}{int(num)}')
-	else:
+		chunkmap, num_chunks = get_chunk_ranges(f'data/diffs/{d4jnames[name]}{int(num)}')
+	elif name == "BEARS":
 		if num == "192":
 			continue
-		chunkmap, num_chunks = get_chunk_ranges(f'Bears-{int(num)}')
+		chunkmap, num_chunks = get_chunk_ranges(f'data/diffs/{bears_branches[int(num)]}')
+	else:
+		print("MISSING: " + name)
+		continue
 	print(bug)
 	print(chunkmap)
 	intersect_cov = all_cov[bug]["INTERSECT"]
@@ -173,16 +196,18 @@ for bug in multitest_multichunk:
 
 		for c, arr in intersect_cov.items():
 			for l in arr:
-				try:
-					intersect_chunks.add(chunkmap[c][l])
-				except KeyError:
+				cn = get_chunk_num(c, l, chunkmap)
+				if cn >= 0:
+					intersect_chunks.add(cn)
+				else:
 					print(f"diff weirdness: {c} {l}")
 
 		for c, arr in union_cov.items():
 			for l in arr:
-				try:
-					union_chunks.add(chunkmap[c][l])
-				except KeyError:
+				cn = get_chunk_num(c, l, chunkmap)
+				if cn >= 0:
+					union_chunks.add(cn)
+				else:
 					print(f"diff weirdness: {c} {l}")
 
 		# are they the same chunks?

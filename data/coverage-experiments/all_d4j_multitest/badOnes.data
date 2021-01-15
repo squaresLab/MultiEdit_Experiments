@@ -1,0 +1,10 @@
+CLOSURE 131
+java.lang.RuntimeException: Failed to checkout D4J Project: CLOSURE 131
+	at projects.Defects4JPatch.<init>(Defects4JPatch.java:49)
+	at multiedit.coverage.DoCoverageExperimentsBuggy.main(DoCoverageExperimentsBuggy.java:116)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 1
+	at projects.Defects4JPatch.lambda$parseFields$0(Defects4JPatch.java:196)
+	at util.CommandLineRunner.lineIterator(CommandLineRunner.java:48)
+	at projects.Defects4JPatch.parseFields(Defects4JPatch.java:194)
+	at projects.Defects4JPatch.<init>(Defects4JPatch.java:47)
+	... 1 more

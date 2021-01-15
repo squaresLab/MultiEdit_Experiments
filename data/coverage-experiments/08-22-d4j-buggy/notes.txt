@@ -1,4 +1,0 @@
-Missing closure 134-176, Csv 3
-Jsoup 71 was added manually to "same.data" but the code works for it now (it didn't when the data was collected)
-No Mockito
-Deleted Codec 12 (not a multi-edit bug)
