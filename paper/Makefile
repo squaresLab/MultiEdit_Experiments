@@ -1,4 +1,4 @@
-DOC = icse2021-multi-edit-bugs.tex
+DOC = tse2021-multi-edit-bugs.tex
 
 OTHERSOURCES := $(filter-out $DOC, $(wildcard *.tex))
 PDFLATEX = pdflatex -synctex=1 --shell-escape

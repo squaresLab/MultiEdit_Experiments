@@ -1,6 +1,16 @@
-\documentclass[10pt, conference]{IEEEtran}
 
-\usepackage{cite}
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+
+
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{textcomp}
@@ -15,9 +25,6 @@
 \usepackage{xcolor}
 \usepackage[export]{adjustbox}
 \usepackage{xspace}
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125em X}}
-
 
 \definecolor{listinggray}{gray}{0.9}
 \definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
@@ -85,58 +92,47 @@
 
 \lstset{style=JavaStyle}
 
+\hyphenation{op-tical net-works semi-conduc-tor}
+
 \newcommand\todo[1]{\textcolor{red}{#1}}
 \newcommand\bears{\textsc{Bears}\xspace}
+
 
 \begin{document}
 
 \title{A Study of Multi-Location Bug Patches}
 
-\author{Anonymous Authors}
+\author{Leo~Chen, Zhen~Yu~Ding, Yiwei~Lyu, Jeremy~Lacomis, and~Claire~Le~Goues}
 
-%% JL: This is the author template from the IEEE example tex file.
-%%
-%% \author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-%% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%% \textit{name of organization (of Aff.)}\\
-%% City, Country \\
-%% email address or ORCID}
-%% \and
-%% \IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-%% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%% \textit{name of organization (of Aff.)}\\
-%% City, Country \\
-%% email address or ORCID}
-%% \and
-%% \IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-%% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%% \textit{name of organization (of Aff.)}\\
-%% City, Country \\
-%% email address or ORCID}
-%% \and
-%% \IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
-%% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%% \textit{name of organization (of Aff.)}\\
-%% City, Country \\
-%% email address or ORCID}
-%% \and
-%% \IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
-%% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%% \textit{name of organization (of Aff.)}\\
-%% City, Country \\
-%% email address or ORCID}
-%% \and
-%% \IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
-%% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%% \textit{name of organization (of Aff.)}\\
-%% City, Country \\
-%% email address or ORCID}
-%% }
+% template authors, affiliations, footnotes
+% \author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
+%         John~Doe,~\IEEEmembership{Fellow,~OSA,}
+%         and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
+% \IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell was with the Department
+% of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
+% GA, 30332.\protect\\
+% % note need leading \protect in front of \\ to get a newline within \thanks as
+% % \\ is fragile and will error, could use \hfil\break instead.
+% E-mail: see http://www.michaelshell.org/contact.html
+% \IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops an unwanted space
+% \thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
 
-\maketitle
 
+% The paper headers
+% \markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
+% {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+\IEEEtitleabstractindextext{%
 \begin{abstract}
-    Automatic program repair is a promising approach for reducing the
+Automatic program repair is a promising approach for reducing the
     cost of quality assurance practices and faulty software. To date, most
     techniques proposed for test-driven automatic repair succeed
     primarily on bugs that benefit from short, single-location patches. Techniques
@@ -158,7 +154,11 @@
 
 \begin{IEEEkeywords}
   software bugs, program repair
-\end{IEEEkeywords}
+\end{IEEEkeywords}}
+
+
+\maketitle
+
 
 \newcommand{\rqorinsight}[2]{
   \setlength{\fboxsep}{0.8em}
@@ -171,11 +171,16 @@
   \vspace{0.5em}
 }
 
-\section{Introduction}
+\IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
+% Computer Society journal (but not conference!) papers do something unusual
+% with the very first section heading (almost always called "Introduction").
+% They place it ABOVE the main text! IEEEtran.cls does not automatically do
+% this for you, but you can achieve this effect with the provided
+% \IEEEraisesectionheading{} command. Note the need to keep any \label that
+% is to refer to the section immediately after \section in the above as
+% \IEEEraisesectionheading puts \section within a raised box.
 
-%\renewcommand\todo[1]{}
-
-Buggy software has a significant economic cost~\cite{cambridge-study}, and
+\IEEEPARstart{B}{uggy} software has a significant economic cost~\cite{cambridge-study}, and
 software failures are estimated to have affected half of the world's
 population~\cite{tricentis}.  This motivates research in
 techniques to automatically find and fix bugs, some of which
@@ -705,12 +710,12 @@ to localization category.
 
 
 \begin{figure}
-	\includegraphics[width=\linewidth]{img/coverage_hist_all.pdf}
-	\caption{\small Localization categories for multi-location bugs with multiple failing
+  \includegraphics[width=\linewidth]{img/coverage_hist_all.pdf}
+  \caption{\small Localization categories for multi-location bugs with multiple failing
       tests. The categories are relatively 
       evenly populated, with a slightly higher proportion of bugs in
       \emph{partially holds}. The datasets demonstrate different distributions.}
-	\label{fig:coverage-all}
+  \label{fig:coverage-all}
 \end{figure}
 
 \subsection{Results}
@@ -761,15 +766,15 @@ well-suited to guiding APR techniques when addressing more than half of
 real-world multi-location bugs.
 
 \begin{figure}
-	\includegraphics[width=\linewidth,left]{img/coverage-buggy.pdf}
-	\caption{\small	\label{fig:coverage-buggy} Distribution of bugs based percentage of lines 
-	executed by all failing tests, measuring the degree to which failing tests execute the same 
-	code. The coverage distributions for the \emph{contradicts} and \emph{partially holds} are more or 
-	less uniformly distributed. The coverage
-	distribution for the \emph{holds} category skews measurable higher. 
+  \includegraphics[width=\linewidth,left]{img/coverage-buggy.pdf}
+  \caption{\small \label{fig:coverage-buggy} Distribution of bugs based percentage of lines 
+  executed by all failing tests, measuring the degree to which failing tests execute the same 
+  code. The coverage distributions for the \emph{contradicts} and \emph{partially holds} are more or 
+  less uniformly distributed. The coverage
+  distribution for the \emph{holds} category skews measurable higher. 
       } %Thus, there seems to be little correlation between 
-%	localization categories and whether failing tests all execute the same code in the buggy 
-%	program.}
+% localization categories and whether failing tests all execute the same code in the buggy 
+% program.}
 % CLG sez: I know I asked for takeaways in captions but (1) I'm not sure what
 % this last one means and (2) I think it contradicts what we say in text, so I
 % just cut it for space, it's fine. 
@@ -908,13 +913,13 @@ running 11 APR tools on 5 benchmarks, including Defects4J v1
         \bottomrule
     \end{tabular}
  \end{center}
-}	\caption{\small APR performance on bugs with and without intra-patch 
+} \caption{\small APR performance on bugs with and without intra-patch 
       dependencies, from RepairThemAll~\cite{durieux-repair-them-all}.%\protect\footnotemark
       \ \emph{Success} means that at least one of 11 APR tools found a patch; 
       \emph{Failure} means that no tool did.  APR tools found repairs 46\%
       (103/225) of the time for bugs with dependency-free human patches, but only
       23\% (52/231) of the time when a patch contained dependencies.}
-	\label{tab:dependency-repair-contingency-table}
+  \label{tab:dependency-repair-contingency-table}
 \end{table}
 %\footnotetext{RepairThemAll provides results for Defects4J v1.}
 
@@ -1263,8 +1268,8 @@ repairs that do not compile from the count, e.g., by throwing errors like ``miss
 %\end{tabular}
 %\end{center}}
 %\caption{Weighed percent of partial repairs exhibiting a {\normalfont Positive}, {\normalfont Neutral},
-%	or {\normalfont Negative} change in test passage, measured at different levels of granularity
-%	and with both minimized and unminimized patches.\todo{big ole todo: cut
+% or {\normalfont Negative} change in test passage, measured at different levels of granularity
+% and with both minimized and unminimized patches.\todo{big ole todo: cut
 %          the ``unminimized'' results and turn this into a histogram; see my bad
 %          sketch in Slack.}}
 %\label{yiweitable}
@@ -1616,8 +1621,68 @@ findings and insights inspire future work to advance the state of the art of APR
 and take on difficult multi-location bugs.  Our anonymized data/code package is
 available at \url{https://bit.ly/32xPUg4}.
 
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+\begin{IEEEbiography}{Michael Shell}
+Biography text here.
+\end{IEEEbiography}
+
+% if you will not have a photo at all:
+\begin{IEEEbiographynophoto}{John Doe}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+% insert where needed to balance the two columns on the last page with
+% biographies
+%\newpage
+
+\begin{IEEEbiographynophoto}{Jane Doe}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+% You can push biographies down or up by placing
+% a \vfill before or after them. The appropriate
+% use of \vfill depends on what kind of text is
+% on the last page and whether or not the columns
+% are being equalized.
+
+%\vfill
+
+% Can be used to pull up biographies so that the bottom of the last one
+% is flush with the other column.
+%\enlargethispage{-5in}
+
+
+
+% that's all folks
 \end{document}
-\endinput
