@@ -46,3 +46,11 @@ differed for line coverage and location coverage
 * Closure 30
 * Closure 49
 * Closure 85
+* Closure 144
+* Compress 40
+* Gson 8
+* JacksonDatabind 6
+* JacksonDatabind 18
+* JacksonXml 6
+* Jsoup 63
+* Time 26

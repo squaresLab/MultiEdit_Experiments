@@ -691,10 +691,8 @@ coverage of
 patch locations (where a patch location is considered covered if any line at that patch location 
 is 
 executed). For the purposes of fault localization, coverage of patch locations is more valuable 
-than coverage of patch lines, and we analyzed 91 Defects4J v1 bugs
- and all the \bears bugs, a total of 123 bugs, to see whether categorization 
-based on patch line 
-coverage matched categorization based on patch location coverage.
+than coverage of patch lines, and we separately identified whether categorization 
+based on patch line coverage matched categorization based on patch location coverage.
 
 To answer RQ3, we took all code locations executed by tests in the buggy version and
 calculated the percentage of lines that were executed by all failing tests. 
@@ -752,12 +750,14 @@ the patch must be written by a human~\cite{bears}.
 These findings highlight the importance of diverse datasets
 in APR evaluations. 
 
-Out of the 123 bugs we checked, ten bugs had differing localization categories when 
-classified based on coverage of patch lines vs. coverage of patch locations. All ten of these 
+Out of 215 bugs, 18 bugs had differing localization categories when 
+classified based on coverage of patch lines vs. coverage of patch locations. All of these 
 bugs 
 were classified as \emph{partially holds} when classified by line coverage, but were classified as 
-\emph{holds} when classifying by patch coverage, indicating that all the failing tests were 
+\emph{holds} when classifying by patch coverage, indicating that the failing tests were 
 executing different paths within the same patch locations. 
+This analysis indicates that localization category based on patch line coverage can approximate
+localization category based on patch location coverage.
 
 Overall, we cannot assume that the failing tests in multi-location repairs will execute all 
 faulty locations -- in fact our results suggests that assumption only holds 32\% of the time. 

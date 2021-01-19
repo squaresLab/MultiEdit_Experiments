@@ -2706,3 +2706,16 @@ org/mockito/internal/stubbing/answers/AnswersValidator: [34, 28]
 UNION
 aggregate all failing tests
 org/mockito/internal/stubbing/answers/AnswersValidator: [34, 28]
+
+PATCH : JSOUP:071
+INTERSECT
+intersect all failing tests
+org/jsoup/select/QueryParser: [203, 204]
+org/jsoup/select/Evaluator: [768, 769, 770, 756, 760, 761, 763, 764, 765, 767]
+org/jsoup/nodes/PseudoTextElement: [19, 23, 14, 15]
+
+UNION
+aggregate all failing tests
+org/jsoup/select/QueryParser: [203, 204]
+org/jsoup/select/Evaluator: [768, 769, 770, 756, 760, 761, 763, 764, 765, 767]
+org/jsoup/nodes/PseudoTextElement: [19, 23, 14, 15]
