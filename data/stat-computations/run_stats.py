@@ -790,5 +790,11 @@ def get_table_1_stats():
     print('Bears 2-6Loc', (x := sum(row[6] for row in table[-5:])), percent(x, len(all_bears_bugs)))
     print('Bears MLine', (x := sum(row[8] for row in table[-5:])), percent(x, len(all_bears_bugs)))
 
+def audit_clones_and_partial_repairs():
+    clones_evaluated_bugs = set(get_bug_list('../Code Clones/all_evaluated_bugs.data'))
+    partialrepair_evaluated_bugs = set(get_bug_list('../Partial Repairs/all_evaluated_bugs_unminimized.data'))
+
+    print(sorted(partialrepair_evaluated_bugs - clones_evaluated_bugs))
+
 if __name__=='__main__':
-    test_dependency_size_and_repairability()
+    audit_clones_and_partial_repairs()
