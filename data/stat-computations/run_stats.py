@@ -187,7 +187,6 @@ def get_all_d4j_bugs() -> Set[BugId]:
 def get_all_bears_bugs() -> Set[BugId]: #all = all single-module bugs
     return {'Bears{}'.format(n) for n in bears_single_module_bugs}
 
-
 def is_evaluated_by_RepairThemAll(bugId: str) -> bool:
     """
     False if the bug is newly added in D4J 2.0.0; True otherwise.
@@ -694,17 +693,6 @@ def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears
     print("Number of all in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_all, inbtw_nonrepairable_all))
     print()
 
-def test_symptoms_and_repairability(bugs_d4j, bugs_bears, symptoms_to_bugs, grouping_name, tool_to_repaired_bugs):
-    bugsets = [(set(bugs_d4j), 'D4J'), (set(bugs_bears), 'Bears'), (set(bugs_d4j + bugs_bears), 'Combined D4J|Bears')]
-    for bugset, bugset_name in bugsets:
-        repairable, nonrepairable = partition_bugs_by_repairability(bugset)
-        for symptom in symptoms_to_bugs.keys():
-            symptomatic = bugset & symptoms_to_bugs[symptom]
-            asymptomatic = bugset - symptomatic
-            run_contingency_analysis(repairable, nonrepairable, symptomatic, asymptomatic, \
-            "{} on grouping {}: Symptom <{}> and repairability".format(bugset_name, grouping_name, symptom), \
-            'repairable', 'nonrepairable', 'symptomatic', 'asymptomatic')
-
 def test_neg_variant_and_same_coverage(bugs_d4j, bugs_bears,
                                        one_neg_var_d4j, one_neg_var_bears,
                                        cov_partitions_d4j, cov_partitions_bears):
@@ -802,5 +790,11 @@ def get_table_1_stats():
     print('Bears 2-6Loc', (x := sum(row[6] for row in table[-5:])), percent(x, len(all_bears_bugs)))
     print('Bears MLine', (x := sum(row[8] for row in table[-5:])), percent(x, len(all_bears_bugs)))
 
+def audit_clones_and_partial_repairs():
+    clones_evaluated_bugs = set(get_bug_list('../Code Clones/all_evaluated_bugs.data'))
+    partialrepair_evaluated_bugs = set(get_bug_list('../Partial Repairs/all_evaluated_bugs_unminimized.data'))
+
+    print(sorted(partialrepair_evaluated_bugs - clones_evaluated_bugs))
+
 if __name__=='__main__':
-    test_dependency_size_and_repairability()
+    audit_clones_and_partial_repairs()
