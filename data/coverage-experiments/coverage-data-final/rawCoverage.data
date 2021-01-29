@@ -84,6 +84,17 @@ aggregate all failing tests
 com/google/javascript/rhino/JSDocInfoBuilder: [189, 190]
 com/google/javascript/jscomp/GlobalNamespace: [907, 908, 909]
 
+PATCH : CLOSURE:110
+INTERSECT
+intersect all failing tests
+com/google/javascript/rhino/Node: [554]
+com/google/javascript/jscomp/ScopedAliases: [385, 387, 358, 422, 396, 397, 367, 399, 368, 400, 401, 370, 373]
+
+UNION
+aggregate all failing tests
+com/google/javascript/rhino/Node: [554]
+com/google/javascript/jscomp/ScopedAliases: [385, 387, 358, 422, 423, 396, 397, 367, 399, 368, 400, 401, 370, 373]
+
 PATCH : CLOSURE:115
 INTERSECT
 intersect all failing tests
@@ -110,6 +121,15 @@ com/google/javascript/rhino/TokenStream: [200]
 UNION
 aggregate all failing tests
 com/google/javascript/rhino/TokenStream: [200]
+
+PATCH : LANG:008
+INTERSECT
+intersect all failing tests
+org/apache/commons/lang3/time/FastDatePrinter: [1110, 1132]
+
+UNION
+aggregate all failing tests
+org/apache/commons/lang3/time/FastDatePrinter: [1110, 1132]
 
 PATCH : LANG:010
 INTERSECT
@@ -297,6 +317,15 @@ intersect all failing tests
 UNION
 aggregate all failing tests
 org/apache/commons/math3/linear/OpenMapRealVector: [373, 374, 375, 376, 377, 379, 380, 349, 381, 350, 351]
+
+PATCH : MATH:031
+INTERSECT
+intersect all failing tests
+org/apache/commons/math3/util/ContinuedFraction: [133, 134, 167, 168, 169, 141, 142, 145, 146, 150, 151, 152]
+
+UNION
+aggregate all failing tests
+org/apache/commons/math3/util/ContinuedFraction: [133, 134, 167, 168, 169, 141, 142, 145, 146, 150, 151, 152]
 
 PATCH : MATH:035
 INTERSECT
@@ -680,6 +709,15 @@ aggregate all failing tests
 org/jsoup/parser/HtmlTreeBuilder: [227, 228]
 org/jsoup/parser/Tokeniser: [117, 70, 71, 43]
 
+PATCH : JSOUP:064
+INTERSECT
+intersect all failing tests
+org/jsoup/parser/HtmlTreeBuilderState: [1489, 1492]
+
+UNION
+aggregate all failing tests
+org/jsoup/parser/HtmlTreeBuilderState: [1489, 1492]
+
 PATCH : JSOUP:083
 INTERSECT
 intersect all failing tests
@@ -812,6 +850,15 @@ UNION
 aggregate all failing tests
 org/apache/commons/cli/PosixParser: [212, 150, 214, 184]
 
+PATCH : CLI:023
+INTERSECT
+intersect all failing tests
+org/apache/commons/cli/HelpFormatter: [834, 835, 837, 824]
+
+UNION
+aggregate all failing tests
+org/apache/commons/cli/HelpFormatter: [834, 835, 837, 824, 831]
+
 PATCH : CLI:027
 INTERSECT
 intersect all failing tests
@@ -840,6 +887,15 @@ UNION
 aggregate all failing tests
 org/apache/commons/cli/Option: [72]
 org/apache/commons/cli/OptionBuilder: [84]
+
+PATCH : CLI:039
+INTERSECT
+intersect all failing tests
+org/apache/commons/cli/TypeHandler: [240, 242]
+
+UNION
+aggregate all failing tests
+org/apache/commons/cli/TypeHandler: [240, 242]
 
 PATCH : JACKSONDATABIND:006
 INTERSECT
@@ -878,6 +934,15 @@ aggregate all failing tests
 com/fasterxml/jackson/databind/type/CollectionType: [51, 53, 56, 58]
 com/fasterxml/jackson/databind/type/MapType: [48, 50, 53, 56]
 com/fasterxml/jackson/databind/type/SimpleType: [257, 258, 116, 260, 117, 261, 254]
+
+PATCH : JACKSONDATABIND:047
+INTERSECT
+intersect all failing tests
+com/fasterxml/jackson/databind/AnnotationIntrospector: [816, 820, 822]
+
+UNION
+aggregate all failing tests
+com/fasterxml/jackson/databind/AnnotationIntrospector: [816, 820, 822, 823, 825]
 
 PATCH : JACKSONDATABIND:060
 INTERSECT
@@ -1121,6 +1186,17 @@ org/apache/commons/codec/net/QuotedPrintableCodec: [160, 161, 227, 198, 232, 137
 UNION
 aggregate all failing tests
 org/apache/commons/codec/net/QuotedPrintableCodec: [198, 137, 201, 138, 202, 267, 203, 268, 141, 205, 270, 208, 211, 276, 212, 213, 214, 220, 157, 221, 222, 158, 160, 161, 227, 228, 229, 230, 232, 233, 235, 236, 173, 123]
+
+PATCH : CODEC:013
+INTERSECT
+intersect all failing tests
+org/apache/commons/codec/binary/StringUtils: [71, 72, 74]
+org/apache/commons/codec/language/DoubleMetaphone: [245]
+
+UNION
+aggregate all failing tests
+org/apache/commons/codec/binary/StringUtils: [71, 72, 74, 75, 77, 78]
+org/apache/commons/codec/language/DoubleMetaphone: [245]
 
 PATCH : CSV:013
 INTERSECT
@@ -1394,6 +1470,15 @@ com/google/javascript/jscomp/NodeUtil: [2371, 2372, 2367]
 com/google/javascript/jscomp/JsAst: [96, 82]
 com/google/javascript/jscomp/ScopedAliases: [356, 357, 379, 365, 366]
 
+PATCH : CLOSURE:175
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/FunctionInjector: [48, 722, 725, 726, 216, 728, 729, 731, 732, 46, 47]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/FunctionInjector: [48, 722, 725, 726, 216, 728, 729, 731, 732, 46, 47]
+
 PATCH : CSV:003
 INTERSECT
 intersect all failing tests
@@ -1420,6 +1505,17 @@ com/fasterxml/jackson/databind/deser/BeanDeserializer: [377, 378]
 UNION
 aggregate all failing tests
 com/fasterxml/jackson/databind/deser/BeanDeserializer: [377, 378]
+
+PATCH : FasterXML-jackson-databind-195646489-195752461:006
+INTERSECT
+intersect all failing tests
+com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector: [732, 733, 734]
+com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder: [683]
+
+UNION
+aggregate all failing tests
+com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector: [732, 733, 734]
+com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder: [683]
 
 PATCH : FasterXML-jackson-databind-195752461-195777970:007
 INTERSECT
@@ -2565,6 +2661,24 @@ UNION
 aggregate all failing tests
 com/google/javascript/jscomp/NodeUtil: [138]
 
+PATCH : CLOSURE:074
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/PeepholeFoldConstants: [1075, 1076, 1077, 1078, 1080, 1082, 907, 908, 1085]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/PeepholeFoldConstants: [1075, 1076, 1077, 1078, 1080, 1082, 907, 908, 1085]
+
+PATCH : CLOSURE:076
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/DeadAssignmentsElimination: [354, 404, 405, 300, 301, 303, 335]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/DeadAssignmentsElimination: [385, 354, 386, 300, 301, 303, 335, 304, 404, 405, 313, 314, 379, 381]
+
 PATCH : CLOSURE:079
 INTERSECT
 intersect all failing tests
@@ -2662,6 +2776,14 @@ intersect all failing tests
 UNION
 aggregate all failing tests
 org/mockito/exceptions/Reporter: [434, 677, 678, 424]
+
+PATCH : MOCKITO:006
+INTERSECT
+intersect all failing tests
+
+UNION
+aggregate all failing tests
+org/mockito/Matchers: [227, 324, 197, 167, 137, 339, 212, 244, 373, 182, 407, 152, 122, 442]
 
 PATCH : MOCKITO:011
 INTERSECT
