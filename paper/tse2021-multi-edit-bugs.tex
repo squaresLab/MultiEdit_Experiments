@@ -961,7 +961,7 @@ multi-location bugs, and thus the usefulness of techniques that assume it:
 %result matches specific patterns.
 
 %\paragraph{Methodology}
-Our dataset includes all 372 multi-location bugs with 6 or fewer modified
+Our dataset includes all 466 multi-location bugs with 6 or fewer modified
 locations (to reduce the analysis burden). We determine the existence of code 
 clones through manual inspection.
 %
@@ -994,13 +994,13 @@ code deleted from the other location.
 &&\multicolumn{2}{c}{Dataset} &\multicolumn{3}{c}{Locality}\\
 & Total & Defects4J & \bears & Method & Class & Neither\\
 \midrule
-Same      &  80 &  71 & 9 & 35 & 33 & 12 \\
-Near-same   &  25 &  23 & 2 & 12 &  8 &  5 \\
-Composite &  12 &  11 & 1 &  4 &  8 &  0 \\
-Move      &  12 &  11 & 1 &  9 &  1 &  2 \\
+Same      &  77 & 67  & 10 & 33 & 31 & 13 \\
+Near-same   & 27  & 23  & 4 & 11 & 8  & 8  \\
+Composite &  19 & 15  & 4 & 9  & 7  & 3  \\
+Move      &  14 & 11  & 3 & 11  & 1  & 2  \\
 \midrule
-Any       & 121 & 108 & 13\\
-Total     & 372 & 308 & 64\\
+Any       & 133 & 106 & 21 \\
+Total     & 466 & 375 & 91\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1009,13 +1009,13 @@ Total     & 372 & 308 & 64\\
   \emph{Composite} and \emph{Move} are defined in Section~\ref{sec:clones}.
   \emph{Any} indicates any type of clone; note that some patches can
   contain clones from multiple categories. \emph{Locality} indicates
-  the relative locations of clones in a patch (same method, class, or neither). 32.5\% of multi-location bugs
+  the relative locations of clones in a patch (same method, class, or neither). 28.5\% of multi-location bugs
   in our dataset contain some form of cloning. }
 \label{tab:clones}
 \end{table}
 
-Table~\ref{tab:clones} shows that 121 of 372 multi-location bugs
-(32.5\%) included at least one type of cloning,
+Table~\ref{tab:clones} shows that 133 of 466 multi-location bugs
+(28.5\%) included at least one type of cloning,
 indicating a significant prevalence of code clones in multi-location human
 patches.
 %\footnote{Note that ``Any'' may not sum the previous rows because
@@ -1023,7 +1023,7 @@ patches.
 %categories.}
 %
 Moreover, close to half of code clones are in the same method, while less than
-15\% of the cloning occurs across classes. Finally, 80 of 129 (62\%) of clones
+20\% of the cloning occurs across classes. Finally, 77 of 137 (56.2\%) of clones
 fall in the ``same'' category, corresponding to alpha-equivalent code cloning.
 These results suggest that 
 most clones should be applied within the same class or method, and
