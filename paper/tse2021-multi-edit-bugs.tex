@@ -292,7 +292,7 @@ techniques to automatically repair.  This means that APR techniques assuming edi
 independence~\cite{saha2019harnessing} are applicable to a nontrivial proportion of complex bugs, while
 still motivating development of new analyses that can reason about multiple,
 related edits at once. 
-\item \textbf{Cloning in multi-location repair.} We find that over 30\% of bugs with multi-location
+\item \textbf{Cloning in multi-location repair.} We find that close to 30\% of bugs with multi-location
 patches have very similar edits applied to different locations, suggesting the viability of 
 program repair techniques designed to utilize code clones. Moreover, bugs in which 
 no faulty location is covered by every failing test tend to correlate with
@@ -1055,7 +1055,7 @@ localization patterns?}
 %multiple locations.
 %
 We focus on the multi-test and multi-location bugs used in the coverage 
-experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
+experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locations, leaving 177 bugs.
 
 \begin{table}
   {\begin{center}
@@ -1063,10 +1063,10 @@ experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locat
         \toprule
         & Contradicts & Partially Holds & Holds & Total \\
         \midrule
-        Clone & 26 & 12 & 11 &  49 \\
-        No Clone  & 24 & 56 & 62 & 142 \\
+        Clone & 24 & 13 & 12 &  49 \\
+        No Clone  & 24 & 46 & 56 & 128 \\
         \midrule
-        Total     & 50 & 68 & 73 & 191 \\
+        Total     & 48 & 59 & 68 & 177 \\
         \bottomrule
       \end{tabular}
     \end{center}
@@ -1080,8 +1080,8 @@ experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locat
 
 Table~\ref{tab:cov_clones} shows the incidence of patch code clones among the three 
 localization categories identified in Section \ref{secFL}. 
-Out of 50 \emph{contradicts} bugs, 52\% (26/50) have clones; only 
-18\% (12/68) \emph{partially holds} and 15\% (11/73)
+Out of 50 \emph{contradicts} bugs, 50\% (24/48) have clones; only 
+20\% (12/59) \emph{partially holds} and 16\% (12/68)
 \emph{holds} bugs contain clones.
 A \emph{contradicts} bug is more likely to contain clones in its
 human patch than bugs with other localization  ($p < 0.001$, by a $\chi^2$ test).
@@ -1558,7 +1558,7 @@ bugs.
 
 \vspace{1ex}
 \noindent\textbf{Code clones are prevalent in multi-location patches.}
-We found code clones in 32.5\% of bugs with multi-location
+We found code clones in 28.5\% of bugs with multi-location
 patches. This observation supports recent work that leverages code clones to
 generate repairs~\cite{saha2019harnessing}.
 We also found that clones are more likely to contradict SBFL's assumptions 
