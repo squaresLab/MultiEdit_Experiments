@@ -113,6 +113,15 @@ UNION
 aggregate all failing tests
 com/google/javascript/jscomp/FunctionInjector: [697, 698, 699, 732, 700, 733, 701, 702]
 
+PATCH : CLOSURE:127
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/UnreachableCodeElimination: [178, 180, 181, 183, 170]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/UnreachableCodeElimination: [178, 180, 181, 183, 170]
+
 PATCH : CLOSURE:131
 INTERSECT
 intersect all failing tests
@@ -2660,6 +2669,15 @@ com/google/javascript/jscomp/NodeUtil: [138]
 UNION
 aggregate all failing tests
 com/google/javascript/jscomp/NodeUtil: [138]
+
+PATCH : CLOSURE:066
+INTERSECT
+intersect all failing tests
+com/google/javascript/jscomp/TypeCheck: [518]
+
+UNION
+aggregate all failing tests
+com/google/javascript/jscomp/TypeCheck: [518]
 
 PATCH : CLOSURE:074
 INTERSECT

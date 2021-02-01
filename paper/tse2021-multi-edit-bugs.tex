@@ -352,30 +352,30 @@ our takeaways (Section~\ref{sec:takeaways}).
             &          &  (KLOC) & (KLOC)&
 \multicolumn{2}{c}{Patches}              & \multicolumn{2}{c}{2+ Failed Tests}   & \multicolumn{2}{c}{Patches}             & \multicolumn{2}{c}{Patches} \\
 \midrule
-Apache Commons (8 projects) & 316 & 223.3 & 161.5 & 155 & 49\% & 63 & 20\% & 122 & 38\%
+Apache Commons (8 projects) & 316 & 223.3 & 161.5 & 173 & 55\% & 69 & 22\% & 151 & 38\%
 & 250 & 79\%\\
-Closure Compiler & 174 & 150.6 & 112.6 & 87 & 50\% & 55 & 32\% & 75 & 43\% & 145
+Closure Compiler & 174 & 150.6 & 112.6 & 99 & 57\% & 61 & 35\% & 80 & 46\% & 145
 & 83\% \\
-FasterXML (3 projects) & 144 & 116.1 & 55.5 & 76 & 53\% & 16 & 11\% & 55 & 38\% & 124 & 86\%\\
-Gson & 18 & 16.8 & 12.8 & 6 & 33\% & 5 & 28\% & 5 & 28\% & 11 & 61\% \\
-JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 7 & 27\% & 11 & 42\% & 17 & 65\%\\
-Joda-Time & 26 & 82.9 & 70.4 & 16 & 62\% & 8 & 31\% & 10 & 38\% & 22 & 85\% \\
-Jsoup & 93 & 7.9 & 2.2 & 32 & 34\% & 21 & 23\% & 23 & 25\% & 60 & 65\% \\
-Mockito & 38 & 23.0 & 28.5 & 16 & 42\% & 8 & 21\% & 7 & 18\% & 30 & 79\% \\
+FasterXML (3 projects) & 144 & 116.1 & 55.5 & 89 & 62\% & 17 & 12\% & 69 & 40\% & 124 & 86\%\\
+Gson & 18 & 16.8 & 12.8 & 7 & 39\% & 5 & 28\% & 6 & 33\% & 11 & 61\% \\
+JFreeChart  & 26 & 193.3 & 74.6  & 11 & 42\% & 7 & 27\% & 10 & 38\% & 17 & 65\%\\
+Joda-Time & 26 & 82.9 & 70.4 & 15 & 58\% & 7 & 27\% & 12 & 46\% & 22 & 85\% \\
+Jsoup & 93 & 7.9 & 2.2 & 43 & 46\% & 22 & 24\% & 36 & 39\% & 60 & 65\% \\
+Mockito & 38 & 23.0 & 28.5 & 18 & 47\% & 9 & 24\% & 14 & 37\% & 30 & 79\% \\
 \midrule
-All (Defects4J) & 835 & 813.9 & 518.1 & 399 & 48\% & 183 & 22\% & 308 & 37\% & 659 & 79\%\\
+All (Defects4J) & 835 & 813.9 & 518.1 & 455 & 54\% & 197 & 24\% & 378 & 45\% & 659 & 79\%\\
 \midrule
 \multicolumn{12}{c}{\textbf{\bears (single-module)}} \\
 \midrule
-FasterXML (jackson-databind) & 26 & 80.7 & 41.2 & 17 & 65\% & 2 & 8\% & 10 & 38\% & 23 & 88\% \\
-INRIA Spoon & 62 & 66.2 & 30.8  & 39 & 63\% & 18 & 29\% & 17 & 27\% & 52 & 84\% \\
-Spring Data Commons & 15 & 45.8 & 28.8  & 9 & 60\% & 2 & 13\% & 2 & 13\% & 14 & 93\% \\
-Traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 23 & 55\% & 33 & 79\% \\
-30 other projects & 39 & --- & --- & 23 & 59\% & 9 & 23\% & 12 & 31\% & 29 & 74\% \\
+FasterXML (jackson-databind) & 26 & 80.7 & 41.2 & 19 & 73\% & 3 & 12\% & 15 & 58\% & 23 & 88\% \\
+INRIA Spoon & 62 & 66.2 & 30.8  & 40 & 65\% & 18 & 29\% & 24 & 39\% & 52 & 84\% \\
+Spring Data Commons & 15 & 45.8 & 28.8  & 10 & 67\% & 3 & 20\% & 9 & 60\% & 14 & 93\% \\
+Traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 24 & 57\% & 33 & 79\% \\
+30 other projects & 39 & --- & --- & 23 & 59\% & 9 & 23\% & 20 & 51\% & 29 & 74\% \\
 \midrule
-All (\bears) & 184 & $>$240.6 & $>$109.4 & 112 & 61\% & 33 & 18\% & 64 & 35\% & 151 & 82\% \\
+All (\bears) & 184 & $>$240.6 & $>$109.4 & 116 & 63\% & 35 & 19\% & 92 & 50\% & 151 & 82\% \\
 \midrule
-Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 & 21\% & 372 & 37\% & 810 & 80\%\\
+Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 571 & 56\% & 232 & 23\% & 470 & 46\% & 810 & 80\%\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -386,7 +386,7 @@ Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 511 & 50\% & 216 
   the characteristics of their human-written patches (multi-location, 2--6
   location, and multi-line). The \emph{2+ Failed Tests} column only includes
   bugs that fail more than one test. Note that more than half of bugs are
-  multi-location (511/1018).  }
+  multi-location (571/1018).  }
 \end{table*}
 
 In this section we overview the background of automated program repair (APR) and
@@ -547,7 +547,7 @@ We start our analysis of multi-location patches by asking:
 
 Table~\ref{tab:dataset-characteristics} lists the numbers and percentages of
 multi-location patches in Defects4J and \bears. 
-We find that multi-location patches comprise 61\% of \bears and 48\% of 
+We find that multi-location patches comprise 63\% of \bears and 54\% of 
 Defects4J.
 %\footnote{There are 11 bugs that should be considered multi-location but were left 
 %out of all analyses. We were unable to correct this before the deadline but will add them 
@@ -667,10 +667,10 @@ different
 \subsection{Methodology}
 
 \looseness-1
-Between both datasets, there are 230 total bugs that both require multi-location
+Between both datasets, there are 232 total bugs that both require multi-location
 patches and contain multiple failing tests. However, we were not able to classify
 two of the bugs in \bears through coverage analysis or inspection,
-leaving 228 total bugs: 195 in Defects4J and 33 in \bears. 
+leaving 230 total bugs: 197 in Defects4J and 33 in \bears. 
 We used JaCoCo~\cite{jacoco}
 to determine which lines of code in both the buggy and patched versions were executed
 by each failing test.
@@ -724,7 +724,7 @@ The first group of bars in Figure~\ref{fig:coverage-all} shows results for the o
 of localization categories, 
 answering RQ2. 
 For 25\% of bugs, none of the patch lines were executed by all failing tests as they were 
-categorized as \emph{contradicts}.  A slightly larger proportion of bugs, 35\%, were classified 
+categorized as \emph{contradicts}.  A slightly larger proportion of bugs, 36\%, were classified 
 as 
 \emph{holds}, indicating that all failing tests executed the same patch lines.
 In addition, another 39\% were classified as \emph{partially holds}.
@@ -804,7 +804,7 @@ definitive, as the failing tests in \emph{holds} bugs covered anywhere between
 These observations are confirmed quantitatively: There were no statistically significant 
 differences between the distribution for \emph{contradicts} and \emph{partially holds}. 
 However, the distribution for \emph{holds} showed statistically significant differences with 
-\emph{partially holds} ($p = 0.007$)  and \emph{contradicts} ($p < 0.001$) with 
+\emph{partially holds} ($p = 0.006$)  and \emph{contradicts} ($p < 0.001$) with 
 one-tailed Mann-Whitney U tests.
 
 In conclusion, 
