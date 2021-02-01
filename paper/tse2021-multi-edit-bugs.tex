@@ -311,17 +311,16 @@ which type of technique may apply to a given bug.
   identify partial repairs, and the \emph{granularity} at which test suite
   behavior is measured (i.e., at the class, method, or assertion level)
   influences the ability to identify partial repairs. At the highest granularity
-  (i.e., at the assertion level), test cases can identify 36\% of
-  partially-applied patches as a positive improvement, while only 19\% of
+  (i.e., at the assertion level), test cases can identify 35\% of
+  partially-applied patches as a positive improvement, while only 20\% of
   partial patches cause an increase in test failures. Moreover, we find 
   tests to measure partial correctness more accurately when patch coverage 
   overlap is minimized, suggesting the need to adjust confidence in tests
   in response to coverage.
 \end{itemize}
 
-We provide an anonymized package of our code and data at
-\url{https://bit.ly/32xPUg4}, which we will release and document publicly
-post-blind review.
+Our code and data can be found at 
+\url{https://github.com/squaresLab/MultiEdit_Experiments}.
 
 In Section~\ref{sec:background}, we overview the problem domain to
 motivate/outline our research questions, and characterize our datasets.
@@ -1530,7 +1529,8 @@ are executed more often by negative test cases does not hold for a substantial
 number of the bugs we studied. In our study, 40\% of multi-location bugs
 characterized by multiple failing tests partially held this assumption and 27\% of
 these bugs contradicted this assumption.
-Patches with clones are especially likely (53\%) to fall into this latter category.
+Patches with clones are especially likely 
+to fall into this latter category (49\%, compared to 19\% without clones).
 In these cases, SBFL is unlikely to be the most 
 appropriate choice for a
 fault localization technique. 
@@ -1608,7 +1608,7 @@ evaluating tools.
 \vspace{1ex}
 To date, most automated program repair techniques have been limited to bugs that
 can be localized to and repaired at a single program location. However, we find
-that 48\% of bugs in the Defects4J dataset and 61\% of bugs in the \bears dataset
+that 54\% of bugs in the Defects4J dataset and 63\% of bugs in the \bears dataset
 were repaired by a human developer with multi-location patches. This motivated
 our study on the characteristics and challenges of automatically repairing such bugs. 
 
@@ -1616,8 +1616,8 @@ Our findings suggest deep implications for program repair targeting
 multi-location patches, both in terms of the applicability of existing program
 repair techniques and the design future repair techniques.  We hope that our
 findings and insights inspire future work to advance the state of the art of APR
-and take on difficult multi-location bugs.  Our anonymized data/code package is
-available at \url{https://bit.ly/32xPUg4}.
+and take on difficult multi-location bugs.  Our data/code package is
+available at \url{https://github.com/squaresLab/MultiEdit_Experiments}.
 
 
 
