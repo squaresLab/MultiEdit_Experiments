@@ -719,7 +719,7 @@ to localization category.
 \subsection{Results}
  \label{sec:cov_patterns}
 
-\paragraph{Distribution of Localization Categories}
+\subsubsection{Distribution of Localization Categories}
 The first group of bars in Figure~\ref{fig:coverage-all} shows results for the overall distribution 
 of localization categories, 
 answering RQ2. 
@@ -780,7 +780,7 @@ real-world multi-location bugs.
 % just cut it for space, it's fine. 
 \end{figure}
 
-\paragraph{Generalization of localization categories}
+\subsubsection{Generalization of localization categories}
 Figure \ref{fig:coverage-buggy} plots localization category based on the
 percentage of lines executed by all failing tests. 
 %
@@ -860,7 +860,7 @@ and should be informed by any dependencies between them.  Specifically, we ask:
 patches with intra-patch dependencies?}
 
 
-\paragraph{Methodology}
+\subsubsection{Methodology}
 We consider a patch to contain \emph{dependent edits} if there exist 
 control or data dependencies between added, deleted, or modified statements.
 Since we analyze dependent statements, we broaden the scope of multi-location patches to 
@@ -897,7 +897,7 @@ RepairThemAll~\cite{durieux-repair-them-all}, an experiment
 running 11 APR tools on 5 benchmarks, including Defects4J v1
 ( a subset of Defects4J v2) and \bears.
 
-\paragraph{Results}
+\subsubsection{Results}
 
 \begin{table}
 {\begin{center}
@@ -960,7 +960,7 @@ multi-location bugs, and thus the usefulness of techniques that assume it:
 %the APR to be more likely to apply the repeat edit operator when the fault localization
 %result matches specific patterns.
 
-%\paragraph{Methodology}
+%\subsubsection{Methodology}
 Our dataset includes all 466 multi-location bugs with 6 or fewer modified
 locations (to reduce the analysis burden). We determine the existence of code 
 clones through manual inspection.
@@ -986,7 +986,7 @@ second location (the second location  has additional changed lines).
 code deleted from the other location. 
 \end{enumerate}
 
-%\paragraph{Results}
+%\subsubsection{Results}
 \begin{table}
 {\begin{center}
 \begin{tabular} {lrrrrrr}
@@ -1203,7 +1203,7 @@ assertions in $M$, there should be an increase in $AS(M)$.
 \subsection{Results}
 
 \looseness-1
-\paragraph{Minimality} Our first immediate takeaway is that not all edits
+\subsubsection{Minimality} Our first immediate takeaway is that not all edits
 in a human patch are always necessary to pass all tests~\cite{api-refactoring,
   tangledchanges}:
 this is true for 41.2\%  (101 out of 245) of Defects4J and 52.6\% (40 out of 76) of
@@ -1234,7 +1234,7 @@ minimized to a single edit, leaving
 % (Unminimized), and considering only the 1-minimal set of edits in the
 % human patch with respect to the unit tests (Minimized).
 
-\paragraph{Partial repair identification} Our overall goal is to identify how many partial repairs pass more test than the
+\subsubsection{Partial repair identification} Our overall goal is to identify how many partial repairs pass more test than the
 original buggy program  (\emph{positive}), the  same number of tests as the
 original buggy code (\emph{neutral}) or fewer tests than the buggy code
 (\emph{negative}).  However, 
@@ -1299,7 +1299,7 @@ Although the rate of positive and correct identification of partial repairs vari
 tests are not often adversarial towards partial repairs, contrary to anecdotal
 observations in prior work~\cite{gecco09}.
 
-\paragraph{Granularity} Finer granularity levels are better at identifying partial repairs positively,
+\subsubsection{Granularity} Finer granularity levels are better at identifying partial repairs positively,
 but they also increase the chance of erroneously mis-identifying partial repairs.
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
@@ -1338,7 +1338,7 @@ multiple axes of APR performance.
     repairs.  \label{tab:cov_fitness}}
 \end{table}
 
-\paragraph{Relationship to fault localization} 
+\subsubsection{Relationship to fault localization} 
 Finally, we assess the relationship between partial repair behavior and fault
 localization/coverage pattern. Table~\ref{tab:cov_fitness} shows 
 bugs with 2+ failing tests 
