@@ -29,9 +29,6 @@ However, it should have been classified as "same," since both locations were exe
 
 raw_coverage_files = ["data/coverage-experiments/coverage-data-final/rawCoverage.data"]
 
-with open("data/patch_locs.json") as f:
-	patch_json = json.load(f)
-
 d4jnames = {"CHART": "Chart", 
 "CLOSURE": "Closure", 
 "LANG": "Lang", 
@@ -94,6 +91,40 @@ def parse_cov(f):
 	all_cov[name] = { "INTERSECT": intersect, "UNION": union }
 
 
+# # patch locations based on Java diff tool that I use for the other experiments
+# def parse_patches(f):
+# 	name = ""
+# 	patches = {} # {bugname : {class: {line no : chunk index}}}
+# 	num_chunks = 0
+# 	for line in f:
+# 		line = line.strip()
+# 		if line == "Patch" or line == "" or line.endswith('patch'):
+# 			continue
+# 		elif line == "----------------":
+# 			continue
+# 		else:
+# 			match = patch_pattern.fullmatch(line.strip())
+# 			if match:
+# 				class_name = match.group(1)
+# 				cov = sorted([int(x) for x in match.group(2).split(", ")])
+# 				patch_locs = {}
+# 				prev_line = cov[0]-1
+# 				for i in cov:
+# 					if i != prev_line + 1:
+# 						num_chunks += 1
+# 					patch_locs[i] = num_chunks
+# 					prev_line = i
+# 				patches[name][class_name] = patch_locs
+# 			else:
+# 				# probably a bug number
+# 				print(line)
+# 				proj, num = line.split(" ")
+# 				name = f'{proj.upper()}:{int(num):03}'
+# 				patches[name] = {}
+# 				num_chunks = 0
+# 	return patches
+
+
 for fname in raw_coverage_files:
 	with open(fname) as f:
 		parse_cov(f)
@@ -103,15 +134,17 @@ print(len(all_cov))
 print(num)
 
 
+# Patch locations based on bash diff tool
+# I'm using this one because the way I count locations is slightly more accurate here
 def get_chunk_ranges(fname):
-	print(fname)
+	# print(fname)
 	with open(fname) as f:
 		chunk_map = {} # {class: {line no : chunk index}}
 		chunk_num = 0
 		current_class = ""
 
 		for line in f:
-			print(line)
+			# print(line)
 
 			if line.startswith("diff"): # class
 				tokens = line.split()
@@ -153,10 +186,11 @@ def get_chunk_num(class_name, line_no, chunkmap):
 				pass
 	return -1
 
+# with open("data/patch_locations.txt") as f:
+# 	patches = parse_patches(f)
+
 with open("data/multitest_multiedit.txt") as f:
 	multitest_multichunk = [x.strip() for x in f]
-
-print(len(multitest_multichunk))
 
 with open("data/bug_id_and_branch.txt") as f:
 	bears_branches = {int(num) : branch.strip() for num, branch in map(lambda x:x.split(","), f) }
@@ -164,23 +198,19 @@ with open("data/bug_id_and_branch.txt") as f:
 classify = {}
 
 for bug in multitest_multichunk:
-	# if not bug.startswith("CLOSURE"):
-	# 	continue
-		
-	if bug == "JSOUP:071":
-		continue
+	if bug == 'BEARS:192' or bug == 'BEARS:244':
+		continue # engineering challenges
 	name, num = bug.split(":")
 	if name in d4jnames:
 		chunkmap, num_chunks = get_chunk_ranges(f'data/diffs/{d4jnames[name]}{int(num)}')
 	elif name == "BEARS":
-		if num == "192":
-			continue
 		chunkmap, num_chunks = get_chunk_ranges(f'data/diffs/{bears_branches[int(num)]}')
 	else:
 		print("MISSING: " + name)
 		continue
-	print(bug)
-	print(chunkmap)
+	# chunkmap = patches[bug]
+	# print(bug)
+	# print(chunkmap)
 	intersect_cov = all_cov[bug]["INTERSECT"]
 	union_cov = all_cov[bug]["UNION"]
 
@@ -200,7 +230,8 @@ for bug in multitest_multichunk:
 				if cn >= 0:
 					intersect_chunks.add(cn)
 				else:
-					print(f"diff weirdness: {c} {l}")
+					pass
+					# print(f"diff weirdness: {c} {l}")
 
 		for c, arr in union_cov.items():
 			for l in arr:
@@ -208,7 +239,8 @@ for bug in multitest_multichunk:
 				if cn >= 0:
 					union_chunks.add(cn)
 				else:
-					print(f"diff weirdness: {c} {l}")
+					pass
+					# print(f"diff weirdness: {c} {l}")
 
 		# are they the same chunks?
 		if intersect_chunks == union_chunks:

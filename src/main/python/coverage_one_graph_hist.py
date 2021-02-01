@@ -11,14 +11,8 @@ plt.rcParams.update({'font.size': 20})
 
 
 
-with open("data/more_than_one_test.txt") as f:
-    more_than_one_test = set([x.strip() for x in f.readlines()])
-
-with open("data/multi-location-bugs/multi_location_d4j.data") as f:
-    d4j_multi_edit = set([x.strip() for x in f.readlines()])
-
-with open("data/multi-location-bugs/multi_location_bears.data") as f:
-    bears_multi_edit = set([x.strip() for x in f.readlines()])
+with open("data/multitest_multiedit.txt") as f:
+    multi_edit_test = set([x.strip() for x in f.readlines()])
 
 disjoint = 0
 same = 0
@@ -39,17 +33,16 @@ for dir in folders:
             if len(line) > 0:
                 project, bugnum = line.split(":")
 
-                if line in more_than_one_test:
+                if line in multi_edit_test:
 
-                    if line in d4j_multi_edit:
-                        d4j_disjoint += 1
-                        disjoint += 1
-                        print(f'disjoint {line}')
-                    if line in bears_multi_edit:
+                    if line.startswith("BEARS"):
                         bears_disjoint += 1
                         disjoint += 1
                         print(f'disjoint {line}')
-
+                    else:
+                        d4j_disjoint += 1
+                        disjoint += 1
+                        print(f'disjoint {line}')
 
     with open(dir+"/same.data") as f:
         for line in f:
@@ -57,14 +50,14 @@ for dir in folders:
             if len(line) > 0:
                 project, bugnum = line.split(":")
 
-                if line in more_than_one_test:
-                    
-                    if line in d4j_multi_edit:
-                        d4j_same += 1
+                if line in multi_edit_test:
+
+                    if line.startswith("BEARS"):
+                        bears_same += 1
                         same += 1
                         print(f'same {line}')
-                    if line in bears_multi_edit:
-                        bears_same += 1
+                    else:
+                        d4j_same += 1
                         same += 1
                         print(f'same {line}')
 
@@ -74,16 +67,17 @@ for dir in folders:
             if len(line) > 0:
                 project, bugnum = line.split(":")
 
-                if line in more_than_one_test:
-                    
-                    if line in d4j_multi_edit:
-                        d4j_inBetween += 1
-                        inBetween += 1
-                        print(f'inBetween {line}')
-                    if line in bears_multi_edit:
+                if line in multi_edit_test:
+                    if line.startswith("BEARS"):
                         bears_inBetween += 1
                         inBetween += 1
                         print(f'inBetween {line}')
+                    else:
+                        d4j_inBetween += 1
+                        inBetween += 1
+                        print(f'inBetween {line}')
+
+
 
 def get_percentages(num_disjoint, num_same, num_inBetween):
     sum_bugs = num_disjoint + num_same + num_inBetween

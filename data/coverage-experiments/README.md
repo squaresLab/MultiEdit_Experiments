@@ -4,12 +4,8 @@ Relevant data:
 
 * `coverage-data-final` 
 -- coverage of tests on patch locations in the patched version of the code.
-* `buggy-versions` and `buggy-versions-only-bears` 
--- coverage of tests on buggy version of the code. 
-Defects4J and Bears data, resp.
-* `buggy-versions-locations-only` and `buggy-versions-locations-only-bears` 
--- coverage of tests on only patch locations in the buggy version of the code. 
-Defects4J and Bears data, resp.
+* `buggy-coverage-final` 
+-- full coverage of tests on buggy version of the code. 
 
 
 Data is mostly generated from `multiedit.coverage.DoCoverageExperiments` 
@@ -36,6 +32,8 @@ differed for line coverage and location coverage
 
 (We only calculated this for the patch locations; i.e. data in `coverage-data-final`)
 
+(These are not reflected in the data files; we leave them here for reference)
+
 * Bears 41 
 * Bears 62 
 * Bears 80
@@ -46,11 +44,15 @@ differed for line coverage and location coverage
 * Closure 30
 * Closure 49
 * Closure 85
+* Closure 110
 * Closure 144
+* Cli 23
+* Codec 13
 * Compress 40
 * Gson 8
 * JacksonDatabind 6
 * JacksonDatabind 18
+* JacksonDatabind 47
 * JacksonXml 6
 * Jsoup 63
 * Time 26

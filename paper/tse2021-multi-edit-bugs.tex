@@ -513,14 +513,15 @@ We focus in this study on the properties of \emph{multi-location} patches. There
 several plausible definitions of multi- vs. single-location patches, with
 implications for how they are studied. For the purpose of this study, we define
 a \emph{patch location} as a contiguous sequence of edited lines of code.  We
-combine two locations if one simply opens or closes a syntactic block inserted
-by the other. That is, conceptually:
+combine two locations if there is code at the two locations that construct a syntactic 
+block. That is, conceptually:
 \lstset{escapeinside={<@}{@>}}
 \begin{lstlisting}[style=examplestyle]
 <@\textcolor{dkgreen}{+ Some\_edit \{}@>
 <@\textcolor{dkgreen}{+ New code}@>
-Existing code
-<@\textcolor{dkgreen}{+\}}@>
+    Existing code
+<@\textcolor{dkgreen}{+ \}}@>
+<@\textcolor{dkgreen}{+ More new code}@>
 \end{lstlisting}
 is treated as a single-location edit in our study. We ignore changes to
 comments, whitespace, or \texttt{import} statements.
@@ -666,11 +667,11 @@ different
 \subsection{Methodology}
 
 \looseness-1
-Between both datasets, there are 216 total bugs that both require multi-location
-patches and contain multiple failing tests. However, we were not able to obtain coverage 
-data for one of the bugs in \bears, leaving 215 total bugs: 183 in Defects4J, and 32 in
-\bears. 
-For each of these bugs, we used JaCoCo~\cite{jacoco}
+Between both datasets, there are 230 total bugs that both require multi-location
+patches and contain multiple failing tests. However, we were not able to classify
+two of the bugs in \bears through coverage analysis or inspection,
+leaving 228 total bugs: 195 in Defects4J and 33 in \bears. 
+We used JaCoCo~\cite{jacoco}
 to determine which lines of code in both the buggy and patched versions were executed
 by each failing test.
 
@@ -687,9 +688,8 @@ the assumption that code executed by all failing tests are more likely to be bug
 \end{itemize}
 
 In our experiments, we classify bugs using coverage of the patch lines, as opposed to 
-coverage of 
-patch locations (where a patch location is considered covered if any line at that patch location 
-is 
+coverage of patch locations (where a patch location is considered covered if any line 
+at that patch location is 
 executed). For the purposes of fault localization, coverage of patch locations is more valuable 
 than coverage of patch lines, and we separately identified whether categorization 
 based on patch line coverage matched categorization based on patch location coverage.
@@ -723,16 +723,16 @@ to localization category.
 The first group of bars in Figure~\ref{fig:coverage-all} shows results for the overall distribution 
 of localization categories, 
 answering RQ2. 
-For 27\% of bugs, none of the patch lines were executed by all failing tests as they were 
-categorized as \emph{contradicts}.  A slightly larger proportion of bugs, 34\%, were classified 
+For 25\% of bugs, none of the patch lines were executed by all failing tests as they were 
+categorized as \emph{contradicts}.  A slightly larger proportion of bugs, 35\%, were classified 
 as 
 \emph{holds}, indicating that all failing tests executed the same patch lines.
-In addition, another 40\% were classified as \emph{partially holds}.
+In addition, another 39\% were classified as \emph{partially holds}.
 
 Note, however, that the behavior varies considerably by dataset, as shown in the second and 
 third groups of bars in Figure \ref{fig:coverage-all}. In particular, \bears has fewer bugs in 
 \emph{contradicts} and more bugs in \emph{partially holds}.
-This difference is statistically significant, with $p = 0.032$ (Fisher's exact test).
+This difference is statistically significant, with $p = 0.0335$ (Fisher's exact test).
 We hypothesize that this may be due to differences in how the two  
 datasets were selected and constructed:
 The Defects4J dataset specifically enforces a requirement that the patches in the 
@@ -750,7 +750,7 @@ the patch must be written by a human~\cite{bears}.
 These findings highlight the importance of diverse datasets
 in APR evaluations. 
 
-Out of 215 bugs, 18 bugs had differing localization categories when 
+We also found that 22 bugs had differing localization categories when 
 classified based on coverage of patch lines vs. coverage of patch locations. All of these 
 bugs 
 were classified as \emph{partially holds} when classified by line coverage, but were classified as 
@@ -760,7 +760,7 @@ This analysis indicates that localization category based on patch line coverage 
 localization category based on patch location coverage.
 
 Overall, we cannot assume that the failing tests in multi-location repairs will execute all 
-faulty locations -- in fact our results suggests that assumption only holds 32\% of the time. 
+faulty locations -- in fact our results suggests that assumption only holds 35\% of the time. 
 This suggests that off-the-shelf SBFL techniques may not be
 well-suited to guiding APR techniques when addressing more than half of
 real-world multi-location bugs.
@@ -804,7 +804,7 @@ definitive, as the failing tests in \emph{holds} bugs covered anywhere between
 These observations are confirmed quantitatively: There were no statistically significant 
 differences between the distribution for \emph{contradicts} and \emph{partially holds}. 
 However, the distribution for \emph{holds} showed statistically significant differences with 
-\emph{partially holds} ($p = 0.006$)  and \emph{contradicts} ($p < 0.001$) with 
+\emph{partially holds} ($p = 0.007$)  and \emph{contradicts} ($p < 0.001$) with 
 one-tailed Mann-Whitney U tests.
 
 In conclusion, 

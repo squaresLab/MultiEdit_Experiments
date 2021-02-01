@@ -19,8 +19,7 @@ public class DoCoverageExperimentsBuggy {
             d4jMultitestMultiedit.put(d4JName, new HashSet<>());
         }
         Set<Integer> bearsMultitestMultiedit = new HashSet<>();
-//        try (Scanner relevantBugsFile = new Scanner(new File("data/multitest_multiedit.txt"))) {
-        try (Scanner relevantBugsFile = new Scanner(new File("data/more_than_one_test.txt"))) {
+        try (Scanner relevantBugsFile = new Scanner(new File("data/multitest_multiedit.txt"))) {
             while (relevantBugsFile.hasNextLine()) {
                 String[] line = relevantBugsFile.nextLine().split(":");
                 if (line.length == 2) {
@@ -103,8 +102,7 @@ public class DoCoverageExperimentsBuggy {
              */
             for (D4JName n : D4JName.values()) {
 
-                if (n == D4JName.MOCKITO) continue;
-//                if(true) continue;
+                if (n != D4JName.MOCKITO) continue;
                 for (int i : n.bugs) {
                     if (!d4jMultitestMultiedit.get(n).contains(i)) {
                         continue;
@@ -137,13 +135,9 @@ public class DoCoverageExperimentsBuggy {
               Bears
              */
             for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
-                if (true) continue;
+//                if (true) continue;
 
-//                if (i == 95 || i == 209) continue; // these have malformed test names
-
-//                if (i != 191 && i != 192 && i != 204) continue;
-//                if (!bearsMultitestMultiedit.contains(i)) continue;
-
+                if (!bearsMultitestMultiedit.contains(i)) continue;
                 try {
                     BearsPatch b = new BearsPatch(i);
                     System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" + b.getPatchName());
