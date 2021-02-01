@@ -292,7 +292,7 @@ techniques to automatically repair.  This means that APR techniques assuming edi
 independence~\cite{saha2019harnessing} are applicable to a nontrivial proportion of complex bugs, while
 still motivating development of new analyses that can reason about multiple,
 related edits at once. 
-\item \textbf{Cloning in multi-location repair.} We find that over 30\% of bugs with multi-location
+\item \textbf{Cloning in multi-location repair.} We find that close to 30\% of bugs with multi-location
 patches have very similar edits applied to different locations, suggesting the viability of 
 program repair techniques designed to utilize code clones. Moreover, bugs in which 
 no faulty location is covered by every failing test tend to correlate with
@@ -961,7 +961,7 @@ multi-location bugs, and thus the usefulness of techniques that assume it:
 %result matches specific patterns.
 
 %\paragraph{Methodology}
-Our dataset includes all 372 multi-location bugs with 6 or fewer modified
+Our dataset includes all 466 multi-location bugs with 6 or fewer modified
 locations (to reduce the analysis burden). We determine the existence of code 
 clones through manual inspection.
 %
@@ -994,13 +994,13 @@ code deleted from the other location.
 &&\multicolumn{2}{c}{Dataset} &\multicolumn{3}{c}{Locality}\\
 & Total & Defects4J & \bears & Method & Class & Neither\\
 \midrule
-Same      &  80 &  71 & 9 & 35 & 33 & 12 \\
-Near-same   &  25 &  23 & 2 & 12 &  8 &  5 \\
-Composite &  12 &  11 & 1 &  4 &  8 &  0 \\
-Move      &  12 &  11 & 1 &  9 &  1 &  2 \\
+Same      &  77 & 67  & 10 & 33 & 31 & 13 \\
+Near-same   & 27  & 23  & 4 & 11 & 8  & 8  \\
+Composite &  19 & 15  & 4 & 9  & 7  & 3  \\
+Move      &  14 & 11  & 3 & 11  & 1  & 2  \\
 \midrule
-Any       & 121 & 108 & 13\\
-Total     & 372 & 308 & 64\\
+Any       & 133 & 106 & 21 \\
+Total     & 466 & 375 & 91\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1009,13 +1009,13 @@ Total     & 372 & 308 & 64\\
   \emph{Composite} and \emph{Move} are defined in Section~\ref{sec:clones}.
   \emph{Any} indicates any type of clone; note that some patches can
   contain clones from multiple categories. \emph{Locality} indicates
-  the relative locations of clones in a patch (same method, class, or neither). 32.5\% of multi-location bugs
+  the relative locations of clones in a patch (same method, class, or neither). 28.5\% of multi-location bugs
   in our dataset contain some form of cloning. }
 \label{tab:clones}
 \end{table}
 
-Table~\ref{tab:clones} shows that 121 of 372 multi-location bugs
-(32.5\%) included at least one type of cloning,
+Table~\ref{tab:clones} shows that 133 of 466 multi-location bugs
+(28.5\%) included at least one type of cloning,
 indicating a significant prevalence of code clones in multi-location human
 patches.
 %\footnote{Note that ``Any'' may not sum the previous rows because
@@ -1023,7 +1023,7 @@ patches.
 %categories.}
 %
 Moreover, close to half of code clones are in the same method, while less than
-15\% of the cloning occurs across classes. Finally, 80 of 129 (62\%) of clones
+20\% of the cloning occurs across classes. Finally, 77 of 137 (56.2\%) of clones
 fall in the ``same'' category, corresponding to alpha-equivalent code cloning.
 These results suggest that 
 most clones should be applied within the same class or method, and
@@ -1055,7 +1055,7 @@ localization patterns?}
 %multiple locations.
 %
 We focus on the multi-test and multi-location bugs used in the coverage 
-experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locations, leaving 191 bugs.
+experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locations, leaving 177 bugs.
 
 \begin{table}
   {\begin{center}
@@ -1063,10 +1063,10 @@ experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locat
         \toprule
         & Contradicts & Partially Holds & Holds & Total \\
         \midrule
-        Clone & 26 & 12 & 11 &  49 \\
-        No Clone  & 24 & 56 & 62 & 142 \\
+        Clone & 24 & 13 & 12 &  49 \\
+        No Clone  & 24 & 46 & 56 & 128 \\
         \midrule
-        Total     & 50 & 68 & 73 & 191 \\
+        Total     & 48 & 59 & 68 & 177 \\
         \bottomrule
       \end{tabular}
     \end{center}
@@ -1080,8 +1080,8 @@ experiment (Section~\ref{secFL}), and exclude bugs with more than 6 faulty locat
 
 Table~\ref{tab:cov_clones} shows the incidence of patch code clones among the three 
 localization categories identified in Section \ref{secFL}. 
-Out of 50 \emph{contradicts} bugs, 52\% (26/50) have clones; only 
-18\% (12/68) \emph{partially holds} and 15\% (11/73)
+Out of 50 \emph{contradicts} bugs, 50\% (24/48) have clones; only 
+20\% (12/59) \emph{partially holds} and 16\% (12/68)
 \emph{holds} bugs contain clones.
 A \emph{contradicts} bug is more likely to contain clones in its
 human patch than bugs with other localization  ($p < 0.001$, by a $\chi^2$ test).
@@ -1175,8 +1175,8 @@ Due to the exponential growth of partial repairs with respect to number of edit 
 we evaluate multi-location bugs with
 between two and six edit locations, excluding Closure, which uses a
 non-standard test harness. 
-Overall, we evaluated 1884 Defects4J and 596 \bears partial repairs,
-of 240 Defects4J and 74 \bears bugs.
+Overall, we evaluated 1894 Defects4J and 660 \bears partial repairs,
+of 245 Defects4J and 76 \bears bugs.
 
 \subsubsection{Test Granularity}
 
@@ -1206,14 +1206,14 @@ assertions in $M$, there should be an increase in $AS(M)$.
 \paragraph{Minimality} Our first immediate takeaway is that not all edits
 in a human patch are always necessary to pass all tests~\cite{api-refactoring,
   tangledchanges}:
-this is true for 41.3\%  (99 out of 240) of Defects4J and 52.7\% (39 out of 74) of
+this is true for 41.2\%  (101 out of 245) of Defects4J and 52.6\% (40 out of 76) of
 \bears bugs. 
 The relatively high proportion of Defects4J patches that are not 1-minimal is
 somewhat surprising, as Defects4J maintainers manually minimize patches to exclude
 changes deemed unrelated to the bugs in question.
 This suggests that the test suites are weak proxies for total correctness.
 \bears patches are not minimized, which likely explains
-their higher percentage of non-minimality (52.7\%) (the difference between the two datasets is statistically
+their higher percentage of non-minimality (52.6\%) (the difference between the two datasets is statistically
 significant, $p < 0.001$, via a 
 $\chi^2$ test).
 
@@ -1226,8 +1226,8 @@ results.  And, from the point of view of an APR tool, only
 minimal edits are identifiable or ``visible'' via test case behavior. 
 We exclude bugs
 minimized to a single edit, leaving
-942 Defects4J and 232 \bears partial repairs, from
-165 Defects4J and 44 \bears bugs.  
+948 Defects4J and 240 \bears partial repairs, from
+168 Defects4J and 46 \bears bugs.  
 
 % We therefore present our results for RQ7 in two ways:
 % treating the provided human patch as the full repair
@@ -1289,11 +1289,11 @@ repairs that do not compile from the count, e.g., by throwing errors like ``miss
 
 Figure~\ref{fig:fitness} shows results.
 Assertion level granularity correctly positively identifies
-39.93\% of the partial repairs in Defects4J
-and 18.69\% of the partial repairs in \bears.
-Only 31.52\% of Defects4J partial repairs and 
-59.60\% 
-of \bears partial repairs are neutral. Less than 20\% of bugs in both datasets
+39.2\% of the partial repairs in Defects4J
+and 17.9\% of the partial repairs in \bears.
+Only 31.3\% of Defects4J partial repairs and 
+57.4\% 
+of \bears partial repairs are neutral. Less than 21\% of bugs in both datasets
 produce negative test case behavior.
 Although the rate of positive and correct identification of partial repairs varies between datasets,
 tests are not often adversarial towards partial repairs, contrary to anecdotal
@@ -1303,7 +1303,7 @@ observations in prior work~\cite{gecco09}.
 but they also increase the chance of erroneously mis-identifying partial repairs.
 Improvements between granularity levels vary across datasets --- the improvement 
 in positively identified partial repairs between method and assertion level granularities
-is negligible in \bears (0.46\%) but greater in Defects4J (5.35\%), while both had around 3\% 
+is negligible in \bears (0.5\%) but greater in Defects4J (5.2\%), while both had around 3\% 
 increase in negatively identified partial repairs.
 Moreover, evaluating patches at finer granularity levels can add overhead.
 For example, assertion level granularity may require instrumenting JUnit with additional
@@ -1320,13 +1320,13 @@ multiple axes of APR performance.
         \toprule
         \multicolumn{2}{c}{Partial Repair} & Contradicts & Partially Holds & Holds & Total \\
         \midrule
-        \multirow{2}{*}{Positive} & $\exists$  & 40 & 30 & 12 &  82 \\
-                                  & $\nexists$ &  1 &  4 & 16 &  21 \\
+        \multirow{2}{*}{Positive} & $\exists$  & 41 & 30 & 12 &  83 \\
+                                  & $\nexists$ &  1 &  3 & 19 &  23 \\
         \midrule
-        \multirow{2}{*}{Negative} & $\exists$  &  2 &  8 & 16 &  26 \\
-                                  & $\nexists$ & 39 & 26 & 12 &  77 \\
+        \multirow{2}{*}{Negative} & $\exists$  &  2 &  7 & 16 &  25 \\
+                                  & $\nexists$ & 40 & 26 & 15 &  81 \\
         \midrule
-        Total                     &            & 41 & 34 & 28 & 103 \\
+        Total                     &            & 42 & 33 & 31 & 106 \\
         \bottomrule
       \end{tabular}
     \end{center}
@@ -1558,7 +1558,7 @@ bugs.
 
 \vspace{1ex}
 \noindent\textbf{Code clones are prevalent in multi-location patches.}
-We found code clones in 32.5\% of bugs with multi-location
+We found code clones in 28.5\% of bugs with multi-location
 patches. This observation supports recent work that leverages code clones to
 generate repairs~\cite{saha2019harnessing}.
 We also found that clones are more likely to contradict SBFL's assumptions 
@@ -1652,6 +1652,12 @@ available at \url{https://bit.ly/32xPUg4}.
 % simpler here.)
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{img/bio-photos/zhen}}]{Zhen Yu Ding}
+    received the BS degree in computer science from the University of Pittsburgh.
+    Zhen Yu Ding is currently a security engineer at Motional, with research and
+    industrial interests in software security, program repair, and fuzz testing.
+\end{IEEEbiography}
 
 \begin{IEEEbiography}{Michael Shell}
 Biography text here.
