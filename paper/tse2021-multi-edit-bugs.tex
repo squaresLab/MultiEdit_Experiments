@@ -277,7 +277,7 @@ APR.  Our contributions are:
 %\item An analysis and enumeration of multi-location patches in Defects4J and
 %\bears.
 % I think the above is addressed by the summary in the preceding paragraph.
-\item \textbf{Fault Localization.}  We find that 67\% of multi-location bugs have faulty 
+\item \textbf{Fault Localization.}  We find that 64\% of multi-location bugs have faulty 
 locations that are not
   covered by all failing tests, violating a key assumption underlying
   spectrum-based fault localization. This potentially 
@@ -1528,10 +1528,8 @@ generate multi-location bug fixes. These are our key takeaways:
 The assumption that faulty locations
 are executed more often by negative test cases does not hold for a substantial
 number of the bugs we studied. In our study, 40\% of multi-location bugs
-and characterized by multiple failing tests had patch
-locations executed by some but not all tests,  27\% of
-these patches had no patch location covered by all failing
-tests.
+characterized by multiple failing tests partially held this assumption and 27\% of
+these bugs contradicted this assumption.
 Patches with clones are especially likely (53\%) to fall into this latter category.
 In these cases, SBFL is unlikely to be the most 
 appropriate choice for a
