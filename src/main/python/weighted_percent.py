@@ -64,28 +64,28 @@ def add_to_plot(positive, neutral, negative, offset):
         for p, val in zip(plot.patches, values):
             width, height = p.get_width(), p.get_height()
             x, y = p.get_xy()
-            plt.annotate(f'{val:.1f}', xy=(x + (width / 2), height + 15), ha="center", rotation=90, size=7)
+            plt.annotate(f'{val:.1f}', xy=(x + (width / 2), height + 3), ha="center", rotation=90, size=7)
 
     # Add this loop to add the annotations
     label(p_positive, positive)
     label(p_neutral, neutral)
     label(p_negative, negative)
 
-class_positive = (12.77, 9.22, 12.02)
-class_neutral = (68.30, 73.31, 69.35)
-class_negative = (11.57, 13.30, 12.16)
+class_positive = (12.5, 8.8, 11.7)
+class_neutral = (67.4, 70.5, 68.1)
+class_negative = (12.8, 13.8, 13.0)
 
 add_to_plot(class_positive, class_neutral, class_negative, 0)
 
-method_positive = (34.58, 18.23, 31.14)
-method_neutral = (40.05, 64.30, 40.83)
-method_negative = (17.16, 13.30, 16.35)
+method_positive = (34.0, 17.4, 30.4)
+method_neutral = (39.6, 61.9, 44.4)
+method_negative = (18.0, 13.8, 17.1)
 
 add_to_plot(method_positive, method_neutral, method_negative, 14)
 
-assertion_positive = (39.93, 18.69, 35.46)
-assertion_neutral = (31.52, 59.60, 37.43)
-assertion_negative = (19.80, 16.41, 19.09)
+assertion_positive = (39.2, 17.9, 34.6)
+assertion_neutral = (31.3, 57.4, 36.9)
+assertion_negative = (20.6, 16.8, 19.8)
 
 add_to_plot(assertion_positive, assertion_neutral, assertion_negative, 28)
 labels = ["Positive", "Neutral\nClass-Level", "Negative", "Positive", "Neutral\nMethod-Level", "Negative", "Positive", "Neutral\nAssertion-Level", "Negative"]
