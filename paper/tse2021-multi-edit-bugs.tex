@@ -547,8 +547,8 @@ Below, we list further constraints based on the needs of each experiment:
   \item For fault localization experiments (Section \ref{secFL}), we include bugs based on the above definition, 
   with the exception of one of the experiments which adds a constraint of bug with two or more failing test cases.
   \item For mutation operators and fix code (Section \ref{sec:mutops}), we have two experiments with two different data sets. 
-  The first, looking into the presence of dependencies in patches, uses the criteria of a patch with two or more lines being added, removed, or modified. 
-  This is due to the analysis being performed at the statement level. 
+  The first, looking into the presence of dependencies in patches, uses all multi-location patches 
+  (though we report results on dependencies between patch lines rather than dependencies between locations). 
   The second experiment, looking into the presence of code clones, uses the definition we provided previously, 
   but adds the constraint of using bugs with 6 or fewer locations for scalability reasons.
   \item For test case based validation (Section \ref{sec:tests}), we further constrained the definition of a 
@@ -569,7 +569,7 @@ We find that multi-location patches comprise 63\% of \bears and 54\% of
 Defects4J.
 %\footnote{There are 11 bugs that should be considered multi-location but were left 
 %out of all analyses. We were unable to correct this before the deadline but will add them 
-%post review. This version of the paper treats these bugs as single location.}.
+%post review. This version of the paper treats these bugs as single-location.}.
 % CLG: I don't think this is a critical detail, and fails to honestly advocate
 % for our work.  All it does is annoy reviewers without adding much...we can fix it in post. 
 Although a multi-location human patch for a bug does not imply the 
@@ -614,22 +614,15 @@ coverage of a line.
 %Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}; in general, though more
 %recent approaches are typically more effective, such approaches tend to localize similar
 %faults~\cite{zou2019empirical}.
-These techniques are often evaluated by asking: how often does a given technique assign a high 
-score for a buggy line of code? This is straightforward for single location repairs, but for 
-multi-location repairs, evaluations
-typically consider a technique ``successful'' if it highly ranks or scores \emph{any} line in a
-set of buggy lines~\cite{zou2019empirical,pearson2017evaluating,golagha2020can}.
-While appropriate for the question being asked in such evaluations, this does not address
-suitability for multi-location program repair.%  Identifying one of several buggy
-%locations is generally inadequate in a context where multiple locations must be
-%modified. 
 
-%% new stuff ---------------------------------------------
-%% TODO: add RQ boxes
-One complication with applying SBFL to multi-location bugs is the possibility that not all failing tests will
-execute all the faulty locations or the same set of faulty locations. With single
-location bugs, we can take for granted that the failing tests will directly execute the faulty location
-or the eventual patched code. However, when there are multiple failing tests, it is possible that the 
+We want to study two aspects of SBFL in relation to multi-location bugs. 
+
+%% failing test ---------------------------------------------
+
+The first aspect concerns the behavior of test executions when there are multiple failing tests.
+With single-location bugs, we can take for granted that multiple failing tests will 
+directly execute the faulty location or the eventual patched code. 
+However, in multi-location bugs, it is possible that the 
 different failing tests will execute different portions of the faulty or patched code. 
 One straightforward scenario where this occurs could be situations where the same fix is copied 
 across the codebase and multiple independent tests are written for each instance of the fix.
@@ -637,13 +630,16 @@ across the codebase and multiple independent tests are written for each instance
 There are a few implications of this. Although the case where multiple failing tests are executing
 independent fault locations does not necessarily indicate that SBFL will be less effective
 (since SBFL also takes into account code coverage of passing tests), it still may lead to misleading results;
-for example, situations in which mutliple faulty locations are ranked similarly or lower than code
+for example, situations in which mutliple faulty locations are ranked similarly or lower than non-faulty code
 executed by all failing tests. It can also lead to insights on new techniques for localizing multi-location 
 bugs, such as the one previously used to identify regions of code that are syntactically similar to a 
 previously identified faulty region of code~\cite{saha2019harnessing}.
 
-Thus, we ask, how often are all the faulty locations in a multi-location bug executed by all the failing tests,
-rather than a each failing test executing a different or independent subset of faulty locations? (add set notation)
+Thus, we ask, 
+
+\rqorinsight{2}{
+how often are all the faulty locations in a multi-location bug executed by all the failing tests,
+rather than a each failing test executing a different or independent subset of faulty locations?}
 
 %%%%% First three can be replicated by the previous data
 %%%%% Last one has a possible heuristic that probably gets it right most of the time, but may identify some patches where different faulty locations are run by different tests when in fact the faulty locations were all run by the same tests.
@@ -661,7 +657,19 @@ rather than a each failing test executing a different or independent subset of f
 % - SBFL on each failing test individually -- does this get significantly different results than doing them together?
 
 
-Beyond the behavior of failing tests, we want to look more broadly at how SBFL interacts with 
+The second aspect that we study concerns the ability of SBFL to localize some or all faulty locations, and whether this impacts APR performance.
+New SBFL techniques are often evaluated by asking: how often does a given technique assign a high 
+score for a buggy line of code? This is straightforward for single-location repairs, but for 
+multi-location repairs, evaluations
+typically consider a technique ``successful'' if it highly ranks or scores \emph{any} line in a
+set of buggy lines~\cite{zou2019empirical,pearson2017evaluating,golagha2020can}.
+While appropriate for the question being asked in such evaluations, this does not address
+suitability for multi-location program repair. Identifying one of several buggy
+locations is inadequate in a context where multiple locations must be modified -- 
+either we need be able to identify all the faulty locations through SBFL
+or infer where other faulty locations must be based on the location of one.
+
+Accordingly, we want to look more broadly at how SBFL interacts with 
 multi-location bugs.
 Previous work has introduced three debugging scenarios specific to localizing faults with multiple 
 locations~\cite{pearson2017evaluating}:
@@ -672,28 +680,29 @@ locations~\cite{pearson2017evaluating}:
   \item Average case: half of the defective statements need to be localized to fix the bug.
 \end{enumerate}
 
-Although these debugging scenarios were used to evaluate fault localization techniques, it is unclear
+In that previous work, these debugging scenarios were used to evaluate fault localization techniques, but it is unclear
 whether they represent different uses in the context of program repair.
 (List APR papers where we know what kind of debugging scenario is used in their FL).
-Most APR assumes the best case (verify the truth of this statement), trying to generate a patch, potentially with multiple locations,
-based off of one faulty location at a time.
-We can 
-- if we assume each scenario, how well do we do?
-- see how many bugs are localizable by different scenarios (perhaps split by whether the failing tests execute independent locations)
-- does APR work better for bugs localizable in worst case? How about split by ^
+Most APR assumes the best case (verify the truth of this statement), and try to generate a patch, potentially with multiple locations, based off of one faulty location at a time.
 
+From here, we ask two questions: 
 
+\rqorinsight{3}{How often are bugs localized as worst or average case? (tentative, this doesn't feel strong enough, maybe requires more analysis into bugs that are only localizable best case or worst case?)}
+
+and 
+
+\rqorinsight{4}{Are bugs that are localizable in the worst case more likely to be repaired by APR tools?}
 
 %% some potential question framing brainstorming -------
 
-- Since, (I presume) most APR techniques are using the best case debugging scenario, how many bugs that were
-localizable in a best case, worst case, and average case scenarios were able to be repaired?
-Note: Worst case $\subseteq$ Average case $\subseteq$ Best case.
-- What APR techniques even account for localization that is not best case?
-- We want to see if SBFL effectiveness when measured on a single location (of many) vs. all the 
-locations corresponds to higher likelihood of repairs
-- We want to compare the SBFL effectiveness to single-location bugs -- are multi-location bugs 
-harder to localize?
+% - Since, (I presume) most APR techniques are using the best case debugging scenario, how many bugs that were
+% localizable in a best case, worst case, and average case scenarios were able to be repaired?
+% Note: Worst case $\subseteq$ Average case $\subseteq$ Best case.
+% - What APR techniques even account for localization that is not best case?
+% - We want to see if SBFL effectiveness when measured on a single-location (of many) vs. all the 
+% locations corresponds to higher likelihood of repairs
+% - We want to compare the SBFL effectiveness to single-location bugs -- are multi-location bugs 
+% harder to localize?
 
 % There has already been some work on this -- the paper on predicting the quality of SBFL showed there was no 
 % change in effectiveness
@@ -706,32 +715,46 @@ harder to localize?
 \subsection{Methodology}
 
 \looseness-1
+RQ2 concerns the behavior of different failing tests, so we narrow our dataset to bugs
+with at least two failing tests. 
 Between both datasets, there are 232 total bugs that both require multi-location
-patches and contain multiple failing tests. However, we were not able to classify
+patches and contain multiple failing tests. 
+\todo{get accurate count:}
+However, we were not able to classify
 two of the bugs in \bears through coverage analysis or inspection,
 leaving 230 total bugs: 197 in Defects4J and 33 in \bears. 
+%%
 We used JaCoCo~\cite{jacoco}
 to determine which lines of code in both the buggy and patched versions were executed
 by each failing test.
 
-To answer RQ2, we used the patch lines that were executed by the tests to categorize 
-each bug into three \emph{localization categories}: \emph{holds}, \emph{contradicts}, and 
-\emph{partially holds}. These three localization categories refer to the relationship each bug has 
-with 
-the assumption that code executed by all failing tests are more likely to be buggy: 
+We look for two kinds of patterns. The first is the case where the tests are executing completely 
+separate parts of the faulty code. That is, for the set of failing tests $T_f$ and function $\text{exec}_f$ 
+that gives a set of faulty lines executed by that failing test: 
+\todo{ok after a few attempts, I think this is accurate to what I want to say but it looks and feels terrible}
 
-\begin{itemize}
-\item \emph{holds}:  all failing tests execute the exact same patch lines.
-\item \emph{contradicts}: no patch line is covered by all failing tests.
-\item \emph{partially holds}: some, but not all, patch lines are covered by all failing tests
-\end{itemize}
+\begin{equation}
+\begin{aligned}
+    (\forall{t_f} &\in T_f : \forall{t_f'} \in (T_f - t_f) : \\
+    &\text{exec}_f(t_f) \cap \text{exec}_f(t_f') = \emptyset \lor \text{exec}_f(t_f) = \text{exec}_f(t_f')) \\
+    \land \exists{t_f} &\in T_f : \text{exec}_f(t_f) \ne \text{exec}_f(T_f)
+\end{aligned}
+\end{equation}
+% \begin{equation}
+%     \exists{t_f} \in T_f : \text{exec}_f(t_f) \cap \text{exec}_f(T_f - t_f) = \emptyset
+% \end{equation}
 
-In our experiments, we classify bugs using coverage of the patch lines, as opposed to 
-coverage of patch locations (where a patch location is considered covered if any line 
-at that patch location is 
-executed). For the purposes of fault localization, coverage of patch locations is more valuable 
-than coverage of patch lines, and we separately identified whether categorization 
-based on patch line coverage matched categorization based on patch location coverage.
+The second is the case where all failing tests execute the same faulty locations. That is:
+
+\begin{equation}
+    \forall{t_f} \in T_f : \text{exec}_f(t_f) = \text{exec}_f(T_f)
+\end{equation}
+
+We also see if these patterns extend to non-faulty code -- that is, if failing tests are executing 
+separate faulty locations, do they also execute separate parts of the broader codebase?
+Are failing tests that execute all the same parts of the codebase also executing the same code generally?
+We use the formulas as above, but instead of using the function $\text{exec}_f$ to get the set of executed faulty locations,
+we use $\text{exec}_a$ to get the set of all executed lines.
 
 To answer RQ3, we took all code locations executed by tests in the buggy version and
 calculated the percentage of lines that were executed by all failing tests. 
@@ -758,104 +781,13 @@ to localization category.
 \subsection{Results}
  \label{sec:cov_patterns}
 
-\subsubsection{Distribution of Localization Categories}
-The first group of bars in Figure~\ref{fig:coverage-all} shows results for the overall distribution 
-of localization categories, 
-answering RQ2. 
-For 25\% of bugs, none of the patch lines were executed by all failing tests as they were 
-categorized as \emph{contradicts}.  A slightly larger proportion of bugs, 36\%, were classified 
-as 
-\emph{holds}, indicating that all failing tests executed the same patch lines.
-In addition, another 39\% were classified as \emph{partially holds}.
-
-Note, however, that the behavior varies considerably by dataset, as shown in the second and 
-third groups of bars in Figure \ref{fig:coverage-all}. In particular, \bears has fewer bugs in 
-\emph{contradicts} and more bugs in \emph{partially holds}.
-This difference is statistically significant, with $p = 0.0335$ (Fisher's exact test).
-We hypothesize that this may be due to differences in how the two  
-datasets were selected and constructed:
-The Defects4J dataset specifically enforces a requirement that the patches in the 
-dataset be isolated, i.e., not containing any refactorings or new features.
-The authors both sought bugs that met this requirement, in manually isolated others~\cite{defects4j}. By contrast, the 
-bugs in 
-\bears bugs are scraped directly from continuous integration systems, and the 
-only requirements for inclusion is that the bug must be reproducible and that
-the patch must be written by a human~\cite{bears}. 
-%In addition, Bears was designed to be evolvable 
-%and relatively easily expanded as a dataset, which is at odds with manual inspection and isolation of 
-%bugs~\cite{bears}.
-%Given that these two datasets were designed with different values and demonstrate very 
-%different behavior, 
-These findings highlight the importance of diverse datasets
-in APR evaluations. 
-
-We also found that 22 bugs had differing localization categories when 
-classified based on coverage of patch lines vs. coverage of patch locations. All of these 
-bugs 
-were classified as \emph{partially holds} when classified by line coverage, but were classified as 
-\emph{holds} when classifying by patch coverage, indicating that the failing tests were 
-executing different paths within the same patch locations. 
-This analysis indicates that localization category based on patch line coverage can approximate
-localization category based on patch location coverage.
-
-Overall, we cannot assume that the failing tests in multi-location repairs will execute all 
-faulty locations -- in fact our results suggests that assumption only holds 36\% of the time. 
-This suggests that off-the-shelf SBFL techniques may not be
-well-suited to guiding APR techniques when addressing more than half of
-real-world multi-location bugs.
-
 \begin{figure}
-  \includegraphics[width=\linewidth,left]{img/coverage-buggy.pdf}
-  \caption{\small \label{fig:coverage-buggy} Distribution of bugs based percentage of lines 
-  executed by all failing tests, measuring the degree to which failing tests execute the same 
-  code. The coverage distributions for the \emph{contradicts} and \emph{partially holds} are more or 
-  less uniformly distributed. The coverage
-  distribution for the \emph{holds} category skews measurable higher. 
-      } %Thus, there seems to be little correlation between 
-% localization categories and whether failing tests all execute the same code in the buggy 
-% program.}
-% CLG sez: I know I asked for takeaways in captions but (1) I'm not sure what
-% this last one means and (2) I think it contradicts what we say in text, so I
-% just cut it for space, it's fine. 
+    \centering
+    \includegraphics[width=0.5\textwidth,angle=270]{img/fl-outline.jpg}
+    \caption{}
+    \label{fig:outline}
 \end{figure}
 
-\subsubsection{Generalization of localization categories}
-Figure \ref{fig:coverage-buggy} plots localization category based on the
-percentage of lines executed by all failing tests. 
-%
-The distributions of bugs in \emph{contradicts} (and to a lesser extent, bugs in \emph{partially 
-holds}) are 
-distributed apparently uniformly across 0\% to 100\% line coverage. This indicates that \emph{contradicts} 
-bugs are 
-not more/less likely to have failing tests that cover the same or different parts of the code 
-base.
-% JL: I agree that this is too confusing, cutting for now.
-%% \footnote{Note that a bug categorized as \emph{contradicts} can be scored 100\% as the 
-%% patch can introduce if statements that change the control flow and cause all failing tests to 
-%% eventaully execute all different parts of the patch.\todo{I think this point may
-%%   be too pedantic/confusing to be necessary, but let's try it in a footnote.}}
-%
-We qualitatively observe that bugs in \emph{holds} are more likely to have 
-failing tests that execute the same lines of code, as we might expect. However, this is not 
-definitive, as the failing tests in \emph{holds} bugs covered anywhere between 
-5\% to 100\% of the same lines.
-
-These observations are confirmed quantitatively: There were no statistically significant 
-differences between the distribution for \emph{contradicts} and \emph{partially holds}. 
-However, the distribution for \emph{holds} showed statistically significant differences with 
-\emph{partially holds} ($p = 0.006$)  and \emph{contradicts} ($p < 0.001$) with 
-one-tailed Mann-Whitney U tests.
-
-In conclusion, 
-we are not able to solely rely on degree to which failing tests cover the buggy 
-code to always accurately classify bugs to their localization category.
-However, \emph{holds} bugs tend to have failing tests that cover more of the 
-same code than the failing tests of other bugs, indicating 
-there may be ways we can augment this statistic to determine whether bugs would eventually 
-be classified as \emph{holds}, which is 
-especially notable since these bugs uphold our assumption and are accordingly more likely to 
-succeed with SBFL.
- 
 \section{Mutation Operators and Fix Code}
 \label{sec:mutops}
 
@@ -902,12 +834,14 @@ patches with intra-patch dependencies?}
 \subsubsection{Methodology}
 We consider a patch to contain \emph{dependent edits} if there exist 
 control or data dependencies between added, deleted, or modified statements.
-Since we analyze dependent statements, we broaden the scope of multi-location patches to 
-include all patches containing at least two added, removed, or modified lines, 
-again ignoring edits to comments, whitespace, or imports.
-We denote such patches as \emph{multi-line patches}.
-This expanded dataset contains 659 Defects4J v2 and 151 \bears 
-multi-line patches.
+Note that this is different than dependencies within locations, 
+as a patch location may contain multiple statements.
+<Why line as opposed to location? is it just engineering difficulty?>
+
+- finer grained analysis on dependencies
+
+% This expanded dataset contains 659 Defects4J v2 and 151 \bears 
+% multi-line patches.
 % We explicitly got rid of Table 1 stats on multi-line 
 % patches for ESEC/FSE. We did so since we didn't wish to divert attention 
 % from multi-location patches during our discussion of the datasets in Sec 2.
@@ -1475,7 +1409,7 @@ However, research has shown that multiple fault localization techniques can be
 combined to localize different kinds of faults~\cite{zou2019empirical}. Most
 empirical studies on fault localization evaluate techniques by determining
 whether a technique can localize any faulty line. This usefully evaluates single
-line or single location faults, but not necessarily multi-location faults.
+line or single-location faults, but not necessarily multi-location faults.
 
 Golagha et. al~\cite{golagha2020can} analyzed the impact of 70 code metrics on
 SBFL, including multi-location patches.  They found that the number of locations
