@@ -756,17 +756,29 @@ Are failing tests that execute all the same parts of the codebase also executing
 We use the formulas as above, but instead of using the function $\text{exec}_f$ to get the set of executed faulty locations,
 we use $\text{exec}_a$ to get the set of all executed lines.
 
-To answer RQ3, we took all code locations executed by tests in the buggy version and
-calculated the percentage of lines that were executed by all failing tests. 
-A lower percentage indicates that the failing tests execute different portions of the buggy 
-code, whereas a higher percentage indicates that the failing tests all execute a similar
-set of code, corresponding to bugs we expect to be in \emph{contradicts} and \emph{holds},
-respectively.
+To answer RQ3, we performed SBFL on all multi-location bugs. Specifically, we use JaCoCo to generate the spectra
+and calculate the suspiciousness score for each line using the Ochiai formula \todo{(cite Ochiai)}.
+From the ranked list of lines, we determined how
+many locations were localized. Since a fault location can consist of multiple consecutive lines, we consider a 
+fault location to be localized if any of the faulty lines that comprise the location are highly ranked with SBFL.
+We also consider all lines that tied with the lowest rank line, as different implementations of SBFL may 
+order these tied lines differently.
 
-After calculating the percentages, we split the bugs based on whether we categorized the bug 
-as \emph{contradicts}, \emph{holds}, or \emph{partially holds} in the previous experiment.
-We qualitatively and quantitatively observed the degree to which the percentage corresponded 
-to localization category.
+To calculate the best, worst, and average case, we take the top 100 most suspicious lines (including ties)
+and calculate what proportion of faulty locations are covered within these lines, best meaning at least one location,
+worst meaning all locations, and average meaning at least half the locations. Some locations may be unlocalizable
+(e.x., a patch may insert a new method, but since the line in which it was inserted was originally whitespace, JaCoCo cannot 
+identify that particular line as being executed by any tests). We make no adjustment for this.
+
+For these previous two methods, we use JaCoCo to generate the execution coverage of the failing tests. 
+However, for certain bugs in \bears{}, JaCoCo was not able to generate coverage. In particular, we exclude \bears{} bugs 
+190, 191, 192, and 244, due to engineering difficulties. 
+In addition several bugs (including \bears{} bugs 27-83 \todo{among others, pls make a final list}) were able to be executed 
+in previous environments but not current ones. We had previously gathered execution coverage of those bugs, but stored the results in
+a highly abstracted manner that resulted in information loss; nevertheless, we extrapolate from those data where necessary.
+Table \todo{[tbd, is this the right thing to be doing?]} shows the number of bugs used in each case.
+
+\todo{fill in Repairthemall RQ}
 
 
 \begin{figure}
