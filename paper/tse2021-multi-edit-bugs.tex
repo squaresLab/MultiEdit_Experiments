@@ -374,7 +374,7 @@ Traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 24 & 57\% & 33 & 79\% \\
 \midrule
 All (\bears) & 184 & $>$240.6 & $>$109.4 & 116 & 63\% & 35 & 19\% & 92 & 50\% & 151 & 82\% \\
 \midrule
-Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 571 & 56\% & 232 & 23\% & 470 & 46\% & 810 & 80\%\\
+Combined (Defects4J \& \bears) & 1019 & $>$1054.5 & $>$627.5 & 571 & 56\% & 232 & 23\% & 470 & 46\% & 810 & 80\%\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -719,10 +719,6 @@ RQ2 concerns the behavior of different failing tests, so we narrow our dataset t
 with at least two failing tests. 
 Between both datasets, there are 232 total bugs that both require multi-location
 patches and contain multiple failing tests. 
-\todo{get accurate count:}
-However, we were not able to classify
-two of the bugs in \bears through coverage analysis or inspection,
-leaving 230 total bugs: 197 in Defects4J and 33 in \bears. 
 %%
 We used JaCoCo~\cite{jacoco}
 to determine which lines of code in both the buggy and patched versions were executed
@@ -731,13 +727,11 @@ by each failing test.
 We look for two kinds of patterns. The first is the case where the tests are executing completely 
 separate parts of the faulty code. That is, for the set of failing tests $T_f$ and function $\text{exec}_f$ 
 that gives a set of faulty lines executed by that failing test: 
-\todo{ok after a few attempts, I think this is accurate to what I want to say but it looks and feels terrible}
 
 \begin{equation}
 \begin{aligned}
-    (\forall{t_f} &\in T_f : \forall{t_f'} \in (T_f - t_f) : \\
-    &\text{exec}_f(t_f) \cap \text{exec}_f(t_f') = \emptyset \lor \text{exec}_f(t_f) = \text{exec}_f(t_f')) \\
-    \land \exists{t_f} &\in T_f : \text{exec}_f(t_f) \ne \text{exec}_f(T_f)
+    \forall{t_{f1}, t_{f2}} &\in T_f \text{ such that exec}_f(t_{f1}) \ne \text{exec}_f(t_{f2}): \\
+    &\text{exec}_f(t_{f1}) \cap\text{exec}_f(t_{f2}) = \emptyset 
 \end{aligned}
 \end{equation}
 % \begin{equation}
@@ -747,7 +741,7 @@ that gives a set of faulty lines executed by that failing test:
 The second is the case where all failing tests execute the same faulty locations. That is:
 
 \begin{equation}
-    \forall{t_f} \in T_f : \text{exec}_f(t_f) = \text{exec}_f(T_f)
+    \forall{t_{f1}, t_{f2}} \in T_f : \text{exec}_f(t_{f1}) = \text{exec}_f(t_{f2})
 \end{equation}
 
 We also see if these patterns extend to non-faulty code -- that is, if failing tests are executing 
@@ -771,34 +765,83 @@ worst meaning all locations, and average meaning at least half the locations. So
 identify that particular line as being executed by any tests). We make no adjustment for this.
 
 For these previous two methods, we use JaCoCo to generate the execution coverage of the failing tests. 
-However, for certain bugs in \bears{}, JaCoCo was not able to generate coverage. In particular, we exclude \bears{} bugs 
-190, 191, 192, and 244, due to engineering difficulties. 
-In addition several bugs (including \bears{} bugs 27-83 \todo{among others, pls make a final list}) were able to be executed 
-in previous environments but not current ones. We had previously gathered execution coverage of those bugs, but stored the results in
+However, for certain bugs in \bears{}, JaCoCo was not able to generate coverage. 
+In particular, several bugs in Bears were unable to be executed due to various engineering or reproduction difficulties.
+In addition several bugs were able to be executed 
+in previous environments but not current ones. 
+We had previously gathered execution coverage of those bugs for different experiment, but stored the results in
 a highly abstracted manner that resulted in information loss; nevertheless, we extrapolate from those data where necessary.
-Table \todo{[tbd, is this the right thing to be doing?]} shows the number of bugs used in each case.
+Table \ref{tab:runnable_jacoco} shows the number of bugs used in each case, and the paper artifact includes the full list of bugs that were included or excluded.
+
+\begin{table*}
+\begin{center}
+\begin{tabular}{l | rr rr rr rr }
+\toprule
+\multirow{2}{*}{Project}  & \multicolumn{2}{c}{Multi-Location}      
+& \multicolumn{2}{c}{Executable} 
+& \multicolumn{2}{c}{Additionally Executable}
+& \multicolumn{2}{c}{Unexecutable} \\
+& \multicolumn{2}{c}{(2+ Failed Tests)}   
+& \multicolumn{2}{c}{October 2021}             
+& \multicolumn{2}{c}{Feb 2021}  
+& \multicolumn{2}{c}{with Jacoco}
+\\
+\midrule
+Defects4J & 455 & (197) & 455 & (197) & 0 & (0) & 0 & (0) \\
+\midrule
+\bears (single-module) & 116 & (35) &  67 & (14) & 18 & (18) & 31 & (3)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{\label{tab:runnable_jacoco} \small The proportion of bugs we were able to reproduce and get results using Jacoco. \todo{Will work on formatting and column headers.}}
+\end{table*}
 
 \todo{fill in Repairthemall RQ}
 
+\begin{figure}
+  \includegraphics[width=\linewidth]{img/coverage_faulty.pdf}
+  \caption{\small How the failing tests of different patches behave with respect to the faulty locations. With the vast majority of bugs, the failing tests execute the same faulty locations.}
+  \label{fig:coverage-faulty}
+\end{figure}
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{img/coverage_hist_all.pdf}
-  \caption{\small Localization categories for multi-location bugs with multiple failing
-      tests. The categories are relatively 
-      evenly populated, with a slightly higher proportion of bugs in
-      \emph{partially holds}. The datasets demonstrate different distributions.}
+  \includegraphics[width=\linewidth]{img/coverage-all.pdf}
+  \caption{\small How the failing tests of different patches behave with respect to all lines of code in the program. We expect that if the failing tests execute the same faulty locations, they will also execute the same lines of code, faulty or not. Here we see that this largely holds.}
   \label{fig:coverage-all}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{img/debugging_scenarios.pdf}
+  \caption{\small Percentage of bugs that SBFL can localize given each debugging scenario. \todo{Need to add avg case, also there might be a bug in calculating worst/best case, I'll get back to this.}}
+  \label{fig:debug_scenarios}
 \end{figure}
 
 \subsection{Results}
  \label{sec:cov_patterns}
+ 
+ \subsubsection{Multiple failing tests.}
+ Figure \ref{fig:coverage-faulty} shows the distribution of bugs in our dataset that have 
+ failing tests executing the same fault locations, independent fault locations, or follow neither
+ of these patterns.
+ We can see that the vast majority of bugs have failing tests executing the same fault locations.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth,angle=270]{img/fl-outline.jpg}
-    \caption{}
-    \label{fig:outline}
-\end{figure}
+ 
+ We also investigated whether failing tests execute the same or completely independent lines of code (faulty or not).
+ Figure \ref{fig:coverage-all} shows the results, divided by whether the failing tests had executed the same or independent fault locations.
+ We can see that many of the bugs whose failing tests execute the same faulty locations also 
+ execute the same faulty and non-faulty lines of code.
+ However, there is much more variability in bugs where the failing tests execute different fault locations.
+ 
+ \subsubsection{SBFL debugging scenarios.}
+ Figure \ref{fig:debug_scenarios} shows the results for the number of bugs localized under each debugging scenario.
+ 
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.5\textwidth,angle=270]{img/fl-outline.jpg}
+%     \caption{}
+%     \label{fig:outline}
+% \end{figure}
 
 \section{Mutation Operators and Fix Code}
 \label{sec:mutops}
@@ -848,7 +891,7 @@ We consider a patch to contain \emph{dependent edits} if there exist
 control or data dependencies between added, deleted, or modified statements.
 Note that this is different than dependencies within locations, 
 as a patch location may contain multiple statements.
-<Why line as opposed to location? is it just engineering difficulty?>
+%Why line as opposed to location? is it just engineering difficulty?
 
 - finer grained analysis on dependencies
 
