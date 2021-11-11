@@ -619,11 +619,12 @@ We want to study two aspects of SBFL in relation to multi-location bugs.
 
 %% failing test ---------------------------------------------
 
-The first aspect concerns the behavior of test executions when there are multiple failing tests.
-With single-location bugs, we can take for granted that multiple failing tests will 
-directly execute the faulty location or the eventual patched code. 
-However, in multi-location bugs, it is possible that the 
-different failing tests will execute different portions of the faulty or patched code. 
+The first aspect concerns the bugs with multiple failing tests.
+If the bug has only one faulty location and multiple failing tests,
+we can take for granted that multiple failing tests will 
+directly execute the the one faulty location or eventual patched code. 
+However, with multiple faulty locations and multiple failing tests,
+it is possible that the different failing tests will execute different portions of the faulty or patched code. 
 One straightforward scenario where this occurs could be situations where the same fix is copied 
 across the codebase and multiple independent tests are written for each instance of the fix.
 
@@ -638,7 +639,7 @@ previously identified faulty region of code~\cite{saha2019harnessing}.
 Thus, we ask, 
 
 \rqorinsight{2}{
-how often are all the faulty locations in a multi-location bug executed by all the failing tests,
+How often are all the faulty locations in a multi-location bug executed by all the failing tests,
 rather than a each failing test executing a different or independent subset of faulty locations?}
 
 %%%%% First three can be replicated by the previous data
@@ -687,7 +688,7 @@ Most APR assumes the best case (verify the truth of this statement), and try to 
 
 From here, we ask two questions: 
 
-\rqorinsight{3}{How often are bugs localized as worst or average case? (tentative, this doesn't feel strong enough, maybe requires more analysis into bugs that are only localizable best case or worst case?)}
+\rqorinsight{3}{How often are bugs localized as worst or average case compared to the best case? }
 
 and 
 
@@ -715,23 +716,27 @@ and
 \subsection{Methodology}
 
 \looseness-1
+Throughout these experiments, we used JaCoCo~\cite{jacoco}
+to determine which lines of code in both the buggy and patched versions were executed
+by each failing test.
+% Repair tools generally use Gzoltar~\cite{gzoltar} to perform SBFL. 
+% Gzoltar uses JaCoCo to measure the spectra, so our usage of JaCoCo 
+
 RQ2 concerns the behavior of different failing tests, so we narrow our dataset to bugs
 with at least two failing tests. 
 Between both datasets, there are 232 total bugs that both require multi-location
 patches and contain multiple failing tests. 
-%%
-We used JaCoCo~\cite{jacoco}
-to determine which lines of code in both the buggy and patched versions were executed
-by each failing test.
 
-We look for two kinds of patterns. The first is the case where the tests are executing completely 
+We look for two kinds of patterns, corresponding to two opposing ways failing tests can behave.
+The first is the case where the tests are executing completely 
 separate parts of the faulty code. That is, for the set of failing tests $T_f$ and function $\text{exec}_f$ 
 that gives a set of faulty lines executed by that failing test: 
 
 \begin{equation}
 \begin{aligned}
-    \forall{t_{f1}, t_{f2}} &\in T_f \text{ such that exec}_f(t_{f1}) \ne \text{exec}_f(t_{f2}): \\
-    &\text{exec}_f(t_{f1}) \cap\text{exec}_f(t_{f2}) = \emptyset 
+    \text{Independent}&(T_f) := \\
+    \forall{t_{f_1}, t_{f_2}} &\in T_f : \text{exec}_f(t_{f_1}) \ne \text{exec}_f(t_{f_2}) \longrightarrow \\
+    &\text{exec}_f(t_{f_1}) \cap\text{exec}_f(t_{f_2}) = \emptyset 
 \end{aligned}
 \end{equation}
 % \begin{equation}
@@ -741,7 +746,10 @@ that gives a set of faulty lines executed by that failing test:
 The second is the case where all failing tests execute the same faulty locations. That is:
 
 \begin{equation}
-    \forall{t_{f1}, t_{f2}} \in T_f : \text{exec}_f(t_{f1}) = \text{exec}_f(t_{f2})
+\begin{aligned}
+    \text{Same}(T_f) :=& \\
+    \forall{t_{f_1}, t_{f_2}} &\in T_f : \text{exec}_f(t_{f_1}) = \text{exec}_f(t_{f_2})
+    \end{aligned}
 \end{equation}
 
 We also see if these patterns extend to non-faulty code -- that is, if failing tests are executing 
@@ -769,8 +777,12 @@ However, for certain bugs in \bears{}, JaCoCo was not able to generate coverage.
 In particular, several bugs in Bears were unable to be executed due to various engineering or reproduction difficulties.
 In addition several bugs were able to be executed 
 in previous environments but not current ones. 
-We had previously gathered execution coverage of those bugs for different experiment, but stored the results in
-a highly abstracted manner that resulted in information loss; nevertheless, we extrapolate from those data where necessary.
+We had previously gathered execution coverage some of those bugs for different experiment, but stored the results in
+a highly abstracted manner that resulted in information loss; nevertheless, we extrapolate from those data where possible, particularly in
+the first research question.
+Because of the information loss, some of the results for the first RQ may be unsound; 
+there may be a slight overestimate on the number of bugs considered "independent."
+However, this is expected to be a very small number.
 Table \ref{tab:runnable_jacoco} shows the number of bugs used in each case, and the paper artifact includes the full list of bugs that were included or excluded.
 
 \begin{table*}
@@ -779,7 +791,7 @@ Table \ref{tab:runnable_jacoco} shows the number of bugs used in each case, and 
 \toprule
 \multirow{2}{*}{Project}  & \multicolumn{2}{c}{Multi-Location}      
 & \multicolumn{2}{c}{Executable} 
-& \multicolumn{2}{c}{Additionally Executable}
+& \multicolumn{2}{c}{Previously Executable}
 & \multicolumn{2}{c}{Unexecutable} \\
 & \multicolumn{2}{c}{(2+ Failed Tests)}   
 & \multicolumn{2}{c}{October 2021}             
@@ -793,7 +805,8 @@ Defects4J & 455 & (197) & 455 & (197) & 0 & (0) & 0 & (0) \\
 \bottomrule
 \end{tabular}
 \end{center}
-\caption{\label{tab:runnable_jacoco} \small The proportion of bugs we were able to reproduce and get results using Jacoco. \todo{Will work on formatting and column headers.}}
+\caption{\label{tab:runnable_jacoco} \small The proportion of bugs we were able to reproduce and get results using Jacoco. 
+\todo{Will work on formatting and column headers, also note the non-parenthesized numbers are counting out of all bugs and the parens means counting out of bugs with 2+ failing tests.}}
 \end{table*}
 
 \todo{fill in Repairthemall RQ}
