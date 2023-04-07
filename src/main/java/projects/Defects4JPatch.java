@@ -19,7 +19,6 @@ public class Defects4JPatch implements Patch {
     private CoverageSubset patchLocationsInPatched;
     private CoverageSubset patchLocationsInBuggy;
     private final Scanner sysin = new Scanner(System.in);
-    private String java8path = "/usr/lib/jvm/java-8-openjdk-amd64/bin/java";
 
 
     public Defects4JPatch(D4JName projectName, int bugNumber) {
@@ -109,7 +108,7 @@ public class Defects4JPatch implements Patch {
         // hacks on StackOverflow, but for the time being I just want something
         // that works at all
         // rather than a perfect implementation. One thing at a time.
-        CommandLine command = CommandLine.parse(java8path);
+        CommandLine command = CommandLine.parse(CommandLineRunner.java8path);
         String outputDir = "target/classes";
 
         String classPath = outputDir;
