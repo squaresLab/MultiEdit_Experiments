@@ -1,7 +1,6 @@
 
 \documentclass[10pt,journal,compsoc]{IEEEtran}
 
-
 \ifCLASSOPTIONcompsoc
   % IEEE Computer Society needs nocompress option
   % requires cite.sty v4.0 or later (November 2003)
@@ -25,6 +24,7 @@
 \usepackage{xcolor}
 \usepackage[export]{adjustbox}
 \usepackage{xspace}
+\usepackage{siunitx}
 
 \definecolor{listinggray}{gray}{0.9}
 \definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
@@ -370,7 +370,7 @@ FasterXML (jackson-databind) & 26 & 80.7 & 41.2 & 19 & 73\% & 3 & 12\% & 15 & 58
 INRIA Spoon & 62 & 66.2 & 30.8  & 40 & 65\% & 18 & 29\% & 24 & 39\% & 52 & 84\% \\
 Spring Data Commons & 15 & 45.8 & 28.8  & 10 & 67\% & 3 & 20\% & 9 & 60\% & 14 & 93\% \\
 Traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 24 & 57\% & 33 & 79\% \\
-30 other projects & 39 & --- & --- & 23 & 59\% & 9 & 23\% & 20 & 51\% & 29 & 74\% \\
++30 other projects & 39 & --- & --- & 23 & 59\% & 9 & 23\% & 20 & 51\% & 29 & 74\% \\
 \midrule
 All (\bears) & 184 & $>$240.6 & $>$109.4 & 116 & 63\% & 35 & 19\% & 92 & 50\% & 151 & 82\% \\
 \midrule
@@ -596,25 +596,39 @@ mutation and fix spaces (Section~\ref{sec:mutops}), and validation
 
 %% what are the claims, what are we studying, why are we studying it
 
-%Spectrum-based fault localization (SBFL) is a commonly-studied dynamic
-%fault localization technique, and includes techniques like 
+%% old explanation
+% Fault localization is a first key step in program repair, defining the
+% \emph{fault space}. The majority of dynamic APR
+% uses some variant of spectrum-based fault localization (SBFL) (e.g.,Tarantula~\cite{tarantula},
+% Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}, among others) for this purpose.
+% SBFL techniques compute a suspiciousness score by
+% measuring how often a line is executed by failing tests as compared to passing
+% tests, typically via some (linear) combination of their respective
+% coverage of a line. 
+
+
 %, and is often more effective than alternatives (like mutation-based fault 
 %localization~\cite{mut-analysis} or dynamic program
 %slicing~\cite{zou2019empirical}). 
 Fault localization is a first key step in program repair, defining the
 \emph{fault space}. The majority of dynamic APR
-uses some variant of spectrum-based fault localization (SBFL) (e.g.,Tarantula~\cite{tarantula},
+uses some variant of \emph{spectrum-based fault localization (SBFL)} (e.g.,Tarantula~\cite{tarantula},
 Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}, among others) for this purpose.
 %
-SBFL techniques compute a suspiciousness score by
+SBFL is based off the intuition that a line that is executed more often in failing tests than passing tests
+are more likely to be faulty.
+Thus, these techniques compute a suspiciousness score for each line in the program by
 measuring how often a line is executed by failing tests as compared to passing
 tests, typically via some (linear) combination of their respective
-coverage of a line. 
+coverage of a line.
+APR techniques typically use the lines of the program with the highest suspiciousness scores
+as a starting point for their patching techniques.
 %SBFL techniques include but are not limited to Tarantula~\cite{tarantula},
 %Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}; in general, though more
 %recent approaches are typically more effective, such approaches tend to localize similar
 %faults~\cite{zou2019empirical}.
 
+Since SBFL is most commonly used in APR, this section will focus on the applicability of SBFL to multi-location repair.
 We want to study two aspects of SBFL in relation to multi-location bugs. 
 
 %% failing test ---------------------------------------------
@@ -673,12 +687,13 @@ or infer where other faulty locations must be based on the location of one.
 Accordingly, we want to look more broadly at how SBFL interacts with 
 multi-location bugs.
 Previous work has introduced three debugging scenarios specific to localizing faults with multiple 
-locations~\cite{pearson2017evaluating}:
+locations~\cite{pearson2017evaluating}, which I will enumerate here 
+and slightly rephrase to match our location-level framing and SBFL focus:
 
 \begin{enumerate}
-  \item Best case: only one defective statement needs to be localized to fix the bug.
-  \item Worst case: all defective statements need to be localized to fix the bug.
-  \item Average case: half of the defective statements need to be localized to fix the bug.
+  \item "Best case": only one faulty location needs to be localized with SBFL to fix the bug.
+  \item "Worst case": all faulty locations need to be localized with SBFL to fix the bug.
+  \item "Average case": half of the faulty locations need to be localized with SBFL to fix the bug.
 \end{enumerate}
 
 In that previous work, these debugging scenarios were used to evaluate fault localization techniques, but it is unclear
@@ -727,23 +742,9 @@ with at least two failing tests.
 Between both datasets, there are 232 total bugs that both require multi-location
 patches and contain multiple failing tests. 
 
-We look for two kinds of patterns, corresponding to two opposing ways failing tests can behave.
-The first is the case where the tests are executing completely 
-separate parts of the faulty code. That is, for the set of failing tests $T_f$ and function $\text{exec}_f$ 
-that gives a set of faulty lines executed by that failing test: 
-
-\begin{equation}
-\begin{aligned}
-    \text{Independent}&(T_f) := \\
-    \forall{t_{f_1}, t_{f_2}} &\in T_f : \text{exec}_f(t_{f_1}) \ne \text{exec}_f(t_{f_2}) \longrightarrow \\
-    &\text{exec}_f(t_{f_1}) \cap\text{exec}_f(t_{f_2}) = \emptyset 
-\end{aligned}
-\end{equation}
-% \begin{equation}
-%     \exists{t_f} \in T_f : \text{exec}_f(t_f) \cap \text{exec}_f(T_f - t_f) = \emptyset
-% \end{equation}
-
-The second is the case where all failing tests execute the same faulty locations. That is:
+We look for two kinds of patterns, corresponding to two extreme (and non-exhaustive) ways failing tests can behave.
+The first is the case where all failing tests execute the same faulty locations, 
+which we expect would work well with SBFL. That is:
 
 \begin{equation}
 \begin{aligned}
@@ -752,13 +753,31 @@ The second is the case where all failing tests execute the same faulty locations
     \end{aligned}
 \end{equation}
 
+
+The second is the case where the tests are executing completely 
+separate parts of the faulty code, which we expect could benefit. 
+That is, for the set of failing tests $T_f$ and function $\text{exec}_f$ 
+that gives a set of faulty lines executed by that failing test: 
+
+\begin{equation}
+\begin{aligned}
+    \text{Independent}&(T_f) := \neg \text{Same}(T_f) \wedge \\
+    \forall{t_{f_1}, t_{f_2}} &\in T_f : \text{exec}_f(t_{f_1}) \ne \text{exec}_f(t_{f_2}) \implies \\
+    &\text{exec}_f(t_{f_1}) \cap\text{exec}_f(t_{f_2}) = \emptyset 
+\end{aligned}
+\end{equation}
+
 We also see if these patterns extend to non-faulty code -- that is, if failing tests are executing 
 separate faulty locations, do they also execute separate parts of the broader codebase?
 Are failing tests that execute all the same parts of the codebase also executing the same code generally?
-We use the formulas as above, but instead of using the function $\text{exec}_f$ to get the set of executed faulty locations,
-we use $\text{exec}_a$ to get the set of all executed lines.
+This has implications for localizing bugs which may follow the independent or same patterns -- 
+if an APR technique observes that all the failing tests are executing different parts of the codebase, 
+and we know that this statistically means that the fault will follow the ``independent'' pattern, 
+the APR technique can switch the localization and patching methods it applies.
+To measure this, we use the formulas as above, but instead of using the function $\text{exec}_f$ to get the set of executed faulty locations,
+we use $\text{exec}_a$ to get the set of all executed lines. % explain better, and also explain how we are correlating to the other results.
 
-To answer RQ3, we performed SBFL on all multi-location bugs. Specifically, we use JaCoCo to generate the spectra
+To answer RQ3, we performed SBFL on all multi-location bugs. Specifically, we use JaCoCo to generate the coverage information
 and calculate the suspiciousness score for each line using the Ochiai formula \todo{(cite Ochiai)}.
 From the ranked list of lines, we determined how
 many locations were localized. Since a fault location can consist of multiple consecutive lines, we consider a 
@@ -781,7 +800,7 @@ We had previously gathered execution coverage some of those bugs for different e
 a highly abstracted manner that resulted in information loss; nevertheless, we extrapolate from those data where possible, particularly in
 the first research question.
 Because of the information loss, some of the results for the first RQ may be unsound; 
-there may be a slight overestimate on the number of bugs considered "independent."
+there may be a slight overestimate on the number of bugs considered ``independent.''
 However, this is expected to be a very small number.
 Table \ref{tab:runnable_jacoco} shows the number of bugs used in each case, and the paper artifact includes the full list of bugs that were included or excluded.
 
@@ -809,7 +828,17 @@ Defects4J & 455 & (197) & 455 & (197) & 0 & (0) & 0 & (0) \\
 \todo{Will work on formatting and column headers, also note the non-parenthesized numbers are counting out of all bugs and the parens means counting out of bugs with 2+ failing tests.}}
 \end{table*}
 
-\todo{fill in Repairthemall RQ}
+For the RQ4, in which we investigate whether bugs localizable in the worst case are more likely to be repaired, 
+we compare the results from RQ3 with the results from RepairThemAll~\cite{durieux-repair-them-all},
+an experiment 
+running 11 APR tools on 5 benchmarks, including Defects4J v1 and \bears.
+Since the bugs introduced in Defects4J v2 were not included in the original experiment,
+we also extended the code provided from the RepairThemAll experiment to obtain results for the new bugs.
+We were able to obtain results for most of the bugs aside from bugs in Jsoup 
+(due to a documented issue~\footnote{\url{https://github.com/rjust/defects4j/issues/353}}, encompassing 93 bugs) 
+and, in most repair techniques, JacksonDatabind (due to engineering challenges and issues with timeouts, encompassing 112 bugs).
+
+
 
 \begin{figure}
   \includegraphics[width=\linewidth]{img/coverage_faulty.pdf}
