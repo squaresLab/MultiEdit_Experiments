@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang31/src/main/java/org/apache/commons/lang3/StringUtils.java d4j_patched/Lang31/src/main/java/org/apache/commons/lang3/StringUtils.java
+1445a1446,1447
+> 		int csLastIndex = csLength - 1;
+> 		int searchLastIndex = searchLength - 1;
+1449a1452
+> 					if (i < csLastIndex && j < searchLastIndex && ch >= Character.MIN_HIGH_SURROGATE && ch <= Character.MAX_HIGH_SURROGATE) {
+1450a1454,1457
+> 						if (searchChars[j + 1] == cs.charAt(i + 1)) {
+> 							return true;
+> 						}
+> 					} else {
+1452a1460
+> 					}

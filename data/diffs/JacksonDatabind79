@@ -1,0 +1,30 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind79/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java d4j_patched/JacksonDatabind79/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+579,580c579,580
+<         if (ref != null) {
+<             objectIdInfo = objectIdInfo.withAlwaysAsId(ref.alwaysAsId());
+---
+>         if (ref == null) {
+>             return objectIdInfo;
+582c582,585
+<         return objectIdInfo;
+---
+>         if (objectIdInfo == null) {
+>             objectIdInfo = ObjectIdInfo.empty();
+>         }
+>         return objectIdInfo.withAlwaysAsId(ref.alwaysAsId());
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind79/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java d4j_patched/JacksonDatabind79/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java
+24a25
+>     private final static ObjectIdInfo EMPTY = new ObjectIdInfo(PropertyName.NO_NAME, Object.class, null, false, null);
+62a64,66
+>     public static ObjectIdInfo empty() {
+>         return EMPTY;
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind79/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java d4j_patched/JacksonDatabind79/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
+432,433c432,433
+<                     objectIdInfo = intr.findObjectReferenceInfo(accessor,
+<                             new ObjectIdInfo(NAME_FOR_OBJECT_REF, null, null, null));
+---
+>                     objectIdInfo = intr.findObjectReferenceInfo(accessor, null);
+>                     if (objectIdInfo != null) {
+434a435
+>                     }

@@ -1,0 +1,28 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath11/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java d4j_patched/JxPath11/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
+21a22
+> import org.apache.commons.jxpath.ri.NamespaceResolver;
+111c112,114
+<             testNS = parent.getNamespaceURI(testPrefix);
+---
+>             NamespaceResolver nsr = parent.getNamespaceResolver();
+>             testNS = nsr == null ? null : nsr.getNamespaceURI(testPrefix);
+>             testNS = testNS == null ? parent.getNamespaceURI(testPrefix) : testNS;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath11/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java d4j_patched/JxPath11/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
+22a23
+> import org.apache.commons.jxpath.ri.NamespaceResolver;
+51a53,60
+>                     NamespaceResolver nsr = parent.getNamespaceResolver();
+>                     if (nsr != null) {
+>                         String uri = nsr.getNamespaceURI(prefix);
+>                         if (uri != null) {
+>                             ns = Namespace.getNamespace(prefix, uri);
+>                         }
+>                     }
+>                     if (ns == null) {
+57a67
+>                     }
+114c124
+< }
+---
+> }
+\ No newline at end of file

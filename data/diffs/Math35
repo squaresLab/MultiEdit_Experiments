@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math35/src/main/java/org/apache/commons/math3/genetics/ElitisticListPopulation.java d4j_patched/Math35/src/main/java/org/apache/commons/math3/genetics/ElitisticListPopulation.java
+51c51
+<         this.elitismRate = elitismRate;
+---
+>         setElitismRate(elitismRate);
+65c65
+<         this.elitismRate = elitismRate;
+---
+>         setElitismRate(elitismRate);

@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind47/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java d4j_patched/JacksonDatabind47/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java
+815a816
+>                 Class<?> currRaw = type.getRawClass();
+818a820
+>                     if (serClass.isAssignableFrom(currRaw)) { // common case
+819a822,828
+>                     } else if (currRaw.isAssignableFrom(serClass)) { // specialization, ok as well
+>                         type = tf.constructSpecializedType(type, serClass);
+>                     } else {
+>                         throw new JsonMappingException(null,
+>                                 String.format("Can not refine serialization type %s into %s; types not related",
+>                                         type, serClass.getName()));
+>                     }

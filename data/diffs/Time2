@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time2/src/main/java/org/joda/time/field/UnsupportedDurationField.java d4j_patched/Time2/src/main/java/org/joda/time/field/UnsupportedDurationField.java
+226a227,229
+>         if (durationField.isSupported()) {
+>             return 1;
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time2/src/main/java/org/joda/time/Partial.java d4j_patched/Time2/src/main/java/org/joda/time/Partial.java
+218c218
+<                 if (compare < 0 || (compare != 0 && loopUnitField.isSupported() == false)) {
+---
+>                 if (compare < 0) {
+448a449,451
+>                             if (fieldType.getRangeDurationType() == null) {
+>                                 break;
+>                             }

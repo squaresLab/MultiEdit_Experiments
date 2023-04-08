@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math43/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java d4j_patched/Math43/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
+158c158
+<         if (!(meanImpl instanceof Mean)) {
+---
+>         if (meanImpl != mean) {
+161c161
+<         if (!(varianceImpl instanceof Variance)) {
+---
+>         if (varianceImpl != variance) {
+164c164
+<         if (!(geoMeanImpl instanceof GeometricMean)) {
+---
+>         if (geoMeanImpl != geoMean) {

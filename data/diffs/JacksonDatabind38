@@ -1,0 +1,50 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind38/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java d4j_patched/JacksonDatabind38/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java
+2a3
+> import java.lang.reflect.TypeVariable;
+50c51,58
+<         return new CollectionType(rawType, null,
+---
+>         TypeVariable<?>[] vars = rawType.getTypeParameters();
+>         TypeBindings bindings;
+>         if ((vars == null) || (vars.length != 1)) {
+>             bindings = TypeBindings.emptyBindings();
+>         } else {
+>             bindings = TypeBindings.create(rawType, elemT);
+>         }
+>         return new CollectionType(rawType, bindings,
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind38/src/main/java/com/fasterxml/jackson/databind/type/MapType.java d4j_patched/JacksonDatabind38/src/main/java/com/fasterxml/jackson/databind/type/MapType.java
+2a3
+> import java.lang.reflect.TypeVariable;
+46a48,54
+>         TypeVariable<?>[] vars = rawType.getTypeParameters();
+>         TypeBindings bindings;
+>         if ((vars == null) || (vars.length != 2)) {
+>             bindings = TypeBindings.emptyBindings();
+>         } else {
+>             bindings = TypeBindings.create(rawType, keyT, valueT);
+>         }
+48c56
+<         return new MapType(rawType, null, _bogusSuperClass(rawType), null,
+---
+>         return new MapType(rawType, bindings, _bogusSuperClass(rawType), null,
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind38/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java d4j_patched/JacksonDatabind38/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
+116,117c116,118
+<         return new SimpleType(cls, TypeBindings.emptyBindings(),
+<                 _bogusSuperClass(cls), null, null, null, false);
+---
+>         TypeBindings b = TypeBindings.emptyBindings();
+>         return new SimpleType(cls, b,
+>                 _buildSuperClass(cls.getSuperclass(), b), null, null, null, false);
+250a252,263
+>     private static JavaType _buildSuperClass(Class<?> superClass, TypeBindings b)
+>     {
+>         if (superClass == null) {
+>             return null;
+>         }
+>         if (superClass == Object.class) {
+>             return TypeFactory.unknownType();
+>         }
+>         JavaType superSuper = _buildSuperClass(superClass.getSuperclass(), b);
+>         return new SimpleType(superClass, b,
+>                 superSuper, null, null, null, false);
+>     }

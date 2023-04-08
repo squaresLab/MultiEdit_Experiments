@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart17/source/org/jfree/data/time/TimeSeries.java d4j_patched/Chart17/source/org/jfree/data/time/TimeSeries.java
+857c857,858
+<         Object clone = createCopy(0, getItemCount() - 1);
+---
+>         TimeSeries clone = (TimeSeries) super.clone();
+>         clone.data = (List) ObjectUtilities.deepClone(this.data);
+Binary files d4j_buggy/Chart17/.svn/wc.db and d4j_patched/Chart17/.svn/wc.db differ

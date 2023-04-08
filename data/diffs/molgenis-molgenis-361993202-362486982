@@ -1,0 +1,34 @@
+Only in after/: bears.json
+Only in after/molgenis-data-security: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-security/src/main/java/org/molgenis/data/security/owned/AbstractRowLevelSecurityRepositoryDecorator.java after/molgenis-data-security/src/main/java/org/molgenis/data/security/owned/AbstractRowLevelSecurityRepositoryDecorator.java
+78,85c78
+< 		E entity = delegate().findOne(q);
+< 
+< 		if (entity != null && !isOperationPermitted(entity, Action.READ))
+< 		{
+< 			return null;
+< 		}
+< 
+< 		return entity;
+---
+> 		return findAllPermitted(q, Action.READ).findFirst().orElse(null);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-security/src/test/java/org/molgenis/data/security/meta/EntityTypeRepositorySecurityDecoratorTest.java after/molgenis-data-security/src/test/java/org/molgenis/data/security/meta/EntityTypeRepositorySecurityDecoratorTest.java
+212c212
+< 		when(delegateRepository.findOne(q)).thenReturn(entityType0);
+---
+> 		when(delegateRepository.findAll(any(Query.class))).thenReturn(Stream.of(entityType0));
+226c226
+< 		when(delegateRepository.findOne(q)).thenReturn(entityType0);
+---
+> 		when(delegateRepository.findAll(any(Query.class))).thenReturn(Stream.of(entityType0));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-security/src/test/java/org/molgenis/data/security/owned/RowLevelSecurityRepositoryDecoratorTest.java after/molgenis-data-security/src/test/java/org/molgenis/data/security/owned/RowLevelSecurityRepositoryDecoratorTest.java
+334c334,335
+< 		when(delegateRepository.findOne(query)).thenReturn(entity);
+---
+> 		when(delegateRepository.findAll(new QueryImpl<>().setOffset(0).setPageSize(Integer.MAX_VALUE))).thenAnswer(
+> 				invocation -> Stream.of(entity));
+345c346,347
+< 		when(delegateRepository.findOne(query)).thenReturn(entity);
+---
+> 		when(delegateRepository.findAll(new QueryImpl<>().setOffset(0).setPageSize(Integer.MAX_VALUE))).thenAnswer(
+> 				invocation -> Stream.of(entity));

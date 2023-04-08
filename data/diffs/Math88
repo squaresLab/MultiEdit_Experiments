@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math88/src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java d4j_patched/Math88/src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java
+328a329
+>         Set<Integer> basicRows = new HashSet<Integer>();
+330a332
+>             if (basicRows.contains(basicRow)) {
+332a335,337
+>                 coefficients[i] = 0;
+>             } else {
+>                 basicRows.add(basicRow);
+336,341d340
+<             if (basicRow != null) {
+<                 for (int j = getNumObjectiveFunctions(); j < getNumObjectiveFunctions() + i; j++) {
+<                     if (tableau.getEntry(basicRow, j) == 1) {
+<                          coefficients[i] = 0;
+<                     }
+<                 }

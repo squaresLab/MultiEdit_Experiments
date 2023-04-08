@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang59/src/java/org/apache/commons/lang/text/StrBuilder.java d4j_patched/Lang59/src/java/org/apache/commons/lang/text/StrBuilder.java
+884c884
+<                 str.getChars(0, strLen, buffer, size);
+---
+>                 str.getChars(0, width, buffer, size);

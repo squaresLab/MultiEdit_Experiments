@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup13/src/main/java/org/jsoup/nodes/Node.java d4j_patched/Jsoup13/src/main/java/org/jsoup/nodes/Node.java
+106a107,111
+>         if (attributeKey.toLowerCase().startsWith("abs:")) {
+>             String key = attributeKey.substring("abs:".length());
+>             if (attributes.hasKey(key) && !absUrl(key).equals(""))
+>                 return true;
+>         }

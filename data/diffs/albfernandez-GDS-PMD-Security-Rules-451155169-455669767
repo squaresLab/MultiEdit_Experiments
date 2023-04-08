@@ -1,0 +1,42 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java after/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java
+546a547,549
+> 			if (isSanitized(argListNode)) {
+> 				return false;
+> 			}
+553a557,577
+> 		}
+> 		return false;
+> 	}
+> 
+> 	private boolean isSanitized(ASTArgumentList argListNode) {
+> 		try {
+> 			ASTArguments arguments = (ASTArguments) argListNode.jjtGetParent();
+> 			ASTPrimarySuffix suffix = (ASTPrimarySuffix) arguments.jjtGetParent();
+> 			ASTPrimaryExpression exp = (ASTPrimaryExpression) suffix.jjtGetParent();
+> 			String method = getMethod(exp);
+> 			Class<?> type = getJavaType(exp);
+> 			String typeName = type.getName();
+> 			if (isSink(typeName, method)) {
+> 				return false;
+> 			}
+> 			if (isSanitizerMethod(typeName, method) || isSafeType(getReturnType(exp, typeName, method))) {
+> 				return true;
+> 			}
+> 		}
+> 		catch (Exception e) {
+> 			return false;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/com/gdssecurity/pmd/SanitizersTest.java after/src/test/java/com/gdssecurity/pmd/SanitizersTest.java
+40a41,50
+> 	@Test
+> 	public void testSanitizerParseInt() throws Exception {
+> 		int violations = 
+> 				PMDRunner.run(
+> 						"src/test/java/resources/cwe931xss/XSSSanitizersParseInt.java", 
+> 						PMDRunner.RULESET_XSS
+> 		);
+> 		Assert.assertEquals(0, violations);
+> 	}
+> 	
+Only in after/src/test/java/resources/cwe931xss: XSSSanitizersParseInt.java

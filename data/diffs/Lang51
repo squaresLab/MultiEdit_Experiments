@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang51/src/java/org/apache/commons/lang/BooleanUtils.java d4j_patched/Lang51/src/java/org/apache/commons/lang/BooleanUtils.java
+681a682
+>                 return false;

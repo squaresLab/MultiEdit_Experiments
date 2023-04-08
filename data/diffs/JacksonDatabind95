@@ -1,0 +1,18 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind95/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java d4j_patched/JacksonDatabind95/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+355c355
+<                 newType = _fromClass(null, subclass, TypeBindings.emptyBindings());
+---
+>                 newType = _fromClass(null, subclass, EMPTY_BINDINGS);
+366c366
+<                 newType = _fromClass(null, subclass, TypeBindings.emptyBindings());     
+---
+>                 newType = _fromClass(null, subclass, EMPTY_BINDINGS);     
+896c896
+<             pt[i] = _fromClass(null, parameterClasses[i], null);
+---
+>             pt[i] = _fromClass(null, parameterClasses[i], EMPTY_BINDINGS);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind95/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java d4j_patched/JacksonDatabind95/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java
+59c59
+<         return _factory._fromClass(null, base, null);
+---
+>         return _factory._fromClass(null, base, TypeBindings.emptyBindings());

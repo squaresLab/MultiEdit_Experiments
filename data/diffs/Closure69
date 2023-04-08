@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure69/src/com/google/javascript/jscomp/TypeCheck.java d4j_patched/Closure69/src/com/google/javascript/jscomp/TypeCheck.java
+1579a1580,1586
+>       if (functionType.isOrdinaryFunction() &&
+>           !functionType.getTypeOfThis().isUnknownType() &&
+>           !functionType.getTypeOfThis().isNativeObjectType() &&
+>           !(child.getType() == Token.GETELEM ||
+>             child.getType() == Token.GETPROP)) {
+>         report(t, n, EXPECTED_THIS_TYPE, functionType.toString());
+>       }

@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup64/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java d4j_patched/Jsoup64/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+1489d1488
+<         tb.insert(startTag);
+1492a1492
+>         tb.insert(startTag);

@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind26/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java d4j_patched/JacksonDatabind26/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
+39c39,40
+<     implements BeanProperty
+---
+>     implements BeanProperty,
+>         java.io.Serializable // since 2.6.2
+41a43
+>     private static final long serialVersionUID = 4603296144163950020L;

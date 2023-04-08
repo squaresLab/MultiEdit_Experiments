@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup83/src/main/java/org/jsoup/parser/CharacterReader.java d4j_patched/Jsoup83/src/main/java/org/jsoup/parser/CharacterReader.java
+254c254
+<             if (c == '\t'|| c ==  '\n'|| c ==  '\r'|| c ==  '\f'|| c ==  ' '|| c ==  '/'|| c ==  '>'|| c ==  TokeniserState.nullChar)
+---
+>             if (c == '\t'|| c ==  '\n'|| c ==  '\r'|| c ==  '\f'|| c ==  ' '|| c ==  '/'|| c ==  '>'|| c == '<' || c ==  TokeniserState.nullChar)
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup83/src/main/java/org/jsoup/parser/TokeniserState.java d4j_patched/Jsoup83/src/main/java/org/jsoup/parser/TokeniserState.java
+160a161,163
+>                 case '<': // NOTE: out of spec, but clear author intent
+>                     t.error(this);
+>                     r.unconsume();
+563a567,569
+>                 case '<': // NOTE: out of spec, but clear (spec has this as a part of the attribute name)
+>                     t.error(this);
+>                     r.unconsume();
+581d586
+<                 case '<':

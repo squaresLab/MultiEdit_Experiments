@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart5/source/org/jfree/data/xy/XYSeries.java d4j_patched/Chart5/source/org/jfree/data/xy/XYSeries.java
+543a544,547
+>         if (this.allowDuplicateXValues) {
+>             add(x, y);
+>             return null;
+>         }
+548c552
+<         if (index >= 0 && !this.allowDuplicateXValues) {
+---
+>         if (index >= 0) {
+Binary files d4j_buggy/Chart5/.svn/wc.db and d4j_patched/Chart5/.svn/wc.db differ

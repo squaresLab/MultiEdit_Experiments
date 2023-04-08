@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure112/src/com/google/javascript/jscomp/TypeInference.java d4j_patched/Closure112/src/com/google/javascript/jscomp/TypeInference.java
+1192,1193c1192,1194
+<     Map<TemplateType, JSType> inferred = 
+<         inferTemplateTypesFromParameters(fnType, n);
+---
+>     Map<TemplateType, JSType> inferred = Maps.filterKeys(
+>         inferTemplateTypesFromParameters(fnType, n),
+>         new Predicate<TemplateType>() {
+1194a1196,1200
+>           @Override
+>           public boolean apply(TemplateType key) {
+>             return keys.contains(key);
+>           }}
+>         );

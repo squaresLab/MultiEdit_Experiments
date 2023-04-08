@@ -1,0 +1,16 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/SanavProtocolDecoder.java after/src/org/traccar/protocol/SanavProtocolDecoder.java
+41c41
+<             .number("(dd)(dd)(dd).(ddd),")       // time (hhmmss.sss)
+---
+>             .number("(dd)(dd)(dd).d+,")          // time (hhmmss.sss)
+72c72
+<                 .setTime(parser.nextInt(0), parser.nextInt(0), parser.nextInt(0), parser.nextInt(0));
+---
+>                 .setTime(parser.nextInt(0), parser.nextInt(0), parser.nextInt(0));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/SanavProtocolDecoderTest.java after/test/org/traccar/protocol/SanavProtocolDecoderTest.java
+11a12,14
+> 
+>         verifyPosition(decoder, text(
+>                 "imei=1234567890&rmc=$GPRMC,091950.00,V,5300.10000,N,00900.14000,E,0.160,,200513,,,A*68,STOP,V3.872;67%,S4,H8.3,D2.38"));

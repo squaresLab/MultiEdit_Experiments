@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart8/source/org/jfree/data/time/Week.java d4j_patched/Chart8/source/org/jfree/data/time/Week.java
+175c175
+<         this(time, RegularTimePeriod.DEFAULT_TIME_ZONE, Locale.getDefault());
+---
+>         this(time, zone, Locale.getDefault());
+Binary files d4j_buggy/Chart8/.svn/wc.db and d4j_patched/Chart8/.svn/wc.db differ

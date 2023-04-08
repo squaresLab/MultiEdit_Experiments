@@ -1,0 +1,36 @@
+Only in after/: bears.json
+Only in after/byte-buddy-dep: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/main/java/net/bytebuddy/pool/TypePool.java after/byte-buddy-dep/src/main/java/net/bytebuddy/pool/TypePool.java
+7416a7417,7426
+>                  * A shift index for visible parameters that indicates a deviation of the actual parameter index.
+>                  */
+>                 private int visibleParameterShift;
+> 
+>                 /**
+>                  * A shift index for invisible parameters that indicates a deviation of the actual parameter index.
+>                  */
+>                 private int invisibleParameterShift;
+> 
+>                 /**
+7505a7516,7524
+>                 public void visitAnnotableParameterCount(int count, boolean visible) {
+>                     if (visible) {
+>                         visibleParameterShift = Type.getMethodType(descriptor).getArgumentTypes().length - count;
+>                     } else {
+>                         invisibleParameterShift = Type.getMethodType(descriptor).getArgumentTypes().length - count;
+>                     }
+>                 }
+> 
+>                 @Override
+7507c7526,7529
+<                     return new AnnotationExtractor(descriptor, index, parameterAnnotationTokens, new ComponentTypeLocator.ForAnnotationProperty(Default.this, descriptor));
+---
+>                     return new AnnotationExtractor(descriptor,
+>                             index + (visible ? visibleParameterShift : invisibleParameterShift),
+>                             parameterAnnotationTokens,
+>                             new ComponentTypeLocator.ForAnnotationProperty(Default.this, descriptor));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/test/java/net/bytebuddy/pool/TypePoolDefaultMethodDescriptionTest.java after/byte-buddy-dep/src/test/java/net/bytebuddy/pool/TypePoolDefaultMethodDescriptionTest.java
+54c54
+<     @Ignore("Fails due to limitation since ASM 6.1: https://gitlab.ow2.org/asm/asm/issues/317814")
+---
+> //    @Ignore("Fails due to limitation since ASM 6.1: https://gitlab.ow2.org/asm/asm/issues/317814")

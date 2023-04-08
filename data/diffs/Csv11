@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv11/src/main/java/org/apache/commons/csv/CSVParser.java d4j_patched/Csv11/src/main/java/org/apache/commons/csv/CSVParser.java
+384c384
+<                     final boolean emptyHeader = header.trim().isEmpty();
+---
+>                     final boolean emptyHeader = header == null || header.trim().isEmpty();

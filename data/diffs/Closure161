@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure161/src/com/google/javascript/jscomp/PeepholeFoldConstants.java d4j_patched/Closure161/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+1282a1283,1285
+>     if (isAssignmentTarget(n)) {
+>       return n;
+>     }

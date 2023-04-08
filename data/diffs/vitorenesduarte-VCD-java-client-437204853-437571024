@@ -1,0 +1,566 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java after/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
+38c38,42
+<         this.dep = new Clock<>(commitDepBox.dep);
+---
+>         if (commitDepBox.dep != null) {
+>             this.dep = new Clock<>(commitDepBox.dep);
+>         } else {
+>             this.dep = null;
+>         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/imdea/vcd/Generator.java after/src/test/java/org/imdea/vcd/Generator.java
+26a27,35
+>         ByteString key = hash(randomByteString(KEY_SIZE), conflicts);
+>         return message(key);
+>     }
+> 
+>     public static Message message(String key) {
+>         return message(bs(key.getBytes()));
+>     }
+> 
+>     public static Message message(ByteString key) {
+29c38
+<                 .addHashes(hash(randomByteString(KEY_SIZE), conflicts))
+---
+>                 .addHashes(key)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/imdea/vcd/queue/ConfQueueTest.java after/src/test/java/org/imdea/vcd/queue/ConfQueueTest.java
+9d8
+< import org.imdea.vcd.queue.clock.ExceptionSet;
+19a19
+> import org.imdea.vcd.queue.clock.ExceptionSet;
+51,52c51,52
+<             Map<Dot, Clock<MaxInt>> dotToConf = Generator.dotToConf(nodeNumber);
+<             while (dotToConf.isEmpty()) {
+---
+>             Map<Dot, Clock<MaxInt>> dotToConf;
+>             do {
+55c55
+<             }
+---
+>             } while (dotToConf.isEmpty());
+66c66
+<             Clock<ExceptionSet> committed = Clock.eclock(committedArgs.getConf());
+---
+>             Clock<MaxInt> committed = Clock.eclock(committedArgs.getConf());
+76c76
+<         // {{0, 2}, [{0, 2}, {1, 2}]}
+---
+>         // {0, 2}, [2, 2]
+78,80c78
+<         HashMap<Integer, ExceptionSet> mapA = new HashMap<>();
+<         mapA.put(0, new ExceptionSet(2L, 1L));
+<         mapA.put(1, new ExceptionSet(2L, 1L));
+---
+>         Clock<MaxInt> confA = vclock(2L, 2L);
+82c80
+<         // {{0, 1}, [{0, 1}, {0, 2}, {0, 3}, {1, 2}]}
+---
+>         // {0, 1}, [3, 2]
+84,86c82
+<         HashMap<Integer, ExceptionSet> mapB = new HashMap<>();
+<         mapB.put(0, new ExceptionSet(3L));
+<         mapB.put(1, new ExceptionSet(2L, 1L));
+---
+>         Clock<MaxInt> confB = vclock(3L, 2L);
+88c84
+<         // {{0, 5}, [{0, 1}, {0, 2}, {0, 3}, {0, 4}, {0, 5}, {0, 6}, {1, 1}, {1, 2}]}
+---
+>         // {0, 5}, [6, 2]
+90,92c86
+<         HashMap<Integer, ExceptionSet> mapC = new HashMap<>();
+<         mapC.put(0, new ExceptionSet(6L));
+<         mapC.put(1, new ExceptionSet(2L));
+---
+>         Clock<MaxInt> confC = vclock(6L, 2L);
+94c88
+<         // {{0, 6}, [{0, 1}, {0, 2}, {0, 3}, {0, 4}, {0, 5}, {0, 6}, {1, 1}, {1, 2}, {1, 3}]}
+---
+>         // {0, 6}, [6, 3]
+96,98c90
+<         HashMap<Integer, ExceptionSet> mapD = new HashMap<>();
+<         mapD.put(0, new ExceptionSet(6L));
+<         mapD.put(1, new ExceptionSet(3L));
+---
+>         Clock<MaxInt> confD = vclock(6L, 3L);
+100c92
+<         // {{0, 3}, [{0, 1}, {0, 2}, {0, 3}, {1, 1}, {1, 2}, {1, 3}]}
+---
+>         // {0, 3}, [3, 3]
+102,104c94
+<         HashMap<Integer, ExceptionSet> mapE = new HashMap<>();
+<         mapE.put(0, new ExceptionSet(3L));
+<         mapE.put(1, new ExceptionSet(3L));
+---
+>         Clock<MaxInt> confE = vclock(3L, 3L);
+106c96
+<         // {{1, 2}, [{1, 2}]}
+---
+>         // {1, 2}, [0, 2]
+108,110c98
+<         HashMap<Integer, ExceptionSet> mapF = new HashMap<>();
+<         mapF.put(0, new ExceptionSet(0L));
+<         mapF.put(1, new ExceptionSet(2L, 1L));
+---
+>         Clock<MaxInt> confF = vclock(0L, 2L);
+112c100
+<         // {{1, 1}, [{0, 1}, {0, 2}, {0, 3}, {0, 4}, {1, 1}, {1, 2}, {1, 3}]}
+---
+>         // {1, 1}, [4, 3]
+114,116c102
+<         HashMap<Integer, ExceptionSet> mapG = new HashMap<>();
+<         mapG.put(0, new ExceptionSet(4L));
+<         mapG.put(1, new ExceptionSet(3L));
+---
+>         Clock<MaxInt> confG = vclock(4L, 3L);
+118c104
+<         // {{0, 4}, [{0, 1}, {0, 2}, {0, 3}, {0, 4}, {0, 6}, {1, 1}, {1, 2}]}
+---
+>         // {0, 4}, [6, 2]
+120,122c106
+<         HashMap<Integer, ExceptionSet> mapH = new HashMap<>();
+<         mapH.put(0, new ExceptionSet(6L, 5L));
+<         mapH.put(1, new ExceptionSet(2L));
+---
+>         Clock<MaxInt> confH = vclock(6L, 2L);
+124c108
+<         // {{1, 3}, [{0, 1}, {0, 2}, {0, 3}, {0, 4}, {0, 5}, {0, 6}, {1, 1}, {1, 2}, {1, 3}]}
+---
+>         // {1, 3}, [6, 3]
+126,128c110
+<         HashMap<Integer, ExceptionSet> mapI = new HashMap<>();
+<         mapI.put(0, new ExceptionSet(6L));
+<         mapI.put(1, new ExceptionSet(3L));
+---
+>         Clock<MaxInt> confI = vclock(6L, 3L);
+131,139c113,121
+<         argsList.add(args(dotA, mapA));
+<         argsList.add(args(dotB, mapB));
+<         argsList.add(args(dotC, mapC));
+<         argsList.add(args(dotD, mapD));
+<         argsList.add(args(dotE, mapE));
+<         argsList.add(args(dotF, mapF));
+<         argsList.add(args(dotG, mapG));
+<         argsList.add(args(dotH, mapH));
+<         argsList.add(args(dotI, mapI));
+---
+>         argsList.add(args(dotA, confA));
+>         argsList.add(args(dotB, confB));
+>         argsList.add(args(dotC, confC));
+>         argsList.add(args(dotD, confD));
+>         argsList.add(args(dotE, confE));
+>         argsList.add(args(dotF, confF));
+>         argsList.add(args(dotG, confG));
+>         argsList.add(args(dotH, confH));
+>         argsList.add(args(dotI, confI));
+148c130
+<         // {{1, 4}, [{0, 2}, {0, 3}, {1, 1}, {1, 2}, {1, 3}, {1, 4}]}
+---
+>         // {1, 4}, [3, 4]
+150,152c132
+<         HashMap<Integer, ExceptionSet> mapA = new HashMap<>();
+<         mapA.put(0, new ExceptionSet(3L, 1L));
+<         mapA.put(1, new ExceptionSet(4L));
+---
+>         Clock<MaxInt> confA = vclock(3L, 4L);
+154c134
+<         // {{1, 3}, [{1, 2}, {1, 3}]}
+---
+>         // {1, 3}, [0, 3]
+156,158c136
+<         HashMap<Integer, ExceptionSet> mapB = new HashMap<>();
+<         mapB.put(0, new ExceptionSet());
+<         mapB.put(1, new ExceptionSet(3L, 1L));
+---
+>         Clock<MaxInt> confB = vclock(0L, 3L);
+160c138
+<         // {{0, 3}, [{0, 3}, {1, 2}, {1, 3}]}
+---
+>         // {0, 3}, [3, 3]
+162,164c140
+<         HashMap<Integer, ExceptionSet> mapC = new HashMap<>();
+<         mapC.put(0, new ExceptionSet(3L, 1L, 2L));
+<         mapC.put(1, new ExceptionSet(3L, 1L));
+---
+>         Clock<MaxInt> confC = vclock(3L, 3L);
+166c142
+<         // {{0, 1}, [{0, 1}, {0, 2}, {0, 3}, {1, 1}, {1, 2}, {1, 3}, {1, 4}]}
+---
+>         // {0, 1}, [3, 4]
+168,170c144
+<         HashMap<Integer, ExceptionSet> mapD = new HashMap<>();
+<         mapD.put(0, new ExceptionSet(3L));
+<         mapD.put(1, new ExceptionSet(4L));
+---
+>         Clock<MaxInt> confD = vclock(3L, 4L);
+172c146
+<         // {{1, 2}, [{1, 2}]}
+---
+>         // {1, 2}, [0, 2]
+174,176c148
+<         HashMap<Integer, ExceptionSet> mapE = new HashMap<>();
+<         mapE.put(0, new ExceptionSet());
+<         mapE.put(1, new ExceptionSet(2L, 1L));
+---
+>         Clock<MaxInt> confE = vclock(0L, 2L);
+178c150
+<         // {{0, 2}, [{0, 1}, {0, 2}, {0, 3}, {1, 1}, {1, 2}, {1, 3}]}
+---
+>         // {0, 2}, [3, 3]
+180,182c152
+<         HashMap<Integer, ExceptionSet> mapF = new HashMap<>();
+<         mapF.put(0, new ExceptionSet(3L));
+<         mapF.put(1, new ExceptionSet(3L));
+---
+>         Clock<MaxInt> confF = vclock(3L, 3L);
+184c154
+<         // {{1, 1}, [{0, 1}, {0, 3}, {1, 1}, {1, 2}, {1, 3}]}
+---
+>         // {1, 1}, [3, 3]
+186,188c156
+<         HashMap<Integer, ExceptionSet> mapG = new HashMap<>();
+<         mapG.put(0, new ExceptionSet(3L, 2L));
+<         mapG.put(1, new ExceptionSet(3L));
+---
+>         Clock<MaxInt> confG = vclock(3L, 3L);
+191,197c159,165
+<         argsList.add(args(dotA, mapA));
+<         argsList.add(args(dotB, mapB));
+<         argsList.add(args(dotC, mapC));
+<         argsList.add(args(dotD, mapD));
+<         argsList.add(args(dotE, mapE));
+<         argsList.add(args(dotF, mapF));
+<         argsList.add(args(dotG, mapG));
+---
+>         argsList.add(args(dotA, confA));
+>         argsList.add(args(dotB, confB));
+>         argsList.add(args(dotC, confC));
+>         argsList.add(args(dotD, confD));
+>         argsList.add(args(dotE, confE));
+>         argsList.add(args(dotF, confF));
+>         argsList.add(args(dotG, confG));
+206c174
+<         // {{2, 2}, [{0, 1}, {2, 2}]}
+---
+>         // {{2, 2}, [1, 0, 2]
+208,211c176
+<         HashMap<Integer, ExceptionSet> mapA = new HashMap<>();
+<         mapA.put(0, new ExceptionSet(1L));
+<         mapA.put(1, new ExceptionSet());
+<         mapA.put(2, new ExceptionSet(2L, 1L));
+---
+>         Clock<MaxInt> confA = vclock(1L, 0L, 2L);
+213c178
+<         // {{2, 3}, [{0, 1}, {1, 1}, {2, 2}, {2, 3}]}
+---
+>         // {{2, 3}, [1, 1, 3]
+215,218c180
+<         HashMap<Integer, ExceptionSet> mapB = new HashMap<>();
+<         mapB.put(0, new ExceptionSet(1L));
+<         mapB.put(1, new ExceptionSet(1L));
+<         mapB.put(2, new ExceptionSet(3L, 1L));
+---
+>         Clock<MaxInt> confB = vclock(1L, 1L, 3L);
+220c182
+<         // {{2, 1}, [{0, 1}, {1, 1}, {2, 1}, {2, 2}, {2, 3}]}
+---
+>         // {{2, 1}, [1, 1, 3]
+222,225c184
+<         HashMap<Integer, ExceptionSet> mapC = new HashMap<>();
+<         mapC.put(0, new ExceptionSet(1L));
+<         mapC.put(1, new ExceptionSet(1L));
+<         mapC.put(2, new ExceptionSet(3L));
+---
+>         Clock<MaxInt> confC = vclock(1L, 1L, 3L);
+227c186
+<         // {{0, 1}, [{0, 1}]}
+---
+>         // {{0, 1}, [1, 0, 0]
+229,232c188
+<         HashMap<Integer, ExceptionSet> mapD = new HashMap<>();
+<         mapD.put(0, new ExceptionSet(1L));
+<         mapD.put(1, new ExceptionSet());
+<         mapD.put(2, new ExceptionSet());
+---
+>         Clock<MaxInt> confD = vclock(1L , 0L, 0L);
+234c190
+<         // {{1, 1}, [{0, 1}, {1, 1}, {2, 2}]}
+---
+>         // {{1, 1}, [1, 1, 2]
+236,239c192
+<         HashMap<Integer, ExceptionSet> mapE = new HashMap<>();
+<         mapE.put(0, new ExceptionSet(1L));
+<         mapE.put(1, new ExceptionSet(1L));
+<         mapE.put(2, new ExceptionSet(2L, 1L));
+---
+>         Clock<MaxInt> confE = vclock(1L, 1L, 2L);
+242,246c195,199
+<         argsList.add(args(dotA, mapA));
+<         argsList.add(args(dotB, mapB));
+<         argsList.add(args(dotC, mapC));
+<         argsList.add(args(dotD, mapD));
+<         argsList.add(args(dotE, mapE));
+---
+>         argsList.add(args(dotA, confA));
+>         argsList.add(args(dotB, confB));
+>         argsList.add(args(dotC, confC));
+>         argsList.add(args(dotD, confD));
+>         argsList.add(args(dotE, confE));
+255c208
+<         // {{0, 5}, [{0, 5}]}
+---
+>         // {{0, 5}, [5]
+257,258c210
+<         HashMap<Integer, ExceptionSet> mapA = new HashMap<>();
+<         mapA.put(0, new ExceptionSet(5L, 1L, 2L, 3L, 4L));
+---
+>         Clock<MaxInt> confA = vclock(5L);
+260c212
+<         // {{0, 4}, [{0, 1}, {0, 3}, {0, 4}, {0, 5}, {0, 6}]}
+---
+>         // {{0, 4}, [6]
+262,263c214
+<         HashMap<Integer, ExceptionSet> mapB = new HashMap<>();
+<         mapB.put(0, new ExceptionSet(6L, 2L));
+---
+>         Clock<MaxInt> confB = vclock(6L);
+265c216
+<         // {{0, 1}, [{0, 1}, {0, 3}, {0, 5}]}
+---
+>         // {{0, 1}, [5]
+267,268c218
+<         HashMap<Integer, ExceptionSet> mapC = new HashMap<>();
+<         mapC.put(0, new ExceptionSet(5L, 2L, 4L));
+---
+>         Clock<MaxInt> confC = vclock(5L);
+270c220
+<         // {{0, 2}, [{0, 1}, {0, 2}, {0, 3}, {0, 4}, {0, 5}, {0, 6}]}
+---
+>         // {{0, 2}, [6]
+272,273c222
+<         HashMap<Integer, ExceptionSet> mapD = new HashMap<>();
+<         mapD.put(0, new ExceptionSet(6L));
+---
+>         Clock<MaxInt> confD = vclock(6L);
+275c224
+<         // {{0, 3}, [{0, 3}, {0, 5}]}
+---
+>         // {{0, 3}, [5]
+277,278c226
+<         HashMap<Integer, ExceptionSet> mapE = new HashMap<>();
+<         mapE.put(0, new ExceptionSet(5L, 1L, 2L, 4L));
+---
+>         Clock<MaxInt> confE = vclock(5L);
+280c228
+<         // {{0, 6}, [{0, 1}, {0, 3}, {0, 5}, {0, 6}]}
+---
+>         // {{0, 6}, [6]
+282,283c230
+<         HashMap<Integer, ExceptionSet> mapF = new HashMap<>();
+<         mapF.put(0, new ExceptionSet(6L, 2L, 4L));
+---
+>         Clock<MaxInt> confF = vclock(6L);
+286,291c233,238
+<         argsList.add(args(dotA, mapA));
+<         argsList.add(args(dotB, mapB));
+<         argsList.add(args(dotC, mapC));
+<         argsList.add(args(dotD, mapD));
+<         argsList.add(args(dotE, mapE));
+<         argsList.add(args(dotF, mapF));
+---
+>         argsList.add(args(dotA, confA));
+>         argsList.add(args(dotB, confB));
+>         argsList.add(args(dotC, confC));
+>         argsList.add(args(dotD, confD));
+>         argsList.add(args(dotE, confE));
+>         argsList.add(args(dotF, confF));
+300c247
+<         // {{0, 1}, [{0, 1}, {1, 1}]}
+---
+>         // {{0, 1}, [1, 1]
+302,304c249
+<         HashMap<Integer, ExceptionSet> mapA = new HashMap<>();
+<         mapA.put(0, new ExceptionSet(1L));
+<         mapA.put(1, new ExceptionSet(1L));
+---
+>         Clock<MaxInt> confA = vclock(1L, 1L);
+306c251
+<         // {{0, 2}, [{0, 2}, {1, 0}]}
+---
+>         // {{0, 2}, [2, 0]
+308,310c253
+<         HashMap<Integer, ExceptionSet> mapB = new HashMap<>();
+<         mapB.put(0, new ExceptionSet(2L));
+<         mapB.put(1, new ExceptionSet());
+---
+>         Clock<MaxInt> confB = vclock(2L, 0L);
+312c255
+<         // {{1, 1}, [{0, 1}, {1, 1}]}
+---
+>         // {{1, 1}, [1, 1]
+314,316c257
+<         HashMap<Integer, ExceptionSet> mapC = new HashMap<>();
+<         mapC.put(0, new ExceptionSet(1L));
+<         mapC.put(1, new ExceptionSet(1L));
+---
+>         Clock<MaxInt> confC = vclock(1L, 1L);
+319,321c260,262
+<         argsList.add(args(dotA, mapA));
+<         argsList.add(args(dotB, mapB));
+<         argsList.add(args(dotC, mapC));
+---
+>         argsList.add(args(dotA, confA));
+>         argsList.add(args(dotB, confB));
+>         argsList.add(args(dotC, confC));
+330c271
+<         // {{0, 1}, [{0, 1}]}
+---
+>         // {{0, 1}, [1, 0]
+332,334c273
+<         HashMap<Integer, ExceptionSet> mapA = new HashMap<>();
+<         mapA.put(0, new ExceptionSet(1L));
+<         mapA.put(1, new ExceptionSet());
+---
+>         Clock<MaxInt> confA = vclock(1L, 0L);
+336c275
+<         // {{0, 2}, [{0, 4}, {1, 1}]}
+---
+>         // {{0, 2}, [4, 1]
+338,340c277
+<         HashMap<Integer, ExceptionSet> mapB = new HashMap<>();
+<         mapB.put(0, new ExceptionSet(4L));
+<         mapB.put(1, new ExceptionSet(1L));
+---
+>         Clock<MaxInt> confB = vclock(4L, 1L);
+342c279
+<         // {{0, 3}, [{0, 3}]}
+---
+>         // {{0, 3}, [3, 0]
+344,346c281
+<         HashMap<Integer, ExceptionSet> mapC = new HashMap<>();
+<         mapC.put(0, new ExceptionSet(3L));
+<         mapC.put(1, new ExceptionSet());
+---
+>         Clock<MaxInt> confC = vclock(3L, 0L);
+348c283
+<         // {{0, 4}, [{0, 4}]}
+---
+>         // {{0, 4}, [4, 0]
+350,352c285
+<         HashMap<Integer, ExceptionSet> mapD = new HashMap<>();
+<         mapD.put(0, new ExceptionSet(4L));
+<         mapD.put(1, new ExceptionSet());
+---
+>         Clock<MaxInt> confD = vclock(4L, 0L);
+354c287
+<         // {{1, 1}, [{1, 1}]}
+---
+>         // {{1, 1}, [0, 1]
+356,358c289
+<         HashMap<Integer, ExceptionSet> mapE = new HashMap<>();
+<         mapE.put(0, new ExceptionSet());
+<         mapE.put(1, new ExceptionSet(1L));
+---
+>         Clock<MaxInt> confE = vclock(0L, 1L);
+360c291
+<         // {{1, 2}, [{0,3}, {1, 2}]}
+---
+>         // {{1, 2}, [3, 2]
+362,364c293
+<         HashMap<Integer, ExceptionSet> mapF = new HashMap<>();
+<         mapF.put(0, new ExceptionSet(3L));
+<         mapF.put(1, new ExceptionSet(2L));
+---
+>         Clock<MaxInt> confF = vclock(3L, 2L);
+367,372c296,301
+<         argsList.add(args(dotA, mapA));
+<         argsList.add(args(dotB, mapB));
+<         argsList.add(args(dotC, mapC));
+<         argsList.add(args(dotD, mapD));
+<         argsList.add(args(dotE, mapE));
+<         argsList.add(args(dotF, mapF));
+---
+>         argsList.add(args(dotA, confA));
+>         argsList.add(args(dotB, confB));
+>         argsList.add(args(dotC, confC));
+>         argsList.add(args(dotD, confD));
+>         argsList.add(args(dotE, confE));
+>         argsList.add(args(dotF, confF));
+379,380d307
+<         Integer nodeNumber = 2;
+< 
+383,385c310
+<         HashMap<Integer, ExceptionSet> mapA = new HashMap<>();
+<         mapA.put(0, new ExceptionSet(4L));
+<         mapA.put(1, new ExceptionSet());
+---
+>         Clock<MaxInt> confA = vclock(4L, 0L);
+389,391c314
+<         HashMap<Integer, ExceptionSet> mapB = new HashMap<>();
+<         mapB.put(0, new ExceptionSet(3L));
+<         mapB.put(1, new ExceptionSet());
+---
+>         Clock<MaxInt> confB = vclock(3L, 0L);
+395,397c318
+<         HashMap<Integer, ExceptionSet> mapC = new HashMap<>();
+<         mapC.put(0, new ExceptionSet(4L));
+<         mapC.put(1, new ExceptionSet());
+---
+>         Clock<MaxInt> confC = vclock(4L, 0L);
+400,402c321
+<         Clock<ExceptionSet> delivered = new Clock<>(nodeNumber, new ExceptionSet());
+<         delivered.addDot(new Dot(0, 1L));
+<         delivered.addDot(new Dot(0, 2L));
+---
+>         Clock<ExceptionSet> delivered = eclock(2L, 0L);
+405,407c324,326
+<         argsList.add(args(dotA, mapA));
+<         argsList.add(args(dotB, mapB));
+<         argsList.add(args(dotC, mapC));
+---
+>         argsList.add(args(dotA, confA));
+>         argsList.add(args(dotB, confB));
+>         argsList.add(args(dotC, confC));
+483,498d401
+<         // create dep, given conf
+<         return args(dot, conf, Clock.eclock(conf));
+<     }
+< 
+<     private QueueAddArgs args(Dot dot, HashMap<Integer, ExceptionSet> depMap) {
+<         // create conf, given dep
+<         HashMap<Integer, MaxInt> confMap = new HashMap<>();
+<         for (Map.Entry<Integer, ExceptionSet> entry : depMap.entrySet()) {
+<             confMap.put(entry.getKey(), entry.getValue().toMaxInt());
+<         }
+<         Clock<MaxInt> conf = new Clock<>(confMap);
+<         Clock<ExceptionSet> dep = new Clock<>(depMap);
+<         return args(dot, conf, dep);
+<     }
+< 
+<     private QueueAddArgs args(Dot dot, Clock<MaxInt> conf, Clock<ExceptionSet> dep) {
+501c404,408
+<         CommittedQueueBox box = new CommittedQueueBox(dot, dep, message, conf);
+---
+>         return args(dot, message, conf);
+>     }
+> 
+>     private QueueAddArgs args(Dot dot, Message message, Clock<MaxInt> conf) {
+>         CommittedQueueBox box = new CommittedQueueBox(dot, null, message, conf);
+536a444,460
+> 
+>     public Clock<MaxInt> vclock(Long... seqs) {
+>         HashMap<Integer, MaxInt> map = new HashMap<>();
+>         for (Integer i = 0; i < seqs.length; i++) {
+>             map.put(i, new MaxInt(seqs[i]));
+>         }
+>         return new Clock<>(map);
+>     }
+> 
+>     public Clock<ExceptionSet> eclock(Long... seqs) {
+>         HashMap<Integer, ExceptionSet> map = new HashMap<>();
+>         for (Integer i = 0; i < seqs.length; i++) {
+>             map.put(i, new ExceptionSet(seqs[i]));
+>         }
+>         return new Clock<>(map);
+>     }
+> 

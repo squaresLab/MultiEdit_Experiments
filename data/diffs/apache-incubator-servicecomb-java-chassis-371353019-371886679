@@ -1,0 +1,26 @@
+Only in after/: bears.json
+Only in after/foundations/foundation-config: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java after/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java
+133,137c133
+<     duplicateServiceCombConfigToCse(config,
+<         new DynamicConfiguration(
+<             new MicroserviceConfigurationSource(configModelList), new NeverStartPollingScheduler()),
+<         "configFromYamlFile");
+<     // If there is extra configurations, add it into config. Extra config has lowest priority.
+---
+>     // If there is extra configurations, add it into config.
+143a140,143
+>     duplicateServiceCombConfigToCse(config,
+>         new DynamicConfiguration(
+>             new MicroserviceConfigurationSource(configModelList), new NeverStartPollingScheduler()),
+>         "configFromYamlFile");
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/foundations/foundation-config/src/test/java/org/apache/servicecomb/config/TestConfigUtil.java after/foundations/foundation-config/src/test/java/org/apache/servicecomb/config/TestConfigUtil.java
+329c329,330
+<     extraConfig.put(overriddenConfigKey, "should_be_overridden");
+---
+>     final String propertyHigherPriority = "higher_priority";
+>     extraConfig.put(overriddenConfigKey, propertyHigherPriority);
+336c337
+<     Assert.assertEquals("value", localConfiguration.getString(overriddenConfigKey));
+---
+>     Assert.assertEquals(propertyHigherPriority, localConfiguration.getString(overriddenConfigKey));

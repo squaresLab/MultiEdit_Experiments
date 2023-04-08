@@ -1,0 +1,4 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure11/src/com/google/javascript/jscomp/TypeCheck.java d4j_patched/Closure11/src/com/google/javascript/jscomp/TypeCheck.java
+1314,1315d1313
+<     } else if (n.getJSType() != null && parent.isAssign()) {
+<       return;

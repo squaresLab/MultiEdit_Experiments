@@ -1,0 +1,81 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/cash/count/service/impl/AccountManager.java after/src/main/java/org/cash/count/service/impl/AccountManager.java
+107a108,110
+>         if (hasAnyChildrenAccountEnabled(account)){
+>             throw new IllegalStateException("Children accounts enabled");
+>         }    
+109a113,119
+>     }
+>     
+>     private boolean hasAnyChildrenAccountEnabled(Account account){
+>         return account.getChildren().stream()
+>                 .filter(a -> !a.isDisabled())
+>                 .findAny()
+>                 .isPresent();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/cash/count/service/impl/AccountManagerTest.java after/src/test/java/org/cash/count/service/impl/AccountManagerTest.java
+8a9,10
+> import java.util.ArrayList;
+> import java.util.List;
+240a243
+>         account.setChildren(new ArrayList<>());
+254a258,316
+>     }
+>     
+>     /**
+>      * Should disabled account. Children accounts are all disabled
+>      */
+>     @Test
+>     public void shouldDisableAccount_childrenAccountsDisabled(){
+>         Account childAccount = new Account();
+>         childAccount.setId(6);
+>         childAccount.setDisabled(true);
+>         
+>         List<Account> childrenAccounts = new ArrayList<>();
+>         childrenAccounts.add(childAccount);
+>         
+>         Account account = new Account();
+>         account.setId(5);
+>         account.setDisabled(false);
+>         account.setChildren(childrenAccounts);
+>         
+>         Account storedAccount = new Account();
+>         storedAccount.setId(5);
+>         storedAccount.setDisabled(true);
+>         
+>         when(accountRepository.findById(5)).thenReturn(Optional.of(account));
+>         when(accountRepository.save(any())).thenReturn(storedAccount);
+>         
+>         accountManager.disable(5);
+>         
+>         verify(accountRepository).save(accountCaptor.capture());
+>         
+>         Account capturedAccount = accountCaptor.getValue();
+>         assertThat(capturedAccount.isDisabled()).isEqualTo(storedAccount.isDisabled());
+>     }
+>     
+>     /**
+>      * Should not disable account. Children accounts are enabled
+>      */
+>     @Test
+>     public void shouldNotDisableAccount_accountHasChildrenEnabledAccounts(){
+>         Account childAccount = new Account();
+>         childAccount.setId(6);
+>         childAccount.setDisabled(false);
+>         
+>         List<Account> childrenAccounts = new ArrayList<>();
+>         childrenAccounts.add(childAccount);
+>         
+>         Account account = new Account();
+>         account.setId(5);
+>         account.setDisabled(false);
+>         account.setChildren(childrenAccounts);
+>         
+>         when(accountRepository.findById(5)).thenReturn(Optional.of(account));
+>         
+>         try{
+>             accountManager.disable(5);
+>             fail();
+>         } catch(IllegalStateException e){
+>             assertThat(e.getMessage()).isEqualTo("Children accounts enabled");
+>         }

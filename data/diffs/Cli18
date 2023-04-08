@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli18/src/java/org/apache/commons/cli/PosixParser.java d4j_patched/Cli18/src/java/org/apache/commons/cli/PosixParser.java
+128c128
+<                 processSingleHyphen(token);
+---
+>                 tokens.add(token);
+213,216d212
+<     private void processSingleHyphen(String hyphen)
+<     {
+<         tokens.add(hyphen);
+<     }
+240a237
+>             tokens.add(token);

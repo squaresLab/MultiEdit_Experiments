@@ -1,0 +1,52 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli21/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java d4j_patched/Cli21/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
+50a51,52
+>     private Option currentOption;
+>     private String checkForOption;
+62a65
+>         setCurrentOption(rootOption);
+64a68,70
+>     public Option getCurrentOption() {
+>         return currentOption;
+>     }
+65a72,74
+>     public void setCurrentOption(Option currentOption) {
+>         this.currentOption = currentOption;
+>     }
+233a243,244
+>         if (checkForOption != null)
+>         {
+234a246,247
+>             return !checkForOption.equals(trigger);
+>         }
+235a249,251
+>         checkForOption = trigger;
+>         try
+>         {
+241a258,260
+>                     if (getCurrentOption().canProcess(this, trigger)
+>                             || getCurrentOption().findOption(trigger) != null)
+>                     {
+242a262
+>                     }
+244a265
+> 
+245a267,271
+>         }
+>         finally
+>         {
+>             checkForOption = null;
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli21/src/java/org/apache/commons/cli2/option/GroupImpl.java d4j_patched/Cli21/src/java/org/apache/commons/cli2/option/GroupImpl.java
+512a513,515
+>         Option oldOption = commandLine.getCurrentOption();
+>         try {
+>             commandLine.setCurrentOption(this);
+513a517,519
+>         } finally {
+>             commandLine.setCurrentOption(oldOption);
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli21/src/java/org/apache/commons/cli2/WriteableCommandLine.java d4j_patched/Cli21/src/java/org/apache/commons/cli2/WriteableCommandLine.java
+101a102
+>     Option getCurrentOption();
+109a111
+>     void setCurrentOption(Option currentOption);

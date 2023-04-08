@@ -1,0 +1,82 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/visitor/ClassTypingContext.java after/src/main/java/spoon/support/visitor/ClassTypingContext.java
+19a20
+> import java.util.Collections;
+693a695,707
+> 
+> 				// we can be in a case where thisType is CtType and thatType is CtType<?>
+> 				// the types are not equals but it's overridden
+> 				// in that specific case we simply remove the list of actualTypeArguments from thatType
+> 				if (thisType.getActualTypeArguments().isEmpty() && thatType.getActualTypeArguments().size() == 1) {
+> 					CtTypeReference actualTA = thatType.getActualTypeArguments().get(0);
+> 					if (actualTA instanceof CtWildcardReference) {
+> 						if (((CtWildcardReference) actualTA).getBoundingType() == null) {
+> 							thatType.setActualTypeArguments(Collections.EMPTY_LIST);
+> 						}
+> 					}
+> 				}
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/template/Substitution.java after/src/main/java/spoon/template/Substitution.java
+43a44
+> import java.util.Set;
+173a175
+> 		Set<CtMethod<?>> methodsOfTemplate = sourceClass.getFactory().Type().get(Template.class).getMethods();
+181a184,195
+> 
+> 			boolean isOverridingTemplateItf = false;
+> 			for (CtMethod m2 : methodsOfTemplate) {
+> 				if (m.isOverriding(m2)) {
+> 					isOverridingTemplateItf = true;
+> 				}
+> 			}
+> 
+> 			if (isOverridingTemplateItf) {
+> 				continue;
+> 			}
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/template/TemplateTest.java after/src/test/java/spoon/test/template/TemplateTest.java
+25a26
+> import spoon.test.template.testclasses.NtonCodeTemplate;
+26a28
+> import spoon.test.template.testclasses.SimpleTemplate;
+47a50
+> import java.util.Set;
+480a484,517
+> 
+> 	@Test
+> 	public void testSimpleTemplate() {
+> 		Launcher spoon = new Launcher();
+> 		spoon.addTemplateResource(new FileSystemFile("./src/test/java/spoon/test/template/testclasses/SimpleTemplate.java"));
+> 		spoon.buildModel();
+> 
+> 		Factory factory = spoon.getFactory();
+> 
+> 		CtClass<?> testSimpleTpl = factory.Class().create("TestSimpleTpl");
+> 		new SimpleTemplate("Hello world").apply(testSimpleTpl);
+> 
+> 		Set<CtMethod<?>> listMethods = testSimpleTpl.getMethods();
+> 		assertEquals(0, testSimpleTpl.getMethodsByName("apply").size());
+> 		assertEquals(1, listMethods.size());
+> 	}
+> 
+> 	@Test
+> 	public void testSubstitutionInsertAllNtoN() {
+> 		Launcher spoon = new Launcher();
+> 		spoon.addTemplateResource(new FileSystemFile("./src/test/java/spoon/test/template/testclasses/NtonCodeTemplate.java"));
+> 		spoon.addInputResource("./src/test/java/spoon/test/template/testclasses/C.java");
+> 		spoon.buildModel();
+> 
+> 		Factory factory = spoon.getFactory();
+> 
+> 		CtClass<?> cclass = factory.Class().get("spoon.test.template.testclasses.C");
+> 		new NtonCodeTemplate(cclass.getReference(), 5).apply(cclass);
+> 
+> 		Set<CtMethod<?>> listMethods = cclass.getMethods();
+> 		assertEquals(0, cclass.getMethodsByName("apply").size());
+> 		assertEquals(4, listMethods.size());
+> 	}
+> 
+Only in after/src/test/java/spoon/test/template/testclasses: C.java
+Only in after/src/test/java/spoon/test/template/testclasses: NtonCodeTemplate.java
+Only in after/src/test/java/spoon/test/template/testclasses: SimpleTemplate.java

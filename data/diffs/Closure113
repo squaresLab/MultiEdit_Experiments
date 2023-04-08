@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure113/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java d4j_patched/Closure113/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+329c329
+<       if (provided != null) {
+---
+>       if (provided != null || requiresLevel.isOn()) {

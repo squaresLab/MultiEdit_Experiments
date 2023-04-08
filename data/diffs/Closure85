@@ -1,0 +1,28 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure85/src/com/google/javascript/jscomp/UnreachableCodeElimination.java d4j_patched/Closure85/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
+153,158d152
+<     if (n.getParent() == null) {
+<       List<DiGraphEdge<Node,Branch>> outEdges = gNode.getOutEdges();
+<       if (outEdges.size() == 1) {
+<         return tryRemoveUnconditionalBranching(outEdges.get(0).getDestination().getValue());
+<       }
+<     }
+160,166d153
+<       case Token.BLOCK:
+<         if (n.hasChildren()) {
+<           Node first = n.getFirstChild();
+<           return tryRemoveUnconditionalBranching(first);
+<         } else {
+<           return tryRemoveUnconditionalBranching(ControlFlowAnalysis.computeFollowNode(n));
+<         }
+183c170
+<           Node fallThrough = tryRemoveUnconditionalBranching(computeFollowing(n));
+---
+>           Node fallThrough = computeFollowing(n);
+195a183,189
+>     while (next != null && next.getType() == Token.BLOCK) {
+>       if (next.hasChildren()) {
+>         next = next.getFirstChild();
+>       } else {
+>         next = computeFollowing(next);
+>       }
+>     }

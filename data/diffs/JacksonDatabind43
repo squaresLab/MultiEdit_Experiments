@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind43/src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java d4j_patched/JacksonDatabind43/src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java
+6a7
+> import com.fasterxml.jackson.core.JsonToken;
+78d78
+<         Object id = _valueDeserializer.deserialize(p, ctxt);
+85c85
+<         if (id == null) {
+---
+>         if (p.hasToken(JsonToken.VALUE_NULL)) {
+87a88
+>         Object id = _valueDeserializer.deserialize(p, ctxt);

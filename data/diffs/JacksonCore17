@@ -1,0 +1,58 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore17/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java d4j_patched/JacksonCore17/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+527a528,532
+>         if (len <= buf.length) {
+>             text.getChars(offset, offset+len, buf, 0);
+>             _writeRawSegment(buf, 0, len);
+>             return;
+>         }
+531a537,538
+>         final int maxChunk = (_outputEnd >> 2) + (_outputEnd >> 4); // == (1/4 + 1/16) == 5/16
+>         final int maxBytes = maxChunk * 3;
+534c541
+<             int len2 = Math.min(buf.length, len);
+---
+>             int len2 = Math.min(maxChunk, len);
+536c543,545
+<             writeRaw(buf, 0, len2);
+---
+>             if ((_outputTail + maxBytes) > _outputEnd) {
+>                 _flushBuffer();
+>             }
+538a548,554
+>             if (len > 0) {
+>                 char ch = buf[len2-1];
+>                 if ((ch >= SURR1_FIRST) && (ch <= SURR1_LAST)) {
+>                     --len2;
+>                 }
+>             }
+>             _writeRawSegment(buf, 0, len2);
+671a688,711
+>     private void _writeRawSegment(char[] cbuf, int offset, int end) throws IOException
+>     {
+>         main_loop:
+>         while (offset < end) {
+>             inner_loop:
+>             while (true) {
+>                 int ch = (int) cbuf[offset];
+>                 if (ch > 0x7F) {
+>                     break inner_loop;
+>                 }
+>                 _outputBuffer[_outputTail++] = (byte) ch;
+>                 if (++offset >= end) {
+>                     break main_loop;
+>                 }
+>             }
+>             char ch = cbuf[offset++];
+>             if (ch < 0x800) { // 2-byte?
+>                 _outputBuffer[_outputTail++] = (byte) (0xc0 | (ch >> 6));
+>                 _outputBuffer[_outputTail++] = (byte) (0x80 | (ch & 0x3f));
+>             } else {
+>                 offset = _outputRawMultiByteChar(ch, cbuf, offset, end);
+>             }
+>         }
+>     }
+1887c1927,1928
+<                     _reportError("Split surrogate on writeRaw() input (last character)");
+---
+>                     _reportError(String.format(
+> "Split surrogate on writeRaw() input (last character): first character 0x%4x", ch));

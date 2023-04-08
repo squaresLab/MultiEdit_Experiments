@@ -1,0 +1,22 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure30/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java d4j_patched/Closure30/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+157c157
+<     (new NodeTraversal(compiler, this)).traverse(root);
+---
+>     (new NodeTraversal(compiler, this)).traverseRoots(externs, root);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure30/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java d4j_patched/Closure30/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+70a71
+>     private boolean unknownDependencies = false;
+396c397
+<         if (n.isName() && jsScope.isDeclared(n.getString(), true)) {
+---
+>         if (n.isName()) {
+397a399,401
+>           if (dep == null) {
+>             def.unknownDependencies = true;
+>           } else {
+398a403
+>           }
+429a435,437
+>     if (def.unknownDependencies) {
+>       return true;
+>     }

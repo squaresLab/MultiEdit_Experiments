@@ -1,0 +1,16 @@
+Only in after/apollo-adminservice: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java after/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java
+10a11
+> import com.ctrip.framework.apollo.core.ConfigConsts;
+53a55
+> 
+54a57
+> 
+57a61,65
+> 
+>     if(ConfigConsts.CLUSTER_NAME_DEFAULT.equals(entity.getName())){
+>       throw new BadRequestException("default cluster can not be delete.");
+>     }
+> 
+Only in after/apollo-adminservice/src/test/java/com/ctrip/framework/apollo/adminservice/controller: ClusterControllerTest.java
+Only in after/: bears.json

@@ -1,0 +1,22 @@
+Only in after/: bears.json
+Only in after/core: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java after/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java
+19a20
+> import java.util.stream.Collectors;
+69,76c70,74
+<       List<Field> fields = new ArrayList<Field>();
+<       for (Field field : type.getDeclaredFields()) {
+<         if (!field.isAccessible()) {
+<           field.setAccessible(true);
+<         }
+<         fields.add(field);
+<       }
+<       return new ObjectParamMetadata(fields);
+---
+>       return new ObjectParamMetadata(
+>           Arrays.stream(type.getDeclaredFields())
+>               .filter(field -> !field.isSynthetic())
+>               .peek(field -> field.setAccessible(true))
+>               .collect(Collectors.toList()));
+Only in after/core/src/test/java/feign/querymap: BeanQueryMapEncoderTest.java
+Only in after/core/src/test/java/feign/querymap: FieldQueryMapEncoderTest.java

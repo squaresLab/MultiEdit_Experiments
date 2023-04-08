@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup62/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java d4j_patched/Jsoup62/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+764c764
+<             String name = t.asEndTag().normalName();
+---
+>             String name = t.asEndTag().name(); // matches with case sensitivity if enabled

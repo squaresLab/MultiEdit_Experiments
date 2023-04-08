@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time25/src/main/java/org/joda/time/DateTimeZone.java d4j_patched/Time25/src/main/java/org/joda/time/DateTimeZone.java
+898a899,907
+>         } else if (offsetLocal > 0) {
+>             long prev = previousTransition(instantAdjusted);
+>             if (prev < instantAdjusted) {
+>                 int offsetPrev = getOffset(prev);
+>                 int diff = offsetPrev - offsetLocal;
+>                 if (instantAdjusted - prev <= diff) {
+>                     return offsetPrev;
+>                 }
+>             }

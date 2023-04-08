@@ -1,0 +1,12 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/EelinkProtocolEncoder.java after/src/org/traccar/protocol/EelinkProtocolEncoder.java
+68c68
+<             result.writeShort(2 + 2 + 2 + buf.readableBytes()); // length
+---
+>             result.writeShort(2 + buf.readableBytes()); // length
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/EelinkProtocolEncoderTest.java after/test/org/traccar/protocol/EelinkProtocolEncoderTest.java
+18c18
+<         verifyCommand(new EelinkProtocolEncoder(true), command, binary("454c0022b41a0123456789012345676780000f0000010000000052454c41592c3123"));
+---
+>         verifyCommand(new EelinkProtocolEncoder(true), command, binary("454c001eb41a0123456789012345676780000f0000010000000052454c41592c3123"));

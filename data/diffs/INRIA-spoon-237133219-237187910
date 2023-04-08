@@ -1,0 +1,159 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+1799c1799,1800
+< 		// reset the import scanner between each compilationunit
+---
+> 
+> 		// reset the importsContext to avoid errors with multiple CU
+1804a1806
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java after/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+23d22
+< import spoon.reflect.code.CtFieldWrite;
+83d81
+< 		scan(fieldRead.getVariable());
+92,102d89
+< 	public <T> void visitCtFieldWrite(CtFieldWrite<T> fieldWrite) {
+< 		enter(fieldWrite);
+< 		scan(fieldWrite.getVariable());
+< 		scan(fieldWrite.getAnnotations());
+< 		scan(fieldWrite.getTypeCasts());
+< 		scan(fieldWrite.getVariable());
+< 		scan(fieldWrite.getTarget());
+< 		exit(fieldWrite);
+< 	}
+< 
+< 	@Override
+128,138d114
+< 	public <T> void visitCtInvocation(CtInvocation<T> invocation) {
+< 		enter(invocation);
+< 		scan(invocation.getAnnotations());
+< 		scan(invocation.getTypeCasts());
+< 		scan(invocation.getTarget());
+< 		scan(invocation.getExecutable());
+< 		scan(invocation.getArguments());
+< 		exit(invocation);
+< 	}
+< 
+< 	@Override
+210,212d185
+< 		classImports.clear();
+< 		fieldImports.clear();
+< 		methodImports.clear();
+227,229d199
+< 		classImports.clear();
+< 		fieldImports.clear();
+< 		methodImports.clear();
+231d200
+< 
+407c376
+< 			if (isImportedInClassImports(declaringType) || classNamePresentInJavaLang(declaringType)) {
+---
+> 			if (!isTypeInCollision(declaringType, false) && addClassImport(declaringType)) {
+411c380
+< 			if (!isTypeInCollision(declaringType, false) && addClassImport(declaringType)) {
+---
+> 			if (isImportedInClassImports(declaringType) || classNamePresentInJavaLang(declaringType)) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/ImportTest.java after/src/test/java/spoon/test/imports/ImportTest.java
+2a3
+> import org.apache.commons.io.IOUtils;
+44a46,49
+> import java.io.File;
+> import java.io.FileNotFoundException;
+> import java.io.FileReader;
+> import java.io.IOException;
+52a58,59
+> import static org.hamcrest.CoreMatchers.containsString;
+> import static org.hamcrest.CoreMatchers.is;
+53a61
+> import static org.junit.Assert.assertFalse;
+56a65
+> import static org.junit.Assert.assertThat;
+58d66
+< import static org.junit.Assert.assertFalse;
+60d67
+< import static spoon.testing.utils.ModelUtils.buildClass;
+243c250
+< 		final ImportScanner importScanner = new ImportScannerImpl();
+---
+> 		ImportScanner importScanner = new ImportScannerImpl();
+245a253
+> 		importScanner = new ImportScannerImpl();
+250a259
+> 		importScanner = new ImportScannerImpl();
+937c946
+< 		String outputDir = "./target/spooned-javalang";
+---
+> 		String outputDir = "./target/spooned-javalang-sub";
+943a953,1007
+> 
+> 	@Test
+> 	public void testmportInCu() throws  Exception{
+> 		// contract: auto-import works for compilation units with multiple classes
+> 		String[] options = {"--output-type", "compilationunits",
+> 				"--output", "target/testmportInCu", "--with-imports"};
+> 
+> 		String path = "spoon/test/prettyprinter/testclasses/A.java";
+> 
+> 		final Launcher launcher = new Launcher();
+> 		launcher.setArgs(options);
+> 		launcher.addInputResource("./src/test/java/"+path);
+> 		launcher.run();
+> 
+> 		File output = new File("target/testmportInCu/"+path);
+> 		String code = IOUtils.toString(new FileReader(output));
+> 
+> 		// the ArrayList is imported and used in short mode
+> 		assertTrue(code.contains("import java.util.ArrayList"));
+> 
+> 		// no fully qualified usage
+> 		assertFalse(code.contains("new java.util.ArrayList"));
+> 
+> 		// sanity check: the actual code
+> 		assertTrue(code.contains("ArrayList<String> list = new ArrayList<>()"));
+> 
+> 		// cleaning
+> 		output.delete();
+> 	}
+> 
+> 	@Test
+> 	public void testMultipleCU() throws IOException {
+> 		final Launcher launcher = new Launcher();
+> 		launcher.getEnvironment().setAutoImports(true);
+> 		String outputDir = "./target/spooned-multiplecu";
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses/multiplecu/");
+> 		launcher.setSourceOutputDirectory(outputDir);
+> 		launcher.run();
+> 
+> 		canBeBuilt(outputDir, 7);
+> 
+> 		String pathA = "spoon/test/imports/testclasses/multiplecu/A.java";
+> 		String pathB = "spoon/test/imports/testclasses/multiplecu/B.java";
+> 
+> 		File outputA = new File(outputDir+"/"+pathA);
+> 		String codeA = IOUtils.toString(new FileReader(outputA));
+> 
+> 		assertThat(codeA, containsString("import java.util.List;"));
+> 
+> 		File outputB = new File(outputDir+"/"+pathB);
+> 		String codeB = IOUtils.toString(new FileReader(outputB));
+> 
+> 		assertThat(codeB, containsString("import java.awt.List;"));
+> 	}
+> 
+Only in after/src/test/java/spoon/test/imports/testclasses: multiplecu
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/prettyprinter/PrinterTest.java after/src/test/java/spoon/test/prettyprinter/PrinterTest.java
+42d41
+< 		PrettyPrinter printer = spoon.createPrettyPrinter();
+43a43
+> 		PrettyPrinter printer = spoon.createPrettyPrinter();
+54a55
+> 		// recreating an auto-immport  printer
+55a57,58
+> 		printer = spoon.createPrettyPrinter();
+> 
+82d84
+< 		PrettyPrinter printer = spoon.createPrettyPrinter();
+83a86
+> 		PrettyPrinter printer = spoon.createPrettyPrinter();

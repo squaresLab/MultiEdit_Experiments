@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson14/gson/src/main/java/com/google/gson/internal/$Gson$Types.java d4j_patched/Gson14/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+78a79,81
+>     if (bound instanceof WildcardType) {
+>       upperBounds = ((WildcardType) bound).getUpperBounds();
+>     } else {
+79a83
+>     }
+89a94,96
+>     if (bound instanceof WildcardType) {
+>       lowerBounds = ((WildcardType) bound).getLowerBounds();
+>     } else {
+90a98
+>     }

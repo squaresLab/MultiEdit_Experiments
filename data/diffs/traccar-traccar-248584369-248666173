@@ -1,0 +1,10 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/AplicomFrameDecoder.java after/src/org/traccar/protocol/AplicomFrameDecoder.java
+28a29,33
+>         // Skip Alive message
+>         while (buf.readable() && Character.isDigit(buf.getByte(buf.readerIndex()))) {
+>             buf.readByte();
+>         }
+> 
+Only in after/test/org/traccar/protocol: AplicomFrameDecoderTest.java

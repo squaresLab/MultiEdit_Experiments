@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore7/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java d4j_patched/JacksonCore7/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
+168a169,171
+>             if (!_gotName) {
+>                 return STATUS_EXPECT_NAME;
+>             }

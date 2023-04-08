@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv8/src/main/java/org/apache/commons/csv/CSVFormat.java d4j_patched/Csv8/src/main/java/org/apache/commons/csv/CSVFormat.java
+315a316,321
+>         	Set<String> dupCheck = new HashSet<String>();
+>         	for(String hdr : header) {
+>         		if (!dupCheck.add(hdr)) {
+>         			throw new IllegalArgumentException("The header contains a duplicate entry: '" + hdr + "' in " + Arrays.toString(header));
+>         		}
+>         	}
+665,671d670
+<         if (header != null) {
+<             final Set<String> set = new HashSet<String>(header.length);
+<             set.addAll(Arrays.asList(header));
+<             if (set.size() != header.length) {
+<                 throw new IllegalStateException("The header contains duplicate names: " + Arrays.toString(header));
+<             }
+<         }

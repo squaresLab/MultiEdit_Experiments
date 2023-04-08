@@ -1,0 +1,41 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress22/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java d4j_patched/Compress22/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java
+67d66
+<     private int currentChar = -1;
+135d133
+<         setupBlock();
+199d196
+<         final int retChar = this.currentChar;
+205c202
+<             throw new IllegalStateException();
+---
+>             return setupBlock();
+211,212c208
+<             setupRandPartB();
+<             break;
+---
+>             return setupRandPartB();
+215,216c211
+<             setupRandPartC();
+<             break;
+---
+>             return setupRandPartC();
+222,223c217
+<             setupNoRandPartB();
+<             break;
+---
+>             return setupNoRandPartB();
+226,227c220
+<             setupNoRandPartC();
+<             break;
+---
+>             return setupNoRandPartC();
+232d224
+<         return retChar;
+853d844
+<             this.currentChar = su_ch2Shadow;
+871d861
+<             this.currentChar = su_ch2Shadow;
+913d902
+<             this.currentChar = this.su_ch2;
+942d930
+<             this.currentChar = su_ch2Shadow;

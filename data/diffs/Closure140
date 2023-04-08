@@ -1,0 +1,19 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure140/src/com/google/javascript/jscomp/Compiler.java d4j_patched/Closure140/src/com/google/javascript/jscomp/Compiler.java
+263a264
+>     fillEmptyModules(modules);
+327a329,336
+>   private void fillEmptyModules(JSModule[] modules) {
+>     for (int i = 1; i < modules.length; i ++) {
+>       JSModule module = modules[i];
+>       if (module.getInputs().isEmpty()) {
+>         module.add(JSSourceFile.fromCode("[" + module.getName() + "]", ""));
+>       }
+>     }
+>   }
+1581,1586d1589
+<     }
+<     for (JSModule m : getModuleGraph().getTransitiveDepsDeepestFirst(module)) {
+<       inputs = m.getInputs();
+<       if (inputs.size() > 0) {
+<         return inputs.get(0).getAstRoot(this);
+<       }

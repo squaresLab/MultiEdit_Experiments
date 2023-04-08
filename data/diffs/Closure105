@@ -1,0 +1,23 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure105/src/com/google/javascript/jscomp/FoldConstants.java d4j_patched/Closure105/src/com/google/javascript/jscomp/FoldConstants.java
+1477c1477
+<     StringBuilder sb = new StringBuilder();
+---
+>     StringBuilder sb = null;
+1483c1483,1485
+<         if (sb.length() > 0) {
+---
+>         if (sb == null) {
+>           sb = new StringBuilder();
+>         } else {
+1488c1490
+<         if (sb.length() > 0) {
+---
+>         if (sb != null) {
+1492c1494
+<           sb = new StringBuilder();
+---
+>           sb = null;
+1500c1502
+<     if (sb.length() > 0) {
+---
+>     if (sb != null) {

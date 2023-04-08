@@ -1,0 +1,256 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure163/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java d4j_patched/Closure163/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java
+201,203d200
+<     private ProcessProperties() {
+<       symbolStack.push(new NameContext(globalNode));
+<     }
+206c203,218
+<       symbolStack.peek().scope = t.getScope();
+---
+>       Node n = t.getCurrentNode();
+>       if (n.isFunction()) {
+>         String propName = getPrototypePropertyNameFromRValue(n);
+>         if (propName != null) {
+>           symbolStack.push(
+>               new NameContext(
+>                   getNameInfoForName(propName, PROPERTY),
+>                   t.getScope()));
+>         } else if (isGlobalFunctionDeclaration(t, n)) {
+>           Node parent = n.getParent();
+>           String name = parent.isName() ?
+>               parent.getString() /* VAR */ :
+>               n.getFirstChild().getString() /* named function */;
+>           symbolStack.push(
+>               new NameContext(getNameInfoForName(name, VAR), t.getScope()));
+>         } else {
+211a224,229
+>           symbolStack.push(new NameContext(anonymousNode, t.getScope()));
+>         }
+>       } else {
+>         Preconditions.checkState(t.inGlobalScope());
+>         symbolStack.push(new NameContext(globalNode, t.getScope()));
+>       }
+216c234
+< 
+---
+>       symbolStack.pop();
+222,231c240,244
+<       if (isPrototypePropertyAssign(n)) {
+<         symbolStack.push(new NameContext(getNameInfoForName(
+<                 n.getFirstChild().getLastChild().getString(), PROPERTY)));
+<       } else if (isGlobalFunctionDeclaration(t, n)) {
+<         String name = parent.isName() ?
+<             parent.getString() /* VAR */ :
+<             n.getFirstChild().getString() /* named function */;
+<         symbolStack.push(new NameContext(getNameInfoForName(name, VAR)));
+<       } else if (n.isFunction()) {
+<         symbolStack.push(new NameContext(anonymousNode));
+---
+>       String propName = processNonFunctionPrototypeAssign(n, parent);
+>       if (propName != null) {
+>         symbolStack.push(
+>             new NameContext(
+>                 getNameInfoForName(propName, PROPERTY), null));
+240a254
+>         if (n.isQualifiedName()) {
+242c256,258
+<           processPrototypeParent(t, parent);
+---
+>             if (processPrototypeRef(t, n)) {
+>               return;
+>             }
+244a261
+>             return;
+247c264,270
+<           addSymbolUse(propName, t.getModule(), PROPERTY);
+---
+>             if (n.getParent().isAssign() && n.getNext() != null) {
+>               String rValueName = getPrototypePropertyNameFromRValue(n);
+>               if (rValueName != null) {
+>                 return;
+>               }
+>             }
+>           }
+250c273,274
+<       } else if (n.isObjectLit() &&
+---
+>         addSymbolUse(propName, t.getModule(), PROPERTY);
+>       } else if (n.isObjectLit()) {
+254,257c278,282
+<           !(parent.isAssign() &&
+<             parent.getFirstChild().isGetProp() &&
+<             parent.getFirstChild().getLastChild().getString().equals(
+<                 "prototype"))) {
+---
+>         String lValueName = NodeUtil.getBestLValueName(
+>             NodeUtil.getBestLValue(n));
+>         if (lValueName != null && lValueName.endsWith(".prototype")) {
+>           return;
+>         }
+278,279c303
+<                 if (!processGlobalFunctionDeclaration(t, n, parent,
+<                         parent.getParent())) {
+---
+>                 if (!processGlobalFunctionDeclaration(t, n, var)) {
+304,306c328
+<       if (isPrototypePropertyAssign(n) ||
+<           isGlobalFunctionDeclaration(t, n) ||
+<           n.isFunction()) {
+---
+>       if (processNonFunctionPrototypeAssign(n, parent) != null) {
+329a352,357
+>     private String processNonFunctionPrototypeAssign(Node n, Node parent) {
+>       if (isAssignRValue(n, parent) && !n.isFunction()) {
+>         return getPrototypePropertyNameFromRValue(n);
+>       }
+>       return null;
+>     }
+337a366,370
+>       Scope s = t.getScope();
+>       if (!(s.isGlobal() ||
+>             s.getDepth() == 1 && s.getRootNode() == n)) {
+>         return false;
+>       }
+339,342c372,373
+<       return t.inGlobalScope() &&
+<           (NodeUtil.isFunctionDeclaration(n) ||
+<            n.isFunction() &&
+<            n.getParent().isName());
+---
+>       return NodeUtil.isFunctionDeclaration(n) ||
+>           n.isFunction() && n.getParent().isName();
+348,354c379,381
+<     private boolean isPrototypePropertyAssign(Node assign) {
+<       Node n = assign.getFirstChild();
+<       if (n != null && NodeUtil.isVarOrSimpleAssignLhs(n, assign)
+<           && n.isGetProp()
+<           && assign.getParent().isExprResult()) {
+<         boolean isChainedProperty =
+<             n.getFirstChild().isGetProp();
+---
+>     private boolean isAssignRValue(Node n, Node parent) {
+>       return parent != null && parent.isAssign() && parent.getFirstChild() != n;
+>     }
+363,364c390,398
+<         if (isChainedProperty) {
+<           Node child = n.getFirstChild().getFirstChild().getNext();
+---
+>     private String getPrototypePropertyNameFromRValue(Node rValue) {
+>       Node lValue = NodeUtil.getBestLValue(rValue);
+>       if (lValue == null ||
+>           lValue.getParent() == null ||
+>           lValue.getParent().getParent() == null ||
+>           !(NodeUtil.isObjectLitKey(lValue, lValue.getParent()) ||
+>             NodeUtil.isExprAssign(lValue.getParent().getParent()))) {
+>         return null;
+>       }
+366,370c400,407
+<           if (child.isString() &&
+<               child.getString().equals("prototype")) {
+<             return true;
+<           }
+<         }
+---
+>       String lValueName =
+>           NodeUtil.getBestLValueName(NodeUtil.getBestLValue(rValue));
+>       if (lValueName == null) {
+>         return null;
+>       }
+>       int lastDot = lValueName.lastIndexOf('.');
+>       if (lastDot == -1) {
+>         return null;
+372a410,413
+>       String firstPart = lValueName.substring(0, lastDot);
+>       if (!firstPart.endsWith(".prototype")) {
+>         return null;
+>       }
+374c415
+<       return false;
+---
+>       return lValueName.substring(lastDot + 1);
+382c423
+<         Node nameNode, Node parent, Node gramps) {
+---
+>         Node nameNode, Var v) {
+383a425
+>       Node parent = nameNode.getParent();
+392c434
+<             new GlobalFunction(nameNode, parent, gramps, t.getModule()));
+---
+>             new GlobalFunction(nameNode, v, t.getModule()));
+412c454,455
+<     private void processPrototypeParent(NodeTraversal t, Node n) {
+---
+>     private boolean processPrototypeRef(NodeTraversal t, Node ref) {
+>       Node root = NodeUtil.getRootOfQualifiedName(ref);
+413a457
+>       Node n = ref.getParent();
+426a471
+>                 t.getScope().getVar(root.getString()),
+428a474
+>             return true;
+441a488
+>                   t.getScope().getVar(root.getString()),
+444a492
+>             return true;
+447a496
+>       return false;
+498a548
+>     Var getRootVar();
+515a566
+>     private final Var var;
+518c569,570
+<     GlobalFunction(Node nameNode, Node parent, Node gramps, JSModule module) {
+---
+>     GlobalFunction(Node nameNode, Var var, JSModule module) {
+>       Node parent = nameNode.getParent();
+522a575
+>       this.var = var;
+526a580,582
+>     public Var getRootVar() {
+>       return var;
+>     }
+527a584
+>     @Override
+575a633
+>     private final Var rootVar;
+581c639
+<     AssignmentProperty(Node node, JSModule module) {
+---
+>     AssignmentProperty(Node node, Var rootVar, JSModule module) {
+582a641
+>       this.rootVar = rootVar;
+586a646,648
+>     public Var getRootVar() {
+>       return rootVar;
+>     }
+587a650
+>     @Override
+622a686
+>     private final Var rootVar;
+626c690
+<         JSModule module) {
+---
+>         Var rootVar, JSModule module) {
+630a695
+>       this.rootVar = rootVar;
+634a700,702
+>     public Var getRootVar() {
+>       return rootVar;
+>     }
+635a704
+>     @Override
+665c734
+<     Scope scope;
+---
+>     final Scope scope;
+667c736
+<     NameContext(NameInfo name) {
+---
+>     NameContext(NameInfo name, Scope scope) {
+668a738
+>       this.scope = scope;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure163/src/com/google/javascript/jscomp/CrossModuleMethodMotion.java d4j_patched/Closure163/src/com/google/javascript/jscomp/CrossModuleMethodMotion.java
+140a141,143
+>         if (!(prop.getRootVar() != null && prop.getRootVar().isGlobal())) {
+>           continue;
+>         }

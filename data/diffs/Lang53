@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang53/src/java/org/apache/commons/lang/time/DateUtils.java d4j_patched/Lang53/src/java/org/apache/commons/lang/time/DateUtils.java
+642a643
+>         }
+645d645
+<             }
+651a652
+>         }
+654d654
+<             }

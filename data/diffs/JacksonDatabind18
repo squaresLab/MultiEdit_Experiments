@@ -1,0 +1,117 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind18/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java d4j_patched/JacksonDatabind18/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java
+27a28
+>     protected final static int STATE_CLOSED = 0;
+31a33
+>     protected final static int STATE_NEED_RESYNC = 1;
+36a39
+>     protected final static int STATE_MAY_HAVE_VALUE = 2;
+41a45
+>     protected final static int STATE_HAS_VALUE = 3;
+69c73
+<     protected JsonParser _parser;
+---
+>     protected final JsonParser _parser;
+74a79
+>     protected final JsonStreamContext _seqContext;
+98c103
+<     protected boolean _hasNextChecked;
+---
+>     protected int _state;
+138c143,148
+<         if (managedParser && (p != null) && p.isExpectedStartArrayToken()) {
+---
+>         if (p == null) { // can this occur?
+>             _seqContext = null;
+>             _state = STATE_CLOSED;
+>         } else {
+>             JsonStreamContext sctxt = p.getParsingContext();
+>             if (managedParser && p.isExpectedStartArrayToken()) {
+140a151
+>             } else {
+143a155,161
+>                 JsonToken t = p.getCurrentToken();
+>                 if ((t == JsonToken.START_OBJECT) || (t == JsonToken.START_ARRAY)) {
+>                     sctxt = sctxt.getParent();
+>                 }
+>             }
+>             _seqContext = sctxt;
+>             _state = STATE_MAY_HAVE_VALUE;
+188a207,208
+>         if (_state != STATE_CLOSED) {
+>             _state = STATE_CLOSED;
+191a212
+>         }
+210c231,232
+<         if (_parser == null) {
+---
+>         switch (_state) {
+>         case STATE_CLOSED:
+211a234,235
+>         case STATE_NEED_RESYNC:
+>             _resync();
+213,214c237
+<         }
+<         if (!_hasNextChecked) {
+---
+>         case STATE_MAY_HAVE_VALUE:
+216d238
+<             _hasNextChecked = true;
+221,224c243,245
+<                     JsonParser jp = _parser;
+<                     _parser = null;
+<                     if (_closeParser) {
+<                         jp.close();
+---
+>                     _state = STATE_CLOSED;
+>                     if (_closeParser && (_parser != null)) {
+>                         _parser.close();
+228a250,252
+>             _state = STATE_HAS_VALUE;
+>             return true;
+>         case STATE_HAS_VALUE:
+236c260,264
+<         if (!_hasNextChecked) {
+---
+>         switch (_state) {
+>         case STATE_CLOSED:
+>             return _throwNoSuchElement();
+>         case STATE_NEED_RESYNC: // fall-through, will do re-sync
+>         case STATE_MAY_HAVE_VALUE:
+239a268,270
+>             break;
+>         case STATE_HAS_VALUE:
+>             break;
+241,244d271
+<         if (_parser == null) {
+<             return _throwNoSuchElement();
+<         }
+<         _hasNextChecked = false;
+245a273
+>         int nextState = STATE_NEED_RESYNC;
+253a282
+>             nextState = STATE_MAY_HAVE_VALUE;
+255a285
+>             _state = nextState;
+351a382,384
+>     protected void _resync() throws IOException
+>     {
+>         final JsonParser p = _parser;
+352a386,388
+>         if (p.getParsingContext() == _seqContext) {
+>             return;
+>         }
+353a390,403
+>         while (true) {
+>             JsonToken t = p.nextToken();
+>             if ((t == JsonToken.END_ARRAY) || (t == JsonToken.END_OBJECT)) {
+>                 if (p.getParsingContext() == _seqContext) {
+>                     p.clearCurrentToken();
+>                     return;
+>                 }
+>             } else if ((t == JsonToken.START_ARRAY) || (t == JsonToken.START_OBJECT)) {
+>                 p.skipChildren();
+>             } else if (t == null) {
+>                 return;
+>             }
+>         }
+>     }

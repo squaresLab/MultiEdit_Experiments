@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math59/src/main/java/org/apache/commons/math/util/FastMath.java d4j_patched/Math59/src/main/java/org/apache/commons/math/util/FastMath.java
+3482c3482
+<         return (a <= b) ? b : (Float.isNaN(a + b) ? Float.NaN : b);
+---
+>         return (a <= b) ? b : (Float.isNaN(a + b) ? Float.NaN : a);

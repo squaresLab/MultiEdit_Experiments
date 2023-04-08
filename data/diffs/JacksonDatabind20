@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind20/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java d4j_patched/JacksonDatabind20/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java
+3a4
+> import com.fasterxml.jackson.annotation.JsonIgnore;
+323a325
+>     @JsonIgnore // work-around for [databind#815]

@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math4/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine.java d4j_patched/Math4/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine.java
+113a114,116
+>         if (v1D == null) {
+>             return null;
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math4/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java d4j_patched/Math4/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java
+117a118,120
+>         if (v2D == null) {
+>             return null;
+>         }

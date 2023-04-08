@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec6/src/java/org/apache/commons/codec/binary/Base64InputStream.java d4j_patched/Codec6/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+147a148
+>             int readLen = 0;
+163a165
+>             while (readLen == 0) {
+178c180,182
+<             return base64.readResults(b, offset, len);
+---
+>                 readLen = base64.readResults(b, offset, len);
+>             }
+>             return readLen;

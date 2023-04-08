@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito30/src/org/mockito/exceptions/Reporter.java d4j_patched/Mockito30/src/org/mockito/exceptions/Reporter.java
+438c438
+<     public void smartNullPointerException(Location location) {
+---
+>     public void smartNullPointerException(Object obj, Location location) {
+441a442
+>                 obj,
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito30/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java d4j_patched/Mockito30/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
+56c56
+<             new Reporter().smartNullPointerException(location);
+---
+>             new Reporter().smartNullPointerException(obj, location);

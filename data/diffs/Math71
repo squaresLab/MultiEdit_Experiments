@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math71/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java d4j_patched/Math71/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
+299a300,303
+>                   interpolator.storeTime(stepStart);
+>                   System.arraycopy(y, 0, yTmp, 0, y0.length);
+>                   hNew     = 0;
+>                   stepSize = 0;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math71/src/main/java/org/apache/commons/math/ode/nonstiff/RungeKuttaIntegrator.java d4j_patched/Math71/src/main/java/org/apache/commons/math/ode/nonstiff/RungeKuttaIntegrator.java
+179a180,182
+>                 interpolator.storeTime(stepStart);
+>                 System.arraycopy(y, 0, yTmp, 0, y0.length);
+>                 stepSize = 0;

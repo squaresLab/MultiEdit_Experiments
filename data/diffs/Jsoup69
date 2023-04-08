@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup69/src/main/java/org/jsoup/nodes/FormElement.java d4j_patched/Jsoup69/src/main/java/org/jsoup/nodes/FormElement.java
+48a49,53
+>     @Override
+>     protected void removeChild(Node out) {
+>         super.removeChild(out);
+>         elements.remove(out);
+>     }

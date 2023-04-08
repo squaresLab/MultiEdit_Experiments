@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup4/src/main/java/org/jsoup/nodes/Entities.java d4j_patched/Jsoup4/src/main/java/org/jsoup/nodes/Entities.java
+64c64
+<                 String name = m.group(1).toLowerCase();
+---
+>                 String name = m.group(1);
+2235c2235
+<             baseByVal.put(c, ((String) entity[0]).toLowerCase());
+---
+>             baseByVal.put(c, ((String) entity[0]));
+2240c2240
+<             fullByVal.put(c, ((String) entity[0]).toLowerCase());
+---
+>             fullByVal.put(c, ((String) entity[0]));

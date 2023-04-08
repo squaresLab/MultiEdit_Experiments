@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonXml1/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java d4j_patched/JacksonXml1/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java
+511a512
+>                 if (_parsingContext.inArray()) {
+513a515,518
+>                     _nextToken = JsonToken.END_OBJECT;
+>                     _parsingContext = _parsingContext.createChildObjectContext(-1, -1);
+>                     return (_currToken = JsonToken.START_OBJECT);
+>                 }
+550,553c555,557
+<                         _currToken = JsonToken.END_ARRAY;
+<                         _parsingContext = _parsingContext.getParent();
+<                         _namesToWrap = _parsingContext.getNamesToWrap();
+<                         return _currToken;
+---
+>                         _nextToken = JsonToken.END_OBJECT;
+>                         _parsingContext = _parsingContext.createChildObjectContext(-1, -1);
+>                         return (_currToken = JsonToken.START_OBJECT);

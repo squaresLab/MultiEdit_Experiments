@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math49/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java d4j_patched/Math49/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
+345c345
+<         Iterator iter = res.entries.iterator();
+---
+>         Iterator iter = entries.iterator();
+358c358
+<         Iterator iter = res.entries.iterator();
+---
+>         Iterator iter = entries.iterator();
+370c370
+<         Iterator iter = res.entries.iterator();
+---
+>         Iterator iter = entries.iterator();
+383c383
+<         Iterator iter = res.entries.iterator();
+---
+>         Iterator iter = entries.iterator();

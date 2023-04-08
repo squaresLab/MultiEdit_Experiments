@@ -1,0 +1,159 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure137/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java d4j_patched/Closure137/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+26c26
+< import com.google.javascript.jscomp.NodeTraversal.AbstractPostOrderCallback;
+---
+> import com.google.javascript.jscomp.NodeTraversal.ScopedCallback;
+47a48
+>   public static final String ARGUMENTS = "arguments";
+235,236c236,237
+<   static class ContextualRenameInverter extends AbstractPostOrderCallback
+<       implements CompilerPass {
+---
+>   static class ContextualRenameInverter
+>       implements ScopedCallback, CompilerPass {
+239a241
+>     private Set<String> referencedNames = ImmutableSet.of();
+241a244
+>     private Deque<Set<String>> referenceStack = new ArrayDeque<Set<String>>();
+244c247
+<     private Map<Var, String> nameMap = Maps.newHashMap();
+---
+>     private Map<String, List<Node>> nameMap = Maps.newHashMap();
+266,268d268
+<     private static String getOrginalNameInternal(String name, int index) {
+<       return name.substring(0, index);
+<     }
+272a273,276
+>     public void enterScope(NodeTraversal t) {
+>       if (t.inGlobalScope()) {
+>         return;
+>       }
+274,277c278,279
+<     private static String getNameSuffix(String name, int index) {
+<       return name.substring(
+<           index + ContextualRenamer.UNIQUE_ID_SEPARATOR.length(),
+<           name.length());
+---
+>       referenceStack.push(referencedNames);
+>       referencedNames = Sets.newHashSet();
+284,291c286,287
+<     @Override
+<     public void visit(NodeTraversal t, Node node, Node parent) {
+<       if (node.getType() == Token.NAME) {
+<         String oldName = node.getString();
+<         if (containsSeparator(oldName)) {
+<           Scope scope = t.getScope();
+<           Var var = t.getScope().getVar(oldName);
+<           if (var == null || var.isGlobal()) {
+---
+>     public void exitScope(NodeTraversal t) {
+>       if (t.inGlobalScope()) {
+295,300c291,294
+<           if (nameMap.containsKey(var)) {
+<             node.setString(nameMap.get(var));
+<           } else {
+<             int index = indexOfSeparator(oldName);
+<             String newName = getOrginalNameInternal(oldName, index);
+<             String suffix = getNameSuffix(oldName, index);
+---
+>       for (Iterator<Var> it = t.getScope().getVars(); it.hasNext();) {
+>         Var v = it.next();
+>         handleScopeVar(v);
+>       }
+303a298,299
+>       Set<String> current = referencedNames;
+>       referencedNames = referenceStack.pop();
+307,310c303,306
+<             boolean recurseScopes = false;
+<             if (!suffix.matches("\\d+")) {
+<               recurseScopes = true;
+<             }
+---
+>       if (!referenceStack.isEmpty()) {
+>         referencedNames.addAll(current);
+>       }
+>     }
+316a313,316
+>     void handleScopeVar(Var v) {
+>       String name  = v.getName();
+>       if (containsSeparator(name)) {
+>         String newName = getOrginalName(name);
+318,322c318,321
+<             if (var.scope.isDeclared(newName, recurseScopes) ||
+<                 !TokenStream.isJSIdentifier(newName)) {
+<               newName = oldName;
+<             } else {
+<               var.scope.declare(newName, var.nameNode, null, null);
+---
+>         if (TokenStream.isJSIdentifier(newName) &&
+>             !referencedNames.contains(newName) && 
+>             !newName.equals(ARGUMENTS)) {
+>           referencedNames.remove(name);
+325,331c324,330
+<               Node parentNode = var.getParentNode();
+<               if (parentNode.getType() == Token.FUNCTION &&
+<                   parentNode == var.scope.getRootNode()) {
+<                 var.getNameNode().setString(newName);
+<               }
+< 
+<               node.setString(newName);
+---
+>           referencedNames.add(newName);
+>           List<Node> references = nameMap.get(name);
+>           Preconditions.checkState(references != null);
+>           for (Node n : references) {
+>             Preconditions.checkState(n.getType() == Token.NAME);
+>             n.setString(newName);
+>           }
+333a333,335
+>         nameMap.remove(name);
+>       }
+>     }
+335c337,340
+<             nameMap.put(var, newName);
+---
+>     @Override
+>     public boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {
+>       return true;
+>     }
+336a342,345
+>     @Override
+>     public void visit(NodeTraversal t, Node node, Node parent) {
+>       if (t.inGlobalScope()) {
+>         return;
+338a348,349
+>       if (NodeUtil.isReferenceName(node)) {
+>         String name = node.getString();
+340a352
+>         referencedNames.add(name);
+341a354,355
+>         if (containsSeparator(name)) {
+>           addCandidateNameReference(name, node);
+345a360,367
+>     private void addCandidateNameReference(String name, Node n) {
+>       List<Node> nodes = nameMap.get(name);
+>       if (null == nodes) {
+>         nodes = Lists.newLinkedList();
+>         nameMap.put(name, nodes);
+>       }
+>       nodes.add(n);
+>     }
+391a414
+>       if (!name.equals(ARGUMENTS)) {
+400a424,425
+>             }
+>             declarations.put(name, newName);
+402d426
+<           declarations.put(name, newName);
+461a486
+>       Preconditions.checkState(!name.equals(ARGUMENTS));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure137/src/com/google/javascript/jscomp/NodeUtil.java d4j_patched/Closure137/src/com/google/javascript/jscomp/NodeUtil.java
+1042a1043,1045
+>   static boolean isReferenceName(Node n) {
+>     return isName(n) && !n.getString().isEmpty() && !isLabelName(n);
+>   }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure137/src/com/google/javascript/jscomp/Normalize.java d4j_patched/Closure137/src/com/google/javascript/jscomp/Normalize.java
+82d81
+<     removeDuplicateDeclarations(root);
+101a101
+>     removeDuplicateDeclarations(root);

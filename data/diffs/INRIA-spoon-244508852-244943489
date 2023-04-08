@@ -1,0 +1,105 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java
+179a180,185
+> 		if (parent instanceof CtTypeReference) {
+> 			if (parent.isParentInitialized() == false) {
+> 				return null;
+> 			}
+> 			parent = parent.getParent();
+> 		}
+181,182c187
+< 
+< 			CtElement parent2 = ((CtExecutableReference) parent).getDeclaration();
+---
+> 			CtElement parent2 = ((CtExecutableReference) parent).getExecutableDeclaration();
+186c191
+< 				e = ((CtExecutableReference<?>) parent).getDeclaringType().getTypeDeclaration();
+---
+> 				e = e.getParent(CtFormalTypeDeclarer.class);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/generics/GenericsTest.java after/src/test/java/spoon/test/generics/GenericsTest.java
+61a62
+> import static org.junit.Assert.assertNotEquals;
+62a64
+> import static org.junit.Assert.assertNotSame;
+1037a1040,1095
+> 	}
+> 
+> 	@Test
+> 	public void testGetDeclarationOfTypeParameterReference() {
+> 		Launcher launcher = new Launcher();
+> 		launcher.addInputResource("./src/test/java/spoon/test/generics/testclasses/ExtendedPaella.java");
+> 		launcher.addInputResource("./src/test/java/spoon/test/generics/testclasses/Paella.java");
+> 		launcher.buildModel();
+> 
+> 		Factory factory = launcher.getFactory();
+> 
+> 		CtClass extendedPaella = factory.getModel().getElements(new NameFilter<CtClass>("ExtendedPaella")).get(0);
+> 		List<CtTypeParameter> typeParameterList = extendedPaella.getFormalCtTypeParameters();
+> 
+> 		assertEquals(1, typeParameterList.size());
+> 
+> 		CtMethod totoMethod = factory.getModel().getElements(new NameFilter<CtMethod>("toto")).get(0);
+> 		CtTypeReference returnTypeToto = totoMethod.getType();
+> 		CtTypeReference paramToto = ((CtParameter)totoMethod.getParameters().get(0)).getType();
+> 
+> 		CtType declaration = returnTypeToto.getDeclaration();
+> 
+> 		assertSame(typeParameterList.get(0), declaration);
+> 		assertSame(typeParameterList.get(0), paramToto.getDeclaration());
+> 
+> 		CtMethod machinMethod = factory.getModel().getElements(new NameFilter<CtMethod>("machin")).get(0);
+> 		CtTypeReference returnTypeMachin = machinMethod.getType();
+> 		List<CtTypeParameter> formalCtTypeParameters = machinMethod.getFormalCtTypeParameters();
+> 
+> 		assertEquals(1, formalCtTypeParameters.size());
+> 
+> 		CtType declarationMachin = returnTypeMachin.getDeclaration();
+> 
+> 		assertNotSame(typeParameterList.get(0), declarationMachin);
+> 		assertSame(formalCtTypeParameters.get(0), declarationMachin);
+> 
+> 		CtClass innerPaella = factory.getModel().getElements(new NameFilter<CtClass>("InnerPaella")).get(0);
+> 		List<CtTypeParameter> innerTypeParametersList = innerPaella.getFormalCtTypeParameters();
+> 
+> 		assertEquals(typeParameterList.get(0), innerTypeParametersList.get(0).getSuperclass().getDeclaration());
+> 
+> 		CtMethod innerMachinMethod = factory.getModel().getElements(new NameFilter<CtMethod>("innerMachin")).get(0);
+> 		CtTypeReference returnTypeInnerMachin = innerMachinMethod.getType();
+> 		CtTypeReference paramInnerMachinType = ((CtParameter)innerMachinMethod.getParameters().get(0)).getType();
+> 		List<CtTypeParameter> innerMachinFormalCtType = innerMachinMethod.getFormalCtTypeParameters();
+> 
+> 		assertSame(typeParameterList.get(0), returnTypeInnerMachin.getDeclaration());
+> 		assertSame(innerMachinFormalCtType.get(0), paramInnerMachinType.getDeclaration());
+> 
+> 		CtMethod innerTotoMethod = factory.getModel().getElements(new NameFilter<CtMethod>("innerToto")).get(0);
+> 		CtTypeReference returnInnerToto = innerTotoMethod.getType();
+> 		CtTypeReference paramInnerToto = ((CtParameter)innerTotoMethod.getParameters().get(0)).getType();
+> 		List<CtTypeParameter> innerTotoFormatCtType = innerTotoMethod.getFormalCtTypeParameters();
+> 
+> 		assertSame(innerTotoFormatCtType.get(0), paramInnerToto.getDeclaration());
+> 		assertSame(innerTypeParametersList.get(0), returnInnerToto.getDeclaration());
+Only in after/src/test/java/spoon/test/generics/testclasses: ExtendedPaella.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/lambda/LambdaTest.java after/src/test/java/spoon/test/lambda/LambdaTest.java
+11a12
+> import spoon.reflect.declaration.CtClass;
+15a17
+> import spoon.reflect.declaration.CtTypeParameter;
+18a21
+> import spoon.reflect.reference.CtTypeParameterReference;
+19a23
+> import spoon.reflect.reference.CtWildcardReference;
+451a456,468
+> 	}
+> 
+> 	@Test
+> 	public void testGetDeclarationOnTypeParameterFromLambda() {
+> 		List<CtTypeParameterReference> listCtTPR  = launcher.getModel().getElements(new TypeFilter<>(CtTypeParameterReference.class));
+> 
+> 		for (CtTypeParameterReference typeParameterReference : listCtTPR) {
+> 			if (!(typeParameterReference instanceof CtWildcardReference) && typeParameterReference.getDeclaration() == null) {
+> 				System.err.println(typeParameterReference.getSimpleName()+" from parent "+typeParameterReference.getParent(CtClass.class).getPosition()+"  has null declaration");
+> 				typeParameterReference.getDeclaration();
+> 				fail();
+> 			}
+> 		}

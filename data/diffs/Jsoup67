@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup67/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java d4j_patched/Jsoup67/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+41a42
+>     public static final int MaxScopeSearchDepth = 100; // prevents the parser bogging down in exceptionally broken pages
+467a469,471
+>         if (depth > MaxScopeSearchDepth) {
+>             depth = MaxScopeSearchDepth;
+>         }

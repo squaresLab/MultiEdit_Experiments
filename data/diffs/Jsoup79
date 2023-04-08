@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup79/src/main/java/org/jsoup/nodes/LeafNode.java d4j_patched/Jsoup79/src/main/java/org/jsoup/nodes/LeafNode.java
+4a5
+> import java.util.Collections;
+7a9
+>     private static final List<Node> EmptyNodes = Collections.emptyList();
+94c96
+<         throw new UnsupportedOperationException("Leaf Nodes do not have child nodes.");
+---
+>         return EmptyNodes;

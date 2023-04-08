@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind77/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java d4j_patched/JacksonDatabind77/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+142a143
+>         checkIllegalTypes(ctxt, type, beanDesc);
+841a843,846
+>     protected void checkIllegalTypes(DeserializationContext ctxt, JavaType type,
+>             BeanDescription beanDesc)
+>         throws JsonMappingException
+>     {
+843a849,850
+>         Class<?> raw = type.getRawClass();
+>         String name = raw.getSimpleName();
+844a852,859
+>         if ("TemplatesImpl".equals(name)) { // [databind#1599] 
+>             if (raw.getName().startsWith("com.sun.org.apache.xalan")) {
+>                 throw JsonMappingException.from(ctxt,
+>                         String.format("Illegal type (%s) to deserialize: prevented for security reasons",
+>                                 name));
+>             }
+>         }
+>     }

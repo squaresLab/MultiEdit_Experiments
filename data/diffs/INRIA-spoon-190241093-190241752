@@ -1,0 +1,55 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/factory/ExecutableFactory.java after/src/main/java/spoon/reflect/factory/ExecutableFactory.java
+116a117
+> 		// constructor
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ParentExiter.java after/src/main/java/spoon/support/compiler/jdt/ParentExiter.java
+724,726c724
+< 		return parent.type != null && parent.type.equals(childJDT)
+< 				// Type not yet initialized.
+< 				&& !((CtTypeAccess) child).getAccessedType().equals(ctConstructorCall.getExecutable().getType());
+---
+> 		return parent.type != null && parent.type.equals(childJDT);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java after/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+341d340
+< 
+343,345c342,348
+< 		ref.setSimpleName(new String(exec.selector));
+< 		ref.setType(getTypeReference(exec.returnType));
+< 
+---
+> 		if (exec.isConstructor()) {
+> 			ref.setSimpleName(CtExecutableReference.CONSTRUCTOR_NAME);
+> 			ref.setType(getTypeReference(exec.declaringClass));
+> 		} else {
+> 			ref.setSimpleName(new String(exec.selector));
+> 			ref.setType(getTypeReference(exec.returnType));
+> 		}
+Only in after/src/test/java/spoon/test/reference/testclasses: ParamRefs.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/reference/TypeReferenceTest.java after/src/test/java/spoon/test/reference/TypeReferenceTest.java
+5d4
+< import spoon.SpoonException;
+21a21
+> import spoon.reflect.declaration.CtParameter;
+26a27
+> import spoon.reflect.reference.CtParameterReference;
+30a32
+> import spoon.reflect.visitor.filter.NameFilter;
+33d34
+< import spoon.support.compiler.SnippetCompilationHelper;
+35a37
+> import spoon.test.reference.testclasses.ParamRefs;
+593a596,608
+> 	}
+> 
+> 	@Test
+> 	public void testEqualityTypeReference() throws Exception {
+> 		CtClass<ParamRefs> aClass = (CtClass) buildClass(ParamRefs.class);
+> 		CtParameter<?> parameter = aClass.getElements(new NameFilter<CtParameter<?>>("param")).get(0);
+> 		CtParameterReference<?> parameterRef1 = parameter.getReference();
+> 		CtParameterReference<?> parameterRef2 = aClass.getElements((CtParameterReference<?> ref)->ref.getSimpleName().equals("param")).get(0);
+> 
+> 		assertEquals(aClass.getReference(), parameterRef1.getDeclaringExecutable().getType());
+> 		assertEquals(aClass.getReference(), parameterRef2.getDeclaringExecutable().getType());
+> 
+> 		assertEquals(parameterRef1, parameterRef2);

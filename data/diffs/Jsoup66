@@ -1,0 +1,23 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup66/src/main/java/org/jsoup/nodes/Element.java d4j_patched/Jsoup66/src/main/java/org/jsoup/nodes/Element.java
+89c89
+<             childNodes = new NodeList(4);
+---
+>             childNodes = new NodeList(this, 4);
+1402c1402
+<         clone.childNodes = new NodeList(childNodes.size());
+---
+>         clone.childNodes = new NodeList(clone, childNodes.size());
+1408,1409c1408,1411
+<     private final class NodeList extends ChangeNotifyingArrayList<Node> {
+<         NodeList(int initialCapacity) {
+---
+>     private static final class NodeList extends ChangeNotifyingArrayList<Node> {
+>         private final Element owner;
+> 
+>         NodeList(Element owner, int initialCapacity) {
+1410a1413
+>             this.owner = owner;
+1414c1417
+<             nodelistChanged();
+---
+>             owner.nodelistChanged();

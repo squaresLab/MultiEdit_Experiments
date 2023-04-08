@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time13/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java d4j_patched/Time13/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+1098c1098
+<                 sum = Math.max(sum, 4);
+---
+>                 sum = (valueLong < 0 ? Math.max(sum, 5) : Math.max(sum, 4));
+1132a1133
+>             int bufLen = buf.length();
+1141a1143,1145
+>                     if (valueLong < 0 && valueLong > -DateTimeConstants.MILLIS_PER_SECOND) {
+>                         buf.insert(bufLen, '-');
+>                     }

@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure57/src/com/google/javascript/jscomp/ClosureCodingConvention.java d4j_patched/Closure57/src/com/google/javascript/jscomp/ClosureCodingConvention.java
+197c197
+<           if (target != null) {
+---
+>           if (target != null && target.getType() == Token.STRING) {

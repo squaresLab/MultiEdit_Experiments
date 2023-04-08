@@ -1,0 +1,23 @@
+Only in after/axon-server-connector: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java after/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
+119c119
+<         return convert(null, throwable);
+---
+>         return convert("", throwable);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/axon-server-connector/src/test/java/org/axonframework/axonserver/connector/event/axon/ErrorCodeTest.java after/axon-server-connector/src/test/java/org/axonframework/axonserver/connector/event/axon/ErrorCodeTest.java
+38c38
+<     public void testCovert4002FromCodeAndMessage(){
+---
+>     public void testConvert4002FromCodeAndMessage() {
+46c46
+<     public void testCovertUnknownFromCodeAndMessage(){
+---
+>     public void testConvertUnknownFromCodeAndMessage() {
+52a53,58
+>     @Test
+>     public void testConvertWithoutSource() {
+>         RuntimeException exception = new RuntimeException("oops");
+>         AxonException axonException = ErrorCode.getFromCode("AXONIQ-4002").convert(exception);
+>         assertEquals(exception.getMessage(), axonException.getMessage());
+>     }
+Only in after/: bears.json

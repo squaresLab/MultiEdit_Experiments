@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli40/src/main/java/org/apache/commons/cli/TypeHandler.java d4j_patched/Cli40/src/main/java/org/apache/commons/cli/TypeHandler.java
+103c103
+<             return null;
+---
+>             throw new ParseException("Unable to handle the class: " + clazz);

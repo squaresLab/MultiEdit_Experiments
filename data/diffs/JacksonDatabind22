@@ -1,0 +1,88 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind22/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java d4j_patched/JacksonDatabind22/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java
+580c580
+<                 return buildMapSerializer(config, (MapType) mlt, beanDesc, staticTyping,
+---
+>                 return buildMapSerializer(prov, (MapType) mlt, beanDesc, staticTyping,
+584a585
+>             MapLikeType mlType = (MapLikeType) type;
+586d586
+<                 MapLikeType mlType = (MapLikeType) type;
+588a589,595
+>                 if (ser != null) {
+>                     break;
+>                 }
+>             }
+>             if (ser == null) { // (2) Annotations-based ones:
+>                 ser = findSerializerByAnnotations(prov, type, beanDesc);
+>             }
+594,595d600
+<                     }
+<                     return ser;
+598c603
+<             return null;
+---
+>             return ser;
+603c608
+<                 return buildCollectionSerializer(config,  (CollectionType) clt, beanDesc, staticTyping,
+---
+>                 return buildCollectionSerializer(prov,  (CollectionType) clt, beanDesc, staticTyping,
+611a617,623
+>                 if (ser != null) {
+>                     break;
+>                 }
+>             }
+>             if (ser == null) { // (2) Annotations-based ones:
+>                 ser = findSerializerByAnnotations(prov, type, beanDesc);
+>             }
+616d627
+<                         }
+618d628
+<                     return ser;
+621c631
+<             return null;
+---
+>             return ser;
+624c634
+<             return buildArraySerializer(config, (ArrayType) type, beanDesc, staticTyping,
+---
+>             return buildArraySerializer(prov, (ArrayType) type, beanDesc, staticTyping,
+636c646
+<     protected JsonSerializer<?> buildCollectionSerializer(SerializationConfig config,
+---
+>     protected JsonSerializer<?> buildCollectionSerializer(SerializerProvider prov,
+640a651
+>         SerializationConfig config = prov.getConfig();
+654a666,667
+>             ser = findSerializerByAnnotations(prov, type, beanDesc); // (2) Annotations
+>             if (ser == null) {
+690a704
+>                     }
+737c751
+<     protected JsonSerializer<?> buildMapSerializer(SerializationConfig config,
+---
+>     protected JsonSerializer<?> buildMapSerializer(SerializerProvider prov,
+742a757
+>         final SerializationConfig config = prov.getConfig();
+755a771,772
+>             ser = findSerializerByAnnotations(prov, type, beanDesc); // (2) Annotations
+>             if (ser == null) {
+783a801
+>         }
+831c849
+<     protected JsonSerializer<?> buildArraySerializer(SerializationConfig config,
+---
+>     protected JsonSerializer<?> buildArraySerializer(SerializerProvider prov,
+840a859
+>         SerializationConfig config = prov.getConfig();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind22/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java d4j_patched/JacksonDatabind22/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+174,177c174
+<         JsonSerializer<?> ser = findSerializerByAnnotations(prov, type, beanDesc);
+<         if (ser != null) {
+<             return ser;
+<         }
+---
+>         JsonSerializer<?> ser = null;
+211a209,211
+>             if (ser == null) {
+>                 ser = findSerializerByAnnotations(prov, type, beanDesc);
+>             }

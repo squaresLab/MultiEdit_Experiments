@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec3/src/java/org/apache/commons/codec/language/DoubleMetaphone.java d4j_patched/Codec3/src/java/org/apache/commons/codec/language/DoubleMetaphone.java
+455c455
+<             } else if (contains(value, index + 1, 4, "IER")) {
+---
+>             } else if (contains(value, index + 1, 3, "IER")) {

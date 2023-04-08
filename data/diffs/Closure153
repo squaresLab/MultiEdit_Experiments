@@ -1,0 +1,81 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure153/src/com/google/javascript/jscomp/Normalize.java d4j_patched/Closure153/src/com/google/javascript/jscomp/Normalize.java
+630a631
+>     private Set<Var> hasOkDuplicateDeclaration = Sets.newHashSet();
+638,639c639
+<         Scope s, String name, Node n, Node parent, Node gramps,
+<         Node nodeWithLineNumber) {
+---
+>         Scope s, String name, Node n, CompilerInput input) {
+640a641
+>       Node parent = n.getParent();
+642a644
+>       if (v != null && s.isGlobal()) {
+646a649,654
+>         if (v.isExtern() && !input.isExtern()) {
+>           if (hasOkDuplicateDeclaration.add(v)) {
+>             return;
+>           }
+>         }
+>       }
+669c677
+<                 NodeUtil.getSourceName(nodeWithLineNumber), nodeWithLineNumber,
+---
+>                 input.getName(), n,
+681c689
+<         replaceVarWithAssignment(n, parent, gramps);
+---
+>         replaceVarWithAssignment(n, parent, parent.getParent());
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure153/src/com/google/javascript/jscomp/SyntacticScopeCreator.java d4j_patched/Closure153/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+23d22
+< import com.google.javascript.rhino.jstype.JSType;
+95c94
+<         declareVar(fnName, fnNameNode, n, null, null, n);
+---
+>         declareVar(fnNameNode);
+103c102
+<         declareVar(a.getString(), a, args, n, null, n);
+---
+>         declareVar(a);
+125,127c124
+<           Preconditions.checkState(child.getType() == Token.NAME);
+<           String name = child.getString();
+<           declareVar(name, child, n, parent, null, n);
+---
+>           declareVar(child);
+142c139
+<         declareVar(fnName, n.getFirstChild(), n, parent, null, n);
+---
+>         declareVar(n.getFirstChild());
+154c151
+<         declareVar(var.getString(), var, n, parent, null, n);
+---
+>         declareVar(var);
+180,181c177
+<         Scope s, String name,
+<         Node n, Node parent, Node gramps, Node nodeWithLineNumber);
+---
+>         Scope s, String name, Node n, CompilerInput input);
+189,190c185,186
+<         Scope s, String name,
+<         Node n, Node parent, Node gramps, Node nodeWithLineNumber) {
+---
+>         Scope s, String name, Node n, CompilerInput input) {
+>       Node parent = n.getParent();
+235,237c231,232
+<   private void declareVar(String name, Node n, Node parent,
+<                           Node gramps, JSType declaredType,
+<                           Node nodeWithLineNumber) {
+---
+>   private void declareVar(Node n) {
+>     Preconditions.checkState(n.getType() == Token.NAME);
+238a234,235
+>     CompilerInput input = compiler.getInput(sourceName);
+>     String name = n.getString();
+242c239
+<           scope, name, n, parent, gramps, nodeWithLineNumber);
+---
+>           scope, name, n, input);
+244c241
+<       scope.declare(name, n, declaredType, compiler.getInput(sourceName));
+---
+>       scope.declare(name, n, null, input);

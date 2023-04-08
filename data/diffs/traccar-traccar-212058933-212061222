@@ -1,0 +1,31 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/SuntechProtocolDecoder.java after/src/org/traccar/protocol/SuntechProtocolDecoder.java
+33a34
+>     private boolean hbm;
+38a40
+>         hbm = Context.getConfig().getBoolean(getProtocolName() + ".hbm");
+147,149c149,157
+<         if (index < values.length) {
+<             position.set(Position.KEY_HOURS, Integer.parseInt(values[index++]));
+<         }
+---
+>         if (hbm) {
+> 
+>             if (index < values.length) {
+>                 position.set(Position.KEY_HOURS, Integer.parseInt(values[index++]));
+>             }
+> 
+>             if (index < values.length) {
+>                 position.set(Position.KEY_BATTERY, Double.parseDouble(values[index]));
+>             }
+151,152d158
+<         if (index < values.length) {
+<             position.set(Position.KEY_BATTERY, Double.parseDouble(values[index]));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/SuntechProtocolDecoderTest.java after/test/org/traccar/protocol/SuntechProtocolDecoderTest.java
+16,17c16,17
+<         /*verifyPosition(decoder, text(
+<                 "ST300STT;205589913;05;527;20170304;02:21:33;be139;-25.398868;-049.325636;000.476;000.00;6;1;427;12.57;100000010;1;0172;017.159;0;002.327;12;4.0"));*/
+---
+>         verifyPosition(decoder, text(
+>                 "ST300STT;205589913;05;527;20170304;02:21:33;be139;-25.398868;-049.325636;000.476;000.00;6;1;427;12.57;100000010;1;0172;017.159;0;002.327;12;4.0"));

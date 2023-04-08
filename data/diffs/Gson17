@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson17/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java d4j_patched/Gson17/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
+99,100c99,101
+<     if (in.peek() != JsonToken.STRING) {
+<       throw new JsonParseException("The date should be a string value");
+---
+>     if (in.peek() == JsonToken.NULL) {
+>       in.nextNull();
+>       return null;

@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math87/src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java d4j_patched/Math87/src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java
+275,276c275
+<             if (!MathUtils.equals(getEntry(i, col), 0.0, epsilon)) {
+<                 if (row == null) {
+---
+>             if (MathUtils.equals(getEntry(i, col), 1.0, epsilon) && (row == null)) {
+278c277
+<                 } else {
+---
+>             } else if (!MathUtils.equals(getEntry(i, col), 0.0, epsilon)) {
+280d278
+<                 }

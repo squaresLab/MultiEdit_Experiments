@@ -1,0 +1,18 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure47/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java d4j_patched/Closure47/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+489,490c489,490
+<         .setLineNumber(entry.getSourceLine())
+<         .setColumnPosition(entry.getSourceColumn());
+---
+>         .setLineNumber(entry.getSourceLine() + 1)
+>         .setColumnPosition(entry.getSourceColumn() + 1);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure47/src/com/google/javascript/jscomp/SourceMap.java d4j_patched/Closure47/src/com/google/javascript/jscomp/SourceMap.java
+137a138,142
+>     int lineBaseOffset = 1;
+>     if (generator instanceof SourceMapGeneratorV1
+>         || generator instanceof SourceMapGeneratorV2) {
+>       lineBaseOffset = 0;
+>     }
+141c146
+<         new FilePosition(node.getLineno(), node.getCharno()),
+---
+>         new FilePosition(node.getLineno() - lineBaseOffset, node.getCharno()),

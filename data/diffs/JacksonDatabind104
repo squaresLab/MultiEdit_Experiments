@@ -1,0 +1,29 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind104/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java d4j_patched/JacksonDatabind104/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
+440a441,444
+>         if (cal.get(Calendar.ERA) == GregorianCalendar.BC) {
+>             _formatBCEYear(buffer, year);
+>         } else {
+>             if (year > 9999) {
+445a450,451
+>                 buffer.append('+');
+>             }
+446a453
+>         }
+482a490
+>     protected void _formatBCEYear(StringBuffer buffer, int bceYearNoSign) {
+484a493,498
+>         if (bceYearNoSign == 1) {
+>             buffer.append("+0000");
+>             return;
+>         }
+>         final int isoYear = bceYearNoSign - 1;
+>         buffer.append('-');
+487a502,503
+>         pad4(buffer, isoYear);
+>     }
+515a532,534
+>             if (h > 99) { // [databind#2167]: handle above 9999 correctly
+>                 buffer.append(h);
+>             } else {
+516a536
+>             }

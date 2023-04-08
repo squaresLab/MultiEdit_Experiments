@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure81/src/com/google/javascript/jscomp/parsing/IRFactory.java d4j_patched/Closure81/src/com/google/javascript/jscomp/parsing/IRFactory.java
+516a517,523
+>         int functionType = functionNode.getFunctionType();
+>         if (functionType != FunctionNode.FUNCTION_EXPRESSION) {
+>           errorReporter.error(
+>             "unnamed function statement",
+>             sourceName,
+>             functionNode.getLineno(), "", 0);
+>         }

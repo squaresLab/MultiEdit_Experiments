@@ -1,0 +1,42 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure134/src/com/google/javascript/jscomp/AmbiguateProperties.java d4j_patched/Closure134/src/com/google/javascript/jscomp/AmbiguateProperties.java
+210d209
+<         computeRelatedTypes(p.type);
+356c355
+<       return !getRelated(prop.type).intersects(typesInSet);
+---
+>       return !prop.relatedTypesSet.intersects(typesInSet);
+366c365
+<       typesRelatedToSet.or(getRelated(prop.type));
+---
+>       typesRelatedToSet.or(prop.relatedTypesSet);
+553d551
+<     JSType type;
+557a556
+>     JSTypeBitSet relatedTypesSet = new JSTypeBitSet(intForType.size());
+594,597c593,597
+<       if (type == null) {
+<         type = newType;
+<       } else {
+<         type = type.getLeastSupertype(newType);
+---
+>       int typeInt = getIntForType(newType);
+>       if (!typesSet.get(typeInt)) {
+>         computeRelatedTypes(newType);
+>         typesSet.set(typeInt);
+>         relatedTypesSet.or(getRelatedTypesOnNonUnion(newType));
+599d598
+<       typesSet.set(getIntForType(newType));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure134/src/com/google/javascript/jscomp/TypedScopeCreator.java d4j_patched/Closure134/src/com/google/javascript/jscomp/TypedScopeCreator.java
+560c560
+<       }
+---
+>       } else {
+562a563,570
+>         for (ObjectType iface :
+>                  ownerType.getCtorImplementedInterfaces()) {
+>           propType = iface.getPropertyType(propName);
+>           if (propType instanceof FunctionType) {
+>             return (FunctionType) propType;
+>           }
+>         }
+>       }

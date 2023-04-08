@@ -1,0 +1,33 @@
+Only in after/: bears.json
+Only in after/dubbo-config/dubbo-config-spring: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java after/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java
+55,57c55
+<                         if (value instanceof String) {
+<                             subProperties.put(subName, String.valueOf(value));
+<                         }
+---
+>                         subProperties.put(subName, String.valueOf(value));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/dubbo-config/dubbo-config-spring/src/test/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtilsTest.java after/dubbo-config/dubbo-config-spring/src/test/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtilsTest.java
+47c47,50
+<         Map<String, String> result = PropertySourcesUtils.getSubProperties(propertySources, "user");
+---
+>         String KEY_PREFIX = "user";
+>         String KEY_NAME = "name";
+>         String KEY_AGE = "age";
+>         Map<String, String> result = PropertySourcesUtils.getSubProperties(propertySources, KEY_PREFIX);
+51,52c54,55
+<         source.put("user.name", "Mercy");
+<         source.put("user.age", "31");
+---
+>         source.put(KEY_PREFIX + "." + KEY_NAME, "Mercy");
+>         source.put(KEY_PREFIX + "." + KEY_AGE, 31);
+55,58c58,59
+<         expected.put("name", "Mercy");
+<         expected.put("age", "31");
+< 
+<         result = PropertySourcesUtils.getSubProperties(propertySources, "user");
+---
+>         expected.put(KEY_NAME, "Mercy");
+>         expected.put(KEY_AGE, "31");
+59a61
+>         result = PropertySourcesUtils.getSubProperties(propertySources, KEY_PREFIX);

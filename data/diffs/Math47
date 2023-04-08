@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math47/src/main/java/org/apache/commons/math/complex/Complex.java d4j_patched/Math47/src/main/java/org/apache/commons/math/complex/Complex.java
+81a82
+>     private final transient boolean isZero;
+104a106
+>         isZero = real == 0 && imaginary == 0;
+256,257c258,259
+<         if (divisor.getReal() == 0.0 && divisor.getImaginary() == 0.0) {
+<             return NaN;
+---
+>         if (divisor.isZero) {
+>             return isZero ? NaN : INF;
+293c295
+<             return NaN;
+---
+>             return isZero ? NaN : INF;

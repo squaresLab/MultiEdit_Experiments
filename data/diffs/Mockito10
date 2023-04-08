@@ -1,0 +1,28 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito10/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java d4j_patched/Mockito10/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
+16a17
+> import org.mockito.mock.MockCreationSettings;
+71c72
+<                 newDeepStubMock(returnTypeGenericMetadata),
+---
+>                 newDeepStubMock(returnTypeGenericMetadata, invocation.getMock()),
+87c88,89
+<     private Object newDeepStubMock(GenericMetadataSupport returnTypeGenericMetadata) {
+---
+>     private Object newDeepStubMock(GenericMetadataSupport returnTypeGenericMetadata, Object parentMock) {
+>         MockCreationSettings parentMockSettings = new MockUtil().getMockSettings(parentMock);
+90c92
+<                 withSettingsUsing(returnTypeGenericMetadata)
+---
+>                 withSettingsUsing(returnTypeGenericMetadata, parentMockSettings)
+94c96
+<     private MockSettings withSettingsUsing(GenericMetadataSupport returnTypeGenericMetadata) {
+---
+>     private MockSettings withSettingsUsing(GenericMetadataSupport returnTypeGenericMetadata, MockCreationSettings parentMockSettings) {
+99c101
+<         return mockSettings.serializable()
+---
+>         return propagateSerializationSettings(mockSettings, parentMockSettings)
+102a105,107
+>     private MockSettings propagateSerializationSettings(MockSettings mockSettings, MockCreationSettings parentMockSettings) {
+>         return mockSettings.serializable(parentMockSettings.getSerializableMode());
+>     }

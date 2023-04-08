@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind19/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java d4j_patched/JacksonDatabind19/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+1020a1021,1023
+>         if (rawClass == Properties.class) {
+>             return MapType.construct(rawClass, CORE_TYPE_STRING, CORE_TYPE_STRING);
+>         }

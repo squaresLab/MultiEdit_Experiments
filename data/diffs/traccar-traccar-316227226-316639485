@@ -1,0 +1,19 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Gt06ProtocolDecoder.java after/src/org/traccar/protocol/Gt06ProtocolDecoder.java
+557c557
+<             int mnc = buf.readUnsignedByte();
+---
+>             int mnc = BitUtil.check(mcc, 15) ? buf.readUnsignedShort() : buf.readUnsignedByte();
+564c564
+<                     network.addCellTower(CellTower.from(mcc, mnc, lac, cid, rssi));
+---
+>                     network.addCellTower(CellTower.from(BitUtil.to(mcc, 15), mnc, lac, cid, rssi));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Gt06ProtocolDecoderTest.java after/test/org/traccar/protocol/Gt06ProtocolDecoderTest.java
+21a22,27
+>         verifyNull(decoder, binary(
+>                 "78782EA4110C0C02281BF6026C18720C38D22800149C1181CC00010000260E000000000615F8012C05041102FF001058FD0D0A"));
+> 
+>         verifyNotNull(decoder, binary(
+>                 "78787aa2110c0e06372c813601040000591200000000009d7c01040000591200000000009d7c01040000591200000000009d7c01040000591200000000009d7c01040000591200000000009d7c01040000591200000000009d7c01040000591200000000009d7c0104ff02001801eb4039d10000000000000004fabeb50d0a"));
+> 

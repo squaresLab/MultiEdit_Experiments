@@ -1,0 +1,19 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math23/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java d4j_patched/Math23/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+150a151
+>         UnivariatePointValuePair best = current;
+233a235,239
+>                 best = best(best,
+>                             best(current,
+>                                  previous,
+>                                  isMinim),
+>                             isMinim);
+237c243
+<                         return best(current, previous, isMinim);
+---
+>                         return best;
+274c280
+<                 return
+---
+>                 return best(best,
+276a283
+>                                  isMinim),

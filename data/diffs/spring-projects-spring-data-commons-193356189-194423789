@@ -1,0 +1,53 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/web/ProxyingHandlerMethodArgumentResolver.java after/src/main/java/org/springframework/data/web/ProxyingHandlerMethodArgumentResolver.java
+17a18,20
+> import java.util.Arrays;
+> import java.util.List;
+> 
+24a28
+> import org.springframework.core.annotation.AnnotatedElementUtils;
+27a32
+> import org.springframework.util.ClassUtils;
+42a48,49
+> 	private static final List<String> IGNORED_PACKAGES = Arrays.asList("java", "org.springframework");
+> 
+93c100,124
+< 		return parameter.getParameterType().isInterface();
+---
+> 
+> 		Class<?> type = parameter.getParameterType();
+> 
+> 		if (!type.isInterface()) {
+> 			return false;
+> 		}
+> 
+> 		// Annotated parameter
+> 		if (parameter.getParameterAnnotation(ProjectedPayload.class) != null) {
+> 			return true;
+> 		}
+> 
+> 		// Annotated type
+> 		if (AnnotatedElementUtils.findMergedAnnotation(type, ProjectedPayload.class) != null) {
+> 			return true;
+> 		}
+> 
+> 		// Fallback for only user defined interfaces
+> 		for (String prefix : IGNORED_PACKAGES) {
+> 			if (ClassUtils.getPackageName(type).startsWith(prefix)) {
+> 				return false;
+> 			}
+> 		}
+> 
+> 		return true;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/web/config/SampleController.java after/src/test/java/org/springframework/data/web/config/SampleController.java
+2c2
+<  * Copyright 2015 the original author or authors.
+---
+>  * Copyright 2015-2017 the original author or authors.
+23a24
+> import org.springframework.data.web.ProjectedPayload;
+55a57
+> 	@ProjectedPayload
+Only in after/src/test/java/org/springframework/data/web: ProxyingHandlerMethodArgumentResolverUnitTests.java
+Only in after/src/test/java: SampleInterface.java

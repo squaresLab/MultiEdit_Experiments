@@ -1,0 +1,36 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/repository/support/Repositories.java after/src/main/java/org/springframework/data/repository/support/Repositories.java
+124c124,126
+< 		return repositoryFactoryInfos.containsKey(domainClass);
+---
+> 		Class<?> userClass = ClassUtils.getUserClass(domainClass);
+> 
+> 		return repositoryFactoryInfos.containsKey(userClass);
+137c139,141
+< 		String repositoryBeanName = repositoryBeanNames.get(domainClass);
+---
+> 		Class<?> userClass = ClassUtils.getUserClass(domainClass);
+> 		String repositoryBeanName = repositoryBeanNames.get(userClass);
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/repository/support/RepositoriesUnitTests.java after/src/test/java/org/springframework/data/repository/support/RepositoriesUnitTests.java
+31a32
+> import org.springframework.aop.framework.ProxyFactory;
+139a141,157
+> 	}
+> 
+> 	@Test // DATACMNS-1215
+> 	public void exposesRepositoryForProxyType() {
+> 
+> 		ProxyFactory factory = new ProxyFactory();
+> 		factory.setTarget(new Person());
+> 		factory.setProxyTargetClass(true);
+> 
+> 		Object proxy = factory.getProxy();
+> 
+> 		assertThat(ClassUtils.isCglibProxy(proxy), is(true));
+> 
+> 		Repositories repositories = new Repositories(context);
+> 
+> 		assertThat(repositories.hasRepositoryFor(proxy.getClass()), is(true));
+> 		assertThat(repositories.getRepositoryFor(proxy.getClass()), is(notNullValue()));

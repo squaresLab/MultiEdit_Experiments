@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath20/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java d4j_patched/JxPath20/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+88c88
+<             return containsMatch((Iterator) right, left);
+---
+>             return containsMatch(left, (Iterator) right);
+137a138,146
+>     private boolean containsMatch(Object value, Iterator it) {
+>         while (it.hasNext()) {
+>             Object element = it.next();
+>             if (compute(value, element)) {
+>                 return true;
+>             }
+>         }
+>         return false;
+>     }

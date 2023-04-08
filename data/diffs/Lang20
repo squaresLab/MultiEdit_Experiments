@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang20/src/main/java/org/apache/commons/lang3/StringUtils.java d4j_patched/Lang20/src/main/java/org/apache/commons/lang3/StringUtils.java
+3298c3298
+<         StringBuilder buf = new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + 1);
+---
+>         StringBuilder buf = new StringBuilder(noOfItems * 16);
+3383c3383
+<         StringBuilder buf = new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + separator.length());
+---
+>         StringBuilder buf = new StringBuilder(noOfItems * 16);

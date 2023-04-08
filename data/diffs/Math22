@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math22/src/main/java/org/apache/commons/math3/distribution/FDistribution.java d4j_patched/Math22/src/main/java/org/apache/commons/math3/distribution/FDistribution.java
+275c275
+<         return true;
+---
+>         return false;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math22/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java d4j_patched/Math22/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java
+184c184
+<         return false;
+---
+>         return true;

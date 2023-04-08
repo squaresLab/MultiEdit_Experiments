@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup88/src/main/java/org/jsoup/nodes/Attribute.java d4j_patched/Jsoup88/src/main/java/org/jsoup/nodes/Attribute.java
+80c80
+<         return val;
+---
+>         return Attributes.checkNotNull(val);

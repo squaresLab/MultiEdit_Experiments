@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart1/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java d4j_patched/Chart1/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+1797c1797
+<         if (dataset != null) {
+---
+>         if (dataset == null) {
+Binary files d4j_buggy/Chart1/.svn/wc.db and d4j_patched/Chart1/.svn/wc.db differ

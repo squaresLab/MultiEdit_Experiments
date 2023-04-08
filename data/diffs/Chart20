@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart20/source/org/jfree/chart/plot/ValueMarker.java d4j_patched/Chart20/source/org/jfree/chart/plot/ValueMarker.java
+95c95
+<         super(paint, stroke, paint, stroke, alpha);
+---
+>         super(paint, stroke, outlinePaint, outlineStroke, alpha);
+Binary files d4j_buggy/Chart20/.svn/wc.db and d4j_patched/Chart20/.svn/wc.db differ

@@ -1,0 +1,24 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure138/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java d4j_patched/Closure138/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java
+208d207
+<         if (paramType != null) {
+218d216
+<             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure138/src/com/google/javascript/jscomp/TypeInference.java d4j_patched/Closure138/src/com/google/javascript/jscomp/TypeInference.java
+632,633c632
+<       if (var != null &&
+<           !(var.isTypeInferred() && unflowableVarNames.contains(varName))) {
+---
+>       if (var != null) {
+638a638,640
+>         boolean isInferred = var.isTypeInferred();
+>         boolean unflowable =
+>             isInferred && unflowableVarNames.contains(varName);
+642a645,648
+>         boolean nonLocalInferredSlot =
+>             isInferred &&
+>             syntacticScope.getParent() != null &&
+>             var == syntacticScope.getParent().getSlot(varName);
+643a650
+>         if (!unflowable && !nonLocalInferredSlot) {
+646a654
+>           }

@@ -1,0 +1,136 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java after/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+634a635
+> 				this.exploringParameterizedBindings.put(binding, ref);
+705c706,712
+< 					refSuperClass = this.getTypeReference(superClass);
+---
+> 
+> 					// this case could happen with Enum<E extends Enum<E>> for example:
+> 					// in that case we only want to have E -> Enum -> E
+> 					// to conserve the same behavior as JavaReflectionTreeBuilder
+> 					if (!(superClass instanceof ParameterizedTypeBinding) || !this.exploringParameterizedBindings.containsKey(superClass)) {
+> 						refSuperClass = this.getTypeReference(superClass);
+> 					}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
+153c153,156
+< 		return typeRef == null ? null : getCtExecutable(typeRef.getDeclaration());
+---
+> 		if (typeRef == null || typeRef.getDeclaration() == null) {
+> 			return null;
+> 		}
+> 		return getCtExecutable(typeRef.getDeclaration());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/visitor/AbstractTypingContext.java after/src/main/java/spoon/support/visitor/AbstractTypingContext.java
+74,76d73
+< 		if (typeRefAdapted instanceof CtTypeParameterReference) {
+< 			return adaptTypeParameterReferenceBoundingType((CtTypeParameterReference) typeRefAdapted, typeParamRef.getBoundingType());
+< 		}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java after/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
+332c332,337
+< 		final CtTypeReference<?> ctTypeReference = factory.Core().createTypeReference();
+---
+> 		CtTypeReference<?> ctTypeReference;
+> 		if (type instanceof TypeVariable) {
+> 			ctTypeReference = factory.Core().createTypeParameterReference();
+> 		} else {
+> 			ctTypeReference = factory.Core().createTypeReference();
+> 		}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/reflect/declaration/CtTypeInformationTest.java after/src/test/java/spoon/reflect/declaration/CtTypeInformationTest.java
+140,144c140
+< 		// The final +1 is the result of the only usage of `ClassTypingContext#isSameSignature` in `getAllMethods`
+< 		// (see: https://github.com/INRIA/spoon/pull/1375)
+< 		// now it gets both `ArrayList#forEach` and `Iterable#forEach`
+< 		// this has been spotted as an issue in https://github.com/INRIA/spoon/issues/1407
+< 		Assert.assertEquals(1+12+48+1, extendObject.getAllMethods().size());
+---
+> 		Assert.assertEquals(1+12+48, extendObject.getAllMethods().size());
+150,151c146
+< 		// The +1 happens for the same reason as below
+< 		assertEquals(61+2+1, subClass.getAllMethods().size());
+---
+> 		assertEquals(61+2, subClass.getAllMethods().size());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/reflect/declaration/UnknownDeclarationTest.java after/src/test/java/spoon/reflect/declaration/UnknownDeclarationTest.java
+8a9
+> import static org.junit.Assert.assertNotNull;
+23a25
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/filters/FilterTest.java after/src/test/java/spoon/test/filters/FilterTest.java
+449a450
+> 
+450a452,454
+> 		CtExecutable<?> exec = expectedExecutable.getExecutableDeclaration();
+> 		assertEquals("size", exec.getSimpleName());
+> 		assertEquals("ArrayList", ((CtClass)exec.getParent()).getSimpleName());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/generics/GenericsTest.java after/src/test/java/spoon/test/generics/GenericsTest.java
+16a17
+> import spoon.reflect.declaration.CtExecutable;
+45a47
+> import spoon.test.generics.testclasses.EnumSetOf;
+51a54
+> import spoon.test.generics.testclasses.SameSignature;
+57a61
+> import java.util.EnumSet;
+64a69
+> import static org.junit.Assert.assertNull;
+1095a1101,1149
+> 	}
+> 
+> 	@Test
+> 	public void testIsSameSignatureWithGenerics() {
+> 		Launcher launcher = new Launcher();
+> 		launcher.addInputResource("./src/test/java/spoon/test/generics/testclasses/SameSignature.java");
+> 		launcher.buildModel();
+> 
+> 		CtClass ctClass = launcher.getFactory().Class().get(SameSignature.class);
+> 
+> 		List<CtMethod> methods = ctClass.getMethodsByName("forEach");
+> 		assertEquals(1, methods.size());
+> 
+> 		CtType<?> iterableItf = launcher.getFactory().Type().get(Iterable.class);
+> 
+> 		List<CtMethod<?>> methodsItf = iterableItf.getMethodsByName("forEach");
+> 		assertEquals(1, methodsItf.size());
+> 
+> 		ClassTypingContext ctc = new ClassTypingContext(ctClass.getReference());
+> 		assertTrue(ctc.isOverriding(methods.get(0), methodsItf.get(0)));
+> 		assertTrue(ctc.isSubSignature(methods.get(0), methodsItf.get(0)));
+> 		assertTrue(ctc.isSameSignature(methods.get(0), methodsItf.get(0)));
+> 	}
+> 	@Test
+> 	public void testGetExecDeclarationOfEnumSetOf() {
+> 		Launcher launcher = new Launcher();
+> 		launcher.addInputResource("./src/test/java/spoon/test/generics/testclasses/EnumSetOf.java");
+> 		launcher.buildModel();
+> 
+> 		CtClass<?> ctClass = launcher.getFactory().Class().get(EnumSetOf.class);
+> 
+> 		CtInvocation invocation = ctClass.getMethodsByName("m").get(0).getBody().getStatement(0);
+> 		CtExecutable<?> decl = invocation.getExecutable().getDeclaration();
+> 		assertNull(decl);
+> 
+> 		CtClass<?> enumClass = launcher.getFactory().Class().get(EnumSet.class);
+> 		List<CtMethod<?>> methods = enumClass.getMethodsByName("of");
+> 
+> 		CtMethod rightOfMethod = null;
+> 		for (CtMethod method : methods) {
+> 			if (method.getParameters().size() == 1) {
+> 				rightOfMethod = method;
+> 			}
+> 		}
+> 
+> 		assertNotNull(rightOfMethod);
+> 
+> 		decl = invocation.getExecutable().getExecutableDeclaration();
+> 		assertEquals(rightOfMethod, decl);
+Only in after/src/test/java/spoon/test/generics/testclasses: EnumSetOf.java
+Only in after/src/test/java/spoon/test/generics/testclasses: SameSignature.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/reference/ExecutableReferenceGenericTest.java after/src/test/java/spoon/test/reference/ExecutableReferenceGenericTest.java
+89c89,93
+< 		assertNull(refConstructors.get(0).getDeclaration()); // reference to Object constructor.
+---
+> 
+> 		assertNull(refConstructors.get(0).getDeclaration());
+> 		CtExecutable<?> decl = refConstructors.get(0).getExecutableDeclaration();
+> 		assertEquals("Object", decl.getType().getSimpleName());
+> 		assertEquals(0, decl.getParameters().size());

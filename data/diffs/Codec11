@@ -1,0 +1,87 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec11/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java d4j_patched/Codec11/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java
+69a70
+>     private static final byte CR = 13;
+70a72
+>     private static final byte LF = 10;
+72a75
+>     private static final int SAFE_LENGTH = 73;
+114c117
+<     private static final void encodeQuotedPrintable(int b, ByteArrayOutputStream buffer) {
+---
+>     private static final int encodeQuotedPrintable(int b, ByteArrayOutputStream buffer) {
+119a123
+>         return 3;
+131a136,142
+>     private static int getUnsignedOctet(final int index, final byte[] bytes) {
+>         int b = bytes[index];
+>         if (b < 0) {
+>             b = 256 + b;
+>         }
+>         return b;
+>     }
+143a155,163
+>     private static int encodeByte(final int b, final boolean encode,
+>                                   final ByteArrayOutputStream buffer) {
+>         if (encode) {
+>             return encodeQuotedPrintable(b, buffer);
+>         } else {
+>             buffer.write(b);
+>             return 1;
+>         }
+>     }
+151a172,174
+>     private static boolean isWhitespace(final int b) {
+>         return b == SPACE || b == TAB;
+>     }
+174a198
+>         int pos = 1;
+176a201,203
+>         for (int i = 0; i < bytes.length - 3; i++) {
+>             int b = getUnsignedOctet(i, bytes);
+>             if (pos < SAFE_LENGTH) {
+178,184c205
+<         for (byte c : bytes) {
+<             int b = c;
+<             if (b < 0) {
+<                 b = 256 + b;
+<             }
+<             if (printable.get(b)) {
+<                 buffer.write(b);
+---
+>                 pos += encodeByte(b, !printable.get(b), buffer);
+186a208
+>                 encodeByte(b, !printable.get(b) || isWhitespace(b), buffer);
+189c211,214
+<                 encodeQuotedPrintable(b, buffer);
+---
+>                 buffer.write(ESCAPE_CHAR);
+>                 buffer.write(CR);
+>                 buffer.write(LF);
+>                 pos = 1;
+194a220,222
+>         int b = getUnsignedOctet(bytes.length - 3, bytes);
+>         boolean encode = !printable.get(b) || (isWhitespace(b) && pos > SAFE_LENGTH - 5);
+>         pos += encodeByte(b, encode, buffer);
+198a227,233
+>         if (pos > SAFE_LENGTH - 2) {
+>             buffer.write(ESCAPE_CHAR);
+>             buffer.write(CR);
+>             buffer.write(LF);
+>         }
+>         for (int i = bytes.length - 2; i < bytes.length; i++) {
+>             b = getUnsignedOctet(i, bytes);
+199a235,237
+>             encode = !printable.get(b) || (i > bytes.length - 2 && isWhitespace(b));
+>             encodeByte(b, encode, buffer);
+>         }
+229c267,270
+<                     int u = Utils.digit16(bytes[++i]);
+---
+>                     if (bytes[++i] == CR) {
+>                         continue;
+>                     }
+>                     int u = Utils.digit16(bytes[i]);
+235c276
+<             } else {
+---
+>             } else if (b != CR && b != LF) {

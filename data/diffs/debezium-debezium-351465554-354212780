@@ -1,0 +1,38 @@
+Only in after/: bears.json
+Only in after/debezium-connector-mysql: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java after/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
+625c625,627
+<             if (tokens.canConsume("CONSTRAINT", TokenStream.ANY_VALUE, "UNIQUE") || tokens.canConsume("UNIQUE")) {
+---
+>             if (tokens.canConsume("CONSTRAINT", TokenStream.ANY_VALUE, "UNIQUE")
+>                     || tokens.canConsume("CONSTRAINT", "UNIQUE")
+>                     || tokens.canConsume("UNIQUE")) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/debezium-connector-mysql/src/test/java/io/debezium/connector/mysql/MySqlDdlParserTest.java after/debezium-connector-mysql/src/test/java/io/debezium/connector/mysql/MySqlDdlParserTest.java
+466a467,493
+>     @FixFor("DBZ-660")
+>     @Test
+>     public void shouldParseAlterTableStatementAddConstraintUniqueKey() {
+>         String ddl = "CREATE TABLE t ( col1 VARCHAR(25) ); ";
+>         parser.parse(ddl, tables);
+>         assertThat(tables.size()).isEqualTo(1);
+> 
+>         ddl = "ALTER TABLE t ADD CONSTRAINT UNIQUE KEY col_key ('col1');";
+>         parser.parse(ddl, tables);
+> 
+>         ddl = "ALTER TABLE t ADD CONSTRAINT UNIQUE KEY ('col1');";
+>         parser.parse(ddl, tables);
+> 
+>         ddl = "ALTER TABLE t ADD UNIQUE KEY col_key ('col1');";
+>         parser.parse(ddl, tables);
+> 
+>         ddl = "ALTER TABLE t ADD UNIQUE KEY ('col1');";
+>         parser.parse(ddl, tables);
+> 
+>         ddl = "ALTER TABLE t ADD CONSTRAINT 'xx' UNIQUE KEY col_key ('col1');";
+>         parser.parse(ddl, tables);
+> 
+>         ddl = "ALTER TABLE t ADD CONSTRAINT 'xx' UNIQUE KEY ('col1');";
+>         parser.parse(ddl, tables);
+>     }
+> 
+> 

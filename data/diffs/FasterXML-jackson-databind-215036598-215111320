@@ -1,0 +1,60 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java after/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java
+34,35d33
+<             Enum<?> en = (Enum<?>) value;
+< 
+37c35
+<                 str = en.toString();
+---
+>                 str = value.toString();
+39c37,42
+<                 str = en.name();
+---
+>                 Enum<?> en = (Enum<?>) value;
+>                 if (provider.isEnabled(SerializationFeature.WRITE_ENUMS_USING_TO_STRING)) {
+>                     str = String.valueOf(en.ordinal());
+>                 } else {
+>                     str = en.name();
+>                 }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java after/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
+147,149c147,159
+<                     String str = provider.isEnabled(SerializationFeature.WRITE_ENUMS_USING_TO_STRING)
+<                             ? value.toString() : ((Enum<?>) value).name();
+<                     g.writeFieldName(str);
+---
+>                     String key;
+> 
+>                     if (provider.isEnabled(SerializationFeature.WRITE_ENUMS_USING_TO_STRING)) {
+>                         key = value.toString();
+>                     } else {
+>                         Enum<?> e = (Enum<?>) value;
+>                         if (provider.isEnabled(SerializationFeature.WRITE_ENUMS_USING_INDEX)) {
+>                             key = String.valueOf(e.ordinal());
+>                         } else {
+>                             key = e.name();
+>                         }
+>                     }
+>                     g.writeFieldName(key);
+252a263,266
+>             if (serializers.isEnabled(SerializationFeature.WRITE_ENUMS_USING_INDEX)) {
+>                 g.writeFieldName(String.valueOf(en.ordinal()));
+>                 return;
+>             }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/com/fasterxml/jackson/databind/ser/TestEnumSerialization.java after/src/test/java/com/fasterxml/jackson/databind/ser/TestEnumSerialization.java
+284d283
+<         ObjectMapper m2 = new ObjectMapper();
+286,287c285,287
+<         m2.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
+<         json = m2.writeValueAsString(bean);
+---
+>         json = MAPPER.writer()
+>                 .with(SerializationFeature.WRITE_ENUMS_USING_TO_STRING)
+>                 .writeValueAsString(bean);
+288a289,294
+> 
+>         // [databind#1570]
+>         json = MAPPER.writer()
+>                 .with(SerializationFeature.WRITE_ENUMS_USING_INDEX)
+>                 .writeValueAsString(bean);
+>         assertEquals(aposToQuotes("{'map':{'"+TestEnum.B.ordinal()+"':3}}"), json);

@@ -1,0 +1,38 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup22/src/main/java/org/jsoup/nodes/Element.java d4j_patched/Jsoup22/src/main/java/org/jsoup/nodes/Element.java
+433a434,435
+>         if (parentNode == null)
+>             return new Elements(0);
+435c437,442
+<         return parent().children();
+---
+>         List<Element> elements = parent().children();
+>         Elements siblings = new Elements(elements.size() - 1);
+>         for (Element el: elements)
+>             if (el != this)
+>                 siblings.add(el);
+>         return siblings;
+446a454
+>         if (parentNode == null) return null;
+461a470
+>         if (parentNode == null) return null;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup22/src/main/java/org/jsoup/nodes/Node.java d4j_patched/Jsoup22/src/main/java/org/jsoup/nodes/Node.java
+443a444,445
+>         if (parentNode == null)
+>             return Collections.emptyList();
+445c447,452
+<         return parent().childNodes();
+---
+>         List<Node> nodes = parentNode.childNodes;
+>         List<Node> siblings = new ArrayList<Node>(nodes.size() - 1);
+>         for (Node node: nodes)
+>             if (node != this)
+>                 siblings.add(node);
+>         return siblings;
+469a477,478
+>         if (parentNode == null)
+>             return null; // root
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup22/src/main/java/org/jsoup/select/Elements.java d4j_patched/Jsoup22/src/main/java/org/jsoup/select/Elements.java
+21a22,24
+>     public Elements(int initialCapacity) {
+>         contents = new ArrayList<Element>(initialCapacity);
+>     }

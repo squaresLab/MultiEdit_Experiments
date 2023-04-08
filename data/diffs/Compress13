@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress13/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java d4j_patched/Compress13/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
+511a512,515
+>         if (name != null && getPlatform() == PLATFORM_FAT
+>             && name.indexOf("/") == -1) {
+>             name = name.replace('\\', '/');
+>         }

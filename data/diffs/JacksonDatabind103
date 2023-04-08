@@ -1,0 +1,123 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/DatabindContext.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/DatabindContext.java
+195c195
+<                         e.getMessage()));
+---
+>                         ClassUtil.exceptionMessage(e)));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java
+1589c1589
+<                     e0.getMessage(), baseType);
+---
+>                     ClassUtil.exceptionMessage(e0), baseType);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+222c222
+<                     e.getMessage(),
+---
+>                     ClassUtil.exceptionMessage(e),
+281c281
+<                     e.getMessage(),
+---
+>                     ClassUtil.exceptionMessage(e),
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
+268c268
+<             throw JsonMappingException.from(ctxt, iae.getMessage(), iae);
+---
+>             throw JsonMappingException.from(ctxt, ClassUtil.exceptionMessage(iae), iae);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/SettableAnyProperty.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/SettableAnyProperty.java
+202c202
+<             String origMsg = e.getMessage();
+---
+>             String origMsg = ClassUtil.exceptionMessage(e);
+214c214
+<         throw new JsonMappingException(null, t.getMessage(), t);
+---
+>         throw new JsonMappingException(null, ClassUtil.exceptionMessage(t), t);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java
+590c590
+<             String origMsg = e.getMessage();
+---
+>             String origMsg = ClassUtil.exceptionMessage(e);
+611c611
+<         throw JsonMappingException.from(p, th.getMessage(), th);
+---
+>         throw JsonMappingException.from(p, ClassUtil.exceptionMessage(th), th);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/std/StdDeserializer.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/std/StdDeserializer.java
+526c526
+<                     iae.getMessage());
+---
+>                     ClassUtil.exceptionMessage(iae));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
+135c135
+<                     re.getMessage());
+---
+>                     ClassUtil.exceptionMessage(re));
+262c262
+<                 e.getMessage());
+---
+>                 ClassUtil.exceptionMessage(e));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java
+456c456
+<                 "Instantiation of "+getValueTypeDesc()+" value failed: "+t.getMessage(), t);
+---
+>                 "Instantiation of "+getValueTypeDesc()+" value failed: "+ClassUtil.exceptionMessage(t), t);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java
+714c714
+<                     e.getMessage()));
+---
+>                     ClassUtil.exceptionMessage(e)));
+1603c1603
+<         } else if ((excMsg = cause.getMessage()) == null) {
+---
+>         } else if ((excMsg = ClassUtil.exceptionMessage(cause)) == null) {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java
+364c364
+<                     +t.getMessage(), t);
+---
+>                     +ClassUtil.exceptionMessage(t), t);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java
+9a10
+> import com.fasterxml.jackson.databind.util.ClassUtil;
+339c340
+<                         src.getMessage()));
+---
+>                         ClassUtil.exceptionMessage(src)));
+380c381
+<             String msg = src.getMessage();
+---
+>             String msg = ClassUtil.exceptionMessage(src);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/ser/DefaultSerializerProvider.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/ser/DefaultSerializerProvider.java
+171c171
+< filter.getClass().getName(), t.getClass().getName(), t.getMessage());
+---
+> filter.getClass().getName(), t.getClass().getName(), ClassUtil.exceptionMessage(t));
+505c505
+<         String msg = e.getMessage();
+---
+>         String msg = ClassUtil.exceptionMessage(e);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
+103c103
+<                 return prov.reportBadDefinition(declaredType, e.getMessage());
+---
+>                 return prov.reportBadDefinition(declaredType, ClassUtil.exceptionMessage(e));
+105c105
+<             return prov.reportBadPropertyDefinition(_beanDesc, propDef, e.getMessage());
+---
+>             return prov.reportBadPropertyDefinition(_beanDesc, propDef, ClassUtil.exceptionMessage(e));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java
+1341c1341
+<             reportMappingProblem(iae, iae.getMessage());
+---
+>             reportMappingProblem(iae, ClassUtil.exceptionMessage(iae));
+1361c1361
+<             reportMappingProblem(iae, iae.getMessage());
+---
+>             reportMappingProblem(iae, ClassUtil.exceptionMessage(iae));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java d4j_patched/JacksonDatabind103/src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java
+9a10
+> import com.fasterxml.jackson.core.JsonProcessingException;
+751a753,758
+>     public static String exceptionMessage(Throwable t) {
+>         if (t instanceof JsonProcessingException) {
+>             return ((JsonProcessingException) t).getOriginalMessage();
+>         }
+>         return t.getMessage();
+>     }

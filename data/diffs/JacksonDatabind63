@@ -1,0 +1,18 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind63/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java d4j_patched/JacksonDatabind63/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java
+10d9
+< import com.fasterxml.jackson.databind.util.ClassUtil;
+130a130,139
+>                     int arrays = 0;
+>                     while (cls.isArray()) {
+>                         cls = cls.getComponentType();
+>                         ++arrays;
+>                     }
+>                     sb.append(cls.getName());
+>                     while (--arrays >= 0) {
+>                         sb.append("[]");
+>                     }
+>                     /* was:
+136c145
+<                     sb.append(cls.getSimpleName());
+---
+>                     */

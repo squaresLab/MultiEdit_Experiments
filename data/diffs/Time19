@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time19/src/main/java/org/joda/time/DateTimeZone.java d4j_patched/Time19/src/main/java/org/joda/time/DateTimeZone.java
+900c900
+<         } else if (offsetLocal > 0) {
+---
+>         } else if (offsetLocal >= 0) {

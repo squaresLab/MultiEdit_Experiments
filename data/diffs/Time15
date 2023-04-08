@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time15/src/main/java/org/joda/time/field/FieldUtils.java d4j_patched/Time15/src/main/java/org/joda/time/field/FieldUtils.java
+137a138,140
+>                 if (val1 == Long.MIN_VALUE) {
+>                     throw new ArithmeticException("Multiplication overflows a long: " + val1 + " * " + val2);
+>                 }

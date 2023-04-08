@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure27/src/com/google/javascript/rhino/IR.java d4j_patched/Closure27/src/com/google/javascript/rhino/IR.java
+110a111,113
+>   private static Node blockUnchecked(Node stmt) {
+>     return new Node(Token.BLOCK, stmt);
+>   }
+224,225c227,228
+<     Preconditions.checkState(tryBody.isLabelName());
+<     Preconditions.checkState(finallyBody.isLabelName());
+---
+>     Preconditions.checkState(tryBody.isBlock());
+>     Preconditions.checkState(finallyBody.isBlock());
+233c236
+<     Node catchBody = block(catchNode).copyInformationFrom(catchNode);
+---
+>     Node catchBody = blockUnchecked(catchNode).copyInformationFrom(catchNode);

@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math39/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java d4j_patched/Math39/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
+249a250,258
+>         if (forward) {
+>             if (stepStart + stepSize >= t) {
+>                 stepSize = t - stepStart;
+>             }
+>         } else {
+>             if (stepStart + stepSize <= t) {
+>                 stepSize = t - stepStart;
+>             }
+>         }

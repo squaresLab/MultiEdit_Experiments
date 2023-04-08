@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math60/src/main/java/org/apache/commons/math/distribution/NormalDistributionImpl.java d4j_patched/Math60/src/main/java/org/apache/commons/math/distribution/NormalDistributionImpl.java
+126c126,128
+<         try {
+---
+>         if (FastMath.abs(dev) > 40 * standardDeviation) { 
+>             return dev < 0 ? 0.0d : 1.0d;
+>         }
+129,137d130
+<         } catch (MaxIterationsExceededException ex) {
+<             if (x < (mean - 20 * standardDeviation)) { // JDK 1.5 blows at 38
+<                 return 0;
+<             } else if (x > (mean + 20 * standardDeviation)) {
+<                 return 1;
+<             } else {
+<                 throw ex;
+<             }
+<         }

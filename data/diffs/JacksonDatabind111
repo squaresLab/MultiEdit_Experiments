@@ -1,0 +1,51 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/CreatorProperty.java d4j_patched/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/CreatorProperty.java
+135c135,136
+<         return new CreatorProperty(this, deser, _nullProvider);
+---
+>         NullValueProvider nvp = (_valueDeserializer == _nullProvider) ? deser : _nullProvider;
+>         return new CreatorProperty(this, deser, nvp);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/FieldProperty.java d4j_patched/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/FieldProperty.java
+93c93,94
+<         return new FieldProperty(this, deser, _nullProvider);
+---
+>         NullValueProvider nvp = (_valueDeserializer == _nullProvider) ? deser : _nullProvider;
+>         return new FieldProperty(this, deser, nvp);
+217c218
+< }
+---
+> }
+\ No newline at end of file
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/MethodProperty.java d4j_patched/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/MethodProperty.java
+84c84,85
+<         return new MethodProperty(this, deser, _nullProvider);
+---
+>         NullValueProvider nvp = (_valueDeserializer == _nullProvider) ? deser : _nullProvider;
+>         return new MethodProperty(this, deser, nvp);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdReferenceProperty.java d4j_patched/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdReferenceProperty.java
+54c54,55
+<         return new ObjectIdReferenceProperty(this, deser, _nullProvider);
+---
+>         NullValueProvider nvp = (_valueDeserializer == _nullProvider) ? deser : _nullProvider;
+>         return new ObjectIdReferenceProperty(this, deser, nvp);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java d4j_patched/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java
+55c55,56
+<         return new ObjectIdValueProperty(this, deser, _nullProvider);
+---
+>         NullValueProvider nvp = (_valueDeserializer == _nullProvider) ? deser : _nullProvider;
+>         return new ObjectIdValueProperty(this, deser, nvp);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/SetterlessProperty.java d4j_patched/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/impl/SetterlessProperty.java
+68c68,69
+<         return new SetterlessProperty(this, deser, _nullProvider);
+---
+>         NullValueProvider nvp = (_valueDeserializer == _nullProvider) ? deser : _nullProvider;
+>         return new SetterlessProperty(this, deser, nvp);
+156c157
+< }
+---
+> }
+\ No newline at end of file
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/std/AtomicReferenceDeserializer.java d4j_patched/JacksonDatabind111/src/main/java/com/fasterxml/jackson/databind/deser/std/AtomicReferenceDeserializer.java
+43c43
+<         return new AtomicReference<Object>();
+---
+>         return new AtomicReference<Object>(_valueDeserializer.getNullValue(ctxt));

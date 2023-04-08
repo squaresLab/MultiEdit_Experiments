@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure60/src/com/google/javascript/jscomp/NodeUtil.java d4j_patched/Closure60/src/com/google/javascript/jscomp/NodeUtil.java
+107a108,109
+>       case Token.VOID:
+>         return TernaryValue.FALSE;
+135a138
+>         if (!mayHaveSideEffects(n.getFirstChild())) {
+136a140,141
+>         }
+>         break;

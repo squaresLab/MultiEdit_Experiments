@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang10/src/main/java/org/apache/commons/lang3/time/FastDateParser.java d4j_patched/Lang10/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+304d303
+<         boolean wasWhite= false;
+307,314d305
+<             if(Character.isWhitespace(c)) {
+<                 if(!wasWhite) {
+<                     wasWhite= true;
+<                     regex.append("\\s*+");
+<                 }
+<                 continue;
+<             }
+<             wasWhite= false;

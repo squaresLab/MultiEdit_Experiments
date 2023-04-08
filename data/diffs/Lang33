@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang33/src/main/java/org/apache/commons/lang3/ClassUtils.java d4j_patched/Lang33/src/main/java/org/apache/commons/lang3/ClassUtils.java
+910c910
+<             classes[i] = array[i].getClass();
+---
+>             classes[i] = array[i] == null ? null : array[i].getClass();

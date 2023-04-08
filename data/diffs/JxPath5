@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath5/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java d4j_patched/JxPath5/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java
+665,667c665
+<             throw new JXPathException(
+<                     "Cannot compare pointers that do not belong to the same tree: '"
+<                             + p1 + "' and '" + p2 + "'");
+---
+>             return 0;

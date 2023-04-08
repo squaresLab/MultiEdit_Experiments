@@ -1,0 +1,8 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java after/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java
+79c79
+< 				.filter(it -> it.getJavaType().equals(entity)) //
+---
+> 				.filter(it -> entity.equals(it.getJavaType())) //
+Only in after/src/test/java/org/springframework/data/jpa/util: JpaMetamodelUnitTests.java

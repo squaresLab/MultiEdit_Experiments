@@ -1,0 +1,19 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson8/gson/src/main/java/com/google/gson/internal/UnsafeAllocator.java d4j_patched/Gson8/gson/src/main/java/com/google/gson/internal/UnsafeAllocator.java
+22a23
+> import java.lang.reflect.Modifier;
+47a49
+>           assertInstantiable(c);
+70a73
+>           assertInstantiable(c);
+89a93
+>           assertInstantiable(c);
+109a114,122
+>   private static void assertInstantiable(Class<?> c) {
+>     int modifiers = c.getModifiers();
+>     if (Modifier.isInterface(modifiers)) {
+>       throw new UnsupportedOperationException("Interface can't be instantiated! Interface name: " + c.getName());
+>     }
+>     if (Modifier.isAbstract(modifiers)) {
+>       throw new UnsupportedOperationException("Abstract class can't be instantiated! Class name: " + c.getName());
+>     }
+>   }

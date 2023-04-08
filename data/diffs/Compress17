@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress17/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java d4j_patched/Compress17/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+135c135
+<         if (trailer == 0 || trailer == ' '){
+---
+>         while (start < end - 1 && (trailer == 0 || trailer == ' ')) {
+136a137
+>             trailer = buffer[end - 1];

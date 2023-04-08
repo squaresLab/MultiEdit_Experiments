@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind101/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java d4j_patched/JacksonDatabind101/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
+771d770
+<                         p.nextToken();
+776a776,780
+>                     if (t != JsonToken.END_OBJECT) {
+>                         ctxt.reportWrongTokenException(this, JsonToken.END_OBJECT, 
+>                                 "Attempted to unwrap '%s' value",
+>                                 handledType().getName());
+>                     }

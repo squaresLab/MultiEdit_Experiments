@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli36/src/main/java/org/apache/commons/cli/OptionGroup.java d4j_patched/Cli36/src/main/java/org/apache/commons/cli/OptionGroup.java
+22d21
+< import java.util.HashMap;
+23a23
+> import java.util.LinkedHashMap;
+37c37
+<     private final Map<String, Option> optionMap = new HashMap<String, Option>();
+---
+>     private final Map<String, Option> optionMap = new LinkedHashMap<String, Option>();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli36/src/main/java/org/apache/commons/cli/Options.java d4j_patched/Cli36/src/main/java/org/apache/commons/cli/Options.java
+24d23
+< import java.util.HashMap;
+61c60
+<     private final Map<String, OptionGroup> optionGroups = new HashMap<String, OptionGroup>();
+---
+>     private final Map<String, OptionGroup> optionGroups = new LinkedHashMap<String, OptionGroup>();

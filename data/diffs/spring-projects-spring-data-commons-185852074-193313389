@@ -1,0 +1,29 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/auditing/AuditingHandler.java after/src/main/java/org/springframework/data/auditing/AuditingHandler.java
+136a137,146
+> 	/**
+> 	 * Returns whether the given source is considered to be auditable in the first place
+> 	 * 
+> 	 * @param source can be {@literal null}.
+> 	 * @return
+> 	 */
+> 	protected final boolean isAuditable(Object source) {
+> 		return factory.getBeanWrapperFor(source) != null;
+> 	}
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/auditing/IsNewAwareAuditingHandler.java after/src/main/java/org/springframework/data/auditing/IsNewAwareAuditingHandler.java
+76c76
+< 		if (object == null) {
+---
+> 		if (!isAuditable(object)) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/auditing/IsNewAwareAuditingHandlerUnitTests.java after/src/test/java/org/springframework/data/auditing/IsNewAwareAuditingHandlerUnitTests.java
+103a104,108
+> 	@Test // DATACMNS-957
+> 	public void skipsEntityWithoutIdentifier() {
+> 		getHandler().markAudited(new EntityWithoutId());
+> 	}
+> 
+107a113,114
+> 
+> 	static class EntityWithoutId {}

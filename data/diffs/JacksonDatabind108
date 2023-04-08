@@ -1,0 +1,36 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind108/src/main/java/com/fasterxml/jackson/databind/ObjectReader.java d4j_patched/JacksonDatabind108/src/main/java/com/fasterxml/jackson/databind/ObjectReader.java
+1169c1169
+<         return (T) _bindAsTree(p);
+---
+>         return (T) _bindAsTreeOrNull(p);
+1706a1707,1736
+>     protected final JsonNode _bindAsTreeOrNull(JsonParser p) throws IOException
+>     {
+>         _config.initialize(p);
+>         if (_schema != null) {
+>             p.setSchema(_schema);
+>         }
+>         JsonToken t = p.getCurrentToken();
+>         if (t == null) {
+>             t = p.nextToken();
+>             if (t == null) {
+>                 return null;
+>             }
+>         }
+>         final JsonNode resultNode;
+>         if (t == JsonToken.VALUE_NULL) {
+>             resultNode = _config.getNodeFactory().nullNode();
+>         } else {
+>             final DeserializationContext ctxt = createDeserializationContext(p);
+>             final JsonDeserializer<Object> deser = _findTreeDeserializer(ctxt);
+>             if (_unwrapRoot) {
+>                 resultNode = (JsonNode) _unwrapAndDeserialize(p, ctxt, JSON_NODE_TYPE, deser);
+>             } else {
+>                 resultNode = (JsonNode) deser.deserialize(p, ctxt);
+>                 if (_config.isEnabled(DeserializationFeature.FAIL_ON_TRAILING_TOKENS)) {
+>                     _verifyNoTrailingTokens(p, ctxt, JSON_NODE_TYPE);
+>                 }
+>             }
+>         }
+>         return resultNode;
+>     }

@@ -1,0 +1,55 @@
+Only in after/: bears.json
+Only in after/vertx-web-client: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/vertx-web-client/src/main/java/io/vertx/ext/web/client/impl/HttpContext.java after/vertx-web-client/src/main/java/io/vertx/ext/web/client/impl/HttpContext.java
+197a198
+>         return;
+199,201d199
+<     } else {
+<       this.clientResponse = clientResponse;
+<       fire(ClientPhase.RECEIVE_RESPONSE);
+202a201,202
+>     this.clientResponse = clientResponse;
+>     fire(ClientPhase.RECEIVE_RESPONSE);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/vertx-web-client/src/test/java/io/vertx/ext/web/client/WebClientTest.java after/vertx-web-client/src/test/java/io/vertx/ext/web/client/WebClientTest.java
+1045a1046,1086
+>   public void testInvalidRedirection() throws Exception {
+>     server.requestHandler(req -> {
+>       assertEquals(HttpMethod.POST, req.method());
+>       assertEquals("/redirect", req.path());
+>       req.response().setStatusCode(302).putHeader("Location", "http://www.google.com").end();
+>     });
+>     startServer();
+>     HttpRequest<Buffer> builder = client
+>       .post("/redirect")
+>       .followRedirects(true);
+>     builder.send(onSuccess(resp -> {
+>       assertEquals(302, resp.statusCode());
+>       assertEquals("http://www.google.com", resp.getHeader("Location"));
+>       assertNull(resp.body());
+>       complete();
+>     }));
+>     await();
+>   }
+> 
+>   @Test
+>   public void testRedirectLimit() throws Exception {
+>     String location = "http://" + DEFAULT_HTTP_HOST + ":" + DEFAULT_HTTP_PORT + "/redirect";
+>     server.requestHandler(req -> {
+>       assertEquals(HttpMethod.GET, req.method());
+>       assertEquals("/redirect", req.path());
+>       req.response().setStatusCode(302).putHeader("Location", location).end();
+>     });
+>     startServer();
+>     HttpRequest<Buffer> builder = client
+>       .get("/redirect")
+>       .followRedirects(true);
+>     builder.send(onSuccess(resp -> {
+>       assertEquals(302, resp.statusCode());
+>       assertEquals(location, resp.getHeader("Location"));
+>       assertNull(resp.body());
+>       complete();
+>     }));
+>     await();
+>   }
+> 
+>   @Test

@@ -1,0 +1,47 @@
+Only in after/: bears.json
+Only in after/oak-core: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/oak-core/src/main/java/org/apache/jackrabbit/oak/plugins/document/DocumentNodeStore.java after/oak-core/src/main/java/org/apache/jackrabbit/oak/plugins/document/DocumentNodeStore.java
+672c672,678
+<             c.applyToCache(c.getBaseRevision(), isBranch);
+---
+>             try {
+>                 c.applyToCache(c.getBaseRevision(), isBranch);
+>             } finally {
+>                 if (isDisableBranches()) {
+>                     backgroundOperationLock.readLock().unlock();
+>                 }
+>             }
+682a689,699
+>         } else {
+>             try {
+>                 Branch b = branches.getBranch(c.getBaseRevision());
+>                 if (b != null) {
+>                     b.removeCommit(c.getRevision().asBranchRevision());
+>                 }
+>             } finally {
+>                 if (isDisableBranches()) {
+>                     backgroundOperationLock.readLock().unlock();
+>                 }
+>             }
+1985c2002,2011
+<         return new Commit(this, newRevision(), base, branch);
+---
+>         Commit c = new Commit(this, newRevision(), base, branch);
+>         if (isDisableBranches()) {
+>             // Regular branch commits do not need to acquire the background
+>             // operation lock because the head is not updated and no pending
+>             // lastRev updates are done on trunk. When branches are disabled,
+>             // a branch commit becomes a pseudo trunk commit and the lock
+>             // must be acquired.
+>             backgroundOperationLock.readLock().lock();
+>         }
+>         return c;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/oak-core/src/test/java/org/apache/jackrabbit/oak/plugins/document/DisableBranchesTest.java after/oak-core/src/test/java/org/apache/jackrabbit/oak/plugins/document/DisableBranchesTest.java
+34d33
+< import org.junit.Ignore;
+69d67
+<     @Ignore("OAK-6392")
+111c109
+<         assertThat(updates, everyItem(is(NUM_UPDATES + 1)));
+---
+>         assertThat(updates, everyItem(is(NUM_UPDATES * 2 + 1)));

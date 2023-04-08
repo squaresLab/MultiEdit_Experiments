@@ -1,0 +1,18 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/H02ProtocolDecoder.java after/src/org/traccar/protocol/H02ProtocolDecoder.java
+155d154
+<             .expression("[ABV],")
+167c166
+<             .expression("([AV])?,")              // validity
+---
+>             .expression("([ABV])?,")             // validity
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/H02ProtocolDecoderTest.java after/test/org/traccar/protocol/H02ProtocolDecoderTest.java
+14a15,17
+>                 "*hq,356327080425330,VP1,A,2702.7245,S,15251.9311,E,0.48,0.0000,080917#"));
+> 
+>         verifyPosition(decoder, buffer(
+17c20
+<         verifyNull(decoder, buffer(
+---
+>         verifyPosition(decoder, buffer(

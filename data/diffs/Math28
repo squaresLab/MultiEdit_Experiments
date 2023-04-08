@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math28/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java d4j_patched/Math28/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+118a119
+>             if (tableau.getNumArtificialVariables() > 0) {
+127a129
+>             }
+137a140
+>             if (getIterations() < getMaxIterations() / 2) {
+151a155
+>             }

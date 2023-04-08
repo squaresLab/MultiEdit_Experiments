@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli27/src/java/org/apache/commons/cli/OptionGroup.java d4j_patched/Cli27/src/java/org/apache/commons/cli/OptionGroup.java
+98c98
+<         if (selected == null || selected.equals(option.getOpt()))
+---
+>         if (selected == null || selected.equals(option.getKey()))
+100c100
+<             selected = option.getOpt();
+---
+>             selected = option.getKey();

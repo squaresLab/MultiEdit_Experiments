@@ -1,0 +1,33 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/visitor/ClassTypingContext.java after/src/main/java/spoon/support/visitor/ClassTypingContext.java
+376c376
+< 				List<CtTypeReference<?>> actualTypeArguments = typeToArguments.get(typeDeclarer.getQualifiedName());
+---
+> 				List<CtTypeReference<?>> actualTypeArguments = getActualTypeArguments(typeDeclarer.getQualifiedName());
+399a400,410
+> 	}
+> 
+> 	private List<CtTypeReference<?>> getActualTypeArguments(String qualifiedName) {
+> 		List<CtTypeReference<?>> actualTypeArguments = typeToArguments.get(qualifiedName);
+> 		if (actualTypeArguments != null) {
+> 			return actualTypeArguments;
+> 		}
+> 		if (enclosingClassTypingContext != null) {
+> 			return enclosingClassTypingContext.getActualTypeArguments(qualifiedName);
+> 		}
+> 		return null;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/generics/GenericsTest.java after/src/test/java/spoon/test/generics/GenericsTest.java
+41a42
+> import spoon.test.generics.testclasses.Banana;
+823a825,833
+> 	}
+> 	
+> 	@Test
+> 	public void testClassContextOnInnerClass() throws Exception {
+> 		CtClass<?> classBanana = (CtClass<?>)buildClass(Banana.class);
+> 		CtClass<?> classVitamins = classBanana.getNestedType("Vitamins");
+> 		CtTypeReference<?> refList_T = classVitamins.getSuperclass();
+> 		//contract: generic types defined in enclocing classe (Banana<T>) are resolved from inner class hierarchy (Vitamins->List<T>) too.
+> 		assertSame(classBanana.getFormalCtTypeParameters().get(0), new ClassTypingContext(classVitamins).adaptType(refList_T.getActualTypeArguments().get(0)).getDeclaration());
+Only in after/src/test/java/spoon/test/generics/testclasses: Banana.java

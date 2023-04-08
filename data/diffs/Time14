@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time14/src/main/java/org/joda/time/chrono/BasicMonthOfYearDateTimeField.java d4j_patched/Time14/src/main/java/org/joda/time/chrono/BasicMonthOfYearDateTimeField.java
+208a209
+>         if (partial.size() > 0 && partial.getFieldType(0).equals(DateTimeFieldType.monthOfYear()) && fieldIndex == 0) {
+209a211,214
+>             int curMonth0 = partial.getValue(0) - 1;
+>             int newMonth = ((curMonth0 + (valueToAdd % 12) + 12) % 12) + 1;
+>             return set(partial, 0, values, newMonth);
+>         }

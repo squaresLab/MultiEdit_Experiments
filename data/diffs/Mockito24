@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito24/src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java d4j_patched/Mockito24/src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java
+76c76
+<             return 1;
+---
+>             return invocation.getMock() == invocation.getArguments()[0] ? 0 : 1;

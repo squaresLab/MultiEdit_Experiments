@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore10/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java d4j_patched/JacksonCore10/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+925c925,926
+<         if (_spilloverEnd >= hashArea.length) {
+---
+>         final int end = (_hashSize << 3);
+>         if (_spilloverEnd >= end) {
+984c985,986
+<         hash ^= (hash >>> 12);
+---
+>         hash ^= (hash << 3); // shuffle back a bit
+>         hash += (hash >>> 12); // and bit more

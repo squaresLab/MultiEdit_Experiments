@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath14/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java d4j_patched/JxPath14/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java
+655a656,658
+>         if (Double.isNaN(v) || Double.isInfinite(v)) {
+>         	return new Double(v);
+>         }
+661a665,667
+>         if (Double.isNaN(v) || Double.isInfinite(v)) {
+>         	return new Double(v);
+>         }
+667a674,676
+>         if (Double.isNaN(v) || Double.isInfinite(v)) {
+>         	return new Double(v);
+>         }

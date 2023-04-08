@@ -1,0 +1,138 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure169/src/com/google/javascript/rhino/jstype/ArrowType.java d4j_patched/Closure169/src/com/google/javascript/rhino/jstype/ArrowType.java
+177c177
+<   boolean hasEqualParameters(ArrowType that, boolean tolerateUnknowns) {
+---
+>   boolean hasEqualParameters(ArrowType that, EquivalenceMethod eqMethod) {
+187c187
+<                 otherParamType, tolerateUnknowns)) {
+---
+>                 otherParamType, eqMethod)) {
+204c204
+<       ArrowType that, boolean tolerateUnknowns) {
+---
+>       ArrowType that, EquivalenceMethod eqMethod) {
+206c206
+<     if (!returnType.checkEquivalenceHelper(that.returnType, tolerateUnknowns)) {
+---
+>     if (!returnType.checkEquivalenceHelper(that.returnType, eqMethod)) {
+209c209
+<     return hasEqualParameters(that, tolerateUnknowns);
+---
+>     return hasEqualParameters(that, eqMethod);
+Only in d4j_patched/Closure169/src/com/google/javascript/rhino/jstype: EquivalenceMethod.java
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure169/src/com/google/javascript/rhino/jstype/FunctionType.java d4j_patched/Closure169/src/com/google/javascript/rhino/jstype/FunctionType.java
+792c792
+<     if (call.hasEqualParameters(other.call, false)) {
+---
+>     if (call.hasEqualParameters(other.call, EquivalenceMethod.IDENTITY)) {
+890c890
+<       FunctionType that, boolean tolerateUnknowns) {
+---
+>       FunctionType that, EquivalenceMethod eqMethod) {
+908,909c908,909
+<         that.typeOfThis, tolerateUnknowns) &&
+<         call.checkArrowEquivalenceHelper(that.call, tolerateUnknowns);
+---
+>         that.typeOfThis, eqMethod) &&
+>         call.checkArrowEquivalenceHelper(that.call, eqMethod);
+918c918,919
+<     return this.call.checkArrowEquivalenceHelper(otherType.call, false);
+---
+>     return this.call.checkArrowEquivalenceHelper(
+>         otherType.call, EquivalenceMethod.IDENTITY);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure169/src/com/google/javascript/rhino/jstype/JSType.java d4j_patched/Closure169/src/com/google/javascript/rhino/jstype/JSType.java
+492c492
+<     return checkEquivalenceHelper(that, false);
+---
+>     return checkEquivalenceHelper(that, EquivalenceMethod.IDENTITY);
+500c500
+<     return checkEquivalenceHelper(that, false);
+---
+>     return checkEquivalenceHelper(that, EquivalenceMethod.INVARIANT);
+514c514
+<     return !checkEquivalenceHelper(that, true);
+---
+>     return !checkEquivalenceHelper(that, EquivalenceMethod.DATA_FLOW);
+520c520
+<   boolean checkEquivalenceHelper(JSType that, boolean tolerateUnknowns) {
+---
+>   boolean checkEquivalenceHelper(JSType that, EquivalenceMethod eqMethod) {
+528c528
+<       if (tolerateUnknowns) {
+---
+>       if (eqMethod == EquivalenceMethod.INVARIANT) {
+530a531,532
+>         return true;
+>       } else if (eqMethod == EquivalenceMethod.DATA_FLOW) {
+545c547
+<           that.toMaybeUnionType(), tolerateUnknowns);
+---
+>           that.toMaybeUnionType(), eqMethod);
+550c552
+<           that.toMaybeFunctionType(), tolerateUnknowns);
+---
+>           that.toMaybeFunctionType(), eqMethod);
+555c557
+<           that.toMaybeRecordType(), tolerateUnknowns);
+---
+>           that.toMaybeRecordType(), eqMethod);
+565,566c567,570
+<             thatParamType.getParameterType(), tolerateUnknowns);
+<       } else if (tolerateUnknowns) {
+---
+>             thatParamType.getParameterType(), eqMethod);
+>       } else if (eqMethod == EquivalenceMethod.IDENTITY) {
+>         paramsMatch = false;
+>       } else {
+571,572d574
+<       } else {
+<         paramsMatch = false;
+580c582
+<           thisRootType.checkEquivalenceHelper(thatRootType, tolerateUnknowns);
+---
+>           thisRootType.checkEquivalenceHelper(thatRootType, eqMethod);
+592c594
+<               that, tolerateUnknowns);
+---
+>               that, eqMethod);
+598c600
+<           tolerateUnknowns);
+---
+>           eqMethod);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure169/src/com/google/javascript/rhino/jstype/RecordType.java d4j_patched/Closure169/src/com/google/javascript/rhino/jstype/RecordType.java
+118c118
+<       RecordType otherRecord, boolean tolerateUnknowns) {
+---
+>       RecordType otherRecord, EquivalenceMethod eqMethod) {
+126c126
+<               properties.get(key), tolerateUnknowns)) {
+---
+>               properties.get(key), eqMethod)) {
+204,205c204
+<               (propType.isUnknownType() || altPropType.isUnknownType() ||
+<                   altPropType.isEquivalentTo(propType))) {
+---
+>               propType.isInvariant(altPropType)) {
+268d266
+<       if (!propA.isUnknownType() && !propB.isUnknownType()) {
+280d277
+<           }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure169/src/com/google/javascript/rhino/jstype/UnionType.java d4j_patched/Closure169/src/com/google/javascript/rhino/jstype/UnionType.java
+334,335c334,335
+<       UnionType that, boolean tolerateUnknowns) {
+<     if (!tolerateUnknowns
+---
+>       UnionType that, EquivalenceMethod eqMethod) {
+>     if (eqMethod == EquivalenceMethod.IDENTITY
+340c340
+<       if (!hasAlternate(alternate, tolerateUnknowns)) {
+---
+>       if (!hasAlternate(alternate, eqMethod)) {
+347c347
+<   private boolean hasAlternate(JSType type, boolean tolerateUnknowns) {
+---
+>   private boolean hasAlternate(JSType type, EquivalenceMethod eqMethod) {
+349c349
+<       if (alternate.checkEquivalenceHelper(type, tolerateUnknowns)) {
+---
+>       if (alternate.checkEquivalenceHelper(type, eqMethod)) {

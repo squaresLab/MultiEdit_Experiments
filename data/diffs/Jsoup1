@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup1/src/main/java/org/jsoup/nodes/Document.java d4j_patched/Jsoup1/src/main/java/org/jsoup/nodes/Document.java
+125,126c125,126
+<             body().appendChild(new TextNode(" ", ""));
+<             body().appendChild(node);
+---
+>             body().prependChild(node);
+>             body().prependChild(new TextNode(" ", ""));

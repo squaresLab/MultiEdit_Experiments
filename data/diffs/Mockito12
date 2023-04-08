@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito12/src/org/mockito/internal/util/reflection/GenericMaster.java d4j_patched/Mockito12/src/org/mockito/internal/util/reflection/GenericMaster.java
+19a20
+>             if (actual instanceof Class) {
+20a22
+>             } else if (actual instanceof ParameterizedType) {
+21a24,25
+>                 return (Class) ((ParameterizedType) actual).getRawType();
+>             }

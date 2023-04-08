@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup46/src/main/java/org/jsoup/nodes/Entities.java d4j_patched/Jsoup46/src/main/java/org/jsoup/nodes/Entities.java
+118c118
+<                             accum.append(c);
+---
+>                             accum.append("&#xa0;");

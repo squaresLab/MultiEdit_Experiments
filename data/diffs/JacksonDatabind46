@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind46/src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java d4j_patched/JacksonDatabind46/src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java
+156c156
+<         sb.append(';');
+---
+>         sb.append(">;");

@@ -1,0 +1,26 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup23/src/main/java/org/jsoup/parser/CharacterReader.java d4j_patched/Jsoup23/src/main/java/org/jsoup/parser/CharacterReader.java
+117a118,133
+>     String consumeLetterThenDigitSequence() {
+>         int start = pos;
+>         while (!isEmpty()) {
+>             char c = input.charAt(pos);
+>             if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+>                 pos++;
+>             else
+>                 break;
+>         }
+>         while (!isEmpty()) {
+>             char c = input.charAt(pos);
+>             if (c >= '0' && c <= '9')
+>                 pos++;
+>             else
+>                 break;
+>         }
+118a135,136
+>         return input.substring(start, pos);
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup23/src/main/java/org/jsoup/parser/Tokeniser.java d4j_patched/Jsoup23/src/main/java/org/jsoup/parser/Tokeniser.java
+135c135
+<             String nameRef = reader.consumeLetterSequence();
+---
+>             String nameRef = reader.consumeLetterThenDigitSequence();

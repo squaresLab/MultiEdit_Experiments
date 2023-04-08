@@ -1,0 +1,27 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang64/src/java/org/apache/commons/lang/enums/ValuedEnum.java d4j_patched/Lang64/src/java/org/apache/commons/lang/enums/ValuedEnum.java
+182a183,192
+>         if (other == this) {
+>             return 0;
+>         }
+>         if (other.getClass() != this.getClass()) {
+>             if (other.getClass().getName().equals(this.getClass().getName())) {
+>                 return iValue - getValueInOtherClassLoader(other);
+>             }
+>             throw new ClassCastException(
+>                     "Different enum class '" + ClassUtils.getShortClassName(other.getClass()) + "'");
+>         }
+191a202,207
+>     private int getValueInOtherClassLoader(Object other) {
+>         try {
+>             Method mth = other.getClass().getMethod("getValue", null);
+>             Integer value = (Integer) mth.invoke(other, null);
+>             return value.intValue();
+>         } catch (NoSuchMethodException e) {
+192a209
+>         } catch (IllegalAccessException e) {
+193a211
+>         } catch (InvocationTargetException e) {
+194a213,215
+>         }
+>         throw new IllegalStateException("This should not happen");
+>     }

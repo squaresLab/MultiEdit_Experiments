@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang36/src/java/org/apache/commons/lang3/math/NumberUtils.java d4j_patched/Lang36/src/java/org/apache/commons/lang3/math/NumberUtils.java
+491c491
+<         if (!Character.isDigit(lastChar)) {
+---
+>         if (!Character.isDigit(lastChar) && lastChar != '.') {
+1386a1387,1394
+>             }
+>             if (chars[i] == '.') {
+>                 if (hasDecPoint || hasExp) {
+>                     // two decimal points or dec in exponent
+>                     return false;
+>                 }
+>                 // single trailing decimal point after non-exponent is ok
+>                 return foundDigit;

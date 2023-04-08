@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup89/src/main/java/org/jsoup/nodes/Attribute.java d4j_patched/Jsoup89/src/main/java/org/jsoup/nodes/Attribute.java
+88c88
+<         String oldVal = parent.get(this.key);
+---
+>         String oldVal = this.val;
+89a90
+>             oldVal = parent.get(this.key); // trust the container more

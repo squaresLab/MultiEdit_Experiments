@@ -1,0 +1,54 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind50/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java d4j_patched/JacksonDatabind50/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
+8a9
+> import com.fasterxml.jackson.databind.deser.impl.ReadableObjectId.Referring;
+386a388
+>         List<BeanReferring> referrings = null;
+428a431
+>                 try {
+429a433
+>                 } catch (UnresolvedForwardReference reference) {
+432a437,442
+>                     BeanReferring referring = handleUnresolvedReference(p, prop, buffer, reference);
+>                     if (referrings == null) {
+>                         referrings = new ArrayList<BeanReferring>();
+>                     }
+>                     referrings.add(referring);
+>                 }
+464a475,479
+>         if (referrings != null) {
+>             for (BeanReferring referring : referrings) {
+>                referring.setBean(bean);
+>             }
+>         }
+478a494,503
+>     private BeanReferring handleUnresolvedReference(JsonParser p,
+>             SettableBeanProperty prop, PropertyValueBuffer buffer,
+>             UnresolvedForwardReference reference)
+>         throws JsonMappingException
+>     {
+>         BeanReferring referring = new BeanReferring(reference, prop.getType().getRawClass(),
+>                 buffer, prop);
+>         reference.getRoid().appendReferring(referring);
+>         return referring;
+>     }
+932a958,960
+>     static class BeanReferring extends Referring {
+>         private final SettableBeanProperty _prop;
+>         private Object _bean;
+933a962,964
+>         public void setBean(Object bean) {
+>             _bean = bean;
+>         }
+934a966,971
+>         BeanReferring(UnresolvedForwardReference ref,
+>                 Class<?> valueType, PropertyValueBuffer buffer, SettableBeanProperty prop)
+>         {
+>             super(ref, valueType);
+>             _prop = prop;
+>         }
+935a973,977
+>         @Override
+>         public void handleResolvedForwardReference(Object id, Object value) throws IOException {
+>             _prop.set(_bean, value);
+>         }
+>     }

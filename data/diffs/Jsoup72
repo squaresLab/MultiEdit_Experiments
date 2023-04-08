@@ -1,0 +1,4 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup72/src/main/java/org/jsoup/parser/CharacterReader.java d4j_patched/Jsoup72/src/main/java/org/jsoup/parser/CharacterReader.java
+426a427,428
+>         if (count < 1)
+>             return "";

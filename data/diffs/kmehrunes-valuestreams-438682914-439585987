@@ -1,0 +1,35 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/valuestreams/pipeline/Pipeline.java after/src/main/java/valuestreams/pipeline/Pipeline.java
+112,113c112,114
+<         Object source = input;
+<         Object target = null;
+---
+>         try {
+>             Object source = input;
+>             Object target = null;
+115,117c116,118
+<         for (Operation p : operations) {
+<             target = p.apply(source);
+<             source = target;
+---
+>             for (Operation p : operations) {
+>                 target = p.apply(source);
+>                 source = target;
+119,120c120,122
+<             if (source == null) {
+<                 break;
+---
+>                 if (source == null) {
+>                     break;
+>                 }
+122d123
+<         }
+124c125,128
+<         return target != null ? Value.of((O) target) : Value.empty();
+---
+>             return target != null ? Value.of((O) target) : Value.empty();
+>         } catch (Exception ex) {
+>             return Value.empty();
+>         }
+Only in after/src/test/java: PipelineTests.java

@@ -1,0 +1,43 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math76/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java d4j_patched/Math76/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java
+162c162
+<                     eigenDecomposition.getV().getSubMatrix(0, p - 1, 0, p - 1);
+---
+>                     eigenDecomposition.getV().getSubMatrix(0, n - 1, 0, p - 1);
+166c166
+<                 for (int i = 0; i < p - 1; ++i) {
+---
+>                 for (int i = 0; i < p; ++i) {
+170a171
+>                     if (i < n - 1) {
+176c177
+<                 }
+---
+>                     } else {
+178c179
+<                             wData[p - 1][j] = ei1[j] * mainBidiagonal[p - 1] / singularValues[j];
+---
+>                             wi[j] = mi * ei0[j] / singularValues[j];
+179a181,182
+>                     }
+>                 }
+248c251
+<                     eigenDecomposition.getV().getSubMatrix(0, p - 1, 0, p - 1);
+---
+>                     eigenDecomposition.getV().getSubMatrix(0, m - 1, 0, p - 1);
+252c255
+<                 for (int i = 0; i < p - 1; ++i) {
+---
+>                 for (int i = 0; i < p; ++i) {
+255a259
+>                     if (i < m - 1) {
+261c265
+<                 }
+---
+>                     } else {
+263c267
+<                             wData[p - 1][j] = ei1[j] * mainBidiagonal[p - 1] / singularValues[j];
+---
+>                             wi[j] = mi * ei0[j] / singularValues[j];
+264a269,270
+>                     }
+>                 }

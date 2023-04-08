@@ -1,0 +1,33 @@
+Only in after/: bears.json
+Only in after/debezium-connector-mysql: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java after/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
+836a837,845
+>         if (Types.DECIMAL == dataType.jdbcType()) {
+>             if (dataType.length() == -1) {
+>                 column.length(10);
+>             }
+>             if (dataType.scale() == -1) {
+>                 column.scale(0);
+>             }
+>         }
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/debezium-connector-mysql/src/test/java/io/debezium/connector/mysql/MySqlDdlParserTest.java after/debezium-connector-mysql/src/test/java/io/debezium/connector/mysql/MySqlDdlParserTest.java
+1361c1361
+<         assertColumn(t, "c1", "DEC", Types.DECIMAL, 2, -1, false, false, false);
+---
+>         assertColumn(t, "c1", "DEC", Types.DECIMAL, 2, 0, false, false, false);
+1362a1363,1376
+>     }
+> 
+>     @Test
+>     @FixFor("DBZ-615")
+>     public void parseDdlForUnscaledDecAndFixed() {
+>         String ddl = "CREATE TABLE t ( c1 DEC NOT NULL, c2 FIXED(3) NOT NULL);";
+>         parser.parse(ddl, tables);
+>         assertThat(tables.size()).isEqualTo(1);
+>         Table t = tables.forTable(new TableId(null, null, "t"));
+>         assertThat(t).isNotNull();
+>         assertThat(t.columnNames()).containsExactly("c1", "c2");
+>         assertThat(t.primaryKeyColumnNames()).isEmpty();
+>         assertColumn(t, "c1", "DEC", Types.DECIMAL, 10, 0, false, false, false);
+>         assertColumn(t, "c2", "FIXED", Types.DECIMAL, 3, 0, false, false, false);

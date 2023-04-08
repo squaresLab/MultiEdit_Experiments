@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math42/src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java d4j_patched/Math42/src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java
+409a410
+>           if (basicRow != null && basicRow == 0) {
+413c414,415
+<           if (basicRows.contains(basicRow)) {
+---
+>               coefficients[i] = 0;
+>           } else if (basicRows.contains(basicRow)) {
