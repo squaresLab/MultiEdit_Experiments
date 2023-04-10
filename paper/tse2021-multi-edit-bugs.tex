@@ -682,15 +682,11 @@ locations~\cite{pearson2017evaluating}:
   % \item Average case: half of the defective statements need to be localized to fix the bug.
 \end{enumerate}
 
-In that previous work, these debugging scenarios were used to evaluate fault localization techniques, but it is unclear
-whether they represent different uses in the context of program repair.
-\todo{(List APR papers where we know what kind of debugging scenario is used in their FL)}.
-Most APR assumes the best case (verify the truth of this statement), and try to generate a patch, 
-potentially with multiple locations, based off of one faulty location at a time.
-
+In that previous work, these debugging scenarios were used to evaluate fault localization techniques.
+However, to our knowledge, there are no studies on the impact of the debugging scenario on repairability.
 From here, we ask two questions: 
 
-\rqorinsight{3}{How often are bugs localized as worst case compared to the best case? }
+\rqorinsight{3}{How often are bugs localizizable in the worst case compared to the best case? }
 
 and 
 
@@ -976,7 +972,7 @@ in multi-location repair.
 One relationship between edits is
 \emph{dependency}. Selecting and applying edits can
 and should be informed by any dependencies between them.  Specifically, we ask:
-\rqorinsight{4}{How prevalent and hard to construct are
+\rqorinsight{5}{How prevalent and hard to construct are
 patches with intra-patch dependencies?}
 
 
@@ -1074,7 +1070,7 @@ Previous techniques have targeted exactly these types of
 bugs~\cite{wang2018,saha2019harnessing}.  We evaluate how often this relationship applies to
 multi-location bugs, and thus the usefulness of techniques that assume it:
 
-\rqorinsight{5}{How often do clones occur in multi-location patches?}
+\rqorinsight{6}{How often do clones occur in multi-location patches?}
 
 %Possible intuition: if we can find some kind of correlation between fault localization results
 %and code clones, then if some APR research decided to follow Wang et al's suggestion and
@@ -1166,7 +1162,7 @@ similar fix code is applied at multiple separately tested locations. If
 true, this suggests that fault localization information can help 
 predict the utility of code clone-based APR mutation a priori. We ask:
 
-\rqorinsight{6}{Does the existence of code clones in human patches correlate with specific 
+\rqorinsight{7}{Does the existence of code clones in human patches correlate with specific 
 localization patterns?}
 
 % CLG sez: nice and clear, but derivable from first principles, and we have a
@@ -1260,7 +1256,7 @@ tests can support multi-location patch construction.  That is, if we apply only 
 several of the edits in this patch to the buggy program, is the result
 identifiable as ``closer'' to the full repair? Alternatively:
 
-\rqorinsight{7}{How well do test case based validation methods identify partial repairs?}
+\rqorinsight{8}{How well do test case based validation methods identify partial repairs?}
 
 If tests can in general identify partial repairs, this suggests the feasibility
 of techniques that construct multi-location repairs by identifying/composing
@@ -1340,7 +1336,7 @@ significant, $p < 0.001$, via a
 $\chi^2$ test).
 
 \looseness-1
-We compute results for RQ7 using the 1-minimal set of human edits
+We compute results for RQ8 using the 1-minimal set of human edits
 with respect to the unit tests as the ``full'' patch.
 We do this for parsimony: including
 unminimized edits introduces noise without materially changing
@@ -1351,7 +1347,7 @@ minimized to a single edit, leaving
 948 Defects4J and 240 \bears partial repairs, from
 168 Defects4J and 46 \bears bugs.  
 
-% We therefore present our results for RQ7 in two ways:
+% We therefore present our results for RQ8 in two ways:
 % treating the provided human patch as the full repair
 % (Unminimized), and considering only the 1-minimal set of edits in the
 % human patch with respect to the unit tests (Minimized).
@@ -1873,7 +1869,7 @@ since there is one location, if it that location is localized, it would have fou
 one faulty location (best case) and all faulty locations (worst case).
 However, our scripts generate different numbers for the number of single location bugs localized in the best and worst cases.
 For example, within the top 100 lines, 
-x single location bugs were localized in the best case and y single location bugs were localized in the worst case.
+\todo{x} single location bugs were localized in the best case and \todo{y} single location bugs were localized in the worst case.
 This indicates that there is a bug in either our best/worst calculation, 
 location calculation (since fault localization operates at line level, but we are working at location level),
 or something else.
