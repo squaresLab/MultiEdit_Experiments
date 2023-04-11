@@ -868,29 +868,56 @@ We will show the results for Defects4Jv2, but focus our analysis on bugs include
  
  \subsubsection{SBFL debugging scenarios.}
  Figure \ref{fig:debug_scenarios} shows the results for the number of bugs localized under each debugging scenario.
- 
+ As expected, far more bugs are localizable in the best case than the worst case.
  
  \subsubsection{Repairability.}
  
-We start with comparing the repairability of bugs that are best case and worst case localized using data from the original RepairThemAll experiment (i.e. excluding bugs introduced in Defects4Jv2). 
-Table~\ref{tab:repairability} shows results 
+ \begin{table}
+  \begin{center}
+  \begin{tabular}{l | r r }
+  \toprule
+  Defects4J project & Repaired bugs & total bugs \\
+  \midrule
+  Cli	& 15 & 39 \\
+  Closure (134-176)	&	7 & 43 \\
+  Codec	& 8	& 18 \\
+  Collections	& 1	& 4 \\
+  Compress	& 7	& 47 \\
+  Csv	& 3	& 16 \\
+  Gson	& 4	& 18 \\
+  JacksonCore	& 2	& 26 \\
+  JacksonDatabind & 0 & 112 \\
+  JacksonXml & 0 & 6 \\
+  Jsoup	& 2	& 93 \\
+  JxPath & 5 & 22 \\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  \caption{\label{tab:rta_v2} \small The results for our RepairThemAll extension for Defects4Jv2. }
+  \end{table}
 
 \begin{table*}
-\begin{center}
-\begin{tabular}{l | r r r r}
-\toprule
- & Best case localized & Worst case localized & Average case localized & Total \\
-\midrule
-Repairable & 62  & 16  & (TBD) &	78 \\
-Non-repairable & 171 & 30 & (TBD) & 201  \\
-\midrule
-total & 233 & 46 & & 279 \\
-\bottomrule
-\end{tabular}
-\end{center}
-\caption{\label{tab:repairability} \small Number of bugs localized with the given scenario within the top 50 (including ties) rankings of SBFL vs whether a repair tool was able to repair it. Includes only bugs that were included in the original RepairThemAll experiment. Counts shown may be an underestimate as some manual checking was required }
-\end{table*}
- 
+  \begin{center}
+  \begin{tabular}{l | r r r | r r r}
+  \toprule
+   & \multicolumn{3}{c|}{Original RepairThemAll experiments} & \multicolumn{3}{c}{RepairThemAll experiments with extension} \\
+   \midrule
+   & Best case & Worst case & Total (including unlocalized) & Best case & Worst case & Total (including unlocalized) \\
+  \midrule
+  Repairable & 59  & 17  &	93 & 77  & 21  &	122 \\
+  Non-repairable & 126 & 29 & 174 & 234 & 47 & 400  \\
+  \midrule
+  Percent Repairable & 32\% & 37\% & 35\% & 22\% & 27\% & 23\% \\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  \caption{\label{tab:repairability_all} \small Number of bugs localized with the given scenario within the top 100 (including ties) rankings of SBFL vs whether a repair tool was able to repair it. 
+  While bugs that are localizable in the worst case are a bit more likely to be repairable, the improvement seems fairly minor.
+  }
+  \end{table*}
+
+
+
 %  \begin{table*}
 % \begin{center}
 % \begin{tabular}{l | r r r r}
@@ -906,26 +933,21 @@ total & 233 & 46 & & 279 \\
 % \end{center}
 % \caption{\label{tab:repairability} \small Number of bugs localized with the given scenario within the top 50 (including ties) rankings of SBFL vs whether a repair tool was able to repair it. \todo{filter out v2} }
 % \end{table*}
- 
 
 
 Since we ran the RepairThemAll experiment for the new bugs introduced, we first show those results in Table \ref{tab:rta_v2}.
-Note that for the RepairThemAll extension, we do not filter out any bugs, including single-location bugs. 
+Note that for the RepairThemAll extension, we do not filter out any bugs, including single-location bugs.
 
- \begin{table*}
-\begin{center}
-\begin{tabular}{l | r r }
-\toprule
-Defects4J project & Repaired bugs & total bugs in dataset \\
-\midrule
+We then calculated the repairability of bugs that are localizable in the best case and worst case. 
+Table~\ref{tab:repairability_all} shows the results, 
+with the left half including only bugs from the original RepairThemAll experiments,
+and the right half including both the original experiments and our extension.
+In both cases, the bugs that are localizable in the worst case are slightly more likely to be repaired,
+though the improvement is fairly minor.
+This suggests to us that while APR tools benefit from having all the locations identified, 
+they are not equipped to utilize that information in productive ways.
 
-\bottomrule
-\end{tabular}
-\end{center}
-\caption{\label{tab:rta_v2} \small }
-\end{table*}
 
- 
 % \begin{figure}
 %     \centering
 %     \includegraphics[width=0.5\textwidth,angle=270]{img/fl-outline.jpg}
@@ -1869,7 +1891,7 @@ since there is one location, if it that location is localized, it would have fou
 one faulty location (best case) and all faulty locations (worst case).
 However, our scripts generate different numbers for the number of single location bugs localized in the best and worst cases.
 For example, within the top 100 lines, 
-\todo{x} single location bugs were localized in the best case and \todo{y} single location bugs were localized in the worst case.
+224 single location bugs were localized in the best case and 222 single location bugs were localized in the worst case.
 This indicates that there is a bug in either our best/worst calculation, 
 location calculation (since fault localization operates at line level, but we are working at location level),
 or something else.
