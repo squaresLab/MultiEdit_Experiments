@@ -1,0 +1,22 @@
+Only in after/: bears.json
+Only in after/dubbo-cluster: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/dubbo-cluster/src/main/java/com/alibaba/dubbo/rpc/cluster/router/condition/ConditionRouter.java after/dubbo-cluster/src/main/java/com/alibaba/dubbo/rpc/cluster/router/condition/ConditionRouter.java
+206a207,209
+>                 if (sampleValue == null) {
+>                     sampleValue = sample.get(Constants.DEFAULT_KEY_PREFIX + key);
+>                 }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/dubbo-cluster/src/test/java/com/alibaba/dubbo/rpc/cluster/router/condition/ConditionRouterTest.java after/dubbo-cluster/src/test/java/com/alibaba/dubbo/rpc/cluster/router/condition/ConditionRouterTest.java
+101c101,102
+<         Invoker<String> invoker1 = new MockInvoker<String>(URL.valueOf("dubbo://10.20.3.3:20880/com.foo.BarService"));
+---
+>         Invoker<String> invoker1 = new MockInvoker<String>(URL.valueOf(
+>                 "dubbo://10.20.3.3:20880/com.foo.BarService?default.serialization=fastjson"));
+124a126,128
+>         Router router6 = new ConditionRouterFactory().getRouter(getRouteUrl(
+>                 "host = " + NetUtils.getLocalHost() + " => " + " serialization = fastjson").addParameter(
+>                 Constants.FORCE_KEY, String.valueOf(true)));
+135a140,141
+>         List<Invoker<String>> fileredInvokers6 = router6.route(invokers,
+>                 URL.valueOf("consumer://" + NetUtils.getLocalHost() + "/com.foo.BarService"), new RpcInvocation());
+140a147
+>         Assert.assertEquals(1, fileredInvokers6.size());

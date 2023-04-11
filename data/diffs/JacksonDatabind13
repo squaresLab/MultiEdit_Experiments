@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind13/src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java d4j_patched/JacksonDatabind13/src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java
+86a87,89
+>         if (id == null) {
+>             return null;
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind13/src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java d4j_patched/JacksonDatabind13/src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java
+91a92,94
+>         if (id == null) {
+>             return null;
+>         }

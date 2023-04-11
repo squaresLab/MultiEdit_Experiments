@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure19/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java d4j_patched/Closure19/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
+171a172
+>       case Token.THIS:
+172a174
+>         break;

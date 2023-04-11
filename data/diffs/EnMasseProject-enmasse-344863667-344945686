@@ -1,0 +1,26 @@
+Only in after/address-model-lib: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/address-model-lib/src/main/java/io/enmasse/address/model/Status.java after/address-model-lib/src/main/java/io/enmasse/address/model/Status.java
+23a24
+>         this.phase = other.getPhase();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/address-model-lib/src/test/java/io/enmasse/address/model/v1/address/AddressTest.java after/address-model-lib/src/test/java/io/enmasse/address/model/v1/address/AddressTest.java
+10a11
+> import static org.hamcrest.CoreMatchers.hasItem;
+60a62,78
+>     }
+>     
+>     @Test
+>     public void testCopy() {
+>         Address a = new Address.Builder()
+>                 .setAddress("a1")
+>                 .setPlan("p1")
+>                 .setType("t1")
+>                 .setStatus(new Status(true).setPhase(Status.Phase.Active).appendMessage("foo"))
+>                 .build();
+>         
+>         Address b = new Address.Builder(a).build();
+>         
+>         assertThat(a, is(b));
+>         assertTrue(b.getStatus().isReady());
+>         assertThat(b.getStatus().getPhase(), is(Status.Phase.Active));
+>         assertThat(b.getStatus().getMessages(), hasItem("foo"));
+Only in after/: bears.json

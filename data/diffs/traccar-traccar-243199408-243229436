@@ -1,0 +1,24 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/FilterHandler.java after/src/org/traccar/FilterHandler.java
+87c87,89
+<         return filterInvalid && !position.getValid();
+---
+>         return filterInvalid && (!position.getValid()
+>            || position.getLatitude() > 90 || position.getLongitude() > 180
+>            || position.getLatitude() < -90 || position.getLongitude() < -180);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/WondexProtocolDecoder.java after/src/org/traccar/protocol/WondexProtocolDecoder.java
+81d80
+<             position.setValid(false);
+109,111c108,109
+<             int satellites = parser.nextInt(0);
+<             position.setValid(satellites >= 3);
+<             position.set(Position.KEY_SATELLITES, satellites);
+---
+>             position.setValid(true);
+>             position.set(Position.KEY_SATELLITES, parser.nextInt(0));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/WondexProtocolDecoderTest.java after/test/org/traccar/protocol/WondexProtocolDecoderTest.java
+19c19
+<                 position("2015-10-30 14:53:51.000", false, 53.28390, 69.37998));
+---
+>                 position("2015-10-30 14:53:51.000", true, 53.28390, 69.37998));

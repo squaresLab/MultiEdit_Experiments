@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure151/src/com/google/javascript/jscomp/CommandLineRunner.java d4j_patched/Closure151/src/com/google/javascript/jscomp/CommandLineRunner.java
+300a301,303
+>     @Option(name = "--version",
+>         usage = "Prints the compiler version to stderr.")
+>     private boolean version = false;
+366a370,371
+>   private static final String configResource =
+>       "com.google.javascript.jscomp.parsing.ParserConfig";
+417a423,430
+>     if (flags.version) {
+>       ResourceBundle config = ResourceBundle.getBundle(configResource);
+>       err.println(
+>           "Closure Compiler (http://code.google.com/p/closure/compiler)\n" +
+>           "Version: " + config.getString("compiler.version") + "\n" +
+>           "Built on: " + config.getString("compiler.date"));
+>       err.flush();
+>     }

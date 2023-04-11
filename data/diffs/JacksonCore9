@@ -1,0 +1,27 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore9/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java d4j_patched/JacksonCore9/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
+391a392,394
+>         if (_currToken == JsonToken.FIELD_NAME) {
+>             return getCurrentName();
+>         }
+398a402,404
+>         }
+>         if (_currToken == JsonToken.FIELD_NAME) {
+>             return getCurrentName();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore9/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java d4j_patched/JacksonCore9/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+252a253,255
+>         if (_currToken == JsonToken.FIELD_NAME) {
+>             return getCurrentName();
+>         }
+264a268,270
+>         }
+>         if (_currToken == JsonToken.FIELD_NAME) {
+>             return getCurrentName();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore9/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java d4j_patched/JacksonCore9/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+304a305,307
+>         if (_currToken == JsonToken.FIELD_NAME) {
+>             return getCurrentName();
+>         }
+317a321,323
+>         }
+>         if (_currToken == JsonToken.FIELD_NAME) {
+>             return getCurrentName();

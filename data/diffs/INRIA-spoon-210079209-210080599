@@ -1,0 +1,80 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java after/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
+73c73
+< 		while (scopeElement != null && !(scopeElement instanceof CtPackage)) {
+---
+> 		while (scopeElement != null && !(scopeElement instanceof CtPackage) && scopeElement.isParentInitialized()) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/prettyprinter/QualifiedThisRefTest.java after/src/test/java/spoon/test/prettyprinter/QualifiedThisRefTest.java
+2a3
+> import org.apache.commons.lang3.StringEscapeUtils;
+7a9
+> import spoon.reflect.code.CtExpression;
+8a11
+> import spoon.reflect.code.CtLiteral;
+15a19,20
+> import spoon.reflect.reference.CtExecutableReference;
+> import spoon.reflect.reference.CtFieldReference;
+19a25,26
+> import spoon.support.reflect.code.CtFieldAccessImpl;
+> import spoon.support.reflect.reference.CtFieldReferenceImpl;
+23a31
+> import java.util.Arrays;
+28a37
+> import static org.junit.Assert.assertFalse;
+82a92,140
+> 	}
+> 
+> 	@Test
+> 	public void testPrintCtFieldAccessWorkEvenWhenParentNotInitialized() throws Exception {
+> 		CtClass zeclass = factory.Class().get(QualifiedThisRef.class);
+> 
+> 		List<CtMethod> methods = zeclass.getMethodsByName("bla");
+> 
+> 		assertEquals(1, methods.size());
+> 
+> 		CtStatement invocation = methods.get(0).getBody().getStatement(0);
+> 
+> 		assertTrue(invocation instanceof CtInvocation);
+> 		CtInvocation<?> arg0 = (CtInvocation) invocation;
+> 
+> 		CtExpression param = arg0.getArguments().get(0);
+> 		CtExecutableReference execref = factory.Core().createExecutableReference();
+> 		execref.setDeclaringType(factory.Type().createReference("java.util.Map"));
+> 		execref.setSimpleName("exorcise");
+> 		execref.setStatic(true);
+> 
+> 		CtTypeReference tmp = param.getType();
+> 
+> 		CtExpression arg = null;
+> 		CtFieldReference ctfe = new CtFieldReferenceImpl();
+> 		ctfe.setSimpleName("class");
+> 		ctfe.setDeclaringType(tmp.box());
+> 		arg = factory.Core().createFieldRead();
+> 		((CtFieldAccessImpl) arg).setVariable(ctfe);
+> 
+> 
+> 		CtLiteral location = factory.Core().createLiteral();
+> 		location.setType(factory.Type().createReference(String.class));
+> 
+> 		CtTypeReference tmpref = factory.Core().clone(tmp);
+> 
+> 		CtInvocation invoc = factory.Core().createInvocation();
+> 		invoc.setExecutable(execref);
+> 		invoc.setArguments(Arrays.asList(new CtExpression[]{param,arg,location}));
+> 		execref.setActualTypeArguments(Arrays.asList(new CtTypeReference<?>[]{tmpref}));
+> 
+> 		// succeeds
+> 		arg0.getArguments().set(0, invoc);
+> 
+> 		DefaultJavaPrettyPrinter printer = new DefaultJavaPrettyPrinter(factory.getEnvironment());
+> 		printer.visitCtClass(zeclass);
+> 
+> 		assertFalse(printer.getResult().isEmpty());
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/prettyprinter/testclasses/QualifiedThisRef.java after/src/test/java/spoon/test/prettyprinter/testclasses/QualifiedThisRef.java
+4a5
+> 	private Sub sub;
+12a14,15
+> 
+> 	void bla() { System.out.println(sub); }

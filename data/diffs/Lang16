@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang16/src/main/java/org/apache/commons/lang3/math/NumberUtils.java d4j_patched/Lang16/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+458c458
+<         if (str.startsWith("0x") || str.startsWith("-0x")) {
+---
+>         if (str.startsWith("0x") || str.startsWith("-0x") || str.startsWith("0X") || str.startsWith("-0X")) {

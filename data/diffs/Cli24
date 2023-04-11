@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli24/src/java/org/apache/commons/cli/HelpFormatter.java d4j_patched/Cli24/src/java/org/apache/commons/cli/HelpFormatter.java
+825,826c825
+<             throw new IllegalStateException("Total width is less than the width of the argument and indent " + 
+<                                             "- no room for the description");
+---
+>             nextLineTabStop = width - 1;

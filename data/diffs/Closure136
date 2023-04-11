@@ -1,0 +1,37 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure136/src/com/google/javascript/jscomp/MethodCompilerPass.java d4j_patched/Closure136/src/com/google/javascript/jscomp/MethodCompilerPass.java
+102d101
+<     boolean signatureAdded = false;
+106,125c105
+<       signatureAdded = true;
+<     } else if (node.getType() == Token.NAME) {
+<       String functionName = node.getString();
+<       Scope.Var v = t.getScope().getVar(functionName);
+<       if (v == null) {
+<         if (compiler.isIdeMode()) {
+<           return;
+<         } else {
+<           throw new IllegalStateException(
+<               "VarCheck should have caught this undefined function");
+<         }
+<       }
+<       Node function = v.getInitialValue();
+<       if (function != null &&
+<           function.getType() == Token.FUNCTION) {
+<         addSignature(name, function, v.getInputName());
+<         signatureAdded = true;
+<       }
+<     }
+<     if (!signatureAdded) {
+---
+>     } else {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure136/src/com/google/javascript/jscomp/RenameVars.java d4j_patched/Closure136/src/com/google/javascript/jscomp/RenameVars.java
+202a203
+>         if (local) {
+203a205,211
+>           String newName =
+>             MakeDeclaredNamesUnique.ContextualRenameInverter.getOrginalName(
+>                 name);
+>           if (!newName.equals(name)) {
+>             n.setString(newName);
+>           }
+>         }

@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress3/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java d4j_patched/Compress3/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+54a55
+>     private boolean haveUnclosedEntry = false;
+111a113,115
+>         if(haveUnclosedEntry) {
+>             throw new IOException("This archives contains unclosed entries.");
+>         }
+186a191
+>         haveUnclosedEntry = true;
+216a222
+>         haveUnclosedEntry = false;

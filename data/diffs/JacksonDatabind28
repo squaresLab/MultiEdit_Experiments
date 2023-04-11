@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind28/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java d4j_patched/JacksonDatabind28/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java
+97,98c97
+<             if (p.getCurrentToken() == JsonToken.START_OBJECT) {
+<                 p.nextToken();
+---
+>             if (p.isExpectedStartObjectToken() || p.hasToken(JsonToken.FIELD_NAME)) {
+103,104c102,103
+<             if (p.getCurrentToken() == JsonToken.FIELD_NAME) {
+<                 return deserializeObject(p, ctxt, ctxt.getNodeFactory());
+---
+>             if (p.hasToken(JsonToken.END_OBJECT)) {
+>                 return ctxt.getNodeFactory().objectNode();

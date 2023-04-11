@@ -1,0 +1,27 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
+239,243c239
+< 		if (getDeclaringType().isAnonymous()) {
+< 			if (!getDeclaringType().getDeclaringType().isSubtypeOf(executable.getDeclaringType())) {
+< 				return false;
+< 			}
+< 		} else if (!getDeclaringType().isSubtypeOf(executable.getDeclaringType())) {
+---
+> 		if (!getDeclaringType().isSubtypeOf(executable.getDeclaringType())) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/filters/FilterTest.java after/src/test/java/spoon/test/filters/FilterTest.java
+290c290,291
+< 		assertEquals(2, overridingMethods.size());
+---
+> 		assertEquals(3, overridingMethods.size());
+> 		assertEquals("spoon.test.filters.testclasses.AbstractTostada$1", overridingMethods.get(2).getParent(CtClass.class).getQualifiedName());
+331c332
+< 		final List<CtMethod<?>> overridingMethods = Query.getElements(launcher.getFactory(), new OverridingMethodFilter(anAbstractTostada.getMethodsByName("make").get(0)));
+---
+> 		List<CtMethod<?>> overridingMethods = Query.getElements(launcher.getFactory(), new OverridingMethodFilter(anAbstractTostada.getMethodsByName("make").get(0)));
+337c338,340
+< 		assertEquals(0, Query.getElements(launcher.getFactory(), new OverridingMethodFilter(aTostada.getMethodsByName("make").get(0))).size());
+---
+> 		overridingMethods = Query.getElements(launcher.getFactory(), new OverridingMethodFilter(aTostada.getMethodsByName("make").get(0)));
+> 		assertEquals(1, overridingMethods.size());
+> 		assertEquals("spoon.test.filters.testclasses.AbstractTostada$1", overridingMethods.get(0).getParent(CtClass.class).getQualifiedName());

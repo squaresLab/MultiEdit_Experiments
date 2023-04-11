@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time1/src/main/java/org/joda/time/field/UnsupportedDurationField.java d4j_patched/Time1/src/main/java/org/joda/time/field/UnsupportedDurationField.java
+227,229d226
+<         if (durationField.isSupported()) {
+<             return 1;
+<         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time1/src/main/java/org/joda/time/Partial.java d4j_patched/Time1/src/main/java/org/joda/time/Partial.java
+216a217,225
+>                 if (loopUnitField.isSupported() == false) {
+>                     if (lastUnitField.isSupported()) {
+>                         throw new IllegalArgumentException("Types array must be in order largest-smallest: " +
+>                                         types[i - 1].getName() + " < " + loopType.getName());
+>                     } else {
+>                         throw new IllegalArgumentException("Types array must not contain duplicate unsupported: " +
+>                                         types[i - 1].getName() + " and " + loopType.getName());
+>                     }
+>                 }
+221c230
+<                 } else if (compare == 0) {
+---
+>                 } else if (compare == 0 && lastUnitField.equals(loopUnitField)) {

@@ -1,0 +1,62 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind85/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java d4j_patched/JacksonDatabind85/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+67,72c67
+<                 if ((shape == JsonFormat.Shape.STRING) || format.hasPattern()
+<                                 || format.hasLocale() || format.hasTimeZone()) {
+<                     TimeZone tz = format.getTimeZone();
+<                     final String pattern = format.hasPattern()
+<                                     ? format.getPattern()
+<                                     : StdDateFormat.DATE_FORMAT_STR_ISO8601;
+---
+>         if (format.hasPattern()) {
+76,79c71,73
+<                     SimpleDateFormat df = new SimpleDateFormat(pattern, loc);
+<                     if (tz == null) {
+<                         tz = serializers.getTimeZone();
+<                     }
+---
+>             SimpleDateFormat df = new SimpleDateFormat(format.getPattern(), loc);
+>             TimeZone tz = format.hasTimeZone() ? format.getTimeZone()
+>                     : serializers.getTimeZone();
+84a79,81
+>         final boolean hasLocale = format.hasLocale();
+>         final boolean hasTZ = format.hasTimeZone();
+>         final boolean asString = (shape == JsonFormat.Shape.STRING);
+85a83,85
+>         if (!hasLocale && !hasTZ && !asString) {
+>             return this;
+>         }
+86a87
+>         DateFormat df0 = serializers.getConfig().getDateFormat();
+87a89,98
+>         if (df0 instanceof StdDateFormat) {
+>             StdDateFormat std = (StdDateFormat) df0;
+>             if (format.hasLocale()) {
+>                 std = std.withLocale(format.getLocale());
+>             }
+>             if (format.hasTimeZone()) {
+>                 std = std.withTimeZone(format.getTimeZone());
+>             }
+>             return withFormat(Boolean.FALSE, std);
+>         }
+91a103
+>         if (!(df0 instanceof SimpleDateFormat)) {
+92a105,110
+>             serializers.reportMappingProblem(
+> "Configured `DateFormat` (%s) not a `SimpleDateFormat`; can not configure `Locale` or `TimeZone`",
+> df0.getClass().getName());
+>         }
+>         SimpleDateFormat df = (SimpleDateFormat) df0;
+>         if (hasLocale) {
+94c112,121
+<         return this;
+---
+>             df = new SimpleDateFormat(df.toPattern(), format.getLocale());
+>         } else {
+>             df = (SimpleDateFormat) df.clone();
+>         }
+>         TimeZone newTz = format.getTimeZone();
+>         boolean changeTZ = (newTz != null) && !newTz.equals(df.getTimeZone());
+>         if (changeTZ) {
+>             df.setTimeZone(newTz);
+>         }
+>         return withFormat(Boolean.FALSE, df);

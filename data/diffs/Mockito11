@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito11/src/org/mockito/internal/creation/DelegatingMethod.java d4j_patched/Mockito11/src/org/mockito/internal/creation/DelegatingMethod.java
+54a55,61
+>         if (this == o) {
+>             return true;
+>         }
+>         if (o instanceof DelegatingMethod) {
+>             DelegatingMethod that = (DelegatingMethod) o;
+>             return method.equals(that.method);
+>         } else {
+55a63
+>         }
+60c68
+<         return 1;
+---
+>         return method.hashCode();

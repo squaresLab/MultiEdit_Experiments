@@ -1,0 +1,69 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math92/src/java/org/apache/commons/math/util/MathUtils.java d4j_patched/Math92/src/java/org/apache/commons/math/util/MathUtils.java
+184,188d183
+<         long result = Math.round(binomialCoefficientDouble(n, k));
+<         if (result == Long.MAX_VALUE) {
+<             throw new ArithmeticException(
+<                 "result too large to represent in a long integer");
+<         }
+189a185,186
+>         if (k > n / 2)
+>             return binomialCoefficient(n, n - k);
+195a193,194
+>         long result = 1;
+>         if (n <= 61) {
+196a196,199
+>             for (int j = 1, i = n - k + 1; j <= k; i++, j++) {
+>                 result = result * i / j;
+>             }
+>         } else if (n <= 66) {
+198a202
+>             for (int j = 1, i = n - k + 1; j <= k; i++, j++) {
+204a209,212
+>                 long d = gcd(i, j);
+>                 result = (result / (j / d)) * (i / d);
+>             }
+>         } else {
+207a216,220
+>             for (int j = 1, i = n - k + 1; j <= k; i++, j++) {
+>                 long d = gcd(i, j);
+>                 result = mulAndCheck((result / (j / d)), (i / d));
+>             }
+>         }
+233a247,266
+>         if (n < k) {
+>             throw new IllegalArgumentException(
+>                 "must have n >= k for binomial coefficient (n,k)");
+>         }
+>         if (n < 0) {
+>             throw new IllegalArgumentException(
+>                 "must have n >= 0 for binomial coefficient (n,k)");
+>         }
+>         if ((n == k) || (k == 0)) {
+>             return 1d;
+>         }
+>         if ((k == 1) || (k == n - 1)) {
+>             return n;
+>         }
+>         if (k > n/2) {
+>             return binomialCoefficientDouble(n, n - k);
+>         }
+>         if (n < 67) {
+>             return binomialCoefficient(n,k);
+>         }
+234a268,271
+>         double result = 1d;
+>         for (int i = 1; i <= k; i++) {
+>              result *= (double)(n - k + i) / (double)i;
+>         }
+236c273
+<         return Math.floor(Math.exp(binomialCoefficientLog(n, k)) + 0.5);
+---
+>         return Math.floor(result + 0.5);
+276a314,316
+>         if (n < 67) {  
+>             return Math.log(binomialCoefficient(n,k));
+>         }
+281a322,324
+>         if (n < 1030) { 
+>             return Math.log(binomialCoefficientDouble(n, k));
+>         } 

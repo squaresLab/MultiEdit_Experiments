@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart19/source/org/jfree/chart/plot/CategoryPlot.java d4j_patched/Chart19/source/org/jfree/chart/plot/CategoryPlot.java
+697a698,700
+>         if (axis == null) {
+>             throw new IllegalArgumentException("Null 'axis' argument.");
+>         }
+972a976,978
+>         if (axis == null) {
+>             throw new IllegalArgumentException("Null 'axis' argument.");
+>         }
+Binary files d4j_buggy/Chart19/.svn/wc.db and d4j_patched/Chart19/.svn/wc.db differ

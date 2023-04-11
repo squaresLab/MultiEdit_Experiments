@@ -1,0 +1,28 @@
+Only in after/: bears.json
+Only in after/byte-buddy-dep: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/MethodCall.java after/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/MethodCall.java
+1447a1448,1450
+>                 if (instrumentedMethod.isStatic() && !invokedMethod.isStatic() && !invokedMethod.isConstructor()) {
+>                     throw new IllegalStateException("Cannot invoke " + invokedMethod + " from " + instrumentedMethod);
+>                 }
+2011d2013
+<             Iterator<? extends ParameterDescription> parameterIterator = parameters.iterator();
+2014a2017
+>             Iterator<? extends ParameterDescription> parameterIterator = parameters.iterator();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/test/java/net/bytebuddy/implementation/MethodCallTest.java after/byte-buddy-dep/src/test/java/net/bytebuddy/implementation/MethodCallTest.java
+4a5
+> import net.bytebuddy.description.modifier.Ownership;
+29a31
+> import java.security.acl.Owner;
+983a986,996
+>                 .make();
+>     }
+> 
+>     @Test(expected = IllegalStateException.class)
+>     public void testInstanceCallFromStaticMethod() throws Exception {
+>         new ByteBuddy()
+>                 .subclass(Object.class)
+>                 .defineMethod(FOO, void.class)
+>                 .intercept(StubMethod.INSTANCE)
+>                 .defineMethod(BAR, void.class, Ownership.STATIC)
+>                 .intercept(MethodCall.invoke(named(FOO)))

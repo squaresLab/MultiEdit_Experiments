@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito20/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java d4j_patched/Mockito20/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java
+31a32
+>         Instantiator instantiator = new InstantiatorProvider().getInstantiator(settings);
+34c35
+<             mockInstance = classInstantiator.instantiate(mockedProxyType);
+---
+>             mockInstance = instantiator.newInstance(mockedProxyType);
+45c46
+<                     "  instance creation by : " + classInstantiator.getClass().getSimpleName(),
+---
+>                     "  instance creation by : " + instantiator.getClass().getSimpleName(),

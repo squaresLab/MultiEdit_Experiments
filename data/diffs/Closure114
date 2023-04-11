@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure114/src/com/google/javascript/jscomp/NameAnalyzer.java d4j_patched/Closure114/src/com/google/javascript/jscomp/NameAnalyzer.java
+578c578
+<         } else {
+---
+>         } else if (!(parent.isCall() && parent.getFirstChild() == n)) {

@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind100/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java d4j_patched/JacksonDatabind100/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
+363,371c363,364
+<             byte[] data = n.binaryValue();
+<             if (data != null) {
+<                 return data;
+<             }
+<             if (n.isPojo()) {
+<                 Object ob = ((POJONode) n).getPojo();
+<                 if (ob instanceof byte[]) {
+<                     return (byte[]) ob;
+<                 }
+---
+>             if (n instanceof TextNode) {
+>                 return ((TextNode) n).getBinaryValue(b64variant);
+372a366
+>             return n.binaryValue();

@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito35/src/org/mockito/Matchers.java d4j_patched/Mockito35/src/org/mockito/Matchers.java
+362c362
+<         return reportMatcher(new InstanceOf(clazz)).<T>returnNull();
+---
+>         return reportMatcher(new InstanceOf(clazz)).<T>returnFor(clazz);
+479c479
+<         return reportMatcher(new Equals(value)).<T>returnNull();
+---
+>         return (T) reportMatcher(new Equals(value)).<T>returnFor((Class) value.getClass());
+516c516
+<         return reportMatcher(new Same(value)).<T>returnNull();
+---
+>         return (T) reportMatcher(new Same(value)).<T>returnFor((Class) value.getClass());

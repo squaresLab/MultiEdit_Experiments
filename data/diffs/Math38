@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math38/src/main/java/org/apache/commons/math/optimization/direct/BOBYQAOptimizer.java d4j_patched/Math38/src/main/java/org/apache/commons/math/optimization/direct/BOBYQAOptimizer.java
+1660c1660
+<                     throw new PathIsExploredException(); // XXX
+---
+> //                     throw new PathIsExploredException(); // XXX
+1662,1663c1662,1663
+<                 final int iptMinus1 = ipt;
+<                 final int jptMinus1 = jpt;
+---
+>                 final int iptMinus1 = ipt - 1;
+>                 final int jptMinus1 = jpt - 1;
+1752c1752
+<                 throw new PathIsExploredException(); // XXX
+---
+> //                 throw new PathIsExploredException(); // XXX

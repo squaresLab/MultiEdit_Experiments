@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv4/src/main/java/org/apache/commons/csv/CSVParser.java d4j_patched/Csv4/src/main/java/org/apache/commons/csv/CSVParser.java
+288c288
+<         return new LinkedHashMap<String, Integer>(this.headerMap);
+---
+>         return this.headerMap == null ? null : new LinkedHashMap<String, Integer>(this.headerMap);

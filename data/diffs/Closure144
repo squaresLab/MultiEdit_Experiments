@@ -1,0 +1,65 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure144/src/com/google/javascript/jscomp/FunctionTypeBuilder.java d4j_patched/Closure144/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+73a74
+>   private boolean returnTypeInferred = false;
+200,201c201
+<         info.getReturnType().evaluate(scope, typeRegistry) :
+<         typeRegistry.getNativeType(UNKNOWN_TYPE);
+---
+>         info.getReturnType().evaluate(scope, typeRegistry) : null;
+202a203
+>         returnType != null &&
+212a214,236
+>   FunctionTypeBuilder inferReturnStatements(@Nullable Node functionBlock) {
+>     if (functionBlock == null || compiler.getInput(sourceName).isExtern()) {
+>       return this;
+>     }
+>     Preconditions.checkArgument(functionBlock.getType() == Token.BLOCK);
+>     if (returnType == null) {
+>       boolean hasNonEmptyReturns = false;
+>       List<Node> worklist = Lists.newArrayList(functionBlock);
+>       while (!worklist.isEmpty()) {
+>         Node current = worklist.remove(worklist.size() - 1);
+>         int cType = current.getType();
+>         if (cType == Token.RETURN && current.getFirstChild() != null ||
+>             cType == Token.THROW) {
+>           hasNonEmptyReturns = true;
+>           break;
+>         } else if (NodeUtil.isStatementBlock(current) ||
+>             NodeUtil.isControlStructure(current)) {
+>           for (Node child = current.getFirstChild();
+>                child != null; child = child.getNext()) {
+>             worklist.add(child);
+>           }
+>         }
+>       }
+213a238,244
+>       if (!hasNonEmptyReturns) {
+>         returnType = typeRegistry.getNativeType(VOID_TYPE);
+>         returnTypeInferred = true;
+>       }
+>     }
+>     return this;
+>   }
+496c527
+<           .withReturnType(returnType)
+---
+>           .withReturnType(returnType, returnTypeInferred)
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure144/src/com/google/javascript/jscomp/TypedScopeCreator.java d4j_patched/Closure144/src/com/google/javascript/jscomp/TypedScopeCreator.java
+576a577
+>       Node fnBlock = isFnLiteral ? parametersNode.getNext() : null;
+616a618
+>                     .inferReturnStatements(fnBlock)
+633a636
+>             .inferReturnStatements(fnBlock)
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure144/src/com/google/javascript/rhino/jstype/FunctionBuilder.java d4j_patched/Closure144/src/com/google/javascript/rhino/jstype/FunctionBuilder.java
+100a101,105
+>   public FunctionBuilder withReturnType(JSType returnType, boolean inferred) {
+>     this.returnType = returnType;
+>     this.inferredReturnType = inferred;
+>     return this;
+>   }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure144/src/com/google/javascript/rhino/jstype/FunctionType.java d4j_patched/Closure144/src/com/google/javascript/rhino/jstype/FunctionType.java
+517c517
+<         registry, null, null,
+---
+>         registry, null, source,

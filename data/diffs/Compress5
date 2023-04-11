@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress5/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java d4j_patched/Compress5/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+239,240c239,244
+<             if (read == 0 && inf.finished()) {
+<                 return -1;
+---
+>             if (read == 0) {
+>                 if (inf.finished()) {
+>                     return -1;
+>                 } else if (lengthOfLastRead == -1) {
+>                     throw new IOException("Truncated ZIP file");
+>                 }

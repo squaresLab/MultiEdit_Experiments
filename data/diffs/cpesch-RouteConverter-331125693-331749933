@@ -1,0 +1,41 @@
+Only in after/: bears.json
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/brouter/src/test/java/slash/navigation/brouter/BRouterIT.java after/brouter/src/test/java/slash/navigation/brouter/BRouterIT.java
+105c105
+<         assertEquals(191, result.getPositions().size());
+---
+>         assertEquals(192, result.getPositions().size());
+Only in after/navigation-formats: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java after/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java
+22a23
+> import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+46c47,55
+<         throw new UnsupportedOperationException();
+---
+>         Workbook workbook = new HSSFWorkbook();
+>         Sheet sheet = workbook.createSheet("new sheet");
+>         this.row = sheet.createRow(0);
+>         setLongitude(longitude);
+>         setLatitude(latitude);
+>         setElevation(elevation);
+>         setSpeed(speed);
+>         setTime(time);
+>         setDescription(description);
+108c117
+<                 cell.setCellValue(value.getCalendar());
+---
+>                 cell.setCellValue(value.getTime());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/navigation-formats/src/test/java/slash/navigation/base/NavigationTestCase.java after/navigation-formats/src/test/java/slash/navigation/base/NavigationTestCase.java
+110a111
+> import static java.lang.Math.round;
+333c334
+<                 assertEquals((double) Math.round(sourcePosition.getElevation()), targetPosition.getElevation());
+---
+>                 assertEquals(sourcePosition.getElevation(), targetPosition.getElevation(), 1.0);
+Only in after/navigation-formats/src/test/java/slash/navigation/csv: ExcelFormatTest.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/route-converter-build/buildNumber.properties after/route-converter-build/buildNumber.properties
+2,3c2,3
+< #Sat Jan 20 08:20:21 CET 2018
+< buildNumber0=14
+---
+> #Tue Aug 21 23:23:12 CEST 2018
+> buildNumber0=16

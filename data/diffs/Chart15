@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart15/source/org/jfree/chart/plot/PiePlot.java d4j_patched/Chart15/source/org/jfree/chart/plot/PiePlot.java
+1377a1378,1380
+>         if (this.dataset == null) {
+>             return 0.0;
+>         }
+2050a2054
+>         if (this.dataset != null) {
+2052a2057
+>         }
+Binary files d4j_buggy/Chart15/.svn/wc.db and d4j_patched/Chart15/.svn/wc.db differ

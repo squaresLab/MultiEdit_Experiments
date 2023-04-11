@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math19/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java d4j_patched/Math19/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+539a540,552
+>                 for (int i = 0; i < lB.length; i++) {
+>                     if (Double.isInfinite(boundaries[1][i] - boundaries[0][i])) {
+>                         final double max = Double.MAX_VALUE + boundaries[0][i];
+>                         final NumberIsTooLargeException e
+>                             = new NumberIsTooLargeException(boundaries[1][i],
+>                                                             max,
+>                                                             true);
+>                         e.getContext().addMessage(LocalizedFormats.OVERFLOW);
+>                         e.getContext().addMessage(LocalizedFormats.INDEX, i);
+> 
+>                         throw e;
+>                     }
+>                 }

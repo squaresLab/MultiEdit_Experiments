@@ -1,0 +1,119 @@
+Only in after/amazon-kinesis-client: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/amazon-kinesis-client/src/main/java/software/amazon/kinesis/retrieval/polling/PrefetchRecordsPublisher.java after/amazon-kinesis-client/src/main/java/software/amazon/kinesis/retrieval/polling/PrefetchRecordsPublisher.java
+179c179
+<     private synchronized void addArrivedRecordsInput(ProcessRecordsInput processRecordsInput) throws InterruptedException {
+---
+>     private void addArrivedRecordsInput(ProcessRecordsInput processRecordsInput) throws InterruptedException {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/amazon-kinesis-client/src/test/java/software/amazon/kinesis/retrieval/polling/PrefetchRecordsPublisherTest.java after/amazon-kinesis-client/src/test/java/software/amazon/kinesis/retrieval/polling/PrefetchRecordsPublisherTest.java
+17a18,19
+> import static org.hamcrest.CoreMatchers.equalTo;
+> import static org.hamcrest.MatcherAssert.assertThat;
+21a24
+> import static org.junit.Assert.fail;
+22a26
+> import static org.mockito.Matchers.anyInt;
+24a29
+> import static org.mockito.Mockito.atMost;
+31d35
+< import java.nio.ByteBuffer;
+37a42
+> import java.util.concurrent.atomic.AtomicInteger;
+41d45
+< import lombok.extern.slf4j.Slf4j;
+47a52
+> import org.mockito.Mockito;
+48a54,55
+> import org.reactivestreams.Subscriber;
+> import org.reactivestreams.Subscription;
+49a57,59
+> import io.reactivex.Flowable;
+> import io.reactivex.schedulers.Schedulers;
+> import lombok.extern.slf4j.Slf4j;
+225,226d234
+<         getRecordsCache.start(sequenceNumber, initialPosition);
+< 
+228a237,239
+> 
+>         getRecordsCache.start(sequenceNumber, initialPosition);
+> 
+235a247,325
+>     }
+> 
+>     @Test(timeout = 1000L)
+>     public void testNoDeadlockOnFullQueue() {
+>         //
+>         // Fixes https://github.com/awslabs/amazon-kinesis-client/issues/448
+>         //
+>         // This test is to verify that the drain of a blocked queue no longer deadlocks.
+>         // If the test times out before starting the subscriber it means something went wrong while filling the queue.
+>         // After the subscriber is started one of the things that can trigger a timeout is a deadlock.
+>         //
+>         GetRecordsResponse response = GetRecordsResponse.builder().records(
+>                 Record.builder().data(SdkBytes.fromByteArray(new byte[] { 1, 2, 3 })).sequenceNumber("123").build())
+>                 .build();
+>         when(getRecordsRetrievalStrategy.getRecords(anyInt())).thenReturn(response);
+> 
+>         getRecordsCache.start(sequenceNumber, initialPosition);
+> 
+>         //
+>         // Wait for the queue to fill up, and the publisher to block on adding items to the queue.
+>         //
+>         log.info("Waiting for queue to fill up");
+>         while (getRecordsCache.getRecordsResultQueue.size() < MAX_SIZE) {
+>             Thread.yield();
+>         }
+> 
+>         log.info("Queue is currently at {} starting subscriber", getRecordsCache.getRecordsResultQueue.size());
+>         AtomicInteger receivedItems = new AtomicInteger(0);
+>         final int expectedItems = MAX_SIZE * 3;
+> 
+>         Object lock = new Object();
+> 
+>         Subscriber<ProcessRecordsInput> subscriber = new Subscriber<ProcessRecordsInput>() {
+>             Subscription sub;
+> 
+>             @Override
+>             public void onSubscribe(Subscription s) {
+>                 sub = s;
+>                 s.request(1);
+>             }
+> 
+>             @Override
+>             public void onNext(ProcessRecordsInput processRecordsInput) {
+>                 receivedItems.incrementAndGet();
+>                 if (receivedItems.get() >= expectedItems) {
+>                     synchronized (lock) {
+>                         log.info("Notifying waiters");
+>                         lock.notifyAll();
+>                     }
+>                     sub.cancel();
+>                 } else {
+>                     sub.request(1);
+>                 }
+>             }
+> 
+>             @Override
+>             public void onError(Throwable t) {
+>                 log.error("Caught error", t);
+>                 throw new RuntimeException(t);
+>             }
+> 
+>             @Override
+>             public void onComplete() {
+>                 fail("onComplete not expected in this test");
+>             }
+>         };
+> 
+>         synchronized (lock) {
+>             log.info("Awaiting notification");
+>             Flowable.fromPublisher(getRecordsCache).subscribeOn(Schedulers.computation())
+>                     .observeOn(Schedulers.computation(), true, 8).subscribe(subscriber);
+>             try {
+>                 lock.wait();
+>             } catch (InterruptedException e) {
+>                 throw new RuntimeException(e);
+>             }
+>         }
+>         verify(getRecordsRetrievalStrategy, atLeast(expectedItems)).getRecords(anyInt());
+>         assertThat(receivedItems.get(), equalTo(expectedItems));
+Only in after/: bears.json

@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress34/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java d4j_patched/Compress34/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java
+57a58
+>     private static final ZipShort ZERO = new ZipShort(0);
+146c147
+<         return getLocalFileDataLength();
+---
+>         return ZERO;

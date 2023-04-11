@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure79/src/com/google/javascript/jscomp/Normalize.java d4j_patched/Closure79/src/com/google/javascript/jscomp/Normalize.java
+122c122
+<         .traverse(root);
+---
+>         .traverseRoots(externs, root);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure79/src/com/google/javascript/jscomp/VarCheck.java d4j_patched/Closure79/src/com/google/javascript/jscomp/VarCheck.java
+220a221
+>     compiler.reportCodeChange();

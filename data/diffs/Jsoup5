@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup5/src/main/java/org/jsoup/parser/Parser.java d4j_patched/Jsoup5/src/main/java/org/jsoup/parser/Parser.java
+206c206,207
+<             tq.consume();
+---
+>             if (value.length() == 0) // no key, no val; unknown char, keep popping so not get stuck
+>                 tq.advance();

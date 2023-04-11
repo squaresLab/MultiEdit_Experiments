@@ -1,0 +1,37 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure174/src/com/google/javascript/jscomp/JsAst.java d4j_patched/Closure174/src/com/google/javascript/jscomp/JsAst.java
+81a82
+>     int startErrorCount = compiler.getErrorManager().getErrorCount();
+95c96
+<     if (root == null || compiler.hasHaltingErrors()) {
+---
+>     if (root == null ||
+98a100
+>         (compiler.getErrorManager().getErrorCount() > startErrorCount && !compiler.isIdeMode())) {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure174/src/com/google/javascript/jscomp/NodeUtil.java d4j_patched/Closure174/src/com/google/javascript/jscomp/NodeUtil.java
+2367c2367
+<     } else {
+---
+>     } else if (value != null) {
+2368a2369,2371
+>       result.getFirstChild().setJSDocInfo(info);
+>     } else {
+>       result = IR.exprResult(nameNode);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure174/src/com/google/javascript/jscomp/ScopedAliases.java d4j_patched/Closure174/src/com/google/javascript/jscomp/ScopedAliases.java
+356,357c356,357
+<         boolean isVarAssign = parent.isVar() && n.hasChildren();
+<         if (isVarAssign && n.getFirstChild().isQualifiedName()) {
+---
+>         boolean isVar = parent.isVar();
+>         if (isVar && n.getFirstChild() != null && n.getFirstChild().isQualifiedName()) {
+365,366c365,368
+<         } else if (isVarAssign) {
+<           Node value = v.getInitialValue().detachFromParent();
+---
+>         } else if (isVar) {
+>           Node value = n.hasChildren() ?
+>               v.getInitialValue().detachFromParent() :
+>               null;
+376a379
+>           if (value != null || v.getJSDocInfo() != null) {
+385a389
+>           }

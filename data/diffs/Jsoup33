@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup33/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java d4j_patched/Jsoup33/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+161a162
+>             tokeniser.transition(TokeniserState.Data); // handles <script />, otherwise needs breakout steps from script data

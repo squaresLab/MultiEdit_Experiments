@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind112/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java d4j_patched/JacksonDatabind112/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java
+107c107
+<             AnnotatedWithParams delegateCreator = _valueInstantiator.getDelegateCreator();
+---
+>             AnnotatedWithParams delegateCreator = _valueInstantiator.getArrayDelegateCreator();
+108a109,111
+>                 JavaType delegateType = _valueInstantiator.getArrayDelegateType(ctxt.getConfig());
+>                 delegate = findDeserializer(ctxt, delegateType, property);
+>             } else if ((delegateCreator = _valueInstantiator.getDelegateCreator()) != null) {

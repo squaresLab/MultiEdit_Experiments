@@ -1,0 +1,36 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress40/src/main/java/org/apache/commons/compress/utils/BitInputStream.java d4j_patched/Compress40/src/main/java/org/apache/commons/compress/utils/BitInputStream.java
+85c85
+<         while (bitsCachedSize < count) {
+---
+>         while (bitsCachedSize < count && bitsCachedSize < 57) {
+97a98,100
+>         int overflowBits = 0;
+>         long overflow = 0l;
+>         if (bitsCachedSize < count) {
+98a102,119
+>             int bitsToAddCount = count - bitsCachedSize;
+>             overflowBits = 8 - bitsToAddCount;
+>             final long nextByte = in.read();
+>             if (nextByte < 0) {
+>                 return nextByte;
+>             }
+>             if (byteOrder == ByteOrder.LITTLE_ENDIAN) {
+>                 long bitsToAdd = nextByte & MASKS[bitsToAddCount];
+>                 bitsCached |= (bitsToAdd << bitsCachedSize);
+>                 overflow = (nextByte >>> bitsToAddCount) & MASKS[overflowBits];
+>             } else {
+>                 bitsCached <<= bitsToAddCount;
+>                 long bitsToAdd = (nextByte >>> (overflowBits)) & MASKS[bitsToAddCount];
+>                 bitsCached |= bitsToAdd;
+>                 overflow = nextByte & MASKS[overflowBits];
+>             }
+>             bitsCachedSize = count;
+>         }
+100a122
+>         if (overflowBits == 0) {
+107a130,134
+>         } else {
+>             bitsOut = bitsCached & MASKS[count];
+>             bitsCached = overflow;
+>             bitsCachedSize = overflowBits;
+>         }

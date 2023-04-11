@@ -1,0 +1,66 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java after/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java
+26a27,36
+> 
+>   @Override
+>   public boolean equals(Object o){
+>     if (o == null || !(o instanceof LoginResponseMessage)) {
+>       return false;
+>     }
+>     LoginResponseMessage other = (LoginResponseMessage) o;
+>     return success == other.success && nickname.equals(other.nickname);
+>   }
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java after/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java
+4a5
+> import java.util.Arrays;
+26a28,36
+>   }
+> 
+>   @Override
+>   public boolean equals(Object o){
+>     if (o == null || !(o instanceof MenuMessageResponse)) {
+>       return false;
+>     }
+>     MenuMessageResponse other = (MenuMessageResponse) o;
+>     return menuType.equals(other.menuType) && Arrays.equals(information, other.information);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java after/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java
+3a4
+> import java.util.Arrays;
+25a27,35
+>   }
+> 
+>   @Override
+>   public boolean equals(Object o){
+>     if (o == null || !(o instanceof RegisterResponseMessage)) {
+>       return false;
+>     }
+>     RegisterResponseMessage other = (RegisterResponseMessage) o;
+>     return success == other.success && Arrays.equals(messages, other.messages);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java after/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java
+3a4
+> import java.util.Arrays;
+25a27,35
+>   }
+> 
+>   @Override
+>   public boolean equals(Object o){
+>     if (o == null || !(o instanceof UnregisterResponseMessage)) {
+>       return false;
+>     }
+>     UnregisterResponseMessage other = (UnregisterResponseMessage) o;
+>     return success == other.success && Arrays.equals(messages, other.messages);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java after/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java
+3a4
+> import java.util.Arrays;
+18a20,28
+>   }
+> 
+>   @Override
+>   public boolean equals(Object o){
+>     if (o == null || !(o instanceof ViewValidMovesResponse)) {
+>       return false;
+>     }
+>     ViewValidMovesResponse other = (ViewValidMovesResponse) o;
+>     return Arrays.equals(locations, other.locations);

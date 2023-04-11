@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart11/source/org/jfree/chart/util/ShapeUtilities.java d4j_patched/Chart11/source/org/jfree/chart/util/ShapeUtilities.java
+275c275
+<         PathIterator iterator2 = p1.getPathIterator(null);
+---
+>         PathIterator iterator2 = p2.getPathIterator(null);
+Binary files d4j_buggy/Chart11/.svn/wc.db and d4j_patched/Chart11/.svn/wc.db differ

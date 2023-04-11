@@ -1,0 +1,23 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup91/src/main/java/org/jsoup/parser/CharacterReader.java d4j_patched/Jsoup91/src/main/java/org/jsoup/parser/CharacterReader.java
+36a37,39
+>         if (isBinary()) {
+>             throw new UncheckedIOException("Input is binary and unsupported");
+>         }
+451a455
+>     private static final int numNullsConsideredBinary = 10; // conservative
+456a461,462
+>     boolean isBinary() {
+>         int nullsSeen = 0;
+457a464,467
+>         for (int i = bufPos; i < bufLength; i++) {
+>             if (charBuf[i] == '\0')
+>                 nullsSeen++;
+>         }
+458a469,470
+>         return nullsSeen >= numNullsConsideredBinary;
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup91/src/main/java/org/jsoup/UncheckedIOException.java d4j_patched/Jsoup91/src/main/java/org/jsoup/UncheckedIOException.java
+9a10,12
+>     public UncheckedIOException(String message) {
+>         super(new IOException(message));
+>     }

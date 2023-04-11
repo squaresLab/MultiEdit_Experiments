@@ -1,0 +1,27 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java after/src/main/java/org/springframework/data/web/PagedResourcesAssembler.java
+2c2
+<  * Copyright 2013-2015 the original author or authors.
+---
+>  * Copyright 2013-2017 the original author or authors.
+47a48
+>  * @author Marcel Overdijk
+288c289
+< 	private static <T> PageMetadata asPageMetadata(Page<T> page) {
+---
+> 	private PageMetadata asPageMetadata(Page<?> page) {
+291c292,295
+< 		return new PageMetadata(page.getSize(), page.getNumber(), page.getTotalElements(), page.getTotalPages());
+---
+> 
+> 		int number = pageableResolver.isOneIndexedParameters() ? page.getNumber() + 1 : page.getNumber();
+> 
+> 		return new PageMetadata(page.getSize(), number, page.getTotalElements(), page.getTotalPages());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/web/PagedResourcesAssemblerUnitTests.java after/src/test/java/org/springframework/data/web/PagedResourcesAssemblerUnitTests.java
+50a51
+>  * @author Marcel Overdijk
+165a167,169
+> 
+> 		// We expect 2 as the created page has index 1. Pages itself are always 0 indexed, so we created page 2 above.
+> 		assertThat(resource.getMetadata().getNumber(), is(2L));

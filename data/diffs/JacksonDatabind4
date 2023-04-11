@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind4/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java d4j_patched/JacksonDatabind4/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
+58a59
+>         try {
+74a76
+>         } catch (Exception e) {
+75a78,79
+>             throw JsonMappingException.wrapWithPath(e, String.class, ix);
+>         }
+92a97
+>         try {
+101a107
+>         } catch (Exception e) {
+102a109,110
+>             throw JsonMappingException.wrapWithPath(e, String.class, ix);
+>         }

@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec9/src/java/org/apache/commons/codec/binary/Base64.java d4j_patched/Codec9/src/java/org/apache/commons/codec/binary/Base64.java
+827c827
+<         long len = getEncodeLength(binaryData, MIME_CHUNK_SIZE, CHUNK_SEPARATOR);
+---
+>         long len = getEncodeLength(binaryData, isChunked ? MIME_CHUNK_SIZE : 0, CHUNK_SEPARATOR);

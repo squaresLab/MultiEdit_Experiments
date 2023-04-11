@@ -1,0 +1,121 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/json/ignore/JsonIgnoreFields.java after/src/main/java/com/json/ignore/JsonIgnoreFields.java
+133c133
+<         return field.getType().isPrimitive() || field.getType().isArray() || ignoredNames.contains(field.getName());
+---
+>         return /*field.getType().isPrimitive() ||*/ field.getType().isArray() || ignoredNames.contains(field.getName());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/com/json/ignore/JsonIgnoreFieldsTest.java after/src/test/java/com/json/ignore/JsonIgnoreFieldsTest.java
+21,23c21,23
+<     private static final String SERIALIZED_USER = "{\"id\":100,\"email\":\"mail@mail.com\",\"fullName\":\"Jane Doe\",\"password\":\"1234567\",\"intValue\":0,\"collectionValue\":[\"Hello\",\"World\"],\"mapValue\":{\"name\":\"value\"}}";
+<     private static final String USER_WITHOUT_ID = "{\"email\":\"mail@mail.com\",\"fullName\":\"Jane Doe\",\"password\":\"1234567\",\"intValue\":0,\"collectionValue\":[\"Hello\",\"World\"],\"mapValue\":{\"name\":\"value\"}}";
+<     private static final String USER_EMPTY = "{\"intValue\":0}";
+---
+>     private static final String SERIALIZED_USER = "{\"id\":100,\"email\":\"mail@mail.com\",\"fullName\":\"Jane Doe\",\"password\":\"1234567\",\"intValue\":0,\"collectionValue\":[\"Hello\",\"World\"],\"mapValue\":{\"name\":\"value\"},\"boolValue\":true}";
+>     private static final String USER_WITHOUT_ID = "{\"email\":\"mail@mail.com\",\"fullName\":\"Jane Doe\",\"password\":\"1234567\",\"intValue\":0,\"collectionValue\":[\"Hello\",\"World\"],\"mapValue\":{\"name\":\"value\"},\"boolValue\":true}";
+>     private static final String USER_EMPTY = "{\"intValue\":" + Integer.MIN_VALUE +",\"boolValue\":false}";
+26c26
+<     private static final List<String> LIST_ALL = Arrays.asList("id", "email", "fullName", "password", "intValue", "collectionValue", "mapValue");
+---
+>     private static final List<String> LIST_ALL = Arrays.asList("id", "email", "fullName", "password", "intValue", "collectionValue", "mapValue", "boolValue");
+52c52,53
+<                 .setMapValue(values);
+---
+>                 .setMapValue(values)
+>                 .setBoolValue(true);
+63c64
+<     @JsonIgnoreSetting(className = UserMock.class, fields = {"email", "fullName", "password", "intValue", "collectionValue", "mapValue"})
+---
+>     @JsonIgnoreSetting(className = UserMock.class, fields = {"email", "fullName", "password", "intValue", "collectionValue", "mapValue", "boolValue"})
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/mock/UserMock.java after/src/test/java/mock/UserMock.java
+15a16
+>     private boolean boolValue;
+79a81,89
+>         return this;
+>     }
+> 
+>     public boolean getBoolValue() {
+>         return boolValue;
+>     }
+> 
+>     public UserMock setBoolValue(boolean boolValue) {
+>         this.boolValue = boolValue;
+Binary files before/target/classes/com/json/ignore/JsonIgnoreFields.class and after/target/classes/com/json/ignore/JsonIgnoreFields.class differ
+Binary files before/target/json-ignore-1.0.2.jar and after/target/json-ignore-1.0.2.jar differ
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/target/surefire-reports/com.json.ignore.JsonIgnoreFieldsTest.txt after/target/surefire-reports/com.json.ignore.JsonIgnoreFieldsTest.txt
+4,76c4
+< Tests run: 9, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.882 sec <<< FAILURE!
+< testConstructorMap(com.json.ignore.JsonIgnoreFieldsTest)  Time elapsed: 0.017 sec  <<< FAILURE!
+< org.junit.ComparisonFailure: expected:<{"intValue":[-2147483648,"boolValue":fals]e}> but was:<{"intValue":[0,"boolValue":tru]e}>
+< 	at org.junit.Assert.assertEquals(Assert.java:115)
+< 	at org.junit.Assert.assertEquals(Assert.java:144)
+< 	at com.json.ignore.JsonIgnoreFieldsTest.testConstructorMap(JsonIgnoreFieldsTest.java:115)
+< 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+< 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+< 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+< 	at java.lang.reflect.Method.invoke(Method.java:498)
+< 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+< 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+< 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+< 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+< 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+< 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+< 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+< 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+< 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+< 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+< 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+< 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+< 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+< 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+< 	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+< 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+< 	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+< 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+< 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+< 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+< 	at java.lang.reflect.Method.invoke(Method.java:498)
+< 	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+< 	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+< 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+< 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+< 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+< 
+< testMultipleAnnotationMethod(com.json.ignore.JsonIgnoreFieldsTest)  Time elapsed: 0.008 sec  <<< FAILURE!
+< org.junit.ComparisonFailure: expected:<{"intValue":[-2147483648,"boolValue":fals]e}> but was:<{"intValue":[0,"boolValue":tru]e}>
+< 	at org.junit.Assert.assertEquals(Assert.java:115)
+< 	at org.junit.Assert.assertEquals(Assert.java:144)
+< 	at com.json.ignore.JsonIgnoreFieldsTest.testMultipleAnnotationMethod(JsonIgnoreFieldsTest.java:139)
+< 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+< 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+< 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+< 	at java.lang.reflect.Method.invoke(Method.java:498)
+< 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+< 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+< 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+< 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+< 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+< 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+< 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+< 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+< 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+< 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+< 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+< 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+< 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+< 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+< 	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+< 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+< 	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+< 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+< 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+< 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+< 	at java.lang.reflect.Method.invoke(Method.java:498)
+< 	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+< 	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+< 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+< 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+< 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+< 
+---
+> Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.907 sec

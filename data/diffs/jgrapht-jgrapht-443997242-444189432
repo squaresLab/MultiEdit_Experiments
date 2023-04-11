@@ -1,0 +1,31 @@
+Only in after/: bears.json
+Only in after/jgrapht-core: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java after/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java
+169c169
+<             List<E> viAdj = adj.get(i);
+---
+>             List<E> viAdj = adj.get(vi);
+179,181d178
+<                 V v = ring.get(i);
+<                 E e = adj.get(i).get(r);
+< 
+182a180,181
+>                     V v = ring.get(i);
+>                     E e = adj.get(v).get(r);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/jgrapht-core/src/test/java/org/jgrapht/generate/WattsStrogatzGraphGeneratorTest.java after/jgrapht-core/src/test/java/org/jgrapht/generate/WattsStrogatzGraphGeneratorTest.java
+182a183,197
+>     
+>     @Test
+>     public void testNonIntegerVertices()
+>     {
+>         final long seed = 5;
+> 
+>         GraphGenerator<String, DefaultEdge, String> gen =
+>             new WattsStrogatzGraphGenerator<>(10, 2, 0.1, seed);
+>         Graph<String, DefaultEdge> g = new SimpleGraph<>(
+>             SupplierUtil.createStringSupplier(1), SupplierUtil.DEFAULT_EDGE_SUPPLIER, false);
+>         gen.generateGraph(g);
+> 
+>         assertEquals(10, g.vertexSet().size());
+>         assertEquals(10, g.edgeSet().size());
+>     }

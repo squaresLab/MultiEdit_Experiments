@@ -1,0 +1,81 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito6/src/org/mockito/Matchers.java d4j_patched/Mockito6/src/org/mockito/Matchers.java
+122c122
+<         return reportMatcher(Any.ANY).returnFalse();
+---
+>         return reportMatcher(new InstanceOf(Boolean.class)).returnFalse();
+137c137
+<         return reportMatcher(Any.ANY).returnZero();
+---
+>         return reportMatcher(new InstanceOf(Byte.class)).returnZero();
+152c152
+<         return reportMatcher(Any.ANY).returnChar();
+---
+>         return reportMatcher(new InstanceOf(Character.class)).returnChar();
+167c167
+<         return reportMatcher(Any.ANY).returnZero();
+---
+>         return reportMatcher(new InstanceOf(Integer.class)).returnZero();
+182c182
+<         return reportMatcher(Any.ANY).returnZero();
+---
+>         return reportMatcher(new InstanceOf(Long.class)).returnZero();
+197c197
+<         return reportMatcher(Any.ANY).returnZero();
+---
+>         return reportMatcher(new InstanceOf(Float.class)).returnZero();
+212c212
+<         return reportMatcher(Any.ANY).returnZero();
+---
+>         return reportMatcher(new InstanceOf(Double.class)).returnZero();
+227c227
+<         return reportMatcher(Any.ANY).returnZero();
+---
+>         return reportMatcher(new InstanceOf(Short.class)).returnZero();
+244c244
+<         return (T) reportMatcher(Any.ANY).returnNull();
+---
+>         return (T) reportMatcher(new InstanceOf(Object.class)).returnNull();
+292c292
+<         return (T) reportMatcher(Any.ANY).returnFor(clazz);
+---
+>         return (T) reportMatcher(new InstanceOf(clazz)).returnFor(clazz);
+309c309
+<         return (T) anyObject();
+---
+>         return (T) reportMatcher(Any.ANY).returnNull();
+324c324
+<         return reportMatcher(Any.ANY).returnString();
+---
+>         return reportMatcher(new InstanceOf(String.class)).returnString();
+339c339
+<         return reportMatcher(Any.ANY).returnList();
+---
+>         return reportMatcher(new InstanceOf(List.class)).returnList();
+358c358
+<         return (List) reportMatcher(Any.ANY).returnList();
+---
+>         return anyList();
+373c373
+<         return reportMatcher(Any.ANY).returnSet();
+---
+>         return reportMatcher(new InstanceOf(Set.class)).returnSet();
+392c392
+<         return (Set) reportMatcher(Any.ANY).returnSet();
+---
+>         return anySet();
+407c407
+<         return reportMatcher(Any.ANY).returnMap();
+---
+>         return reportMatcher(new InstanceOf(Map.class)).returnMap();
+427c427
+<         return reportMatcher(Any.ANY).returnMap();
+---
+>         return anyMap();
+442c442
+<         return reportMatcher(Any.ANY).returnList();
+---
+>         return reportMatcher(new InstanceOf(Collection.class)).returnList();
+461c461
+<         return (Collection) reportMatcher(Any.ANY).returnList();
+---
+>         return anyCollection();

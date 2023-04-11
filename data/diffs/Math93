@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math93/src/java/org/apache/commons/math/util/MathUtils.java d4j_patched/Math93/src/java/org/apache/commons/math/util/MathUtils.java
+345,346c345,348
+<         long result = Math.round(factorialDouble(n));
+<         if (result == Long.MAX_VALUE) {
+---
+>         if (n < 0) {
+>             throw new IllegalArgumentException("must have n >= 0 for n!");
+>         }
+>         if (n > 20) {
+376a379,381
+>         if (n < 21) {
+>             return factorial(n);
+>         }
+395a401,403
+>         }
+>         if (n < 21) {
+>             return Math.log(factorial(n));

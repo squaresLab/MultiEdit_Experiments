@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli2/src/java/org/apache/commons/cli/PosixParser.java d4j_patched/Cli2/src/java/org/apache/commons/cli/PosixParser.java
+305c305,306
+<                 tokens.add("-" + ch);
+---
+>                 tokens.add(token);
+>                 break;
+309c310
+< }
+---
+> }
+\ No newline at end of file

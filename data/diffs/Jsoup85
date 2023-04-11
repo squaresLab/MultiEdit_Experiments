@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup85/src/main/java/org/jsoup/nodes/Attribute.java d4j_patched/Jsoup85/src/main/java/org/jsoup/nodes/Attribute.java
+44c44
+<         this.key = key.trim();
+---
+>         key = key.trim();
+45a46
+>         this.key = key;

@@ -1,0 +1,36 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure22/src/com/google/javascript/jscomp/CheckSideEffects.java d4j_patched/Closure22/src/com/google/javascript/jscomp/CheckSideEffects.java
+101,104c101
+<     if (parent.getType() == Token.COMMA) {
+<       Node gramps = parent.getParent();
+<       if (gramps.isCall() && parent == gramps.getFirstChild()) {
+<         if (n == parent.getFirstChild() && parent.getChildCount() == 2 && n.getNext().isName() && "eval".equals(n.getNext().getString())) {
+---
+>     if (n.isExprResult() || n.isBlock()) {
+106d102
+<         }
+111,125c107
+<       if (n == parent.getLastChild()) {
+<         for (Node an : parent.getAncestors()) {
+<           int ancestorType = an.getType();
+<           if (ancestorType == Token.COMMA)
+<             continue;
+<           if (ancestorType != Token.EXPR_RESULT && ancestorType != Token.BLOCK)
+<             return;
+<           else
+<             break;
+<         }
+<       }
+<     } else if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+<       if (parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() ||
+<            n == parent.getFirstChild().getNext().getNext())) {
+<       } else {
+---
+>     if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+127d108
+<       }
+134,138d114
+<       if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+<         return;
+<       } else if (n.isExprResult()) {
+<         return;
+<       }

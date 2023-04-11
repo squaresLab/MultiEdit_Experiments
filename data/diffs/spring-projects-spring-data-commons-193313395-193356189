@@ -1,0 +1,41 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/web/ProjectingJackson2HttpMessageConverter.java after/src/main/java/org/springframework/data/web/ProjectingJackson2HttpMessageConverter.java
+120c120,121
+< 		Class<?> rawType = ResolvableType.forType(type).getRawClass();
+---
+> 		ResolvableType owner = contextClass == null ? null : ResolvableType.forClass(contextClass);
+> 		Class<?> rawType = ResolvableType.forType(type, owner).resolve(Object.class);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/web/ProjectingJackson2HttpMessageConverterUnitTests.java after/src/test/java/org/springframework/data/web/ProjectingJackson2HttpMessageConverterUnitTests.java
+20a21,23
+> import java.lang.reflect.Method;
+> import java.lang.reflect.Type;
+> 
+50a54,71
+> 	@Test // DATACMNS-972
+> 	public void doesNotConsiderTypeVariableBoundTo() throws Throwable {
+> 
+> 		Method method = BaseController.class.getDeclaredMethod("createEntity", AbstractDto.class);
+> 		Type type = method.getGenericParameterTypes()[0];
+> 
+> 		assertThat(converter.canRead(type, BaseController.class, ANYTHING_JSON), is(false));
+> 	}
+> 
+> 	@Test // DATACMNS-972
+> 	public void genericTypeOnConcreteOne() throws Throwable {
+> 
+> 		Method method = ConcreteController.class.getMethod("createEntity", AbstractDto.class);
+> 		Type type = method.getGenericParameterTypes()[0];
+> 
+> 		assertThat(converter.canRead(type, ConcreteController.class, ANYTHING_JSON), is(false));
+> 	}
+> 
+56a78,85
+> 
+> 	class AbstractDto {}
+> 
+> 	abstract class BaseController<D extends AbstractDto> {
+> 		public void createEntity(D dto) {}
+> 	}
+> 
+> 	class ConcreteController extends BaseController<AbstractDto> {}

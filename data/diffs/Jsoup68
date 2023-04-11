@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup68/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java d4j_patched/Jsoup68/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+468,471c468
+<         int bottom = stack.size() -1;
+<         if (bottom > MaxScopeSearchDepth) {
+<             bottom = MaxScopeSearchDepth;
+<         }
+---
+>         final int bottom = stack.size() -1;

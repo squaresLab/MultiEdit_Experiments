@@ -1,0 +1,23 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure94/src/com/google/javascript/jscomp/NodeUtil.java d4j_patched/Closure94/src/com/google/javascript/jscomp/NodeUtil.java
+328a329
+>       case Token.ADD:
+332a334,350
+>       case Token.DIV:
+>       case Token.EQ:
+>       case Token.GE:
+>       case Token.GT:
+>       case Token.LE:
+>       case Token.LSH:
+>       case Token.LT:
+>       case Token.MOD:
+>       case Token.MUL:
+>       case Token.NE:
+>       case Token.RSH:
+>       case Token.SHEQ:
+>       case Token.SHNE:
+>       case Token.SUB:
+>       case Token.URSH:
+>         return isValidDefineValue(val.getFirstChild(), defines)
+>             && isValidDefineValue(val.getLastChild(), defines);
+336a355
+>       case Token.POS:

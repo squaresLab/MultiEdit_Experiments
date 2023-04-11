@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress24/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java d4j_patched/Compress24/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+129,136c129
+<         if (trailer == 0 || trailer == ' '){
+<             end--;
+<         } else {
+<             throw new IllegalArgumentException(
+<                     exceptionMessage(buffer, offset, length, end-1, trailer));
+<         }
+<         trailer = buffer[end - 1];
+<         while (start < end - 1 && (trailer == 0 || trailer == ' ')) {
+---
+>         while (start < end && (trailer == 0 || trailer == ' ')) {
+138a132,135
+>         }
+>         if (start == end) {
+>             throw new IllegalArgumentException(
+>                     exceptionMessage(buffer, offset, length, start, trailer));

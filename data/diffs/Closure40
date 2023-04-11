@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure40/src/com/google/javascript/jscomp/NameAnalyzer.java d4j_patched/Closure40/src/com/google/javascript/jscomp/NameAnalyzer.java
+635,636c635
+<           JsName name = getName(ns.name, false);
+<           if (name != null) {
+---
+>           JsName name = getName(ns.name, true);
+639d637
+<           }

@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup15/src/main/java/org/jsoup/parser/TreeBuilderState.java d4j_patched/Jsoup15/src/main/java/org/jsoup/parser/TreeBuilderState.java
+283c283
+<                     } else if (StringUtil.in(name, "base", "basefont", "bgsound", "command", "link", "meta", "noframes", "style", "title")) {
+---
+>                     } else if (StringUtil.in(name, "base", "basefont", "bgsound", "command", "link", "meta", "noframes", "script", "style", "title")) {

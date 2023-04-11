@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Collections28/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java d4j_patched/Collections28/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
+2261a2262,2271
+>         @Override
+>         public void clear() {
+>             Iterator<Map.Entry<K, V>> it = AbstractPatriciaTrie.this.entrySet().iterator();
+>             Set<K> currentKeys = keySet();
+>             while (it.hasNext()) {
+>                 if (currentKeys.contains(it.next().getKey())) {
+>                     it.remove();
+>                 }
+>             }
+>         }

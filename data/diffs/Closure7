@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure7/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java d4j_patched/Closure7/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
+613c613
+<         return resultEqualsValue && ctorType.isSubtype(type) ? ctorType : null;
+---
+>         if (resultEqualsValue) {
+614a615,616
+>           return ctorType.getGreatestSubtype(type);
+>         } else {
+615a618,619
+>           return type.isSubtype(ctorType) ? null : type;
+>         }

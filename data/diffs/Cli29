@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli29/src/java/org/apache/commons/cli/Util.java d4j_patched/Cli29/src/java/org/apache/commons/cli/Util.java
+65,68d64
+<         if (str.startsWith("\""))
+<         {
+<             str = str.substring(1, str.length());
+<         }
+70c66
+<         if (str.endsWith("\""))
+---
+>         if (length > 1 && str.startsWith("\"") && str.endsWith("\"") && str.substring(1, length - 1).indexOf('"') == -1)
+72c68
+<             str = str.substring(0, length - 1);
+---
+>             str = str.substring(1, length - 1);

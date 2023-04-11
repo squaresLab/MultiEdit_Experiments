@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind57/src/main/java/com/fasterxml/jackson/databind/ObjectReader.java d4j_patched/JacksonDatabind57/src/main/java/com/fasterxml/jackson/databind/ObjectReader.java
+1441c1441
+<         return _bindAndReadValues(_considerFilter(_parserFactory.createParser(src), 
+---
+>         return _bindAndReadValues(_considerFilter(_parserFactory.createParser(src, offset, length),

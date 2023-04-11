@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind90/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java d4j_patched/JacksonDatabind90/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java
+231a232,239
+>     @Override
+>     public boolean canInstantiate() {
+>         return canCreateUsingDefault()
+>                 || canCreateUsingDelegate() || canCreateUsingArrayDelegate()
+>                 || canCreateFromObjectWith() || canCreateFromString()
+>                 || canCreateFromInt() || canCreateFromLong()
+>                 || canCreateFromDouble() || canCreateFromBoolean();
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind90/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java d4j_patched/JacksonDatabind90/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java
+72c72
+<                 || canCreateUsingDelegate() 
+---
+>                 || canCreateUsingDelegate() || canCreateUsingArrayDelegate()

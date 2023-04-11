@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang11/src/main/java/org/apache/commons/lang3/RandomStringUtils.java d4j_patched/Lang11/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+244a245,248
+>         } else {
+>             if (end <= start) {
+>                 throw new IllegalArgumentException("Parameter end (" + end + ") must be greater than start (" + start + ")");
+>             }

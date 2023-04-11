@@ -1,0 +1,21 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure176/src/com/google/javascript/jscomp/TypeInference.java d4j_patched/Closure176/src/com/google/javascript/jscomp/TypeInference.java
+530c530,532
+<         boolean isVarDeclaration = left.hasChildren();
+---
+>         JSType varType = var == null ? null : var.getType();
+>         boolean isVarDeclaration = left.hasChildren()
+>             && varType != null && !var.isTypeInferred();
+548c550
+<         boolean isVarTypeBetter = !isVarDeclaration || var == null || var.isTypeInferred();
+---
+>         boolean isVarTypeBetter = isVarDeclaration &&
+549a552
+>             !resultType.isNullType() && !resultType.isVoidType();
+561a565,566
+>           redeclareSimpleVar(scope, left, varType);
+>         } else {
+564,565c569
+<         left.setJSType(isVarDeclaration || leftType == null ?
+<             resultType : null);
+---
+>         left.setJSType(resultType);

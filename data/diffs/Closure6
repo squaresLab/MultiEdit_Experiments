@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure6/src/com/google/javascript/jscomp/TypeValidator.java d4j_patched/Closure6/src/com/google/javascript/jscomp/TypeValidator.java
+366,368d365
+<       if ((leftType.isConstructor() || leftType.isEnumType()) && (rightType.isConstructor() || rightType.isEnumType())) {
+<         registerMismatch(rightType, leftType, null);
+<       } else {
+385d381
+<       }
+405,407d400
+<       if ((leftType.isConstructor() || leftType.isEnumType()) && (rightType.isConstructor() || rightType.isEnumType())) {
+<         registerMismatch(rightType, leftType, null);
+<       } else {
+409d401
+<       }

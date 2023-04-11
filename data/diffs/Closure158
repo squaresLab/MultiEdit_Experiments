@@ -1,0 +1,144 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure158/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java d4j_patched/Closure158/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+197,202c197,201
+<     diagnosticGroups.setWarningLevels(
+<         options, config.jscompError, CheckLevel.ERROR);
+<     diagnosticGroups.setWarningLevels(
+<         options, config.jscompWarning, CheckLevel.WARNING);
+<     diagnosticGroups.setWarningLevels(
+<         options, config.jscompOff, CheckLevel.OFF);
+---
+>     if (config.warningGuards != null) {
+>       for (WarningGuardSpec.Entry entry : config.warningGuards.entries) {
+>         diagnosticGroups.setWarningLevel(options, entry.groupName, entry.level);
+>       }
+>     }
+1497c1496
+<     private final List<String> jscompError = Lists.newArrayList();
+---
+>     private WarningGuardSpec warningGuards = null;
+1502,1516c1501,1502
+<     CommandLineConfig setJscompError(List<String> jscompError) {
+<       this.jscompError.clear();
+<       this.jscompError.addAll(jscompError);
+<       return this;
+<     }
+<     private final List<String> jscompWarning = Lists.newArrayList();
+<     CommandLineConfig setJscompWarning(List<String> jscompWarning) {
+<       this.jscompWarning.clear();
+<       this.jscompWarning.addAll(jscompWarning);
+<       return this;
+<     }
+<     private final List<String> jscompOff = Lists.newArrayList();
+<     CommandLineConfig setJscompOff(List<String> jscompOff) {
+<       this.jscompOff.clear();
+<       this.jscompOff.addAll(jscompOff);
+---
+>     CommandLineConfig setWarningGuardSpec(WarningGuardSpec spec) {
+>       this.warningGuards = spec;
+1628c1614,1623
+< 
+---
+>   protected static class WarningGuardSpec {
+>     private static class Entry {
+>       private final CheckLevel level;
+>       private final String groupName;
+> 
+>       private Entry(CheckLevel level, String groupName) {
+>         this.level = level;
+>         this.groupName = groupName;
+>       }
+>     }
+1630a1626
+>     private final List<Entry> entries = Lists.newArrayList();
+1631a1628,1630
+>     protected void add(CheckLevel level, String groupName) {
+>       entries.add(new Entry(level, groupName));
+>     }
+1632a1632,1635
+>     protected void clear() {
+>       entries.clear();
+>     }
+>   }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure158/src/com/google/javascript/jscomp/CommandLineRunner.java d4j_patched/Closure158/src/com/google/javascript/jscomp/CommandLineRunner.java
+25a26
+> import com.google.javascript.jscomp.AbstractCommandLineRunner.WarningGuardSpec;
+93a95,96
+>     private static final WarningGuardSpec warningGuardSpec =
+>         new WarningGuardSpec();
+230a234
+>         handler = WarningGuardErrorOptionHandler.class,
+235a240
+>         handler = WarningGuardWarningOptionHandler.class,
+240a246
+>         handler = WarningGuardOffOptionHandler.class,
+388a395,402
+>     public static class WarningGuardErrorOptionHandler
+>         extends StringOptionHandler {
+>       public WarningGuardErrorOptionHandler(
+>           CmdLineParser parser, OptionDef option,
+>           Setter<? super String> setter) {
+>         super(parser, option, new WarningGuardSetter(setter, CheckLevel.ERROR));
+>       }
+>     }
+389a404,412
+>     public static class WarningGuardWarningOptionHandler
+>         extends StringOptionHandler {
+>       public WarningGuardWarningOptionHandler(
+>           CmdLineParser parser, OptionDef option,
+>           Setter<? super String> setter) {
+>         super(parser, option,
+>             new WarningGuardSetter(setter, CheckLevel.WARNING));
+>       }
+>     }
+390a414,421
+>     public static class WarningGuardOffOptionHandler
+>         extends StringOptionHandler {
+>       public WarningGuardOffOptionHandler(
+>           CmdLineParser parser, OptionDef option,
+>           Setter<? super String> setter) {
+>         super(parser, option, new WarningGuardSetter(setter, CheckLevel.OFF));
+>       }
+>     }
+391a423,430
+>     private static class WarningGuardSetter implements Setter {
+>       private final Setter proxy;
+>       private final CheckLevel level;
+> 
+>       private WarningGuardSetter(Setter proxy, CheckLevel level) {
+>         this.proxy = proxy;
+>         this.level = level;
+>       }
+392a432
+>       @Override public boolean isMultiValued() { return proxy.isMultiValued(); }
+393a434
+>       @Override public Class getType() { return proxy.getType(); }
+395c436,440
+< 
+---
+>       @Override public void addValue(Object value) throws CmdLineException {
+>         proxy.addValue((String) value);
+>         warningGuardSpec.add(level, (String) value);
+>       }
+>     }
+484a530
+>     Flags.warningGuardSpec.clear();
+499a546
+>     Flags.warningGuardSpec.clear();
+552,554c599
+<           .setJscompError(flags.jscomp_error)
+<           .setJscompWarning(flags.jscomp_warning)
+<           .setJscompOff(flags.jscomp_off)
+---
+>           .setWarningGuardSpec(Flags.warningGuardSpec)
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure158/src/com/google/javascript/jscomp/DiagnosticGroups.java d4j_patched/Closure158/src/com/google/javascript/jscomp/DiagnosticGroups.java
+23d22
+< import java.util.List;
+186,188c185,186
+<   void setWarningLevels(CompilerOptions options,
+<       List<String> diagnosticGroups, CheckLevel level) {
+<     for (String name : diagnosticGroups) {
+---
+>   void setWarningLevel(CompilerOptions options,
+>       String name, CheckLevel level) {
+192d189
+<     }

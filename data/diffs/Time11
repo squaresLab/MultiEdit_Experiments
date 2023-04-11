@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time11/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java d4j_patched/Time11/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+68,71c68,72
+<     static ThreadLocal<Boolean> cVerbose = new ThreadLocal<Boolean>();
+<     static {
+<         cVerbose.set(Boolean.FALSE);
+<     }
+---
+>     static ThreadLocal<Boolean> cVerbose = new ThreadLocal<Boolean>() {
+>         protected Boolean initialValue() {
+>             return Boolean.FALSE;
+>         }
+>     };

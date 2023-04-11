@@ -1,0 +1,28 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup63/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java d4j_patched/Jsoup63/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+227c227,228
+<                 if (tag.isSelfClosing()) tokeniser.acknowledgeSelfClosingFlag();
+---
+>                 if (!tag.isEmpty())
+>                     tokeniser.error("Tag cannot be self closing; not a void tag");
+229c230
+<             else {
+---
+>             else // unknown tag, remember this is self closing for output
+231,232d231
+<                 tokeniser.acknowledgeSelfClosingFlag();
+<             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup63/src/main/java/org/jsoup/parser/Tokeniser.java d4j_patched/Jsoup63/src/main/java/org/jsoup/parser/Tokeniser.java
+36d35
+<     private boolean selfClosingFlagAcknowledged = true;
+44,47d42
+<         if (!selfClosingFlagAcknowledged) {
+<             error("Self closing flag not acknowledged");
+<             selfClosingFlagAcknowledged = true;
+<         }
+76,77d70
+<             if (startTag.selfClosing)
+<                 selfClosingFlagAcknowledged = false;
+124,126d116
+<     void acknowledgeSelfClosingFlag() {
+<         selfClosingFlagAcknowledged = true;
+<     }

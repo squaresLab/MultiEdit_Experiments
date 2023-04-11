@@ -1,0 +1,23 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/AquilaProtocolDecoder.java after/src/org/traccar/protocol/AquilaProtocolDecoder.java
+135c135
+<         position.set(Position.KEY_ODOMETER, parser.next());
+---
+>         position.set(Position.KEY_ODOMETER, parser.nextInt());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/MeitrackProtocolDecoder.java after/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+127c127
+<         position.set(Position.KEY_ODOMETER, parser.next());
+---
+>         position.set(Position.KEY_ODOMETER, parser.nextInt());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/TotemProtocolDecoder.java after/src/org/traccar/protocol/TotemProtocolDecoder.java
+293c293
+<             position.set(Position.KEY_ODOMETER, parser.next());
+---
+>             position.set(Position.KEY_ODOMETER, parser.nextInt() * 1000);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/ProtocolTest.java after/test/org/traccar/ProtocolTest.java
+178a179,182
+>         if (attributes.containsKey(Position.KEY_ODOMETER)) {
+>             Assert.assertTrue(attributes.get(Position.KEY_ODOMETER) instanceof Number);
+>         }
+> 

@@ -1,0 +1,14 @@
+Only in after/: bears.json
+Only in after/debezium-connector-mysql: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java after/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
+1227a1228
+>                 tokens.canConsume("RESTRICT");
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/debezium-connector-mysql/src/test/java/io/debezium/connector/mysql/MySqlDdlParserTest.java after/debezium-connector-mysql/src/test/java/io/debezium/connector/mysql/MySqlDdlParserTest.java
+1282c1282
+<     @FixFor({"DBZ-408", "DBZ-412"})
+---
+>     @FixFor({"DBZ-408", "DBZ-412", "DBZ-524"})
+1332c1332
+<                 + "DROP COLUMN jkl";
+---
+>                 + "DROP COLUMN jkl RESTRICT";

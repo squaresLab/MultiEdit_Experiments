@@ -1,0 +1,43 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/joo/libra/pointer/VariablePredicate.java after/src/main/java/org/joo/libra/pointer/VariablePredicate.java
+2a3,4
+> import java.util.Collection;
+> 
+35a38,41
+>         if (rawValue instanceof Collection)
+>         	return !((Collection<?>) rawValue).isEmpty();
+>         if (rawValue instanceof Object[])
+>         	return ((Object[]) rawValue).length != 0;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/joo/libra/test/support/Person.java after/src/test/java/org/joo/libra/test/support/Person.java
+2a3
+> import java.util.ArrayList;
+16a18,19
+>     private String[] noJobs = new String[0];
+>     
+18a22,23
+>     private List<String> noJobList = new ArrayList<>();
+>     
+84a90,105
+> 	}
+> 
+> 	public String[] getNoJobs() {
+> 		return noJobs;
+> 	}
+> 
+> 	public void setNoJobs(String[] noJobs) {
+> 		this.noJobs = noJobs;
+> 	}
+> 
+> 	public List<String> getNoJobList() {
+> 		return noJobList;
+> 	}
+> 
+> 	public void setNoJobList(List<String> noJobList) {
+> 		this.noJobList = noJobList;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/joo/libra/test/TestSqlVariable.java after/src/test/java/org/joo/libra/test/TestSqlVariable.java
+68a69,72
+>         list.add(new Object[] { "jobs", true, context });
+>         list.add(new Object[] { "jobList", true, context });
+>         list.add(new Object[] { "noJobs", false, context });
+>         list.add(new Object[] { "noJobList", false, context });

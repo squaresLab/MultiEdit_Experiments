@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec1/src/java/org/apache/commons/codec/language/Caverphone.java d4j_patched/Codec1/src/java/org/apache/commons/codec/language/Caverphone.java
+59c59
+<         txt = txt.toLowerCase();
+---
+>         txt = txt.toLowerCase(java.util.Locale.ENGLISH);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec1/src/java/org/apache/commons/codec/language/Metaphone.java d4j_patched/Codec1/src/java/org/apache/commons/codec/language/Metaphone.java
+88c88
+<             return txt.toUpperCase() ;
+---
+>             return txt.toUpperCase(java.util.Locale.ENGLISH) ;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec1/src/java/org/apache/commons/codec/language/SoundexUtils.java d4j_patched/Codec1/src/java/org/apache/commons/codec/language/SoundexUtils.java
+53c53
+<             return str.toUpperCase();
+---
+>             return str.toUpperCase(java.util.Locale.ENGLISH);

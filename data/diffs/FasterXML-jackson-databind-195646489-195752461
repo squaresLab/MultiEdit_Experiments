@@ -1,0 +1,25 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java after/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java
+6a7
+> import com.fasterxml.jackson.annotation.JsonProperty.Access;
+730c731,735
+<             prop.removeNonVisible(inferMutators);
+---
+>             // 26-Jan-2017, tatu: [databind#935]: need to denote removal of
+>             Access acc = prop.removeNonVisible(inferMutators);
+>             if (!_forSerialization && (acc == Access.READ_ONLY)) {
+>                 _collectIgnorals(prop.getName());
+>             }
+733c738
+<         
+---
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java after/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java
+644c644
+<     public void removeNonVisible(boolean inferMutators)
+---
+>     public JsonProperty.Access removeNonVisible(boolean inferMutators)
+682a683
+>         return acc;
+Only in after/src/test/java/com/fasterxml/jackson/databind/deser: ReadOrWriteOnlyTest.java

@@ -1,0 +1,76 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java d4j_patched/JxPath9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
+36a37
+>     private boolean invert;
+38a40,43
+>         this(arg1, arg2, false);
+>     }
+> 
+>     protected CoreOperationCompare(Expression arg1, Expression arg2, boolean invert) {
+39a45,49
+>         this.invert = invert;
+>     }
+> 
+>     public Object computeValue(EvalContext context) {
+>         return equal(context, args[0], args[1]) ? Boolean.TRUE : Boolean.FALSE;
+121,125d130
+<         if (l instanceof Pointer && r instanceof Pointer) {
+<             if (l.equals(r)) {
+<                 return true;
+<             }
+<         }
+134,136c139
+<         if (l == r) {
+<             return true;
+<         }
+---
+>         boolean result;
+138,139c141,142
+<             return (InfoSetUtil.booleanValue(l) == InfoSetUtil.booleanValue(r));
+<             }
+---
+>             result = l == r || InfoSetUtil.booleanValue(l) == InfoSetUtil.booleanValue(r);
+>         } else if (l instanceof Number || r instanceof Number) {
+141,142c144,146
+<         if (l instanceof Number || r instanceof Number) {
+<             return (InfoSetUtil.doubleValue(l) == InfoSetUtil.doubleValue(r));
+---
+>             double ld = InfoSetUtil.doubleValue(l);
+>             if (Double.isNaN(ld)) {
+>                 return false;
+143a148,153
+>             double rd = InfoSetUtil.doubleValue(r);
+>             if (Double.isNaN(rd)) {
+>                 return false;
+>             }
+>             result = ld == rd;
+>         } else {
+145,146c155,158
+<             return (
+<                 InfoSetUtil.stringValue(l).equals(InfoSetUtil.stringValue(r)));
+---
+>                 l = InfoSetUtil.stringValue(l);
+>                 r = InfoSetUtil.stringValue(r);
+>             }
+>             result = l == r || l != null && l.equals(r);
+148c160
+<         return l != null && l.equals(r);
+---
+>         return result ^ invert;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java d4j_patched/JxPath9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java
+19d18
+< import org.apache.commons.jxpath.ri.EvalContext;
+32,34d30
+<     public Object computeValue(EvalContext context) {
+<         return equal(context, args[0], args[1]) ? Boolean.TRUE : Boolean.FALSE;
+<     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java d4j_patched/JxPath9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java
+19d18
+< import org.apache.commons.jxpath.ri.EvalContext;
+29c28
+<         super(arg1, arg2);
+---
+>         super(arg1, arg2, true);
+32,34d30
+<     public Object computeValue(EvalContext context) {
+<         return equal(context, args[0], args[1]) ? Boolean.FALSE : Boolean.TRUE;
+<     }

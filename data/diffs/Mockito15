@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito15/src/org/mockito/internal/configuration/injection/FinalMockCandidateFilter.java d4j_patched/Mockito15/src/org/mockito/internal/configuration/injection/FinalMockCandidateFilter.java
+3a4
+> import org.mockito.internal.util.reflection.BeanPropertySetter;
+24a26
+>                         if (!new BeanPropertySetter(fieldInstance, field).set(matchingMock)) {
+25a28
+>                         }

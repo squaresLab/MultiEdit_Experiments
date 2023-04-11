@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito27/src/org/mockito/internal/util/MockUtil.java d4j_patched/Mockito27/src/org/mockito/internal/util/MockUtil.java
+64,65c64
+<         MockHandler<T> newMockHandler = new MockHandler<T>(oldMockHandler);
+<         MethodInterceptorFilter newFilter = new MethodInterceptorFilter(newMockHandler, (MockSettingsImpl) org.mockito.Mockito.withSettings().defaultAnswer(org.mockito.Mockito.RETURNS_DEFAULTS));
+---
+>         MethodInterceptorFilter newFilter = newMethodInterceptorFilter(oldMockHandler.getMockSettings());

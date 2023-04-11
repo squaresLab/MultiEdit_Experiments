@@ -1,0 +1,129 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationGreaterThan.java d4j_patched/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationGreaterThan.java
+19,20d18
+< import org.apache.commons.jxpath.ri.EvalContext;
+< import org.apache.commons.jxpath.ri.InfoSetUtil;
+33,36c31,32
+<     public Object computeValue(EvalContext context) {
+<         double l = InfoSetUtil.doubleValue(args[0].computeValue(context));
+<         double r = InfoSetUtil.doubleValue(args[1].computeValue(context));
+<         return l > r ? Boolean.TRUE : Boolean.FALSE;
+---
+>     protected boolean evaluateCompare(int compare) {
+>         return compare > 0;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationGreaterThanOrEqual.java d4j_patched/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationGreaterThanOrEqual.java
+19,20d18
+< import org.apache.commons.jxpath.ri.EvalContext;
+< import org.apache.commons.jxpath.ri.InfoSetUtil;
+34,37c32,33
+<     public Object computeValue(EvalContext context) {
+<         double l = InfoSetUtil.doubleValue(args[0].computeValue(context));
+<         double r = InfoSetUtil.doubleValue(args[1].computeValue(context));
+<         return l >= r ? Boolean.TRUE : Boolean.FALSE;
+---
+>     protected boolean evaluateCompare(int compare) {
+>         return compare >= 0;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationLessThan.java d4j_patched/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationLessThan.java
+19,20d18
+< import org.apache.commons.jxpath.ri.EvalContext;
+< import org.apache.commons.jxpath.ri.InfoSetUtil;
+33,36c31,32
+<     public Object computeValue(EvalContext context) {
+<         double l = InfoSetUtil.doubleValue(args[0].computeValue(context));
+<         double r = InfoSetUtil.doubleValue(args[1].computeValue(context));
+<         return l < r ? Boolean.TRUE : Boolean.FALSE;
+---
+>     protected boolean evaluateCompare(int compare) {
+>         return compare < 0;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationLessThanOrEqual.java d4j_patched/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationLessThanOrEqual.java
+19,20d18
+< import org.apache.commons.jxpath.ri.EvalContext;
+< import org.apache.commons.jxpath.ri.InfoSetUtil;
+34,37c32,33
+<     public Object computeValue(EvalContext context) {
+<         double l = InfoSetUtil.doubleValue(args[0].computeValue(context));
+<         double r = InfoSetUtil.doubleValue(args[1].computeValue(context));
+<         return l <= r ? Boolean.TRUE : Boolean.FALSE;
+---
+>     protected boolean evaluateCompare(int compare) {
+>         return compare <= 0;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java d4j_patched/JxPath7/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+18a19,27
+> import java.util.Collection;
+> import java.util.HashSet;
+> import java.util.Iterator;
+> 
+> import org.apache.commons.jxpath.ri.EvalContext;
+> import org.apache.commons.jxpath.ri.InfoSetUtil;
+> import org.apache.commons.jxpath.ri.axes.InitialContext;
+> import org.apache.commons.jxpath.ri.axes.SelfContext;
+> 
+30a40,44
+>     public final Object computeValue(EvalContext context) {
+>         return compute(args[0].computeValue(context), args[1]
+>                 .computeValue(context)) ? Boolean.TRUE : Boolean.FALSE;
+>     }
+> 
+36a51,113
+>     }
+> 
+>     protected abstract boolean evaluateCompare(int compare);
+> 
+>     private boolean compute(Object left, Object right) {
+>         left = reduce(left);
+>         right = reduce(right);
+> 
+>         if (left instanceof InitialContext) {
+>             ((InitialContext) left).reset();
+>         }
+>         if (right instanceof InitialContext) {
+>             ((InitialContext) right).reset();
+>         }
+>         if (left instanceof Iterator && right instanceof Iterator) {
+>             return findMatch((Iterator) left, (Iterator) right);
+>         }
+>         if (left instanceof Iterator) {
+>             return containsMatch((Iterator) left, right);
+>         }
+>         if (right instanceof Iterator) {
+>             return containsMatch((Iterator) right, left);
+>         }
+>         return evaluateCompare(compare(left, right));
+>     }
+> 
+>     private Object reduce(Object o) {
+>         if (o instanceof SelfContext) {
+>             o = ((EvalContext) o).getSingleNodePointer();
+>         }
+>         if (o instanceof Collection) {
+>             o = ((Collection) o).iterator();
+>         }
+>         return o;
+>     }
+> 
+>     private boolean containsMatch(Iterator it, Object value) {
+>         while (it.hasNext()) {
+>             Object element = it.next();
+>             if (evaluateCompare(compare(element, value))) {
+>                 return true;
+>             }
+>         }
+>         return false;
+>     }
+> 
+>     private boolean findMatch(Iterator lit, Iterator rit) {
+>         HashSet left = new HashSet();
+>         while (lit.hasNext()) {
+>             left.add(lit.next());
+>         }
+>         while (rit.hasNext()) {
+>             if (containsMatch(left.iterator(), rit.next())) {
+>                 return true;
+>             }
+>         }
+>         return false;
+>     }
+> 
+>     private int compare(Object l, Object r) {
+>         double ld = InfoSetUtil.doubleValue(l);
+>         double rd = InfoSetUtil.doubleValue(r);
+>         return ld == rd ? 0 : ld < rd ? -1 : 1;

@@ -1,0 +1,101 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind31/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java d4j_patched/JacksonDatabind31/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
+672c672
+<             _append(JsonToken.VALUE_STRING, text);
+---
+>             _appendValue(JsonToken.VALUE_STRING, text);
+686c686
+<             _append(JsonToken.VALUE_STRING, text);
+---
+>             _appendValue(JsonToken.VALUE_STRING, text);
+731c731
+<         _append(JsonToken.VALUE_EMBEDDED_OBJECT, new RawValue(text));
+---
+>         _appendValue(JsonToken.VALUE_EMBEDDED_OBJECT, new RawValue(text));
+739c739
+<         _append(JsonToken.VALUE_EMBEDDED_OBJECT, new RawValue(text));
+---
+>         _appendValue(JsonToken.VALUE_EMBEDDED_OBJECT, new RawValue(text));
+744c744
+<         _append(JsonToken.VALUE_EMBEDDED_OBJECT, new String(text, offset, len));
+---
+>         _appendValue(JsonToken.VALUE_EMBEDDED_OBJECT, new String(text, offset, len));
+755c755
+<         _append(JsonToken.VALUE_NUMBER_INT, Short.valueOf(i));
+---
+>         _appendValue(JsonToken.VALUE_NUMBER_INT, Short.valueOf(i));
+760c760
+<         _append(JsonToken.VALUE_NUMBER_INT, Integer.valueOf(i));
+---
+>         _appendValue(JsonToken.VALUE_NUMBER_INT, Integer.valueOf(i));
+765c765
+<         _append(JsonToken.VALUE_NUMBER_INT, Long.valueOf(l));
+---
+>         _appendValue(JsonToken.VALUE_NUMBER_INT, Long.valueOf(l));
+770c770
+<         _append(JsonToken.VALUE_NUMBER_FLOAT, Double.valueOf(d));
+---
+>         _appendValue(JsonToken.VALUE_NUMBER_FLOAT, Double.valueOf(d));
+775c775
+<         _append(JsonToken.VALUE_NUMBER_FLOAT, Float.valueOf(f));
+---
+>         _appendValue(JsonToken.VALUE_NUMBER_FLOAT, Float.valueOf(f));
+783c783
+<             _append(JsonToken.VALUE_NUMBER_FLOAT, dec);
+---
+>             _appendValue(JsonToken.VALUE_NUMBER_FLOAT, dec);
+792c792
+<             _append(JsonToken.VALUE_NUMBER_INT, v);
+---
+>             _appendValue(JsonToken.VALUE_NUMBER_INT, v);
+801c801
+<         _append(JsonToken.VALUE_NUMBER_FLOAT, encodedValue);
+---
+>         _appendValue(JsonToken.VALUE_NUMBER_FLOAT, encodedValue);
+806c806
+<         _append(state ? JsonToken.VALUE_TRUE : JsonToken.VALUE_FALSE);
+---
+>         _appendValue(state ? JsonToken.VALUE_TRUE : JsonToken.VALUE_FALSE);
+811c811
+<         _append(JsonToken.VALUE_NULL);
+---
+>         _appendValue(JsonToken.VALUE_NULL);
+829c829
+<             _append(JsonToken.VALUE_EMBEDDED_OBJECT, value);
+---
+>             _appendValue(JsonToken.VALUE_EMBEDDED_OBJECT, value);
+837c837
+<             _append(JsonToken.VALUE_EMBEDDED_OBJECT, value);
+---
+>             _appendValue(JsonToken.VALUE_EMBEDDED_OBJECT, value);
+853c853
+<             _append(JsonToken.VALUE_EMBEDDED_OBJECT, node);
+---
+>             _appendValue(JsonToken.VALUE_EMBEDDED_OBJECT, node);
+1090a1091,1103
+>     protected final void _appendValue(JsonToken type)
+>     {
+>         _writeContext.writeValue();
+>         Segment next = _hasNativeId
+>                 ? _last.append(_appendAt, type, _objectId, _typeId)
+>                 : _last.append(_appendAt, type);
+>         if (next == null) {
+>             ++_appendAt;
+>         } else {
+>             _last = next;
+>             _appendAt = 1; // since we added first at 0
+>         }
+>     }
+1097a1111,1123
+>     protected final void _appendValue(JsonToken type, Object value)
+>     {
+>         _writeContext.writeValue();
+>         Segment next = _hasNativeId
+>                 ? _last.append(_appendAt, type, value, _objectId, _typeId)
+>                 : _last.append(_appendAt, type, value);
+>         if (next == null) {
+>             ++_appendAt;
+>         } else {
+>             _last = next;
+>             _appendAt = 1;
+>         }
+>     }

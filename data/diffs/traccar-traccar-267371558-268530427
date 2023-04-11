@@ -1,0 +1,12 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Gl200TextProtocolDecoder.java after/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+617c617
+<                     position.set(Position.PREFIX_TEMP + i, Short.parseShort(data[index++], 16) * 0.0625);
+---
+>                     position.set(Position.PREFIX_TEMP + i, (short) Integer.parseInt(data[index++], 16) * 0.0625);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Gl200TextProtocolDecoderTest.java after/test/org/traccar/protocol/Gl200TextProtocolDecoderTest.java
+12a13,15
+>         verifyPositions(decoder, buffer(
+>                 "+RESP:GTERI,060502,861074023620928,,00000002,27822,10,1,1,0.0,84,2870.9,-78.531796,-0.277329,20170825045344,,,,,,0.0,01138:30:24,,,83,220104,2,1,28FF2776A2150308,1,FFAD,0,20170825045348,A88C$"));
+> 

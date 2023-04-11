@@ -1,0 +1,55 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure154/src/com/google/javascript/jscomp/TypeCheck.java d4j_patched/Closure154/src/com/google/javascript/jscomp/TypeCheck.java
+185,191d184
+<   static final DiagnosticType HIDDEN_INTERFACE_PROPERTY_MISMATCH =
+<       DiagnosticType.warning(
+<           "JSC_HIDDEN_INTERFACE_PROPERTY_MISMATCH",
+<           "mismatch of the {0} property type and the type " +
+<           "of the property it overrides from interface {1}\n" +
+<           "original: {2}\n" +
+<           "override: {3}");
+242d234
+<       HIDDEN_INTERFACE_PROPERTY_MISMATCH,
+1048,1057d1039
+<         }
+<         if (interfaceHasProperty) {
+<           JSType interfacePropType =
+<               interfaceType.getPrototype().getPropertyType(propertyName);
+<           if (!propertyType.canAssignTo(interfacePropType)) {
+<             compiler.report(t.makeError(n,
+<                 HIDDEN_INTERFACE_PROPERTY_MISMATCH, propertyName,
+<                 interfaceType.getTopMostDefiningType(propertyName).toString(),
+<                 interfacePropType.toString(), propertyType.toString()));
+<           }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure154/src/com/google/javascript/jscomp/TypeValidator.java d4j_patched/Closure154/src/com/google/javascript/jscomp/TypeValidator.java
+109a110,116
+>   static final DiagnosticType HIDDEN_INTERFACE_PROPERTY_MISMATCH =
+>       DiagnosticType.warning(
+>         "JSC_HIDDEN_INTERFACE_PROPERTY_MISMATCH",
+>         "mismatch of the {0} property type and the type " +
+>         "of the property it overrides from interface {1}\n" +
+>         "original: {2}\n" +
+>         "override: {3}");
+117c124,125
+<       INTERFACE_METHOD_NOT_IMPLEMENTED);
+---
+>       INTERFACE_METHOD_NOT_IMPLEMENTED,
+>       HIDDEN_INTERFACE_PROPERTY_MISMATCH);
+587a596,602
+>     } else {
+>       JSType found = instance.getPropertyType(prop);
+>       JSType required
+>         = implementedInterface.getImplicitPrototype().getPropertyType(prop);
+>       found = found.restrictByNotNullOrUndefined();
+>       required = required.restrictByNotNullOrUndefined();
+>       if (!found.canAssignTo(required)) {
+588a604,613
+>         if (shouldReport) {
+>           FunctionType constructor
+>             = implementedInterface.toObjectType().getConstructor();
+>           compiler.report(t.makeError(n,
+>               HIDDEN_INTERFACE_PROPERTY_MISMATCH, prop,
+>               constructor.getTopMostDefiningType(prop).toString(),
+>               required.toString(), found.toString()));
+>         }
+>         registerMismatch(found, required);
+>       }

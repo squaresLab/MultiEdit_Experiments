@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math90/src/java/org/apache/commons/math/stat/Frequency.java d4j_patched/Math90/src/java/org/apache/commons/math/stat/Frequency.java
+109a110,111
+>         addValue((Comparable<?>) v);
+>     }
+120a123
+>     public void addValue(Comparable<?>v){

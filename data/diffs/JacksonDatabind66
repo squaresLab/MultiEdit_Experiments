@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind66/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java d4j_patched/JacksonDatabind66/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
+10a11
+> import com.fasterxml.jackson.core.JsonParser;
+17a19
+> import com.fasterxml.jackson.databind.util.TokenBuffer;
+313a316,317
+>             TokenBuffer tb = new TokenBuffer(ctxt.getParser(), ctxt);
+>             tb.writeString(key);
+316c320,322
+<                 Object result = _delegate.deserialize(ctxt.getParser(), ctxt);
+---
+>                 JsonParser p = tb.asParser();
+>                 p.nextToken();
+>                 Object result = _delegate.deserialize(p, ctxt);

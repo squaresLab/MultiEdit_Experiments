@@ -1,0 +1,269 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java after/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java
+18a19
+> import org.eclipse.jdt.internal.compiler.CompilationResult;
+22a24
+> import org.eclipse.jdt.internal.compiler.ast.AnnotationMethodDeclaration;
+28a31,32
+> 
+> import spoon.SpoonException;
+57c61,64
+< 		int[] lineSeparatorPositions = this.jdtTreeBuilder.getContextBuilder().compilationunitdeclaration.compilationResult.lineSeparatorPositions;
+---
+> 		CompilationResult cr = this.jdtTreeBuilder.getContextBuilder().compilationunitdeclaration.compilationResult;
+> 		int[] lineSeparatorPositions = cr.lineSeparatorPositions;
+> 		char[] contents = cr.compilationUnit.getContents();
+> 
+61,63c68,80
+< 		if ((node instanceof Expression)) {
+< 			if (((Expression) node).statementEnd > 0) {
+< 				sourceEnd = ((Expression) node).statementEnd;
+---
+> 		if ((node instanceof Annotation)) {
+> 			Annotation ann = (Annotation) node;
+> 			int declEnd = ann.declarationSourceEnd;
+> 
+> 			if (declEnd > 0) {
+> 				sourceEnd = declEnd;
+> 			}
+> 		} else if ((node instanceof Expression)) {
+> 			Expression expression = (Expression) node;
+> 			int statementEnd = expression.statementEnd;
+> 
+> 			if (statementEnd > 0) {
+> 				sourceEnd = statementEnd;
+113c130
+< 					modifiersSourceStart = annotations[annotations.length - 1].sourceEnd() + 2;
+---
+> 					modifiersSourceStart = findNextNonWhitespace(contents, annotations[annotations.length - 1].declarationSourceEnd + 1);
+119,120c136,141
+< 			// the position the name minus the size of "class" minus at least 2 spaces
+< 			int modifiersSourceEnd = sourceStart - 8;
+---
+> 			//look for start of first keyword before the type keyword e.g. "class". `sourceStart` points at first char of type name
+> 			int modifiersSourceEnd = findPrevNonWhitespace(contents, findPrevWhitespace(contents, findPrevNonWhitespace(contents, sourceStart - 1)));
+> 			if (modifiersSourceEnd < modifiersSourceStart) {
+> 				//there is no modifier
+> 				modifiersSourceEnd = modifiersSourceStart - 1;
+> 			}
+137a159,165
+> 
+> 			if (node instanceof AnnotationMethodDeclaration && bodyStart == bodyEnd) {
+> 				//The ";" at the end of annotation method declaration is not part of body
+> 				//let it behave same like in abstract MethodDeclaration
+> 				bodyEnd--;
+> 			}
+> 
+172a201,211
+> 					if (bodyStart < bodyEnd) {
+> 						//include brackets if they are there
+> 						if (contents[bodyStart - 1] == '{') {
+> 							bodyStart--;
+> 							if (contents[bodyEnd + 1] == '}') {
+> 								bodyEnd++;
+> 							} else {
+> 								throw new SpoonException("Missing body end in\n" + new String(contents, sourceStart, sourceEnd - sourceStart));
+> 							}
+> 						}
+> 					}
+177c216
+< 							bodyStart - 1, bodyEnd + 1,
+---
+> 							bodyStart, bodyEnd,
+182,184d220
+< 		if ((node instanceof Expression)) {
+< 			Expression expression = (Expression) node;
+< 			int statementEnd = expression.statementEnd;
+186,187c222,232
+< 			if (statementEnd > 0) {
+< 				sourceEnd = statementEnd;
+---
+> 		return cf.createSourcePosition(cu, sourceStart, sourceEnd, lineSeparatorPositions);
+> 	}
+> 
+> 	/**
+> 	 * @return index of first non whitespace char, searching forward. Can return off if it is non whitespace.
+> 	 */
+> 	private int findNextNonWhitespace(char[] content, int off) {
+> 		while (off >= 0) {
+> 			char c = content[off];
+> 			if (Character.isWhitespace(c) == false) {
+> 				return off;
+188a234
+> 			off++;
+189a236,237
+> 		return -1;
+> 	}
+191c239,277
+< 		return cf.createSourcePosition(cu, sourceStart, sourceEnd, lineSeparatorPositions);
+---
+> 	/**
+> 	 * @return index of first whitespace char, searching forward. Can return off if it is whitespace.
+> 	 */
+> 	private int findNextWhitespace(char[] content, int off) {
+> 		while (off >= 0) {
+> 			char c = content[off];
+> 			if (Character.isWhitespace(c)) {
+> 				return off;
+> 			}
+> 			off++;
+> 		}
+> 		return -1;
+> 	}
+> 	/**
+> 	 * @return index of first non whitespace char, searching backward. Can return off if it is non whitespace.
+> 	 */
+> 	private int findPrevNonWhitespace(char[] content, int off) {
+> 		while (off >= 0) {
+> 			char c = content[off];
+> 			if (Character.isWhitespace(c) == false) {
+> 				return off;
+> 			}
+> 			off--;
+> 		}
+> 		return -1;
+> 	}
+> 
+> 	/**
+> 	 * @return index of first whitespace char, searching backward. Can return off if it is whitespace.
+> 	 */
+> 	private int findPrevWhitespace(char[] content, int off) {
+> 		while (off >= 0) {
+> 			char c = content[off];
+> 			if (Character.isWhitespace(c)) {
+> 				return off;
+> 			}
+> 			off--;
+> 		}
+> 		return -1;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/position/PositionTest.java after/src/test/java/spoon/test/position/PositionTest.java
+18a19,20
+> import spoon.test.position.testclasses.FooAbstractMethod;
+> import spoon.test.position.testclasses.FooAnnotation;
+22a25
+> import spoon.test.position.testclasses.FooInterface;
+28a32,34
+> import java.lang.annotation.Retention;
+> import java.lang.annotation.RetentionPolicy;
+> import java.lang.annotation.Target;
+68a75,150
+> 	
+> 	@Test
+> 	public void testPositionInterface() throws Exception {
+> 		final Factory build = build(new File("src/test/java/spoon/test/position/testclasses/"));
+> 		final CtType<FooInterface> foo = build.Type().get(FooInterface.class);
+> 		String classContent = getClassContent(foo);
+> 
+> 		BodyHolderSourcePosition position = (BodyHolderSourcePosition) foo.getPosition();
+> 
+> 		assertEquals(7, position.getLine());
+> 		assertEquals(9, position.getEndLine());
+> 
+> 		assertEquals(77, position.getSourceStart());
+> 		assertEquals(152, position.getSourceEnd());
+> 		assertEquals("@Deprecated\n"
+> 				+ "@Resource(description=\"fake\")\n"
+> 				+ "public interface FooInterface {\n"
+> 				+ "\n"
+> 				+ "}", contentAtPosition(classContent, position));
+> 
+> 		assertEquals("{\n\n}", contentAtPosition(classContent, position.getBodyStart(), position.getBodyEnd()));
+> 
+> 		assertEquals("FooInterface", contentAtPosition(classContent, position.getNameStart(), position.getNameEnd()));
+> 		assertEquals("public", contentAtPosition(classContent, position.getModifierSourceStart(), position.getModifierSourceEnd()));
+> 		
+> 		{
+> 			SourcePosition annPosition = foo.getAnnotations().get(0).getPosition();
+> 			assertEquals("@Deprecated", contentAtPosition(classContent, annPosition.getSourceStart(), annPosition.getSourceEnd()));
+> 		}
+> 		{
+> 			SourcePosition annPosition = foo.getAnnotations().get(1).getPosition();
+> 			assertEquals("@Resource(description=\"fake\")", contentAtPosition(classContent, annPosition.getSourceStart(), annPosition.getSourceEnd()));
+> 		}
+> 	}
+> 
+> 	@Test
+> 	public void testPositionAnnotation() throws Exception {
+> 		final Factory build = build(new File("src/test/java/spoon/test/position/testclasses/"));
+> 		final CtType<FooAnnotation> foo = build.Type().get(FooAnnotation.class);
+> 		String classContent = getClassContent(foo);
+> 
+> 		BodyHolderSourcePosition position = (BodyHolderSourcePosition) foo.getPosition();
+> 
+> 		assertEquals(9, position.getLine());
+> 		assertEquals(11, position.getEndLine());
+> 
+> 		assertEquals(163, position.getSourceStart());
+> 		assertEquals(279, position.getSourceEnd());
+> 		assertEquals("@Target(value={})\n"
+> 				+ "@Retention(RetentionPolicy.RUNTIME)  \n"
+> 				+ "public abstract @interface FooAnnotation {\n"
+> 				+ "\tString value();\n"
+> 				+ "}", contentAtPosition(classContent, position));
+> 
+> 		assertEquals("{\n"
+> 				+ "\tString value();\n"
+> 				+ "}", contentAtPosition(classContent, position.getBodyStart(), position.getBodyEnd()));
+> 
+> 		assertEquals("FooAnnotation", contentAtPosition(classContent, position.getNameStart(), position.getNameEnd()));
+> 		assertEquals("public abstract", contentAtPosition(classContent, position.getModifierSourceStart(), position.getModifierSourceEnd()));
+> 		
+> 		CtMethod<?> method1 = foo.getMethodsByName("value").get(0);
+> 		BodyHolderSourcePosition position1 = (BodyHolderSourcePosition) method1.getPosition();
+> 
+> 		assertEquals(10, position1.getLine());
+> 		assertEquals(10, position1.getEndLine());
+> 
+> 		assertEquals(263, position1.getSourceStart());
+> 		assertEquals(277, position1.getSourceEnd());
+> 
+> 		assertEquals("String value();", contentAtPosition(classContent, position1));
+> 		assertEquals("value", contentAtPosition(classContent, position1.getNameStart(), position1.getNameEnd()));
+> 		assertEquals("", contentAtPosition(classContent, position1.getModifierSourceStart(), position1.getModifierSourceEnd()));
+> 		//contract: body of abstract method is empty
+> 		assertEquals("", contentAtPosition(classContent, position1.getBodyStart(), position1.getBodyEnd()));
+> 	}
+195a278,281
+> 		//contract: body contains starting and ending brackets {}
+> 		assertEquals("{\n"
+> 				+ "\t\treturn;\n"
+> 				+ "\t}", contentAtPosition(classContent, position1.getBodyStart(), position1.getBodyEnd()));
+231a318,351
+> 	}
+> 
+> 	@Test
+> 	public void testPositionAbstractMethod() throws Exception {
+> 		final Factory build = build(FooAbstractMethod.class);
+> 		final CtClass<FooMethod> foo = build.Class().get(FooAbstractMethod.class);
+> 		String classContent = getClassContent(foo);
+> 
+> 		CtMethod<?> method1 = foo.getMethodsByName("m").get(0);
+> 		BodyHolderSourcePosition position1 = (BodyHolderSourcePosition) method1.getPosition();
+> 
+> 		assertEquals(5, position1.getLine());
+> 		assertEquals(5, position1.getEndLine());
+> 
+> 		assertEquals(86, position1.getSourceStart());
+> 		assertEquals(125, position1.getSourceEnd());
+> 
+> 		assertEquals("public abstract void m(final int parm1);", contentAtPosition(classContent, position1));
+> 		assertEquals("m", contentAtPosition(classContent, position1.getNameStart(), position1.getNameEnd()));
+> 		assertEquals("public abstract", contentAtPosition(classContent, position1.getModifierSourceStart(), position1.getModifierSourceEnd()));
+> 		//contract: body of abstract method is empty
+> 		assertEquals("", contentAtPosition(classContent, position1.getBodyStart(), position1.getBodyEnd()));
+> 
+> 		DeclarationSourcePosition positionParam1 = (DeclarationSourcePosition) method1.getParameters().get(0).getPosition();
+> 
+> 		assertEquals(5, positionParam1.getLine());
+> 		assertEquals(5, positionParam1.getEndLine());
+> 
+> 		assertEquals(109, positionParam1.getSourceStart());
+> 		assertEquals(123, positionParam1.getSourceEnd());
+> 
+> 		assertEquals("final int parm1", contentAtPosition(classContent, positionParam1));
+> 		assertEquals("parm1", contentAtPosition(classContent, positionParam1.getNameStart(), positionParam1.getNameEnd()));
+> 		assertEquals("final", contentAtPosition(classContent, positionParam1.getModifierSourceStart(), positionParam1.getModifierSourceEnd()));
+Only in after/src/test/java/spoon/test/position/testclasses: FooAbstractMethod.java
+Only in after/src/test/java/spoon/test/position/testclasses: FooAnnotation.java
+Only in after/src/test/java/spoon/test/position/testclasses: FooInterface.java

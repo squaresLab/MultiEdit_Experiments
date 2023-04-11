@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time22/src/main/java/org/joda/time/base/BasePeriod.java d4j_patched/Time22/src/main/java/org/joda/time/base/BasePeriod.java
+222c222
+<         this(duration, null, null);
+---
+>         super();
+223a224,228
+>         iType = PeriodType.time();
+>         int[] values = ISOChronology.getInstanceUTC().get(this, duration);
+>         iType = PeriodType.standard();
+>         iValues = new int[8];
+>         System.arraycopy(values, 0, iValues, 4, 4);

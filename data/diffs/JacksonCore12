@@ -1,0 +1,40 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore12/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java d4j_patched/JacksonCore12/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+622d621
+<         _updateLocation();
+629a629
+>             _updateNameLocation();
+634a635
+>         _updateLocation();
+773d773
+<         _updateLocation();
+775a776
+>             _updateLocation();
+779a781
+>         _updateNameLocation();
+851d852
+<         _updateLocation();
+852a854
+>             _updateLocation();
+856a859
+>         _updateNameLocation();
+861a865
+>         _updateLocation();
+916a921
+>         _updateLocation();
+966a972
+>         _updateLocation();
+2670a2677,2680
+>         if (_currToken == JsonToken.FIELD_NAME) {
+>             return new JsonLocation(src,
+>                     -1L, _nameInputTotal, _nameInputRow, _tokenInputCol);
+>         }
+2672,2673c2682
+<                 -1L, getTokenCharacterOffset(),
+<                 getTokenLineNr(),
+---
+>                 -1L, _tokenInputTotal, _tokenInputRow,
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore12/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java d4j_patched/JacksonCore12/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+3622c3622
+<                 getTokenCharacterOffset(), -1L, getTokenLineNr(),
+---
+>                 _tokenInputTotal, -1L, _tokenInputRow,

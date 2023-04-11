@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli7/src/java/org/apache/commons/cli2/builder/PatternBuilder.java d4j_patched/Cli7/src/java/org/apache/commons/cli2/builder/PatternBuilder.java
+19d18
+< import java.util.HashSet;
+20a20
+> import java.util.LinkedHashSet;
+67c67
+<     private final Set options = new HashSet();
+---
+>     private final Set options = new LinkedHashSet();

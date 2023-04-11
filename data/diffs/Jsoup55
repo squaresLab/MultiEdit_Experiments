@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup55/src/main/java/org/jsoup/parser/TokeniserState.java d4j_patched/Jsoup55/src/main/java/org/jsoup/parser/TokeniserState.java
+882a883
+>                     r.unconsume();

@@ -1,0 +1,18 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure145/src/com/google/javascript/jscomp/CodeGenerator.java d4j_patched/Closure145/src/com/google/javascript/jscomp/CodeGenerator.java
+708a709,713
+>     if (n.getType() == Token.LABEL) {
+>       Node labeledStatement = n.getLastChild();
+>       if (labeledStatement.getType() != Token.BLOCK) {
+>         return isOneExactlyFunctionOrDo(labeledStatement);
+>       } else {
+711a717,719
+>         if (getNonEmptyChildCount(n, 2) == 1) { 
+>           return isOneExactlyFunctionOrDo(getFirstNonEmptyChild(n));
+>         } else {
+713a722,725
+>           return false;
+>         }
+>       }
+>     } else {
+714a727
+>     }

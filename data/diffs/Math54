@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math54/src/main/java/org/apache/commons/math/dfp/Dfp.java d4j_patched/Math54/src/main/java/org/apache/commons/math/dfp/Dfp.java
+272a273,275
+>                 if ((bits & 0x8000000000000000L) != 0) {
+>                     sign = -1;
+>                 }
+2319c2322,2325
+<         if (lessThan(getZero())) {
+---
+>         int cmp0 = compare(this, getZero());
+>         if (cmp0 == 0) {
+>             return sign < 0 ? -0.0 : +0.0;
+>         } else if (cmp0 < 0) {

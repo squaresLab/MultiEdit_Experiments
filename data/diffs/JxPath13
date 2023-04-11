@@ -1,0 +1,92 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath13/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java d4j_patched/JxPath13/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+28a29
+> import org.apache.commons.jxpath.ri.NamespaceResolver;
+60a62
+>     private NamespaceResolver localNamespaceResolver;
+188a191,197
+>     public synchronized NamespaceResolver getNamespaceResolver() {
+>         if (localNamespaceResolver == null) {
+>             localNamespaceResolver = new NamespaceResolver(super.getNamespaceResolver());
+>             localNamespaceResolver.setNamespaceContextPointer(this);
+>         }
+>         return localNamespaceResolver;
+>     }
+415c424,428
+<             String ns = getNamespaceURI(prefix);
+---
+>             String ns = null;
+>             NamespaceResolver nsr = getNamespaceResolver();
+>             if (nsr != null) {
+>                 ns = nsr.getNamespaceURI(prefix);
+>             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath13/src/java/org/apache/commons/jxpath/ri/NamespaceResolver.java d4j_patched/JxPath13/src/java/org/apache/commons/jxpath/ri/NamespaceResolver.java
+46a47,64
+>     protected static String getPrefix(NodePointer pointer, String namespaceURI) {
+>         NodePointer currentPointer = pointer;
+>         while (currentPointer != null) {
+>             NodeIterator ni = currentPointer.namespaceIterator();
+>             for (int position = 1; ni != null && ni.setPosition(position); position++) {
+>                 NodePointer nsPointer = ni.getNodePointer();
+>                 String uri = nsPointer.getNamespaceURI();
+>                 if (uri.equals(namespaceURI)) {
+>                     String prefix = nsPointer.getName().getName();
+>                     if (!"".equals(prefix)) {
+>                         return prefix;
+>                     }
+>                 }
+>             }
+>             currentPointer = pointer.getParent();
+>         }
+>         return null;
+>     }
+107a126,129
+>         String uri = getExternallyRegisteredNamespaceURI(prefix);
+>         return uri == null && pointer != null ? pointer.getNamespaceURI(prefix)
+>                 : uri;
+>     }
+115a138,139
+>      protected synchronized String getExternallyRegisteredNamespaceURI(
+>             String prefix) {
+117,123c141,142
+<         if (uri == null && pointer != null) {
+<             uri = pointer.getNamespaceURI(prefix);
+<         }
+<         if (uri == null && parent != null) {
+<             return parent.getNamespaceURI(prefix);
+<         }
+<         return uri;
+---
+>         return uri == null && parent != null ? parent
+>                 .getExternallyRegisteredNamespaceURI(prefix) : uri;
+131a151,154
+>         String prefix = getExternallyRegisteredPrefix(namespaceURI);
+>         return prefix == null && pointer != null ? getPrefix(pointer,
+>                 namespaceURI) : prefix;
+>     }
+138a162
+>     protected synchronized String getExternallyRegisteredPrefix(String namespaceURI) {
+141,151d164
+<             NodeIterator ni = pointer.namespaceIterator();
+<             if (ni != null) {
+<                 for (int position = 1; ni.setPosition(position); position++) {
+<                     NodePointer nsPointer = ni.getNodePointer();
+<                     String uri = nsPointer.getNamespaceURI();                    
+<                     String prefix = nsPointer.getName().getName();
+<                     if (!"".equals(prefix)) {
+<                         reverseMap.put(uri, prefix);
+<                     }
+<                 }
+<             }
+159,162c172,173
+<         if (prefix == null && parent != null) {
+<             return parent.getPrefix(namespaceURI);
+<         }
+<         return prefix;
+---
+>         return prefix == null && parent != null ? parent
+>                 .getExternallyRegisteredPrefix(namespaceURI) : prefix;
+200c211
+< }
+---
+> }
+\ No newline at end of file

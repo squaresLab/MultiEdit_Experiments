@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito9/src/org/mockito/internal/stubbing/answers/CallsRealMethods.java d4j_patched/Mockito9/src/org/mockito/internal/stubbing/answers/CallsRealMethods.java
+7a8
+> import java.lang.reflect.Modifier;
+8a10
+> import org.mockito.internal.stubbing.defaultanswers.GloballyConfiguredAnswer;
+35a38,40
+>     	if (Modifier.isAbstract(invocation.getMethod().getModifiers())) {
+>     		return new GloballyConfiguredAnswer().answer(invocation);
+>     	}

@@ -1,0 +1,64 @@
+Only in after/: bears.json
+Only in after/spring-cloud-gcp-data-spanner: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java after/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java
+21d20
+< import java.util.StringJoiner;
+75c74
+< 		Pattern pattern = Pattern.compile("@\\S+");
+---
+> 		Pattern pattern = Pattern.compile("@[^\\{^\\s][\\S]+[^\\}^\\s]");
+86,102c85,95
+< 		StringJoiner joiner = new StringJoiner(" ");
+< 		for (String part : sql.split("\\s+")) {
+< 			if (part.length() > 2 && part.startsWith(ENTITY_CLASS_NAME_BOOKEND)
+< 					&& part.endsWith(ENTITY_CLASS_NAME_BOOKEND)) {
+< 				String className = part.substring(1, part.length() - 1);
+< 				try {
+< 					Class entityClass = Class.forName(className);
+< 					SpannerPersistentEntity spannerPersistentEntity = this.spannerMappingContext
+< 							.getPersistentEntity(entityClass);
+< 					if (spannerPersistentEntity == null) {
+< 						throw new SpannerDataException(
+< 								"The class used in the SQL statement is not a Spanner persistent entity: "
+< 										+ className);
+< 					}
+< 					joiner.add(spannerPersistentEntity.tableName());
+< 				}
+< 				catch (ClassNotFoundException e) {
+---
+> 		Pattern pattern = Pattern.compile("\\:\\S+\\:");
+> 		Matcher matcher = pattern.matcher(sql);
+> 		String result = sql;
+> 		while (matcher.find()) {
+> 			String matched = matcher.group();
+> 			String className = matched.substring(1, matched.length() - 1);
+> 			try {
+> 				Class entityClass = Class.forName(className);
+> 				SpannerPersistentEntity spannerPersistentEntity = this.spannerMappingContext
+> 						.getPersistentEntity(entityClass);
+> 				if (spannerPersistentEntity == null) {
+104c97
+< 							"The class name does not refer to an available entity type: "
+---
+> 							"The class used in the SQL statement is not a Spanner persistent entity: "
+106a100
+> 				result = result.replace(matched, spannerPersistentEntity.tableName());
+108,109c102,105
+< 			else {
+< 				joiner.add(part);
+---
+> 			catch (ClassNotFoundException e) {
+> 				throw new SpannerDataException(
+> 						"The class name does not refer to an available entity type: "
+> 								+ className);
+112c108
+< 		return joiner.toString();
+---
+> 		return result;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/spring-cloud-gcp-data-spanner/src/test/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQueryTests.java after/spring-cloud-gcp-data-spanner/src/test/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQueryTests.java
+73a74
+> 				+ "@{index=fakeindex}"
+79c80
+< 		String entityResolvedSql = "SELECT DISTINCT * FROM " + "trades"
+---
+> 		String entityResolvedSql = "SELECT DISTINCT * FROM " + "trades@{index=fakeindex}"

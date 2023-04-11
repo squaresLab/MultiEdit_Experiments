@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math57/src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java d4j_patched/Math57/src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java
+175c175
+<             int sum = 0;
+---
+>             double sum = 0;

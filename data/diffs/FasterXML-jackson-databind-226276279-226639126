@@ -1,0 +1,64 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java after/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java
+40c40
+<     protected List<BeanPropertyWriter> _properties;
+---
+>     protected List<BeanPropertyWriter> _properties = Collections.emptyList();
+69c69
+<     
+---
+> 
+75c75
+<     
+---
+> 
+107a108,112
+>     /**
+>      * @param properties Number and order of properties here MUST match that
+>      *    of "regular" properties set earlier using {@link #setProperties(List)}; if not,
+>      *    an {@link IllegalArgumentException} will be thrown
+>      */
+108a114,120
+>         if (properties != null) {
+>             if (properties.length != _properties.size()) { // as per [databind#1612]
+>                 throw new IllegalArgumentException(String.format(
+>                         "Trying to set %d filtered properties; must match length of non-filtered `properties` (%d)",
+>                         properties.length, _properties.size()));
+>             }
+>         }
+111c123
+<     
+---
+> 
+185a198,205
+>             }
+>         }
+>         // 27-Apr-2017, tatu: Verify that filtered-properties settings are compatible
+>         if (_filteredProperties != null) {
+>             if (_filteredProperties.length != _properties.size()) {
+>                 throw new IllegalStateException(String.format(
+> "Mismatch between `properties` size (%d), `filteredProperties` (%s): should have as many (or `null` for latter)",
+> _properties.size(), _filteredProperties.length));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java after/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+523c523,529
+<         JsonSerializer<Object> ser = (JsonSerializer<Object>) builder.build();
+---
+>         JsonSerializer<Object> ser = null;
+>         try {
+>             ser = (JsonSerializer<Object>) builder.build();
+>         } catch (RuntimeException e) {
+>             prov.reportBadTypeDefinition(beanDesc, "Failed to construct BeanSerializer for %s: (%s) %s",
+>                     beanDesc.getType(), e.getClass().getName(), e.getMessage());
+>         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java after/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java
+1158c1158
+<             beanDesc = _desc(bean.getType().getGenericSignature());
+---
+>             beanDesc = ClassUtil.nameOf(bean.getBeanClass());
+1181c1181
+<             beanDesc = _desc(bean.getType().getGenericSignature());
+---
+>             beanDesc = ClassUtil.nameOf(bean.getBeanClass());
+Only in after/src/test/java/com/fasterxml/jackson/databind/ser: BeanSerializerModifier1612Test.java
+Only in after/src/test/java/com/fasterxml/jackson/databind/ser: BeanSerializerModifierTest.java

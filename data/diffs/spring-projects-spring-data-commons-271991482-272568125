@@ -1,0 +1,113 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/web/config/SpringDataWebConfiguration.java after/src/main/java/org/springframework/data/web/config/SpringDataWebConfiguration.java
+19a20
+> import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+125c126,129
+< 			ProjectingJackson2HttpMessageConverter converter = new ProjectingJackson2HttpMessageConverter(new ObjectMapper());
+---
+> 			ObjectMapper mapper = getUniqueBean(ObjectMapper.class, context);
+> 			mapper = mapper == null ? new ObjectMapper() : mapper;
+> 
+> 			ProjectingJackson2HttpMessageConverter converter = new ProjectingJackson2HttpMessageConverter(mapper);
+133a138,146
+> 		}
+> 	}
+> 
+> 	private static <T> T getUniqueBean(Class<T> type, ApplicationContext context) {
+> 
+> 		try {
+> 			return context.getBean(type);
+> 		} catch (NoSuchBeanDefinitionException o_O) {
+> 			return null;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/web/config/SpringDataWebConfigurationIntegrationTests.java after/src/test/java/org/springframework/data/web/config/SpringDataWebConfigurationIntegrationTests.java
+21a22
+> import java.util.Arrays;
+22a24
+> import java.util.function.Consumer;
+26a29,30
+> import org.springframework.context.annotation.Bean;
+> import org.springframework.context.annotation.Configuration;
+30a35
+> import org.springframework.test.util.ReflectionTestUtils;
+50c55
+< 		createConfigWithClassLoader(HidingClassLoader.hide(ObjectMapper.class)).extendMessageConverters(converters);
+---
+> 		createConfigWithClassLoader(HidingClassLoader.hide(ObjectMapper.class), triggerExtendConverters(converters));
+60c65
+< 		createConfigWithClassLoader(HidingClassLoader.hide(DocumentContext.class)).extendMessageConverters(converters);
+---
+> 		createConfigWithClassLoader(HidingClassLoader.hide(DocumentContext.class), triggerExtendConverters(converters));
+70,71c75
+< 		ClassLoader classLoader = HidingClassLoader.hide(XBProjector.class);
+< 		createConfigWithClassLoader(classLoader).extendMessageConverters(converters);
+---
+> 		createConfigWithClassLoader(HidingClassLoader.hide(XBProjector.class), triggerExtendConverters(converters));
+81c85
+< 		createConfigWithClassLoader(getClass().getClassLoader()).extendMessageConverters(converters);
+---
+> 		createConfigWithClassLoader(getClass().getClassLoader(), triggerExtendConverters(converters));
+87c91,119
+< 	private SpringDataWebConfiguration createConfigWithClassLoader(ClassLoader classLoader) {
+---
+> 	@Test // DATACMNS-1152
+> 	public void usesCustomObjectMapper() {
+> 
+> 		List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
+> 
+> 		createConfigWithClassLoader(getClass().getClassLoader(), triggerExtendConverters(converters),
+> 				SomeConfiguration.class);
+> 
+> 		boolean found = false;
+> 
+> 		for (HttpMessageConverter<?> converter : converters) {
+> 
+> 			if (converter instanceof ProjectingJackson2HttpMessageConverter) {
+> 
+> 				found = true;
+> 
+> 				assertThat(ReflectionTestUtils.getField(converter, "objectMapper"),
+> 						is(sameInstance((Object) SomeConfiguration.MAPPER)));
+> 			}
+> 		}
+> 
+> 		assertThat(found, is(true));
+> 	}
+> 
+> 	private void createConfigWithClassLoader(ClassLoader classLoader, Consumer<SpringDataWebConfiguration> callback,
+> 			Class<?>... additionalConfigurationClasses) {
+> 
+> 		List<Class<?>> configClasses = new ArrayList<Class<?>>(Arrays.asList(additionalConfigurationClasses));
+> 		configClasses.add(SpringDataWebConfiguration.class);
+90c122
+< 				SpringDataWebConfiguration.class);
+---
+> 				configClasses.toArray(new Class<?>[configClasses.size()]));
+95c127
+< 			return context.getBean(SpringDataWebConfiguration.class);
+---
+> 			callback.accept(context.getBean(SpringDataWebConfiguration.class));
+109a142,164
+> 	}
+> 
+> 	private static Consumer<SpringDataWebConfiguration> triggerExtendConverters(
+> 			final List<HttpMessageConverter<?>> converters) {
+> 
+> 		return new Consumer<SpringDataWebConfiguration>() {
+> 
+> 			@Override
+> 			public void accept(SpringDataWebConfiguration t) {
+> 				t.extendMessageConverters(converters);
+> 			}
+> 		};
+> 	}
+> 
+> 	@Configuration
+> 	static class SomeConfiguration {
+> 
+> 		static ObjectMapper MAPPER = new ObjectMapper();
+> 
+> 		@Bean
+> 		ObjectMapper mapper() {
+> 			return MAPPER;
+> 		}

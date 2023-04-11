@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math61/src/main/java/org/apache/commons/math/distribution/PoissonDistributionImpl.java d4j_patched/Math61/src/main/java/org/apache/commons/math/distribution/PoissonDistributionImpl.java
+22c22
+< import org.apache.commons.math.MathRuntimeException;
+---
+> import org.apache.commons.math.exception.NotStrictlyPositiveException;
+94c94
+<             throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.NOT_POSITIVE_POISSON_MEAN, p);
+---
+>             throw new NotStrictlyPositiveException(LocalizedFormats.MEAN, p);

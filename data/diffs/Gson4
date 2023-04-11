@@ -1,0 +1,51 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson4/gson/src/main/java/com/google/gson/stream/JsonReader.java d4j_patched/Gson4/gson/src/main/java/com/google/gson/stream/JsonReader.java
+574,576d573
+<       if (stackSize == 1) {
+<         checkLenient();
+<       }
+584,586d580
+<     }
+<     if (stackSize == 1) {
+<       checkLenient();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson4/gson/src/main/java/com/google/gson/stream/JsonWriter.java d4j_patched/Gson4/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+325c325
+<     beforeValue(true);
+---
+>     beforeValue();
+418c418
+<     beforeValue(false);
+---
+>     beforeValue();
+435c435
+<     beforeValue(false);
+---
+>     beforeValue();
+454c454
+<     beforeValue(false);
+---
+>     beforeValue();
+466c466
+<     beforeValue(false);
+---
+>     beforeValue();
+483c483
+<     beforeValue(false);
+---
+>     beforeValue();
+495c495
+<     beforeValue(false);
+---
+>     beforeValue();
+518c518
+<     beforeValue(false);
+---
+>     beforeValue();
+613c613
+<   private void beforeValue(boolean root) throws IOException {
+---
+>   private void beforeValue() throws IOException {
+622,625d621
+<       if (!lenient && !root) {
+<         throw new IllegalStateException(
+<             "JSON must start with an array or an object.");
+<       }

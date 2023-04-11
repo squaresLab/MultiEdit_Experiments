@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson10/gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java d4j_patched/Gson10/gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java
+122,123c122,123
+<         TypeAdapter t =
+<           new TypeAdapterRuntimeTypeWrapper(context, typeAdapter, fieldType.getType());
+---
+>         TypeAdapter t = jsonAdapterPresent ? typeAdapter
+>             : new TypeAdapterRuntimeTypeWrapper(context, typeAdapter, fieldType.getType());

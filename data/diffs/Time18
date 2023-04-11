@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time18/src/main/java/org/joda/time/chrono/GJChronology.java d4j_patched/Time18/src/main/java/org/joda/time/chrono/GJChronology.java
+363a364
+>         try {
+366a368,378
+>         } catch (IllegalFieldValueException ex) {
+>             if (monthOfYear != 2 || dayOfMonth != 29) {
+>                 throw ex;
+>             }
+>             instant = iGregorianChronology.getDateTimeMillis
+>                 (year, monthOfYear, 28,
+>                  hourOfDay, minuteOfHour, secondOfMinute, millisOfSecond);
+>             if (instant >= iCutoverMillis) {
+>                 throw ex;
+>             }
+>         }

@@ -1,0 +1,32 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath18/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java d4j_patched/JxPath18/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java
+18a19
+> import org.apache.commons.jxpath.ri.Compiler;
+22a24
+> import org.apache.commons.jxpath.ri.compiler.NodeTypeTest;
+32a35
+>     private static final NodeNameTest WILDCARD_TEST = new NodeNameTest(new QName(null, "*"));
+75c78,87
+<             if (!(nodeTest instanceof NodeNameTest)) {
+---
+>             NodeNameTest nodeNameTest = null;
+>             if (nodeTest instanceof NodeTypeTest) {
+>                 if (((NodeTypeTest) nodeTest).getNodeType() == Compiler.NODE_TYPE_NODE) {
+>                     nodeNameTest = WILDCARD_TEST;
+>                 }
+>             }
+>             else if (nodeTest instanceof NodeNameTest) {
+>                 nodeNameTest = (NodeNameTest) nodeTest;
+>             }
+>             if (nodeNameTest == null) {
+78,80c90,91
+<             QName name = ((NodeNameTest) nodeTest).getNodeName();
+<             iterator =
+<                 parentContext.getCurrentNodePointer().attributeIterator(name);
+---
+>             iterator = parentContext.getCurrentNodePointer().attributeIterator(
+>                     nodeNameTest.getNodeName());
+91c102
+< }
+---
+> }
+\ No newline at end of file

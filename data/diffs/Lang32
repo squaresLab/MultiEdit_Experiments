@@ -1,0 +1,33 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang32/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java d4j_patched/Lang32/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+104,109c104
+<     private static final ThreadLocal<Set<IDKey>> REGISTRY = new ThreadLocal<Set<IDKey>>() {
+<         @Override
+<         protected Set<IDKey> initialValue() {
+<             return new HashSet<IDKey>();
+<         }
+<     };
+---
+>     private static final ThreadLocal<Set<IDKey>> REGISTRY = new ThreadLocal<Set<IDKey>>();
+152c147,148
+<         return getRegistry().contains(new IDKey(value));
+---
+>         Set<IDKey> registry = getRegistry();
+>         return registry != null && registry.contains(new IDKey(value));
+521a518,522
+>         synchronized (HashCodeBuilder.class) {
+>             if (getRegistry() == null) {
+>                 REGISTRY.set(new HashSet<IDKey>());
+>             }
+>         }
+538c539,547
+<         getRegistry().remove(new IDKey(value));
+---
+>         Set<IDKey> s = getRegistry();
+>         if (s != null) {
+>             s.remove(new IDKey(value));
+>             synchronized (HashCodeBuilder.class) {
+>                 if (s.isEmpty()) {
+>                     REGISTRY.remove();
+>                 }
+>             }
+>         }

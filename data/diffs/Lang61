@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang61/src/java/org/apache/commons/lang/text/StrBuilder.java d4j_patched/Lang61/src/java/org/apache/commons/lang/text/StrBuilder.java
+1776c1776
+<         int len = thisBuf.length - strLen;
+---
+>         int len = size - strLen + 1;

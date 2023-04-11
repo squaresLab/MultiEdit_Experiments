@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind24/src/main/java/com/fasterxml/jackson/databind/cfg/BaseSettings.java d4j_patched/JacksonDatabind24/src/main/java/com/fasterxml/jackson/databind/cfg/BaseSettings.java
+234d233
+<         TimeZone tz = (df == null) ? _timeZone : df.getTimeZone();
+237c236
+<                 tz, _defaultBase64);
+---
+>                 _timeZone, _defaultBase64);

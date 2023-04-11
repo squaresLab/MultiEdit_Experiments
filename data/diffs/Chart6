@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart6/source/org/jfree/chart/util/ShapeList.java d4j_patched/Chart6/source/org/jfree/chart/util/ShapeList.java
+111c111,118
+<         return super.equals(obj);
+---
+>         ShapeList that = (ShapeList) obj;
+>         int listSize = size();
+>         for (int i = 0; i < listSize; i++) {
+>            if (!ShapeUtilities.equal((Shape) get(i), (Shape) that.get(i))) {
+>                return false;
+>            }
+>         }
+>         return true;
+Binary files d4j_buggy/Chart6/.svn/wc.db and d4j_patched/Chart6/.svn/wc.db differ

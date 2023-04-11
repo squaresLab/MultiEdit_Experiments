@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure135/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java d4j_patched/Closure135/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java
+361a362
+>         newName.setJSType(child.getJSType());
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure135/src/com/google/javascript/rhino/jstype/FunctionType.java d4j_patched/Closure135/src/com/google/javascript/rhino/jstype/FunctionType.java
+411a412,415
+>   @Override
+>   public boolean hasOwnProperty(String name) {
+>     return super.hasOwnProperty(name) || "prototype".equals(name);
+>   }
+471a476,478
+>         if (objType.equals(prototype)) {
+>           return true;
+>         }

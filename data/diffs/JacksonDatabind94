@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind94/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java d4j_patched/JacksonDatabind94/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
+22a23
+>     protected final static String PREFIX_C3P0 = "com.mchange.v2.c3p0.";
+97a99,100
+>                 }
+>             } else if (full.startsWith(PREFIX_C3P0)) {
+103a107,108
+>                 if (full.endsWith("DataSource")) {
+>                     break main_check;

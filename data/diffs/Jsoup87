@@ -1,0 +1,234 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup87/src/main/java/org/jsoup/nodes/Element.java d4j_patched/Jsoup87/src/main/java/org/jsoup/nodes/Element.java
+139a140,142
+>     public String normalName() {
+>         return tag.normalName();
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup87/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java d4j_patched/Jsoup87/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+315c315
+<             if (next.nodeName().equals(elName)) {
+---
+>             if (next.normalName().equals(elName)) {
+337c337
+<             if (next.nodeName().equals(elName))
+---
+>             if (next.normalName().equals(elName))
+347c347
+<             if (inSorted(next.nodeName(), elNames))
+---
+>             if (inSorted(next.normalName(), elNames))
+355c355
+<             if (next.nodeName().equals(elName)) {
+---
+>             if (next.normalName().equals(elName)) {
+378c378
+<             if (StringUtil.in(next.nodeName(), nodeNames) || next.nodeName().equals("html"))
+---
+>             if (StringUtil.in(next.normalName(), nodeNames) || next.normalName().equals("html"))
+420c420
+<             String name = node.nodeName();
+---
+>             String name = node.normalName();
+476c476
+<             final String elName = stack.get(pos).nodeName();
+---
+>             final String elName = stack.get(pos).normalName();
+517c517
+<             String elName = el.nodeName();
+---
+>             String elName = el.normalName();
+569,570c569,570
+<         while ((excludeTag != null && !currentElement().nodeName().equals(excludeTag)) &&
+<                 inSorted(currentElement().nodeName(), TagSearchEndTags))
+---
+>         while ((excludeTag != null && !currentElement().normalName().equals(excludeTag)) &&
+>                 inSorted(currentElement().normalName(), TagSearchEndTags))
+581c581
+<         String name = el.nodeName();
+---
+>         String name = el.normalName();
+618c618
+<         return a.nodeName().equals(b.nodeName()) &&
+---
+>         return a.normalName().equals(b.normalName()) &&
+649c649
+<             Element newEl = insertStartTag(entry.nodeName());
+---
+>             Element newEl = insertStartTag(entry.normalName()); // todo: avoid fostering here?
+689c689
+<             else if (next.nodeName().equals(nodeName))
+---
+>             else if (next.normalName().equals(nodeName))
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup87/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java d4j_patched/Jsoup87/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+315c315
+<                             if (el.nodeName().equals("li")) {
+---
+>                             if (el.normalName().equals("li")) {
+319c319
+<                             if (tb.isSpecial(el) && !StringUtil.inSorted(el.nodeName(), Constants.InBodyStartLiBreakers))
+---
+>                             if (tb.isSpecial(el) && !StringUtil.inSorted(el.normalName(), Constants.InBodyStartLiBreakers))
+339c339
+<                         if (stack.size() == 1 || (stack.size() > 2 && !stack.get(1).nodeName().equals("body"))) {
+---
+>                         if (stack.size() == 1 || (stack.size() > 2 && !stack.get(1).normalName().equals("body"))) {
+353c353
+<                         if (stack.size() == 1 || (stack.size() > 2 && !stack.get(1).nodeName().equals("body"))) {
+---
+>                         if (stack.size() == 1 || (stack.size() > 2 && !stack.get(1).normalName().equals("body"))) {
+372c372
+<                         if (StringUtil.inSorted(tb.currentElement().nodeName(), Constants.Headings)) {
+---
+>                         if (StringUtil.inSorted(tb.currentElement().normalName(), Constants.Headings)) {
+398,399c398,399
+<                             if (StringUtil.inSorted(el.nodeName(), Constants.DdDt)) {
+<                                 tb.processEndTag(el.nodeName());
+---
+>                             if (StringUtil.inSorted(el.normalName(), Constants.DdDt)) {
+>                                 tb.processEndTag(el.normalName());
+402c402
+<                             if (tb.isSpecial(el) && !StringUtil.inSorted(el.nodeName(), Constants.InBodyStartLiBreakers))
+---
+>                             if (tb.isSpecial(el) && !StringUtil.inSorted(el.normalName(), Constants.InBodyStartLiBreakers))
+531c531
+<                         if (tb.currentElement().nodeName().equals("option"))
+---
+>                         if (tb.currentElement().normalName().equals("option"))
+538c538
+<                             if (!tb.currentElement().nodeName().equals("ruby")) {
+---
+>                             if (!tb.currentElement().normalName().equals("ruby")) {
+574c574
+<                             } else if (!tb.inScope(formatEl.nodeName())) {
+---
+>                             } else if (!tb.inScope(formatEl.normalName())) {
+598c598
+<                                 tb.popStackToClose(formatEl.nodeName());
+---
+>                                 tb.popStackToClose(formatEl.normalName());
+633c633
+<                             if (StringUtil.inSorted(commonAncestor.nodeName(), Constants.InBodyEndTableFosters)) {
+---
+>                             if (StringUtil.inSorted(commonAncestor.normalName(), Constants.InBodyEndTableFosters)) {
+662c662
+<                             if (!tb.currentElement().nodeName().equals(name))
+---
+>                             if (!tb.currentElement().normalName().equals(name))
+675c675
+<                             if (!tb.currentElement().nodeName().equals(name))
+---
+>                             if (!tb.currentElement().normalName().equals(name))
+699c699
+<                             if (!tb.currentElement().nodeName().equals(name))
+---
+>                             if (!tb.currentElement().normalName().equals(name))
+711c711
+<                             if (!tb.currentElement().nodeName().equals(name))
+---
+>                             if (!tb.currentElement().normalName().equals(name))
+721c721
+<                             if (!tb.currentElement().nodeName().equals(name))
+---
+>                             if (!tb.currentElement().normalName().equals(name))
+731c731
+<                             if (!tb.currentElement().nodeName().equals(name))
+---
+>                             if (!tb.currentElement().normalName().equals(name))
+745c745
+<                             if (!tb.currentElement().nodeName().equals(name))
+---
+>                             if (!tb.currentElement().normalName().equals(name))
+768c768
+<             String name = tb.settings.normalizeTag(t.asEndTag().name());
+---
+>             String name = t.asEndTag().normalName; // case insensitive search - goal is to preserve output case, not for the parse to be case sensitive
+772c772
+<                 if (node.nodeName().equals(name)) {
+---
+>                 if (node.normalName().equals(name)) {
+774c774
+<                     if (!name.equals(tb.currentElement().nodeName()))
+---
+>                     if (!name.equals(tb.currentElement().normalName()))
+887c887
+<                 if (tb.currentElement().nodeName().equals("html"))
+---
+>                 if (tb.currentElement().normalName().equals("html"))
+897c897
+<             if (StringUtil.in(tb.currentElement().nodeName(), "table", "tbody", "tfoot", "thead", "tr")) {
+---
+>             if (StringUtil.in(tb.currentElement().normalName(), "table", "tbody", "tfoot", "thead", "tr")) {
+926c926
+<                                 if (StringUtil.in(tb.currentElement().nodeName(), "table", "tbody", "tfoot", "thead", "tr")) {
+---
+>                                 if (StringUtil.in(tb.currentElement().normalName(), "table", "tbody", "tfoot", "thead", "tr")) {
+954c954
+<                     if (!tb.currentElement().nodeName().equals("caption"))
+---
+>                     if (!tb.currentElement().normalName().equals("caption"))
+1007c1007
+<                         if (tb.currentElement().nodeName().equals("html")) {
+---
+>                         if (tb.currentElement().normalName().equals("html")) { // frag case
+1018c1018
+<                     if (tb.currentElement().nodeName().equals("html"))
+---
+>                     if (tb.currentElement().normalName().equals("html"))
+1089c1089
+<             tb.processEndTag(tb.currentElement().nodeName());
+---
+>             tb.processEndTag(tb.currentElement().normalName()); // tbody, tfoot, thead
+1173c1173
+<                     if (!tb.currentElement().nodeName().equals(name))
+---
+>                     if (!tb.currentElement().normalName().equals(name))
+1240c1240
+<                         if (tb.currentElement().nodeName().equals("option"))
+---
+>                         if (tb.currentElement().normalName().equals("option"))
+1244c1244
+<                         if (tb.currentElement().nodeName().equals("option"))
+---
+>                         if (tb.currentElement().normalName().equals("option"))
+1246c1246
+<                         else if (tb.currentElement().nodeName().equals("optgroup"))
+---
+>                         else if (tb.currentElement().normalName().equals("optgroup"))
+1269c1269
+<                             if (tb.currentElement().nodeName().equals("option") && tb.aboveOnStack(tb.currentElement()) != null && tb.aboveOnStack(tb.currentElement()).nodeName().equals("optgroup"))
+---
+>                             if (tb.currentElement().normalName().equals("option") && tb.aboveOnStack(tb.currentElement()) != null && tb.aboveOnStack(tb.currentElement()).normalName().equals("optgroup"))
+1271c1271
+<                             if (tb.currentElement().nodeName().equals("optgroup"))
+---
+>                             if (tb.currentElement().normalName().equals("optgroup"))
+1277c1277
+<                             if (tb.currentElement().nodeName().equals("option"))
+---
+>                             if (tb.currentElement().normalName().equals("option"))
+1296c1296
+<                     if (!tb.currentElement().nodeName().equals("html"))
+---
+>                     if (!tb.currentElement().normalName().equals("html"))
+1383c1383
+<                 if (tb.currentElement().nodeName().equals("html")) {
+---
+>                 if (tb.currentElement().normalName().equals("html")) { // frag
+1388c1388
+<                     if (!tb.isFragmentParsing() && !tb.currentElement().nodeName().equals("frameset")) {
+---
+>                     if (!tb.isFragmentParsing() && !tb.currentElement().normalName().equals("frameset")) {
+1393c1393
+<                 if (!tb.currentElement().nodeName().equals("html")) {
+---
+>                 if (!tb.currentElement().normalName().equals("html")) {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup87/src/main/java/org/jsoup/parser/Tag.java d4j_patched/Jsoup87/src/main/java/org/jsoup/parser/Tag.java
+3a4
+> import org.jsoup.internal.Normalizer;
+16a18
+>     private String normalName; // always the lower case version of this tag, regardless of case preservation mode
+27a30
+>         normalName = Normalizer.lowerCase(tagName);
+42a46,48
+>     public String normalName() {
+>         return normalName;
+>     }

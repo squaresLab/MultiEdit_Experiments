@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure142/src/com/google/javascript/jscomp/CoalesceVariableNames.java d4j_patched/Closure142/src/com/google/javascript/jscomp/CoalesceVariableNames.java
+107a108,110
+>     if (scope.getRootNode().getFirstChild().getNext().getChildCount() == 2) {
+>       liveness.markAllParametersEscaped();
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure142/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java d4j_patched/Closure142/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+1167a1168,1169
+>           if (!(option == WhitespaceOption.PRESERVE &&
+>                 token == JsDocToken.ANNOTATION)) {
+1182a1185
+>           }

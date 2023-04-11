@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang62/src/java/org/apache/commons/lang/Entities.java d4j_patched/Lang62/src/java/org/apache/commons/lang/Entities.java
+849a850,852
+>                             if (entityValue > 0xFFFF) {
+>                                 entityValue = -1;
+>                             }
+919a923
+>                                         break;
+924a929,931
+>                                 if (entityValue > 0xFFFF) {
+>                                     entityValue = -1;
+>                                 }
+925a933
+>                                 entityValue = -1;

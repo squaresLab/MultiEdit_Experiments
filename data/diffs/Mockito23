@@ -1,0 +1,32 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito23/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java d4j_patched/Mockito23/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
+44,45c44,45
+<     private MockitoCore mockitoCore = new MockitoCore();
+<     private ReturnsEmptyValues delegate = new ReturnsEmptyValues();
+---
+>     private transient MockitoCore mockitoCore;
+>     private transient ReturnsEmptyValues delegate;
+51a52,53
+>         instantiateMockitoCoreIfNeeded();
+>         instantiateDelegateIfNeeded();
+58a61,65
+>     private synchronized void instantiateMockitoCoreIfNeeded() {
+>         if (mockitoCore == null) {
+>             mockitoCore = new MockitoCore();
+>         }
+>     }
+59a67,71
+>     private synchronized void instantiateDelegateIfNeeded() {
+>         if (delegate == null) {
+>             delegate = new ReturnsEmptyValues();
+>         }
+>     }
+99a112
+> 		        .serializable()
+114c127
+<         container.addAnswer(new Answer<Object>() {
+---
+>         container.addAnswer(new SerializableAnswer() {
+122a136
+> 	abstract class SerializableAnswer implements Answer<Object>, Serializable {
+123a138
+> 	}

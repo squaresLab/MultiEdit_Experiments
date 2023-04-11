@@ -1,0 +1,94 @@
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/address-controller/src/main/java/io/enmasse/controller/api/DefaultExceptionMapper.java after/address-controller/src/main/java/io/enmasse/controller/api/DefaultExceptionMapper.java
+13a14
+> import io.enmasse.address.model.v1.DeserializeException;
+31c32
+<         } else if (exception instanceof UnresolvedAddressException || exception instanceof UnresolvedAddressSpaceException) {
+---
+>         } else if (exception instanceof UnresolvedAddressException || exception instanceof UnresolvedAddressSpaceException || exception instanceof DeserializeException) {
+Only in after/address-model-lib: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/address-model-lib/src/main/java/io/enmasse/address/model/v1/AddressSpaceV1Deserializer.java after/address-model-lib/src/main/java/io/enmasse/address/model/v1/AddressSpaceV1Deserializer.java
+37a38
+>         validate(root);
+147a149,184
+>     }
+> 
+>     private void validate(ObjectNode root) {
+>         validateMetadata(root);
+>         validateSpec(root);
+>     }
+> 
+>     private void validateMetadata(ObjectNode root) {
+>         JsonNode node = root.get(Fields.METADATA);
+>         if (node == null || !node.isObject()) {
+>             throw new DeserializeException("Missing 'metadata' object field");
+>         }
+> 
+>         ObjectNode metadata = (ObjectNode) node;
+>         JsonNode name = metadata.get(Fields.NAME);
+>         if (name == null || !name.isTextual()) {
+>             throw new DeserializeException("Missing 'name' string field in 'metadata'");
+>         }
+>     }
+> 
+>     private void validateSpec(ObjectNode root) {
+>         JsonNode node = root.get(Fields.SPEC);
+>         if (node == null || !node.isObject()) {
+>             throw new DeserializeException("Missing 'spec' object field");
+>         }
+> 
+>         ObjectNode spec = (ObjectNode) node;
+>         JsonNode type = spec.get(Fields.TYPE);
+>         if (type == null || !type.isTextual()) {
+>             throw new DeserializeException("Missing 'type' string field in 'spec'");
+>         }
+> 
+>         JsonNode plan = spec.get(Fields.PLAN);
+>         if (plan == null || !plan.isTextual()) {
+>             throw new DeserializeException("Missing 'plan' string field in 'spec'");
+>         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/address-model-lib/src/main/java/io/enmasse/address/model/v1/AddressV1Deserializer.java after/address-model-lib/src/main/java/io/enmasse/address/model/v1/AddressV1Deserializer.java
+9a10
+> import com.fasterxml.jackson.databind.JsonNode;
+31a33
+>         validate(root);
+84a87,109
+>     }
+> 
+>     private void validate(ObjectNode root) {
+>         JsonNode node = root.get(Fields.SPEC);
+>         if (node == null || !node.isObject()) {
+>             throw new DeserializeException("Missing 'spec' object field");
+>         }
+> 
+>         ObjectNode spec = (ObjectNode) node;
+>         JsonNode address = spec.get(Fields.ADDRESS);
+>         if (address == null || !address.isTextual()) {
+>             throw new DeserializeException("Missing 'address' string field in 'spec'");
+>         }
+> 
+>         JsonNode type = spec.get(Fields.TYPE);
+>         if (type == null || !type.isTextual()) {
+>             throw new DeserializeException("Missing 'type' string field in 'spec'");
+>         }
+> 
+>         JsonNode plan = spec.get(Fields.PLAN);
+>         if (plan == null || !plan.isTextual()) {
+>             throw new DeserializeException("Missing 'plan' string field in 'spec'");
+>         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/address-model-lib/src/test/java/io/enmasse/address/model/v1/address/SerializationTest.java after/address-model-lib/src/test/java/io/enmasse/address/model/v1/address/SerializationTest.java
+9a10
+> import io.enmasse.address.model.v1.DeserializeException;
+131a133,144
+>     }
+> 
+>     @Test(expected = DeserializeException.class)
+>     public void testDeserializeAddressSpaceMissingDefaults() throws IOException {
+>         String serialized = "{\"kind\": \"AddressSpace\", \"apiVersion\": \"v1\"}";
+>         CodecV1.getMapper().readValue(serialized, AddressSpace.class);
+>     }
+> 
+>     @Test(expected = DeserializeException.class)
+>     public void testDeserializeAddressMissingDefaults() throws IOException {
+>         String serialized = "{\"kind\": \"Address\", \"apiVersion\": \"v1\"}";
+>         CodecV1.getMapper().readValue(serialized, Address.class);
+Only in after/: bears.json

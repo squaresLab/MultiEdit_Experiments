@@ -1,0 +1,29 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Pt502ProtocolDecoder.java after/src/org/traccar/protocol/Pt502ProtocolDecoder.java
+2c2
+<  * Copyright 2012 - 2016 Anton Tananaev (anton@traccar.org)
+---
+>  * Copyright 2012 - 2017 Anton Tananaev (anton@traccar.org)
+46c46
+<             .number("(dd)(dd.dddd),")            // latitude
+---
+>             .number("(d+)(dd.dddd),")            // latitude
+48c48
+<             .number("(ddd)(dd.dddd),")           // longitude
+---
+>             .number("(d+)(dd.dddd),")            // longitude
+86,88c86
+<         String sentence = (String) msg;
+< 
+<         Parser parser = new Parser(PATTERN, sentence);
+---
+>         Parser parser = new Parser(PATTERN, (String) msg);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Pt502ProtocolDecoderTest.java after/test/org/traccar/protocol/Pt502ProtocolDecoderTest.java
+13a14,19
+>                 "$POS,865328026243864,151105.000,A,1332.7096,N,204.6787,E,0.0,10.00,050517,,,A/00000,10/1,0/234//FD9/"));
+> 
+>         verifyNull(decoder, text(
+>                 "$FUS865328026243864,510-V1.12,A11-V3.0"));
+> 
+>         verifyPosition(decoder, text(

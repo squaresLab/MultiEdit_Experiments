@@ -1,0 +1,25 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress20/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java d4j_patched/Compress20/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java
+331c331
+<         if (mode != 0){
+---
+>         if (CpioUtil.fileType(mode) != 0){ // mode is initialised to 0
+347c347
+<         if (mode == 0 && !name.equals(CPIO_TRAILER)){
+---
+>         if (CpioUtil.fileType(mode) == 0 && !name.equals(CPIO_TRAILER)){
+361c361
+<         if (mode != 0) {
+---
+>         if (CpioUtil.fileType(mode) != 0) {
+373c373
+<         if (mode == 0 && !name.equals(CPIO_TRAILER)){
+---
+>         if (CpioUtil.fileType(mode) == 0 && !name.equals(CPIO_TRAILER)){
+387c387
+<         if (mode != 0){
+---
+>         if (CpioUtil.fileType(mode) != 0){
+399c399
+<         if (mode == 0 && !name.equals(CPIO_TRAILER)){
+---
+>         if (CpioUtil.fileType(mode) == 0 && !name.equals(CPIO_TRAILER)){

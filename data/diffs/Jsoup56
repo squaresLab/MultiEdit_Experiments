@@ -1,0 +1,49 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup56/src/main/java/org/jsoup/nodes/DocumentType.java d4j_patched/Jsoup56/src/main/java/org/jsoup/nodes/DocumentType.java
+14a15
+>     private static final String PUB_SYS_KEY = "pubSysKey"; // PUBLIC or SYSTEM
+30a32,34
+>         if (has(PUBLIC_ID)) {
+>             attr(PUB_SYS_KEY, PUBLIC_KEY);
+>         }
+40a45,46
+>     public DocumentType(String name, String pubSysKey, String publicId, String systemId, String baseUri) {
+>         super(baseUri);
+41a48,54
+>         attr(NAME, name);
+>         if (pubSysKey != null) {
+>             attr(PUB_SYS_KEY, pubSysKey);
+>         }
+>         attr(PUBLIC_ID, publicId);
+>         attr(SYSTEM_ID, systemId);
+>     }
+57a71,72
+>         if (has(PUB_SYS_KEY))
+>             accum.append(" ").append(attr(PUB_SYS_KEY));
+59c74
+<             accum.append(" PUBLIC \"").append(attr(PUBLIC_ID)).append('"');
+---
+>             accum.append(" \"").append(attr(PUBLIC_ID)).append('"');
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup56/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java d4j_patched/Jsoup56/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+23c23
+<                     tb.settings.normalizeTag(d.getName()), d.getPublicIdentifier(), d.getSystemIdentifier(), tb.getBaseUri());
+---
+>                     tb.settings.normalizeTag(d.getName()), d.getPubSysKey(), d.getPublicIdentifier(), d.getSystemIdentifier(), tb.getBaseUri());
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup56/src/main/java/org/jsoup/parser/TokeniserState.java d4j_patched/Jsoup56/src/main/java/org/jsoup/parser/TokeniserState.java
+1194a1195
+>                 t.doctypePending.pubSysKey = DocumentType.PUBLIC_KEY;
+1196a1198
+>                 t.doctypePending.pubSysKey = DocumentType.SYSTEM_KEY;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup56/src/main/java/org/jsoup/parser/Token.java d4j_patched/Jsoup56/src/main/java/org/jsoup/parser/Token.java
+34a35
+>         String pubSysKey = null;
+45a47
+>             pubSysKey = null;
+55a58,60
+>         String getPubSysKey() {
+>             return pubSysKey;
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup56/src/main/java/org/jsoup/parser/XmlTreeBuilder.java d4j_patched/Jsoup56/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+100c100
+<         DocumentType doctypeNode = new DocumentType(settings.normalizeTag(d.getName()), d.getPublicIdentifier(), d.getSystemIdentifier(), baseUri);
+---
+>         DocumentType doctypeNode = new DocumentType(settings.normalizeTag(d.getName()), d.getPubSysKey(), d.getPublicIdentifier(), d.getSystemIdentifier(), baseUri);

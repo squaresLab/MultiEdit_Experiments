@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec17/src/main/java/org/apache/commons/codec/binary/StringUtils.java d4j_patched/Codec17/src/main/java/org/apache/commons/codec/binary/StringUtils.java
+339c339
+<         return new String(bytes, Charsets.ISO_8859_1);
+---
+>         return newString(bytes, Charsets.ISO_8859_1);

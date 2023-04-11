@@ -1,0 +1,41 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time3/src/main/java/org/joda/time/MutableDateTime.java d4j_patched/Time3/src/main/java/org/joda/time/MutableDateTime.java
+638a639
+>         if (amount != 0) {
+639a641
+>         }
+659a662
+>         if (years != 0) {
+660a664
+>         }
+680a685
+>         if (weekyears != 0) {
+681a687
+>         }
+701a708
+>         if (months != 0) {
+702a710
+>         }
+722a731
+>         if (weeks != 0) {
+723a733
+>         }
+763a774
+>         if (days != 0) {
+764a776
+>         }
+784a797
+>         if (hours != 0) {
+785a799
+>         }
+815a830
+>         if (minutes != 0) {
+816a832
+>         }
+846a863
+>         if (seconds != 0) {
+847a865
+>         }
+879a898
+>         if (millis != 0) {
+880a900
+>         }

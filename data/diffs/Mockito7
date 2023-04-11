@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito7/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java d4j_patched/Mockito7/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
+378a379
+>             registerTypeParametersOn(new TypeVariable[] { typeVariable });

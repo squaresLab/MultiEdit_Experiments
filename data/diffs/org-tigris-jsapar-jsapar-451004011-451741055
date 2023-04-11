@@ -1,0 +1,61 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/jsapar/compose/bean/BeanComposer.java after/src/main/java/org/jsapar/compose/bean/BeanComposer.java
+139c139
+<             if (sName == null || sName.isEmpty())
+---
+>             if (sName == null || sName.isEmpty() || cell.isEmpty())
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/jsapar/parse/bean/Bean2Cell.java after/src/main/java/org/jsapar/parse/bean/Bean2Cell.java
+230a231,233
+>         if(cell.isEmpty()) {
+>             return;
+>         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/jsapar/parse/bean/Bean2CellTest.java after/src/test/java/org/jsapar/parse/bean/Bean2CellTest.java
+6a7
+> import org.jsapar.model.StringCell;
+33,36c34
+<         BeanInfo beanInfo = Introspector.getBeanInfo(TstPerson.class);
+<         PropertyDescriptor propertyDescriptor = Arrays.stream(beanInfo.getPropertyDescriptors())
+<                 .filter(it -> it.getName().equals("adult")).findFirst().orElseThrow(AssertionError::new);
+<         Bean2Cell bean2Cell = Bean2Cell.ofCellName("adult", propertyDescriptor);
+---
+>         Bean2Cell bean2Cell = makeBean2CellOfPropertyName(TstPerson.class, "adult");
+50,53c48
+<         BeanInfo beanInfo = Introspector.getBeanInfo(TstPerson.class);
+<         PropertyDescriptor propertyDescriptor = Arrays.stream(beanInfo.getPropertyDescriptors())
+<                 .filter(it -> it.getName().equals("adult")).findFirst().orElseThrow(AssertionError::new);
+<         Bean2Cell bean2Cell = Bean2Cell.ofCellName("adult", propertyDescriptor);
+---
+>         Bean2Cell bean2Cell = makeBean2CellOfPropertyName(TstPerson.class, "adult");
+60a56,86
+> 
+>     @Test
+>     public void assign_String()
+>             throws IntrospectionException, InvocationTargetException, InstantiationException, IllegalAccessException,
+>             BeanComposeException {
+>         Bean2Cell bean2Cell = makeBean2CellOfPropertyName(TstPerson.class, "lastName");
+>         TstPerson tstPerson = new TstPerson();
+>         assertEquals("Nobody", tstPerson.getLastName());
+>         bean2Cell.assign(tstPerson, new StringCell("lastName", "Somebody"));
+>         assertEquals("Somebody", tstPerson.getLastName());
+>     }
+> 
+>     @SuppressWarnings("SameParameterValue")
+>     private Bean2Cell makeBean2CellOfPropertyName(Class<?> beanClass, String propertyName) throws IntrospectionException {
+>         BeanInfo beanInfo = Introspector.getBeanInfo(beanClass);
+>         PropertyDescriptor propertyDescriptor = Arrays.stream(beanInfo.getPropertyDescriptors())
+>                 .filter(it -> it.getName().equals(propertyName)).findFirst().orElseThrow(AssertionError::new);
+>         return Bean2Cell.ofCellName(propertyName, propertyDescriptor);
+>     }
+> 
+>     @Test
+>     public void assign_empty()
+>             throws IntrospectionException, InvocationTargetException, InstantiationException, IllegalAccessException,
+>             BeanComposeException {
+>         Bean2Cell bean2Cell = makeBean2CellOfPropertyName(TstPerson.class, "lastName");
+>         TstPerson tstPerson = new TstPerson();
+>         assertEquals("Nobody", tstPerson.getLastName());
+>         bean2Cell.assign(tstPerson, StringCell.emptyOf("lastName"));
+>         assertEquals("Nobody", tstPerson.getLastName());
+>     }
+> 

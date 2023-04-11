@@ -1,0 +1,21 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java after/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java
+9a10
+> import hu.oe.nik.szfmv.detector.classes.Detector;
+65d65
+< 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/hu/oe/nik/szfmv/environment/World.java after/src/main/java/hu/oe/nik/szfmv/environment/World.java
+16a17
+>     Detector d;
+28a30,33
+>         //create detector
+>         d = Detector.getDetector();
+>         //set detector's list
+>         d.setWorldObjects(getWorldObjects());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/hu/oe/nik/szfmv/Main.java after/src/main/java/hu/oe/nik/szfmv/Main.java
+35,38d34
+<         //create detector
+<         Detector d = Detector.getDetector();
+<         //set detector's list
+<         d.setWorldObjects(w.getWorldObjects());

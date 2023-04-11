@@ -1,0 +1,18 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath15/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java d4j_patched/JxPath15/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java
+19a20
+> import java.util.Iterator;
+21a23
+> import org.apache.commons.jxpath.Pointer;
+56d57
+<                             nodeSet.add(ptr);
+61a63,67
+>             sortPointers(pointers);
+> 
+>             for (Iterator it = pointers.iterator(); it.hasNext();) {
+>                 nodeSet.add((Pointer) it.next());
+>             }
+65c71
+< }
+---
+> }
+\ No newline at end of file

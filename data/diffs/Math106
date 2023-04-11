@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math106/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java d4j_patched/Math106/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java
+164a165
+>         if (num.intValue() < 0) {
+165a167,169
+>             pos.setIndex(initialIndex);
+>             return null;
+>         }
+199a204
+>         if (den.intValue() < 0) {
+200a206,208
+>             pos.setIndex(initialIndex);
+>             return null;
+>         }

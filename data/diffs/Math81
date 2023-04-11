@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math81/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java d4j_patched/Math81/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+602a603
+>         upperSpectra = Math.max(upperSpectra, upper);
+905,906c906,907
+<                     for (int i = 4 * i0; i < 4 * n0 - 11; i += 4) {
+<                         if ((work[i + 3] <= TOLERANCE_2 * work[i]) &&
+---
+>                     for (int i = 4 * i0; i < 4 * n0 - 16; i += 4) {
+>                         if ((work[i + 3] <= TOLERANCE_2 * work[i]) ||
+1543c1544
+<                 if (end - start > 2) {
+---
+>                 if (end - start > 3) {

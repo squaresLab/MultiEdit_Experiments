@@ -1,0 +1,67 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java after/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
+247a248
+> 		ctMethod.setDefaultMethod(method.isDefault());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java after/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java
+19a20
+> import java.lang.reflect.InvocationTargetException;
+25a27,28
+> import spoon.SpoonException;
+> 
+36a40
+> 	private boolean isDefault;
+39c43
+< 			Annotation[][] parameterAnnotations, boolean isVarArgs) {
+---
+> 			Annotation[][] parameterAnnotations, boolean isVarArgs, boolean isDefault) {
+49a54
+> 		this.isDefault = isDefault;
+91a97,100
+> 	public boolean isDefault() {
+> 		return isDefault;
+> 	}
+> 
+123c132,159
+< 				method.getDeclaredAnnotations(), method.getParameterAnnotations(), method.isVarArgs());
+---
+> 				method.getDeclaredAnnotations(), method.getParameterAnnotations(), method.isVarArgs(),
+> 				//spoon is compatible with Java 7, so compilation fails here
+> 				//method.isDefault());
+> 				_java8_isDefault(method));
+> 	}
+> 
+> 	private static Method _method_isDefault;
+> 	static {
+> 		try {
+> 			_method_isDefault = Method.class.getMethod("isDefault");
+> 		} catch (NoSuchMethodException | SecurityException e) {
+> 			//spoon is running with java 7 JDK
+> 			_method_isDefault = null;
+> 		}
+> 	}
+> 
+> 	private static boolean _java8_isDefault(Method method) {
+> 		if (_method_isDefault == null) {
+> 			//spoon is running with java 7 JDK, all methods are not default, because java 7 does not have default methods
+> 			return false;
+> 		}
+> 		try {
+> 			return (Boolean) _method_isDefault.invoke(method);
+> 		} catch (IllegalAccessException | IllegalArgumentException e) {
+> 			throw new SpoonException("Calling of Java8 Method#isDefault() failed", e);
+> 		} catch (InvocationTargetException e) {
+> 			throw new SpoonException("Calling of Java8 Method#isDefault() failed", e.getTargetException());
+> 		}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/interfaces/InterfaceTest.java after/src/test/java/spoon/test/interfaces/InterfaceTest.java
+17a18
+> import java.util.function.Consumer;
+53a55,62
+> 	}
+> 
+> 	@Test
+> 	public void testDefaultMethodInConsumer() throws Exception {
+> 		final CtInterface<?> ctInterface = (CtInterface<?>) factory.Type().get(Consumer.class);
+> 
+> 		final CtMethod<?> ctMethod = ctInterface.getMethodsByName("andThen").get(0);
+> 		assertTrue("The method in the interface must to be default", ctMethod.isDefaultMethod());

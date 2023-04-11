@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind36/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java d4j_patched/JacksonDatabind36/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
+249a250,254
+>     @Override // since 2.7
+>     public void setLenient(boolean enabled) {
+>         Boolean newValue = enabled;
+>         if (_lenient != newValue) {
+>             _lenient = newValue;
+250a256,258
+>             _clearFormats();
+>         }
+>     }
+555a564,566
+>         }
+>         if (lenient != null) {
+>             df.setLenient(lenient.booleanValue());

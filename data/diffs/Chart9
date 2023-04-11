@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart9/source/org/jfree/data/time/TimeSeries.java d4j_patched/Chart9/source/org/jfree/data/time/TimeSeries.java
+944c944
+<         if (endIndex < 0) {
+---
+>         if ((endIndex < 0)  || (endIndex < startIndex)) {
+Binary files d4j_buggy/Chart9/.svn/wc.db and d4j_patched/Chart9/.svn/wc.db differ

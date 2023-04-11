@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson18/gson/src/main/java/com/google/gson/internal/$Gson$Types.java d4j_patched/Gson18/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+277a278
+>     if (context instanceof WildcardType) {
+278a280,281
+>       context = ((WildcardType)context).getUpperBounds()[0];
+>     }

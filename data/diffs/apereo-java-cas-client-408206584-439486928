@@ -1,0 +1,69 @@
+Only in after/: bears.json
+Only in after/cas-client-core: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java after/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java
+260,270c260
+< 
+<     private static boolean serverNameContainsPort(final boolean containsScheme, final String serverName) {
+<         if (!containsScheme && serverName.contains(":")) {
+<             return true;
+<         }
+< 
+<         final int schemeIndex = serverName.indexOf(":");
+<         final int portIndex = serverName.lastIndexOf(":");
+<         return schemeIndex != portIndex;
+<     }
+< 
+---
+>     
+328,329d317
+< 
+<         boolean containsScheme = true;
+331,335c319,321
+<             builder = new URIBuilder(encode);
+<             builder.setScheme(request.isSecure() ? "https" : "http");
+<             builder.setHost(serverName);
+<             containsScheme = false;
+<         }  else {
+---
+>             String scheme = request.isSecure() ? "https://" : "http://";
+>             builder = new URIBuilder(scheme + serverName, encode);
+>         } else {
+339,340c325
+< 
+<         if (!serverNameContainsPort(containsScheme, serverName) && !requestIsOnStandardPort(request)) {
+---
+>         if (builder.getPort() == -1 && !requestIsOnStandardPort(request)) {
+344c329
+<         builder.setEncodedPath(request.getRequestURI());
+---
+>         builder.setEncodedPath(builder.getEncodedPath() + request.getRequestURI());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java after/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java
+525a526,529
+>     public String getEncodedPath() {
+>         return this.encodedPath;
+>     }
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/cas-client-core/src/test/java/org/jasig/cas/client/util/CommonUtilsTests.java after/cas-client-core/src/test/java/org/jasig/cas/client/util/CommonUtilsTests.java
+141a142,163
+>     public void testConstructServiceUrlWithServerNameContainingPath() {
+>         final MockHttpServletRequest request = new MockHttpServletRequest("GET", "/hello/hithere/");
+>         request.setScheme("https");
+>         request.setSecure(true);
+>         final MockHttpServletResponse response = new MockHttpServletResponse();
+>         final String constructedUrl = CommonUtils.constructServiceUrl(request, response, null, "www.my.server.com/app",
+>             Protocol.CAS3.getServiceParameterName(), Protocol.CAS3.getArtifactParameterName(), false);
+> 
+>         assertEquals("https://www.my.server.com/app/hello/hithere/", constructedUrl);
+>     }
+> 
+>     public void testConstructServiceUrlWithServerNameContainingPathAndSchema() {
+>         final MockHttpServletRequest request = new MockHttpServletRequest("GET", "/hello/hithere/");
+>         request.setScheme("https");
+>         request.setSecure(true);
+>         final MockHttpServletResponse response = new MockHttpServletResponse();
+>         final String constructedUrl = CommonUtils.constructServiceUrl(request, response, null, "https://www.my.server.com/app",
+>             Protocol.CAS3.getServiceParameterName(), Protocol.CAS3.getArtifactParameterName(), false);
+> 
+>         assertEquals("https://www.my.server.com/app/hello/hithere/", constructedUrl);
+>     }
+> 

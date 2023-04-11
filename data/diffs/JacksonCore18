@@ -1,0 +1,30 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore18/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java d4j_patched/JacksonCore18/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
+52a53
+>     protected final static int MAX_BIG_DECIMAL_SCALE = 9999;
+433a435
+>         if (Feature.WRITE_BIGDECIMAL_AS_PLAIN.enabledIn(_features)) {
+434a437,444
+>             int scale = value.scale();
+>             if ((scale < -MAX_BIG_DECIMAL_SCALE) || (scale > MAX_BIG_DECIMAL_SCALE)) {
+>                 _reportError(String.format(
+> "Attempt to write plain `java.math.BigDecimal` (see JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN) with illegal scale (%d): needs to be between [-%d, %d]",
+> scale, MAX_BIG_DECIMAL_SCALE, MAX_BIG_DECIMAL_SCALE));
+>             }
+>             return value.toPlainString();
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore18/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java d4j_patched/JacksonCore18/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+910,913c910
+<             String raw = Feature.WRITE_BIGDECIMAL_AS_PLAIN.enabledIn(_features) ? value.toPlainString() : value.toString();
+<             _writeQuotedRaw(raw);
+<         } else if (Feature.WRITE_BIGDECIMAL_AS_PLAIN.enabledIn(_features)) {
+<             writeRaw(value.toPlainString());
+---
+>             _writeQuotedRaw(_asString(value));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore18/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java d4j_patched/JacksonCore18/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
+687,690c687
+<             String raw = isEnabled(Feature.WRITE_BIGDECIMAL_AS_PLAIN) ? value.toPlainString() : value.toString();
+<             _writeQuotedRaw(raw);
+<         } else if (isEnabled(Feature.WRITE_BIGDECIMAL_AS_PLAIN)) {
+<             writeRaw(value.toPlainString());
+---
+>             _writeQuotedRaw(_asString(value));

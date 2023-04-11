@@ -1,0 +1,25 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli33/src/main/java/org/apache/commons/cli/HelpFormatter.java d4j_patched/Cli33/src/main/java/org/apache/commons/cli/HelpFormatter.java
+730c730
+<         renderWrappedText(sb, width, nextLineTabStop, text);
+---
+>         renderWrappedTextBlock(sb, width, nextLineTabStop, text);
+899a900,913
+>     private StringBuffer renderWrappedTextBlock(StringBuffer sb, int width, int nextLineTabStop, String text) {
+>         try {
+>             BufferedReader in = new BufferedReader(new StringReader(text));
+>             String line;
+>             boolean firstLine = true;
+>             while ((line = in.readLine()) != null) {
+>                 if (!firstLine) {
+>                     sb.append(getNewLine());
+>                 } else {
+>                     firstLine = false;
+>                 }
+>                 renderWrappedText(sb, width, nextLineTabStop, line);
+>             }
+>         } catch (IOException e) {
+900a915
+>         }
+901a917,918
+>         return sb;
+>     }

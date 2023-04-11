@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress4/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java d4j_patched/Compress4/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
+336d335
+<             this.finish();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress4/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java d4j_patched/Compress4/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+126d125
+<             finish();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress4/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java d4j_patched/Compress4/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java
+530d529
+<         finish();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress4/src/main/java/org/apache/commons/compress/changes/ChangeSetPerformer.java d4j_patched/Compress4/src/main/java/org/apache/commons/compress/changes/ChangeSetPerformer.java
+127a128
+>         out.finish();

@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv12/src/main/java/org/apache/commons/csv/CSVFormat.java d4j_patched/Csv12/src/main/java/org/apache/commons/csv/CSVFormat.java
+219c219
+<     public static final CSVFormat EXCEL = DEFAULT.withIgnoreEmptyLines(false);
+---
+>     public static final CSVFormat EXCEL = DEFAULT.withIgnoreEmptyLines(false).withAllowMissingColumnNames(true);

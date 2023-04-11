@@ -1,0 +1,52 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson1/gson/src/main/java/com/google/gson/TypeInfoFactory.java d4j_patched/Gson1/gson/src/main/java/com/google/gson/TypeInfoFactory.java
+92a93,94
+>       } else if (typeToEvaluate instanceof TypeVariable<?>) {
+>         Type theSearchedType = null;
+94c96,102
+< 
+---
+>         do {
+>           theSearchedType = extractTypeForHierarchy(parentType, (TypeVariable<?>) typeToEvaluate);
+>         } while ((theSearchedType != null) && (theSearchedType instanceof TypeVariable<?>));
+> 
+>         if (theSearchedType != null) {
+>           return theSearchedType;
+>         }
+108a117,126
+>   private static Type extractTypeForHierarchy(Type parentType, TypeVariable<?> typeToEvaluate) {
+>     Class<?> rawParentType = null;
+>     if (parentType instanceof Class<?>) {
+>       rawParentType = (Class<?>) parentType;
+>     } else if (parentType instanceof ParameterizedType) {
+>       ParameterizedType parentTypeAsPT = (ParameterizedType) parentType;
+>       rawParentType = (Class<?>) parentTypeAsPT.getRawType();
+>     } else {
+>       return null;
+>     }
+109a128,130
+>     Type superClass = rawParentType.getGenericSuperclass();
+>     if (superClass instanceof ParameterizedType
+>         && ((ParameterizedType) superClass).getRawType() == typeToEvaluate.getGenericDeclaration()) {
+110a132,143
+>       TypeVariable<?>[] classTypeVariables =
+>           ((Class<?>) ((ParameterizedType) superClass).getRawType()).getTypeParameters();
+>       int indexOfActualTypeArgument = getIndex(classTypeVariables, typeToEvaluate);
+> 
+>       Type[] actualTypeArguments = null;
+>       if (parentType instanceof Class<?>) {
+>         actualTypeArguments = ((ParameterizedType) superClass).getActualTypeArguments();
+>       } else if (parentType instanceof ParameterizedType) {
+>         actualTypeArguments = ((ParameterizedType) parentType).getActualTypeArguments();
+>       } else {
+>         return null;
+>       }
+111a145,146
+>       return actualTypeArguments[indexOfActualTypeArgument];
+>     }
+112a148,153
+>     Type searchedType = null;
+>     if (superClass != null) {
+>       searchedType = extractTypeForHierarchy(superClass, typeToEvaluate);
+>     }
+>     return searchedType;
+>   }

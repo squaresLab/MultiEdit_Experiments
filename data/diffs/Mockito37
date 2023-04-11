@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito37/src/org/mockito/internal/stubbing/answers/AnswersValidator.java d4j_patched/Mockito37/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
+27a28,30
+>         if (answer instanceof CallsRealMethods) {
+>             validateMockingConcreteClass((CallsRealMethods) answer, invocation);
+>         }
+29a33,37
+>     private void validateMockingConcreteClass(CallsRealMethods answer, Invocation invocation) {
+>         if (invocation.getMethod().getDeclaringClass().isInterface()) {
+>             reporter.cannotCallRealMethodOnInterface();
+>         }
+>     }

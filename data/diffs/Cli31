@@ -1,0 +1,19 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli31/src/main/java/org/apache/commons/cli/HelpFormatter.java d4j_patched/Cli31/src/main/java/org/apache/commons/cli/HelpFormatter.java
+653c653
+<         if (option.hasArg() && option.hasArgName())
+---
+>         if (option.hasArg() && (option.getArgName() == null || option.getArgName().length() != 0))
+656c656
+<             buff.append("<").append(option.getArgName()).append(">");
+---
+>             buff.append("<").append(option.getArgName() != null ? option.getArgName() : getArgName()).append(">");
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli31/src/main/java/org/apache/commons/cli/OptionBuilder.java d4j_patched/Cli31/src/main/java/org/apache/commons/cli/OptionBuilder.java
+80c80
+<         argName = "arg";
+---
+>         argName = null;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli31/src/main/java/org/apache/commons/cli/Option.java d4j_patched/Cli31/src/main/java/org/apache/commons/cli/Option.java
+57c57
+<     private String argName = "arg";
+---
+>     private String argName;

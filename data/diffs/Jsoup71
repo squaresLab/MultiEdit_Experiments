@@ -1,0 +1,32 @@
+Only in d4j_patched/Jsoup71/src/main/java/org/jsoup/nodes: PseudoTextElement.java
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup71/src/main/java/org/jsoup/select/Evaluator.java d4j_patched/Jsoup71/src/main/java/org/jsoup/select/Evaluator.java
+8a9,10
+> import org.jsoup.nodes.PseudoTextElement;
+> import org.jsoup.nodes.TextNode;
+753a756
+>     public static final class MatchText extends Evaluator {
+754a758,771
+>         @Override
+>         public boolean matches(Element root, Element element) {
+>             if (element instanceof PseudoTextElement)
+>                 return true;
+> 
+>             List<TextNode> textNodes = element.textNodes();
+>             for (TextNode textNode : textNodes) {
+>                 PseudoTextElement pel = new PseudoTextElement(
+>                     org.jsoup.parser.Tag.valueOf(element.tagName()), element.baseUri(), element.attributes());
+>                 textNode.replaceWith(pel);
+>                 pel.appendChild(textNode);
+>             }
+>             return false;
+>         }
+755a773,777
+>         @Override
+>         public String toString() {
+>             return ":matchText";
+>         }
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup71/src/main/java/org/jsoup/select/QueryParser.java d4j_patched/Jsoup71/src/main/java/org/jsoup/select/QueryParser.java
+202a203,204
+>         else if (tq.matchChomp(":matchText"))
+>             evals.add(new Evaluator.MatchText());

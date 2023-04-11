@@ -1,0 +1,26 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure21/src/com/google/javascript/jscomp/CheckSideEffects.java d4j_patched/Closure21/src/com/google/javascript/jscomp/CheckSideEffects.java
+101c101
+<     if (n.isExprResult()) {
+---
+>     if (n.isExprResult() || n.isBlock()) {
+113,130c113
+<     if (parent.getType() == Token.COMMA) {
+<       if (isResultUsed) {
+<         return;
+<       }
+<       if (n == parent.getLastChild()) {
+<         for (Node an : parent.getAncestors()) {
+<           int ancestorType = an.getType();
+<           if (ancestorType == Token.COMMA) continue;
+<           if (ancestorType != Token.EXPR_RESULT && ancestorType != Token.BLOCK) return;
+<           else break;
+<         }
+<       }
+<     } else if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+<       if (! (parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+<         return;
+<       }
+<     }
+<     if (
+---
+>     if (!isResultUsed &&

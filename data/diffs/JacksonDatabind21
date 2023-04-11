@@ -1,0 +1,23 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind21/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java d4j_patched/JacksonDatabind21/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+3a4
+> import java.lang.reflect.Field;
+63a65,67
+>     @Override
+>     public String findEnumValue(Enum<?> value)
+>     {
+66a71
+>         try {
+67a73,81
+>             Field f = value.getClass().getField(value.name());
+>             if (f != null) {
+>                 JsonProperty prop = f.getAnnotation(JsonProperty.class);
+>                 String n = prop.value();
+>                 if (n != null && !n.isEmpty()) {
+>                     return n;
+>                 }
+>             }
+>         } catch (Exception e) {
+68a83,85
+>         }
+>         return value.name();
+>     }

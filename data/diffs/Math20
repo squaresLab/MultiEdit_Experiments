@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math20/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java d4j_patched/Math20/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+921c921,922
+<             return
+---
+>             return boundaries != null && isRepairMode ?
+>                 decode(repair(x)) :

@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind11/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java d4j_patched/JacksonDatabind11/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+895c895
+<             return _unknownType();
+---
+>             context = new TypeBindings(this, (Class<?>) null);
+902c902
+<             JavaType actualType = context.findType(name);
+---
+>             JavaType actualType = context.findType(name, false);

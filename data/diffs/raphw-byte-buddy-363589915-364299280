@@ -1,0 +1,22 @@
+Only in after/: bears.json
+Only in after/byte-buddy-dep: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java after/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java
+320,322c320,323
+<             }
+<             if (invocationTarget.isInterface()) {
+<                 return INTERFACE.new Invocation(methodDescription, invocationTarget);
+---
+>             } else if (invocationTarget.isInterface()) {
+>                 return methodDescription.getDeclaringType().represents(Object.class)
+>                         ? this
+>                         : INTERFACE.new Invocation(methodDescription, invocationTarget);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/test/java/net/bytebuddy/implementation/bytecode/member/MethodInvocationTest.java after/byte-buddy-dep/src/test/java/net/bytebuddy/implementation/bytecode/member/MethodInvocationTest.java
+184a185,192
+>     public void testExplicitlyVirtualMethodInvocationOfInterfaceOfObjectMethod() throws Exception {
+>         when(declaringType.isAssignableFrom(rawOtherType)).thenReturn(true);
+>         when(rawOtherType.isInterface()).thenReturn(true);
+>         when(declaringType.represents(Object.class)).thenReturn(true);
+>         assertInvocation(MethodInvocation.invoke(methodDescription).virtual(rawOtherType), Opcodes.INVOKEVIRTUAL, FOO, false);
+>     }
+> 
+>     @Test

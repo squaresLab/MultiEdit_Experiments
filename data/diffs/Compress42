@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress42/src/main/java/org/apache/commons/compress/archivers/zip/UnixStat.java d4j_patched/Compress42/src/main/java/org/apache/commons/compress/archivers/zip/UnixStat.java
+34a35
+>     int FILE_TYPE_FLAG = 0170000;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress42/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java d4j_patched/Compress42/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
+297c297
+<         return (getUnixMode() & UnixStat.LINK_FLAG) == UnixStat.LINK_FLAG;
+---
+>         return (getUnixMode() & UnixStat.FILE_TYPE_FLAG) == UnixStat.LINK_FLAG;

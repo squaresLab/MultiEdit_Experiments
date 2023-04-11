@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure147/src/com/google/javascript/jscomp/CheckGlobalThis.java d4j_patched/Closure147/src/com/google/javascript/jscomp/CheckGlobalThis.java
+108c108,109
+<             pType == Token.ASSIGN)) {
+---
+>             pType == Token.ASSIGN ||
+>             pType == Token.OBJECTLIT)) {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure147/src/com/google/javascript/jscomp/RuntimeTypeCheck.java d4j_patched/Closure147/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+246a247,251
+>       for (Node next = block.getFirstChild();
+>            next != null && NodeUtil.isFunctionDeclaration(next);
+>            next = next.getNext()) {
+>         insertionPoint = next;
+>       }

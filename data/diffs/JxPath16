@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath16/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java d4j_patched/JxPath16/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+147,148c147
+<                     return nodeType == Node.ELEMENT_NODE
+<                             || nodeType == Node.DOCUMENT_NODE;
+---
+>                     return true;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath16/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java d4j_patched/JxPath16/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+391c391
+<                     return (node instanceof Element) || (node instanceof Document);
+---
+>                     return true;

@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math25/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java d4j_patched/Math25/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+322a323
+>                 if (c2 == 0) {
+324a326,327
+>                     throw new MathIllegalStateException(LocalizedFormats.ZERO_DENOMINATOR);
+>                 }

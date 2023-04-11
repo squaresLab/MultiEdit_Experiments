@@ -1,0 +1,54 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math66/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java d4j_patched/Math66/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
+44c44
+<         setMaxEvaluations(Integer.MAX_VALUE);
+---
+>         setMaxEvaluations(1000);
+46,47c46,47
+<         setAbsoluteAccuracy(1E-10);
+<         setRelativeAccuracy(1.0e-14);
+---
+>         setAbsoluteAccuracy(1e-11);
+>         setRelativeAccuracy(1e-9);
+57,60d56
+<         throw new UnsupportedOperationException();
+<     }
+<     public double optimize(final UnivariateRealFunction f, final GoalType goalType, final double min, final double max, final double startValue) throws MaxIterationsExceededException, FunctionEvaluationException {
+<         clearResult();
+62c58
+<                         f, goalType, min, startValue, max,
+---
+>                         getMin(), getStartValue(), getMax(),
+65,67d60
+<     public double optimize(final UnivariateRealFunction f, final GoalType goalType, final double min, final double max) throws MaxIterationsExceededException, FunctionEvaluationException {
+<         return optimize(f, goalType, min, max, min + GOLDEN_SECTION * (max - min));
+<     }
+94,95d86
+<                             UnivariateRealFunction f,
+<                             GoalType goalType,
+119,120c110,111
+<         double fx = computeObjectiveValue(f, x);
+<         if (goalType == GoalType.MAXIMIZE) {
+---
+>         double fx = computeObjectiveValue(x);
+>         if (!isMinim) {
+126,127c117
+<         int count = 0;
+<         while (count < maximalIterationCount) {
+---
+>         while (true) {
+200,201c190,191
+<                 double fu = computeObjectiveValue(f, u);
+<                 if (goalType == GoalType.MAXIMIZE) {
+---
+>                 double fu = computeObjectiveValue(u);
+>                 if (!isMinim) {
+238c228
+<                 setResult(x, (goalType == GoalType.MAXIMIZE) ? -fx : fx, count);
+---
+>                 setFunctionValue(isMinim ? fx : -fx);
+241c231
+<             ++count;
+---
+>             incrementIterationsCounter();
+243d232
+<         throw new MaxIterationsExceededException(maximalIterationCount);

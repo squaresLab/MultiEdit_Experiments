@@ -1,0 +1,59 @@
+Only in after/: bears.json
+Only in after/debezium-connector-mysql: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDefaultValuePreConverter.java after/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDefaultValuePreConverter.java
+36d35
+<     private static final Pattern ALL_ZERO_TIMESTAMP = Pattern.compile("0000-00-00 00:00:00(\\.\\d{1,6})?");
+38c37,39
+<     private static final String ALL_ZERO_DATE = "0000-00-00";
+---
+>     private static final Pattern EPOCH_EQUIVALENT_TIMESTAMP = Pattern.compile("(\\d{4}-\\d{2}-00|\\d{4}-00-\\d{2}|0000-\\d{2}-\\d{2}) (00:00:00(\\.\\d{1,6})?)");
+> 
+>     private static final Pattern EPOCH_EQUIVALENT_DATE = Pattern.compile("\\d{4}-\\d{2}-00|\\d{4}-00-\\d{2}|0000-\\d{2}-\\d{2}");
+100c101
+<         final boolean zero = ALL_ZERO_DATE.equals(value) || "0".equals(value);
+---
+>         final boolean zero = EPOCH_EQUIVALENT_DATE.matcher(value).matches() || "0".equals(value);
+120c121
+<         final boolean matches = ALL_ZERO_TIMESTAMP.matcher(value).matches() || "0".equals(value);
+---
+>         final boolean matches = EPOCH_EQUIVALENT_TIMESTAMP.matcher(value).matches() || "0".equals(value);
+142c143
+<         final boolean matches = ALL_ZERO_TIMESTAMP.matcher(value).matches() || "0".equals(value) || EPOCH_TIMESTAMP.equals(value);
+---
+>         final boolean matches = EPOCH_EQUIVALENT_TIMESTAMP.matcher(value).matches() || "0".equals(value) || EPOCH_TIMESTAMP.equals(value);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/debezium-connector-mysql/src/test/java/io/debezium/connector/mysql/AbstractMysqlDefaultValueTest.java after/debezium-connector-mysql/src/test/java/io/debezium/connector/mysql/AbstractMysqlDefaultValueTest.java
+342c342,345
+<                 "  L datetime(2) NOT NULL DEFAULT '2018-06-26 12:34:56.78'" +
+---
+>                 "  L datetime(2) NOT NULL DEFAULT '2018-06-26 12:34:56.78'," +
+>                 "  M datetime NOT NULL DEFAULT '2000-01-00 00:00:00'," +
+>                 "  N datetime NOT NULL DEFAULT '0000-12-01 00:00:00'," +
+>                 "  O datetime NOT NULL DEFAULT '2000-00-01 00:00:00'" +
+357a361,387
+>         assertThat(table.columnWithName("M").defaultValue()).isEqualTo((Date.from(Instant.ofEpochMilli(0))));
+>         assertThat(table.columnWithName("N").defaultValue()).isEqualTo((Date.from(Instant.ofEpochMilli(0))));
+>         assertThat(table.columnWithName("O").defaultValue()).isEqualTo((Date.from(Instant.ofEpochMilli(0))));
+>     }
+> 
+>     @Test
+>     public void parseDateDefaultValue() {
+>         String sql = "CREATE TABLE DATE_TABLE (" +
+>                 "  A date NOT NULL DEFAULT '0000-00-00'," +
+>                 "  B date NOT NULL DEFAULT '2018-00-01'," +
+>                 "  C date NOT NULL DEFAULT '0000-12-31'," +
+>                 "  D date NOT NULL DEFAULT '2018-01-00'," +
+>                 "  E date NOT NULL DEFAULT '9999-09-09'," +
+>                 "  F date NOT NULL DEFAULT '1111-11-11'," +
+>                 "  G date NOT NULL DEFAULT '2018-08-31'," +
+>                 "  H date NOT NULL DEFAULT 0" +
+>                 ");";
+>         parser.parse(sql, tables);
+>         Table table = tables.forTable(new TableId(null, null, "DATE_TABLE"));
+>         assertThat(table.columnWithName("A").defaultValue()).isEqualTo((Date.from(Instant.ofEpochMilli(0))));
+>         assertThat(table.columnWithName("B").defaultValue()).isEqualTo((Date.from(Instant.ofEpochMilli(0))));
+>         assertThat(table.columnWithName("C").defaultValue()).isEqualTo((Date.from(Instant.ofEpochMilli(0))));
+>         assertThat(table.columnWithName("D").defaultValue()).isEqualTo((Date.from(Instant.ofEpochMilli(0))));
+>         assertThat(table.columnWithName("E").defaultValue()).isEqualTo(Date.from(ZonedDateTime.of(9999, 9, 9, 0, 0, 0, 0, ZoneOffset.UTC).toInstant()));
+>         assertThat(table.columnWithName("F").defaultValue()).isEqualTo(Date.from(ZonedDateTime.of(1111, 11, 11, 0, 0, 0, 0, ZoneOffset.UTC).toInstant()));
+>         assertThat(table.columnWithName("G").defaultValue()).isEqualTo(Date.from(ZonedDateTime.of(2018, 8, 31, 0, 0, 0, 0, ZoneOffset.UTC).toInstant()));
+>         assertThat(table.columnWithName("H").defaultValue()).isEqualTo((Date.from(Instant.ofEpochMilli(0))));

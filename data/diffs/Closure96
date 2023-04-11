@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure96/src/com/google/javascript/jscomp/TypeCheck.java d4j_patched/Closure96/src/com/google/javascript/jscomp/TypeCheck.java
+1409c1409,1410
+<            parameters.hasNext()) {
+---
+>            (parameters.hasNext() ||
+>             parameter != null && parameter.isVarArgs())) {
+1411a1413
+>       if (parameters.hasNext()) {
+1412a1415
+>       }

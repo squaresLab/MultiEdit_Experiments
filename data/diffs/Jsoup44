@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup44/src/main/java/org/jsoup/parser/TreeBuilder.java d4j_patched/Jsoup44/src/main/java/org/jsoup/parser/TreeBuilder.java
+60a61,63
+>         if (currentToken == start) { // don't recycle an in-use token
+>             return process(new Token.StartTag().name(name));
+>         }
+64a68,70
+>         if (currentToken == start) { // don't recycle an in-use token
+>             return process(new Token.StartTag().nameAttr(name, attrs));
+>         }
+70a77,79
+>         if (currentToken == end) { // don't recycle an in-use token
+>             return process(new Token.EndTag().name(name));
+>         }

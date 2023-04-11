@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure131/src/com/google/javascript/rhino/TokenStream.java d4j_patched/Closure131/src/com/google/javascript/rhino/TokenStream.java
+193a194
+>           Character.isIdentifierIgnorable(s.charAt(0)) ||
+199c200
+<         if (
+---
+>         if (Character.isIdentifierIgnorable(s.charAt(i)) ||

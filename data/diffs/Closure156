@@ -1,0 +1,56 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure156/src/com/google/javascript/jscomp/CollapseProperties.java d4j_patched/Closure156/src/com/google/javascript/jscomp/CollapseProperties.java
+455,456c455,456
+<     if (n.canCollapse() && canCollapseChildNames) {
+<       updateObjLitOrFunctionDeclaration(n, alias);
+---
+>     if (n.canCollapse()) {
+>       updateObjLitOrFunctionDeclaration(n, alias, canCollapseChildNames);
+574c574,575
+<   private void updateObjLitOrFunctionDeclaration(Name n, String alias) {
+---
+>   private void updateObjLitOrFunctionDeclaration(
+>       Name n, String alias, boolean canCollapseChildNames) {
+589c590,591
+<         updateObjLitOrFunctionDeclarationAtAssignNode(n, alias);
+---
+>         updateObjLitOrFunctionDeclarationAtAssignNode(
+>             n, alias, canCollapseChildNames);
+592c594
+<         updateObjLitOrFunctionDeclarationAtVarNode(n);
+---
+>         updateObjLitOrFunctionDeclarationAtVarNode(n, canCollapseChildNames);
+595c597
+<         updateFunctionDeclarationAtFunctionNode(n);
+---
+>         updateFunctionDeclarationAtFunctionNode(n, canCollapseChildNames);
+609c611
+<       Name n, String alias) {
+---
+>       Name n, String alias, boolean canCollapseChildNames) {
+653c655,656
+<     if (isObjLit) {
+---
+>     if (canCollapseChildNames) {
+>       if (isObjLit) {
+656a660
+>       }
+658d661
+<     }
+659a663
+>     }
+699c703,707
+<   private void updateObjLitOrFunctionDeclarationAtVarNode(Name n) {
+---
+>   private void updateObjLitOrFunctionDeclarationAtVarNode(
+>       Name n, boolean canCollapseChildNames) {
+>     if (!canCollapseChildNames) {
+>       return;
+>     }
+742c750,754
+<   private void updateFunctionDeclarationAtFunctionNode(Name n) {
+---
+>   private void updateFunctionDeclarationAtFunctionNode(
+>       Name n, boolean canCollapseChildNames) {
+>     if (!canCollapseChildNames) {
+>       return;
+>     }

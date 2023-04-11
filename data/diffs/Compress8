@@ -1,0 +1,54 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress8/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java d4j_patched/Compress8/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+53d52
+<         boolean stillPadding = true;
+56a56,60
+>         if (length < 2){
+>             throw new IllegalArgumentException("Length "+length+" must be at least 2");
+>         }
+> 
+>         boolean allNUL = true;
+58,59c62,63
+<             final byte currentByte = buffer[i];
+<             if (currentByte == 0) {
+---
+>             if (buffer[i] != 0){
+>                 allNUL = false;
+61a66,69
+>         }
+>         if (allNUL) {
+>             return 0L;
+>         }
+64,68c72,75
+<             if (currentByte == (byte) ' ' || currentByte == '0') {
+<                 if (stillPadding) {
+<                    continue;
+<             }
+<                 if (currentByte == (byte) ' ') {
+---
+>         while (start < end){
+>             if (buffer[start] == ' '){
+>                 start++;
+>             } else {
+70d76
+<                 }
+71a78
+>         }
+73a81,88
+>         byte trailer;
+>         trailer = buffer[end-1];
+>         if (trailer == 0 || trailer == ' '){
+>             end--;
+>         } else {
+>             throw new IllegalArgumentException(
+>                     exceptionMessage(buffer, offset, length, end-1, trailer));
+>         }
+74a90,93
+>         trailer = buffer[end-1];
+>         if (trailer == 0 || trailer == ' '){
+>             end--;
+>         }
+76c95,96
+<             stillPadding = false;
+---
+>         for ( ;start < end; start++) {
+>             final byte currentByte = buffer[start];

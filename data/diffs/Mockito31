@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito31/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java d4j_patched/Mockito31/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
+8a9
+> import java.util.Arrays;
+60c61,62
+< 			return invocation.getMethod().getName() + "()";
+---
+> 			String args = Arrays.toString(invocation.getArguments());
+> 			return invocation.getMethod().getName() + "(" + args.substring(1, args.length() - 1) +	")";

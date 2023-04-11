@@ -1,0 +1,38 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonXml2/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java d4j_patched/JacksonXml2/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java
+61a62
+>     protected boolean _mixedText;
+323a325
+>             final boolean startElementNext = _xmlReader.getEventType() == XMLStreamReader.START_ELEMENT;
+325c327,329
+<             if (_xmlReader.getEventType() == XMLStreamReader.START_ELEMENT) {
+---
+>             if (startElementNext) {
+>                 if (text == null || _allWs(text)) {
+>                     _mixedText = false;
+326a331,334
+>                 }
+>                 _mixedText = true;
+>                 _textValue = text;
+>                 return (_currentState = XML_TEXT);
+329a338
+>                 _mixedText = false;
+332a342
+>             _mixedText = false;
+339a350,353
+>             if (_mixedText){
+>                 _mixedText = false;
+>                 return _initStartElement();
+>             }
+505a520,531
+>     protected boolean _allWs(String str)
+>     {
+>         final int len = (str == null) ? 0 : str.length();
+>         if (len > 0) {
+>             for (int i = 0; i < len; ++i) {
+>                 if (str.charAt(i) > ' ') {
+>                     return false;
+>                 }
+>             }
+>         }
+>         return true;
+>     }

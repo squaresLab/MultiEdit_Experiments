@@ -1,0 +1,26 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math97/src/java/org/apache/commons/math/analysis/BrentSolver.java d4j_patched/Math97/src/java/org/apache/commons/math/analysis/BrentSolver.java
+138c138
+<         if (sign >= 0) {
+---
+>         if (sign > 0) {
+139a140,146
+>             if (Math.abs(yMin) <= functionValueAccuracy) {
+>                 setResult(min, 0);
+>                 ret = min;
+>             } else if (Math.abs(yMax) <= functionValueAccuracy) {
+>                 setResult(max, 0);
+>                 ret = max;
+>             } else {
+145c152,153
+<         } else {
+---
+>             }
+>         } else if (sign < 0){
+147a156
+>         } else {
+148a158,162
+>             if (yMin == 0.0) {
+>                 ret = min;
+>             } else {
+>                 ret = max;
+>             }

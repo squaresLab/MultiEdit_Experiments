@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind45/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java d4j_patched/JacksonDatabind45/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+63c63,64
+<                 if (format.getShape() == JsonFormat.Shape.STRING) {
+---
+>                 if ((shape == JsonFormat.Shape.STRING) || format.hasPattern()
+>                                 || format.hasLocale() || format.hasTimeZone()) {

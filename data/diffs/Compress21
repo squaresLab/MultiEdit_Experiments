@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress21/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java d4j_patched/Compress21/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java
+639,640c639
+<             --shift;
+<             if (shift == 0) {
+---
+>             if (--shift < 0) {
+646c645
+<         if (length > 0 && shift > 0) {
+---
+>         if (shift != 7) {

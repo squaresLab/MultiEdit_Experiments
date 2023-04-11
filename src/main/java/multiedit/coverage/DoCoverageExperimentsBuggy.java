@@ -104,9 +104,10 @@ public class DoCoverageExperimentsBuggy {
 
                 if (n == D4JName.MOCKITO) continue; // manual effort required
                 for (int i : n.bugs) {
-                    if (!d4jMultitestMultiedit.get(n).contains(i)) {
-                        continue;
-                    }
+//                    if (!d4jMultitestMultiedit.get(n).contains(i)) {
+//                        continue;
+//                    }
+                    if (true) continue;
 
                     Defects4JPatch p;
                     Collection<CoverageSubset> coverageFailingTests;
@@ -137,7 +138,7 @@ public class DoCoverageExperimentsBuggy {
             for (int i = 1; i <= BearsPatch.TOTAL_BUGS; i++) {
 //                if (true) continue;
 
-                if (!bearsMultitestMultiedit.contains(i)) continue;
+//                if (!bearsMultitestMultiedit.contains(i)) continue;
                 try {
                     BearsPatch b = new BearsPatch(i);
                     System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" + b.getPatchName());

@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito32/src/org/mockito/internal/configuration/SpyAnnotationEngine.java d4j_patched/Mockito32/src/org/mockito/internal/configuration/SpyAnnotationEngine.java
+18a19
+> import static org.mockito.Mockito.withSettings;
+49c50,53
+<                         field.set(testClass, Mockito.spy(instance));
+---
+>                         field.set(testClass, Mockito.mock(instance.getClass(), withSettings()
+>                                 .spiedInstance(instance)
+>                                 .defaultAnswer(Mockito.CALLS_REAL_METHODS)
+>                                 .name(field.getName())));

@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore25/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java d4j_patched/JacksonCore25/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+1963c1963
+<             if (i <= maxCode) {
+---
+>             if (i < maxCode) {

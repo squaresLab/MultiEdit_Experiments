@@ -1,0 +1,36 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind55/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java d4j_patched/JacksonDatabind55/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
+9a10
+> import com.fasterxml.jackson.databind.util.EnumValues;
+82c83,84
+<                 return new Default(Default.TYPE_ENUM, rawKeyType);
+---
+>                 return EnumKeySerializer.construct(rawKeyType,
+>                         EnumValues.constructFromName(config, (Class<Enum<?>>) rawKeyType));
+214a217,219
+>     public static class EnumKeySerializer extends StdSerializer<Object>
+>     {
+>         protected final EnumValues _values;
+215a221,224
+>         protected EnumKeySerializer(Class<?> enumType, EnumValues values) {
+>             super(enumType, false);
+>             _values = values;
+>         }
+216a226,230
+>         public static EnumKeySerializer construct(Class<?> enumType,
+>                 EnumValues enumValues)
+>         {
+>             return new EnumKeySerializer(enumType, enumValues);
+>         }
+217a232,243
+>         @Override
+>         public void serialize(Object value, JsonGenerator g, SerializerProvider serializers)
+>                 throws IOException
+>         {
+>             if (serializers.isEnabled(SerializationFeature.WRITE_ENUMS_USING_TO_STRING)) {
+>                 g.writeFieldName(value.toString());
+>                 return;
+>             }
+>             Enum<?> en = (Enum<?>) value;
+>             g.writeFieldName(_values.serializedValueFor(en));
+>         }
+>     }

@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli26/src/java/org/apache/commons/cli/OptionBuilder.java d4j_patched/Cli26/src/java/org/apache/commons/cli/OptionBuilder.java
+347a348,349
+>         Option option = null;
+>         try {
+349c351
+<         Option option = new Option(opt, description);
+---
+>             option = new Option(opt, description);
+358a361
+>         } finally {
+360a364
+>         }

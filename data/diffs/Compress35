@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress35/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java d4j_patched/Compress35/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+594c594
+<         long storedSum = 0;
+---
+>         long storedSum = parseOctal(header, CHKSUM_OFFSET, CHKSUMLEN);
+602,606d601
+<                 if ('0' <= b && b <= '7' && digits++ < 6) {
+<                     storedSum = storedSum * 8 + b - '0';
+<                 } else if (digits > 0) {
+<                     digits = 6;
+<                 }

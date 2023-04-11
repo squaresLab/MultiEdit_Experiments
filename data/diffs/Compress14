@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress14/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java d4j_patched/Compress14/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+65,72c65
+<         boolean allNUL = true;
+<         for (int i = start; i < end; i++){
+<             if (buffer[i] != 0){
+<                 allNUL = false;
+<                 break;
+<             }
+<         }
+<         if (allNUL) {
+---
+>         if (buffer[start] == 0) {

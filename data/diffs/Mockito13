@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito13/src/org/mockito/internal/MockHandler.java d4j_patched/Mockito13/src/org/mockito/internal/MockHandler.java
+77c77
+<             if (verificationMode instanceof MockAwareVerificationMode && ((MockAwareVerificationMode) verificationMode).getMock() == invocation.getMock()) {                
+---
+>             if (((MockAwareVerificationMode) verificationMode).getMock() == invocation.getMock()) {                
+80a81
+>             } else {
+82a84
+>                 mockingProgress.verificationStarted(verificationMode);

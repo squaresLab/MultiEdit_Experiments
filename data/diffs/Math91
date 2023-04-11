@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math91/src/java/org/apache/commons/math/fraction/Fraction.java d4j_patched/Math91/src/java/org/apache/commons/math/fraction/Fraction.java
+259,260c259,260
+<         double nOd = doubleValue();
+<         double dOn = object.doubleValue();
+---
+>         long nOd = ((long) numerator) * object.denominator;
+>         long dOn = ((long) denominator) * object.numerator;

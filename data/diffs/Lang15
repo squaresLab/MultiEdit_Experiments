@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang15/src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java d4j_patched/Lang15/src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java
+219,221c219,221
+<         for (Map.Entry<TypeVariable<?>, Type> entry : toTypeVarAssigns.entrySet()) {
+<             Type toTypeArg = entry.getValue();
+<             Type fromTypeArg = fromTypeVarAssigns.get(entry.getKey());
+---
+>         for (TypeVariable<?> var : toTypeVarAssigns.keySet()) {
+>             Type toTypeArg = unrollVariableAssignments(var, toTypeVarAssigns);
+>             Type fromTypeArg = unrollVariableAssignments(var, fromTypeVarAssigns);
+675c675
+<         if (cls.getTypeParameters().length > 0 || toClass.equals(cls)) {
+---
+>         if (toClass.equals(cls)) {

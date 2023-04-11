@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup84/src/main/java/org/jsoup/helper/W3CDom.java d4j_patched/Jsoup84/src/main/java/org/jsoup/helper/W3CDom.java
+91c91,92
+<                 Element el = 
+---
+>                 Element el = namespace == null && tagName.contains(":") ?
+>                     doc.createElementNS("", tagName) : // doesn't have a real namespace defined

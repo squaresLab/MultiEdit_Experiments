@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli20/src/java/org/apache/commons/cli/PosixParser.java d4j_patched/Cli20/src/java/org/apache/commons/cli/PosixParser.java
+114c114,117
+<                 if (token.indexOf('=') != -1)
+---
+>                 int pos = token.indexOf('=');
+>                 String opt = pos == -1 ? token : token.substring(0, pos); // --foo
+> 
+>                 if (!options.hasOption(opt) && stopAtNonOption)
+116,117c119
+<                     tokens.add(token.substring(0, token.indexOf('=')));
+<                     tokens.add(token.substring(token.indexOf('=') + 1, token.length()));
+---
+>                     process(token);
+121c123,126
+<                     tokens.add(token);
+---
+>                     tokens.add(opt);
+>                     if (pos != -1) {
+>                         tokens.add(token.substring(pos + 1));
+>                     }

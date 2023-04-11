@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time16/src/main/java/org/joda/time/format/DateTimeFormatter.java d4j_patched/Time16/src/main/java/org/joda/time/format/DateTimeFormatter.java
+709c709
+<             instantLocal, chrono, iLocale, iPivotYear, iDefaultYear);
+---
+>             instantLocal, chrono, iLocale, iPivotYear, chrono.year().get(instantLocal));

@@ -1,0 +1,31 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup11/src/main/java/org/jsoup/select/Selector.java d4j_patched/Jsoup11/src/main/java/org/jsoup/select/Selector.java
+109a110,111
+>         } else if (tq.matches(":has(")) {
+>             elements.addAll(root.getAllElements());
+180a183,184
+>         } else if (tq.matches(":not(")) {
+>             return not();
+304a309,312
+>     private Elements not() {
+>         tq.consume(":not");
+>         String subQuery = tq.chompBalanced('(', ')');
+>         Validate.notEmpty(subQuery, ":not(selector) subselect must not be empty");
+305a314,315
+>         return filterOut(root.getAllElements(), select(subQuery, root));
+>     }
+398a409,423
+>     static Elements filterOut(Collection<Element> elements, Collection<Element> outs) {
+>         Elements output = new Elements();
+>         for (Element el: elements) {
+>             boolean found = false;
+>             for (Element out: outs) {
+>                 if (el.equals(out)) {
+>                     found = true;
+>                     break;
+>                 }
+>             }
+>             if (!found)
+>                 output.add(el);
+>         }
+>         return output;
+>     }

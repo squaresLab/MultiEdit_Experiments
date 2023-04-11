@@ -1,0 +1,34 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math21/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java d4j_patched/Math21/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
+69d68
+<         int[] swap  = new int[order];
+79c78
+<             swap[r] = r;
+---
+>             int swapR = r;
+82,84c81,83
+<                 int isi = index[swap[i]];
+<                 if (c[ii][ii] > c[isi][isi]) {
+<                     swap[r] = i;
+---
+>                 int isr = index[swapR];
+>                 if (c[ii][ii] > c[isr][isr]) {
+>                     swapR = i;
+90,93c89,95
+<             if (swap[r] != r) {
+<                 int tmp = index[r];
+<                 index[r] = index[swap[r]];
+<                 index[swap[r]] = tmp;
+---
+>             if (swapR != r) {
+>                 final int tmpIndex    = index[r];
+>                 index[r]              = index[swapR];
+>                 index[swapR]          = tmpIndex;
+>                 final double[] tmpRow = b[r];
+>                 b[r]                  = b[swapR];
+>                 b[swapR]              = tmpRow;
+123a126
+>                 final double inverse2 = 1 / c[ir][ir];
+128c131
+<                     c[ii][ii] -= e * e;
+---
+>                     c[ii][ii] -= c[ii][ir] * c[ii][ir] * inverse2;

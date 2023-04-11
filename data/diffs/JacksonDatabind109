@@ -1,0 +1,66 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind109/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java d4j_patched/JacksonDatabind109/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
+36a37
+>     protected final static int MAX_BIG_DECIMAL_SCALE = 9999;
+57a59,61
+>                 if (((Class<?>) handledType()) == BigDecimal.class) {
+>                     return bigDecimalAsStringSerializer();
+>                 }
+112a117,119
+>     public static JsonSerializer<?> bigDecimalAsStringSerializer() {
+>         return BigDecimalAsStringSerializer.BD_INSTANCE;
+>     }
+113a121,128
+>     final static class BigDecimalAsStringSerializer
+>         extends ToStringSerializerBase
+>     {
+>         final static BigDecimalAsStringSerializer BD_INSTANCE = new BigDecimalAsStringSerializer();
+>         
+>         public BigDecimalAsStringSerializer() {
+>             super(BigDecimal.class);
+>         }
+114a130,133
+>         @Override
+>         public boolean isEmpty(SerializerProvider prov, Object value) {
+>             return valueToString(value).isEmpty();
+>         }
+115a135,141
+>         @Override
+>         public void serialize(Object value, JsonGenerator gen, SerializerProvider provider)
+>             throws IOException
+>         {
+>             final String text;
+>             if (gen.isEnabled(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN)) {
+>                 final BigDecimal bd = (BigDecimal) value;
+116a143
+>                 if (!_verifyBigDecimalRange(gen, bd)) {
+118a146,156
+>                     final String errorMsg = String.format(
+>                             "Attempt to write plain `java.math.BigDecimal` (see JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN) with illegal scale (%d): needs to be between [-%d, %d]",
+>                             bd.scale(), MAX_BIG_DECIMAL_SCALE, MAX_BIG_DECIMAL_SCALE);
+>                     provider.reportMappingProblem(errorMsg);
+>                 }
+>                 text = bd.toPlainString();
+>             } else {
+>                 text = value.toString();
+>             }
+>             gen.writeString(text);
+>         }
+119a158,159
+>         @Override
+>         public String valueToString(Object value) {
+120a161,162
+>             throw new IllegalStateException();
+>         }
+122a165,169
+>         protected boolean _verifyBigDecimalRange(JsonGenerator gen, BigDecimal value) throws IOException {
+>             int scale = value.scale();
+>             return ((scale >= -MAX_BIG_DECIMAL_SCALE) && (scale <= MAX_BIG_DECIMAL_SCALE));
+>         }
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind109/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java d4j_patched/JacksonDatabind109/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
+4a5
+> import java.math.BigDecimal;
+99a101,103
+>                     if (((Class<?>) handledType()) == BigDecimal.class) {
+>                         return NumberSerializer.bigDecimalAsStringSerializer();
+>                     }

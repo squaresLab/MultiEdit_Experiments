@@ -1,0 +1,135 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java after/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java
+55,83d54
+< 	/**
+< 	 * Resolves the type variables to be used. Uses the parent's type variable map but overwrites variables locally
+< 	 * declared.
+< 	 * 
+< 	 * @param type must not be {@literal null}.
+< 	 * @param resolvedType must not be {@literal null}.
+< 	 * @param parent must not be {@literal null}.
+< 	 * @return
+< 	 */
+< 	private static Map<TypeVariable<?>, Type> calculateTypeVariables(ParameterizedType type, Class<?> resolvedType,
+< 			TypeDiscoverer<?> parent) {
+< 
+< 		TypeVariable<?>[] typeParameters = resolvedType.getTypeParameters();
+< 		Type[] arguments = type.getActualTypeArguments();
+< 
+< 		Map<TypeVariable<?>, Type> localTypeVariables = new HashMap<TypeVariable<?>, Type>(parent.getTypeVariableMap());
+< 
+< 		for (int i = 0; i < typeParameters.length; i++) {
+< 
+< 			Type value = arguments[i];
+< 
+< 			if (!(value instanceof TypeVariable)) {
+< 				localTypeVariables.put(typeParameters[i], value);
+< 			}
+< 		}
+< 
+< 		return localTypeVariables;
+< 	}
+< 
+269a241,283
+> 	}
+> 
+> 	/**
+> 	 * Resolves the type variables to be used. Uses the parent's type variable map but overwrites variables locally
+> 	 * declared.
+> 	 * 
+> 	 * @param type must not be {@literal null}.
+> 	 * @param resolvedType must not be {@literal null}.
+> 	 * @param parent must not be {@literal null}.
+> 	 * @return will never be {@literal null}.
+> 	 */
+> 	private static Map<TypeVariable<?>, Type> calculateTypeVariables(ParameterizedType type, Class<?> resolvedType,
+> 			TypeDiscoverer<?> parent) {
+> 
+> 		TypeVariable<?>[] typeParameters = resolvedType.getTypeParameters();
+> 		Type[] arguments = type.getActualTypeArguments();
+> 
+> 		Map<TypeVariable<?>, Type> localTypeVariables = new HashMap<TypeVariable<?>, Type>(parent.getTypeVariableMap());
+> 
+> 		for (int i = 0; i < typeParameters.length; i++) {
+> 			localTypeVariables.put(typeParameters[i], flattenTypeVariable(arguments[i], localTypeVariables));
+> 		}
+> 
+> 		return localTypeVariables;
+> 	}
+> 
+> 	/**
+> 	 * Recursively resolves the type bound to the given {@link Type} in case it's a {@link TypeVariable} and there's an
+> 	 * entry in the given type variables.
+> 	 * 
+> 	 * @param source must not be {@literal null}.
+> 	 * @param variables must not be {@literal null}.
+> 	 * @return will never be {@literal null}.
+> 	 */
+> 	private static Type flattenTypeVariable(Type source, Map<TypeVariable<?>, Type> variables) {
+> 
+> 		if (!(source instanceof TypeVariable)) {
+> 			return source;
+> 		}
+> 
+> 		Type value = variables.get(source);
+> 
+> 		return value == null ? source : flattenTypeVariable(value, variables);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/util/TypeDiscoverer.java after/src/main/java/org/springframework/data/util/TypeDiscoverer.java
+137c137
+< 			return new TypeVariableTypeInformation(variable, type, this);
+---
+> 			return new TypeVariableTypeInformation(variable, this);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java after/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java
+20d19
+< import java.lang.reflect.ParameterizedType;
+35d33
+< 	private final Type owningType;
+38c36
+< 	 * Creates a bew {@link TypeVariableTypeInformation} for the given {@link TypeVariable} owning {@link Type} and parent
+---
+> 	 * Creates a new {@link TypeVariableTypeInformation} for the given {@link TypeVariable} owning {@link Type} and parent
+45c43
+< 	public TypeVariableTypeInformation(TypeVariable<?> variable, Type owningType, TypeDiscoverer<?> parent) {
+---
+> 	public TypeVariableTypeInformation(TypeVariable<?> variable, TypeDiscoverer<?> parent) {
+52,89d49
+< 		this.owningType = owningType;
+< 	}
+< 
+< 	/*
+< 	 * (non-Javadoc)
+< 	 * @see org.springframework.data.util.TypeDiscoverer#getType()
+< 	 */
+< 	@Override
+< 	public Class<T> getType() {
+< 
+< 		int index = getIndex(variable);
+< 
+< 		if (owningType instanceof ParameterizedType && index != -1) {
+< 			Type fieldType = ((ParameterizedType) owningType).getActualTypeArguments()[index];
+< 			return resolveType(fieldType);
+< 		}
+< 
+< 		return resolveType(variable);
+< 	}
+< 
+< 	/**
+< 	 * Returns the index of the type parameter binding the given {@link TypeVariable}.
+< 	 * 
+< 	 * @param variable
+< 	 * @return
+< 	 */
+< 	private int getIndex(TypeVariable<?> variable) {
+< 
+< 		Class<?> rawType = resolveType(owningType);
+< 		TypeVariable<?>[] typeParameters = rawType.getTypeParameters();
+< 
+< 		for (int i = 0; i < typeParameters.length; i++) {
+< 			if (variable.equals(typeParameters[i])) {
+< 				return i;
+< 			}
+< 		}
+< 
+< 		return -1;
+Only in after/src/test/java/org/springframework/data/util: ParameterizedTypeInformationUnitTests.java

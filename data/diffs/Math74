@@ -1,0 +1,18 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math74/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java d4j_patched/Math74/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
+245c245
+<           final double[] scale;
+---
+>           final double[] scale = new double[y0.length];
+247,248c247,249
+<               scale = new double[y0.length];
+<               java.util.Arrays.fill(scale, scalAbsoluteTolerance);
+---
+>               for (int i = 0; i < scale.length; ++i) {
+>                 scale[i] = scalAbsoluteTolerance + scalRelativeTolerance * Math.abs(y[i]);
+>               }
+250c251,253
+<               scale = vecAbsoluteTolerance;
+---
+>               for (int i = 0; i < scale.length; ++i) {
+>                 scale[i] = vecAbsoluteTolerance[i] + vecRelativeTolerance[i] * Math.abs(y[i]);
+>               }

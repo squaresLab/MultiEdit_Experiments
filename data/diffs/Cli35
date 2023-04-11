@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli35/src/main/java/org/apache/commons/cli/Options.java d4j_patched/Cli35/src/main/java/org/apache/commons/cli/Options.java
+239a240,242
+>         if(longOpts.keySet().contains(opt)) {
+>             return Collections.singletonList(opt);
+>         }

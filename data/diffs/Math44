@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math44/src/main/java/org/apache/commons/math/ode/AbstractIntegrator.java d4j_patched/Math44/src/main/java/org/apache/commons/math/ode/AbstractIntegrator.java
+280d279
+<             resetOccurred = false;
+333a333,335
+>                     for (final EventState remaining : occuringEvents) {
+>                         remaining.stepAccepted(eventT, eventY);
+>                     }
+342a345,347
+>                     for (final EventState remaining : occuringEvents) {
+>                         remaining.stepAccepted(eventT, eventY);
+>                     }

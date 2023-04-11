@@ -1,0 +1,114 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+187a188,190
+> 		if (!(e instanceof CtStatement)) {
+> 			elementPrinterHelper.writeComment(e, CommentOffset.BEFORE);
+> 		}
+223a227,229
+> 		if (!(e instanceof CtStatement)) {
+> 			elementPrinterHelper.writeComment(e, CommentOffset.AFTER);
+> 		}
+510,512d515
+< 		if (!(condition instanceof CtStatement)) {
+< 			elementPrinterHelper.writeComment(condition, CommentOffset.BEFORE);
+< 		}
+527,529d529
+< 		if (!(condition instanceof CtStatement)) {
+< 			elementPrinterHelper.writeComment(condition, CommentOffset.AFTER);
+< 		}
+532,534d531
+< 		if (!(thenExpression instanceof CtStatement)) {
+< 			elementPrinterHelper.writeComment(thenExpression, CommentOffset.BEFORE);
+< 		}
+536,538d532
+< 		if (!(thenExpression instanceof CtStatement)) {
+< 			elementPrinterHelper.writeComment(thenExpression, CommentOffset.AFTER);
+< 		}
+546,548d539
+< 		if (!(elseExpression instanceof CtStatement)) {
+< 			elementPrinterHelper.writeComment(elseExpression, CommentOffset.BEFORE);
+< 		}
+550,552d540
+< 		if (!(elseExpression instanceof CtStatement)) {
+< 			elementPrinterHelper.writeComment(elseExpression, CommentOffset.AFTER);
+< 		}
+1191d1178
+< 		elementPrinterHelper.writeComment(newArray, CommentOffset.BEFORE);
+1213,1215d1199
+< 					if (!(e instanceof CtStatement)) {
+< 						elementPrinterHelper.writeComment(e, CommentOffset.BEFORE);
+< 					}
+1217,1219d1200
+< 					if (!(e instanceof CtStatement)) {
+< 						elementPrinterHelper.writeComment(e, CommentOffset.AFTER);
+< 					}
+1230,1232d1210
+< 				if (!(e instanceof CtStatement)) {
+< 					elementPrinterHelper.writeComment(e, CommentOffset.BEFORE);
+< 				}
+1236,1240d1213
+< 					/*
+< 					 * we have to remove last char before we writeComment.
+< 					 * We cannot simply skip adding of " , ",
+< 					 * because it influences formatting and EOL too
+< 					 */
+1242,1244c1215,1220
+< 				}
+< 				if (!(e instanceof CtStatement)) {
+< 					elementPrinterHelper.writeComment(e, CommentOffset.AFTER);
+---
+> 					// if the last element c
+> 					List<CtComment> comments = elementPrinterHelper.getComments(e, CommentOffset.AFTER);
+> 					// if the last element contains an inline comment, print a new line before closing the array
+> 					if (!comments.isEmpty() && comments.get(comments.size() - 1).getCommentType() == CtComment.CommentType.INLINE) {
+> 						printer.insertLine();
+> 					}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ParentExiter.java after/src/main/java/spoon/support/compiler/jdt/ParentExiter.java
+77a78
+> import spoon.reflect.cu.SourcePosition;
+399a401,404
+> 				int[] lineSeparatorPositions = this.jdtTreeBuilder.getContextBuilder().compilationunitdeclaration.compilationResult.lineSeparatorPositions;
+> 				SourcePosition leftPosition = op.getLeftHandOperand().getPosition();
+> 				SourcePosition rightPosition = op.getRightHandOperand().getPosition();
+> 				op.setPosition(op.getFactory().createSourcePosition(leftPosition.getCompilationUnit(), leftPosition.getSourceStart(), rightPosition.getSourceEnd(), lineSeparatorPositions));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/comment/CommentTest.java after/src/test/java/spoon/test/comment/CommentTest.java
+6a7
+> import spoon.reflect.code.CtBinaryOperator;
+113c114
+< 		assertEquals(61, comments.size());
+---
+> 		assertEquals(64, comments.size());
+252,253c253,254
+< 		assertEquals("java.lang.Double dou = (i == 1)// comment after condition CtConditional" + newLine
+< 				+ " ? // comment before then CtConditional" + newLine
+---
+> 		assertEquals("java.lang.Double dou = (i == 1// comment after condition CtConditional" + newLine
+> 				+ ") ? // comment before then CtConditional" + newLine
+266c267,278
+< 		CtReturn ctReturn = m1.getBody().getStatement(12);
+---
+> 		CtLocalVariable ctLocalVariableString = m1.getBody().getStatement(12);
+> 		assertEquals(createFakeComment(f, "comment multi line string"), ((CtBinaryOperator)((CtBinaryOperator)ctLocalVariableString.getDefaultExpression()).getRightHandOperand()).getLeftHandOperand().getComments().get(0));
+> 		assertEquals("\"\" + (\"\"// comment multi line string" + newLine
+> 				+ " + \"\")", ctLocalVariableString.getDefaultExpression().toString());
+> 
+> 		ctLocalVariable1 = m1.getBody().getStatement(13);
+> 		ctConditional = (CtConditional) ctLocalVariable1.getDefaultExpression();
+> 		assertEquals("boolean c = (i == 1) ? // comment before then boolean CtConditional" + newLine
+> 				+ "i == 1// comment after then boolean CtConditional" + newLine
+> 				+ " : i == 2", ctLocalVariable1.toString());
+> 
+> 		CtReturn ctReturn = m1.getBody().getStatement(14);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/comment/testclasses/InlineComment.java after/src/test/java/spoon/test/comment/testclasses/InlineComment.java
+96a97,106
+> 
+> 		String m = "" +
+> 				"" + // comment multi line string
+> 				"";
+> 
+> 		boolean c = (i == 1) ?
+> 				// comment before then boolean CtConditional
+> 				i == 1    // comment after then boolean CtConditional
+> 				:
+> 				i == 2;

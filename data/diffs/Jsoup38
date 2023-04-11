@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup38/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java d4j_patched/Jsoup38/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+454a455
+>                         if (tb.getFromStack("svg") == null)
+455a457,458
+>                         else
+>                             tb.insert(startTag);

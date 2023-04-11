@@ -1,0 +1,92 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli1/src/java/org/apache/commons/cli/CommandLine.java d4j_patched/Cli1/src/java/org/apache/commons/cli/CommandLine.java
+19d18
+< import java.util.HashMap;
+23c22,23
+< import java.util.Map;
+---
+> import java.util.Set;
+> import java.util.HashSet;
+46,47c46
+<     private Map options = new HashMap();
+<     private Map names = new HashMap();
+---
+>     private Set options = new HashSet();
+51d49
+<     private Map hashcodeMap = new HashMap();
+69c67
+<         return options.containsKey(opt);
+---
+>         return options.contains( resolveOption(opt));
+93c91,92
+<         if (!options.containsKey(opt))
+---
+>         Option option = resolveOption(opt);
+>         if (option == null)
+98c97
+<         Object type = ((Option) options.get(opt)).getType();
+---
+>         Object type = option.getType();
+149,152c148
+<         opt = Util.stripLeadingHyphens(opt);
+< 
+<         String key = opt;
+<         if (names.containsKey(opt))
+---
+>         Option key = resolveOption( opt );
+153a150
+>         if (options.contains(key))
+155c152
+<             key = (String) names.get(opt);
+---
+>             return key.getValues();
+158,161d154
+<         if (options.containsKey(key))
+<         {
+<             return ((Option) options.get(key)).getValues();
+<         }
+169a163,176
+>     private Option resolveOption( String opt )
+>     {
+>         opt = Util.stripLeadingHyphens(opt);
+>         for ( Iterator it = options.iterator(); it.hasNext(); )
+>         {
+>             Option option = (Option) it.next();
+>             if (opt.equals(option.getOpt()))
+>             {
+>                 return option;
+>             }
+>             if (opt.equals( option.getLongOpt()))
+>             {
+>                 return option;
+>         }
+170a178,180
+>         }
+>         return null;
+>     }
+278,288c288
+<         hashcodeMap.put(new Integer(opt.hashCode()), opt);
+<         String key = opt.getKey();
+<         if (key == null)
+<         {
+<             key = opt.getLongOpt();
+<         }
+<         else
+<         {
+<             names.put(opt.getLongOpt(), key);
+<         }
+<         options.put(key, opt);
+---
+>         options.add(opt);
+299c299
+<         return hashcodeMap.values().iterator();
+---
+>         return options.iterator();
+309c309
+<         Collection processed = options.values();
+---
+>         Collection processed = options;
+317c317
+< }
+---
+> }
+\ No newline at end of file

@@ -1,0 +1,33 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito21/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java d4j_patched/Mockito21/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
+17c17
+<         return withOuterClass(cls);
+---
+>         return withParams(cls, outerClassInstance);
+20c20
+<     private <T> T withOuterClass(Class<T> cls) {
+---
+>     private static <T> T withParams(Class<T> cls, Object... params) {
+24,25c24,29
+<             Constructor<T> c = cls.getDeclaredConstructor(outerClassInstance.getClass());
+<             return c.newInstance(outerClassInstance);
+---
+>             for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
+>                 Class<?>[] types = constructor.getParameterTypes();
+>                 if (paramsMatch(types, params)) {
+>                     return (T) constructor.newInstance(params);
+>                 }
+>             }
+28a33
+>         throw paramsException(cls, null);
+35a41,51
+>     private static boolean paramsMatch(Class<?>[] types, Object[] params) {
+>         if (params.length != types.length) {
+>             return false;
+>         }
+>         for (int i = 0; i < params.length; i++) {
+>             if (!types[i].isInstance(params[i])) {
+>                 return false;
+>             }
+>         }
+>         return true;
+>     }

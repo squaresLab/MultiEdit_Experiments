@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress12/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java d4j_patched/Compress12/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+198c198,204
+<         currEntry = new TarArchiveEntry(headerBuf);
+---
+>         try {
+>             currEntry = new TarArchiveEntry(headerBuf);
+>         } catch (IllegalArgumentException e) {
+>             IOException ioe = new IOException("Error detected parsing the header");
+>             ioe.initCause(e);
+>             throw ioe;
+>         }

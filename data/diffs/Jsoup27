@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup27/src/main/java/org/jsoup/helper/DataUtil.java d4j_patched/Jsoup27/src/main/java/org/jsoup/helper/DataUtil.java
+131a132
+>             if (Charset.isSupported(charset)) return charset;
+133c134
+<             return charset;
+---
+>             if (Charset.isSupported(charset)) return charset;

@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind37/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java d4j_patched/JacksonDatabind37/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
+135c135
+<         return new SimpleType(subclass, _bindings, _superClass, _superInterfaces,
+---
+>         return new SimpleType(subclass, _bindings, this, _superInterfaces,

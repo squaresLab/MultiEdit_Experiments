@@ -1,0 +1,31 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time17/src/main/java/org/joda/time/DateTimeZone.java d4j_patched/Time17/src/main/java/org/joda/time/DateTimeZone.java
+1167,1169c1167,1171
+<         long instantBefore = convertUTCToLocal(instant - 3 * DateTimeConstants.MILLIS_PER_HOUR);
+<         long instantAfter = convertUTCToLocal(instant + 3 * DateTimeConstants.MILLIS_PER_HOUR);
+<         if (instantBefore == instantAfter) {
+---
+>         long instantBefore = instant - 3 * DateTimeConstants.MILLIS_PER_HOUR;
+>         long instantAfter = instant + 3 * DateTimeConstants.MILLIS_PER_HOUR;
+>         long offsetBefore = getOffset(instantBefore);
+>         long offsetAfter = getOffset(instantAfter);
+>         if (offsetBefore <= offsetAfter) {
+1174,1175c1176,1182
+<         long local = convertUTCToLocal(instant);
+<         return convertLocalToUTC(local, false, earlierOrLater ? instantAfter : instantBefore);
+---
+>         long diff = offsetBefore - offsetAfter;
+>         long transition = nextTransition(instantBefore);
+>         long overlapStart = transition - diff;
+>         long overlapEnd = transition + diff;
+>         if (instant < overlapStart || instant >= overlapEnd) {
+>           return instant;  // not an overlap
+>         }
+1177a1185,1186
+>         long afterStart = instant - overlapStart;
+>         if (afterStart >= diff) {
+1178a1188,1189
+>           return earlierOrLater ? instant : instant - diff;
+>         } else {
+1179a1191,1192
+>           return earlierOrLater ? instant + diff : instant;
+>         }

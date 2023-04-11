@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math36/src/main/java/org/apache/commons/math/fraction/BigFraction.java d4j_patched/Math36/src/main/java/org/apache/commons/math/fraction/BigFraction.java
+685a686
+>         if (Double.isNaN(result)) {
+687a689,693
+>             int shift = Math.max(numerator.bitLength(),
+>                                  denominator.bitLength()) - Double.MAX_EXPONENT;
+>             result = numerator.shiftRight(shift).doubleValue() /
+>                 denominator.shiftRight(shift).doubleValue();
+>         }
+732a739
+>         if (Double.isNaN(result)) {
+734a742,746
+>             int shift = Math.max(numerator.bitLength(),
+>                                  denominator.bitLength()) - Float.MAX_EXPONENT;
+>             result = numerator.shiftRight(shift).floatValue() /
+>                 denominator.shiftRight(shift).floatValue();
+>         }

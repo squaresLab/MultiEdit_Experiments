@@ -1,0 +1,21 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup73/src/main/java/org/jsoup/helper/W3CDom.java d4j_patched/Jsoup73/src/main/java/org/jsoup/helper/W3CDom.java
+21a22
+> import java.util.Stack;
+73c74
+<         private final HashMap<String, String> namespaces = new HashMap<>();
+---
+>         private final Stack<HashMap<String, String>> namespacesStack = new Stack<>(); // stack of namespaces, prefix => urn
+77a79
+>             this.namespacesStack.push(new HashMap<String, String>());
+80a83
+>             namespacesStack.push(new HashMap<>(namespacesStack.peek())); // inherit from above on the stack
+85c88
+<                 String namespace = namespaces.get(prefix);
+---
+>                 String namespace = namespacesStack.peek().get(prefix);
+115a119
+>             namespacesStack.pop();
+144c148
+<                 namespaces.put(prefix, attr.getValue());
+---
+>                 namespacesStack.peek().put(prefix, attr.getValue());

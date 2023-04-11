@@ -1,0 +1,64 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java after/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java
+32c32,36
+<                 response = Response.ok().entity(content).type(mediaType).build();
+---
+>                 if (content != null) {
+>                     response = Response.ok().entity(content).type(mediaType).build();
+>                 } else {
+>                     response = Response.status(Response.Status.NOT_FOUND).build();
+>                 }
+35c39,43
+<                 response = Response.ok().entity(content).type(mediaType).build();
+---
+>                 if (content != null) {
+>                     response = Response.ok().entity(content).type(mediaType).build();
+>                 } else {
+>                     response = Response.status(Response.Status.NOT_FOUND).build();
+>                 }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResourceTest.java after/src/test/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResourceTest.java
+12c12
+<     SwaggerResource swaggerResource;
+---
+>     private SwaggerResource swaggerResource;
+15c15
+<     public void setUp() throws Exception {
+---
+>     public void setUp() {
+22c22
+<         checkStatusAndHeader(response, Response.Status.OK, MediaType.TEXT_HTML);
+---
+>         checkStatusAndHeader(response, MediaType.TEXT_HTML);
+31c31
+<         checkStatusAndHeader(response, Response.Status.OK, "text/css");
+---
+>         checkStatusAndHeader(response, "text/css");
+39c39
+<         checkStatusAndHeader(response, Response.Status.OK, "application/js");
+---
+>         checkStatusAndHeader(response, "application/js");
+43a44,60
+>     @Test
+>     public void testPng() {
+>         Response response = swaggerResource.content("images/explorer_icons.png");
+>         checkStatusAndHeader(response, "image/png");
+>     }
+> 
+>     @Test
+>     public void testGif() {
+>         Response response = swaggerResource.content("images/expand.gif");
+>         checkStatusAndHeader(response, "image/gif");
+>     }
+> 
+>     @Test
+>     public void testNotFound() {
+>         Response response = swaggerResource.content("foo/bar.txt");
+>         Assert.assertEquals(response.getStatus(), Response.Status.NOT_FOUND.getStatusCode());
+>     }
+45,46c62,63
+<     private void checkStatusAndHeader(Response response, Response.Status status, String header) {
+<         Assert.assertTrue(response.getStatus() == status.getStatusCode());
+---
+>     private void checkStatusAndHeader(Response response, String header) {
+>         Assert.assertEquals(response.getStatus(), Response.Status.OK.getStatusCode());

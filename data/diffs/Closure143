@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure143/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java d4j_patched/Closure143/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+871c871,872
+<             )) {
+---
+>                   || (defValue.charAt(0) == '\"' &&
+>                       defValue.charAt(defValue.length() - 1) == '\"'))) {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure143/src/com/google/javascript/jscomp/RemoveConstantExpressions.java d4j_patched/Closure143/src/com/google/javascript/jscomp/RemoveConstantExpressions.java
+91c91,92
+<       ) {
+---
+>           || exprBody.getType() == Token.NEW
+>           || exprBody.getType() == Token.CALL) {

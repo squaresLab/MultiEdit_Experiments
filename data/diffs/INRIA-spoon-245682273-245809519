@@ -1,0 +1,203 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+1102,1104c1102,1110
+< 			try (Writable _context = context.modify()) {
+< 				if (invocation.getTarget() instanceof CtTypeAccess) {
+< 					_context.ignoreGenerics(true);
+---
+> 			if (!this.importsContext.isImported(invocation.getExecutable())) {
+> 				try (Writable _context = context.modify()) {
+> 					if (invocation.getTarget() instanceof CtTypeAccess) {
+> 						_context.ignoreGenerics(true);
+> 					}
+> 					scan(invocation.getTarget());
+> 				}
+> 				if (printer.hasNewContent()) {
+> 					printer.write(".");
+1106,1109d1111
+< 				scan(invocation.getTarget());
+< 			}
+< 			if (printer.hasNewContent()) {
+< 				printer.write(".");
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java after/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+370,371c370,376
+< 			if (!isTypeInCollision(declaringType, false) && addClassImport(declaringType)) {
+< 				return true;
+---
+> 
+> 			boolean isInCollision = isTypeInCollision(declaringType, false);
+> 			if (!isInCollision) {
+> 				boolean importSuccess = addClassImport(declaringType);
+> 				if (importSuccess) {
+> 					return true;
+> 				}
+374c379,382
+< 			if (isImportedInClassImports(declaringType) || classNamePresentInJavaLang(declaringType)) {
+---
+> 			boolean importedInClassImports = isImportedInClassImports(declaringType);
+> 			boolean inJavaLang = classNamePresentInJavaLang(declaringType);
+> 
+> 			if (importedInClassImports || inJavaLang) {
+388a397,414
+> 	/**
+> 	 * Test if the given executable reference is targeted a method name which is in collision with a method name of the current class
+> 	 * @param ref
+> 	 * @return
+> 	 */
+> 	private boolean isInCollisionWithLocalMethod(CtExecutableReference ref) {
+> 		CtType<?> typeDecl = ref.getParent(CtType.class);
+> 
+> 		String methodName = ref.getSimpleName();
+> 
+> 		for (CtMethod<?> method : typeDecl.getAllMethods()) {
+> 			if (method.getSimpleName().equals(methodName)) {
+> 				return true;
+> 			}
+> 		}
+> 		return false;
+> 	}
+> 
+389a416,419
+> 		// static import is not supported below java 1.5
+> 		if (ref.getFactory().getEnvironment().getComplianceLevel() < 5) {
+> 			return false;
+> 		}
+398a429,432
+> 		if (this.isInCollisionWithLocalMethod(ref)) {
+> 			return false;
+> 		}
+> 
+422a457,460
+> 		// static import is not supported below java 1.5
+> 		if (ref.getFactory().getEnvironment().getComplianceLevel() < 5) {
+> 			return false;
+> 		}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/ImportScannerTest.java after/src/test/java/spoon/test/imports/ImportScannerTest.java
+12d11
+< import spoon.reflect.reference.CtTypeReference;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/ImportTest.java after/src/test/java/spoon/test/imports/ImportTest.java
+44a45,47
+> import spoon.test.imports.testclasses2.apachetestsuite.staticcollision.AllLangTestSuite;
+> import spoon.test.imports.testclasses2.apachetestsuite.staticjava3.AllLangTestJava3;
+> import spoon.test.imports.testclasses2.apachetestsuite.staticmethod.AllLangTestSuiteStaticMethod;
+48d50
+< import java.io.FileNotFoundException;
+60d61
+< import static org.hamcrest.CoreMatchers.is;
+397a399,413
+> 	public void testImportStaticAndFieldAccessWithImport() throws Exception {
+> 		// contract: Qualified field access and an import static with import should import the type first, and not use static import
+> 		final Launcher launcher = new Launcher();
+> 		launcher.setArgs(new String[] {"--output-type", "nooutput", "--with-imports" });
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses/internal4/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses/Tacos.java");
+> 		launcher.buildModel();
+> 
+> 		final CtType<Object> aTacos = launcher.getFactory().Type().get(Tacos.class);
+> 		final CtStatement assignment = aTacos.getMethod("m").getBody().getStatement(0);
+> 		assertTrue(assignment instanceof CtLocalVariable);
+> 		assertEquals("Constants.CONSTANT.foo", ((CtLocalVariable) assignment).getAssignment().toString());
+> 	}
+> 
+> 	@Test
+1014a1031,1118
+> 	}
+> 
+> 	@Test
+> 	public void testStaticMethodWithDifferentClassSameNameJava7NoCollision() {
+> 		// contract: when there is a collision between class names when using static method, we should create a static import for the method
+> 		final Launcher launcher = new Launcher();
+> 		launcher.getEnvironment().setAutoImports(true);
+> 		String outputDir = "./target/spooned-staticmethod";
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/staticmethod/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/enums/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/enum2/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/LangTestSuite.java");
+> 		launcher.setSourceOutputDirectory(outputDir);
+> 		launcher.getEnvironment().setComplianceLevel(7);
+> 		launcher.run();
+> 		PrettyPrinter prettyPrinter = launcher.createPrettyPrinter();
+> 
+> 		CtType element = launcher.getFactory().Class().get(AllLangTestSuiteStaticMethod.class);
+> 		List<CtType<?>> toPrint = new ArrayList<>();
+> 		toPrint.add(element);
+> 
+> 		prettyPrinter.calculate(element.getPosition().getCompilationUnit(), toPrint);
+> 		String output = prettyPrinter.getResult();
+> 
+> 		assertTrue("The file should contain a static import ", output.contains("import static spoon.test.imports.testclasses2.apachetestsuite.enums.EnumTestSuite.suite;"));
+> 		assertTrue("The call to the last EnumTestSuite should be in FQN", output.contains("suite.addTest(suite());"));
+> 
+> 
+> 		canBeBuilt(outputDir, 7);
+> 	}
+> 
+> 	@Test
+> 	public void testStaticMethodWithDifferentClassSameNameJava3NoCollision() {
+> 		// contract: when there is a collision between class names when using static method, we could not create a static import
+> 		// as it is not compliant with java < 1.5, so we should use fully qualified name of the class
+> 		final Launcher launcher = new Launcher();
+> 		launcher.getEnvironment().setAutoImports(true);
+> 		String outputDir = "./target/spooned-staticjava3";
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/staticjava3/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/enums/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/enum2/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/LangTestSuite.java");
+> 		launcher.setSourceOutputDirectory(outputDir);
+> 		launcher.getEnvironment().setComplianceLevel(3);
+> 		launcher.run();
+> 		PrettyPrinter prettyPrinter = launcher.createPrettyPrinter();
+> 
+> 		CtType element = launcher.getFactory().Class().get(AllLangTestJava3.class);
+> 		List<CtType<?>> toPrint = new ArrayList<>();
+> 		toPrint.add(element);
+> 
+> 		prettyPrinter.calculate(element.getPosition().getCompilationUnit(), toPrint);
+> 		String output = prettyPrinter.getResult();
+> 
+> 		assertFalse("The file should not contain a static import ", output.contains("import static"));
+> 		assertTrue("The call to the last EnumTestSuite should be in FQN", output.contains("suite.addTest(spoon.test.imports.testclasses2.apachetestsuite.enums.EnumTestSuite.suite());"));
+> 
+> 
+> 		canBeBuilt(outputDir, 3);
+> 	}
+> 
+> 	@Test
+> 	public void testStaticMethodWithDifferentClassSameNameCollision() {
+> 		// contract: when using static method, if there is a collision between class name AND between method names,
+> 		// we can only use the fully qualified name of the class to call the static method
+> 		final Launcher launcher = new Launcher();
+> 		launcher.getEnvironment().setAutoImports(true);
+> 		String outputDir = "./target/spooned-apache";
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/staticcollision/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/enums/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/enum2/");
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses2/apachetestsuite/LangTestSuite.java");
+> 		launcher.setSourceOutputDirectory(outputDir);
+> 		launcher.getEnvironment().setComplianceLevel(3);
+> 		launcher.run();
+> 		PrettyPrinter prettyPrinter = launcher.createPrettyPrinter();
+> 
+> 		CtType element = launcher.getFactory().Class().get(AllLangTestSuite.class);
+> 		List<CtType<?>> toPrint = new ArrayList<>();
+> 		toPrint.add(element);
+> 
+> 		prettyPrinter.calculate(element.getPosition().getCompilationUnit(), toPrint);
+> 		String output = prettyPrinter.getResult();
+> 
+> 		assertTrue("The file should not contain a static import ",!output.contains("import static spoon.test.imports.testclasses2.apachetestsuite.enum2.EnumTestSuite.suite;"));
+> 		assertTrue("The call to the last EnumTestSuite should be in FQN", output.contains("suite.addTest(spoon.test.imports.testclasses2.apachetestsuite.enum2.EnumTestSuite.suite());"));
+> 
+> 		canBeBuilt(outputDir, 3);
+Only in after/src/test/java/spoon/test/imports/testclasses2: apachetestsuite
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/variable/AccessFullyQualifiedFieldTest.java after/src/test/java/spoon/test/variable/AccessFullyQualifiedFieldTest.java
+84c84
+< 		assertTrue("The inner class should contain call using import", result.contains(" BurritosStaticMethod.toto();"));
+---
+> 		assertTrue("The inner class should contain call using import", result.contains(" toto();"));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/variable/testclasses/BurritosStaticMethod.java after/src/test/java/spoon/test/variable/testclasses/BurritosStaticMethod.java
+12c12
+< 				BurritosStaticMethod.toto();
+---
+> 				toto();

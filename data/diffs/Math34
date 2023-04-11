@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math34/src/main/java/org/apache/commons/math3/genetics/ListPopulation.java d4j_patched/Math34/src/main/java/org/apache/commons/math3/genetics/ListPopulation.java
+209c209
+<         return chromosomes.iterator();
+---
+>         return getChromosomes().iterator();

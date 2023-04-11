@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv16/src/main/java/org/apache/commons/csv/CSVParser.java d4j_patched/Csv16/src/main/java/org/apache/commons/csv/CSVParser.java
+288a289
+>     private final CSVRecordIterator csvRecordIterator;
+356a358
+>         this.csvRecordIterator = new CSVRecordIterator();
+523c525,528
+<         return new Iterator<CSVRecord>() {
+---
+>         return csvRecordIterator;
+>     }
+>     
+>     class CSVRecordIterator implements Iterator<CSVRecord> {
+571d575
+<     }

@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup18/src/main/java/org/jsoup/parser/CharacterReader.java d4j_patched/Jsoup18/src/main/java/org/jsoup/parser/CharacterReader.java
+17a18
+>         input = input.replaceAll("\r\n?", "\n"); // normalise carriage returns to newlines
+99c100
+<         String data = input.substring(pos, input.length() - 1);
+---
+>         String data = input.substring(pos, input.length());

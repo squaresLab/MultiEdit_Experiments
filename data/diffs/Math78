@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math78/src/main/java/org/apache/commons/math/ode/events/EventState.java d4j_patched/Math78/src/main/java/org/apache/commons/math/ode/events/EventState.java
+190a191
+>                     if (ga * gb > 0) {
+197a199,205
+>                         final double epsilon = (forward ? 0.25 : -0.25) * convergence;
+>                         for (int k = 0; (k < 4) && (ga * gb > 0); ++k) {
+>                             ta += epsilon;
+>                             interpolator.setInterpolatedTime(ta);
+>                             ga = handler.g(ta, interpolator.getInterpolatedState());
+>                         }
+>                         if (ga * gb > 0) {
+198a207,209
+>                             throw MathRuntimeException.createInternalError(null);
+>                         }
+>                     }

@@ -1,0 +1,44 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure139/src/com/google/javascript/jscomp/Normalize.java d4j_patched/Closure139/src/com/google/javascript/jscomp/Normalize.java
+280a281,283
+>         case Token.FUNCTION:
+>           normalizeFunctionDeclaration(n);
+>           break;
+291a295,301
+>     private void normalizeFunctionDeclaration(Node n) {
+>       Preconditions.checkState(n.getType() == Token.FUNCTION);
+>       if (!NodeUtil.isFunctionAnonymous(n)
+>           && !NodeUtil.isHoistedFunctionDeclaration(n)) {
+>         rewriteFunctionDeclaration(n);
+>       }
+>     }
+308a319
+>     private void rewriteFunctionDeclaration(Node n) {
+309a321,324
+>       Node oldNameNode = n.getFirstChild();
+>       Node fnNameNode = oldNameNode.cloneNode();
+>       Node var = new Node(Token.VAR, fnNameNode, n.getLineno(), n.getCharno());
+>       var.copyInformationFrom(n);
+311a327
+>       oldNameNode.setString("");
+313a330,332
+>       Node parent = n.getParent();
+>       parent.replaceChild(n, var);
+>       fnNameNode.addChildToFront(n);
+314a334,335
+>       reportCodeChange("Function declaration");
+>     }
+521c542
+<       if (parent.getType() == Token.VAR) {
+---
+>       Var v = s.getVar(name);
+522a544,553
+>       Preconditions.checkState(
+>           v == null || v.getParentNode().getType() != Token.CATCH);
+>       if (v != null && parent.getType() == Token.FUNCTION) {
+>         if (v.getParentNode().getType() == Token.VAR) {
+>           s.undeclare(v);
+>           s.declare(name, n, n.getJSType(), v.input);
+>           replaceVarWithAssignment(v.getNameNode(), v.getParentNode(),
+>               v.getParentNode().getParent());
+>         }
+>       } else if (parent.getType() == Token.VAR) {

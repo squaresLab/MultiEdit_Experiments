@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang48/src/java/org/apache/commons/lang/builder/EqualsBuilder.java d4j_patched/Lang48/src/java/org/apache/commons/lang/builder/EqualsBuilder.java
+379a380,382
+>             if (lhs instanceof java.math.BigDecimal) {
+>                 isEquals = (((java.math.BigDecimal)lhs).compareTo(rhs) == 0);
+>             } else {
+381a385
+>             }

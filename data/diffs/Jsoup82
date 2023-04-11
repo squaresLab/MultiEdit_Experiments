@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup82/src/main/java/org/jsoup/helper/DataUtil.java d4j_patched/Jsoup82/src/main/java/org/jsoup/helper/DataUtil.java
+170a171
+>             if (!charset.canEncode()) {
+171a173,174
+>                 doc.charset(Charset.forName(defaultCharset));
+>             }

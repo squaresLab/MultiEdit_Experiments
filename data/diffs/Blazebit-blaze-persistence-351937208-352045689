@@ -1,0 +1,26 @@
+Only in after/: bears.json
+Only in after/core/testsuite: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/core/testsuite/src/test/java/com/blazebit/persistence/testsuite/Issue521Test.java after/core/testsuite/src/test/java/com/blazebit/persistence/testsuite/Issue521Test.java
+31,32c31,32
+<         b.setB(4l);
+<         b.setC(5l);
+---
+>         b.setB(4L);
+>         b.setC(5L);
+36c36
+<         criteria.where("d.c").eq(5l);
+---
+>         criteria.where("d.c").eq(5L);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/integration/hibernate-base/src/main/java/com/blazebit/persistence/integration/hibernate/base/HibernateJpaProvider.java after/integration/hibernate-base/src/main/java/com/blazebit/persistence/integration/hibernate/base/HibernateJpaProvider.java
+509c509,512
+<         if (columnNames.length == 1 && columnNames[0] == null) {
+---
+>         boolean isFormula = columnNames.length == 1 && columnNames[0] == null;
+>         boolean isSubselect = tables.length == 1 && tables[0] == null;
+> 
+>         if (isFormula || isSubselect) {
+514a518,521
+>                 if (propertyType instanceof org.hibernate.type.EntityType) {
+>                     propertyType = ((org.hibernate.type.EntityType) propertyType).getIdentifierOrUniqueKeyType(sfi);
+>                 }
+> 

@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart10/source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java d4j_patched/Chart10/source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java
+65c65
+<         return " title=\"" + toolTipText
+---
+>         return " title=\"" + ImageMapUtilities.htmlEscape(toolTipText) 
+Binary files d4j_buggy/Chart10/.svn/wc.db and d4j_patched/Chart10/.svn/wc.db differ

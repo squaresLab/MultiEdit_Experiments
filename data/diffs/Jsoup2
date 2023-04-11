@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup2/src/main/java/org/jsoup/parser/Parser.java d4j_patched/Jsoup2/src/main/java/org/jsoup/parser/Parser.java
+147a148
+>             popStackToClose(tag);

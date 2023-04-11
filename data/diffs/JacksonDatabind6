@@ -1,0 +1,39 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind6/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java d4j_patched/JacksonDatabind6/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
+406,407c406,408
+<                 c = dateStr.charAt(len-9);
+<                 if (Character.isDigit(c)) {
+---
+>                 int timeLen = len - dateStr.lastIndexOf('T') - 6;
+>                 if (timeLen < 12) { // 8 for hh:mm:ss, 4 for .sss
+>                     int offset = len - 5; // insertion offset, before tz-offset
+409c410,425
+<                     sb.insert(len-5, ".000");
+---
+>                     switch (timeLen) {
+>                     case 11:
+>                         sb.insert(offset, '0'); break;
+>                     case 10:
+>                         sb.insert(offset, "00"); break;
+>                     case 9: // is this legal? (just second fraction marker)
+>                         sb.insert(offset, "000"); break;
+>                     case 8:
+>                         sb.insert(offset, ".000"); break;
+>                     case 7: // not legal to have single-digit second
+>                         break;
+>                     case 6: // probably not legal, but let's allow
+>                         sb.insert(offset, "00.000");
+>                     case 5: // is legal to omit seconds
+>                         sb.insert(offset, ":00.000");
+>                     }
+421c437,443
+<                 if (timeLen <= 8) {
+---
+>                 if (timeLen < 12) { // missing, or partial
+>                     switch (timeLen) {
+>                     case 11: sb.append('0');
+>                     case 10: sb.append('0');
+>                     case 9: sb.append('0');
+>                         break;
+>                     default:
+422a445
+>                     }

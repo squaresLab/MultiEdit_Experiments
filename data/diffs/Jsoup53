@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup53/src/main/java/org/jsoup/parser/TokenQueue.java d4j_patched/Jsoup53/src/main/java/org/jsoup/parser/TokenQueue.java
+264a265
+>         boolean inQuote = false;
+269a271,274
+>                 if (c.equals('\'') || c.equals('"') && c != open)
+>                     inQuote = !inQuote;
+>                 if (inQuote)
+>                     continue;

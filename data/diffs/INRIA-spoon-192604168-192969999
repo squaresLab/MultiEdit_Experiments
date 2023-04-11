@@ -1,0 +1,35 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java after/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java
+282c282,287
+< 			return getStep().isFailOnCCE();
+---
+> 			AbstractStep step = getStep();
+> 			if (step == null) {
+> 				//it is final consumer. Never throw CCE on final forEach consumer
+> 				return false;
+> 			}
+> 			return step.isFailOnCCE();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/filters/FilterTest.java after/src/test/java/spoon/test/filters/FilterTest.java
+815a816,836
+> 
+> 	@Test
+> 	public void testClassCastExceptionOnForEach() throws Exception {
+> 		// contract: bound query, without any mapping
+> 
+> 		final Launcher launcher = new Launcher();
+> 		launcher.setArgs(new String[] {"--output-type", "nooutput","--level","info" });
+> 		launcher.addInputResource("./src/test/java/spoon/test/filters/testclasses");
+> 		launcher.run();
+> 		
+> 		class Context {
+> 			int count = 0;
+> 		}
+> 		
+> 		Context context = new Context();
+> 		//contract: if the query produces elements which cannot be cast to forEach consumer, then they are ignored
+> 		launcher.getFactory().Package().getRootPackage().filterChildren(f->{return true;}).forEach((CtType t)->{
+> 			context.count++;
+> 		});
+> 		assertTrue(context.count>0);
+> 	}

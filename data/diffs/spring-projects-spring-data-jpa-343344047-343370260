@@ -1,0 +1,175 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java after/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java
+36a37
+>  * @author Jens Schauder
+56,58d56
+< 		boolean hasPagingOrSortingParameter = parameters.hasPageableParameter() || parameters.hasSortParameter();
+< 		boolean containsPageableOrSortInQueryExpression = queryString.contains("#pageable")
+< 				|| queryString.contains("#sort");
+60c58
+< 		if (hasPagingOrSortingParameter && !containsPageableOrSortInQueryExpression) {
+---
+> 		if (parameters.hasSortParameter() && !queryString.contains("#sort")) {
+62c60
+< 					"Cannot use native queries with dynamic sorting and/or pagination in method " + method);
+---
+> 					"Cannot use native queries with dynamic sorting in method " + method);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/jpa/domain/sample/User.java after/src/test/java/org/springframework/data/jpa/domain/sample/User.java
+24a25
+> import javax.persistence.ColumnResult;
+36a38,39
+> import javax.persistence.NamedNativeQueries;
+> import javax.persistence.NamedNativeQuery;
+41a45,46
+> import javax.persistence.SqlResultSetMapping;
+> import javax.persistence.SqlResultSetMappings;
+53a59
+>  * @author Jens Schauder
+64,65c70,71
+< 				attributeNodes = { @NamedAttributeNode("roles"),
+< 						@NamedAttributeNode(value = "colleagues", subgraph = "User.colleagues") },
+---
+> 				attributeNodes = { @NamedAttributeNode("roles"), @NamedAttributeNode(value = "colleagues",
+> 						subgraph = "User.colleagues") },
+67,68c73
+< 						attributeNodes = { @NamedAttributeNode("colleagues"),
+< 								@NamedAttributeNode("roles") }) }),
+---
+> 						attributeNodes = { @NamedAttributeNode("colleagues"), @NamedAttributeNode("roles") }) }),
+86a92,100
+> 
+> // Annotations for native Query with pageable
+> @SqlResultSetMappings({
+> 		@SqlResultSetMapping(name = "SqlResultSetMapping.count", columns = @ColumnResult(name = "cnt")) })
+> @NamedNativeQueries({
+> 		@NamedNativeQuery(name = "User.findByNativeNamedQueryWithPageable", resultClass = User.class,
+> 				query = "SELECT * FROM SD_USER ORDER BY UCASE(firstname)"),
+> 		@NamedNativeQuery(name = "User.findByNativeNamedQueryWithPageable.count",
+> 				resultSetMapping = "SqlResultSetMapping.count", query = "SELECT count(*) AS cnt FROM SD_USER") })
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/jpa/repository/query/JpaQueryLookupStrategyUnitTests.java after/src/test/java/org/springframework/data/jpa/repository/query/JpaQueryLookupStrategyUnitTests.java
+18,19c18
+< import static org.hamcrest.CoreMatchers.*;
+< import static org.junit.Assert.*;
+---
+> import static org.assertj.core.api.Assertions.*;
+23a23
+> import java.util.List;
+30d29
+< import org.junit.Rule;
+32d30
+< import org.junit.rules.ExpectedException;
+36,37c34
+< import org.springframework.data.domain.Page;
+< import org.springframework.data.domain.Pageable;
+---
+> import org.springframework.data.domain.Sort;
+55a53
+>  * @author Jens Schauder
+68,69d65
+< 	public @Rule ExpectedException exception = ExpectedException.none();
+< 
+90,95c86,88
+< 		try {
+< 			strategy.resolveQuery(method, metadata, projectionFactory, namedQueries);
+< 		} catch (Exception e) {
+< 			assertThat(e, is(instanceOf(IllegalArgumentException.class)));
+< 			assertThat(e.getCause(), is(reference));
+< 		}
+---
+> 		assertThatExceptionOfType(IllegalArgumentException.class)
+> 				.isThrownBy(() -> strategy.resolveQuery(method, metadata, projectionFactory, namedQueries))
+> 				.withCause(reference);
+103c96
+< 		Method method = UserRepository.class.getMethod("findByInvalidNativeQuery", String.class, Pageable.class);
+---
+> 		Method method = UserRepository.class.getMethod("findByInvalidNativeQuery", String.class, Sort.class);
+106,110c99,102
+< 		exception.expect(InvalidJpaQueryMethodException.class);
+< 		exception.expectMessage("Cannot use native queries with dynamic sorting and/or pagination in method");
+< 		exception.expectMessage(method.toString());
+< 
+< 		strategy.resolveQuery(method, metadata, projectionFactory, namedQueries);
+---
+> 		assertThatExceptionOfType(InvalidJpaQueryMethodException.class)
+> 				.isThrownBy(() -> strategy.resolveQuery(method, metadata, projectionFactory, namedQueries))
+> 				.withMessageContaining("Cannot use native queries with dynamic sorting in method")
+> 				.withMessageContaining(method.toString());
+119c111
+< 		Page<User> findByInvalidNativeQuery(String param, Pageable page);
+---
+> 		List<User> findByInvalidNativeQuery(String param, Sort sort);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/jpa/repository/query/SimpleJpaQueryUnitTests.java after/src/test/java/org/springframework/data/jpa/repository/query/SimpleJpaQueryUnitTests.java
+61a62
+>  * @author Jens Schauder
+153,159d153
+< 		createJpaQuery(method);
+< 	}
+< 
+< 	@Test(expected = InvalidJpaQueryMethodException.class) // DATAJPA-554
+< 	public void rejectsNativeQueryWithPageable() throws Exception {
+< 
+< 		Method method = SampleRepository.class.getMethod("findNativeByLastname", String.class, Pageable.class);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/jpa/repository/sample/UserRepository.java after/src/test/java/org/springframework/data/jpa/repository/sample/UserRepository.java
+531a532,538
+> 	// DATAJPA-928
+> 	Page<User> findByNativeNamedQueryWithPageable(Pageable pageable);
+> 
+> 	// DATAJPA-928
+> 	@Query(value = "SELECT firstname FROM SD_User ORDER BY UCASE(firstname)", countQuery = "SELECT count(*) FROM SD_User", nativeQuery = true)
+> 	Page<String> findByNativeQueryWithPageable(@Param("pageable") Pageable pageable);
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/jpa/repository/UserRepositoryTests.java after/src/test/java/org/springframework/data/jpa/repository/UserRepositoryTests.java
+42a43
+> import org.assertj.core.api.SoftAssertions;
+2109a2111,2160
+> 	}
+> 
+> 	// DATAJPA-928
+> 	@Test
+> 	public void executeNativeQueryWithPage() {
+> 
+> 		flushTestUsers();
+> 
+> 		Page<User> firstPage = repository.findByNativeNamedQueryWithPageable(new PageRequest(0, 3));
+> 		Page<User> secondPage = repository.findByNativeNamedQueryWithPageable(new PageRequest(1, 3));
+> 
+> 		SoftAssertions softly = new SoftAssertions();
+> 
+> 		assertThat(firstPage.getTotalElements()).isEqualTo(4L);
+> 		assertThat(firstPage.getNumberOfElements()).isEqualTo(3);
+> 		assertThat(firstPage.getContent()) //
+> 				.extracting(User::getFirstname) //
+> 				.containsExactly("Dave", "Joachim", "kevin");
+> 
+> 		assertThat(secondPage.getTotalElements()).isEqualTo(4L);
+> 		assertThat(secondPage.getNumberOfElements()).isEqualTo(1);
+> 		assertThat(secondPage.getContent()) //
+> 				.extracting(User::getFirstname) //
+> 				.containsExactly("Oliver");
+> 
+> 		softly.assertAll();
+> 	}
+> 
+> 	// DATAJPA-928
+> 	@Test
+> 	public void executeNativeQueryWithPageWorkaround() {
+> 
+> 		flushTestUsers();
+> 
+> 		Page<String> firstPage = repository.findByNativeQueryWithPageable(new PageRequest(0, 3));
+> 		Page<String> secondPage = repository.findByNativeQueryWithPageable(new PageRequest(1, 3));
+> 
+> 		SoftAssertions softly = new SoftAssertions();
+> 
+> 		assertThat(firstPage.getTotalElements()).isEqualTo(4L);
+> 		assertThat(firstPage.getNumberOfElements()).isEqualTo(3);
+> 		assertThat(firstPage.getContent()) //
+> 				.containsExactly("Dave", "Joachim", "kevin");
+> 
+> 		assertThat(secondPage.getTotalElements()).isEqualTo(4L);
+> 		assertThat(secondPage.getNumberOfElements()).isEqualTo(1);
+> 		assertThat(secondPage.getContent()) //
+> 				.containsExactly("Oliver");
+> 
+> 		softly.assertAll();

@@ -1,0 +1,121 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind53/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java d4j_patched/JacksonDatabind53/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java
+301a302
+>     public Object asKey(Class<?> rawBase) {
+303a305,306
+>         return new AsKey(rawBase, _types, _hashCode);
+>     }
+427a431,440
+>     final static class AsKey {
+>         private final Class<?> _raw;
+>         private final JavaType[] _params;
+>         private final int _hash;
+> 
+>         public AsKey(Class<?> raw, JavaType[] params, int hash) {
+>             _raw = raw ;
+>             _params = params;
+>             _hash = hash;
+>         }
+428a442,466
+>         @Override
+>         public int hashCode() { return _hash; }
+> 
+>         @Override
+>         public boolean equals(Object o) {
+>             if (o == this) return true;
+>             if (o == null) return false;
+>             if (o.getClass() != getClass()) return false;
+>             AsKey other = (AsKey) o;
+> 
+>             if ((_hash == other._hash) && (_raw == other._raw)) {
+>                 final JavaType[] otherParams = other._params;
+>                 final int len = _params.length;
+> 
+>                 if (len == otherParams.length) {
+>                     for (int i = 0; i < len; ++i) {
+>                         if (!_params[i].equals(otherParams[i])) {
+>                             return false;
+>                         }
+>                     }
+>                     return true;
+>                 }
+>             }
+>             return false;
+>         }
+429a468,472
+>         @Override
+>         public String toString() {
+>             return _raw.getName()+"<>";
+>         }
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind53/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java d4j_patched/JacksonDatabind53/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+117c117
+<     protected final LRUMap<Class<?>, JavaType> _typeCache = new LRUMap<Class<?>, JavaType>(16, 100);
+---
+>     protected final LRUMap<Object,JavaType> _typeCache = new LRUMap<Object,JavaType>(16, 100);
+384a385
+>             TypeBindings tb = _bindingsForSubtype(baseType, typeParamCount, subclass);
+386c387
+<                 newType = baseType.refine(subclass, TypeBindings.emptyBindings(), null, new JavaType[] { baseType });
+---
+>                 newType = baseType.refine(subclass, tb, null, new JavaType[] { baseType });
+388c389
+<                 newType = baseType.refine(subclass, TypeBindings.emptyBindings(), baseType, NO_TYPES);
+---
+>                 newType = baseType.refine(subclass, tb, baseType, NO_TYPES);
+392,402c393
+<                 TypeBindings tb = null;
+<                 if (baseType.containedTypeCount() == typeParamCount) {
+<                     if (typeParamCount == 1) {
+<                         tb = TypeBindings.create(subclass, baseType.containedType(0));
+<                     } else if (typeParamCount == 2) {
+<                         tb = TypeBindings.create(subclass, baseType.containedType(0),
+<                                 baseType.containedType(1));
+<                     }
+<                 }
+<                 newType = _fromClass(null, subclass,
+<                         (tb == null) ? TypeBindings.emptyBindings() : tb);
+---
+>                 newType = _fromClass(null, subclass, tb);
+455a447,448
+>     private TypeBindings _bindingsForSubtype(JavaType baseType, int typeParamCount, Class<?> subclass)
+>     {
+457a451,465
+>         int baseCount = baseType.containedTypeCount();
+>         if (baseCount == typeParamCount) {
+>             if (typeParamCount == 1) {
+>                 return TypeBindings.create(subclass, baseType.containedType(0));
+>             }
+>             if (typeParamCount == 2) {
+>                 return TypeBindings.create(subclass, baseType.containedType(0),
+>                         baseType.containedType(1));
+>             }
+>             List<JavaType> types = new ArrayList<JavaType>(baseCount);
+>             for (int i = 0; i < baseCount; ++i) {
+>                 types.add(baseType.containedType(i));
+>             }
+>             return TypeBindings.create(subclass, types);
+>         }
+458a467,468
+>         return TypeBindings.emptyBindings();
+>     }
+1160,1162c1170,1177
+<         boolean cachable = (bindings == null) || bindings.isEmpty();
+<         if (cachable) {
+<             result = _typeCache.get(rawType);
+---
+>         final Object key;
+>         if ((bindings == null) || bindings.isEmpty()) {
+>             key = rawType;
+>             result = _typeCache.get(key); // ok, cache object is synced
+>         } else {
+>             key = bindings.asKey(rawType);
+>         }
+>         result = _typeCache.get(key); // ok, cache object is synced
+1165d1179
+<             }
+1225,1227c1239
+<         if (cachable) {
+<             _typeCache.putIfAbsent(rawType, result);
+<         }
+---
+>         _typeCache.putIfAbsent(key, result); // cache object syncs

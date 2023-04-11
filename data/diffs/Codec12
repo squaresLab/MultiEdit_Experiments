@@ -1,0 +1,35 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec12/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java d4j_patched/Codec12/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java
+141a142,146
+>     @Override
+>     public long skip(long n) throws IOException {
+>         if (n < 0) {
+>             throw new IllegalArgumentException("Negative skip length");
+>         }
+143a149,151
+>         final byte[] b = new byte[512];
+>         final int max = (int) Math.min(n, Integer.MAX_VALUE);
+>         int total = 0;
+144a153,166
+>         while (total < max) {
+>             int len = max - total;
+>             if (len > b.length) {
+>                 len = b.length;
+>             }
+>             len = read(b, 0, len);
+>             if (len == EOF) {
+>                 break;
+>             }
+>             total += len;
+>         }
+> 
+>         return total;
+>     }
+151a174
+>     public int available() throws IOException {
+157a181,186
+>         if (baseNCodec.eof) {
+>             return 0;
+>         } else {
+>             return 1;
+>         }
+>     }

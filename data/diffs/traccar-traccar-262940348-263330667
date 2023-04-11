@@ -1,0 +1,17 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Gl200TextProtocolDecoder.java after/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+79c79
+<             .number("(?:d),").optional()         // gps antenna state
+---
+>             .number("(?:d)?,").optional()        // gps antenna state
+391,394d390
+< 
+<         org.traccar.helper.PatternUtil.MatchResult matchResult =
+<                 org.traccar.helper.PatternUtil.checkPattern(PATTERN_INF.pattern(), sentence);
+< 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Gl200TextProtocolDecoderTest.java after/test/org/traccar/protocol/Gl200TextProtocolDecoderTest.java
+13c13
+<         verifyNull(decoder, buffer(
+---
+>         verifyAttributes(decoder, buffer(

@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress16/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java d4j_patched/Compress16/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
+244c244
+<                     tais.getNextEntry();
+---
+>                     if (tais.getNextTarEntry().isCheckSumOK()) {
+245a246
+>                     }

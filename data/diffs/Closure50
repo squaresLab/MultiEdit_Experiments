@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure50/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java d4j_patched/Closure50/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+376c376
+<       if (!NodeUtil.isImmutableValue(right)) {
+---
+>       if (right.getNext() != null || !NodeUtil.isImmutableValue(right)) {
+388a389,390
+>     if (right != null && right.getType() == Token.STRING
+>         && ",".equals(right.getString())) {
+389a392,394
+>       n.removeChild(right);
+>       reportCodeChange();
+>     }

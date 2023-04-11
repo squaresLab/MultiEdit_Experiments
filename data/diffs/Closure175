@@ -1,0 +1,50 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure175/src/com/google/javascript/jscomp/FunctionInjector.java d4j_patched/Closure175/src/com/google/javascript/jscomp/FunctionInjector.java
+45a46,53
+>   private final Supplier<String> throwawayNameSupplier =
+>       new Supplier<String>() {
+>     private int nextId = 0;
+>     @Override
+>     public String get() {
+>       return String.valueOf(nextId++);
+>     }
+>   };
+208c216
+<       return canInlineReferenceDirectly(callNode, fnNode);
+---
+>       return canInlineReferenceDirectly(callNode, fnNode, needAliases);
+690c698
+<       Node callNode, Node fnNode) {
+---
+>       Node callNode, Node fnNode, Set<String> namesToAlias) {
+695d702
+<     Node block = fnNode.getLastChild();
+715,726c722,726
+<     Node fnParam = NodeUtil.getFunctionParameters(fnNode).getFirstChild();
+<     while (cArg != null || fnParam != null) {
+<       if (fnParam != null) {
+<         if (cArg != null) {
+<           if (NodeUtil.mayEffectMutableState(cArg, compiler)
+<               && NodeUtil.getNameReferenceCount(
+<                   block, fnParam.getString()) > 1) {
+<             return CanInlineResult.NO;
+<           }
+<         }
+<         fnParam = fnParam.getNext();
+<       }
+---
+>     Map<String, Node> args =
+>         FunctionArgumentInjector.getFunctionCallParameterMap(
+>             fnNode, callNode, this.throwawayNameSupplier);
+>     boolean hasArgs = !args.isEmpty();
+>     if (hasArgs) {
+728,729c728,731
+<       if (cArg != null) {
+<         if (NodeUtil.mayHaveSideEffects(cArg, compiler)) {
+---
+>       Set<String> allNamesToAlias = Sets.newHashSet(namesToAlias);
+>       FunctionArgumentInjector.maybeAddTempsForCallArguments(
+>           fnNode, args, allNamesToAlias, compiler.getCodingConvention());
+>       if (!allNamesToAlias.isEmpty()) {
+731,732d732
+<         }
+<         cArg = cArg.getNext();

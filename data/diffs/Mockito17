@@ -1,0 +1,21 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito17/src/org/mockito/internal/creation/MockSettingsImpl.java d4j_patched/Mockito17/src/org/mockito/internal/creation/MockSettingsImpl.java
+19a20
+>     private boolean serializable;
+22c23,24
+<         return this.extraInterfaces(java.io.Serializable.class);
+---
+>         this.serializable = true;
+>         return this;
+74c76
+<         return extraInterfaces != null && java.util.Arrays.asList(extraInterfaces).contains(java.io.Serializable.class);
+---
+>         return serializable;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito17/src/org/mockito/internal/util/MockUtil.java d4j_patched/Mockito17/src/org/mockito/internal/util/MockUtil.java
+18a19
+> import java.io.Serializable;
+44a46,48
+>         if (settings.isSerializable()) {
+>             ancillaryTypes = interfaces == null ? new Class<?>[] {Serializable.class} : new ArrayUtils().concat(interfaces, Serializable.class);
+>         } else {
+45a50
+>         }

@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli10/src/java/org/apache/commons/cli/Parser.java d4j_patched/Cli10/src/java/org/apache/commons/cli/Parser.java
+18a19
+> import java.util.ArrayList;
+46c47
+<         this.requiredOptions = options.getRequiredOptions();
+---
+>         this.requiredOptions = new ArrayList(options.getRequiredOptions());

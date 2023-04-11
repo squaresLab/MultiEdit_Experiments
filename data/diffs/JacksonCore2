@@ -1,0 +1,65 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore2/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java d4j_patched/JacksonCore2/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+951a952,954
+>             if (_parsingContext.inRoot()) {
+>                 _verifyRootSpace(ch);
+>             }
+1080a1084,1086
+>             if (_parsingContext.inRoot()) {
+>                 _verifyRootSpace(c);
+>             }
+1161a1168,1169
+>     private final void _verifyRootSpace(int ch) throws IOException
+>     {
+1162a1171,1185
+>         ++_inputPtr;
+>         switch (ch) {
+>         case ' ':
+>         case '\t':
+>             return;
+>         case '\r':
+>             _skipCR();
+>             return;
+>         case '\n':
+>             ++_currInputRow;
+>             _currInputRowStart = _inputPtr;
+>             return;
+>         }
+>         _reportMissingRootWS(ch);
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore2/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java d4j_patched/JacksonCore2/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+1243a1244,1246
+>         if (_parsingContext.inRoot()) {
+>             _verifyRootSpace(c);
+>         }
+1279a1283,1285
+>         if (_parsingContext.inRoot()) {
+>             _verifyRootSpace(_inputBuffer[_inputPtr++] & 0xFF);
+>         }
+1406a1413,1415
+>             if (_parsingContext.inRoot()) {
+>                 _verifyRootSpace(c);
+>             }
+1420a1430,1431
+>     private final void _verifyRootSpace(int ch) throws IOException
+>     {
+1421a1433
+>         ++_inputPtr;
+1422a1435,1448
+>         switch (ch) {
+>         case ' ':
+>         case '\t':
+>             return;
+>         case '\r':
+>             _skipCR();
+>             return;
+>         case '\n':
+>             ++_currInputRow;
+>             _currInputRowStart = _inputPtr;
+>             return;
+>         }
+>         _reportMissingRootWS(ch);
+>     }
+2575,2577d2600
+<                 if (i < 32) {
+<                     _throwInvalidSpace(i);
+<                 }

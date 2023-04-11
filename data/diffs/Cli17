@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli17/src/java/org/apache/commons/cli/PosixParser.java d4j_patched/Cli17/src/java/org/apache/commons/cli/PosixParser.java
+302a303
+>                 break;

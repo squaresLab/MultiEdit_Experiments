@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli19/src/java/org/apache/commons/cli/PosixParser.java d4j_patched/Cli19/src/java/org/apache/commons/cli/PosixParser.java
+232d231
+<             tokens.add(token);
+237d235
+<             tokens.add(token);
+238a237,238
+> 
+>         tokens.add(token);

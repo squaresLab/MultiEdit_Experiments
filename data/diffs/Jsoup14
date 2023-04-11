@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup14/src/main/java/org/jsoup/parser/Tokeniser.java d4j_patched/Jsoup14/src/main/java/org/jsoup/parser/Tokeniser.java
+196a197,199
+>     String appropriateEndTagName() {
+>         return lastStartTag.tagName;
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup14/src/main/java/org/jsoup/parser/TokeniserState.java d4j_patched/Jsoup14/src/main/java/org/jsoup/parser/TokeniserState.java
+217a218
+>             } else if (r.matchesLetter() && !r.containsIgnoreCase("</" + t.appropriateEndTagName())) {
+219a221,224
+>                 t.tagPending = new Token.EndTag(t.appropriateEndTagName());
+>                 t.emitTagPending();
+>                 r.unconsume(); // undo "<"
+>                 t.transition(Data);

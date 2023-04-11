@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind29/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java d4j_patched/JacksonDatabind29/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
+227a228,230
+>         if (t == JsonToken.VALUE_NULL) {
+>             return null;
+>         }
+250a254,257
+>         if (t == JsonToken.VALUE_NULL) {
+>             _properties[index].getProperty().set(bean, null);
+>             return;
+>         }

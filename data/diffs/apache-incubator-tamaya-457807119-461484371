@@ -1,0 +1,41 @@
+Only in after/: bears.json
+Only in after/code/spi-support: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java after/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java
+27d26
+< import java.math.RoundingMode;
+36a36
+> 
+49,50c49,50
+<             throw new ConfigException("Uncovertible enum type without createValue method found, please provide a custom " +
+<                     "PropertyConverter for: " + enumType.getName());
+---
+>             throw new ConfigException("Uncovertible enum type without createValue method found, please provide a custom "
+>                     + "PropertyConverter for: " + enumType.getName());
+56c56
+<         ctx.addSupportedFormats(getClass(),"<enumValue>");
+---
+>         ctx.addSupportedFormats(getClass(), "<enumValue>");
+63c63,65
+<             return (T) factory.invoke(null, value.toUpperCase(Locale.ENGLISH));
+---
+>             if (value != null) {
+>                 return (T) factory.invoke(null, value.toUpperCase(Locale.ENGLISH));
+>             }
+72,73c74,79
+<         if (this == o) return true;
+<         if (!(o instanceof EnumConverter)) return false;
+---
+>         if (this == o) {
+>             return true;
+>         }
+>         if (!(o instanceof EnumConverter)) {
+>             return false;
+>         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/code/spi-support/src/test/java/org/apache/tamaya/spisupport/EnumConverterTest.java after/code/spi-support/src/test/java/org/apache/tamaya/spisupport/EnumConverterTest.java
+58a59,64
+>     public void testConvert_Nulls() {
+>         ConversionContext ctx = new ConversionContext.Builder(TypeLiteral.of(RoundingMode.class)).build();
+>         assertThat(testConverter.convert(null, ctx)).isNull();
+>     }
+> 
+>     @Test

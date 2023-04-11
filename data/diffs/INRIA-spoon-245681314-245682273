@@ -1,0 +1,77 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/factory/ExecutableFactory.java after/src/main/java/spoon/reflect/factory/ExecutableFactory.java
+121c121
+< 			return createReference(e.getParent(CtType.class).getReference(), lambdaMethod == null ? null : lambdaMethod.getType(), executableName, refs);
+---
+> 			return createReference(e.getParent(CtType.class).getReference(), lambdaMethod == null ? null : lambdaMethod.getType().clone(), executableName, refs);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java after/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
+54a55
+> import spoon.support.visitor.ClassTypingContext;
+898,899c899,900
+< 		final Set<String> distinctSignatures = new HashSet<>();
+< 		final Set<CtMethod<?>> l = new SignatureBasedSortedSet<>();
+---
+> 		final Set<CtMethod<?>> l = new HashSet<>();
+> 		final ClassTypingContext ctc = new ClassTypingContext(this);
+902,904c903,907
+< 			public void accept(CtMethod<?> method) {
+< 				if (distinctSignatures.add(method.getSignature())) {
+< 					l.add(method);
+---
+> 			public void accept(CtMethod<?> currentMethod) {
+> 				for (CtMethod<?> alreadyVisitedMethod : l) {
+> 					if (ctc.isSameSignature(currentMethod, alreadyVisitedMethod)) {
+> 						return;
+> 					}
+905a909,910
+> 
+> 				l.add(currentMethod);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/visitor/ClassTypingContext.java after/src/main/java/spoon/support/visitor/ClassTypingContext.java
+425a426,428
+> 		if (typeParam == null) {
+> 			throw new SpoonException("You cannot adapt a null type parameter.");
+> 		}
+645a649,652
+> 			if (typeParam == null) {
+> 				throw new SpoonException("Declaration of the CtTypeParameter should not be null.");
+> 			}
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/reflect/declaration/CtTypeInformationTest.java after/src/test/java/spoon/reflect/declaration/CtTypeInformationTest.java
+3a4,5
+> import static org.junit.Assert.assertFalse;
+> import static org.junit.Assert.assertTrue;
+138c140,144
+< 		Assert.assertEquals(1+12+48, extendObject.getAllMethods().size());
+---
+> 		// The final +1 is the result of the only usage of `ClassTypingContext#isSameSignature` in `getAllMethods`
+> 		// (see: https://github.com/INRIA/spoon/pull/1375)
+> 		// now it gets both `ArrayList#forEach` and `Iterable#forEach`
+> 		// this has been spotted as an issue in https://github.com/INRIA/spoon/issues/1407
+> 		Assert.assertEquals(1+12+48+1, extendObject.getAllMethods().size());
+143,144c149,151
+< 		// the abstract method from Comparable which is overridden is also present in the model
+< 		assertEquals(61+3, subClass.getAllMethods().size());
+---
+> 		// the abstract method from Comparable which is overridden should not be present in the model
+> 		// The +1 happens for the same reason as below
+> 		assertEquals(61+2+1, subClass.getAllMethods().size());
+173a181,198
+> 	}
+> 
+> 	@Test
+> 	public void testGetAllMethodsWontReturnOverriddenMethod() {
+> 		final CtType<?> subClass = this.factory.Type().get(Subclass.class);
+> 		Set<CtMethod<?>> listCtMethods = subClass.getAllMethods();
+> 
+> 		boolean detectedCompareTo = false;
+> 		for (CtMethod<?> ctMethod : listCtMethods) {
+> 			if (ctMethod.getSimpleName().equals("compareTo")) {
+> 				assertFalse(ctMethod.hasModifier(ModifierKind.ABSTRACT));
+> 				assertFalse(ctMethod.getParameters().get(0).getType() instanceof CtTypeParameter);
+> 				assertEquals("Object", ctMethod.getParameters().get(0).getType().getSimpleName());
+> 				detectedCompareTo = true;
+> 			}
+> 		}
+> 
+> 		assertTrue(detectedCompareTo);

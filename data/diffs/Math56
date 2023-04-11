@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math56/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java d4j_patched/Math56/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java
+237,243c237
+<         int idx = 1;
+<         while (count < index) {
+<             count += idx;
+<             ++idx;
+<         }
+<         --idx;
+<         indices[last] = idx;
+---
+>         indices[last] = index - count;

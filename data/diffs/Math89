@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math89/src/java/org/apache/commons/math/stat/Frequency.java d4j_patched/Math89/src/java/org/apache/commons/math/stat/Frequency.java
+109a110
+>         if (v instanceof Comparable<?>){
+110a112,114
+>         } else {
+>             throw new IllegalArgumentException("Object must implement Comparable");
+>         }

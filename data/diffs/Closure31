@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure31/src/com/google/javascript/jscomp/Compiler.java d4j_patched/Closure31/src/com/google/javascript/jscomp/Compiler.java
+1285d1284
+<           !options.skipAllPasses &&

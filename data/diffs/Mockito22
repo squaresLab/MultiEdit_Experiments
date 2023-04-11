@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito22/src/org/mockito/internal/matchers/Equality.java d4j_patched/Mockito22/src/org/mockito/internal/matchers/Equality.java
+13c13,15
+<         if (o1 == null || o2 == null) {
+---
+>         if (o1 == o2 ) {
+>             return true;
+> 	} else if (o1 == null || o2 == null) {

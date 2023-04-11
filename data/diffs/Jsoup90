@@ -1,0 +1,4 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup90/src/main/java/org/jsoup/helper/HttpConnection.java d4j_patched/Jsoup90/src/main/java/org/jsoup/helper/HttpConnection.java
+423a424,425
+>                 if (end >= input.length)
+>                     return false;

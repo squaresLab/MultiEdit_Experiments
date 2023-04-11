@@ -1,0 +1,26 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java after/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java
+185a186
+>             return;
+199a201
+>             return;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/ebean/repository/UserRepositoryIntegrationTest.java after/src/test/java/org/springframework/data/ebean/repository/UserRepositoryIntegrationTest.java
+470a471,477
+> 
+>   @Test
+>   public void findUserByEmailAddressEqualsOql_pageable() {
+>     Page<User> page = userRepository.findUserByEmailAddressEqualsOql("yuanxuegui@163.com", PageRequest.of(0, 20, Sort.Direction.DESC, "id"));
+>     assertNotNull(page);
+>   }
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/ebean/sample/domain/UserRepository.java after/src/test/java/org/springframework/data/ebean/sample/domain/UserRepository.java
+3a4,6
+> 
+> import org.springframework.data.domain.Page;
+> import org.springframework.data.domain.Pageable;
+42a46,49
+> 
+>   @Query( value = "where emailAddress = :emailAddress")
+>   Page<User> findUserByEmailAddressEqualsOql(@Param("emailAddress") String lastName, Pageable page);
+> 

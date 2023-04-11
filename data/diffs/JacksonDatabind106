@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind106/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java d4j_patched/JacksonDatabind106/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
+307a308,310
+>         if (!node.canConvertToInt()) {
+>             reportOverflowInt();
+>         }
+313a317,319
+>         if (!node.canConvertToInt()) {
+>             reportOverflowLong();
+>         }

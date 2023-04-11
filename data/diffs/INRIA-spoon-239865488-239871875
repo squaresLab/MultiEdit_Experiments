@@ -1,0 +1,53 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/factory/CodeFactory.java after/src/main/java/spoon/reflect/factory/CodeFactory.java
+575a576,579
+> 		if (originalClass.getDeclaringClass() != null) {
+> 			// the inner class reference does not have package
+> 			return typeReference.setDeclaringType(createCtTypeReference(originalClass.getDeclaringClass()));
+> 		}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/factory/TypeFactoryTest.java after/src/test/java/spoon/test/factory/TypeFactoryTest.java
+4a5
+> import spoon.reflect.code.CtJavaDoc;
+17,30c18,35
+<     @Test
+<     public void testCreateTypeRef() {
+<         Launcher launcher = new Launcher();
+<         CtTypeReference<Object> ctTypeReference = launcher.getFactory().Code().createCtTypeReference(short.class);
+<         assertEquals("short", ctTypeReference.getSimpleName());
+<         assertEquals("short", ctTypeReference.getQualifiedName());
+< 
+<         ctTypeReference = launcher.getFactory().Code().createCtTypeReference(Object.class);
+<         assertEquals("Object", ctTypeReference.getSimpleName());
+<         assertEquals("java.lang.Object", ctTypeReference.getQualifiedName());
+< 
+<         ctTypeReference = launcher.getFactory().Code().createCtTypeReference(null);
+<         assertEquals(null, ctTypeReference);
+<     }
+---
+> 	@Test
+> 	public void testCreateTypeRef() {
+> 		Launcher launcher = new Launcher();
+> 		CtTypeReference<Object> ctTypeReference = launcher.getFactory().Code().createCtTypeReference(short.class);
+> 		assertEquals("short", ctTypeReference.getSimpleName());
+> 		assertEquals("short", ctTypeReference.getQualifiedName());
+> 
+> 		ctTypeReference = launcher.getFactory().Code().createCtTypeReference(Object.class);
+> 		assertEquals("Object", ctTypeReference.getSimpleName());
+> 		assertEquals("java.lang.Object", ctTypeReference.getQualifiedName());
+> 
+> 		ctTypeReference = launcher.getFactory().Code().createCtTypeReference(null);
+> 		assertEquals(null, ctTypeReference);
+> 
+> 		ctTypeReference = launcher.getFactory().Code().createCtTypeReference(CtJavaDoc.CommentType.class);
+> 		assertEquals("CommentType", ctTypeReference.getSimpleName());
+> 		assertEquals("spoon.reflect.code.CtComment$CommentType", ctTypeReference.getQualifiedName());
+> 	}
+32c37
+<     @Test
+---
+> 	@Test
+39c44
+< 		assertEquals(2,s.getMethodsByName("toLowerCase").size());
+---
+> 		assertEquals(2, s.getMethodsByName("toLowerCase").size());

@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore14/src/main/java/com/fasterxml/jackson/core/io/IOContext.java d4j_patched/JacksonCore14/src/main/java/com/fasterxml/jackson/core/io/IOContext.java
+274c274
+<         if ((toRelease != src) && (toRelease.length <= src.length)) { throw wrongBuf(); }
+---
+>         if ((toRelease != src) && (toRelease.length < src.length)) { throw wrongBuf(); }
+279c279
+<         if ((toRelease != src) && (toRelease.length <= src.length)) { throw wrongBuf(); }
+---
+>         if ((toRelease != src) && (toRelease.length < src.length)) { throw wrongBuf(); }
+284c284
+< return new IllegalArgumentException("Trying to release buffer not owned by the context"); 
+---
+>         return new IllegalArgumentException("Trying to release buffer smaller than original");

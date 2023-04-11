@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure152/src/com/google/javascript/rhino/jstype/FunctionType.java d4j_patched/Closure152/src/com/google/javascript/rhino/jstype/FunctionType.java
+871c871,874
+<     typeOfThis = (ObjectType) safeResolve(typeOfThis, t, scope);
+---
+>     JSType maybeTypeOfThis = safeResolve(typeOfThis, t, scope);
+>     if (maybeTypeOfThis instanceof ObjectType) {
+>       typeOfThis = (ObjectType) maybeTypeOfThis;
+>     }

@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli12/src/java/org/apache/commons/cli/GnuParser.java d4j_patched/Cli12/src/java/org/apache/commons/cli/GnuParser.java
+81c81
+<                     if (options.hasOption(arg.substring(0, 2)))
+---
+>                     if (opt.indexOf('=') != -1 && options.hasOption(opt.substring(0, opt.indexOf('='))))
+83a84,88
+>                         tokens.add(arg.substring(0, arg.indexOf('='))); // --foo
+>                         tokens.add(arg.substring(arg.indexOf('=') + 1)); // value
+>                     }
+>                     else if (options.hasOption(arg.substring(0, 2)))
+>                     {

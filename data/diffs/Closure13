@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure13/src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java d4j_patched/Closure13/src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java
+126d125
+<         traverse(c);
+127a127
+>         traverse(c);

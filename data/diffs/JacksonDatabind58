@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind58/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java d4j_patched/JacksonDatabind58/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+714a715,718
+>             if ((mutator instanceof AnnotatedField)
+>                     && "cause".equals(mutator.getName())) {
+>                 ;
+>             } else {
+715a720
+>             }

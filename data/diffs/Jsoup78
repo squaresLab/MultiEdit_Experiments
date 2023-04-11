@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup78/src/main/java/org/jsoup/helper/DataUtil.java d4j_patched/Jsoup78/src/main/java/org/jsoup/helper/DataUtil.java
+2a3
+> import org.jsoup.UncheckedIOException;
+150a152
+>             try {
+151a154
+>             } catch (UncheckedIOException e) {
+152a156,157
+>                 throw e.ioException();
+>             }

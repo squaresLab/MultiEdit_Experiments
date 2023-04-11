@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang35/src/main/java/org/apache/commons/lang3/ArrayUtils.java d4j_patched/Lang35/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+3295c3295
+<             type = Object.class;
+---
+>             throw new IllegalArgumentException("Arguments cannot both be null");            
+3574c3574
+<             return (T[]) new Object[] { null };
+---
+>             throw new IllegalArgumentException("Array and element cannot both be null");            

@@ -1,0 +1,203 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
+266a267,282
+> 	/**
+> 	 * Detects if this type is an code responsible for implementing of that type.<br>
+> 	 * In means it detects whether this type can access protected members of that type
+> 	 * @return true if this type or any declaring type recursively is subtype of type or directly is the type.
+> 	 */
+> 	private boolean isImplementationOf(CtTypeReference<?> type) {
+> 		CtTypeReference<?> impl = this;
+> 		while (impl != null) {
+> 			if (impl.isSubtypeOf(type)) {
+> 				return true;
+> 			}
+> 			impl = impl.getDeclaringType();
+> 		}
+> 		return false;
+> 	}
+> 
+624,625c640,647
+< 				if (isSubtypeOf(type)) {
+< 					//is visible in subtypes
+---
+> 				//the accessed type is protected in scope of declaring type.
+> 				CtTypeReference<?> declaringType = type.getDeclaringType();
+> 				if (declaringType == null) {
+> 					//top level type cannot be protected. So this is a model inconsistency.
+> 					throw new SpoonException("The protected class " + type.getQualifiedName() + " has no declaring class.");
+> 				}
+> 				if (isImplementationOf(declaringType)) {
+> 					//type is visible in code which implements declaringType
+627a650
+> 				return isInSamePackage(type);
+633,635c656,664
+< 			//package protected
+< 			if (type.getTopLevelType().getPackage().getSimpleName().equals(this.getTopLevelType().getPackage().getSimpleName())) {
+< 				//visible only in scope of the same package
+---
+> 			/*
+> 			 * no modifier, we have to check if it is nested type and if yes, if parent is interface or class.
+> 			 * In case of no parent then implicit access is package protected
+> 			 * In case of parent is interface, then implicit access is PUBLIC
+> 			 * In case of parent is class, then implicit access is package protected
+> 			 */
+> 			CtTypeReference<?> declaringTypeRef = type.getDeclaringType();
+> 			if (declaringTypeRef != null && declaringTypeRef.isInterface()) {
+> 				//the declaring type is interface, then implicit access is PUBLIC
+638c667,669
+< 			return false;
+---
+> 			//package protected
+> 			//visible only in scope of the same package
+> 			return isInSamePackage(type);
+645a677,680
+> 	private boolean isInSamePackage(CtTypeReference<?> type) {
+> 		return type.getTopLevelType().getPackage().getSimpleName().equals(this.getTopLevelType().getPackage().getSimpleName());
+> 	}
+> 
+662c697
+< 			throw new SpoonException("The nestedType is expected, but it is: " + getQualifiedName());
+---
+> 			throw new SpoonException("The declaring type is expected, but " + getQualifiedName() + " is top level type");
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/ImportTest.java after/src/test/java/spoon/test/imports/ImportTest.java
+4a5
+> import spoon.SpoonException;
+49d49
+< import static org.junit.Assert.assertThat;
+50a51
+> import static org.junit.Assert.assertFalse;
+207c208,209
+< 		assertEquals(1, imports1.size());
+---
+> 		//ClientClass needs 2 imports: ChildClass, PublicInterface2
+> 		assertEquals(2, imports1.size());
+387a390,474
+> 	}
+> 	
+> 	@Test
+> 	public void testCanAccess() throws Exception {
+> 		
+> 		class Checker {
+> 			final Launcher launcher;
+> 			final CtTypeReference<?> aClientClass;
+> 			final CtTypeReference<?> anotherClass;
+> 			Checker() {
+> 				launcher = new Launcher();
+> 				launcher.setArgs(new String[] {
+> 						"-i", "./src/test/java/spoon/test/imports/testclasses", "--with-imports"
+> 				});
+> 				launcher.buildModel();
+> 				aClientClass = launcher.getFactory().Class().get(ClientClass.class).getReference();
+> 				anotherClass = launcher.getFactory().Class().get(Tacos.class).getReference();
+> 			}
+> 			void checkCanAccess(String aClassName, boolean isInterface, boolean canAccessClientClass, boolean canAccessAnotherClass, String clientAccessType, String anotherAccessType) {
+> 				CtTypeReference<?> target;
+> 				if(isInterface) {
+> 					target = launcher.getFactory().Interface().create(aClassName).getReference();
+> 				} else {
+> 					target = launcher.getFactory().Class().get(aClassName).getReference();
+> 				}
+> 				boolean isNested = target.getDeclaringType()!=null;
+> 				CtTypeReference<?> accessType;
+> 				
+> 				target.setParent(aClientClass.getTypeDeclaration());
+> 				if(canAccessClientClass) {
+> 					assertTrue("ClientClass should have access to "+aClassName+" but it has not", aClientClass.canAccess(target));
+> 				} else {
+> 					assertFalse("ClientClass should have NO access to "+aClassName+" but it has", aClientClass.canAccess(target));
+> 				}
+> 				if(isNested) {
+> 					accessType = target.getAccessType();
+> 					if(clientAccessType!=null) {
+> 						assertEquals(clientAccessType, accessType.getQualifiedName());
+> 					} else if(accessType!=null){
+> 						fail("ClientClass should have NO accessType to "+aClassName+" but it has "+accessType.getQualifiedName());
+> 					}
+> 				}
+> 
+> 				target.setParent(anotherClass.getTypeDeclaration());
+> 				if(canAccessAnotherClass) {
+> 					assertTrue("Tacos class should have access to "+aClassName+" but it has not", anotherClass.canAccess(target));
+> 				} else {
+> 					assertFalse("Tacos class should have NO access to "+aClassName+" but it has", anotherClass.canAccess(target));
+> 				}
+> 				if(isNested) {
+> 					if(anotherAccessType!=null) {
+> 						accessType = target.getAccessType();
+> 						assertEquals(anotherAccessType, accessType.getQualifiedName());
+> 					} else {
+> 						try {
+> 							accessType = target.getAccessType();
+> 						} catch (SpoonException e) {
+> 							if(e.getMessage().indexOf("Cannot compute access path to type: ")==-1) {
+> 								throw e;
+> 							}//else OK, it should throw exception
+> 							accessType = null;
+> 						}
+> 						if(accessType!=null){
+> 							fail("Tacos class should have NO accessType to "+aClassName+" but it has "+accessType.getQualifiedName());
+> 						}
+> 					}
+> 				}
+> 			}
+> 		}
+> 		Checker c = new Checker();
+> 		
+> 		c.checkCanAccess("spoon.test.imports.testclasses.ClientClass", false, true, true, null, null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.ClientClass$InnerClass", false, true, false, "spoon.test.imports.testclasses.ClientClass", "spoon.test.imports.testclasses.ClientClass");
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.ChildClass", false, true, true, null, null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.PublicInterface2", true, true, true, null, null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.PublicInterface2$NestedInterface", true, true, true, "spoon.test.imports.testclasses.internal.PublicInterface2", "spoon.test.imports.testclasses.internal.PublicInterface2");
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.PublicInterface2$NestedClass", true, true, true, "spoon.test.imports.testclasses.internal.PublicInterface2", "spoon.test.imports.testclasses.internal.PublicInterface2");
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.SuperClass$PublicInterface", true, true, true, "spoon.test.imports.testclasses.internal.ChildClass", null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.SuperClass$PackageProtectedInterface", true, false, false, "spoon.test.imports.testclasses.internal.ChildClass", null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.SuperClass$ProtectedInterface", true, true, false, "spoon.test.imports.testclasses.internal.ChildClass", null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.SuperClass$ProtectedInterface$NestedOfProtectedInterface", true, true, true/*canAccess, but has no access to accessType*/, "spoon.test.imports.testclasses.internal.SuperClass$ProtectedInterface", null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.SuperClass$ProtectedInterface$NestedPublicInterface", true, true, true/*canAccess, but has no access to accessType*/, "spoon.test.imports.testclasses.internal.SuperClass$ProtectedInterface", null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.SuperClass$PublicInterface", true, true, true/*canAccess, but has no access to accessType*/, "spoon.test.imports.testclasses.internal.ChildClass", null);
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.SuperClass$PublicInterface$NestedOfPublicInterface", true, true, true/*canAccess, has access to first accessType, but not to full accesspath*/, "spoon.test.imports.testclasses.internal.SuperClass$PublicInterface", "spoon.test.imports.testclasses.internal.SuperClass$PublicInterface");
+> 		c.checkCanAccess("spoon.test.imports.testclasses.internal.SuperClass$PublicInterface$NestedPublicInterface", true, true, true/*canAccess, has access to first accessType, but not to full accesspath*/, "spoon.test.imports.testclasses.internal.SuperClass$PublicInterface", "spoon.test.imports.testclasses.internal.SuperClass$PublicInterface");
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/testclasses/ClientClass.java after/src/test/java/spoon/test/imports/testclasses/ClientClass.java
+6,8c6,20
+< 	private class InnerClass extends spoon.test.imports.testclasses.internal.ChildClass.InnerClassProtected {
+< 	}
+< }
+---
+> 	private class InnerClass extends spoon.test.imports.testclasses.internal.ChildClass.InnerClassProtected {}
+> 	private class InnerClass2 implements spoon.test.imports.testclasses.internal.PublicInterface2 {}
+> 	private class InnerClass3a implements spoon.test.imports.testclasses.internal.PublicInterface2.NestedInterface {}
+> 	private class InnerClass3b extends spoon.test.imports.testclasses.internal.PublicInterface2.NestedClass {}
+> 	//SuperClass is package protected so it is not visible. 
+> //	private class InnerClassX implements spoon.test.imports.testclasses.internal.SuperClass.PublicInterface {}
+> 	//ChildClass.PackageProtectedInterface is package protected so it is not visible.
+> //	private class InnerClassX implements spoon.test.imports.testclasses.internal.ChildClass.PackageProtectedInterface {}
+> 	private class InnerClass4 implements spoon.test.imports.testclasses.internal.ChildClass.ProtectedInterface {}
+> 	private class InnerClass5 implements spoon.test.imports.testclasses.internal.ChildClass.ProtectedInterface.NestedOfProtectedInterface {}
+> 	private class InnerClass6 implements spoon.test.imports.testclasses.internal.ChildClass.ProtectedInterface.NestedPublicInterface {}
+> 	private class InnerClass7 implements spoon.test.imports.testclasses.internal.ChildClass.PublicInterface {}
+> 	private class InnerClass8 implements spoon.test.imports.testclasses.internal.ChildClass.PublicInterface.NestedOfPublicInterface {}
+> 	private class InnerClass9 implements spoon.test.imports.testclasses.internal.ChildClass.PublicInterface.NestedPublicInterface {}
+> } 
+Only in after/src/test/java/spoon/test/imports/testclasses/internal: PublicInterface2.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/testclasses/internal/SuperClass.java after/src/test/java/spoon/test/imports/testclasses/internal/SuperClass.java
+5a6,23
+> 	interface PackageProtectedInterface {
+> 		interface NestedOfPackageProtectedInterface {
+> 		}
+> 		public interface NestedPublicInterface {
+> 		}
+> 	}
+> 	protected interface ProtectedInterface {
+> 		interface NestedOfProtectedInterface {
+> 		}
+> 		public interface NestedPublicInterface {
+> 		}
+> 	}
+> 	public interface PublicInterface {
+> 		interface NestedOfPublicInterface {
+> 		}
+> 		public interface NestedPublicInterface {
+> 		}
+> 	}

@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli39/src/main/java/org/apache/commons/cli/TypeHandler.java d4j_patched/Cli39/src/main/java/org/apache/commons/cli/TypeHandler.java
+92c92
+<             return createFile(str);
+---
+>             return openFile(str);
+233a234,244
+>     public static FileInputStream openFile(String str) throws ParseException
+>     {
+>         try
+>         {
+>             return new FileInputStream(str);
+>         }
+>         catch (FileNotFoundException e)
+>         {
+>             throw new ParseException("Unable to find file: " + str);
+>         }
+>     }

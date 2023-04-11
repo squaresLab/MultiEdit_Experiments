@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure18/src/com/google/javascript/jscomp/Compiler.java d4j_patched/Closure18/src/com/google/javascript/jscomp/Compiler.java
+1288c1288
+<       if (options.dependencyOptions.needsManagement() && options.closurePass) {
+---
+>       if (options.dependencyOptions.needsManagement()) {

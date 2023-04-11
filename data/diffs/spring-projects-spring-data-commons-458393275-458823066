@@ -1,0 +1,64 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/convert/ClassGeneratingEntityInstantiator.java after/src/main/java/org/springframework/data/convert/ClassGeneratingEntityInstantiator.java
+156a157,160
+> 		if (!ClassUtils.isPresent(ObjectInstantiator.class.getName(), type.getClassLoader())) {
+> 			return true;
+> 		}
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/mapping/model/ClassGeneratingPropertyAccessorFactory.java after/src/main/java/org/springframework/data/mapping/model/ClassGeneratingPropertyAccessorFactory.java
+57a58
+> import org.springframework.util.ClassUtils;
+142c143,145
+< 				&& (type.getPackage() == null || !type.getPackage().getName().startsWith("java"));
+---
+> 				&& (type.getPackage() == null || !type.getPackage().getName().startsWith("java"))
+> 				&& ClassUtils.isPresent(PersistentPropertyAccessor.class.getName(), type.getClassLoader())
+> 				&& ClassUtils.isPresent(Assert.class.getName(), type.getClassLoader());
+1082d1084
+< 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/convert/ClassGeneratingEntityInstantiatorUnitTests.java after/src/test/java/org/springframework/data/convert/ClassGeneratingEntityInstantiatorUnitTests.java
+30a31,32
+> import org.springframework.data.classloadersupport.HidingClassLoader;
+> import org.springframework.data.convert.ClassGeneratingEntityInstantiator.ObjectInstantiator;
+354a357,371
+> 
+> 		assertThat(this.instance.shouldUseReflectionEntityInstantiator(entity)).isTrue();
+> 	}
+> 
+> 	@Test // DATACMNS-1422
+> 	public void shouldUseReflectionIfFrameworkTypesNotVisible() throws Exception {
+> 
+> 		HidingClassLoader classLoader = HidingClassLoader.hide(ObjectInstantiator.class);
+> 		classLoader.excludePackage("org.springframework.data.mapping.model");
+> 
+> 		// require type from different package to meet visibility quirks
+> 		Class<?> entityType = classLoader
+> 				.loadClass("org.springframework.data.mapping.model.PersistentPropertyAccessorTests$ClassLoaderTest");
+> 
+> 		prepareMocks(entityType);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/mapping/model/PersistentPropertyAccessorTests.java after/src/test/java/org/springframework/data/mapping/model/PersistentPropertyAccessorTests.java
+33a34
+> import org.springframework.data.classloadersupport.HidingClassLoader;
+36a38
+> import org.springframework.util.Assert;
+174a177,192
+> 	@Test // DATACMNS-1422
+> 	public void shouldUseReflectionIfFrameworkTypesNotVisible() throws Exception {
+> 
+> 		HidingClassLoader classLoader = HidingClassLoader.hide(Assert.class);
+> 		classLoader.excludePackage("org.springframework.data.mapping.model");
+> 
+> 		Class<?> entityType = classLoader
+> 				.loadClass("org.springframework.data.mapping.model.PersistentPropertyAccessorTests$ClassLoaderTest");
+> 
+> 		ClassGeneratingPropertyAccessorFactory factory = new ClassGeneratingPropertyAccessorFactory();
+> 		BasicPersistentEntity<Object, SamplePersistentProperty> entity = MAPPING_CONTEXT
+> 				.getRequiredPersistentEntity(entityType);
+> 
+> 		assertThat(factory.isSupported(entity)).isFalse();
+> 	}
+> 
+182a201,202
+> 
+> 	static class ClassLoaderTest {}

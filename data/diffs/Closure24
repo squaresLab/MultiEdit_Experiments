@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure24/src/com/google/javascript/jscomp/ScopedAliases.java d4j_patched/Closure24/src/com/google/javascript/jscomp/ScopedAliases.java
+278,279c278,279
+<         if (parent.isVar()) {
+<           if (n.hasChildren() && n.getFirstChild().isQualifiedName()) {
+---
+>         if (parent.isVar() &&
+>             n.hasChildren() && n.getFirstChild().isQualifiedName()) {
+286a287
+>         } else if (v.isBleedingFunction()) {
+288a290
+>         } else if (parent.getType() == Token.LP) {
+294d295
+<         }

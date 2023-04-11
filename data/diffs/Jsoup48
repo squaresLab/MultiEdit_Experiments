@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup48/src/main/java/org/jsoup/helper/HttpConnection.java d4j_patched/Jsoup48/src/main/java/org/jsoup/helper/HttpConnection.java
+773c773
+<                     if (!values.isEmpty())
+---
+>                     if (values.size() == 1)
+774a775,784
+>                     else if (values.size() > 1) {
+>                         StringBuilder accum = new StringBuilder();
+>                         for (int i = 0; i < values.size(); i++) {
+>                             final String val = values.get(i);
+>                             if (i != 0)
+>                                 accum.append(", ");
+>                             accum.append(val);
+>                         }
+>                         header(name, accum.toString());
+>                     }

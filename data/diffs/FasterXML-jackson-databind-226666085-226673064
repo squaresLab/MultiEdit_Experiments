@@ -1,0 +1,59 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java after/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+763a764,766
+>                     } else if (_primitiveAndWrapper(currRaw, serClass)) {
+>                         // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+>                         type = type.withStaticTyping();
+795a799,801
+>                         } else if (_primitiveAndWrapper(currRaw, keyClass)) {
+>                             // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+>                             keyType = keyType.withStaticTyping();
+828a835,837
+>                        } else if (_primitiveAndWrapper(currRaw, contentClass)) {
+>                            // 27-Apr-2017, tatu: [databind#1592] ignore primitive<->wrapper refinements
+>                            contentType = contentType.withStaticTyping();
+1116c1125,1126
+<         if ((valueClass != null) && !type.hasRawClass(valueClass)) {
+---
+>         if ((valueClass != null) && !type.hasRawClass(valueClass)
+>                 && !_primitiveAndWrapper(type, valueClass)) {
+1132c1142,1143
+<             if (keyClass != null) {
+---
+>             if ((keyClass != null)
+>                     && !_primitiveAndWrapper(keyType, keyClass)) {
+1148c1159,1160
+<             if (contentClass != null) {
+---
+>             if ((contentClass != null)
+>                     && !_primitiveAndWrapper(contentType, contentClass)) {
+1454,1458c1466,1486
+<     /*
+<     /**********************************************************
+<     /* Helper classes
+<     /**********************************************************
+<      */
+---
+>     private boolean _primitiveAndWrapper(Class<?> baseType, Class<?> refinement)
+>     {
+>         if (baseType.isPrimitive()) {
+>             return baseType == ClassUtil.primitiveType(refinement);
+>         }
+>         if (refinement.isPrimitive()) {
+>             return refinement == ClassUtil.primitiveType(baseType);
+>         }
+>         return false;
+>     }
+> 
+>     private boolean _primitiveAndWrapper(JavaType baseType, Class<?> refinement)
+>     {
+>         if (baseType.isPrimitive()) {
+>             return baseType.hasRawClass(ClassUtil.primitiveType(refinement));
+>         }
+>         if (refinement.isPrimitive()) {
+>             return refinement == ClassUtil.primitiveType(baseType.getRawClass());
+>         }
+>         return false;
+>     }
+Only in after/src/test/java/com/fasterxml/jackson/databind/introspect: TypeCoercion1592Test.java

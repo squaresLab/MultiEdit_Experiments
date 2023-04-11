@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli11/src/java/org/apache/commons/cli/HelpFormatter.java d4j_patched/Cli11/src/java/org/apache/commons/cli/HelpFormatter.java
+632c632
+<         if (option.hasArg() && (option.getArgName() != null))
+---
+>         if (option.hasArg() && option.hasArgName())

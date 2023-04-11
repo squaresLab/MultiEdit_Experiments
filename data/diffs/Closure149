@@ -1,0 +1,38 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure149/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java d4j_patched/Closure149/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+158a159
+>     options.outputCharset = getOutputCharset();
+518,522d518
+<     if (inputCharset == Charsets.UTF_8) {
+<       options.outputCharset = Charsets.US_ASCII;
+<     } else {
+<       options.outputCharset = inputCharset;
+<     }
+692a689,698
+>   private String getOutputCharset() throws FlagUsageException {
+>     if (!config.charset.isEmpty()) {
+>       if (!Charset.isSupported(config.charset)) {
+>         throw new FlagUsageException(config.charset +
+>             " is not a valid charset name.");
+>       }
+>       return config.charset;
+>     }
+>     return "US-ASCII";
+>   }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure149/src/com/google/javascript/jscomp/CommandLineRunner.java d4j_patched/Closure149/src/com/google/javascript/jscomp/CommandLineRunner.java
+471d470
+<     initOptionsFromFlags(options);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure149/src/com/google/javascript/jscomp/Compiler.java d4j_patched/Closure149/src/com/google/javascript/jscomp/Compiler.java
+1362c1362,1363
+<     Charset charset = options.outputCharset;
+---
+>     Charset charset = options.outputCharset != null ?
+>         Charset.forName(options.outputCharset) : null;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure149/src/com/google/javascript/jscomp/CompilerOptions.java d4j_patched/Closure149/src/com/google/javascript/jscomp/CompilerOptions.java
+588c588
+<   public Charset outputCharset;
+---
+>   String outputCharset;
+959a960,962
+>   public void setOutputCharset(String charsetName) {
+>     this.outputCharset = charsetName;
+>   }

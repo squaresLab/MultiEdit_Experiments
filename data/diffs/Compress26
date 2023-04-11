@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress26/src/main/java/org/apache/commons/compress/utils/IOUtils.java d4j_patched/Compress26/src/main/java/org/apache/commons/compress/utils/IOUtils.java
+103a104,114
+>         if (numToSkip > 0) {
+>             byte[] skipBuf = new byte[SKIP_BUF_SIZE];
+>             while (numToSkip > 0) {
+>                 int read = readFully(input, skipBuf, 0,
+>                                      (int) Math.min(numToSkip, SKIP_BUF_SIZE));
+>                 if (read < 1) {
+>                     break;
+>                 }
+>                 numToSkip -= read;
+>             }
+>         }

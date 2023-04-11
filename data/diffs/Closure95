@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure95/src/com/google/javascript/jscomp/TypedScopeCreator.java d4j_patched/Closure95/src/com/google/javascript/jscomp/TypedScopeCreator.java
+898a899,901
+>       if (n.getType() == Token.GETPROP && !scope.isGlobal() &&
+>           isQnameRootedInGlobalScope(n)) {
+>         Scope globalScope = scope.getGlobalScope();
+901a905,908
+>         if (!globalScope.isDeclared(variableName, false)) {
+>           scopeToDeclareIn = scope.getGlobalScope();
+>         }
+>       }

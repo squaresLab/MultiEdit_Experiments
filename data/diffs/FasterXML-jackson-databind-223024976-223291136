@@ -1,0 +1,110 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java after/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+579,580c579,580
+<         if (ref != null) {
+<             objectIdInfo = objectIdInfo.withAlwaysAsId(ref.alwaysAsId());
+---
+>         if (ref == null) {
+>             return objectIdInfo;
+582c582,585
+<         return objectIdInfo;
+---
+>         if (objectIdInfo == null) {
+>             objectIdInfo = ObjectIdInfo.empty();
+>         }
+>         return objectIdInfo.withAlwaysAsId(ref.alwaysAsId());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java after/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java
+21a22,26
+>     /**
+>      * @since 2.8.9
+>      */
+>     private final static ObjectIdInfo EMPTY = new ObjectIdInfo(PropertyName.NO_NAME, Object.class, null, false, null);
+> 
+56a62,65
+>     }
+> 
+>     public static ObjectIdInfo empty() {
+>         return EMPTY;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java after/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
+432,434c432,435
+<                     objectIdInfo = intr.findObjectReferenceInfo(accessor,
+<                             new ObjectIdInfo(NAME_FOR_OBJECT_REF, null, null, null));
+<                     oiw = _objectIdWriter.withAlwaysAsId(objectIdInfo.getAlwaysAsId());
+---
+>                     objectIdInfo = intr.findObjectReferenceInfo(accessor, null);
+>                     if (objectIdInfo != null) {
+>                         oiw = _objectIdWriter.withAlwaysAsId(objectIdInfo.getAlwaysAsId());
+>                     }
+437,440c438,439
+<                 /* Ugh: mostly copied from BeanSerializerBase: but can't easily
+<                  * change it to be able to move to SerializerProvider (where it
+<                  * really belongs)
+<                  */
+---
+>                 // Ugh: mostly copied from BeanDeserializerBase: but can't easily change it
+>                 // to be able to move to SerializerProvider (where it really belongs)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/com/fasterxml/jackson/databind/objectid/AlwaysAsReferenceFirstTest.java after/src/test/java/com/fasterxml/jackson/databind/objectid/AlwaysAsReferenceFirstTest.java
+7a8
+>     // [databind#1255]
+22a24,65
+>     // [databind#1607]
+> 
+>     @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="id")
+>     static class Value1607
+>     {
+>         public int value;
+>         
+>         public Value1607() { this(0); }
+>         public Value1607(int v) {
+>             value = v;
+>         }
+> }
+>     @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="id")
+>     @JsonIdentityReference(alwaysAsId=true)
+>     static class Value1607ViaClass
+>     {
+>         public int value;
+> 
+>         public Value1607ViaClass() { this(0); }
+>         public Value1607ViaClass(int v) {
+>             value = v;
+>         }
+>     }
+> 
+>     @JsonPropertyOrder(alphabetic=true)
+>     static class ReallyAlwaysContainer
+>     {
+>         public Value1607ViaClass alwaysClass = new Value1607ViaClass(13);
+> 
+>         @JsonIdentityReference(alwaysAsId=true)
+>         public Value1607 alwaysProp = new Value1607(13);
+>     }
+> 
+>     /*
+>     /**********************************************************
+>     /* Test methods
+>     /**********************************************************
+>      */
+>     
+>     private final ObjectMapper MAPPER = new ObjectMapper();
+> 
+>     // [databind#1255]
+25d67
+<         ObjectMapper mapper = new ObjectMapper();
+30c72
+<         String json = mapper.writeValueAsString(mo);
+---
+>         String json = MAPPER.writeValueAsString(mo);
+32c74
+<         Foo result = mapper.readValue(json, Foo.class);
+---
+>         Foo result = MAPPER.readValue(json, Foo.class);
+33a76,82
+>     }
+> 
+>     // [databind#1607]
+>     public void testIssue1607() throws Exception
+>     {
+>         String json = MAPPER.writeValueAsString(new ReallyAlwaysContainer());
+>         assertEquals(aposToQuotes("{'alwaysClass':1,'alwaysProp':2}"), json);

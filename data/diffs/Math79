@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math79/src/main/java/org/apache/commons/math/util/MathUtils.java d4j_patched/Math79/src/main/java/org/apache/commons/math/util/MathUtils.java
+1624c1624
+<       int sum = 0;
+---
+>       double sum = 0;
+1626c1626
+<           final int dp = p1[i] - p2[i];
+---
+>           final double dp = p1[i] - p2[i];

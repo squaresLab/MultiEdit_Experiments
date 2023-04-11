@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup32/src/main/java/org/jsoup/nodes/Element.java d4j_patched/Jsoup32/src/main/java/org/jsoup/nodes/Element.java
+1138c1138
+<         clone.classNames();
+---
+>         clone.classNames = null; // derived on first hit, otherwise gets a pointer to source classnames

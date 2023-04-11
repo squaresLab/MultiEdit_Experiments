@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Collections27/src/main/java/org/apache/commons/collections4/map/MultiValueMap.java d4j_patched/Collections27/src/main/java/org/apache/commons/collections4/map/MultiValueMap.java
+567a568,574
+>         private void readObject(ObjectInputStream is) throws IOException, ClassNotFoundException {
+>             is.defaultReadObject();
+>             // ensure that the de-serialized class is a Collection, COLLECTIONS-580
+>             if (clazz != null && !Collection.class.isAssignableFrom(clazz)) {
+>                 throw new UnsupportedOperationException();
+>             }
+>         }

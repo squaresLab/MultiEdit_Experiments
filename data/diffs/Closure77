@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure77/src/com/google/javascript/jscomp/CodeGenerator.java d4j_patched/Closure77/src/com/google/javascript/jscomp/CodeGenerator.java
+965a966
+>         case '\0': sb.append("\\0"); break;

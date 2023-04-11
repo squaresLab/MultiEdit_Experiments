@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup70/src/main/java/org/jsoup/nodes/Element.java d4j_patched/Jsoup70/src/main/java/org/jsoup/nodes/Element.java
+1090a1091,1092
+>             int i = 0;
+>             do {
+1093,1094c1095,1097
+<                 else
+<                     return el.parent() != null && el.parent().tag.preserveWhitespace();
+---
+>                 el = el.parent();
+>                 i++;
+>             } while (i < 6 && el != null);

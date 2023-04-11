@@ -1,0 +1,19 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito16/src/org/mockito/internal/MockitoCore.java d4j_patched/Mockito16/src/org/mockito/internal/MockitoCore.java
+32,33c32
+<     public <T> T mock(Class<T> classToMock, MockSettings mockSettings, boolean shouldResetOngoingStubbing) { return mock(classToMock, mockSettings); }
+<     public <T> T mock(Class<T> classToMock, MockSettings mockSettings) {
+---
+>     public <T> T mock(Class<T> classToMock, MockSettings mockSettings, boolean shouldResetOngoingStubbing) {
+34a34
+>         if (shouldResetOngoingStubbing) {
+35a36
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito16/src/org/mockito/Mockito.java d4j_patched/Mockito16/src/org/mockito/Mockito.java
+827c827
+<         return MOCKITO_CORE.mock(classToMock, mockSettings);
+---
+>         return MOCKITO_CORE.mock(classToMock, mockSettings, true);
+899c899
+<                 .defaultAnswer(CALLS_REAL_METHODS)); 
+---
+>                 .defaultAnswer(CALLS_REAL_METHODS), true); 

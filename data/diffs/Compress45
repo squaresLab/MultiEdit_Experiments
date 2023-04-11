@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress45/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java d4j_patched/Compress45/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+486a487,488
+>         } else {
+>             formatBigIntegerBinary(value, buf, offset, length, negative);
+488d489
+<         formatBigIntegerBinary(value, buf, offset, length, negative);

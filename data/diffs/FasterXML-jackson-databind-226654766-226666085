@@ -1,0 +1,173 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java after/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java
+2a3
+> import java.lang.reflect.Modifier;
+24c25
+<     
+---
+> 
+78,84c79,87
+<         Collection<NamedType> st = ai.findSubtypes(property);
+<         if (st != null) {
+<             for (NamedType nt : st) {
+<                 AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(config,
+<                         nt.getType());
+<                 _collectAndResolve(ac, nt, config, ai, collected);
+<             }            
+---
+>         if (property != null) {
+>             Collection<NamedType> st = ai.findSubtypes(property);
+>             if (st != null) {
+>                 for (NamedType nt : st) {
+>                     AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(config,
+>                             nt.getType());
+>                     _collectAndResolve(ac, nt, config, ai, collected);
+>                 }            
+>             }
+86c89
+<         
+---
+> 
+131c134
+<         Class<?> rawBase = (baseType == null) ? property.getRawType() : baseType.getRawClass();
+---
+>         Class<?> rawBase = baseType.getRawClass();
+144,149c147,154
+<         Collection<NamedType> st = ai.findSubtypes(property);
+<         if (st != null) {
+<             for (NamedType nt : st) {
+<                 ac = AnnotatedClassResolver.resolveWithoutSuperTypes(config, nt.getType());
+<                 _collectAndResolveByTypeId(ac, nt, config, typesHandled, byName);
+<             }            
+---
+>         if (property != null) {
+>             Collection<NamedType> st = ai.findSubtypes(property);
+>             if (st != null) {
+>                 for (NamedType nt : st) {
+>                     ac = AnnotatedClassResolver.resolveWithoutSuperTypes(config, nt.getType());
+>                     _collectAndResolveByTypeId(ac, nt, config, typesHandled, byName);
+>                 }            
+>             }
+151d155
+<         
+163c167
+<         return _combineNamedAndUnnamed(typesHandled, byName);
+---
+>         return _combineNamedAndUnnamed(rawBase, typesHandled, byName);
+168c172
+<             AnnotatedClass type)
+---
+>             AnnotatedClass baseType)
+169a174
+>         final Class<?> rawBase = baseType.getRawType();
+173,174c178,179
+<         NamedType rootType = new NamedType(type.getRawType(), null);
+<         _collectAndResolveByTypeId(type, rootType, config, typesHandled, byName);
+---
+>         NamedType rootType = new NamedType(rawBase, null);
+>         _collectAndResolveByTypeId(baseType, rootType, config, typesHandled, byName);
+177d181
+<             Class<?> rawBase = type.getRawType();
+187c191
+<         return _combineNamedAndUnnamed(typesHandled, byName);
+---
+>         return _combineNamedAndUnnamed(rawBase, typesHandled, byName);
+270,271c274,275
+<     protected Collection<NamedType> _combineNamedAndUnnamed(Set<Class<?>> typesHandled,
+<             Map<String,NamedType> byName)
+---
+>     protected Collection<NamedType> _combineNamedAndUnnamed(Class<?> rawBase,
+>             Set<Class<?>> typesHandled, Map<String,NamedType> byName)
+281a286,290
+>             // 27-Apr-2017, tatu: [databind#1616] Do not add base type itself unless
+>             //     it is concrete (or has explicit type name)
+>             if ((cls == rawBase) && Modifier.isAbstract(cls.getModifiers())) {
+>                 continue;
+>             }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/com/fasterxml/jackson/databind/BaseMapTest.java after/src/test/java/com/fasterxml/jackson/databind/BaseMapTest.java
+294c294
+<         return serializeAsString(SHARED_MAPPER, value);
+---
+>         return serializeAsString(objectMapper(), value);
+300c300
+<         return asJSONObjectValueString(SHARED_MAPPER, args);
+---
+>         return asJSONObjectValueString(objectMapper(), args);
+322c322
+<         return readAndMapFromString(SHARED_MAPPER, input, cls);
+---
+>         return readAndMapFromString(objectMapper(), input, cls);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/com/fasterxml/jackson/databind/jsontype/TestDefaultForMaps.java after/src/test/java/com/fasterxml/jackson/databind/jsontype/TestDefaultForMaps.java
+121,122d120
+<     // // For #234:
+<     
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/com/fasterxml/jackson/databind/jsontype/TestTypeNames.java after/src/test/java/com/fasterxml/jackson/databind/jsontype/TestTypeNames.java
+9a10
+> 
+10a12
+> import com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+16,17d17
+<  * 
+<  * @author tatu
+22a23,34
+> 
+>     @JsonTypeInfo(property = "type", include = JsonTypeInfo.As.PROPERTY, use = JsonTypeInfo.Id.NAME)
+>     @JsonSubTypes({
+>               @JsonSubTypes.Type(value = A1616.class,name = "A"),
+>               @JsonSubTypes.Type(value = B1616.class)
+>     })
+>     static abstract class Base1616 { }
+> 
+>     static class A1616 extends Base1616 { }
+> 
+>     @JsonTypeName("B")
+>     static class B1616 extends Base1616 { }
+29a42,61
+>     private final ObjectMapper MAPPER = objectMapper();
+> 
+>     public void testBaseTypeId1616() throws Exception
+>     {
+>         ObjectMapper mapper = new ObjectMapper();
+>         Collection<NamedType> subtypes = new StdSubtypeResolver().collectAndResolveSubtypesByTypeId(
+>                 mapper.getDeserializationConfig(),
+>                 // note: `null` is fine here as `AnnotatedMember`:
+>                 null,
+>                 mapper.constructType(Base1616.class));
+>         assertEquals(2, subtypes.size());
+>         Set<String> ok = new HashSet<>(Arrays.asList("A", "B"));
+>         for (NamedType type : subtypes) {
+>             String id = type.getName();
+>             if (!ok.contains(id)) {
+>                 fail("Unexpected id '"+id+"' (mapping to: "+type.getType()+"), should be one of: "+ok);
+>             }
+>         }
+>     }
+>     
+32,33d63
+<         ObjectMapper m = new ObjectMapper();
+< 
+39c69
+<                 m.writeValueAsString(new Animal[] { new Dog("Spot", 3) }));
+---
+>                 MAPPER.writeValueAsString(new Animal[] { new Dog("Spot", 3) }));
+41c71
+<                 m.writeValueAsString(new Animal[] { new MaineCoon("Belzebub", true)}));
+---
+>                 MAPPER.writeValueAsString(new Animal[] { new MaineCoon("Belzebub", true)}));
+46d75
+<         ObjectMapper m = new ObjectMapper();
+53,54c82,83
+<         String json = m.writeValueAsString(input);
+<         List<Animal> output = m.readValue(json,
+---
+>         String json = MAPPER.writeValueAsString(input);
+>         List<Animal> output = MAPPER.readValue(json,
+65d93
+<         ObjectMapper m = new ObjectMapper();
+69,70c97,98
+<         String json = m.writeValueAsString(input);
+<         AnimalMap output = m.readValue(json, AnimalMap.class);
+---
+>         String json = MAPPER.writeValueAsString(input);
+>         AnimalMap output = MAPPER.readValue(json, AnimalMap.class);

@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind25/src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java d4j_patched/JacksonDatabind25/src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java
+1757c1757
+<                 type = (T) type.narrowBy(subclass);
+---
+>                 type = (T) ctxt.getTypeFactory().constructSpecializedType(type, subclass);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind25/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java d4j_patched/JacksonDatabind25/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
+477c477
+<                 type = type.narrowBy(subclass);
+---
+>                 type = ctxt.getTypeFactory().constructSpecializedType(type, subclass);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind25/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java d4j_patched/JacksonDatabind25/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java
+177c177
+<                     type = _baseType.narrowBy(type.getRawClass());
+---
+>                     type = ctxt.getTypeFactory().constructSpecializedType(_baseType, type.getRawClass());
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind25/src/main/java/com/fasterxml/jackson/databind/module/SimpleAbstractTypeResolver.java d4j_patched/JacksonDatabind25/src/main/java/com/fasterxml/jackson/databind/module/SimpleAbstractTypeResolver.java
+80c80
+<         return type.narrowBy(dst);
+---
+>         return config.getTypeFactory().constructSpecializedType(type, dst);

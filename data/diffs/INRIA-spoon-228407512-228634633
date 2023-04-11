@@ -1,0 +1,65 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java
+21a22
+> import spoon.reflect.declaration.CtMethod;
+24a26
+> import spoon.reflect.reference.CtExecutableReference;
+175a178,190
+> 		CtElement e = this;
+> 		CtElement parent = getParent();
+> 		if (parent instanceof CtExecutableReference) {
+> 			CtElement parent2 = parent.getParent();
+> 			if (parent2 instanceof CtMethod) {
+> 				e = parent2;
+> 			} else {
+> 				e = ((CtExecutableReference<?>) parent).getDeclaringType().getTypeDeclaration();
+> 			}
+> 		} else {
+> 			e = e.getParent(CtFormalTypeDeclarer.class);
+> 		}
+> 
+179,180c194
+< 		CtElement e = this;
+< 		while ((e = e.getParent(CtFormalTypeDeclarer.class)) != null) {
+---
+> 		while (e != null) {
+184a199
+> 			e = e.getParent(CtFormalTypeDeclarer.class);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/methodreference/MethodReferenceTest.java after/src/test/java/spoon/test/methodreference/MethodReferenceTest.java
+11a12
+> import spoon.reflect.code.CtInvocation;
+15a17
+> import spoon.reflect.declaration.CtType;
+22a25
+> import spoon.test.methodreference.testclasses.Cloud;
+23a27
+> import spoon.testing.utils.ModelUtils;
+25a30
+> import java.lang.reflect.Method;
+32a38
+> import static org.junit.Assert.assertSame;
+199a206,227
+> 	
+> 	@Test
+> 	public void testGetGenericMethodFromReferene() throws Exception {
+> 		CtType<?> classCloud = ModelUtils.buildClass(Cloud.class);
+> 		CtMethod<?> ctMethod = classCloud.getMethodsByName("method").get(0);
+> 		CtExecutableReference<?> execRef = ctMethod.getReference();
+> 		Method method = execRef.getActualMethod();
+> 		assertNotNull(method);
+> 		assertEquals("method", method.getName());
+> 
+> 		CtClass<?> classSun = classCloud.getFactory().Class().get("spoon.test.methodreference.testclasses.Sun");
+> //		CtExecutableReference<?> execRef2 = classSun.filterChildren(new TypeFilter<>(CtExecutableReference.class)).select(new NameFilter<>("method")).first();
+> 		CtExecutableReference<?> execRef2 = classSun.filterChildren(new TypeFilter<>(CtInvocation.class))
+> 				.select(((CtInvocation i)->i.getExecutable().getSimpleName().equals("method")))
+> 				.map((CtInvocation i)->i.getExecutable())
+> 				.first();
+> 		assertNotNull(execRef2);
+> 		Method method2 = execRef2.getActualMethod();
+> 		assertNotNull(method2);
+> 		assertEquals("method", method2.getName());
+> 	}
+> 	
+Only in after/src/test/java/spoon/test/methodreference/testclasses: Cloud.java

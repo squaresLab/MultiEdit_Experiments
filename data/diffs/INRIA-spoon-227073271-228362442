@@ -1,0 +1,35 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/declaration/CtAnnotationImpl.java after/src/main/java/spoon/support/reflect/declaration/CtAnnotationImpl.java
+113c113,114
+< 			res.setType(getFactory().Type().createArrayReference(getFactory().Type().createReference(values[0].getClass())));
+---
+> 
+> 			res.setType(getFactory().Type().createArrayReference(getFactory().Type().createReference(value.getClass().getComponentType())));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/annotation/AnnotationTest.java after/src/test/java/spoon/test/annotation/AnnotationTest.java
+69a70,71
+> import static org.hamcrest.CoreMatchers.is;
+> import static org.hamcrest.CoreMatchers.notNullValue;
+73a76
+> import static org.junit.Assert.assertThat;
+928a932,950
+> 	}
+> 
+> 	@Test
+> 	public void annotationAddValue() {
+> 		Launcher spoon = new Launcher();
+> 		spoon.addInputResource("./src/test/java/spoon/test/annotation/testclasses/Bar.java");
+> 		spoon.buildModel();
+> 
+> 		factory = spoon.getFactory();
+> 
+> 		List<CtMethod> methods = factory.getModel().getElements(new NameFilter<CtMethod>("bidule"));
+> 
+> 		assertThat(methods.size(), is(1));
+> 
+> 		CtAnnotation anno1 = factory.Annotation().annotate(methods.get(0), TypeAnnotation.class).addValue("params", new String[] { "test"});
+> 		assertThat(anno1.getValue("params").getType(), is(factory.Type().createReference(String[].class)));
+> 
+> 		CtAnnotation anno = factory.Annotation().annotate(methods.get(0), TypeAnnotation.class).addValue("params", new String[0]);
+> 		assertThat(anno.getValue("params").getType(), is(factory.Type().createReference(String[].class))); 
+Only in after/src/test/java/spoon/test/annotation/testclasses: Bar.java

@@ -1,0 +1,165 @@
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java after/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java
+6a7
+> import org.joda.time.DateMidnight;
+778,781c779,792
+<             if (session.getSubmissionActions().getCurrentEncounter().getEncounterDatetime() != null
+<                     && !session.getSubmissionActions().getCurrentEncounter().getEncounterDatetime().equals(date)) {
+<                 session.getContext().setPreviousEncounterDate(
+<                         new Date(session.getSubmissionActions().getCurrentEncounter().getEncounterDatetime().getTime()));
+---
+>             Date previousDate = session.getSubmissionActions().getCurrentEncounter().getEncounterDatetime();
+> 
+>             if (previousDate == null) {
+>                 session.getSubmissionActions().getCurrentEncounter().setEncounterDatetime(date);
+>             }
+> 
+>             else {
+>                 // we don't want to lose any time information just because we edited it with a form that only collects date,
+>                 // so we only update the date if the date has a time component or the actual date has changed
+>                 if (hasTimeComponent(date) || !stripTimeComponent(date).equals(stripTimeComponent(previousDate))) {
+>                     session.getContext().setPreviousEncounterDate(
+>                             new Date(session.getSubmissionActions().getCurrentEncounter().getEncounterDatetime().getTime()));
+>                     session.getSubmissionActions().getCurrentEncounter().setEncounterDatetime(date);
+>                 }
+783d793
+<             session.getSubmissionActions().getCurrentEncounter().setEncounterDatetime(date);
+816a827,834
+>     }
+> 
+>     private boolean hasTimeComponent(Date date) {
+>         return !(new DateMidnight(date).toDate().equals(date));
+>     }
+> 
+>     private DateMidnight stripTimeComponent(Date date) {
+>         return new DateMidnight(date);
+Only in after/api-tests: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/api-tests/src/test/java/org/openmrs/module/htmlformentry/RegressionTest.java after/api-tests/src/test/java/org/openmrs/module/htmlformentry/RegressionTest.java
+1102a1103,1229
+> 	// see https://issues.openmrs.org/browse/HTML-678
+> 	@Test
+> 	public void testEditShouldNotClearTimeComponentForm() throws Exception {
+> 		final Date date = new Date();
+> 		new RegressionTestHelper() {
+> 
+> 			@Override
+> 			public String getFormName() {
+> 				return "encounterDateAndLocationForm";
+> 			}
+> 
+> 
+> 			@Override
+> 			public String[] widgetLabels() {
+> 				return new String[] { "Date:", "Location:" };
+> 			}
+> 
+> 			@Override
+> 			public void setupRequest(MockHttpServletRequest request, Map<String, String> widgets) {
+> 				request.addParameter(widgets.get("Date:"), dateAsString(date));
+> 				request.addParameter(widgets.get("Location:"), "2");
+> 
+> 
+> 			}
+> 
+> 			@Override
+> 			public boolean doEditEncounter() {
+> 				return true;
+> 			}
+> 
+> 			// instead of editing the existing encounter, create an encounter with an encounter datetime with a time component
+> 			@Override
+> 			public Encounter getEncounterToEdit() {
+> 				Encounter encounter = new Encounter();
+> 				encounter.setEncounterDatetime(date);
+> 				encounter.setLocation(Context.getLocationService().getLocation(2));
+> 				encounter.setDateCreated(date);
+> 				encounter.setPatient(Context.getPatientService().getPatient(2));
+> 				return encounter;
+> 			}
+> 
+> 			@Override
+> 			public String[] widgetLabelsForEdit() {
+> 				return new String[] { "Date:", "Location:"};
+> 			};
+> 
+> 			@Override
+> 			public void setupEditRequest(MockHttpServletRequest request, Map<String, String> widgets) {
+> 				request.addParameter(widgets.get("Date:"), dateAsString(date));
+> 				request.addParameter(widgets.get("Location:"), "2");
+> 
+> 			};
+> 
+> 			@Override
+> 			public void testEditedResults(SubmissionResults results) {
+> 				results.assertNoErrors();
+> 				results.assertEncounterDatetime(date);
+> 			};
+> 
+> 		}.run();
+> 	}
+> 
+> 	// to make sure https://issues.openmrs.org/browse/HTML-678 doesn't break date editing
+> 	@Test
+> 	public void testEditShouldEditDate() throws Exception {
+> 
+> 		final Date date = new Date();
+> 		new RegressionTestHelper() {
+> 
+> 			@Override
+> 			public String getFormName() {
+> 				return "encounterDateAndLocationForm";
+> 			}
+> 
+> 
+> 			@Override
+> 			public String[] widgetLabels() {
+> 				return new String[] { "Date:", "Location:" };
+> 			}
+> 
+> 			@Override
+> 			public void setupRequest(MockHttpServletRequest request, Map<String, String> widgets) {
+> 				request.addParameter(widgets.get("Date:"), "2015-07-08");
+> 				request.addParameter(widgets.get("Location:"), "2");
+> 
+> 
+> 			}
+> 
+> 			@Override
+> 			public boolean doEditEncounter() {
+> 				return true;
+> 			}
+> 
+> 			// instead of editing the existing encounter, create an encounter with an encounter datetime with a time component
+> 			@Override
+> 			public Encounter getEncounterToEdit() {
+> 				Encounter encounter = new Encounter();
+> 				encounter.setEncounterDatetime(date);
+> 				encounter.setLocation(Context.getLocationService().getLocation(2));
+> 				encounter.setDateCreated(date);
+> 				encounter.setPatient(Context.getPatientService().getPatient(2));
+> 				return encounter;
+> 			}
+> 
+> 			@Override
+> 			public String[] widgetLabelsForEdit() {
+> 				return new String[] { "Date:", "Location:"};
+> 			};
+> 
+> 			@Override
+> 			public void setupEditRequest(MockHttpServletRequest request, Map<String, String> widgets) {
+> 				request.addParameter(widgets.get("Date:"), "2015-08-08");
+> 				request.addParameter(widgets.get("Location:"), "2");
+> 
+> 			};
+> 
+> 			@Override
+> 			public void testEditedResults(SubmissionResults results) {
+> 				results.assertNoErrors();
+> 				results.assertEncounterDatetime(date);
+> 			};
+> 
+> 		}.run();
+> 	}
+> 
+> 	/**
+> 
+Only in after/: bears.json

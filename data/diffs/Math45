@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math45/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java d4j_patched/Math45/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java
+49a50,54
+>         long lRow = (long) rowDimension;
+>         long lCol = (long) columnDimension;
+>         if (lRow * lCol >= (long) Integer.MAX_VALUE) {
+>             throw new NumberIsTooLargeException(lRow * lCol, Integer.MAX_VALUE, false);
+>         }

@@ -1,0 +1,66 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math6/src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java d4j_patched/Math6/src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java
+51c51
+<         iterations = new Incrementor(0, new MaxIterCallback());
+---
+>         iterations = new Incrementor(Integer.MAX_VALUE, new MaxIterCallback());
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java d4j_patched/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java
+214d213
+<         int iter = 0;
+217c216
+<             ++iter;
+---
+>             incrementIterationCount();
+223c222
+<                 if (checker.converged(iter, previous, current)) {
+---
+>                 if (checker.converged(getIterations(), previous, current)) {
+277c276
+<             if (iter % n == 0 ||
+---
+>             if (getIterations() % n == 0 ||
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java d4j_patched/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+387a388
+>             incrementIterationCount();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java d4j_patched/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java
+191d190
+<         int iter = 0;
+193c192
+<             ++iter;
+---
+>             incrementIterationCount();
+227c226
+<                     stop = checker.converged(iter, previous, current);
+---
+>                     stop = checker.converged(getIterations(), previous, current);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java d4j_patched/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java
+158c158
+<             if (iteration > 0) {
+---
+>             if (getIterations() > 0) {
+175c175
+< 			++iteration;
+---
+>             incrementIterationCount();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer.java d4j_patched/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer.java
+106d105
+<         int iter = 0;
+108c107
+<             ++iter;
+---
+>             incrementIterationCount();
+160c159
+<                 converged = checker.converged(iter, previous, current);
+---
+>                 converged = checker.converged(getIterations(), previous, current);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java d4j_patched/Math6/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+322d321
+<         int iter = 0;
+325c324,325
+<             ++iter;
+---
+>             incrementIterationCount();
+> 
+489c489
+<                         if (checker.converged(iter, previous, current)) {
+---
+>                         if (checker.converged(getIterations(), previous, current)) {

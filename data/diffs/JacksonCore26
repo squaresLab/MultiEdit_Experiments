@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore26/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java d4j_patched/JacksonCore26/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java
+107a108
+>         _currBufferStart = start;

@@ -1,0 +1,25 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure98/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java d4j_patched/Closure98/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
+360a361,368
+>       for (BasicBlock block = ref.getBasicBlock();
+>            block != null; block = block.getParent()) {
+>         if (block.isFunction) {
+>           break;
+>         } else if (block.isLoop) {
+>           return false;
+>         }
+>       }
+544a553
+>     private final boolean isFunction;
+548a558
+>     private final boolean isLoop;
+560a571
+>       this.isFunction = root.getType() == Token.FUNCTION;
+561a573,580
+>       if (root.getParent() != null) {
+>         int pType = root.getParent().getType();
+>         this.isLoop = pType == Token.DO ||
+>             pType == Token.WHILE ||
+>             pType == Token.FOR;
+>       } else {
+>         this.isLoop = false;
+>       }

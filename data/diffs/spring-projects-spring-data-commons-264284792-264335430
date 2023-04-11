@@ -1,0 +1,106 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java after/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java
+65d64
+< 		this.rawType = field == null ? propertyDescriptor.getPropertyType() : field.getType();
+66a66,67
+> 		this.rawType = this.information != null ? information.getType()
+> 				: field == null ? propertyDescriptor.getPropertyType() : field.getType();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/mapping/model/AbstractPersistentPropertyUnitTests.java after/src/test/java/org/springframework/data/mapping/model/AbstractPersistentPropertyUnitTests.java
+39d38
+< import org.springframework.data.util.TypeInformation;
+49,50d47
+< 	TypeInformation<TestClassComplex> typeInfo;
+< 	PersistentEntity<TestClassComplex, SamplePersistentProperty> entity;
+55,57d51
+< 
+< 		typeInfo = ClassTypeInformation.from(TestClassComplex.class);
+< 		entity = new BasicPersistentEntity<TestClassComplex, SamplePersistentProperty>(typeInfo);
+64c58
+< 		Field field = ReflectionUtils.findField(TestClassComplex.class, "testClassSet");
+---
+> 		SamplePersistentProperty property = getProperty(TestClassComplex.class, "testClassSet");
+66d59
+< 		SamplePersistentProperty property = new SamplePersistentProperty(field, null, entity, typeHolder);
+73c66
+< 		Field field = ReflectionUtils.findField(TestClassComplex.class, "testClassSet");
+---
+> 		SamplePersistentProperty property = getProperty(TestClassComplex.class, "testClassSet", null);
+75d67
+< 		SamplePersistentProperty property = new SamplePersistentProperty(field, null, entity, typeHolder);
+82,83c74,75
+< 		Field field = ReflectionUtils.findField(TestClassComplex.class, "map");
+< 		SamplePersistentProperty property = new SamplePersistentProperty(field, null, entity, typeHolder);
+---
+> 		SamplePersistentProperty property = getProperty(TestClassComplex.class, "map", null);
+> 
+90,91c82,83
+< 		Field field = ReflectionUtils.findField(TestClassComplex.class, "collection");
+< 		SamplePersistentProperty property = new SamplePersistentProperty(field, null, entity, typeHolder);
+---
+> 		SamplePersistentProperty property = getProperty(TestClassComplex.class, "collection", null);
+> 
+98,102c90,91
+< 		Field first = ReflectionUtils.findField(FirstConcrete.class, "genericField");
+< 		Field second = ReflectionUtils.findField(SecondConcrete.class, "genericField");
+< 
+< 		SamplePersistentProperty firstProperty = new SamplePersistentProperty(first, null, entity, typeHolder);
+< 		SamplePersistentProperty secondProperty = new SamplePersistentProperty(second, null, entity, typeHolder);
+---
+> 		SamplePersistentProperty firstProperty = getProperty(FirstConcrete.class, "genericField", null);
+> 		SamplePersistentProperty secondProperty = getProperty(SecondConcrete.class, "genericField", null);
+111c100
+< 		Field transientField = ReflectionUtils.findField(TestClassComplex.class, "transientField");
+---
+> 		PersistentProperty<?> property = getProperty(TestClassComplex.class, "transientField", null);
+113d101
+< 		PersistentProperty<?> property = new SamplePersistentProperty(transientField, null, entity, typeHolder);
+120,122c108
+< 		Field field = ReflectionUtils.findField(AccessorTestClass.class, "id");
+< 		PersistentProperty<SamplePersistentProperty> property = new SamplePersistentProperty(field, getPropertyDescriptor(
+< 				AccessorTestClass.class, "id"), entity, typeHolder);
+---
+> 		PersistentProperty<SamplePersistentProperty> property = getProperty(AccessorTestClass.class, "id");
+131,133c117
+< 		Field field = ReflectionUtils.findField(AccessorTestClass.class, "anotherId");
+< 		PersistentProperty<SamplePersistentProperty> property = new SamplePersistentProperty(field, getPropertyDescriptor(
+< 				AccessorTestClass.class, "anotherId"), entity, typeHolder);
+---
+> 		PersistentProperty<SamplePersistentProperty> property = getProperty(AccessorTestClass.class, "anotherId");
+142,144c126
+< 		Field field = ReflectionUtils.findField(AccessorTestClass.class, "yetAnotherId");
+< 		PersistentProperty<SamplePersistentProperty> property = new SamplePersistentProperty(field, getPropertyDescriptor(
+< 				AccessorTestClass.class, "yetAnotherId"), entity, typeHolder);
+---
+> 		PersistentProperty<SamplePersistentProperty> property = getProperty(AccessorTestClass.class, "yetAnotherId");
+153,155c135,136
+< 		Field field = ReflectionUtils.findField(AccessorTestClass.class, "yetYetAnotherId");
+< 		PersistentProperty<SamplePersistentProperty> property = new SamplePersistentProperty(field, getPropertyDescriptor(
+< 				AccessorTestClass.class, "yetYetAnotherId"), entity, typeHolder);
+---
+> 		PersistentProperty<SamplePersistentProperty> property = getProperty(AccessorTestClass.class, "yetAnotherId",
+> 				getPropertyDescriptor(AccessorTestClass.class, "yetYetAnotherId"));
+164,166c145
+< 		Field field = ReflectionUtils.findField(AccessorTestClass.class, "id");
+< 		PersistentProperty<SamplePersistentProperty> property = new SamplePersistentProperty(field, null, entity,
+< 				typeHolder);
+---
+> 		PersistentProperty<SamplePersistentProperty> property = getProperty(AccessorTestClass.class, "id", null);
+223a203,210
+> 	@Test // DATACMNS-1139
+> 	public void resolvesGenericsForRawType() {
+> 
+> 		SamplePersistentProperty property = getProperty(FirstConcrete.class, "genericField");
+> 
+> 		assertThat(property.getRawType(), is(typeCompatibleWith(String.class)));
+> 	}
+> 
+224a212,215
+> 		return getProperty(type, name, getPropertyDescriptor(type, name));
+> 	}
+> 
+> 	private <T> SamplePersistentProperty getProperty(Class<T> type, String name, PropertyDescriptor descriptor) {
+230c221
+< 		return new SamplePersistentProperty(field, null, entity, typeHolder);
+---
+> 		return new SamplePersistentProperty(field, descriptor, entity, typeHolder);

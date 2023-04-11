@@ -1,0 +1,21 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math102/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java d4j_patched/Math102/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java
+73a74,85
+>         double sumExpected = 0d;
+>         double sumObserved = 0d;
+>         for (int i = 0; i < observed.length; i++) {
+>             sumExpected += expected[i];
+>             sumObserved += observed[i];
+>         }
+>         double ratio = 1.0d;
+>         boolean rescale = false;
+>         if (Math.abs(sumExpected - sumObserved) > 10E-6) {
+>             ratio = sumObserved / sumExpected;
+>             rescale = true;
+>         }
+76a89,92
+>             if (rescale) {
+>                 dev = ((double) observed[i] - ratio * expected[i]);
+>                 sumSq += dev * dev / (ratio * expected[i]);
+>             } else {
+78a95
+>             }

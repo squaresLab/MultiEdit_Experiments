@@ -1,0 +1,55 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/io/opentracing/contrib/p6spy/TracingP6SpyListener.java after/src/main/java/io/opentracing/contrib/p6spy/TracingP6SpyListener.java
+125,128c125,132
+<     Tags.DB_TYPE.set(span, extractDbType(dbUrl));
+<     Tags.DB_INSTANCE.set(span, dbInstance);
+<     span.setTag("peer.address", dbUrl);
+<     if (peerName != null && !peerName.isEmpty()) {
+---
+>     if (!isNullOrEmpty(dbUrl)) {
+>       span.setTag("peer.address", dbUrl);
+>       Tags.DB_TYPE.set(span, extractDbType(dbUrl));
+>     }
+>     if (!isNullOrEmpty(dbInstance)) {
+>       Tags.DB_INSTANCE.set(span, dbInstance);
+>     }
+>     if (!isNullOrEmpty(peerName)) {
+131c135
+<     if (dbUser != null && !dbUser.isEmpty()) {
+---
+>     if (!isNullOrEmpty(dbUser)) {
+141,143c145,149
+<     Matcher matcher = URL_PEER_SERVICE_FINDER.matcher(url);
+<     if (matcher.find() && matcher.groupCount() == 1) {
+<       return matcher.group(1);
+---
+>     if (url != null) {
+>       Matcher matcher = URL_PEER_SERVICE_FINDER.matcher(url);
+>       if (matcher.find() && matcher.groupCount() == 1) {
+>         return matcher.group(1);
+>       }
+168a175,178
+>   }
+> 
+>   private static boolean isNullOrEmpty(String s) {
+>     return s == null || s.isEmpty();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/io/opentracing/contrib/p6spy/HibernateTest.java after/src/test/java/io/opentracing/contrib/p6spy/HibernateTest.java
+21c21
+< import io.opentracing.util.GlobalTracer;
+---
+> import io.opentracing.util.GlobalTracerTestUtil;
+54c54
+<     GlobalTracer.register(mockTracer);
+---
+>     GlobalTracerTestUtil.setGlobalTracerUnconditionally(mockTracer);
+Only in after/src/test/java/io/opentracing/contrib/p6spy: JdbcTest.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/io/opentracing/contrib/p6spy/SpringTest.java after/src/test/java/io/opentracing/contrib/p6spy/SpringTest.java
+19c19
+< import io.opentracing.util.GlobalTracer;
+---
+> import io.opentracing.util.GlobalTracerTestUtil;
+41c41
+<     GlobalTracer.register(mockTracer);
+---
+>     GlobalTracerTestUtil.setGlobalTracerUnconditionally(mockTracer);

@@ -1,0 +1,43 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/events/IgnitionEventHandler.java after/src/org/traccar/events/IgnitionEventHandler.java
+42c42,43
+<         boolean ignition = position.getBoolean(Position.KEY_IGNITION);
+---
+>         if (position.getAttributes().containsKey(Position.KEY_IGNITION)) {
+>             boolean ignition = position.getBoolean(Position.KEY_IGNITION);
+44,48c45,47
+<         boolean oldIgnition = false;
+<         Position lastPosition = Context.getIdentityManager().getLastPosition(position.getDeviceId());
+<         if (lastPosition != null) {
+<             oldIgnition = lastPosition.getBoolean(Position.KEY_IGNITION);
+<         }
+---
+>             Position lastPosition = Context.getIdentityManager().getLastPosition(position.getDeviceId());
+>             if (lastPosition != null && lastPosition.getAttributes().containsKey(Position.KEY_IGNITION)) {
+>                 boolean oldIgnition = lastPosition.getBoolean(Position.KEY_IGNITION);
+50,55c49,56
+<         if (ignition && !oldIgnition) {
+<             result = Collections.singleton(
+<                     new Event(Event.TYPE_IGNITION_ON, position.getDeviceId(), position.getId()));
+<         } else if (!ignition && oldIgnition) {
+<             result = Collections.singleton(
+<                     new Event(Event.TYPE_IGNITION_OFF, position.getDeviceId(), position.getId()));
+---
+>                 if (ignition && !oldIgnition) {
+>                     result = Collections.singleton(
+>                             new Event(Event.TYPE_IGNITION_ON, position.getDeviceId(), position.getId()));
+>                 } else if (!ignition && oldIgnition) {
+>                     result = Collections.singleton(
+>                             new Event(Event.TYPE_IGNITION_OFF, position.getDeviceId(), position.getId()));
+>                 }
+>             }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/events/IgnitionEventHandlerTest.java after/test/org/traccar/events/IgnitionEventHandlerTest.java
+4d3
+< import static org.junit.Assert.assertNotNull;
+24,26c23
+<         assertNotNull(events);
+<         Event event = (Event) events.toArray()[0];
+<         assertEquals(Event.TYPE_IGNITION_ON, event.getType());
+---
+>         assertEquals(events, null);

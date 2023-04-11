@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson12/gson/src/main/java/com/google/gson/internal/bind/JsonTreeReader.java d4j_patched/Gson12/gson/src/main/java/com/google/gson/internal/bind/JsonTreeReader.java
+261a262
+>       if (stackSize > 0) {
+262a264
+>       }
+263a266
+>     if (stackSize > 0) {
+264a268
+>     }

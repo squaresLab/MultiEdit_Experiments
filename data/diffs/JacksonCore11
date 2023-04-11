@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore11/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java d4j_patched/JacksonCore11/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+881a882
+>             _verifyNeedForRehash();

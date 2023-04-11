@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart12/source/org/jfree/chart/plot/MultiplePiePlot.java d4j_patched/Chart12/source/org/jfree/chart/plot/MultiplePiePlot.java
+145c145
+<         this.dataset = dataset;
+---
+>         setDataset(dataset);
+Binary files d4j_buggy/Chart12/.svn/wc.db and d4j_patched/Chart12/.svn/wc.db differ

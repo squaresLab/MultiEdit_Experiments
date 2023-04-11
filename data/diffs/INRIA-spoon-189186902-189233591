@@ -1,0 +1,26 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java after/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java
+90c90
+< 			if (compilationunitdeclaration != null) {
+---
+> 			if (compilationunitdeclaration != null && !e.isImplicit()) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/position/PositionTest.java after/src/test/java/spoon/test/position/PositionTest.java
+8a9
+> import spoon.reflect.code.CtStatement;
+16a18
+> import spoon.test.position.testclasses.Foo;
+33a36
+> import static spoon.testing.utils.ModelUtils.buildClass;
+365a369,378
+> 	}
+> 
+> 	@Test
+> 	public void defaultConstructorPositionTest() throws Exception {
+> 		CtClass<Foo> aClass = (CtClass<Foo>) buildClass(Foo.class);
+> 		CtConstructor<Foo> defaultConstructor = aClass.getConstructor();
+> 		assertEquals(SourcePosition.NOPOSITION, defaultConstructor.getPosition());
+> 		CtStatement implicitSuperCall = defaultConstructor.getBody().getStatement(0);
+> 		assertTrue(implicitSuperCall.isImplicit());
+> 		assertEquals(SourcePosition.NOPOSITION, implicitSuperCall.getPosition());
+Only in after/src/test/java/spoon/test/position/testclasses: Foo.java

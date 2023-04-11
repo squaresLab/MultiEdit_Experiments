@@ -1,0 +1,24 @@
+Only in after/: bears.json
+Only in after/spring-cloud-gcp-storage: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/spring-cloud-gcp-storage/src/main/java/org/springframework/cloud/gcp/storage/GoogleStorageResourceObject.java after/spring-cloud-gcp-storage/src/main/java/org/springframework/cloud/gcp/storage/GoogleStorageResourceObject.java
+110c110
+< 		return BlobId.of(uri.getHost(),
+---
+> 		return BlobId.of(uri.getAuthority(),
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/spring-cloud-gcp-storage/src/test/java/org/springframework/cloud/gcp/storage/GoogleStorageTests.java after/spring-cloud-gcp-storage/src/test/java/org/springframework/cloud/gcp/storage/GoogleStorageTests.java
+64a65,67
+> 	@Value("gs://test_spring/images/spring.png")
+> 	private Resource remoteResourceWithUnderscore;
+> 
+94a98,102
+> 	public void testValidObjectWithUnderscore() throws Exception {
+> 		Assert.assertTrue(this.remoteResourceWithUnderscore.exists());
+> 	}
+> 
+> 	@Test
+107a116
+> 
+302a312
+> 			BlobId validBlobWithUnderscore = BlobId.of("test_spring", "images/spring.png");
+309a320
+> 			when(storage.get(eq(validBlobWithUnderscore))).thenReturn(mockedBlob);

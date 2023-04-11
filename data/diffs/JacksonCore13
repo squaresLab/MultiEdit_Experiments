@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore13/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java d4j_patched/JacksonCore13/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java
+126a127,134
+>     @Override
+>     public JsonGenerator disable(Feature f) {
+>         super.disable(f);
+>         if (f == Feature.QUOTE_FIELD_NAMES) {
+>             _cfgUnqNames = true;
+>         }
+>         return this;
+>     }

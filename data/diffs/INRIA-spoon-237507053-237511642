@@ -1,0 +1,157 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+285c285
+< 					printer.adjustPosition(e, sourceCompilationUnit);
+---
+> 					printer.adjustStartPosition(e);
+438a439
+> 		printer.adjustEndPosition(block);
+441c442
+< 				printer.write("}");
+---
+> 				printer.writeTabs().write("}");
+531c532
+< 		printer.decTab().writeTabs().write("}");
+---
+> 		printer.adjustEndPosition(ctClass).decTab().writeTabs().write("}");
+1095c1096
+< 				printer.adjustPosition(invocation, sourceCompilationUnit);
+---
+> 				printer.adjustStartPosition(invocation);
+1166c1167
+< 			printer.adjustPosition(localVariable, sourceCompilationUnit);
+---
+> 			printer.adjustStartPosition(localVariable);
+1188c1189
+< 			printer.adjustPosition(catchVariable, sourceCompilationUnit);
+---
+> 			printer.adjustStartPosition(catchVariable);
+1816c1817,1822
+< 			printer.writeln().writeln().writeTabs();
+---
+> 			if (!env.isPreserveLineNumbers()) {
+> 				// saving lines and chars
+> 				printer.writeln().writeln().writeTabs();
+> 			} else {
+> 				printer.adjustEndPosition(t);
+> 			}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java after/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
+91c91
+< 			printer.adjustPosition(namedElement, sourceCompilationUnit);
+---
+> 			printer.adjustStartPosition(namedElement);
+264d263
+< 				printer.writeln().writeln().writeTabs();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java after/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java
+19d18
+< import org.apache.log4j.Level;
+163,164c162,164
+< 	public void adjustPosition(CtElement e, CompilationUnit unitExpected) {
+< 		if (e.getPosition() != null && !e.isImplicit() && e.getPosition().getCompilationUnit() != null && e.getPosition().getCompilationUnit() == unitExpected) {
+---
+> 	public PrinterHelper adjustStartPosition(CtElement e) {
+> 		if (e.getPosition() != null && !e.isImplicit()) {
+> 			// we should add some lines
+171,176d170
+< 					if (line > e.getPosition().getEndLine()) {
+< 						final String message = "cannot adjust position of " + e.getClass().getSimpleName() + " '" //
+< 								+ e.getShortRepresentation() + "' " + " to match lines: " + line + " > [" //
+< 								+ e.getPosition().getLine() + ", " + e.getPosition().getEndLine() + "]"; //
+< 						env.report(null, Level.WARN, e, message);
+< 					}
+180a175,185
+> 		return this;
+> 	}
+> 
+> 	public PrinterHelper adjustEndPosition(CtElement e) {
+> 		if (env.isPreserveLineNumbers() && e.getPosition() != null) {
+> 			// let's add lines if required
+> 			while (line < e.getPosition().getEndLine()) {
+> 				writeln();
+> 			}
+> 		}
+> 		return this;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java after/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
+506a507
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/prettyprinter/DefaultPrettyPrinterTest.java after/src/test/java/spoon/test/prettyprinter/DefaultPrettyPrinterTest.java
+26a27,28
+> import java.io.FileReader;
+> import java.util.ArrayList;
+264c266
+< 		assertEquals(nl + nl + "package foo;" + nl + nl + nl + "class Bar {}" + nl + nl,
+---
+> 		assertEquals("package foo;" + nl + nl + nl + "class Bar {}" + nl + nl,
+293a296
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/prettyprinter/LinesTest.java after/src/test/java/spoon/test/prettyprinter/LinesTest.java
+2a3
+> import org.apache.commons.io.IOUtils;
+6a8,11
+> import spoon.reflect.code.CtThisAccess;
+> import spoon.reflect.code.CtTypeAccess;
+> import spoon.reflect.declaration.CtElement;
+> import spoon.reflect.declaration.CtNamedElement;
+8a14
+> import spoon.reflect.reference.CtTypeReference;
+9a16,23
+> import spoon.reflect.visitor.filter.NameFilter;
+> import spoon.reflect.visitor.filter.TypeFilter;
+> import spoon.test.prettyprinter.testclasses.QualifiedThisRef;
+> 
+> import java.io.File;
+> import java.io.FileReader;
+> import java.util.ArrayList;
+> import java.util.List;
+11a26,28
+> import static org.junit.Assert.assertNotSame;
+> import static org.junit.Assert.assertTrue;
+> import static spoon.test.limits.StaticFieldAccesOnInstance.test;
+47a65,110
+> 	@Test
+> 	public void testIdenticalPrettyPrinter() throws  Exception{
+> 		// contract: the end line should also be preserved
+> 
+> 		// setup
+> 		String[] options = {"--output-type", "compilationunits",
+> 				"--output", "target/testIdenticalPrettyPrinter",
+> 				// those three options together are the closest to what the developer wrote
+> 				"--enable-comments", "--lines", "--with-imports"};
+> 
+> 		List<String> paths = new ArrayList<>();
+> 		paths.add("spoon/test/prettyprinter/testclasses/A.java");
+> 		paths.add("spoon/test/prettyprinter/testclasses/AClass.java");
+> 		//paths.add("spoon/test/prettyprinter/testclasses/QualifiedThisRef.java");
+> 		//paths.add("spoon/test/prettyprinter/testclasses/ImportStatic.java");
+> 		//paths.add("spoon/test/prettyprinter/testclasses/QualifiedThisRef.java");
+> 		//paths.add("spoon/test/prettyprinter/testclasses/Rule.java");
+> 		//paths.add("spoon/test/prettyprinter/testclasses/TypeIdentifierCollision.java");
+> 
+> 
+> 		final Launcher launcher = new Launcher();
+> 		launcher.setArgs(options);
+> 		for (String path : paths) {
+> 			launcher.addInputResource("./src/test/java/" + path);
+> 		}
+> 		launcher.run();
+> 
+> 		final Launcher launcher2 = new Launcher();
+> 		launcher2.setArgs(options);
+> 		for (String path : paths) {
+> 			launcher2.addInputResource("./target/testIdenticalPrettyPrinter/" + path);
+> 		}
+> 		launcher2.run();
+> 
+> 		int n=0;
+> 		List<CtElement> elements = launcher.getModel().getElements(new TypeFilter<>(CtElement.class));
+> 		for (int i = 0; i < elements.size(); i++) {
+> 			n++;
+> 			CtElement e = elements.get(i);
+> 			CtElement el2 = launcher2.getModel().getElements(new TypeFilter<>(CtElement.class)).get(i);
+> 			assertNotSame(e, el2);
+> 			assertEquals(e.toString() + " not handled", e.getPosition().getLine(), el2.getPosition().getLine());
+> 			assertEquals(e.toString() + " not handled", e.getPosition().getEndLine(), el2.getPosition().getEndLine());
+> 		}
+> 		assertTrue(n>20);
+> 	}

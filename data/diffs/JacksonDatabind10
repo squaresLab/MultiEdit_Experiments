@@ -1,0 +1,36 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind10/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java d4j_patched/JacksonDatabind10/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java
+23a24
+>     protected JsonSerializer<Object> _serializer;
+29c30
+<             AnnotatedMember accessor, MapSerializer serializer)
+---
+>             AnnotatedMember accessor, JsonSerializer<?> serializer)
+32a34,35
+>         _serializer = (JsonSerializer<Object>) serializer;
+>         if (serializer instanceof MapSerializer) {
+33a37
+>         }
+51a56
+>         _serializer.serialize(value, gen, provider);
+74a80
+>         _serializer.serialize(value, gen, provider);
+82c88,94
+<         _mapSerializer = (MapSerializer) provider.handlePrimaryContextualization(_mapSerializer, _property);
+---
+>         if (_serializer instanceof ContextualSerializer) {
+>             JsonSerializer<?> ser = provider.handlePrimaryContextualization(_serializer, _property);
+>             _serializer = (JsonSerializer<Object>) ser;
+>             if (ser instanceof MapSerializer) {
+>                 _mapSerializer = (MapSerializer) ser;
+>             }
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind10/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java d4j_patched/JacksonDatabind10/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+395c395,396
+<             MapSerializer anySer = MapSerializer.construct(null, type, staticTyping, typeSer, null, null, null);
+---
+>             JsonSerializer<?> anySer = findSerializerFromAnnotation(prov, anyGetter);
+>             if (anySer == null) {
+396a398,400
+>                 anySer = MapSerializer.construct(/* ignored props*/ null, type, staticTyping,
+>                         typeSer, null, null, /*filterId*/ null);
+>             }

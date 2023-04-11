@@ -1,0 +1,74 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang30/src/main/java/org/apache/commons/lang3/StringUtils.java d4j_patched/Lang30/src/main/java/org/apache/commons/lang3/StringUtils.java
+1375a1376
+>         int csLast = csLen - 1;
+1376a1378
+>         int searchLast = searchLen - 1;
+1380a1383
+>                     if (i < csLast && j < searchLast && Character.isHighSurrogate(ch)) {
+1381a1385,1388
+>                         if (searchChars[j + 1] == cs.charAt(i + 1)) {
+>                             return i;
+>                         }
+>                     } else {
+1382a1390
+>                     }
+1443c1451
+<     public static boolean containsAny(CharSequence cs, char[] searchChars) {
+---
+>     public static boolean containsAny(String cs, char[] searchChars) {
+1455c1463,1464
+<                     if (i < csLast && j < searchLast && ch >= Character.MIN_HIGH_SURROGATE && ch <= Character.MAX_HIGH_SURROGATE) {
+---
+>                     if (Character.isHighSurrogate(ch)) {
+>                         if (j == searchLast) {
+1457c1466,1468
+<                         if (searchChars[j + 1] == cs.charAt(i + 1)) {
+---
+>                             return true;
+>                         }
+>                         if (i < csLast && searchChars[j + 1] == cs.charAt(i + 1)) {
+1497c1508
+<     public static boolean containsAny(CharSequence cs, String searchChars) {
+---
+>     public static boolean containsAny(String cs, String searchChars) {
+1532a1544
+>         int csLast = csLen - 1;
+1533a1546
+>         int searchLast = searchLen - 1;
+1538a1552,1556
+>                     if (i < csLast && j < searchLast && Character.isHighSurrogate(ch)) {
+>                         if (searchChars[j + 1] == cs.charAt(i + 1)) {
+>                             continue outer;
+>                         }
+>                     } else {
+1539a1558
+>                     }
+1576c1595,1598
+<             if (searchChars.indexOf(ch) < 0) {
+---
+>             boolean chFound = searchChars.indexOf(ch) >= 0;
+>             if (i + 1 < strLen && Character.isHighSurrogate(ch)) {
+>                 char ch2 = str.charAt(i + 1);
+>                 if (chFound && searchChars.indexOf(ch2) < 0) {
+1577a1600,1604
+>                 }
+>             } else {
+>                 if (!chFound) {
+>                     return i;
+>                 }
+1677a1705
+>         int csLast = csLen - 1;
+1678a1707
+>         int searchLast = searchLen - 1;
+1682a1712,1713
+>                     if (Character.isHighSurrogate(ch)) {
+>                         if (j == searchLast) {
+1683a1715,1720
+>                             return false;
+>                         }
+>                         if (i < csLast && searchChars[j + 1] == cs.charAt(i + 1)) {
+>                             return false;
+>                         }
+>                     } else {
+1685a1723
+>                     }

@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv7/src/main/java/org/apache/commons/csv/CSVParser.java d4j_patched/Csv7/src/main/java/org/apache/commons/csv/CSVParser.java
+31a32
+> import java.util.Arrays;
+370a372,374
+>                     if (hdrMap.containsKey(header[i])) {
+>                         throw new IllegalStateException("The header contains duplicate names: " + Arrays.toString(header));
+>                     }

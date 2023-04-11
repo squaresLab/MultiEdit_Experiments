@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv3/src/main/java/org/apache/commons/csv/Lexer.java d4j_patched/Csv3/src/main/java/org/apache/commons/csv/Lexer.java
+110a111
+>             if (isDelimiter(c) || isEscape(c) || isQuoteChar(c) || isCommentStart(c)) {
+111a113
+>             }
+112a115
+>             return END_OF_STREAM;

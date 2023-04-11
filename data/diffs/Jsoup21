@@ -1,0 +1,31 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup21/src/main/java/org/jsoup/select/CombiningEvaluator.java d4j_patched/Jsoup21/src/main/java/org/jsoup/select/CombiningEvaluator.java
+63a64,66
+>         Or() {
+>             super();
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup21/src/main/java/org/jsoup/select/QueryParser.java d4j_patched/Jsoup21/src/main/java/org/jsoup/select/QueryParser.java
+58,66c58
+<             if (tq.matchChomp(",")) {
+<                 CombiningEvaluator.Or or = new CombiningEvaluator.Or(evals);
+<                 evals.clear();
+<                 evals.add(or);
+<                 while (!tq.isEmpty()) {
+<                     String subQuery = tq.chompTo(",");
+<                     or.add(parse(subQuery));
+<                 }
+<             } else if (tq.matchesAny(combinators)) {
+---
+>             if (tq.matchesAny(combinators)) {
+100a93,104
+>         else if (combinator == ',') { // group or
+>             CombiningEvaluator.Or or;
+>             if (e instanceof CombiningEvaluator.Or) {
+>                 or = (CombiningEvaluator.Or) e;
+>                 or.add(f);
+>             } else {
+>                 or = new CombiningEvaluator.Or();
+>                 or.add(e);
+>                 or.add(f);
+>             }
+>             evals.add(or);
+>         }

@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang8/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java d4j_patched/Lang8/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+1098d1097
+<         private final TimeZone zone;
+1112d1110
+<             zone = timeZone;
+1133a1132
+>             TimeZone zone = calendar.getTimeZone();

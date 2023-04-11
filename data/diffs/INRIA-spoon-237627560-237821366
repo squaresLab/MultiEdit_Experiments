@@ -1,0 +1,269 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+538c538,555
+< 		visitCtTypeParameterReference(typeParameter.getReference());
+---
+> 		CtTypeParameterReference ref = typeParameter.getReference();
+> 		if (ref.isImplicit()) {
+> 			return;
+> 		}
+> 		elementPrinterHelper.writeAnnotations(ref);
+> 		if (printQualified(ref)) {
+> 			printer.write(ref.getQualifiedName());
+> 		} else {
+> 			printer.write(ref.getSimpleName());
+> 		}
+> 		if (ref.getBoundingType() != null) {
+> 			if (ref.isUpper()) {
+> 				printer.write(" extends ");
+> 			} else {
+> 				printer.write(" super ");
+> 			}
+> 			scan(ref.getBoundingType());
+> 		}
+1588,1589c1605,1619
+< 		if (ref.getBoundingType() != null) {
+< 			if (ref.isUpper()) {
+---
+> 	}
+> 
+> 	@Override
+> 	public void visitCtWildcardReference(CtWildcardReference wildcardReference) {
+> 		if (wildcardReference.isImplicit()) {
+> 			return;
+> 		}
+> 		elementPrinterHelper.writeAnnotations(wildcardReference);
+> 		if (printQualified(wildcardReference)) {
+> 			printer.write(wildcardReference.getQualifiedName());
+> 		} else {
+> 			printer.write(wildcardReference.getSimpleName());
+> 		}
+> 		if (wildcardReference.getBoundingType() != null) {
+> 			if (wildcardReference.isUpper()) {
+1594c1624
+< 			scan(ref.getBoundingType());
+---
+> 			scan(wildcardReference.getBoundingType());
+1596,1600d1625
+< 	}
+< 
+< 	@Override
+< 	public void visitCtWildcardReference(CtWildcardReference wildcardReference) {
+< 		visitCtTypeParameterReference(wildcardReference);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java after/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+19,32d18
+< import static spoon.support.compiler.jdt.JDTTreeBuilderQuery.searchPackage;
+< import static spoon.support.compiler.jdt.JDTTreeBuilderQuery.searchType;
+< import static spoon.support.compiler.jdt.JDTTreeBuilderQuery.searchTypeBinding;
+< 
+< import java.util.ArrayList;
+< import java.util.Arrays;
+< import java.util.Collections;
+< import java.util.HashMap;
+< import java.util.List;
+< import java.util.Map;
+< import java.util.TreeMap;
+< import java.util.regex.Matcher;
+< import java.util.regex.Pattern;
+< 
+82d67
+< 
+99a85,100
+> import java.util.ArrayList;
+> import java.util.Arrays;
+> import java.util.Collections;
+> import java.util.HashMap;
+> import java.util.HashSet;
+> import java.util.List;
+> import java.util.Map;
+> import java.util.Set;
+> import java.util.TreeMap;
+> import java.util.regex.Matcher;
+> import java.util.regex.Pattern;
+> 
+> import static spoon.support.compiler.jdt.JDTTreeBuilderQuery.searchPackage;
+> import static spoon.support.compiler.jdt.JDTTreeBuilderQuery.searchType;
+> import static spoon.support.compiler.jdt.JDTTreeBuilderQuery.searchTypeBinding;
+> 
+101a103,105
+> 	// Allow to detect circular references and to avoid endless recursivity
+> 	// when resolving parameterizedTypes (e.g. Enum<E extends Enum<E>>)
+> 	private Set<TypeBinding> exploringParameterizedBindings = new HashSet<>();
+653c657,662
+< 						ref.addActualTypeArgument(getTypeReference(b));
+---
+> 						if (!this.exploringParameterizedBindings.contains(b)) {
+> 							this.exploringParameterizedBindings.add(b);
+> 							ref.addActualTypeArgument(getTypeReference(b));
+> 						} else {
+> 							this.exploringParameterizedBindings.remove(b);
+> 						}
+679c688
+< 			ref = this.jdtTreeBuilder.getFactory().Core().createTypeParameterReference();
+---
+> 
+683a693,711
+> 				TypeVariableBinding typeParamBinding = (TypeVariableBinding) binding;
+> 				ReferenceBinding superClass = typeParamBinding.superclass;
+> 				ReferenceBinding[] superInterfaces = typeParamBinding.superInterfaces();
+> 
+> 				CtTypeReference refSuperClass = null;
+> 
+> 				// if the type parameter has a super class other than java.lang.Object, we get it
+> 				// superClass.superclass() is null if it's java.lang.Object
+> 				if (superClass != null && !(superClass.superclass() == null)) {
+> 					refSuperClass = this.getTypeReference(superClass);
+> 
+> 				// if the type parameter has a super interface, then we'll get it too, as a superclass
+> 				// type parameter can only extends an interface or a class, so we don't make the distinction
+> 				// in Spoon. Moreover we can only have one extends in a type parameter.
+> 				} else if (superInterfaces != null && superInterfaces.length == 1) {
+> 					refSuperClass = this.getTypeReference(superInterfaces[0]);
+> 				}
+> 
+> 				ref = this.jdtTreeBuilder.getFactory().Core().createTypeParameterReference();
+684a713,716
+> 
+> 				if (refSuperClass != null) {
+> 					((CtTypeParameterReference) ref).addBound(refSuperClass);
+> 				}
+723a756
+> 			WildcardBinding wildcardBinding = (WildcardBinding) binding;
+725c758,759
+< 			if (((WildcardBinding) binding).boundKind == Wildcard.SUPER && ref instanceof CtTypeParameterReference) {
+---
+> 
+> 			if (wildcardBinding.boundKind == Wildcard.SUPER && ref instanceof CtTypeParameterReference) {
+729,731c763,765
+< 			if (((WildcardBinding) binding).bound != null && ref instanceof CtTypeParameterReference) {
+< 				if (bindingCache.containsKey(((WildcardBinding) binding).bound)) {
+< 					((CtTypeParameterReference) ref).setBoundingType(getCtCircularTypeReference(((WildcardBinding) binding).bound));
+---
+> 			if (wildcardBinding.bound != null && ref instanceof CtTypeParameterReference) {
+> 				if (bindingCache.containsKey(wildcardBinding.bound)) {
+> 					((CtTypeParameterReference) ref).setBoundingType(getCtCircularTypeReference(wildcardBinding.bound));
+732a767,768
+> 
+> 
+803a840
+> 		this.exploringParameterizedBindings.clear();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
+318c318,320
+< 				if (m.getParameterTypes()[i] != parameters.get(i).getActualClass()) {
+---
+> 				Class<?> methodParameterType = m.getParameterTypes()[i];
+> 				Class<?> currentParameterType = parameters.get(i).getActualClass();
+> 				if (methodParameterType != currentParameterType) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java
+181c181,182
+< 			CtElement parent2 = parent.getParent();
+---
+> 
+> 			CtElement parent2 = ((CtExecutableReference) parent).getDeclaration();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/generics/GenericsTest.java after/src/test/java/spoon/test/generics/GenericsTest.java
+568c568,570
+< 		assertEquals(3, buildClass(Paella.class).getElements(new TypeFilter<CtWildcardReference>(CtWildcardReference.class)).size());
+---
+> 		List<CtWildcardReference> wildcardReferences = buildClass(Paella.class).getElements(new TypeFilter<CtWildcardReference>(CtWildcardReference.class));
+> 		// 4 = the class declaration + the constructor declaration + the method declaration + the type parameter of the method declaration
+> 		assertEquals(4, wildcardReferences.size());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/methodreference/MethodReferenceTest.java after/src/test/java/spoon/test/methodreference/MethodReferenceTest.java
+16a17
+> import spoon.reflect.declaration.CtParameter;
+19a21
+> import spoon.reflect.reference.CtTypeParameterReference;
+31a34
+> import java.util.List;
+33a37
+> import static org.hamcrest.CoreMatchers.is;
+35a40
+> import static org.junit.Assert.assertThat;
+208c213
+< 	public void testGetGenericMethodFromReferene() throws Exception {
+---
+> 	public void testGetGenericMethodFromReference() throws Exception {
+227a233,269
+> 	@Test
+> 	public void testGetGenericExecutableReference() throws Exception {
+> 		CtType<?> classCloud = ModelUtils.buildClass(Cloud.class);
+> 		List<CtMethod<?>> methods = classCloud.getMethodsByName("method");
+> 		assertThat(methods.size(), is(3));
+> 
+> 		int n = 0;
+> 		for (CtMethod<?> method1 : classCloud.getMethodsByName("method")) {
+> 			CtExecutableReference<?> execRef = method1.getReference();
+> 			Method method = execRef.getActualMethod();
+> 			assertNotNull(method);
+> 			assertEquals("method", method.getName());
+> 			List<CtParameter<?>> parameters = method1.getParameters();
+> 			assertThat(parameters.size(), is(2));
+> 
+> 			//check that we have found the method with correct parameters
+> 			for (int i = 0; i < parameters.size(); i++) {
+> 				CtTypeReference<?> paramTypeRef = parameters.get(i).getType();
+> 				Class<?> paramClass = paramTypeRef.getTypeErasure().getActualClass();
+> 				assertSame(paramClass, method.getParameterTypes()[i]);
+> 				//
+> 				CtType<?> paramType = paramTypeRef.getDeclaration();
+> 				//contract: declaration of parameter type can be found
+> 				assertNotNull(paramType);
+> 				//contract: reference to found parameter type is equal to origin reference
+> 				CtTypeReference otherParamTypeRef = paramType.getReference();
+> 				assertEquals(paramTypeRef, otherParamTypeRef);
+> 				//contract: reference to type can be still dereferred
+> 				assertSame(paramType, paramType.getReference().getDeclaration());
+> 
+> 				n++;
+> 			}
+> 			assertSame(method1, execRef.getDeclaration());
+> 		}
+> 
+> 		assertThat(n, is(2*3));
+> 	}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/methodreference/testclasses/Cloud.java after/src/test/java/spoon/test/methodreference/testclasses/Cloud.java
+3c3,5
+< public class Cloud<T> {
+---
+> import java.io.InputStream;
+> import java.io.Reader;
+> import java.util.List;
+5c7,11
+< 	void method(T param) {}
+---
+> public class Cloud<T extends String> {
+> 
+> 	<U extends InputStream> void method(T param, U param2) {}
+> 	<U extends Reader> void method(T param, U param2) {}
+> 	<U extends List<? extends InputStream>> void method(T param,  U param2) {}
+11c17,19
+< 		cc.method("x");
+---
+> 		cc.method("x", (InputStream)null);
+> 		cc.method("y", (Reader)null);
+> 		cc.method("z", (List<InputStream>)null);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/reference/ExecutableReferenceGenericTest.java after/src/test/java/spoon/test/reference/ExecutableReferenceGenericTest.java
+10a11
+> import spoon.reflect.declaration.CtExecutable;
+11a13
+> import spoon.reflect.declaration.CtParameter;
+22a25
+> import static org.hamcrest.CoreMatchers.is;
+25a29
+> import static org.junit.Assert.assertThat;
+113c117,121
+< 		assertEquals(expectedMethod1, refsMethod2.get(0).getDeclaration());
+---
+> 		CtExecutable execRefsMethods2 = refsMethod2.get(0).getDeclaration();
+> 
+> 		//T has more information in the invocation than its declaration because of the argument type
+> 		//assertEquals(expectedMethod1, refsMethod2.get(0).getDeclaration());
+> 		assertEquals(execRefsMethods2.getSignature(), "<T extends java.lang.String> void method1(T extends java.lang.String)");
+162c170,174
+< 		assertEquals(expectedMethod1, refsMethodA.get(0).getDeclaration());
+---
+> 
+> 		CtExecutable execRefsMethods2 = refsMethodA.get(0).getDeclaration();
+> 		//T has more information in the invocation than its declaration because of the argument type
+> 		//	assertEquals(expectedMethod1, refsMethodA.get(0).getDeclaration());
+> 		assertEquals(execRefsMethods2.getSignature(), "<T extends java.lang.String> void method1(T extends java.lang.String)");

@@ -1,0 +1,140 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java after/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java
+36c36
+< 	CtRole role();
+---
+> 	CtRole[] role();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/code/CtCase.java after/src/main/java/spoon/reflect/code/CtCase.java
+22,23c22
+< import static spoon.reflect.path.CtRole.CASE;
+< 
+---
+> import static spoon.reflect.path.CtRole.EXPRESSION;
+43c42
+< 	@PropertyGetter(role = CASE)
+---
+> 	@PropertyGetter(role = EXPRESSION)
+49c48
+< 	@PropertySetter(role = CASE)
+---
+> 	@PropertySetter(role = EXPRESSION)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/code/CtCatch.java after/src/main/java/spoon/reflect/code/CtCatch.java
+49c49
+< 	@PropertySetter(role = BODY)
+---
+> 	@PropertyGetter(role = BODY)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/code/CtConstructorCall.java after/src/main/java/spoon/reflect/code/CtConstructorCall.java
+78c78
+< 	@PropertySetter(role = TYPE)
+---
+> 	@PropertyGetter(role = TYPE)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/code/CtNewClass.java after/src/main/java/spoon/reflect/code/CtNewClass.java
+18a19,20
+> import spoon.reflect.annotations.PropertyGetter;
+> import spoon.reflect.annotations.PropertySetter;
+24,25d25
+< import spoon.reflect.annotations.PropertyGetter;
+< import spoon.reflect.annotations.PropertySetter;
+29c29
+< import static spoon.reflect.path.CtRole.EXPRESSION;
+---
+> import static spoon.reflect.path.CtRole.NESTED_TYPE;
+80c80
+< 	@PropertyGetter(role = EXPRESSION)
+---
+> 	@PropertyGetter(role = NESTED_TYPE)
+86c86
+< 	@PropertySetter(role = EXPRESSION)
+---
+> 	@PropertySetter(role = NESTED_TYPE)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java after/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java
+39c39
+< 	@PropertyGetter(role = EXPRESSION)
+---
+> 	@PropertySetter(role = EXPRESSION)
+45c45
+< 	@PropertySetter(role = EXPRESSION)
+---
+> 	@PropertyGetter(role = EXPRESSION)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/declaration/CtModifiable.java after/src/main/java/spoon/reflect/declaration/CtModifiable.java
+20a21
+> import spoon.support.DerivedProperty;
+83c84
+< 	@PropertyGetter(role = MODIFIER)
+---
+> 	@DerivedProperty
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/code/CtCaseImpl.java after/src/main/java/spoon/support/reflect/code/CtCaseImpl.java
+37c37
+< 	@MetamodelPropertyField(role = CtRole.CASE)
+---
+> 	@MetamodelPropertyField(role = CtRole.EXPRESSION)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java after/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java
+28c28
+< 	@MetamodelPropertyField(role = CtRole.EXPRESSION)
+---
+> 	@MetamodelPropertyField(role = CtRole.NESTED_TYPE)
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java after/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
+85c85
+< 	@MetamodelPropertyField(role = CtRole.FIELD)
+---
+> 	@MetamodelPropertyField(role = {CtRole.FIELD, CtRole.EXECUTABLE, CtRole.NESTED_TYPE})
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/api/MetamodelTest.java after/src/test/java/spoon/test/api/MetamodelTest.java
+5a6
+> import spoon.Metamodel;
+9a11
+> import spoon.reflect.code.CtExpression;
+10a13
+> import spoon.reflect.code.CtNewArray;
+20d22
+< import spoon.Metamodel;
+27a30
+> import java.util.ArrayList;
+65c68
+< 		List<CtMethod> getters = interfaces.getModel().getElements(new AnnotationFilter<CtMethod>(PropertyGetter.class));
+---
+> 		List<CtMethod<?>> getters = interfaces.getModel().getElements(new AnnotationFilter<CtMethod<?>>(PropertyGetter.class));
+66a70
+> 		Set<CtMethod<?>> isNotGetter = getters.stream().filter(m -> !(m.getSimpleName().startsWith("get") || m.getSimpleName().startsWith("is"))).collect(Collectors.toSet());
+68c72
+< 		List<CtMethod> setters = interfaces.getModel().getElements(new AnnotationFilter<CtMethod>(PropertySetter.class));
+---
+> 		List<CtMethod<?>> setters = interfaces.getModel().getElements(new AnnotationFilter<CtMethod<?>>(PropertySetter.class));
+70c74
+< 
+---
+> 		Set<CtMethod<?>> isNotSetter = setters.stream().filter(m -> !(m.getSimpleName().startsWith("set") || m.getSimpleName().startsWith("add") || m.getSimpleName().startsWith("remove"))).collect(Collectors.toSet());
+73a78,79
+> 		Assert.assertEquals(Collections.EMPTY_SET, isNotGetter);
+> 		Assert.assertEquals(Collections.EMPTY_SET, isNotSetter);
+118c124,134
+< 			String role = ((CtFieldRead) field.getAnnotation(metamodelPropertyField).getValue("role")).getVariable().getSimpleName();
+---
+> 			CtExpression roleExpression = field.getAnnotation(metamodelPropertyField).getValue("role");
+> 			List<String> roles = new ArrayList<>();
+> 			if (roleExpression instanceof CtFieldRead) {
+> 				roles.add(((CtFieldRead) roleExpression).getVariable().getSimpleName());
+> 			} else  if (roleExpression instanceof CtNewArray) {
+> 				List<CtFieldRead> elements = ((CtNewArray) roleExpression).getElements();
+> 				for (int i = 0; i < elements.size(); i++) {
+> 					CtFieldRead ctFieldRead =  elements.get(i);
+> 					roles.add(ctFieldRead.getVariable().getSimpleName());
+> 				}
+> 			}
+122,123d137
+< 			List<CtType> superType = superQuery.list();
+< 
+132c146
+< 					getterFound |= ((CtFieldRead) getterAnnotation.getValue("role")).getVariable().getSimpleName().equals(role);
+---
+> 					getterFound |= roles.contains(((CtFieldRead) getterAnnotation.getValue("role")).getVariable().getSimpleName());
+135c149
+< 					setterFound |= ((CtFieldRead) setterAnnotation.getValue("role")).getVariable().getSimpleName().equals(role);
+---
+> 					setterFound |= roles.contains(((CtFieldRead) setterAnnotation.getValue("role")).getVariable().getSimpleName());
+139,140c153,154
+< 			Assert.assertTrue(role + " must have a getter in " + parent.getQualifiedName(), getterFound);
+< 			Assert.assertTrue(role + " must have a setter in " + parent.getQualifiedName(), setterFound);
+---
+> 			Assert.assertTrue(roles + " must have a getter in " + parent.getQualifiedName(), getterFound);
+> 			Assert.assertTrue(roles + " must have a setter in " + parent.getQualifiedName(), setterFound);

@@ -1,0 +1,71 @@
+Only in after/: bears.json
+Only in after/molgenis-data-csv: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java after/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
+23a24,25
+> import static java.util.Arrays.stream;
+> import static java.util.stream.Collectors.joining;
+133c135
+< 				if ((values != null) && (values.length >= colNamesMap.size()))
+---
+> 				if (values != null && values.length == colNamesMap.size())
+150a153,159
+> 				}
+> 				else if (values != null && (values.length > 1 || (values.length == 1 && values[0].length() > 0))
+> 						&& values.length < colNamesMap.size())
+> 				{
+> 					throw new MolgenisDataException(
+> 							format("Number of values (%d) doesn't match the number of headers (%d): [%s]",
+> 									values.length, colNamesMap.size(), stream(values).collect(joining(","))));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-csv/src/test/java/org/molgenis/data/csv/CsvIteratorTest.java after/molgenis-data-csv/src/test/java/org/molgenis/data/csv/CsvIteratorTest.java
+7a8
+> import org.molgenis.data.MolgenisDataException;
+16,19c17
+< import java.io.File;
+< import java.io.FileOutputStream;
+< import java.io.IOException;
+< import java.io.InputStream;
+---
+> import java.io.*;
+54a53,94
+> 	}
+> 
+> 	@SuppressWarnings("deprecation")
+> 	@Test(expectedExceptions = MolgenisDataException.class, expectedExceptionsMessageRegExp = "Number of values \\(1\\) doesn't match the number of headers \\(2\\): \\[val1\\]")
+> 	public void testIteratorValueHeaderMismatchOneNonEmptyValue() throws IOException
+> 	{
+> 		File csvFile = File.createTempFile("testdata", ".csv");
+> 		try
+> 		{
+> 			try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(csvFile)))
+> 			{
+> 				outputStreamWriter.write("col1,col2\n");
+> 				outputStreamWriter.write("val1\n");
+> 			}
+> 			new CsvIterator(csvFile, "testdata", null, ',', entityType).next();
+> 		}
+> 		finally
+> 		{
+> 			//noinspection ResultOfMethodCallIgnored
+> 			csvFile.delete();
+> 		}
+> 	}
+> 
+> 	@SuppressWarnings("deprecation")
+> 	@Test(expectedExceptions = MolgenisDataException.class, expectedExceptionsMessageRegExp = "Number of values \\(2\\) doesn't match the number of headers \\(3\\): \\[val1,val2\\]")
+> 	public void testIteratorValueHeaderMismatch() throws IOException
+> 	{
+> 		File csvFile = File.createTempFile("testdata", ".csv");
+> 		try
+> 		{
+> 			try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(csvFile)))
+> 			{
+> 				outputStreamWriter.write("col1,col2,col3\n");
+> 				outputStreamWriter.write("val1,val2\n");
+> 			}
+> 			new CsvIterator(csvFile, "testdata", null, ',', entityType).next();
+> 		}
+> 		finally
+> 		{
+> 			//noinspection ResultOfMethodCallIgnored
+> 			csvFile.delete();
+> 		}

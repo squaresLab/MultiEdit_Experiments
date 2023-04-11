@@ -1,0 +1,78 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
+468c468,475
+< 			return RtHelper.getAllExecutables(getActualClass(), getFactory());
+---
+> 			try {
+> 				return RtHelper.getAllExecutables(getActualClass(), getFactory());
+> 			} catch (final SpoonClassNotFoundException e) {
+> 				if (getFactory().getEnvironment().getNoClasspath()) {
+> 					return Collections.emptyList();
+> 				}
+> 				throw e;
+> 			}
+511,514c518,529
+< 			Class<T> c = getActualClass();
+< 			Class<?> sc = c.getSuperclass();
+< 			if (sc == null) {
+< 				return null;
+---
+> 			try {
+> 				Class<T> c = getActualClass();
+> 				Class<?> sc = c.getSuperclass();
+> 				if (sc == null) {
+> 					return null;
+> 				}
+> 				return getFactory().Type().createReference(sc);
+> 			} catch (final SpoonClassNotFoundException e) {
+> 				if (getFactory().getEnvironment().getNoClasspath()) {
+> 					return null;
+> 				}
+> 				throw e;
+516d530
+< 			return getFactory().Type().createReference(sc);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/methodreference/MethodReferenceTest.java after/src/test/java/spoon/test/methodreference/MethodReferenceTest.java
+7a8
+> import spoon.reflect.CtModel;
+13a15
+> import spoon.reflect.declaration.CtMethod;
+18a21
+> import spoon.reflect.visitor.filter.NameFilter;
+28a32
+> import static org.junit.Assert.assertNull;
+160a165,198
+> 	}
+> 
+> 	@Test
+> 	public void testNoClasspathSuperExecutable() {
+> 		final Launcher launcher = new Launcher();
+> 		launcher.getEnvironment().setNoClasspath(true);
+> 		launcher.addInputResource("src/test/resources/noclasspath/superclass/UnknownSuperClass.java");
+> 		launcher.buildModel();
+> 		final CtModel model = launcher.getModel();
+> 
+> 		final CtTypeReference overrideRef = launcher.getFactory().
+> 				Annotation().createReference(Override.class);
+> 
+> 		// call `getSuperClass()` indirectly using `getOverridingExecutable()`
+> 
+> 		// some consistency checks...
+> 		assertEquals(1, model.getElements(
+> 				new NameFilter<CtMethod>("a")).size());
+> 		assertEquals(1, model.getElements(
+> 				new NameFilter<CtMethod>("b")).size());
+> 		assertEquals(1, model.getElements(
+> 				new NameFilter<CtMethod>("toString")).size());
+> 
+> 		// get super method of a class not available in classpath
+> 		final CtMethod bMethod = model.getElements(
+> 				new NameFilter<CtMethod>("b")).get(0);
+> 		assertNotNull(bMethod.getAnnotation(overrideRef));
+> 		assertNull(bMethod.getReference().getOverridingExecutable());
+> 
+> 		// get super method of a class available in classpath (Object)
+> 		final CtMethod toStringMethod = model.getElements(
+> 				new NameFilter<CtMethod>("toString")).get(0);
+> 		assertNotNull(toStringMethod.getAnnotation(overrideRef));
+> 		assertNotNull(toStringMethod.getReference().getOverridingExecutable());

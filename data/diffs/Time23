@@ -1,0 +1,30 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time23/src/main/java/org/joda/time/DateTimeZone.java d4j_patched/Time23/src/main/java/org/joda/time/DateTimeZone.java
+563a564,568
+>             map.put("WET", "WET");
+>             map.put("CET", "CET");
+>             map.put("MET", "CET");
+>             map.put("ECT", "CET");
+>             map.put("EET", "EET");
+572c577
+<             map.put("IET", "America/Indianapolis");
+---
+>             map.put("IET", "America/Indiana/Indianapolis");
+575c580
+<             map.put("AGT", "America/Buenos_Aires");
+---
+>             map.put("AGT", "America/Argentina/Buenos_Aires");
+577,578d581
+<             map.put("WET", "Europe/London");
+<             map.put("ECT", "Europe/Paris");
+581d583
+<             map.put("EET", "Europe/Bucharest");
+583d584
+<             map.put("MET", "Asia/Tehran");
+586c587
+<             map.put("IST", "Asia/Calcutta");
+---
+>             map.put("IST", "Asia/Kolkata");
+588c589
+<             map.put("VST", "Asia/Saigon");
+---
+>             map.put("VST", "Asia/Ho_Chi_Minh");

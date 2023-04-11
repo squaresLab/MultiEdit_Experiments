@@ -1,0 +1,85 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/template/Substitution.java after/src/main/java/spoon/template/Substitution.java
+674,684c674,682
+< 				// contract: if value, then the field type must be String
+< 				if (!f.getType().equals(c.getFactory().Type().STRING)) {
+< 					throw new TemplateException("proxy template parameter must be typed as String " +  f.getType().getQualifiedName());
+< 				}
+< 
+< 				// contract: the name of the template parameter must correspond to the name of the field
+< 				// as found, by Pavel, this is not good contract because it prevents easy refactoring of templates
+< 				// we remove it but keep th commented code in case somebody would come up with this bad idae
+< //				if (!f.getSimpleName().equals("_" + f.getAnnotation(Parameter.class).value())) {
+< //					throw new TemplateException("the field name of a proxy template parameter must be called _" + f.getSimpleName());
+< //				}
+---
+> 				// contract: if value, then the field type must be String or CtTypeReference
+> 				String fieldTypeQName = f.getType().getQualifiedName();
+> 				if (fieldTypeQName.equals(String.class.getName())) {
+> 					// contract: the name of the template parameter must correspond to the name of the field
+> 					// as found, by Pavel, this is not good contract because it prevents easy refactoring of templates
+> 					// we remove it but keep th commented code in case somebody would come up with this bad idae
+> //					if (!f.getSimpleName().equals("_" + f.getAnnotation(Parameter.class).value())) {
+> //						throw new TemplateException("the field name of a proxy template parameter must be called _" + f.getSimpleName());
+> //					}
+686,690c684,689
+< 				// contract: if a proxy parameter is declared and named "x" (@Parameter("x")), then a type member named "x" must exist.
+< 				boolean found = false;
+< 				for (CtTypeMember member: c.getTypeMembers()) {
+< 					if (member.getSimpleName().equals(proxyName)) {
+< 						found = true;
+---
+> 					// contract: if a proxy parameter is declared and named "x" (@Parameter("x")), then a type member named "x" must exist.
+> 					boolean found = false;
+> 					for (CtTypeMember member: c.getTypeMembers()) {
+> 						if (member.getSimpleName().equals(proxyName)) {
+> 							found = true;
+> 						}
+691a691,697
+> 					if (!found) {
+> 						throw new TemplateException("if a proxy parameter is declared and named \"" + proxyName + "\", then a type member named \"\" + proxyName + \"\" must exist.");
+> 					}
+> 				} else if (fieldTypeQName.equals(CtTypeReference.class.getName())) {
+> 					//OK it is CtTypeReference
+> 				} else {
+> 					throw new TemplateException("proxy template parameter must be typed as String or CtTypeReference, but it is " + fieldTypeQName);
+693,696d698
+< 				if (!found) {
+< 					throw new TemplateException("if a proxy parameter is declared and named \"" + proxyName + "\", then a type member named \"\" + proxyName + \"\" must exist.");
+< 				}
+< 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/template/TemplateTest.java after/src/test/java/spoon/test/template/TemplateTest.java
+23a24
+> import spoon.reflect.reference.CtTypeReference;
+46a48
+> import spoon.test.template.testclasses.TypeReferenceClassAccessTemplate;
+64a67
+> import spoon.testing.utils.ModelUtils;
+1015a1019,1043
+> 	}
+> 
+> 	@Test
+> 	public void substituteTypeAccessReference() throws Exception {
+> 		//contract: the substitution of CtTypeAccess expression ignores actual type arguments if it have to
+> 		Launcher spoon = new Launcher();
+> 		spoon.addTemplateResource(new FileSystemFile("./src/test/java/spoon/test/template/testclasses/TypeReferenceClassAccessTemplate.java"));
+> 		String outputDir = "./target/spooned/test/template/testclasses";
+> 		spoon.setSourceOutputDirectory(outputDir);
+> 
+> 		spoon.buildModel();
+> 		Factory factory = spoon.getFactory();
+> 
+> 		//contract: String value is substituted in substring of literal, named element and reference
+> 		CtTypeReference<?> typeRef = factory.Type().createReference(TypeReferenceClassAccessTemplate.Example.class);
+> 		typeRef.addActualTypeArgument(factory.Type().DATE);
+> 		
+> 		final CtClass<?> result = (CtClass<?>) new TypeReferenceClassAccessTemplate(typeRef).apply(factory.Class().create("spoon.test.template.TypeReferenceClassAccess"));
+> 		spoon.prettyprint();
+> 		ModelUtils.canBeBuilt(outputDir, 8);
+> 		CtMethod<?> method = result.getMethodsByName("someMethod").get(0);
+> 		assertEquals("spoon.test.template.TypeReferenceClassAccess.Example<java.util.Date>", method.getType().toString());
+> 		assertEquals("spoon.test.template.TypeReferenceClassAccess.Example<java.util.Date>", method.getParameters().get(0).getType().toString());
+> 		assertEquals("o = spoon.test.template.TypeReferenceClassAccess.Example.out", method.getBody().getStatement(0).toString());
+> 		assertEquals("spoon.test.template.TypeReferenceClassAccess.Example<java.util.Date> ret = new spoon.test.template.TypeReferenceClassAccess.Example<java.util.Date>()", method.getBody().getStatement(1).toString());
+Only in after/src/test/java/spoon/test/template/testclasses: TypeReferenceClassAccessTemplate.java

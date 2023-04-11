@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress27/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java d4j_patched/Compress27/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+133,136d132
+<         if (start == end) {
+<             throw new IllegalArgumentException(
+<                     exceptionMessage(buffer, offset, length, start, trailer));
+<         }

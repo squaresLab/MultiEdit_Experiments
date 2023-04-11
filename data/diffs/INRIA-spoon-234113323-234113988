@@ -1,0 +1,57 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java after/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+75a76
+> 	private Set<CtTypeReference> exploredReferences = new HashSet<>(); // list of explored references
+250a252,260
+> 	private boolean isThereAnotherClassWithSameNameInAnotherPackage(CtTypeReference<?> ref) {
+> 		for (CtTypeReference typeref : this.exploredReferences) {
+> 			if (typeref.getSimpleName().equals(ref.getSimpleName()) && !typeref.getQualifiedName().equals(ref.getQualifiedName())) {
+> 				return true;
+> 			}
+> 		}
+> 		return false;
+> 	}
+> 
+254a265
+> 		this.exploredReferences.add(ref);
+281a293,296
+> 		if (this.isThereAnotherClassWithSameNameInAnotherPackage(ref)) {
+> 			return false;
+> 		}
+> 
+349,350c364
+< 		//note: we must add the type refs from the same package too, to assure that isImported(typeRef) returns true for them
+< 		//these type refs are removed in #getClassImports()
+---
+> 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/ctClass/CtClassTest.java after/src/test/java/spoon/test/ctClass/CtClassTest.java
+2a3,5
+> 
+> import static org.hamcrest.CoreMatchers.notNullValue;
+> 
+3a7
+> 
+7a12
+> 
+156a162,180
+> 	}
+> 
+> 	@Test
+> 	public void testDefaultConstructorAreOk() throws Exception {
+> 		// contract: When we specify a superclass which is declared in an interface and
+> 		// where the visibility is okay, we must use it.
+> 
+> 		final Launcher launcher = new Launcher();
+> 		launcher.addInputResource("./src/test/java/spoon/test/ctClass/testclasses/issue1306");
+> 		launcher.setSourceOutputDirectory("./target/issue1306");
+> 		launcher.getEnvironment().setNoClasspath(false);
+> 		launcher.getEnvironment().setShouldCompile(true);
+> 		launcher.getEnvironment().setAutoImports(true);
+> 		launcher.run();
+> 
+> 		final CtClass<Object> aClass = launcher.getFactory().Class().get("spoon.test.ctClass.testclasses.issue1306.internal.BooleanArraysBaseTest");
+> 		assertThat(aClass, notNullValue());
+> 
+> 		canBeBuilt("./target/issue1306", 8, true);
+Only in after/src/test/java/spoon/test/ctClass/testclasses: issue1306

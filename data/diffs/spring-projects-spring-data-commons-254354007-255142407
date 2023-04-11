@@ -1,0 +1,70 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java after/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java
+2c2
+<  * Copyright 2012 the original author or authors.
+---
+>  * Copyright 2012-2017 the original author or authors.
+54c54,57
+< 		AnnotatedBeanDefinition beanDefinition = new AnnotatedGenericBeanDefinition(getRepositoryInterfaceFrom(definition));
+---
+> 		AnnotatedBeanDefinition beanDefinition = definition instanceof AnnotatedBeanDefinition //
+> 				? (AnnotatedBeanDefinition) definition //
+> 				: new AnnotatedGenericBeanDefinition(getRepositoryInterfaceFrom(definition));
+> 
+59,61c62,64
+< 	 * Returns the type configured for the {@code repositoryInterface} property of the given bean definition. Uses a
+< 	 * potential {@link Class} being configured as is or tries to load a class with the given value's {@link #toString()}
+< 	 * representation.
+---
+> 	 * Returns the type configured for the {@code repositoryInterface} constructor argument of the given bean definition.
+> 	 * Uses a potential {@link Class} being configured as is or tries to load a class with the given value's
+> 	 * {@link #toString()} representation.
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/springframework/data/repository/config/RepositoryBeanNameGeneratorUnitTests.java after/src/test/java/org/springframework/data/repository/config/RepositoryBeanNameGeneratorUnitTests.java
+20a21,22
+> import java.io.IOException;
+> 
+24a27
+> import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
+29a33,36
+> import org.springframework.context.annotation.ScannedGenericBeanDefinition;
+> import org.springframework.core.type.classreading.MetadataReader;
+> import org.springframework.core.type.classreading.MetadataReaderFactory;
+> import org.springframework.core.type.classreading.SimpleMetadataReaderFactory;
+38a46,47
+> 	static final String SAMPLE_IMPLEMENTATION_BEAN_NAME = "repositoryBeanNameGeneratorUnitTests.SomeImplementation";
+> 
+61a71,89
+> 	@Test // DATACMNS-1115
+> 	public void usesClassNameOfScannedBeanDefinition() throws IOException {
+> 
+> 		MetadataReaderFactory factory = new SimpleMetadataReaderFactory();
+> 		MetadataReader reader = factory.getMetadataReader(SomeImplementation.class.getName());
+> 
+> 		BeanDefinition definition = new ScannedGenericBeanDefinition(reader);
+> 
+> 		assertThat(generator.generateBeanName(definition, registry), is(SAMPLE_IMPLEMENTATION_BEAN_NAME));
+> 	}
+> 
+> 	@Test // DATACMNS-1115
+> 	public void usesClassNameOfAnnotatedBeanDefinition() {
+> 
+> 		BeanDefinition definition = new AnnotatedGenericBeanDefinition(SomeImplementation.class);
+> 
+> 		assertThat(generator.generateBeanName(definition, registry), is(SAMPLE_IMPLEMENTATION_BEAN_NAME));
+> 	}
+> 
+69,71c97
+< 	interface PlainInterface {
+< 
+< 	}
+---
+> 	interface PlainInterface {}
+74c100
+< 	interface AnnotatedInterface {
+---
+> 	interface AnnotatedInterface {}
+76c102
+< 	}
+---
+> 	class SomeImplementation {}

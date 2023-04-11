@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind9/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java d4j_patched/JacksonDatabind9/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java
+26a27
+>         Class<?> cls = value.getClass();
+28c29,31
+<         if (value instanceof Date) {
+---
+>         if (cls == String.class) {
+>             str = (String) value;
+>         } else if (Date.class.isAssignableFrom(cls)) {
+30a34,35
+>         } else if (cls == Class.class) {
+>             str = ((Class<?>) value).getName();

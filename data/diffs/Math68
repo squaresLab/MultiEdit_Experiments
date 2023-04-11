@@ -1,0 +1,26 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math68/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java d4j_patched/Math68/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
+165a166
+>         setConvergenceChecker(null);
+246a248
+>         VectorialPointValuePair current = new VectorialPointValuePair(point, objective);
+251a254
+>             VectorialPointValuePair previous = current;
+303c306
+<                 return new VectorialPointValuePair(point, objective);
+---
+>                 return current;
+344a348
+>                 current = new VectorialPointValuePair(point, objective);
+412a417
+>                 if (checker != null) {
+413a419,422
+>                     if (checker.converged(getIterations(), previous, current)) {
+>                         return current;                        
+>                     }
+>                 } else {
+419c428
+<                         return new VectorialPointValuePair(point, objective);
+---
+>                         return current;
+420a430
+>                 }

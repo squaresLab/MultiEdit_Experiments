@@ -1,0 +1,218 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/code/CtComment.java after/src/main/java/spoon/reflect/code/CtComment.java
+54a55,61
+> 	 * This line separator is used in comments returned by {@link #getContent()}.
+> 	 * It is OS independent.
+> 	 * It has no influence to pretty printed comments, which uses by default OS dependent line separator
+> 	 */
+> 	String LINE_SEPARATOR = "\n";
+> 
+> 	/**
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+172,176d171
+< 	 * RegExp which matches all possible line separators
+< 	 */
+< 	private static final String LINE_SEPARATORS_RE = "\\n\\r|\\n|\\r";
+< 
+< 	/**
+907c902
+< 		String[] tagLines = docTag.getContent().split(LINE_SEPARATORS_RE);
+---
+> 		String[] tagLines = docTag.getContent().split(CtComment.LINE_SEPARATOR);
+945c940
+< 				String[] lines = content.split(LINE_SEPARATORS_RE);
+---
+> 				String[] lines = content.split(CtComment.LINE_SEPARATOR);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java after/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
+22a23,24
+> 
+> import spoon.SpoonException;
+53a56,57
+> import java.io.BufferedReader;
+> import java.io.CharArrayReader;
+54a59,61
+> import java.io.IOException;
+> import java.io.Reader;
+> import java.io.StringReader;
+57a65
+> import java.util.regex.Pattern;
+62d69
+< @SuppressWarnings("unchecked")
+529,531c536
+< 		//skip comment prefix
+< 		start += 2;
+< 		return cleanComment(new String(contents, start, end - start));
+---
+> 		return cleanComment(new CharArrayReader(contents, start, end - start));
+535,540c540,541
+< 		StringBuffer ret = new StringBuffer();
+< 		String[] lines = comment.split("\n");
+< 		// limit case
+< 		if (lines.length == 1) {
+< 			return lines[0].replaceAll("^/\\*+ ?", "").replaceAll("\\*+/$", "").trim();
+< 		}
+---
+> 		return cleanComment(new StringReader(comment));
+> 	}
+542,547c543,558
+< 		for (String s : lines) {
+< 			String cleanUpLine = s.trim();
+< 			if (cleanUpLine.startsWith("/**")) {
+< 				cleanUpLine = cleanUpLine.replaceAll("/\\*+ ?", "");
+< 			} else if (cleanUpLine.endsWith("*/")) {
+< 				cleanUpLine = cleanUpLine.replaceAll("\\*+/$", "").replaceAll("^[ \t]*\\*+ ?", "");
+---
+> 	private static final Pattern startCommentRE = Pattern.compile("^/\\*{1,2} ?");
+> 	private static final Pattern middleCommentRE = Pattern.compile("^[ \t]*\\*? ?");
+> 	private static final Pattern endCommentRE = Pattern.compile("\\*/$");
+> 
+> 	private static String cleanComment(Reader comment) {
+> 		StringBuilder ret = new StringBuilder();
+> 		try (BufferedReader br = new BufferedReader(comment)) {
+> 			String line = br.readLine();
+> 			if (line.length() < 2 || line.charAt(0) != '/') {
+> 				throw new SpoonException("Unexpected beginning of comment");
+> 			}
+> 			boolean isLastLine = false;
+> 			if (line.charAt(1) == '/') {
+> 				//it is single line comment, which starts with "//"
+> 				isLastLine = true;
+> 				line = line.substring(2);
+549,559c560,589
+< 				cleanUpLine = cleanUpLine.replaceAll("^[ \t]*\\*+ ?", "");
+< 			}
+< 			ret.append(cleanUpLine);
+< 			ret.append("\n");
+< 		}
+< 		// clean '\r'
+< 		StringBuffer ret2 = new StringBuffer();
+< 		for (int i = 0; i < ret.length(); i++) {
+< 			if (ret.charAt(i) != '\r') {
+< 				ret2.append(ret.charAt(i));
+< 			}
+---
+> 				//it is potentially multiline comment, which starts with "/*" or "/**"
+> 				//check end first
+> 				if (line.endsWith("*/")) {
+> 					//it is last line
+> 					line = endCommentRE.matcher(line).replaceFirst("");
+> 					isLastLine = true;
+> 				}
+> 				//skip beginning
+> 				line = startCommentRE.matcher(line).replaceFirst("");
+> 			}
+> 			//append first line
+> 			ret.append(line);
+> 			while ((line = br.readLine()) != null) {
+> 				if (isLastLine) {
+> 					throw new SpoonException("Unexpected next line after last line");
+> 				}
+> 				if (line.endsWith("*/")) {
+> 					//it is last line
+> 					line = endCommentRE.matcher(line).replaceFirst("");
+> 					isLastLine = true;
+> 				}
+> 				//always clean middle comment, but after end comment is detected
+> 				line = middleCommentRE.matcher(line).replaceFirst("");
+> 				//write next line - Note that Spoon model comment's lines are always separated by "\n"
+> 				ret.append(CtComment.LINE_SEPARATOR);
+> 				ret.append(line);
+> 			}
+> 			return ret.toString().trim();
+> 		} catch (IOException e) {
+> 			throw new SpoonException(e);
+561d590
+< 		return ret2.toString().trim();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/comment/CommentTest.java after/src/test/java/spoon/test/comment/CommentTest.java
+17a18
+> import spoon.reflect.code.CtLiteral;
+49a51,52
+> import spoon.test.comment.testclasses.WildComments;
+> import spoon.test.comment.testclasses.WindowsEOL;
+50a54,55
+> import java.io.File;
+> import java.io.FileInputStream;
+52a58,61
+> import java.io.IOException;
+> import java.io.InputStream;
+> import java.io.InputStreamReader;
+> import java.io.Reader;
+53a63
+> import java.util.Iterator;
+800a811,883
+> 	}
+> 	
+> 	@Test
+> 	public void testCommentsInResourcesWithWindowsEOL() throws IOException {
+> 		//contract: the WindowsEOL.java contains MS Windows \r\n as EOL 
+> 		try(InputStream is = new FileInputStream(new File("./src/test/java/spoon/test/comment/testclasses/WindowsEOL.java"))) {
+> 			int b;
+> 			boolean lastWasCR = false;
+> 			while((b = is.read())!=-1) {
+> 				if(lastWasCR) {
+> 					//next must be LF
+> 					assertTrue(b=='\n');
+> 					lastWasCR = false;
+> 				}
+> 				if(b=='\r') {
+> 					lastWasCR = true;
+> 				}
+> 			}
+> 		}
+> 		final Launcher launcher = new Launcher();
+> 		launcher.run(new String[]{
+> 				"-i", "./src/test/java/spoon/test/comment/testclasses/WindowsEOL.java",
+> 				"-o", "./target/spooned/",
+> 				"-c"
+> 		});
+> 		Factory f = launcher.getFactory();
+> 		CtClass<?> type = (CtClass<?>) f.Type().get(WindowsEOL.class);
+> 		CtJavaDoc classJavaDoc = (CtJavaDoc) type.getComments().get(0);
+> 		//contract: test that java doc is printed correctly
+> 		String str = classJavaDoc.toString();
+> 		StringTokenizer st = new StringTokenizer(str, System.getProperty("line.separator"));
+> 		boolean first = true;
+> 		while(st.hasMoreTokens()) {
+> 			String line = st.nextToken();
+> 			if(first) {
+> 				//first
+> 				first = false;
+> 				assertTrue(line.length()==3);
+> 				assertEquals("/**", line); 
+> 			} else {
+> 				if(st.hasMoreTokens()) {
+> 					//in the middle
+> 					assertTrue(line.length()>=2);
+> 					assertEquals(" *", line.substring(0, 2)); 
+> 				} else {
+> 					//last
+> 					assertTrue(line.length()==3);
+> 					assertEquals(" */", line.substring(0, 3)); 
+> 				}
+> 			}
+> 		}
+> 		//This test passes on MS Windows too - why spoon uses `\n` on MS Windows too?
+> 		assertEquals("This file contains MS Windows EOL.\n"
+> 				+ "It is here to test whether comments are printed well\n"
+> 				+ "in this case", classJavaDoc.getContent());
+> 	}
+> 
+> 	@Test
+> 	public void testWildComments() {
+> 		//contract: tests that value of comment is correct even for wild combinations of characters. See WildComments class for details
+> 		Factory f = getSpoonFactory();
+> 		CtClass<?> type = (CtClass<?>) f.Type().get(WildComments.class);
+> 		List<CtLiteral<String>> literals = (List)((CtNewArray<?>)type.getField("comments").getDefaultExpression()).getElements();
+> 		assertTrue(literals.size()>10);
+> 		/*
+> 		 * each string literal has a comment and string value, which defines expected value of it's comment
+> 		 */
+> 		for (CtLiteral<String> literal : literals) {
+> 			assertEquals(1, literal.getComments().size());
+> 			CtComment comment = literal.getComments().get(0);
+> 			String expected = literal.getValue();
+> 			assertEquals(literal.getPosition().toString(), expected, comment.getContent());
+> 		}
+Only in after/src/test/java/spoon/test/comment/testclasses: WildComments.java
+Only in after/src/test/java/spoon/test/comment/testclasses: WindowsEOL.java

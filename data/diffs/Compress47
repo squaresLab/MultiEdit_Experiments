@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress47/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java d4j_patched/Compress47/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+415c415,416
+<                 && supportsDataDescriptorFor(ze);
+---
+>                 && supportsDataDescriptorFor(ze)
+>                 && supportsCompressedSizeFor(ze);
+439a441,444
+>         if (!supportsCompressedSizeFor(current.entry)) {
+>             throw new UnsupportedZipFeatureException(UnsupportedZipFeatureException.Feature.UNKNOWN_COMPRESSED_SIZE,
+>                     current.entry);
+>         }
+808a814,821
+>     private boolean supportsCompressedSizeFor(final ZipArchiveEntry entry) {
+>         return entry.getCompressedSize() != ArchiveEntry.SIZE_UNKNOWN
+>             || entry.getMethod() == ZipEntry.DEFLATED
+>             || entry.getMethod() == ZipMethod.ENHANCED_DEFLATED.getCode()
+>             || (entry.getGeneralPurposeBit().usesDataDescriptor()
+>                 && allowStoredEntriesWithDataDescriptor
+>                 && entry.getMethod() == ZipEntry.STORED);
+>     }

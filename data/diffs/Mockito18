@@ -1,0 +1,4 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito18/src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java d4j_patched/Mockito18/src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java
+86a87,88
+>         } else if (type == Iterable.class) {
+>             return new ArrayList<Object>(0);

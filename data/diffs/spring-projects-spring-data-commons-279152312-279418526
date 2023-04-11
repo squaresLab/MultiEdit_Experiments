@@ -1,0 +1,25 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/history/AnnotationRevisionMetadata.java after/src/main/java/org/springframework/data/history/AnnotationRevisionMetadata.java
+88,90c88,90
+< 			AnnotationDetectionFieldCallback numberCallback = new AnnotationDetectionFieldCallback(annotationType);
+< 			ReflectionUtils.doWithFields(entity.getClass(), numberCallback);
+< 			return numberCallback.getValue(entity);
+---
+> 			AnnotationDetectionFieldCallback callback = new AnnotationDetectionFieldCallback(annotationType);
+> 			ReflectionUtils.doWithFields(entity.getClass(), callback);
+> 			return Optional.ofNullable(callback.getValue(entity));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/springframework/data/history/RevisionMetadata.java after/src/main/java/org/springframework/data/history/RevisionMetadata.java
+43,44c43,44
+< 		return getRevisionNumber()
+< 				.orElseThrow(() -> new IllegalStateException(String.format("No revision number found on %s!", getDelegate())));
+---
+> 		return getRevisionNumber().orElseThrow(
+> 				() -> new IllegalStateException(String.format("No revision number found on %s!", (Object) getDelegate())));
+61,62c61,62
+< 		return getRevisionDate()
+< 				.orElseThrow(() -> new IllegalStateException(String.format("No revision date found on %s!", getDelegate())));
+---
+> 		return getRevisionDate().orElseThrow(
+> 				() -> new IllegalStateException(String.format("No revision date found on %s!", (Object) getDelegate())));
+Only in after/src/test/java/org/springframework/data/history: AnnotationRevisionMetadataUnitTests.java

@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math101/src/java/org/apache/commons/math/complex/ComplexFormat.java d4j_patched/Math101/src/java/org/apache/commons/math/complex/ComplexFormat.java
+377c377,378
+<         if (
+---
+>         if ((startIndex >= source.length()) ||
+>             (endIndex > source.length()) ||

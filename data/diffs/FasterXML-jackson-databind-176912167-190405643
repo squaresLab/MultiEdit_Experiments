@@ -1,0 +1,74 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java after/src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java
+165,166c165,167
+<             verifyNonDup(creator, C_ARRAY_DELEGATE, explicit);
+<             _arrayDelegateArgs = injectables;
+---
+>             if (verifyNonDup(creator, C_ARRAY_DELEGATE, explicit)) {
+>                 _arrayDelegateArgs = injectables;
+>             }
+168,169c169,171
+<             verifyNonDup(creator, C_DELEGATE, explicit);
+<             _delegateArgs = injectables;
+---
+>             if (verifyNonDup(creator, C_DELEGATE, explicit)) {
+>                 _delegateArgs = injectables;
+>             }
+176,190c178,193
+<         verifyNonDup(creator, C_PROPS, explicit);
+<         // Better ensure we have no duplicate names either...
+<         if (properties.length > 1) {
+<             HashMap<String,Integer> names = new HashMap<String,Integer>();
+<             for (int i = 0, len = properties.length; i < len; ++i) {
+<                 String name = properties[i].getName();
+<                 /* [Issue-13]: Need to consider Injectables, which may not have
+<                  *   a name at all, and need to be skipped
+<                  */
+<                 if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+<                     continue;
+<                 }
+<                 Integer old = names.put(name, Integer.valueOf(i));
+<                 if (old != null) {
+<                     throw new IllegalArgumentException("Duplicate creator property \""+name+"\" (index "+old+" vs "+i+")");
+---
+>         if (verifyNonDup(creator, C_PROPS, explicit)) {
+>             // Better ensure we have no duplicate names either...
+>             if (properties.length > 1) {
+>                 HashMap<String,Integer> names = new HashMap<String,Integer>();
+>                 for (int i = 0, len = properties.length; i < len; ++i) {
+>                     String name = properties[i].getName();
+>                     /* [Issue-13]: Need to consider Injectables, which may not have
+>                      *   a name at all, and need to be skipped
+>                      */
+>                     if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+>                         continue;
+>                     }
+>                     Integer old = names.put(name, Integer.valueOf(i));
+>                     if (old != null) {
+>                         throw new IllegalArgumentException("Duplicate creator property \""+name+"\" (index "+old+" vs "+i+")");
+>                     }
+192a196
+>             _propertyBasedArgs = properties;
+194d197
+<         _propertyBasedArgs = properties;
+296c299,302
+<     protected void verifyNonDup(AnnotatedWithParams newOne, int typeIndex, boolean explicit)
+---
+>     /**
+>      * @return True if specified Creator is to be used
+>      */
+>     protected boolean verifyNonDup(AnnotatedWithParams newOne, int typeIndex, boolean explicit)
+304d309
+< 
+308c313
+<                     return;
+---
+>                     return false;
+330c335
+<                     return;
+---
+>                     return false;
+338a344
+>         return true;
+Only in after/src/test/java/com/fasterxml/jackson/databind/creators: Creator1476Test.java

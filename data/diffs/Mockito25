@@ -1,0 +1,50 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito25/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java d4j_patched/Mockito25/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
+6a7
+> import org.mockito.MockSettings;
+18a20,21
+> import static org.mockito.Mockito.mock;
+> import static org.mockito.Mockito.withSettings;
+53c56
+<         return getMock(invocation);
+---
+>         return getMock(invocation, returnTypeGenericMetadata);
+56c59
+<     private Object getMock(InvocationOnMock invocation) throws Throwable {
+---
+>     private Object getMock(InvocationOnMock invocation, GenericMetadataSupport returnTypeGenericMetadata) throws Throwable {
+68c71
+<         return recordDeepStubMock(invocation, container);
+---
+>         return recordDeepStubMock(createNewDeepStubMock(returnTypeGenericMetadata), container);
+76a80,85
+>     private Object createNewDeepStubMock(GenericMetadataSupport returnTypeGenericMetadata) {
+>         return mock(
+>                 returnTypeGenericMetadata.rawType(),
+>                 withSettingsUsing(returnTypeGenericMetadata)
+>         );
+>     }
+77a87,91
+>     private MockSettings withSettingsUsing(GenericMetadataSupport returnTypeGenericMetadata) {
+>         MockSettings mockSettings =
+>                 returnTypeGenericMetadata.rawExtraInterfaces().length > 0 ?
+>                 withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces())
+>                 : withSettings();
+78a93,95
+>         return mockSettings
+>                 .defaultAnswer(returnsDeepStubsAnswerUsing(returnTypeGenericMetadata));
+>     }
+79a97,104
+>     private ReturnsDeepStubs returnsDeepStubsAnswerUsing(final GenericMetadataSupport returnTypeGenericMetadata) {
+>         return new ReturnsDeepStubs() {
+>             @Override
+>             protected GenericMetadataSupport actualParameterizedType(Object mock) {
+>                 return returnTypeGenericMetadata;
+>             }
+>         };
+>     }
+81,83c106
+<     private Object recordDeepStubMock(InvocationOnMock invocation, InvocationContainerImpl container) {
+<         Class<?> clz = invocation.getMethod().getReturnType();
+<         final Object mock = org.mockito.Mockito.mock(clz, this);
+---
+>     private Object recordDeepStubMock(final Object mock, InvocationContainerImpl container) throws Throwable {

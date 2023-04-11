@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv9/src/main/java/org/apache/commons/csv/CSVRecord.java d4j_patched/Csv9/src/main/java/org/apache/commons/csv/CSVRecord.java
+179a180,182
+>         if (mapping == null) {
+>             return map;
+>         }

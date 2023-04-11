@@ -1,0 +1,24 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure54/src/com/google/javascript/jscomp/TypedScopeCreator.java d4j_patched/Closure54/src/com/google/javascript/jscomp/TypedScopeCreator.java
+1413c1413,1419
+<           if (!qVar.isTypeInferred()) {
+---
+>           ObjectType qVarType = ObjectType.cast(qVar.getType());
+>           if (qVarType != null &&
+>               rhsValue != null &&
+>               rhsValue.getType() == Token.OBJECTLIT) {
+>             typeRegistry.resetImplicitPrototype(
+>                 rhsValue.getJSType(), qVarType.getImplicitPrototype());
+>           } else if (!qVar.isTypeInferred()) {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure54/src/com/google/javascript/rhino/jstype/FunctionType.java d4j_patched/Closure54/src/com/google/javascript/rhino/jstype/FunctionType.java
+341d340
+<         baseType.isUnknownType() ||
+366c365,366
+<     boolean replacedPrototype = prototype != null;
+---
+>     PrototypeObjectType oldPrototype = this.prototype;
+>     boolean replacedPrototype = oldPrototype != null;
+371a372
+>     if (oldPrototype != null) {
+373a375,376
+>       oldPrototype.setOwnerFunction(null);
+>     }

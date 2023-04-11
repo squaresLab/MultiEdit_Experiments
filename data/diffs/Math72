@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math72/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java d4j_patched/Math72/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
+115c115
+<             setResult(yMin, 0);
+---
+>             setResult(min, 0);
+127c127
+<             setResult(yMax, 0);
+---
+>             setResult(max, 0);

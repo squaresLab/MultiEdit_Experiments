@@ -1,0 +1,65 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+1191c1191
+< 
+---
+> 		elementPrinterHelper.writeComment(newArray, CommentOffset.BEFORE);
+1246a1247,1248
+> 
+> 			elementPrinterHelper.writeComment(newArray, CommentOffset.INSIDE);
+1248a1251
+> 		elementPrinterHelper.writeComment(newArray, CommentOffset.AFTER);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java after/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
+339c339,340
+< 			if (offset == CommentOffset.BEFORE && (comment.getPosition().getLine() < line || sourceEnd >= comment.getPosition().getSourceEnd())) {
+---
+> 			final int sourceStart = element.getPosition().getSourceStart();
+> 			if (offset == CommentOffset.BEFORE && (comment.getPosition().getLine() < line || (sourceStart <= comment.getPosition().getSourceStart() && sourceEnd >= comment.getPosition().getSourceEnd()))) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java after/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
+144a145
+> 
+160c161,165
+< 			if (distance < smallDistance && (!isAfter || element.getPosition().getEndLine() == comment.getPosition().getLine())) {
+---
+> 
+> 			int elementEndLine = element.getPosition().getEndLine();
+> 			int commentLine = comment.getPosition().getLine();
+> 
+> 			if (distance < smallDistance && (!isAfter || elementEndLine == commentLine)) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/comment/CommentTest.java after/src/test/java/spoon/test/comment/CommentTest.java
+114c114
+< 		assertEquals(59, comments.size());
+---
+> 		assertEquals(61, comments.size());
+131c131
+< 		assertEquals(2, field.getComments().size());
+---
+> 		assertEquals(3, field.getComments().size());
+133a134
+> 				+ "// comment field 2" + newLine
+258a260,261
+> 		assertEquals(createFakeComment(f, "last comment at the end of array"), ctNewArray.getComments().get(0));
+> 
+262a266
+> 
+637c641,644
+< 		assertEquals(1, comments.size());
+---
+> 		assertEquals(2, comments.size());
+> 
+> 		CtComment commentD = comments.get(1);
+> 		assertEquals("D", commentD.getContent());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/comment/testclasses/Comment2.java after/src/test/java/spoon/test/comment/testclasses/Comment2.java
+7a8,13
+>     public void code_3()
+>     {
+>         int[] myArray = {
+>                 3, 5	// D
+>         };
+>     }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/comment/testclasses/InlineComment.java after/src/test/java/spoon/test/comment/testclasses/InlineComment.java
+9a10
+> 	// comment field 2
+93a95
+> 				// last comment at the end of array

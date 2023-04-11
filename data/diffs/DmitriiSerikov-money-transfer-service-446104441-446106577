@@ -1,0 +1,17 @@
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/github/example/holder/impl/LockHolderImpl.java after/src/main/java/com/github/example/holder/impl/LockHolderImpl.java
+5a6
+> import org.modelmapper.internal.util.Assert;
+27a29,30
+>         Assert.notNull(lockId);
+> 
+33a37,38
+>         Assert.notNull(lockId);
+> 
+37a43
+>     @SuppressWarnings("squid:S2222")
+47d52
+<             currentThread.interrupt();
+60c65
+<                 return holdCount == 1 ? null : lock;
+---
+>                 return holdCount == 1 && !lock.hasQueuedThreads() ? null : lock;

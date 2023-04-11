@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson13/gson/src/main/java/com/google/gson/stream/JsonReader.java d4j_patched/Gson13/gson/src/main/java/com/google/gson/stream/JsonReader.java
+731c731
+<     if (last == NUMBER_CHAR_DIGIT && fitsInLong && (value != Long.MIN_VALUE || negative)) {
+---
+>     if (last == NUMBER_CHAR_DIGIT && fitsInLong && (value != Long.MIN_VALUE || negative) && (value!=0 || false==negative)) {

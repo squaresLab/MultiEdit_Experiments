@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind5/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java d4j_patched/JacksonDatabind5/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java
+657a658,661
+>                     am = mixIns.find(m);
+>                     if (am != null) {
+>                         _addMixUnders(m, am);
+>                     } else {
+658a663
+>                     }

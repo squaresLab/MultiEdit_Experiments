@@ -1,0 +1,30 @@
+Only in after/: bears.json
+Only in after/molgenis-data-import: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java after/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java
+5,8c5
+< import org.molgenis.data.DataService;
+< import org.molgenis.data.Entity;
+< import org.molgenis.data.Repository;
+< import org.molgenis.data.UnknownEntityException;
+---
+> import org.molgenis.data.*;
+85a83,88
+> 				if (entityType.isAbstract())
+> 				{
+> 					throw new MolgenisDataException(
+> 							format("Abstract entity type '%s' with id '%s' cannot contain entities",
+> 									entityType.getLabel(), entityType.getId()));
+> 				}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-import/src/test/java/org/molgenis/data/importer/DataPersisterImplTest.java after/molgenis-data-import/src/test/java/org/molgenis/data/importer/DataPersisterImplTest.java
+9a10
+> import org.molgenis.data.MolgenisDataException;
+137a139,147
+> 	}
+> 
+> 	@SuppressWarnings("unchecked")
+> 	@Test(expectedExceptions = MolgenisDataException.class, expectedExceptionsMessageRegExp = "Abstract entity type 'Entity type #0' with id 'entityTypeId0' cannot contain entities")
+> 	public void testPersistMetaNoneDataAddAbstractEntityType()
+> 	{
+> 		when(entityType0.getLabel()).thenReturn("Entity type #0");
+> 		when(entityType0.isAbstract()).thenReturn(true);
+> 		dataPersisterImpl.persist(dataProvider, MetadataMode.NONE, DataMode.ADD);

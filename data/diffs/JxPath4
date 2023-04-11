@@ -1,0 +1,96 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath4/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java d4j_patched/JxPath4/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+296,297c296
+<     protected String getLanguage() {
+<         Node n = node;
+---
+>     protected static String findEnclosingAttribute(Node n, String attrName) {
+301c300
+<                 String attr = e.getAttribute("xml:lang");
+---
+>                 String attr = e.getAttribute(attrName);
+310a310,312
+>     protected String getLanguage() {
+>         return findEnclosingAttribute(node, "xml:lang");
+>     }
+631a634,637
+>         if (node.getNodeType() == Node.COMMENT_NODE) {
+>             String text = ((Comment) node).getData();
+>             return text == null ? "" : text.trim();
+>         }
+638,639c644
+<             String text = ((Comment) node).getData();
+<             return text == null ? "" : text.trim();
+---
+>             return "";
+640a646
+>         boolean trim = !"preserve".equals(findEnclosingAttribute(node, "xml:space"));
+643c649
+<             return text == null ? "" : text.trim();
+---
+>             return text == null ? "" : trim ? text.trim() : text;
+647c653
+<             return text == null ? "" : text.trim();
+---
+>             return text == null ? "" : trim ? text.trim() : text;
+653,656d658
+<             if (child.getNodeType() == Node.TEXT_NODE) {
+<                 buf.append(child.getNodeValue());
+<             }
+<             else {
+658d659
+<             }
+660c661
+<         return buf.toString().trim();
+---
+>         return buf.toString();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath4/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java d4j_patched/JxPath4/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+240c240,247
+<             return ((Element) node).getTextTrim();
+---
+>             StringBuffer buf = new StringBuffer();
+>             for (NodeIterator children = childIterator(null, false, null); children.setPosition(children.getPosition() + 1);) {
+>                 NodePointer ptr = children.getNodePointer();
+>                 if (ptr.getImmediateNode() instanceof Element || ptr.getImmediateNode() instanceof Text) {
+>                     buf.append(ptr.getValue());
+>                 }
+>             }
+>             return buf.toString();
+248a256
+>         String result = null;
+250,253c258
+<             return ((Text) node).getTextTrim();
+<         }
+<         if (node instanceof CDATA) {
+<             return ((CDATA) node).getTextTrim();
+---
+>             result = ((Text) node).getText();
+256,260c261
+<             String text = ((ProcessingInstruction) node).getData();
+<             if (text != null) {
+<                 text = text.trim();
+<             }
+<             return text;
+---
+>             result = ((ProcessingInstruction) node).getData();
+262c263,264
+<         return null;
+---
+>         boolean trim = !"preserve".equals(findEnclosingAttribute(node, "space", Namespace.XML_NAMESPACE));
+>         return result != null && trim ? result.trim() : result;
+436c438,441
+<         Object n = node;
+---
+>         return findEnclosingAttribute(node, "lang", Namespace.XML_NAMESPACE);
+>     }
+> 
+>     protected static String findEnclosingAttribute(Object n, String attrName, Namespace ns) {
+440,441c445
+<                 String attr =
+<                     e.getAttributeValue("lang", Namespace.XML_NAMESPACE);
+---
+>                 String attr = e.getAttributeValue(attrName, ns);
+756c760
+< }
+---
+> }
+\ No newline at end of file

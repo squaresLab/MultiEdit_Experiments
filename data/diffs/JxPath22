@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath22/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java d4j_patched/JxPath22/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+689c689,690
+<                         return attr.getValue();
+---
+>                         uri = attr.getValue();
+>                         break;
+694d694
+<             return null;
+696c696
+<         return uri;
+---
+>         return "".equals(uri) ? null : uri;

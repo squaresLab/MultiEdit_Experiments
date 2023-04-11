@@ -1,0 +1,1426 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/gumtree/spoon/diff/DiffImpl.java after/src/main/java/gumtree/spoon/diff/DiffImpl.java
+2a3,9
+> import java.util.ArrayList;
+> import java.util.Collections;
+> import java.util.List;
+> import java.util.NoSuchElementException;
+> import java.util.Optional;
+> import java.util.stream.Collectors;
+> 
+13a21
+> 
+23,29d30
+< import java.util.ArrayList;
+< import java.util.Collections;
+< import java.util.List;
+< import java.util.NoSuchElementException;
+< import java.util.Optional;
+< import java.util.stream.Collectors;
+< 
+57c58,59
+< 		final ActionGenerator actionGenerator = new ActionGenerator(rootSpoonLeft, rootSpoonRight, matcher.getMappings());
+---
+> 		final ActionGenerator actionGenerator = new ActionGenerator(rootSpoonLeft, rootSpoonRight,
+> 				matcher.getMappings());
+60c62,66
+< 
+---
+> 		ActionClassifier actionClassifier = new ActionClassifier(matcher.getMappingsAsSet(),
+> 				actionGenerator.getActions());
+> 		// Bugfix: the Action classifier must be executed *BEFORE* the convertToSpoon
+> 		// because it writes meta-data on the trees
+> 		this.rootOperations = convertToSpoon(actionClassifier.getRootActions());
+62c68
+< 		this.rootOperations = convertToSpoon(new ActionClassifier(matcher.getMappingsAsSet(), actionGenerator.getActions()).getRootActions());
+---
+> 
+123c129,130
+< 				el = (CtElement) _mappingsComp.getSrc(operation.getAction().getNode().getParent()).getMetadata(SpoonGumTreeBuilder.SPOON_OBJECT);
+---
+> 				el = (CtElement) _mappingsComp.getSrc(operation.getAction().getNode().getParent())
+> 						.getMetadata(SpoonGumTreeBuilder.SPOON_OBJECT);
+173,177c180,185
+< 	public boolean containsOperations(List<Operation> operations, OperationKind kind, String nodeKind, String nodeLabel) {
+< 		return operations.stream().anyMatch(operation -> operation.getAction().getClass().getSimpleName().equals(kind.name()) //
+< 				&& context.getTypeLabel(operation.getAction().getNode()).equals(nodeKind)
+< 				&& operation.getAction().getNode().getLabel().equals(nodeLabel)
+< 		);
+---
+> 	public boolean containsOperations(List<Operation> operations, OperationKind kind, String nodeKind,
+> 			String nodeLabel) {
+> 		return operations.stream()
+> 				.anyMatch(operation -> operation.getAction().getClass().getSimpleName().equals(kind.name()) //
+> 						&& context.getTypeLabel(operation.getAction().getNode()).equals(nodeKind)
+> 						&& operation.getAction().getNode().getLabel().equals(nodeLabel));
+196c204
+< 				nodeType += "(" + nodeElement.getClass().getSimpleName()+")";
+---
+> 				nodeType += "(" + nodeElement.getClass().getSimpleName() + ")";
+198c206,207
+< 			result += "\"" + operation.getAction().getClass().getSimpleName() + "\", \"" + nodeType + "\", " + label + " (size: " + node.getDescendants().size() + ")" + node.toTreeString();
+---
+> 			result += "\"" + operation.getAction().getClass().getSimpleName() + "\", \"" + nodeType + "\", " + label
+> 					+ " (size: " + node.getDescendants().size() + ")" + node.toTreeString();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/gumtree/spoon/AstComparatorTest.java after/src/test/java/gumtree/spoon/AstComparatorTest.java
+3c3,16
+< import gumtree.spoon.builder.SpoonGumTreeBuilder;
+---
+> import static org.junit.Assert.assertEquals;
+> import static org.junit.Assert.assertFalse;
+> import static org.junit.Assert.assertNotNull;
+> import static org.junit.Assert.assertTrue;
+> 
+> import java.io.File;
+> import java.io.FileReader;
+> import java.io.IOException;
+> import java.util.List;
+> 
+> import org.junit.Assert;
+> import org.junit.Ignore;
+> import org.junit.Test;
+> 
+8,11c21
+< import org.junit.Assert;
+< import org.junit.Before;
+< import org.junit.Ignore;
+< import org.junit.Test;
+---
+> import gumtree.spoon.diff.operations.UpdateOperation;
+30,40d39
+< import java.io.File;
+< import java.io.FileReader;
+< import java.io.IOException;
+< import java.util.List;
+< 
+< import static org.junit.Assert.assertEquals;
+< import static org.junit.Assert.assertFalse;
+< import static org.junit.Assert.assertNotNull;
+< import static org.junit.Assert.assertTrue;
+< 
+< 
+43c42,43
+<  * @author  Matias Martinez, matias.martinez@inria.fr
+---
+>  * 
+>  * @author Matias Martinez, matias.martinez@inria.fr
+47c47
+< 	
+---
+> 
+72c72
+< 	public void exampleInsertAndUpdate() throws Exception{
+---
+> 	public void exampleInsertAndUpdate() throws Exception {
+77c77
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+79c79
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+92c92
+< 	public void exampleSingleUpdate() throws Exception{
+---
+> 	public void exampleSingleUpdate() throws Exception {
+97c97
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+100c100
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Literal"/*"PAR-Literal"*/));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Literal"/* "PAR-Literal" */));
+104c104
+< 	public void exampleRemoveMethod() throws Exception{
+---
+> 	public void exampleRemoveMethod() throws Exception {
+109,110c109,110
+< 		Diff result = diff.compare(fl,fr);
+< 		//result.debugInformation();
+---
+> 		Diff result = diff.compare(fl, fr);
+> 		// result.debugInformation();
+112c112,113
+< 		// we now have three actions, with two updates of invocations because of binding to the ol/new method
+---
+> 		// we now have three actions, with two updates of invocations because of binding
+> 		// to the ol/new method
+119d119
+< 
+121c121
+< 	public void exampleInsert() throws Exception{
+---
+> 	public void exampleInsert() throws Exception {
+126c126
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+129c129
+< 		assertTrue(result.containsOperation(OperationKind.Insert, "Method","resolveOptionNew"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Insert, "Method", "resolveOptionNew"));
+133c133
+< 	public void testMain() throws Exception{
+---
+> 	public void testMain() throws Exception {
+136c136
+< 		AstComparator.main(new String []{fl.getAbsolutePath(), fr.getAbsolutePath()});
+---
+> 		AstComparator.main(new String[] { fl.getAbsolutePath(), fr.getAbsolutePath() });
+140c140
+< 	public void testContent() throws Exception{
+---
+> 	public void testContent() throws Exception {
+188c188
+< 	public void testJDTBasedSpoonCompiler(){
+---
+> 	public void testJDTBasedSpoonCompiler() {
+205c205
+< 	public void test5() throws Exception{
+---
+> 	public void test5() throws Exception {
+209c209
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+212c212
+< 		assertTrue(result.containsOperation(OperationKind.Update, "BinaryOperator","AND"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "BinaryOperator", "AND"));
+216c216
+< 	public void test6() throws Exception{
+---
+> 	public void test6() throws Exception {
+220c220
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+223c223
+< 		assertTrue(result.containsOperation(OperationKind.Delete, "Parameter","i"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Delete, "Parameter", "i"));
+227c227
+< 	public void test7() throws Exception{
+---
+> 	public void test7() throws Exception {
+229c229,230
+< 		// meld src/test/resources/examples/test7/left_QuickNotepad_1.13.java src/test/resources/examples/test7/right_QuickNotepad_1.14.java
+---
+> 		// meld src/test/resources/examples/test7/left_QuickNotepad_1.13.java
+> 		// src/test/resources/examples/test7/right_QuickNotepad_1.14.java
+232c233
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+237,238c238,240
+< 		assertTrue(result.containsOperation(OperationKind.Delete, "Invocation", "QuickNotepadTextArea#addKeyListener(QuickNotepad$KeyHandler)"));
+< 		assertTrue(result.containsOperation(OperationKind.Delete, "Class","KeyHandler"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Delete, "Invocation",
+> 				"QuickNotepadTextArea#addKeyListener(QuickNotepad$KeyHandler)"));
+> 		assertTrue(result.containsOperation(OperationKind.Delete, "Class", "KeyHandler"));
+242c244
+< 		assertEquals("QuickNotepad", ((CtClass)ancestor).getSimpleName());
+---
+> 		assertEquals("QuickNotepad", ((CtClass) ancestor).getSimpleName());
+247c249
+< 	public void test8() throws Exception{
+---
+> 	public void test8() throws Exception {
+251c253
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+255c257,258
+< 		assertTrue(actions.toString(), result.containsOperation(OperationKind.Update, "VARIABLE_TYPE", "java.lang.Throwable"));
+---
+> 		assertTrue(actions.toString(),
+> 				result.containsOperation(OperationKind.Update, "VARIABLE_TYPE", "java.lang.Throwable"));
+259c262
+< 	public void test9() throws Exception{
+---
+> 	public void test9() throws Exception {
+264c267
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+267c270
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+273c276
+< 	public void test_t_286700() throws Exception{
+---
+> 	public void test_t_286700() throws Exception {
+275c278,279
+< 		// meld src/test/resources/examples/t_286700/left_CmiContext_1.2.java src/test/resources/examples/t_286700/right_CmiContext_1.3.java
+---
+> 		// meld src/test/resources/examples/t_286700/left_CmiContext_1.2.java
+> 		// src/test/resources/examples/t_286700/right_CmiContext_1.3.java
+278c282
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+280c284
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+288c292
+< 	public void test_t_202564() throws Exception{
+---
+> 	public void test_t_202564() throws Exception {
+290c294,295
+< 		// meld  src/test/resources/examples/t_202564/left_PropPanelModelElement_1.9.java src/test/resources/examples/t_202564/right_PropPanelModelElement_1.10.java
+---
+> 		// meld src/test/resources/examples/t_202564/left_PropPanelModelElement_1.9.java
+> 		// src/test/resources/examples/t_202564/right_PropPanelModelElement_1.10.java
+293c298
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+296c301
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+302c307
+< 	public void test_t_204225() throws Exception{
+---
+> 	public void test_t_204225() throws Exception {
+304c309,311
+< 		// meld  src/test/resources/examples/t_204225/left_UMLModelElementStereotypeComboBoxModel_1.3.java src/test/resources/examples/t_204225/right_UMLModelElementStereotypeComboBoxModel_1.4.java
+---
+> 		// meld
+> 		// src/test/resources/examples/t_204225/left_UMLModelElementStereotypeComboBoxModel_1.3.java
+> 		// src/test/resources/examples/t_204225/right_UMLModelElementStereotypeComboBoxModel_1.4.java
+306,307c313,315
+< 		File fr = new File("src/test/resources/examples/t_204225/right_UMLModelElementStereotypeComboBoxModel_1.4.java");
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		File fr = new File(
+> 				"src/test/resources/examples/t_204225/right_UMLModelElementStereotypeComboBoxModel_1.4.java");
+> 		Diff result = diff.compare(fl, fr);
+313c321
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+318d325
+< 
+321,322c328,329
+< 	 @Test
+< 	public void test_t_208618() throws Exception{
+---
+> 	@Test
+> 	public void test_t_208618() throws Exception {
+324c331,332
+< 		// meld  src/test/resources/examples/t_208618/left_PropPanelUseCase_1.39.java src/test/resources/examples/t_208618/right_PropPanelUseCase_1.40.java
+---
+> 		// meld src/test/resources/examples/t_208618/left_PropPanelUseCase_1.39.java
+> 		// src/test/resources/examples/t_208618/right_PropPanelUseCase_1.40.java
+327c335
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+330c338
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+336c344
+< 	public void test_t_209184() throws Exception{
+---
+> 	public void test_t_209184() throws Exception {
+338c346,348
+< 		// meld  src/test/resources/examples/t_209184/left_ActionCollaborationDiagram_1.28.java src/test/resources/examples/t_209184/right_ActionCollaborationDiagram_1.29.java
+---
+> 		// meld
+> 		// src/test/resources/examples/t_209184/left_ActionCollaborationDiagram_1.28.java
+> 		// src/test/resources/examples/t_209184/right_ActionCollaborationDiagram_1.29.java
+341c351
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+344c354
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+346a357,363
+> 
+> 		UpdateOperation updateOp = (UpdateOperation) actions.get(0);
+> 		CtElement dst = updateOp.getDstNode();
+> 		assertNotNull(dst);
+> 		assertTrue(CtInvocation.class.isInstance(dst));
+> 		assertEquals(((CtInvocation) dst).getExecutable().toString(), "getModelTarget()");
+> 
+350c367
+< 	public void test_t_211903() throws Exception{
+---
+> 	public void test_t_209184_buggy_allopsNPE() throws Exception {
+352c369,388
+< 		// meld  src/test/resources/examples/t_211903/left_MemberFilePersister_1.4.java src/test/resources/examples/t_211903/right_MemberFilePersister_1.5.java
+---
+> 		File fl = new File("src/test/resources/examples/t_209184/left_ActionCollaborationDiagram_1.28.java");
+> 		File fr = new File("src/test/resources/examples/t_209184/right_ActionCollaborationDiagram_1.29.java");
+> 		Diff result = diff.compare(fl, fr);
+> 
+> 		List<Operation> actions = result.getAllOperations();
+> 		assertEquals(1, actions.size());
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "#getTarget()"));
+> 
+> 		UpdateOperation updateOp = (UpdateOperation) actions.get(0);
+> 		CtElement dst = updateOp.getDstNode();
+> 		assertNotNull(dst);
+> 		assertTrue(CtInvocation.class.isInstance(dst));
+> 		assertEquals(((CtInvocation) dst).getExecutable().toString(), "getModelTarget()");
+> 	}
+> 
+> 	@Test
+> 	public void test_t_211903() throws Exception {
+> 		AstComparator diff = new AstComparator();
+> 		// meld src/test/resources/examples/t_211903/left_MemberFilePersister_1.4.java
+> 		// src/test/resources/examples/t_211903/right_MemberFilePersister_1.5.java
+355c391
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+357c393
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+361,362c397
+< 		assertEquals(88,ancestor.getPosition().getLine());
+< 
+---
+> 		assertEquals(88, ancestor.getPosition().getLine());
+365,367c400,404
+< 		//result.debugInformation();
+< 		assertTrue(result.containsOperation(OperationKind.Update, "ConstructorCall", "java.io.FileReader(java.io.File)"));
+< 		assertTrue(result.containsOperation(OperationKind.Insert, "ConstructorCall", "java.io.InputStreamReader(java.io.InputStream,java.lang.String)"));
+---
+> 		// result.debugInformation();
+> 		assertTrue(
+> 				result.containsOperation(OperationKind.Update, "ConstructorCall", "java.io.FileReader(java.io.File)"));
+> 		assertTrue(result.containsOperation(OperationKind.Insert, "ConstructorCall",
+> 				"java.io.InputStreamReader(java.io.InputStream,java.lang.String)"));
+372d408
+< 
+380c416
+< 	public void test_t_212496() throws Exception{
+---
+> 	public void test_t_212496() throws Exception {
+382c418,419
+< 		// meld  src/test/resources/examples/t_212496/left_CoreHelperImpl_1.29.java src/test/resources/examples/t_212496/right_CoreHelperImpl_1.30.java
+---
+> 		// meld src/test/resources/examples/t_212496/left_CoreHelperImpl_1.29.java
+> 		// src/test/resources/examples/t_212496/right_CoreHelperImpl_1.30.java
+385c422
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+388c425
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+394c431
+< 	public void test_t_214116() throws Exception{
+---
+> 	public void test_t_214116() throws Exception {
+396c433,434
+< 		// meld  src/test/resources/examples/t_214116/left_Modeller_1.134.java src/test/resources/examples/t_214116/right_Modeller_1.135.java
+---
+> 		// meld src/test/resources/examples/t_214116/left_Modeller_1.134.java
+> 		// src/test/resources/examples/t_214116/right_Modeller_1.135.java
+399c437
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+404d441
+< 
+406c443
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+418c455
+< 	public void test_t_214614() throws Exception{
+---
+> 	public void test_t_214614() throws Exception {
+420c457,458
+< 		// meld  src/test/resources/examples/t_214614/left_JXButtonGroupPanel_1.2.java src/test/resources/examples/t_214614/right_JXButtonGroupPanel_1.3.java
+---
+> 		// meld src/test/resources/examples/t_214614/left_JXButtonGroupPanel_1.2.java
+> 		// src/test/resources/examples/t_214614/right_JXButtonGroupPanel_1.3.java
+423c461
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+426c464
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+428c466,467
+< 		assertTrue(result.containsOperation(OperationKind.Delete, "Invocation", "java.awt.Container#setFocusTraversalPolicyProvider(boolean)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Delete, "Invocation",
+> 				"java.awt.Container#setFocusTraversalPolicyProvider(boolean)"));
+432c471
+< 	public void test_t_220985() throws Exception{
+---
+> 	public void test_t_220985() throws Exception {
+434c473,474
+< 		// meld  src/test/resources/examples/t_220985/left_Server_1.20.java src/test/resources/examples/t_220985/right_Server_1.21.java
+---
+> 		// meld src/test/resources/examples/t_220985/left_Server_1.20.java
+> 		// src/test/resources/examples/t_220985/right_Server_1.21.java
+437c477
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+440c480
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+443c483,484
+< 		// TODO the delete literal "." found could also be a move to the new conditional, so we don't specify this
+---
+> 		// TODO the delete literal "." found could also be a move to the new
+> 		// conditional, so we don't specify this
+448c489
+< 	public void test_t_221070() throws Exception{
+---
+> 	public void test_t_221070() throws Exception {
+450c491,492
+< 		// meld  src/test/resources/examples/t_221070/left_Server_1.68.java src/test/resources/examples/t_221070/right_Server_1.69.java
+---
+> 		// meld src/test/resources/examples/t_221070/left_Server_1.68.java
+> 		// src/test/resources/examples/t_221070/right_Server_1.69.java
+453c495
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+462c504
+< 	public void test_t_221295() throws Exception{
+---
+> 	public void test_t_221295() throws Exception {
+464c506,507
+< 		// meld  src/test/resources/examples/t_221295/left_Board_1.5.java src/test/resources/examples/t_221295/right_Board_1.6.java
+---
+> 		// meld src/test/resources/examples/t_221295/left_Board_1.5.java
+> 		// src/test/resources/examples/t_221295/right_Board_1.6.java
+467c510
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+481c524
+< 	public void test_t_221966() throws Exception{
+---
+> 	public void test_t_221966() throws Exception {
+483c526,527
+< 		// meld  src/test/resources/examples/t_221966/left_TurnOrdered_1.3.java src/test/resources/examples/t_221966/right_TurnOrdered_1.4.java
+---
+> 		// meld src/test/resources/examples/t_221966/left_TurnOrdered_1.3.java
+> 		// src/test/resources/examples/t_221966/right_TurnOrdered_1.4.java
+486c530
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+495c539
+< 	public void test_t_221343() throws Exception{
+---
+> 	public void test_t_221343() throws Exception {
+497c541,542
+< 		// meld  src/test/resources/examples/t_221343/left_Server_1.186.java src/test/resources/examples/t_221343/right_Server_1.187.java
+---
+> 		// meld src/test/resources/examples/t_221343/left_Server_1.186.java
+> 		// src/test/resources/examples/t_221343/right_Server_1.187.java
+500c545
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+509c554
+< 	public void test_t_221345() throws Exception{
+---
+> 	public void test_t_221345() throws Exception {
+511c556,557
+< 		// meld  src/test/resources/examples/t_221345/left_Server_1.187.java src/test/resources/examples/t_221345/right_Server_1.188.java
+---
+> 		// meld src/test/resources/examples/t_221345/left_Server_1.187.java
+> 		// src/test/resources/examples/t_221345/right_Server_1.188.java
+514c560
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+519c565,566
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "java.util.Vector#removeElement(java.lang.Object)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation",
+> 				"java.util.Vector#removeElement(java.lang.Object)"));
+523c570
+< 	public void test_t_221422() throws Exception{
+---
+> 	public void test_t_221422() throws Exception {
+525c572,573
+< 		// meld  src/test/resources/examples/t_221422/left_Server_1.227.java src/test/resources/examples/t_221422/right_Server_1.228.java
+---
+> 		// meld src/test/resources/examples/t_221422/left_Server_1.227.java
+> 		// src/test/resources/examples/t_221422/right_Server_1.228.java
+528c576
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+534c582,583
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "java.util.Vector#add(java.lang.Object)"));
+---
+> 		assertTrue(
+> 				result.containsOperation(OperationKind.Update, "Invocation", "java.util.Vector#add(java.lang.Object)"));
+538c587
+< 	public void test_t_221958() throws Exception{
+---
+> 	public void test_t_221958() throws Exception {
+540c589,590
+< 		// meld  src/test/resources/examples/t_221958/left_TilesetManager_1.22.java src/test/resources/examples/t_221958/right_TilesetManager_1.23.java
+---
+> 		// meld src/test/resources/examples/t_221958/left_TilesetManager_1.22.java
+> 		// src/test/resources/examples/t_221958/right_TilesetManager_1.23.java
+543c593
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+557c607
+< 	public void test_t_222361() throws Exception{
+---
+> 	public void test_t_222361() throws Exception {
+559c609,610
+< 		// meld  src/test/resources/examples/t_222361/left_CommonSettingsDialog_1.22.java src/test/resources/examples/t_222361/right_CommonSettingsDialog_1.23.java
+---
+> 		// meld src/test/resources/examples/t_222361/left_CommonSettingsDialog_1.22.java
+> 		// src/test/resources/examples/t_222361/right_CommonSettingsDialog_1.23.java
+562c613
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+571c622
+< 	public void test_t_222399() throws Exception{
+---
+> 	public void test_t_222399() throws Exception {
+573c624,625
+< 		// meld  src/test/resources/examples/t_222399/left_TdbFile_1.7.java src/test/resources/examples/t_222399/right_TdbFile_1.8.java
+---
+> 		// meld src/test/resources/examples/t_222399/left_TdbFile_1.7.java
+> 		// src/test/resources/examples/t_222399/right_TdbFile_1.8.java
+576c628
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+580c632
+< 		assertEquals(229,ancestor.getPosition().getLine());
+---
+> 		assertEquals(229, ancestor.getPosition().getLine());
+585c637
+< 		assertEquals(229,ancestor.getPosition().getLine());
+---
+> 		assertEquals(229, ancestor.getPosition().getLine());
+599c651
+< 	public void test_t_222884() throws Exception{
+---
+> 	public void test_t_222884() throws Exception {
+601c653,654
+< 		// meld  src/test/resources/examples/t_222884/left_MechView_1.21.java src/test/resources/examples/t_222884/right_MechView_1.22.java
+---
+> 		// meld src/test/resources/examples/t_222884/left_MechView_1.21.java
+> 		// src/test/resources/examples/t_222884/right_MechView_1.22.java
+604c657
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+613c666
+< 	public void test_t_222894() throws Exception{
+---
+> 	public void test_t_222894() throws Exception {
+615c668,669
+< 		// meld  src/test/resources/examples/t_222894/left_Client_1.150.java src/test/resources/examples/t_222894/right_Client_1.151.java
+---
+> 		// meld src/test/resources/examples/t_222894/left_Client_1.150.java
+> 		// src/test/resources/examples/t_222894/right_Client_1.151.java
+618c672
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+623d676
+< 
+629c682,683
+< 		// assertTrue(result.containsOperation(OperationKind.Move, VariableRead", "Settings.keepServerlog"));
+---
+> 		// assertTrue(result.containsOperation(OperationKind.Move, VariableRead",
+> 		// "Settings.keepServerlog"));
+634c688
+< 	public void test_t_223054() throws Exception{
+---
+> 	public void test_t_223054() throws Exception {
+636c690,691
+< 		// meld  src/test/resources/examples/t_223054/left_GameEvent_1.2.java src/test/resources/examples/t_223054/right_GameEvent_1.3.java
+---
+> 		// meld src/test/resources/examples/t_223054/left_GameEvent_1.2.java
+> 		// src/test/resources/examples/t_223054/right_GameEvent_1.3.java
+639c694
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+648c703
+< 	public void test_t_223056() throws Exception{
+---
+> 	public void test_t_223056() throws Exception {
+650c705,706
+< 		// meld  src/test/resources/examples/t_223056/left_Server_1.646.java src/test/resources/examples/t_223056/right_Server_1.647.java
+---
+> 		// meld src/test/resources/examples/t_223056/left_Server_1.646.java
+> 		// src/test/resources/examples/t_223056/right_Server_1.647.java
+653c709
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+662c718
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Literal","\"        \\n\""));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Literal", "\"        \\n\""));
+666c722
+< 	public void test_t_223118() throws Exception{
+---
+> 	public void test_t_223118() throws Exception {
+668c724,725
+< 		// meld  src/test/resources/examples/t_223118/left_TestBot_1.48.java src/test/resources/examples/t_223118/right_TestBot_1.49.java
+---
+> 		// meld src/test/resources/examples/t_223118/left_TestBot_1.48.java
+> 		// src/test/resources/examples/t_223118/right_TestBot_1.49.java
+671c728
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+676c733,734
+< 		assertTrue(result.containsOperation(OperationKind.Insert, "Invocation", "megamek.client.bot.CEntity#refresh()"));
+---
+> 		assertTrue(
+> 				result.containsOperation(OperationKind.Insert, "Invocation", "megamek.client.bot.CEntity#refresh()"));
+680c738
+< 	public void test_t_223454() throws Exception{
+---
+> 	public void test_t_223454() throws Exception {
+682c740,741
+< 		// meld  src/test/resources/examples/t_223454/left_EntityListFile_1.17.java src/test/resources/examples/t_223454/right_EntityListFile_1.18.java
+---
+> 		// meld src/test/resources/examples/t_223454/left_EntityListFile_1.17.java
+> 		// src/test/resources/examples/t_223454/right_EntityListFile_1.18.java
+685c744
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+696c755
+< 	public void test_t_223542() throws Exception{
+---
+> 	public void test_t_223542() throws Exception {
+698c757,758
+< 		// meld  src/test/resources/examples/t_223542/left_BoardView1_1.214.java src/test/resources/examples/t_223542/right_BoardView1_1.215.java
+---
+> 		// meld src/test/resources/examples/t_223542/left_BoardView1_1.214.java
+> 		// src/test/resources/examples/t_223542/right_BoardView1_1.215.java
+701c761
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+709d768
+< 
+711c770
+< 	public void test_t_224512() throws Exception{
+---
+> 	public void test_t_224512() throws Exception {
+713c772,773
+< 		// meld  src/test/resources/examples/t_224512/left_Server_1.925.java src/test/resources/examples/t_224512/right_Server_1.926.java
+---
+> 		// meld src/test/resources/examples/t_224512/left_Server_1.925.java
+> 		// src/test/resources/examples/t_224512/right_Server_1.926.java
+716c776
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+729c789
+< 	public void test_t_224542() throws Exception{
+---
+> 	public void test_t_224542() throws Exception {
+731c791,792
+< 		// meld  src/test/resources/examples/t_224542/left_TestBot_1.75.java src/test/resources/examples/t_224542/right_TestBot_1.76.java
+---
+> 		// meld src/test/resources/examples/t_224542/left_TestBot_1.75.java
+> 		// src/test/resources/examples/t_224542/right_TestBot_1.76.java
+734c795
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+740,741c801,802
+< 		assertEquals("println", ((CtInvocation)ancestor).getExecutable().getSimpleName());
+< 		assertEquals(344,ancestor.getPosition().getLine());
+---
+> 		assertEquals("println", ((CtInvocation) ancestor).getExecutable().getSimpleName());
+> 		assertEquals(344, ancestor.getPosition().getLine());
+745c806,807
+< 		assertTrue(result.containsOperation(OperationKind.Delete, "Invocation", "java.lang.String#format(java.lang.String,java.lang.Object[])"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Delete, "Invocation",
+> 				"java.lang.String#format(java.lang.String,java.lang.Object[])"));
+754d815
+< 
+756c817
+< 	public void test_t_224766() throws Exception{
+---
+> 	public void test_t_224766() throws Exception {
+758c819,820
+< 		// meld  src/test/resources/examples/t_224766/left_SegmentTermEnum_1.1.java src/test/resources/examples/t_224766/right_SegmentTermEnum_1.2.java
+---
+> 		// meld src/test/resources/examples/t_224766/left_SegmentTermEnum_1.1.java
+> 		// src/test/resources/examples/t_224766/right_SegmentTermEnum_1.2.java
+761c823
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+767c829,830
+< 		assertTrue(result.containsOperation(OperationKind.Move, "Invocation", "org.apache.lucene.index.SegmentTermEnum#growBuffer(int)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Move, "Invocation",
+> 				"org.apache.lucene.index.SegmentTermEnum#growBuffer(int)"));
+771c834
+< 	public void test_t_224771() throws Exception{
+---
+> 	public void test_t_224771() throws Exception {
+773c836,837
+< 		// meld  src/test/resources/examples/t_224771/left_IndexWriter_1.2.java src/test/resources/examples/t_224771/right_IndexWriter_1.3.java
+---
+> 		// meld src/test/resources/examples/t_224771/left_IndexWriter_1.2.java
+> 		// src/test/resources/examples/t_224771/right_IndexWriter_1.3.java
+776c840
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+782c846,847
+< 		assertTrue(result.containsOperation(OperationKind.Move, "Invocation", "org.apache.lucene.index.SegmentReader#hasDeletions()"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Move, "Invocation",
+> 				"org.apache.lucene.index.SegmentReader#hasDeletions()"));
+786c851
+< 	public void test_t_224798() throws Exception{
+---
+> 	public void test_t_224798() throws Exception {
+788c853,854
+< 		// meld  src/test/resources/examples/t_224798/left_SegmentsReader_1.4.java src/test/resources/examples/t_224798/right_SegmentsReader_1.5.java
+---
+> 		// meld src/test/resources/examples/t_224798/left_SegmentsReader_1.4.java
+> 		// src/test/resources/examples/t_224798/right_SegmentsReader_1.5.java
+791c857
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+796c862
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "#delete(int)" ));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "#delete(int)"));
+800,801c866,867
+< 	public void test_t_224834() throws Exception{
+< 		// wonderful example where the text diff is impossible to  comprehend
+---
+> 	public void test_t_224834() throws Exception {
+> 		// wonderful example where the text diff is impossible to comprehend
+803c869,870
+< 		// meld  src/test/resources/examples/t_224834/left_TestPriorityQueue_1.2.java src/test/resources/examples/t_224834/right_TestPriorityQueue_1.3.java
+---
+> 		// meld src/test/resources/examples/t_224834/left_TestPriorityQueue_1.2.java
+> 		// src/test/resources/examples/t_224834/right_TestPriorityQueue_1.3.java
+806c873
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+817c884,885
+< 		// meld  src/test/resources/examples/t_224863/left_PhraseQuery_1.4.java src/test/resources/examples/t_224863/right_PhraseQuery_1.5.java
+---
+> 		// meld src/test/resources/examples/t_224863/left_PhraseQuery_1.4.java
+> 		// src/test/resources/examples/t_224863/right_PhraseQuery_1.5.java
+835c903
+< 	public void test_t_224882() throws Exception{
+---
+> 	public void test_t_224882() throws Exception {
+837c905,906
+< 		// meld  src/test/resources/examples/t_224882/left_Token_1.3.java src/test/resources/examples/t_224882/right_Token_1.4.java
+---
+> 		// meld src/test/resources/examples/t_224882/left_Token_1.3.java
+> 		// src/test/resources/examples/t_224882/right_Token_1.4.java
+840c909
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+849c918
+< 	public void test_t_224890() throws Exception{
+---
+> 	public void test_t_224890() throws Exception {
+851c920,921
+< 		// meld  src/test/resources/examples/t_224890/left_DateField_1.4.java src/test/resources/examples/t_224890/right_DateField_1.5.java
+---
+> 		// meld src/test/resources/examples/t_224890/left_DateField_1.4.java
+> 		// src/test/resources/examples/t_224890/right_DateField_1.5.java
+854c924
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+860c930,931
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "java.lang.StringBuffer#insert(int,char)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation",
+> 				"java.lang.StringBuffer#insert(int,char)"));
+864,870c935,942
+< 	 * This test is ignored because we cannot replicate easily its behaviour.
+< 	 * Its proper behaviour should be to return only one Update action as specified in the assert.
+< 	 * However in some conditions we obtained two actions: a Delete of the method and an Insert.
+< 	 * When studying that bug we discover that:
+< 	 *   - it's only reproducible when executing the entire test suite
+< 	 *   - it's not reproducible when using a Java debugger even without any breakpoint
+< 	 *   - it appears when changing the version of Spoon but without clear relation of what changes
+---
+> 	 * This test is ignored because we cannot replicate easily its behaviour. Its
+> 	 * proper behaviour should be to return only one Update action as specified in
+> 	 * the assert. However in some conditions we obtained two actions: a Delete of
+> 	 * the method and an Insert. When studying that bug we discover that: - it's
+> 	 * only reproducible when executing the entire test suite - it's not
+> 	 * reproducible when using a Java debugger even without any breakpoint - it
+> 	 * appears when changing the version of Spoon but without clear relation of what
+> 	 * changes
+872c944,945
+< 	 * Given those information we think that the bug might be related with some optimization done in JVM or with the order of loading classes.
+---
+> 	 * Given those information we think that the bug might be related with some
+> 	 * optimization done in JVM or with the order of loading classes.
+876c949
+< 	public void test_t_225008() throws Exception{
+---
+> 	public void test_t_225008() throws Exception {
+878c951,952
+< 		// meld  src/test/resources/examples/t_225008/left_Similarity_1.9.java src/test/resources/examples/t_225008/right_Similarity_1.10.java
+---
+> 		// meld src/test/resources/examples/t_225008/left_Similarity_1.9.java
+> 		// src/test/resources/examples/t_225008/right_Similarity_1.10.java
+881c955
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+891c965
+< 		assertEquals("Actions: "+stringBuilder.toString(), 1, actions.size());
+---
+> 		assertEquals("Actions: " + stringBuilder.toString(), 1, actions.size());
+896c970
+< 	public void test_t_225073() throws Exception{
+---
+> 	public void test_t_225073() throws Exception {
+898c972,973
+< 		// meld  src/test/resources/examples/t_225073/left_IndexWriter_1.21.java src/test/resources/examples/t_225073/right_IndexWriter_1.22.java
+---
+> 		// meld src/test/resources/examples/t_225073/left_IndexWriter_1.21.java
+> 		// src/test/resources/examples/t_225073/right_IndexWriter_1.22.java
+901c976
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+912c987
+< 	public void test_t_286696() throws Exception{
+---
+> 	public void test_t_286696() throws Exception {
+914c989,990
+< 		// meld  src/test/resources/examples/t_286696/left_IrmiPRODelegate_1.2.java src/test/resources/examples/t_286696/right_IrmiPRODelegate_1.3.java
+---
+> 		// meld src/test/resources/examples/t_286696/left_IrmiPRODelegate_1.2.java
+> 		// src/test/resources/examples/t_286696/right_IrmiPRODelegate_1.3.java
+917c993
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+926c1002
+< 	public void test_t_225106() throws Exception{
+---
+> 	public void test_t_225106() throws Exception {
+928c1004,1005
+< 		// meld  src/test/resources/examples/t_225106/left_SegmentTermDocs_1.6.java src/test/resources/examples/t_225106/right_SegmentTermDocs_1.7.java
+---
+> 		// meld src/test/resources/examples/t_225106/left_SegmentTermDocs_1.6.java
+> 		// src/test/resources/examples/t_225106/right_SegmentTermDocs_1.7.java
+931c1008
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+940c1017
+< 	public void test_t_213712() throws Exception{
+---
+> 	public void test_t_213712() throws Exception {
+943c1020,1022
+< 		// meld  src/test/resources/examples/t_213712/left_ActionAddSignalsToSignalEvent_1.2.java src/test/resources/examples/t_213712/right_ActionAddSignalsToSignalEvent_1.3.java
+---
+> 		// meld
+> 		// src/test/resources/examples/t_213712/left_ActionAddSignalsToSignalEvent_1.2.java
+> 		// src/test/resources/examples/t_213712/right_ActionAddSignalsToSignalEvent_1.3.java
+946c1025
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+954c1033
+< 		//assertTrue(result.containsOperation(OperationKind.Insert, "Block"));
+---
+> 		// assertTrue(result.containsOperation(OperationKind.Insert, "Block"));
+959c1038
+< 	public void test_t_225225() throws Exception{
+---
+> 	public void test_t_225225() throws Exception {
+961c1040,1041
+< 		// meld  src/test/resources/examples/t_225225/left_TestSpans_1.3.java src/test/resources/examples/t_225225/right_TestSpans_1.4.java
+---
+> 		// meld src/test/resources/examples/t_225225/left_TestSpans_1.3.java
+> 		// src/test/resources/examples/t_225225/right_TestSpans_1.4.java
+964c1044
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+973c1053
+< 	public void test_t_225247() throws Exception{
+---
+> 	public void test_t_225247() throws Exception {
+975c1055,1056
+< 		// meld  src/test/resources/examples/t_225247/left_BooleanScorer_1.10.java src/test/resources/examples/t_225247/right_BooleanScorer_1.11.java
+---
+> 		// meld src/test/resources/examples/t_225247/left_BooleanScorer_1.10.java
+> 		// src/test/resources/examples/t_225247/right_BooleanScorer_1.11.java
+978c1059
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+986d1066
+< 
+988c1068
+< 	public void test_t_225262() throws Exception{
+---
+> 	public void test_t_225262() throws Exception {
+990c1070,1071
+< 		// meld  src/test/resources/examples/t_225262/left_FieldInfos_1.9.java src/test/resources/examples/t_225262/right_FieldInfos_1.10.java
+---
+> 		// meld src/test/resources/examples/t_225262/left_FieldInfos_1.9.java
+> 		// src/test/resources/examples/t_225262/right_FieldInfos_1.10.java
+993c1074
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+998c1079
+< 		assertTrue(result.containsOperation(OperationKind.Insert, "Break" ));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Insert, "Break"));
+1005c1086
+< 	public void test_t_225391() throws Exception{
+---
+> 	public void test_t_225391() throws Exception {
+1007c1088,1089
+< 		// meld  src/test/resources/examples/t_225391/left_IndexHTML_1.4.java src/test/resources/examples/t_225391/right_IndexHTML_1.5.java
+---
+> 		// meld src/test/resources/examples/t_225391/left_IndexHTML_1.4.java
+> 		// src/test/resources/examples/t_225391/right_IndexHTML_1.5.java
+1010c1092
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1016,1017c1098,1100
+< 		assertTrue(result.containsOperation(OperationKind.Insert, "Invocation", "org.apache.lucene.index.IndexWriter#setMaxFieldLength(int)" ));
+< 		assertTrue(result.containsOperation(OperationKind.Move, "FieldRead", "writer" ));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Insert, "Invocation",
+> 				"org.apache.lucene.index.IndexWriter#setMaxFieldLength(int)"));
+> 		assertTrue(result.containsOperation(OperationKind.Move, "FieldRead", "writer"));
+1021c1104
+< 	public void test_t_225414() throws Exception{
+---
+> 	public void test_t_225414() throws Exception {
+1023c1106,1107
+< 		// meld  src/test/resources/examples/t_225414/left_IndexWriter_1.41.java src/test/resources/examples/t_225414/right_IndexWriter_1.42.java
+---
+> 		// meld src/test/resources/examples/t_225414/left_IndexWriter_1.41.java
+> 		// src/test/resources/examples/t_225414/right_IndexWriter_1.42.java
+1026c1110
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1035c1119
+< 	public void test_t_225434() throws Exception{
+---
+> 	public void test_t_225434() throws Exception {
+1037c1121,1122
+< 		// meld  src/test/resources/examples/t_225434/left_BufferedIndexInput_1.2.java src/test/resources/examples/t_225434/right_BufferedIndexInput_1.3.java
+---
+> 		// meld src/test/resources/examples/t_225434/left_BufferedIndexInput_1.2.java
+> 		// src/test/resources/examples/t_225434/right_BufferedIndexInput_1.3.java
+1040c1125
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1049c1134
+< 	public void test_t_225525() throws Exception{
+---
+> 	public void test_t_225525() throws Exception {
+1051c1136,1137
+< 		// meld  src/test/resources/examples/t_225525/left_Module_1.6.java src/test/resources/examples/t_225525/right_Module_1.7.java
+---
+> 		// meld src/test/resources/examples/t_225525/left_Module_1.6.java
+> 		// src/test/resources/examples/t_225525/right_Module_1.7.java
+1054c1140
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1059c1145
+< 		assertTrue(result.containsOperation(OperationKind.Insert, "Method", "getAttributes" ));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Insert, "Method", "getAttributes"));
+1063c1149
+< 	public void test_t_225724() throws Exception{
+---
+> 	public void test_t_225724() throws Exception {
+1065c1151,1152
+< 		// meld  src/test/resources/examples/t_225724/left_ScarabRequestTool_1.36.java src/test/resources/examples/t_225724/right_ScarabRequestTool_1.37.java
+---
+> 		// meld src/test/resources/examples/t_225724/left_ScarabRequestTool_1.36.java
+> 		// src/test/resources/examples/t_225724/right_ScarabRequestTool_1.37.java
+1068c1155
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1071c1158
+< 		//result.debugInformation();
+---
+> 		// result.debugInformation();
+1073c1160,1161
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "org.apache.turbine.util.Log#error(java.lang.String,java.lang.Exception)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation",
+> 				"org.apache.turbine.util.Log#error(java.lang.String,java.lang.Exception)"));
+1077c1165
+< 	public void test_t_225893() throws Exception{
+---
+> 	public void test_t_225893() throws Exception {
+1079c1167,1168
+< 		// meld  src/test/resources/examples/t_225893/left_RQueryUser_1.1.java src/test/resources/examples/t_225893/right_RQueryUser_1.2.java
+---
+> 		// meld src/test/resources/examples/t_225893/left_RQueryUser_1.1.java
+> 		// src/test/resources/examples/t_225893/right_RQueryUser_1.2.java
+1082c1171
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1091c1180
+< 	public void test_t_226145() throws Exception{
+---
+> 	public void test_t_226145() throws Exception {
+1093c1182,1183
+< 		// meld  src/test/resources/examples/t_226145/left_ScarabRequestTool_1.90.java src/test/resources/examples/t_226145/right_ScarabRequestTool_1.91.java
+---
+> 		// meld src/test/resources/examples/t_226145/left_ScarabRequestTool_1.90.java
+> 		// src/test/resources/examples/t_226145/right_ScarabRequestTool_1.91.java
+1096c1186
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1105c1195
+< 	public void test_t_226330() throws Exception{
+---
+> 	public void test_t_226330() throws Exception {
+1107c1197,1198
+< 		// meld  src/test/resources/examples/t_226330/left_ActivityRule_1.4.java src/test/resources/examples/t_226330/right_ActivityRule_1.5.java
+---
+> 		// meld src/test/resources/examples/t_226330/left_ActivityRule_1.4.java
+> 		// src/test/resources/examples/t_226330/right_ActivityRule_1.5.java
+1110c1201
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1119c1210
+< 	public void test_t_226480() throws Exception{
+---
+> 	public void test_t_226480() throws Exception {
+1121c1212,1213
+< 		// meld  src/test/resources/examples/t_226480/left_ScarabRequestTool_1.113.java src/test/resources/examples/t_226480/right_ScarabRequestTool_1.114.java
+---
+> 		// meld src/test/resources/examples/t_226480/left_ScarabRequestTool_1.113.java
+> 		// src/test/resources/examples/t_226480/right_ScarabRequestTool_1.114.java
+1124c1216
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1129c1221,1222
+< 		assertTrue(result.containsOperation(OperationKind.Insert, "Invocation", "org.apache.turbine.Log#debug(java.lang.String)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Insert, "Invocation",
+> 				"org.apache.turbine.Log#debug(java.lang.String)"));
+1133c1226
+< 	public void test_t_226555() throws Exception{
+---
+> 	public void test_t_226555() throws Exception {
+1135c1228,1229
+< 		// meld  src/test/resources/examples/t_226555/left_Attachment_1.24.java src/test/resources/examples/t_226555/right_Attachment_1.25.java
+---
+> 		// meld src/test/resources/examples/t_226555/left_Attachment_1.24.java
+> 		// src/test/resources/examples/t_226555/right_Attachment_1.25.java
+1138c1232
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1144c1238,1239
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "java.lang.String#lastIndexOf(java.lang.String)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation",
+> 				"java.lang.String#lastIndexOf(java.lang.String)"));
+1146,1147c1241,1243
+< 		assertTrue(result.containsOperations(result.getAllOperations(), OperationKind.Delete, "FieldRead", "separator"));
+< 		assertTrue(result.containsOperations(result.getAllOperations(), OperationKind.Insert, "Literal", "'/'" ));
+---
+> 		assertTrue(
+> 				result.containsOperations(result.getAllOperations(), OperationKind.Delete, "FieldRead", "separator"));
+> 		assertTrue(result.containsOperations(result.getAllOperations(), OperationKind.Insert, "Literal", "'/'"));
+1151c1247
+< 	public void test_t_226622() throws Exception{
+---
+> 	public void test_t_226622() throws Exception {
+1153c1249,1250
+< 		// meld  src/test/resources/examples/t_226622/left_AttributeValue_1.49.java src/test/resources/examples/t_226622/right_AttributeValue_1.50.java
+---
+> 		// meld src/test/resources/examples/t_226622/left_AttributeValue_1.49.java
+> 		// src/test/resources/examples/t_226622/right_AttributeValue_1.50.java
+1156c1253
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1166c1263
+< 	public void test_t_226685() throws Exception{
+---
+> 	public void test_t_226685() throws Exception {
+1168c1265,1266
+< 		// meld  src/test/resources/examples/t_226685/left_ResetCacheValve_1.1.java src/test/resources/examples/t_226685/right_ResetCacheValve_1.2.java
+---
+> 		// meld src/test/resources/examples/t_226685/left_ResetCacheValve_1.1.java
+> 		// src/test/resources/examples/t_226685/right_ResetCacheValve_1.2.java
+1171c1269
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1176c1274,1275
+< 		assertTrue(result.containsOperation(OperationKind.Delete, "Invocation", "java.io.PrintStream#println(java.lang.String)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Delete, "Invocation",
+> 				"java.io.PrintStream#println(java.lang.String)"));
+1179d1277
+< 
+1181c1279
+< 	public void test_t_226926() throws Exception{
+---
+> 	public void test_t_226926() throws Exception {
+1183c1281,1282
+< 		// meld  src/test/resources/examples/t_226926/left_ScarabUserManager_1.4.java src/test/resources/examples/t_226926/right_ScarabUserManager_1.5.java
+---
+> 		// meld src/test/resources/examples/t_226926/left_ScarabUserManager_1.4.java
+> 		// src/test/resources/examples/t_226926/right_ScarabUserManager_1.5.java
+1186c1285
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1194d1292
+< 
+1196c1294
+< 	public void test_t_226963() throws Exception{
+---
+> 	public void test_t_226963() throws Exception {
+1198c1296,1297
+< 		// meld  src/test/resources/examples/t_226963/left_Issue_1.140.java src/test/resources/examples/t_226963/right_Issue_1.141.java
+---
+> 		// meld src/test/resources/examples/t_226963/left_Issue_1.140.java
+> 		// src/test/resources/examples/t_226963/right_Issue_1.141.java
+1201c1300
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1206c1305
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "#addAscendingOrderByColumn()" ));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "#addAscendingOrderByColumn()"));
+1209d1307
+< 
+1211c1309
+< 	public void test_t_227005() throws Exception{
+---
+> 	public void test_t_227005() throws Exception {
+1213c1311,1312
+< 		// meld  src/test/resources/examples/t_227005/left_AttributeValue_1.56.java src/test/resources/examples/t_227005/right_AttributeValue_1.57.java
+---
+> 		// meld src/test/resources/examples/t_227005/left_AttributeValue_1.56.java
+> 		// src/test/resources/examples/t_227005/right_AttributeValue_1.57.java
+1216c1315
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1226c1325
+< 	public void test_t_227130() throws Exception{
+---
+> 	public void test_t_227130() throws Exception {
+1228c1327,1328
+< 		// meld  src/test/resources/examples/t_227130/left_Transaction_1.37.java src/test/resources/examples/t_227130/right_Transaction_1.38.java
+---
+> 		// meld src/test/resources/examples/t_227130/left_Transaction_1.37.java
+> 		// src/test/resources/examples/t_227130/right_Transaction_1.38.java
+1231c1331
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1236c1336
+< 		assertTrue(result.containsOperation( OperationKind.Insert, "Method", "create"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Insert, "Method", "create"));
+1240c1340
+< 	public void test_t_227368() throws Exception{
+---
+> 	public void test_t_227368() throws Exception {
+1242c1342,1343
+< 		// meld  src/test/resources/examples/t_227368/left_IssueTemplateInfo_1.12.java src/test/resources/examples/t_227368/right_IssueTemplateInfo_1.13.java
+---
+> 		// meld src/test/resources/examples/t_227368/left_IssueTemplateInfo_1.12.java
+> 		// src/test/resources/examples/t_227368/right_IssueTemplateInfo_1.13.java
+1245c1346
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1250c1351,1352
+< 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation", "org.tigris.scarab.util.Email#sendEmail(org.apache.fulcrum.template.TemplateContext,org.tigris.scarab.om.Module,<unknown>,<unknown>,java.lang.String,java.lang.String)"));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Update, "Invocation",
+> 				"org.tigris.scarab.util.Email#sendEmail(org.apache.fulcrum.template.TemplateContext,org.tigris.scarab.om.Module,<unknown>,<unknown>,java.lang.String,java.lang.String)"));
+1257c1359
+< 	public void test_t_227811() throws Exception{
+---
+> 	public void test_t_227811() throws Exception {
+1259,1260c1361,1363
+< 			// meld  src/test/resources/examples/t_227811/left_RModuleIssueType_1.24.java src/test/resources/examples/t_227811/right_RModuleIssueType_1.25.java
+< 			File fl = new File("src/test/resources/examples/t_227811/left_RModuleIssueType_1.24.java");
+---
+> 		// meld src/test/resources/examples/t_227811/left_RModuleIssueType_1.24.java
+> 		// src/test/resources/examples/t_227811/right_RModuleIssueType_1.25.java
+> 		File fl = new File("src/test/resources/examples/t_227811/left_RModuleIssueType_1.24.java");
+1262c1365
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1267c1370,1371
+< 		assertTrue(result.containsOperation(OperationKind.Insert, "Invocation", "#setDisplayDescription(java.lang.String)" ));
+---
+> 		assertTrue(result.containsOperation(OperationKind.Insert, "Invocation",
+> 				"#setDisplayDescription(java.lang.String)"));
+1271c1375
+< 	public void test_t_227985() throws Exception{
+---
+> 	public void test_t_227985() throws Exception {
+1273c1377,1378
+< 		// meld  src/test/resources/examples/t_227985/left_IssueSearch_1.65.java src/test/resources/examples/t_227985/right_IssueSearch_1.66.java
+---
+> 		// meld src/test/resources/examples/t_227985/left_IssueSearch_1.65.java
+> 		// src/test/resources/examples/t_227985/right_IssueSearch_1.66.java
+1276c1381
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1285c1390
+< 	public void test_t_228064() throws Exception{
+---
+> 	public void test_t_228064() throws Exception {
+1287c1392,1393
+< 		// meld  src/test/resources/examples/t_228064/left_ModuleManager_1.21.java src/test/resources/examples/t_228064/right_ModuleManager_1.22.java
+---
+> 		// meld src/test/resources/examples/t_228064/left_ModuleManager_1.21.java
+> 		// src/test/resources/examples/t_228064/right_ModuleManager_1.22.java
+1290c1396
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1299c1405
+< 	public void test_t_228325() throws Exception{
+---
+> 	public void test_t_228325() throws Exception {
+1301c1407,1408
+< 		// meld  src/test/resources/examples/t_228325/left_ForgotPassword_1.10.java src/test/resources/examples/t_228325/right_ForgotPassword_1.11.java
+---
+> 		// meld src/test/resources/examples/t_228325/left_ForgotPassword_1.10.java
+> 		// src/test/resources/examples/t_228325/right_ForgotPassword_1.11.java
+1304c1411
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1313c1420
+< 	public void test_t_228643() throws Exception{
+---
+> 	public void test_t_228643() throws Exception {
+1315c1422
+< 		//AbstractBottomUpMatcher.SIZE_THRESHOLD = 10;
+---
+> 		// AbstractBottomUpMatcher.SIZE_THRESHOLD = 10;
+1317c1424,1425
+< 		// meld  src/test/resources/examples/t_228643/left_ScopePeer_1.3.java src/test/resources/examples/t_228643/right_ScopePeer_1.4.java
+---
+> 		// meld src/test/resources/examples/t_228643/left_ScopePeer_1.3.java
+> 		// src/test/resources/examples/t_228643/right_ScopePeer_1.4.java
+1320c1428
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1325c1433,1434
+< 		assertTrue(result.containsOperation(OperationKind.Update, "ConstructorCall", "org.apache.torque.util.Criteria()"));
+---
+> 		assertTrue(
+> 				result.containsOperation(OperationKind.Update, "ConstructorCall", "org.apache.torque.util.Criteria()"));
+1329c1438
+< 	public void test_issue31() throws Exception{
+---
+> 	public void test_issue31() throws Exception {
+1331,1333c1440,1446
+< 		// the cause of this bug is the value of gumtree.match.bu.sim set in AstComparator
+< 		// with gumtree.match.bu.sim=0.4 (the previous value), the block of the whole method (starting line 408) was not mapped, and this created a lot of spurious moves
+< 		// with gumtree.match.bu.sim=0.6 (the new default value in the commit to fix the bug), the block of the whole method is mapped, and the diff becomes perfect
+---
+> 		// the cause of this bug is the value of gumtree.match.bu.sim set in
+> 		// AstComparator
+> 		// with gumtree.match.bu.sim=0.4 (the previous value), the block of the whole
+> 		// method (starting line 408) was not mapped, and this created a lot of spurious
+> 		// moves
+> 		// with gumtree.match.bu.sim=0.6 (the new default value in the commit to fix the
+> 		// bug), the block of the whole method is mapped, and the diff becomes perfect
+1335c1448,1449
+< 		// meld  src/test/resources/examples/issue31/original.java src/test/resources/examples/issue31/patched.java
+---
+> 		// meld src/test/resources/examples/issue31/original.java
+> 		// src/test/resources/examples/issue31/patched.java
+1338c1452
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);
+1341,1344c1455,1459
+< 		//result.debugInformation();
+< 		System.out.println("root: "+result.getRootOperations().size());
+< 		for(Operation o: result.getRootOperations()) {
+< 			System.out.println(o.getClass().getSimpleName()+ " " + o.getSrcNode().getClass().getSimpleName()+ " " + o.getSrcNode().getPosition().getLine());
+---
+> 		// result.debugInformation();
+> 		System.out.println("root: " + result.getRootOperations().size());
+> 		for (Operation o : result.getRootOperations()) {
+> 			System.out.println(o.getClass().getSimpleName() + " " + o.getSrcNode().getClass().getSimpleName() + " "
+> 					+ o.getSrcNode().getPosition().getLine());
+1346c1461
+< 		System.out.println("all: "+result.getAllOperations().size());
+---
+> 		System.out.println("all: " + result.getAllOperations().size());
+1352c1467
+< 	public void test_chart18() throws Exception{
+---
+> 	public void test_chart18() throws Exception {
+1356c1471
+< 		Diff result = diff.compare(fl,fr);
+---
+> 		Diff result = diff.compare(fl, fr);

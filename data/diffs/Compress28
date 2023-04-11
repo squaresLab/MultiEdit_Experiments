@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress28/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java d4j_patched/Compress28/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+583d582
+<         count(totalRead);
+585a585,587
+>             if (numToRead > 0) {
+>                 throw new IOException("Truncated TAR archive");
+>             }
+587a590
+>             count(totalRead);

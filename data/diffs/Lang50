@@ -1,0 +1,25 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang50/src/java/org/apache/commons/lang/time/FastDateFormat.java d4j_patched/Lang50/src/java/org/apache/commons/lang/time/FastDateFormat.java
+285,286c285,286
+<         if (locale != null) {
+<             key = new Pair(key, locale);
+---
+>         if (locale == null) {
+>             locale = Locale.getDefault();
+288a289
+>         key = new Pair(key, locale);
+292,294d292
+<             if (locale == null) {
+<                 locale = Locale.getDefault();
+<             }
+465,466c463,464
+<         if (locale != null) {
+<             key = new Pair(key, locale);
+---
+>         if (locale == null) {
+>             locale = Locale.getDefault();
+467a466
+>         key = new Pair(key, locale);
+471,473d469
+<             if (locale == null) {
+<                 locale = Locale.getDefault();
+<             }

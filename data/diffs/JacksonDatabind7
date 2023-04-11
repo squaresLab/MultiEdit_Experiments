@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind7/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java d4j_patched/JacksonDatabind7/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
+404a405
+>         if (jp.getCurrentTokenId() != JsonToken.FIELD_NAME.id()) {
+405a407,408
+>             return this;
+>         }
+409a413,421
+>         JsonToken t;
+>         writeStartObject();
+>         do {
+>             copyCurrentStructure(jp);
+>         } while ((t = jp.nextToken()) == JsonToken.FIELD_NAME);
+>         if (t != JsonToken.END_OBJECT) {
+>             throw ctxt.mappingException("Expected END_OBJECT after copying contents of a JsonParser into TokenBuffer, got "+t);
+>         }
+>         writeEndObject();

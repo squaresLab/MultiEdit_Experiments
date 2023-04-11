@@ -1,0 +1,23 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/EskyProtocolDecoder.java after/src/org/traccar/protocol/EskyProtocolDecoder.java
+43,44c43,44
+<             .number("(d+.d+)").text("+")         // latitude
+<             .number("(d+.d+)").text("+")         // longitude
+---
+>             .number("(-?d+.d+)").text("+")       // latitude
+>             .number("(-?d+.d+)").text("+")       // longitude
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/EskyFrameDecoderTest.java after/test/org/traccar/protocol/EskyFrameDecoderTest.java
+14a15,18
+>                 binary("454c3b313b3836343930363032393139363632363b3137303832323134333432363b"),
+>                 decoder.decode(null, null, binary("454c3b313b3836343930363032393139363632363b3137303832323134333432363b")));
+> 
+>         verifyFrame(
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/EskyProtocolDecoderTest.java after/test/org/traccar/protocol/EskyProtocolDecoderTest.java
+12a13,18
+>         verifyNull(decoder, text(
+>                 "EL;1;864906029196626;170822143426;"));
+> 
+>         verifyPosition(decoder, text(
+>                 "EO;0;864906029196626;R;7+170822143646+-26.10806+27.94600+0.40+0+0x1+0+102540+0+1242"));
+> 

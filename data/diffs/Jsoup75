@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup75/src/main/java/org/jsoup/nodes/Attributes.java d4j_patched/Jsoup75/src/main/java/org/jsoup/nodes/Attributes.java
+319,320c319
+<             if (!(out.syntax() == Document.OutputSettings.Syntax.html
+<                 && (val == null || val.equals(key) && Attribute.isBooleanAttribute(key)))) {
+---
+>             if (!Attribute.shouldCollapseAttribute(key, val, out)) {

@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito2/src/org/mockito/internal/util/Timer.java d4j_patched/Mockito2/src/org/mockito/internal/util/Timer.java
+2a3
+> import org.mockito.exceptions.Reporter;
+9a11
+>         validateInput(durationMillis);
+27a30,34
+>     private void validateInput(long durationMillis) {
+>         if (durationMillis < 0) {
+>             new Reporter().cannotCreateTimerWithNegativeDurationTime(durationMillis);
+>         }
+>     }

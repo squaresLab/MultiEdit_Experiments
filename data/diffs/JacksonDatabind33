@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind33/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java d4j_patched/JacksonDatabind33/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+748c748,751
+<                     || _hasAnnotation(a, JsonRawValue.class)) {
+---
+>                     || _hasAnnotation(a, JsonRawValue.class)
+>                     || _hasAnnotation(a, JsonUnwrapped.class)
+>                     || _hasAnnotation(a, JsonBackReference.class)
+>                     || _hasAnnotation(a, JsonManagedReference.class)) {

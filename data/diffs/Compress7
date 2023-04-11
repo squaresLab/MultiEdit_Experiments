@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress7/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java d4j_patched/Compress7/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+98c98,99
+<             if (buffer[i] == 0) {
+---
+>             byte b = buffer[i];
+>             if (b == 0) { // Trailing null
+101c102
+<             result.append((char) buffer[i]);
+---
+>             result.append((char) (b & 0xFF)); // Allow for sign-extension

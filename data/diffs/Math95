@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math95/src/java/org/apache/commons/math/distribution/FDistributionImpl.java d4j_patched/Math95/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
+144c144
+<         double ret;
+---
+>         double ret = 1.0;
+145a146
+>         if (d > 2.0) {
+147a149
+>         }

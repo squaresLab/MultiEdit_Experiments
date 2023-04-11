@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang27/src/main/java/org/apache/commons/lang3/math/NumberUtils.java d4j_patched/Lang27/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+479c479
+<                 if (expPos < decPos) {
+---
+>                 if (expPos < decPos || expPos > str.length()) {
+488a489,491
+>                 if (expPos > str.length()) {
+>                     throw new NumberFormatException(str + " is not a valid number.");
+>                 }

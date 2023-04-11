@@ -1,0 +1,27 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind2/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java d4j_patched/JacksonDatabind2/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
+782a783,788
+>         if (value == null) {
+>             writeNull();
+>             return;
+>         }
+>         Class<?> raw = value.getClass();
+>         if (raw == byte[].class) {
+783a790,791
+>             return;
+>         } else if (_objectCodec == null) {
+787a796,799
+>             _append(JsonToken.VALUE_EMBEDDED_OBJECT, value);
+>         } else {
+>             _objectCodec.writeValue(this, value);
+>         }
+792a805,808
+>         if (node == null) {
+>             writeNull();
+>             return;
+>         }
+793a810
+>         if (_objectCodec == null) {
+795a813,815
+>         } else {
+>             _objectCodec.writeTree(this, node);
+>         }

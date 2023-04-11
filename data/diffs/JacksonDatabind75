@@ -1,0 +1,22 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind75/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java d4j_patched/JacksonDatabind75/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java
+86c86
+<         Boolean serializeAsIndex = _isShapeWrittenUsingIndex(enumClass, format, true);
+---
+>         Boolean serializeAsIndex = _isShapeWrittenUsingIndex(enumClass, format, true, null);
+104c104
+<                         format, false);
+---
+>                         format, false, _serializeAsIndex);
+217c217,218
+<             JsonFormat.Value format, boolean fromClass)
+---
+>             JsonFormat.Value format, boolean fromClass,
+>             Boolean defaultValue)
+221c222
+<             return null;
+---
+>             return defaultValue;
+225c226
+<             return null;
+---
+>             return defaultValue;

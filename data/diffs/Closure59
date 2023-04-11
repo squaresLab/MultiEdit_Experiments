@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure59/src/com/google/javascript/jscomp/Compiler.java d4j_patched/Closure59/src/com/google/javascript/jscomp/Compiler.java
+255c255,256
+<     if (options.checkGlobalThisLevel.isOn()) {
+---
+>     if (options.checkGlobalThisLevel.isOn() &&
+>         !options.disables(DiagnosticGroups.GLOBAL_THIS)) {

@@ -1,0 +1,60 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java after/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+89d88
+< import java.util.HashSet;
+92d90
+< import java.util.Set;
+105c103
+< 	private Set<TypeBinding> exploringParameterizedBindings = new HashSet<>();
+---
+> 	private Map<TypeBinding, CtTypeReference> exploringParameterizedBindings = new HashMap<>();
+657,659c655,659
+< 						if (!this.exploringParameterizedBindings.contains(b)) {
+< 							this.exploringParameterizedBindings.add(b);
+< 							ref.addActualTypeArgument(getTypeReference(b));
+---
+> 						if (!this.exploringParameterizedBindings.containsKey(b)) {
+> 							this.exploringParameterizedBindings.put(b, null);
+> 							CtTypeReference typeRefB = getTypeReference(b);
+> 							this.exploringParameterizedBindings.put(b, typeRefB);
+> 							ref.addActualTypeArgument(typeRefB);
+661c661,664
+< 							this.exploringParameterizedBindings.remove(b);
+---
+> 							CtTypeReference typeRefB = this.exploringParameterizedBindings.get(b);
+> 							if (typeRefB != null) {
+> 								ref.addActualTypeArgument(typeRefB.clone());
+> 							}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/generics/GenericsTest.java after/src/test/java/spoon/test/generics/GenericsTest.java
+1008a1009
+> 	}
+1009a1011,1037
+> 	@Test
+> 	public void testDiamondComplexGenericsRxJava() {
+> 		Launcher launcher = new Launcher();
+> 		launcher.addInputResource("./src/test/java/spoon/test/generics/testclasses/rxjava/");
+> 		launcher.setSourceOutputDirectory("./target/spooned-rxjava");
+> 		launcher.run();
+> 
+> 		Factory factory = launcher.getFactory();
+> 
+> 		List<CtConstructorCall> invocations = factory.getModel().getElements(new TypeFilter<>(CtConstructorCall.class));
+> 
+> 		boolean invocationDetected = false;
+> 		for (CtConstructorCall call : invocations) {
+> 			if (call.getType().getSimpleName().equals("ToNotificationSubscriber")) {
+> 				assertEquals(1, call.getType().getActualTypeArguments().size());
+> 
+> 				CtTypeReference actualTA = call.getType().getActualTypeArguments().get(0);
+> 				assertTrue(actualTA instanceof CtWildcardReference);
+> 				assertEquals("?", actualTA.getSimpleName());
+> 				assertTrue( ((CtWildcardReference)actualTA).getBoundingType() == null );
+> 				invocationDetected = true;
+> 			}
+> 		}
+> 
+> 		canBeBuilt("./target/spooned-rxjava",8);
+> 
+> 		assertTrue(invocationDetected);
+Only in after/src/test/java/spoon/test/generics/testclasses: rxjava

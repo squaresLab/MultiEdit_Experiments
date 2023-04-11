@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress33/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java d4j_patched/Compress33/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java
+239a240,242
+>             if (DeflateCompressorInputStream.matches(signature, signatureLength)) {
+>                 return new DeflateCompressorInputStream(in);
+>             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress33/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java d4j_patched/Compress33/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java
+32a33,37
+>     private static final int MAGIC_1 = 0x78;
+>     private static final int MAGIC_2a = 0x01;
+>     private static final int MAGIC_2b = 0x5e;
+>     private static final int MAGIC_2c = 0x9c;
+>     private static final int MAGIC_2d = 0xda;
+105a111,117
+>     public static boolean matches(byte[] signature, int length) {
+>         return length > 3 && signature[0] == MAGIC_1 && (
+>                 signature[1] == (byte) MAGIC_2a ||
+>                 signature[1] == (byte) MAGIC_2b ||
+>                 signature[1] == (byte) MAGIC_2c ||
+>                 signature[1] == (byte) MAGIC_2d);
+>     }

@@ -1,0 +1,28 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup36/src/main/java/org/jsoup/helper/DataUtil.java d4j_patched/Jsoup36/src/main/java/org/jsoup/helper/DataUtil.java
+9a10
+> import java.nio.charset.IllegalCharsetNameException;
+19c20
+<     private static final Pattern charsetPattern = Pattern.compile("(?i)\\bcharset=\\s*\"?([^\\s;\"]*)");
+---
+>     private static final Pattern charsetPattern = Pattern.compile("(?i)\\bcharset=\\s*(?:\"|')?([^\\s,;\"']*)");
+86a88,96
+>                     if (foundCharset == null && meta.hasAttr("charset")) {
+>                         try {
+>                             if (Charset.isSupported(meta.attr("charset"))) {
+>                                 foundCharset = meta.attr("charset");
+>                             }
+>                         } catch (IllegalCharsetNameException e) {
+>                             foundCharset = null;
+>                         }
+>                     }
+91a102
+>                     foundCharset = foundCharset.trim().replaceAll("[\"']", "");
+160a172,174
+>             charset = charset.replace("charset=", "");
+>             if (charset.isEmpty()) return null;
+>             try {
+163a178
+>             } catch (IllegalCharsetNameException e) {
+164a180,181
+>                 return null;
+>             }

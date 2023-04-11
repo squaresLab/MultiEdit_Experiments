@@ -1,0 +1,71 @@
+Only in after/: bears.json
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java after/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java
+11a12
+> import com.openhtmltopdf.css.constants.IdentValue;
+616,618c617,626
+<         // TODO: RTL overflow.
+<         int maxX = (int) (ctm == null ? bounds.getMaxX() : getMaxXFromTransformedBox(bounds, ctm));
+<         int maxShadowPages = basePageBox.getMaxShadowPagesForXPos(c, maxX);
+---
+>         FourPoint corners = ctm == null ? null : getCornersFromTransformedBounds(bounds, ctm);
+> 
+>         int maxShadowPages;
+>         if (basePageBox.getCutOffPageDirection() == IdentValue.LTR) { 
+>             int maxX = (int) (ctm == null ? bounds.getMaxX() : getMaxX(corners));
+>             maxShadowPages = Math.min(basePageBox.getMaxInsertedPages(), basePageBox.getMaxShadowPagesForXPos(c, maxX));
+>         } else {
+>             int minX = (int) (ctm == null ? bounds.getMinX() : getMinX(corners));
+>             maxShadowPages = Math.min(basePageBox.getMaxInsertedPages(), basePageBox.getMaxShadowPagesForXPos(c, minX));
+>         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java after/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java
+106,110c106
+< 	    if (page.getCutOffPageDirection() == IdentValue.LTR) { 
+< 	        return absTranslateX - (float) shadow.getMinX() + (page.getMarginBorderPadding(c, CalculatedStyle.LEFT) * (shadowPageNumber + 1));
+< 	    } else {
+< 	        return absTranslateX - (float) shadow.getMinX() + (page.getMarginBorderPadding(c, CalculatedStyle.RIGHT) * (shadowPageNumber + 1));
+< 	    }
+---
+> 	    return absTranslateX - (float) shadow.getMinX() + (page.getMarginBorderPadding(c, CalculatedStyle.LEFT));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java after/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java
+307c307
+<             return (x > 0 ? ((int) (fx / fw)) : 0);
+---
+>             return (int) (x > 0 ? (Math.ceil(fx / fw) - 1) : 0);
+310c310
+<         return (x < 0 ? ((int) (Math.abs(fx) / fw)) : 0);
+---
+>         return (int) (x < 0 ? (Math.ceil(Math.abs(fx) / fw)) : 0);
+Only in after/openhtmltopdf-examples: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/openhtmltopdf-examples/src/test/java/com/openhtmltopdf/visualregressiontests/VisualRegressionTest.java after/openhtmltopdf-examples/src/test/java/com/openhtmltopdf/visualregressiontests/VisualRegressionTest.java
+559a560,583
+>     /**
+>      * Tests that transforms to the left of the page margin generate an overflow page.
+>      */
+>     @Test
+>     public void testRtlPageOverflowTransform() throws IOException {
+>         assertTrue(vt.runTest("rtl-page-overflow-transform"));
+>     }
+>     
+>     /**
+>      * Tests that blocks with negative margin-left generate an overflow page.
+>      */
+>     @Test
+>     public void testRtlPageOverflowStatic() throws IOException {
+>         assertTrue(vt.runTest("rtl-page-overflow-static"));
+>     }
+>     
+>     /**
+>      * Tests that blocks with overflow hidden work correctly on overflow pages.
+>      */
+>     @Test
+>     public void testRtlPageOverflowHiddenHidden() throws IOException {
+>         assertTrue(vt.runTest("rtl-page-overflow-hidden-hidden"));
+>     }
+>     
+560a585
+>     // + content property (page counters, etc)
+564,565d588
+<     // + RTL overflow pages.
+<     // + transformed clip and shadow pages.
+567a591
+>     // + Links, form controls, meta information.

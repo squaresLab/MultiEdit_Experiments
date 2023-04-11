@@ -1,0 +1,19 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Collections25/src/main/java/org/apache/commons/collections4/IteratorUtils.java d4j_patched/Collections25/src/main/java/org/apache/commons/collections4/IteratorUtils.java
+605c605,607
+<         return new CollatingIterator<E>(comparator, iterator1, iterator2);
+---
+>         @SuppressWarnings("unchecked")
+>         final Comparator<E> comp = comparator == null ? ComparatorUtils.NATURAL_COMPARATOR : comparator;
+>         return new CollatingIterator<E>(comp, iterator1, iterator2);
+626c628,630
+<         return new CollatingIterator<E>(comparator, iterators);
+---
+>         @SuppressWarnings("unchecked")
+>         final Comparator<E> comp = comparator == null ? ComparatorUtils.NATURAL_COMPARATOR : comparator;
+>         return new CollatingIterator<E>(comp, iterators);
+648c652,654
+<         return new CollatingIterator<E>(comparator, iterators);
+---
+>         @SuppressWarnings("unchecked")
+>         final Comparator<E> comp = comparator == null ? ComparatorUtils.NATURAL_COMPARATOR : comparator;
+>         return new CollatingIterator<E>(comp, iterators);

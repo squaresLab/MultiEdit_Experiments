@@ -1,0 +1,31 @@
+Only in after/: bears.json
+Only in after/spring-cloud-gcp-data-spanner: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/core/SpannerTemplate.java after/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/core/SpannerTemplate.java
+181c181,182
+< 		return queryAll(entityClass, pageable, null);
+---
+> 		return queryAll(entityClass, pageable, new SpannerQueryOptions()
+> 				.setOffset(pageable.getOffset()).setLimit(pageable.getPageSize()));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/spring-cloud-gcp-data-spanner/src/test/java/org/springframework/cloud/gcp/data/spanner/core/SpannerTemplateTests.java after/spring-cloud-gcp-data-spanner/src/test/java/org/springframework/cloud/gcp/data/spanner/core/SpannerTemplateTests.java
+20a21
+> import java.util.Collections;
+202,203c203,214
+< 		doReturn(null).when(spyTemplate).queryAll(eq(TestEntity.class), same(page),
+< 				eq(null));
+---
+> 		Sort sort = Sort.by(Order.asc("id"));
+> 		when(page.getSort()).thenReturn(sort);
+> 		when(page.getOffset()).thenReturn(3L);
+> 		when(page.getPageSize()).thenReturn(5);
+> 		doReturn(1L).when(spyTemplate).count(eq(TestEntity.class));
+> 		doAnswer(invocation -> {
+> 			Statement statement = invocation.getArgument(1);
+> 			assertEquals(
+> 					"SELECT * FROM custom_test_table ORDER BY id ASC LIMIT 5 OFFSET 3;",
+> 					statement.getSql());
+> 			return Collections.emptyList();
+> 		}).when(spyTemplate).query(eq(TestEntity.class), any(), any());
+205c216
+< 		verify(spyTemplate, times(1)).queryAll(eq(TestEntity.class), same(page), eq(null));
+---
+> 		verify(spyTemplate, times(1)).query(eq(TestEntity.class), any(), any());

@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang28/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java d4j_patched/Lang28/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
+62a63,67
+>             if(entityValue > 0xFFFF) {
+>                 char[] chrs = Character.toChars(entityValue);
+>                 out.write(chrs[0]);
+>                 out.write(chrs[1]);
+>             } else {
+63a69
+>             }

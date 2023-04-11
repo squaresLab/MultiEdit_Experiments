@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup6/src/main/java/org/jsoup/nodes/Entities.java d4j_patched/Jsoup6/src/main/java/org/jsoup/nodes/Entities.java
+70c70
+<                 m.appendReplacement(accum, c);
+---
+>                 m.appendReplacement(accum, Matcher.quoteReplacement(c));
+72c72
+<                 m.appendReplacement(accum, m.group(0));
+---
+>                 m.appendReplacement(accum, Matcher.quoteReplacement(m.group(0))); // replace with original string

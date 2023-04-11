@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito36/src/org/mockito/internal/invocation/Invocation.java d4j_patched/Mockito36/src/org/mockito/internal/invocation/Invocation.java
+10a11
+> import org.mockito.exceptions.Reporter;
+201a203,205
+>         if (this.getMethod().getDeclaringClass().isInterface()) {
+>             new Reporter().cannotCallRealMethodOnInterface();
+>         }

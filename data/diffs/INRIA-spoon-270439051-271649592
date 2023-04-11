@@ -1,0 +1,109 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/StandardEnvironment.java after/src/main/java/spoon/support/StandardEnvironment.java
+356c356,357
+< 				List<String> classpath = new ArrayList<>();
+---
+> 				// Check that the URLs are only file URLs
+> 				boolean onlyFileURLs = true;
+358c359,370
+< 					classpath.add(url.toString());
+---
+> 					if (!url.getProtocol().equals("file")) {
+> 						onlyFileURLs = false;
+> 					}
+> 				}
+> 				if (onlyFileURLs) {
+> 					List<String> classpath = new ArrayList<>();
+> 					for (URL url : urls) {
+> 						classpath.add(url.getPath());
+> 					}
+> 					setSourceClasspath(classpath.toArray(new String[0]));
+> 				} else {
+> 					throw new SpoonException("Spoon does not support a URLClassLoader containing other resources than local file.");
+360d371
+< 				setSourceClasspath(classpath.toArray(new String[0]));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/compilation/CompilationTest.java after/src/test/java/spoon/test/compilation/CompilationTest.java
+2a3,19
+> import static org.hamcrest.CoreMatchers.not;
+> import static org.junit.Assert.assertEquals;
+> import static org.junit.Assert.assertNotNull;
+> import static org.junit.Assert.assertNull;
+> import static org.junit.Assert.assertThat;
+> import static org.junit.Assert.assertTrue;
+> import static org.junit.Assert.fail;
+> 
+> import java.io.File;
+> import java.lang.reflect.Method;
+> import java.net.URL;
+> import java.net.URLClassLoader;
+> import java.nio.file.Files;
+> import java.nio.file.Path;
+> import java.util.ArrayList;
+> import java.util.List;
+> 
+5a23
+> 
+6a25
+> import spoon.SpoonException;
+21a41
+> import spoon.support.SpoonClassNotFoundException;
+25d44
+< import spoon.support.SpoonClassNotFoundException;
+30,45d48
+< import java.io.File;
+< import java.lang.reflect.Method;
+< import java.net.URL;
+< import java.net.URLClassLoader;
+< import java.nio.file.Files;
+< import java.nio.file.Path;
+< import java.util.ArrayList;
+< import java.util.List;
+< 
+< import static org.hamcrest.CoreMatchers.not;
+< import static org.junit.Assert.assertEquals;
+< import static org.junit.Assert.assertThat;
+< import static org.junit.Assert.assertTrue;
+< import static org.junit.Assert.assertNotNull;
+< import static org.junit.Assert.fail;
+< 
+381a385,423
+> 		assertEquals(MyClassLoader.class, launcher.getEnvironment().getInputClassLoader().getClass());
+> 	}
+> 	
+> 	@Test
+> 	public void testURLClassLoader() throws Exception {
+> 		// contract: Spoon handles URLClassLoader and retrieves path elements
+> 		
+> 		String expected = "target/classes/";
+> 
+> 		File f = new File(expected);
+> 		URL[] urls = new URL[]{f.toURL()};
+> 		URLClassLoader urlClassLoader = new URLClassLoader(urls);
+> 		Launcher launcher = new Launcher();
+> 		launcher.getEnvironment().setInputClassLoader(urlClassLoader);
+> 		
+> 		String[] sourceClassPath = launcher.getEnvironment().getSourceClasspath();
+> 		assertEquals(1, sourceClassPath.length);
+> 		String tail = sourceClassPath[0].substring(sourceClassPath[0].length()-expected.length());
+> 		assertEquals(expected, tail);
+> 	}
+> 
+> 	@Test
+> 	public void testURLClassLoaderWithOtherResourcesThanOnlyFiles() throws Exception {
+> 		// contract: Spoon handles URLClassLoader which contain other resources than only files by not adding anything
+> 
+> 		String file = "target/classes/";
+> 		String distantJar = "http://central.maven.org/maven2/fr/inria/gforge/spoon/spoon-core/5.8.0/spoon-core-5.8.0.jar";
+> 
+> 		File f = new File(file);
+> 		URL url = new URL(distantJar);
+> 		URL[] urls = new URL[]{ f.toURL(), url };
+> 		URLClassLoader urlClassLoader = new URLClassLoader(urls);
+> 		Launcher launcher = new Launcher();
+> 		try {
+> 			launcher.getEnvironment().setInputClassLoader(urlClassLoader);
+> 			fail();
+> 		} catch (SpoonException e) {
+> 			assertTrue(e.getMessage().contains("Spoon does not support a URLClassLoader containing other resources than local file."));
+> 		}

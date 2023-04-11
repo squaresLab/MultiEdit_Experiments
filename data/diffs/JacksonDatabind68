@@ -1,0 +1,108 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind68/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java d4j_patched/JacksonDatabind68/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
+1192c1192,1193
+<         if (_delegateDeserializer != null) {
+---
+>         final JsonDeserializer<Object> delegateDeser = _delegateDeserializer();
+>         if (delegateDeser != null) {
+1194c1195
+<                     _delegateDeserializer.deserialize(p, ctxt));
+---
+>                     delegateDeser.deserialize(p, ctxt));
+1219a1221
+>         final JsonDeserializer<Object> delegateDeser = _delegateDeserializer();
+1222c1224
+<             if (_delegateDeserializer != null) {
+---
+>             if (delegateDeser != null) {
+1225c1227
+<                             _delegateDeserializer.deserialize(p, ctxt));
+---
+>                             delegateDeser.deserialize(p, ctxt));
+1234c1236
+<             if (_delegateDeserializer != null) {
+---
+>             if (delegateDeser != null) {
+1237c1239
+<                             _delegateDeserializer.deserialize(p, ctxt));
+---
+>                             delegateDeser.deserialize(p, ctxt));
+1247c1249
+<         if (_delegateDeserializer != null) {
+---
+>         if (delegateDeser != null) {
+1249c1251
+<                     _delegateDeserializer.deserialize(p, ctxt));
+---
+>                     delegateDeser.deserialize(p, ctxt));
+1269c1271,1272
+<         if (_delegateDeserializer != null) {
+---
+>         JsonDeserializer<Object> delegateDeser = _delegateDeserializer();
+>         if (delegateDeser != null) {
+1272c1275
+<                         _delegateDeserializer.deserialize(p, ctxt));
+---
+>                         delegateDeser.deserialize(p, ctxt));
+1291c1294,1295
+<             if (_delegateDeserializer != null) {
+---
+>             JsonDeserializer<Object> delegateDeser = _delegateDeserializer();
+>             if (delegateDeser != null) {
+1294c1298
+<                             _delegateDeserializer.deserialize(p, ctxt));
+---
+>                             delegateDeser.deserialize(p, ctxt));
+1304c1308,1309
+<         if (_delegateDeserializer != null) {
+---
+>         JsonDeserializer<Object> delegateDeser = _delegateDeserializer();
+>         if (delegateDeser != null) {
+1306c1311
+<                     _delegateDeserializer.deserialize(p, ctxt));
+---
+>                     delegateDeser.deserialize(p, ctxt));
+1318c1323,1324
+<         if (_delegateDeserializer != null) {
+---
+>         JsonDeserializer<Object> delegateDeser = _delegateDeserializer();
+>         if (delegateDeser != null) {
+1321c1327
+<                         _delegateDeserializer.deserialize(p, ctxt));
+---
+>                         delegateDeser.deserialize(p, ctxt));
+1335,1345c1341
+<         if (_arrayDelegateDeserializer != null) {
+<             try {
+<                 Object bean = _valueInstantiator.createUsingArrayDelegate(ctxt, _arrayDelegateDeserializer.deserialize(p, ctxt));
+<                 if (_injectables != null) {
+<                     injectValues(ctxt, bean);
+<                 }
+<                 return bean;
+<             } catch (Exception e) {
+<                 return wrapInstantiationProblem(e, ctxt);
+<             }
+<         }
+---
+>         JsonDeserializer<Object> delegateDeser = _arrayDelegateDeserializer;
+1347,1348c1343
+<         if (_delegateDeserializer != null) {
+<             try {
+---
+>         if ((delegateDeser != null) || ((delegateDeser = _delegateDeserializer) != null)) {
+1350c1345
+<                     _delegateDeserializer.deserialize(p, ctxt));
+---
+>                     delegateDeser.deserialize(p, ctxt));
+1355,1358d1349
+<             } catch (Exception e) {
+<                 wrapInstantiationProblem(e, ctxt);
+<                 return null;
+<             }
+1398a1390,1396
+>     private final JsonDeserializer<Object> _delegateDeserializer() {
+>         JsonDeserializer<Object> deser = _delegateDeserializer;
+>         if (deser == null) {
+>             deser = _arrayDelegateDeserializer;
+>         }
+>         return deser;
+>     }

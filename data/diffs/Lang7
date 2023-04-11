@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang7/src/main/java/org/apache/commons/lang3/math/NumberUtils.java d4j_patched/Lang7/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+452,454d451
+<         if (str.startsWith("--")) {
+<             return null;
+<         }
+720a718
+>         if (str.trim().startsWith("--")) {
+724a723,724
+>             throw new NumberFormatException(str + " is not a valid number.");
+>         }

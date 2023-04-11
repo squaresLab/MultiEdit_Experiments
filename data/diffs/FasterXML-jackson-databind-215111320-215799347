@@ -1,0 +1,118 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java after/src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java
+29c29
+< 	
+---
+> 
+69c69
+<     
+---
+> 
+89c89
+<     
+---
+> 
+120c120
+<     
+---
+> 
+126c126
+<     
+---
+> 
+140c140
+<     
+---
+> 
+149c149
+<         
+---
+> 
+200c200
+<     
+---
+> 
+210c210
+<     {        
+---
+>     {
+236c236
+<             
+---
+> 
+249c249
+<     
+---
+> 
+326c326
+<      * values for creator method need to be buffered, first; and 
+---
+>      * values for creator method need to be buffered, first; and
+335c335
+<     { 
+---
+>     {
+417c417
+<     
+---
+> 
+423c423
+<     
+---
+> 
+450c450
+<     
+---
+> 
+480c480
+<         
+---
+> 
+518c518
+<     }    
+---
+>     }
+583,607c583
+<                 // Last creator property to set?
+<                 if (buffer.assignParameter(creatorProp, creatorProp.deserialize(p, ctxt))) {
+<                     t = p.nextToken(); // to move to following FIELD_NAME/END_OBJECT
+<                     Object bean;
+<                     try {
+<                         bean = creator.build(ctxt, buffer);
+<                     } catch (Exception e) {
+<                         wrapAndThrow(e, _beanType.getRawClass(), propName, ctxt);
+<                         continue; // never gets here
+<                     }
+<                     // if so, need to copy all remaining tokens into buffer
+<                     while (t == JsonToken.FIELD_NAME) {
+<                         p.nextToken(); // to skip name
+<                         tokens.copyCurrentStructure(p);
+<                         t = p.nextToken();
+<                     }
+<                     tokens.writeEndObject();
+<                     if (bean.getClass() != _beanType.getRawClass()) {
+<                         // !!! 08-Jul-2011, tatu: Could probably support; but for now
+<                         //   it's too complicated, so bail out
+<                         ctxt.reportMappingException("Can not create polymorphic instances with unwrapped values");
+<                         return null;
+<                     }
+<                     return _unwrappedPropertyHandler.processUnwrapped(p, ctxt, bean, tokens);
+<                 }
+---
+>                 buffer.assignParameter(creatorProp, creatorProp.deserialize(p, ctxt));
+649c625
+<     
+---
+> 
+702d677
+<                 continue;
+705c680
+<                 handleUnknownProperty(p, ctxt, bean, propName);         
+---
+>                 handleUnknownProperty(p, ctxt, bean, propName);
+710c685
+<     }        
+---
+>     }
+Only in after/src/test/java/com/fasterxml/jackson/databind/deser: builder

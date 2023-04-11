@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito28/src/org/mockito/internal/configuration/DefaultInjectionEngine.java d4j_patched/Mockito28/src/org/mockito/internal/configuration/DefaultInjectionEngine.java
+93c93,94
+<             mockCandidateFilter.filterCandidate(mocks, field, fieldInstance).thenInject();
+---
+>             Object injected = mockCandidateFilter.filterCandidate(mocks, field, fieldInstance).thenInject();
+>             mocks.remove(injected);

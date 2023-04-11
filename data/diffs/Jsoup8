@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup8/src/main/java/org/jsoup/nodes/Node.java d4j_patched/Jsoup8/src/main/java/org/jsoup/nodes/Node.java
+363c363
+<         new NodeTraversor(new OuterHtmlVisitor(accum, ownerDocument().outputSettings())).traverse(this);
+---
+>         new NodeTraversor(new OuterHtmlVisitor(accum, getOutputSettings())).traverse(this);
+366a367,369
+>     private Document.OutputSettings getOutputSettings() {
+>         return ownerDocument() != null ? ownerDocument().outputSettings() : (new Document("")).outputSettings();
+>     }

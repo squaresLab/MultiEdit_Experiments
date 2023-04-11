@@ -1,0 +1,23 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/StarLinkProtocolDecoder.java after/src/org/traccar/protocol/StarLinkProtocolDecoder.java
+154c154,156
+<                     lac = Integer.parseInt(data[i]);
+---
+>                     if (!data[i].isEmpty()) {
+>                         lac = Integer.parseInt(data[i]);
+>                     }
+157c159,161
+<                     cid = Integer.parseInt(data[i]);
+---
+>                     if (!data[i].isEmpty()) {
+>                         cid = Integer.parseInt(data[i]);
+>                     }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/StarLinkProtocolDecoderTest.java after/test/org/traccar/protocol/StarLinkProtocolDecoderTest.java
+13a14,19
+>                 "$SLU031B2B,06,622,170329035057,01,170329035057,+3158.0018,+03446.6968,004.9,007,000099,1,1,0,0,0,0,0,0,,,14.176,03.826,,1,1,1,4*B0"));
+> 
+>         verifyPosition(decoder, text(
+>                 "$SLU031B2B,06,624,170329035143,01,170329035143,+3158.0171,+03446.6742,006.8,326,000099,1,1,0,0,0,0,0,0,10452,8723,14.212,03.827,,1,1,1,4*6D"));
+> 
+>         verifyPosition(decoder, text(

@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore4/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java d4j_patched/JacksonCore4/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+584a585
+>         int newLen = len + (len >> 1);
+586c587,589
+<         int newLen = (len == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN+1) : Math.min(MAX_SEGMENT_LEN, len + (len >> 1));
+---
+>         if (newLen > MAX_SEGMENT_LEN) {
+>             newLen = len + (len >> 2);
+>         }

@@ -1,0 +1,50 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind81/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java d4j_patched/JacksonDatabind81/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+763a764
+>                     } else if (_primitiveAndWrapper(currRaw, serClass)) {
+764a766
+>                         type = type.withStaticTyping();
+796a799
+>                         } else if (_primitiveAndWrapper(currRaw, keyClass)) {
+797a801
+>                             keyType = keyType.withStaticTyping();
+830a835
+>                        } else if (_primitiveAndWrapper(currRaw, contentClass)) {
+831a837
+>                            contentType = contentType.withStaticTyping();
+1119c1125,1126
+<         if ((valueClass != null) && !type.hasRawClass(valueClass)) {
+---
+>         if ((valueClass != null) && !type.hasRawClass(valueClass)
+>                 && !_primitiveAndWrapper(type, valueClass)) {
+1135c1142,1143
+<             if (keyClass != null) {
+---
+>             if ((keyClass != null)
+>                     && !_primitiveAndWrapper(keyType, keyClass)) {
+1151c1159,1160
+<             if (contentClass != null) {
+---
+>             if ((contentClass != null)
+>                     && !_primitiveAndWrapper(contentType, contentClass)) {
+1456a1466,1475
+>     private boolean _primitiveAndWrapper(Class<?> baseType, Class<?> refinement)
+>     {
+>         if (baseType.isPrimitive()) {
+>             return baseType == ClassUtil.primitiveType(refinement);
+>         }
+>         if (refinement.isPrimitive()) {
+>             return refinement == ClassUtil.primitiveType(baseType);
+>         }
+>         return false;
+>     }
+1457a1477,1486
+>     private boolean _primitiveAndWrapper(JavaType baseType, Class<?> refinement)
+>     {
+>         if (baseType.isPrimitive()) {
+>             return baseType.hasRawClass(ClassUtil.primitiveType(refinement));
+>         }
+>         if (refinement.isPrimitive()) {
+>             return refinement == ClassUtil.primitiveType(baseType.getRawClass());
+>         }
+>         return false;
+>     }

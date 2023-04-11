@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson11/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java d4j_patched/Gson11/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
+370a371
+>       case STRING:

@@ -1,0 +1,21 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Tlt2hProtocolDecoder.java after/src/org/traccar/protocol/Tlt2hProtocolDecoder.java
+2c2
+<  * Copyright 2013 Anton Tananaev (anton@traccar.org)
+---
+>  * Copyright 2013 - 2017 Anton Tananaev (anton@traccar.org)
+48c48
+<             .number("(dd)(dd)(dd).(ddd),")       // time (hhmmss.sss)
+---
+>             .number("(dd)(dd)(dd).d+,")          // time (hhmmss.sss)
+94c94
+<                         .setTime(parser.nextInt(), parser.nextInt(), parser.nextInt(), parser.nextInt());
+---
+>                         .setTime(parser.nextInt(), parser.nextInt(), parser.nextInt());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Tlt2hProtocolDecoderTest.java after/test/org/traccar/protocol/Tlt2hProtocolDecoderTest.java
+13a14,17
+>                 "#863835026938048#MT500#0000#AUTO#1\r\n",
+>                 "#67904917c0e$GPRMC,173926.00,A,4247.8476,N,08342.6996,W,0.03,,160417,,,A*59\r\n"));
+> 
+>         verifyPositions(decoder, text(

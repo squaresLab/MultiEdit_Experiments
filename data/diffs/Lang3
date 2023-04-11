@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang3/src/main/java/org/apache/commons/lang3/math/NumberUtils.java d4j_patched/Lang3/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+592a593
+>             if(numDecimals <= 7){// If number has 7 or fewer digits past the decimal point then make it a float
+596a598
+>             }
+600a603
+>             if(numDecimals <= 16){// If number has between 8 and 16 digits past the decimal point then make it a double
+604a608
+>             }

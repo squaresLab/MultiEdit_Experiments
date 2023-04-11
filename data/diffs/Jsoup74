@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup74/src/main/java/org/jsoup/helper/StringUtil.java d4j_patched/Jsoup74/src/main/java/org/jsoup/helper/StringUtil.java
+130a131,132
+>     public static boolean isInvisibleChar(int c) {
+>         return Character.getType(c) == 16 && (c == 8203 || c == 8204 || c == 8205 || c == 173);
+131a134
+>     }
+165c168
+<             else {
+---
+>             else if (!isInvisibleChar(c)) {

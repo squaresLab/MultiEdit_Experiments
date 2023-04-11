@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang34/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java d4j_patched/Lang34/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+148c148
+<         return REGISTRY.get() != null ? REGISTRY.get() : Collections.<Object, Object>emptyMap();
+---
+>         return REGISTRY.get();
+164c164
+<         return m.containsKey(value);
+---
+>         return m != null && m.containsKey(value);

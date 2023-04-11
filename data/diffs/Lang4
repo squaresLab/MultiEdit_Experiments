@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang4/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java d4j_patched/Lang4/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
+31c31
+<     private final HashMap<CharSequence, CharSequence> lookupMap;
+---
+>     private final HashMap<String, CharSequence> lookupMap;
+46c46
+<         lookupMap = new HashMap<CharSequence, CharSequence>();
+---
+>         lookupMap = new HashMap<String, CharSequence>();
+51c51
+<                 this.lookupMap.put(seq[0], seq[1]);
+---
+>                 this.lookupMap.put(seq[0].toString(), seq[1]);
+77c77
+<             final CharSequence result = lookupMap.get(subSeq);
+---
+>             final CharSequence result = lookupMap.get(subSeq.toString());

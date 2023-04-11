@@ -1,0 +1,26 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli16/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java d4j_patched/Cli16/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
+73a74,78
+>         Option parent = option.getParent();
+>         while (parent != null && !options.contains(parent)) {
+>             options.add(parent);
+>             parent = parent.getParent();
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli16/src/java/org/apache/commons/cli2/option/GroupImpl.java d4j_patched/Cli16/src/java/org/apache/commons/cli2/option/GroupImpl.java
+91a92
+>             option.setParent(this);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli16/src/java/org/apache/commons/cli2/option/OptionImpl.java d4j_patched/Cli16/src/java/org/apache/commons/cli2/option/OptionImpl.java
+35a36
+>     private Option parent;
+127a129,131
+>     public Option getParent() {
+>         return parent;
+>     }
+128a133,135
+>     public void setParent(Option parent) {
+>         this.parent = parent;
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli16/src/java/org/apache/commons/cli2/Option.java d4j_patched/Cli16/src/java/org/apache/commons/cli2/Option.java
+205a206
+>     Option getParent();
+215a217
+>     void setParent(Option parent);

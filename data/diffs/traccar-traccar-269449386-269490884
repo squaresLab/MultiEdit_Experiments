@@ -1,0 +1,28 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Gt06ProtocolDecoder.java after/src/org/traccar/protocol/Gt06ProtocolDecoder.java
+184a185,187
+>             if (length > 12) {
+>                 length = 12;
+>             }
+205c208
+<             buf.skipBytes(length - 8);
+---
+>             buf.skipBytes(length - (hasLength ? 9 : 8));
+464a468
+>                 buf.skipBytes(-1);
+576c580,582
+<             decodeLbs(position, buf, true);
+---
+>             if (decodeLbs(position, buf, true)) {
+>                 buf.skipBytes(1); //Extended data
+>             }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Gt06ProtocolDecoderTest.java after/test/org/traccar/protocol/Gt06ProtocolDecoderTest.java
+163a164,170
+>         verifyPosition(decoder, binary(
+>                 "78781f12110819110216d402f250340828924055d4c801944600d300c09501429c830d0a"));
+> 
+>         verifyPosition(decoder, binary(
+>                 "78782516110819110208d402f264dc08289a4058d4c70901944600d300c0954606040600014057e90d0a"));
+> 
+> 

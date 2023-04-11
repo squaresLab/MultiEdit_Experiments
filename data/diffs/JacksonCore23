@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore23/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java d4j_patched/JacksonCore23/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
+254a255,258
+>         if (getClass() != DefaultPrettyPrinter.class) { // since 2.10
+>             throw new IllegalStateException("Failed `createInstance()`: "+getClass().getName()
+>                     +" does not override method; it has to");
+>         }

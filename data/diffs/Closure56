@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure56/src/com/google/javascript/jscomp/SourceFile.java d4j_patched/Closure56/src/com/google/javascript/jscomp/SourceFile.java
+241a242
+>       if (pos >= js.length()) {
+242a244,246
+>       } else {
+>         return js.substring(pos, js.length());
+>       }

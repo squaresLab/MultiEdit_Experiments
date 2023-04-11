@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli3/src/java/org/apache/commons/cli/TypeHandler.java d4j_patched/Cli3/src/java/org/apache/commons/cli/TypeHandler.java
+25d24
+< import org.apache.commons.lang.math.NumberUtils;
+162c161,171
+<             return NumberUtils.createNumber(str);
+---
+>             if( str != null )
+>             {
+>                 if( str.indexOf('.') != -1 )
+>                 {
+>                     return Double.valueOf(str);
+>                 }
+>                 else
+>                 {
+>                     return Long.valueOf(str);
+>                 }
+>             }

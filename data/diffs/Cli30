@@ -1,0 +1,34 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli30/src/main/java/org/apache/commons/cli/DefaultParser.java d4j_patched/Cli30/src/main/java/org/apache/commons/cli/DefaultParser.java
+150c150,151
+<             if (!cmd.hasOption(option))
+---
+>             Option opt = options.getOption(option);
+>             if (opt == null)
+152c153,154
+<                 Option opt = options.getOption(option);
+---
+>                 throw new UnrecognizedOptionException("Default option wasn't defined", option);
+>             }
+154a157,158
+>             OptionGroup group = options.getOptionGroup(opt);
+>             boolean selected = group != null && group.getSelected() != null;
+155a160,161
+>             if (!cmd.hasOption(option) && !selected)
+>             {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli30/src/main/java/org/apache/commons/cli/Parser.java d4j_patched/Cli30/src/main/java/org/apache/commons/cli/Parser.java
+263c263,264
+<             if (!cmd.hasOption(option))
+---
+>             Option opt = options.getOption(option);
+>             if (opt == null)
+265c266,267
+<                 Option opt = getOptions().getOption(option);
+---
+>                 throw new UnrecognizedOptionException("Default option wasn't defined", option);
+>             }
+267a270,271
+>             OptionGroup group = options.getOptionGroup(opt);
+>             boolean selected = group != null && group.getSelected() != null;
+268a273,274
+>             if (!cmd.hasOption(option) && !selected)
+>             {
