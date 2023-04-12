@@ -19,6 +19,8 @@ DEPENDENCY_TUPLE_INDEX_OUTPUT=3
 DEPENDENCY_TUPLE_INDEX_DATA=4
 DEPENDENCY_TUPLE_INDEX_ANY=5
 
+INCLUDE_D4J_V2 = False
+
 bears_single_module_bugs = list(range(1,141+1)) + [143,184,185,188,189,190,191,192,194,198, \
     201,202,204,207,209,210,213,215,216,217,218,219,220,221,223,224,225,226,230, \
     231,232,234,235,238,239,243,244,245,246,247,249,250,251]
@@ -180,21 +182,24 @@ def get_proj(bugId: BugId) -> Project:
 def get_all_d4j_bugs() -> Set[BugId]:
     d4j_bugs = list()
     d4j_bugs += ['Chart{}'.format(n) for n in range(1, 26+1)]
-    d4j_bugs += ['Cli{}'.format(n) for n in range(1, 5+1)]
-    d4j_bugs += ['Cli{}'.format(n) for n in range(7, 40+1)]
+    if INCLUDE_D4J_V2:
+        d4j_bugs += ['Cli{}'.format(n) for n in range(1, 5+1)]
+        d4j_bugs += ['Cli{}'.format(n) for n in range(7, 40+1)]
     d4j_bugs += ['Closure{}'.format(n) for n in range(1, 62+1)]
     d4j_bugs += ['Closure{}'.format(n) for n in range(64, 92+1)]
-    d4j_bugs += ['Closure{}'.format(n) for n in range(94, 176+1)]
-    d4j_bugs += ['Codec{}'.format(n) for n in range(1, 18+1)]
-    d4j_bugs += ['Collections{}'.format(n) for n in range(25, 28+1)]
-    d4j_bugs += ['Compress{}'.format(n) for n in range(1, 47+1)]
-    d4j_bugs += ['Csv{}'.format(n) for n in range(1, 16+1)]
-    d4j_bugs += ['Gson{}'.format(n) for n in range(1, 18+1)]
-    d4j_bugs += ['JacksonCore{}'.format(n) for n in range(1, 26+1)]
-    d4j_bugs += ['JacksonDatabind{}'.format(n) for n in range(1, 112+1)]
-    d4j_bugs += ['JacksonXml{}'.format(n) for n in range(1, 6+1)]
-    d4j_bugs += ['Jsoup{}'.format(n) for n in range(1, 93+1)]
-    d4j_bugs += ['JxPath{}'.format(n) for n in range(1, 22+1)]
+    d4j_bugs += ['Closure{}'.format(n) for n in range(94, 133+1)]
+    if INCLUDE_D4J_V2:
+        d4j_bugs += ['Closure{}'.format(n) for n in range(134, 176+1)]
+        d4j_bugs += ['Codec{}'.format(n) for n in range(1, 18+1)]
+        d4j_bugs += ['Collections{}'.format(n) for n in range(25, 28+1)]
+        d4j_bugs += ['Compress{}'.format(n) for n in range(1, 47+1)]
+        d4j_bugs += ['Csv{}'.format(n) for n in range(1, 16+1)]
+        d4j_bugs += ['Gson{}'.format(n) for n in range(1, 18+1)]
+        d4j_bugs += ['JacksonCore{}'.format(n) for n in range(1, 26+1)]
+        d4j_bugs += ['JacksonDatabind{}'.format(n) for n in range(1, 112+1)]
+        d4j_bugs += ['JacksonXml{}'.format(n) for n in range(1, 6+1)]
+        d4j_bugs += ['Jsoup{}'.format(n) for n in range(1, 93+1)]
+        d4j_bugs += ['JxPath{}'.format(n) for n in range(1, 22+1)]
     d4j_bugs += ['Lang{}'.format(n) for n in range(1, 1+1)]
     d4j_bugs += ['Lang{}'.format(n) for n in range(3, 65+1)]
     d4j_bugs += ['Math{}'.format(n) for n in range(1, 106+1)]
@@ -350,7 +355,8 @@ def get_repairs_d4j() -> Dict[APRTool, List[BugId]]:
 
                 repairs[tool] += bugIds
     read_repairs('repair-them-all/defects4j.csv')
-    read_repairs('repair-them-all/defects4jv2.csv')
+    if INCLUDE_D4J_V2:
+        read_repairs('repair-them-all/defects4jv2.csv')
 
     return repairs
 
@@ -759,9 +765,9 @@ def test_sbfl_efficacy_and_repairability():
         "avg_case" : {}
     }
 
-    bugs_to_check = set([bug for bug in multi_line_bugs_d4j if not bug.startswith("Jsoup")])
+    bugs_to_check = set([bug for bug in multi_location_bugs_d4j ]) #if not bug.startswith("Jsoup")
     repairable_d4j, nonrepairable_d4j, notevaluated_d4j = partition_bugs_by_repairability(bugs_to_check& bugs_with_spectra)
-    for topn in [1, 5, 10, 50, 100, 200]:
+    for topn in [100]:#[1, 5, 10, 50, 100, 200]:
         best_case_localizable_d4j, best_case_unlocalizable_d4j = partition_bugs_by_localizability(bugs_to_check, "../localizability/bestcase_multi_loc_scores.json", topn=topn, include_ties=True)
         worst_case_localizable_d4j, worst_case_unlocalizable_d4j = partition_bugs_by_localizability(bugs_to_check, "../localizability/worstcase_multi_loc_scores.json", topn=topn, include_ties=True)
 
@@ -784,9 +790,9 @@ def test_sbfl_efficacy_and_repairability():
             print()
             print("localizable and non-repairable", nonrepairable_d4j & worst_case_localizable_d4j)
 
-    bugs_to_check = multi_line_bugs_bears & bugs_with_spectra
+    bugs_to_check = multi_location_bugs_bears & bugs_with_spectra
     repairable_bears, nonrepairable_bears, notevaluated_bears = partition_bugs_by_repairability(bugs_to_check & bugs_with_spectra)
-    for topn in [1, 5, 10, 50, 100, 200]:
+    for topn in [100]:#[1, 5, 10, 50, 100, 200]:
         best_case_localizable_bears, best_case_unlocalizable_bears = partition_bugs_by_localizability(bugs_to_check, "../localizability/bestcase_multi_loc_scores.json", topn=topn, include_ties=True)
         worst_case_localizable_bears, worst_case_unlocalizable_bears = partition_bugs_by_localizability(bugs_to_check, "../localizability/worstcase_multi_loc_scores.json", topn=topn, include_ties=True)
 
@@ -805,7 +811,7 @@ def test_sbfl_efficacy_and_repairability():
                 'repairable', 'nonrepairable', 'best_case', 'worst_case')
         print("--------------------------------------------------------------------------------------------")
 
-    for topn in [1, 5, 10, 50, 100, 200]:
+    for topn in [100]: #[1, 5, 10, 50, 100, 200]:
 
         localized_dict["best_case"][topn] += best_case_localizable_bears
         localized_dict["worst_case"][topn] += worst_case_localizable_bears
@@ -924,3 +930,12 @@ if __name__=='__main__':
     print_repairability_stats(all_bugs, multi_line_bugs, multi_location_bugs)
     test_dependency_and_repairability()
     test_sbfl_efficacy_and_repairability()
+    print(len(multi_location_bugs_bears.union(multi_location_bugs_d4j) &bugs_with_spectra))
+    print(len(multi_location_bugs_bears.union(multi_location_bugs_d4j).intersection(bugs_with_spectra) -all_repairable_bugs))
+    print(len(multi_location_bugs_bears.union(multi_location_bugs_d4j).intersection(bugs_with_spectra) &all_repairable_bugs))
+    best_case_localizable, best_case_unlocalizable = partition_bugs_by_localizability(multi_location_bugs_bears.union(multi_location_bugs_d4j).intersection(bugs_with_spectra),
+        "../localizability/bestcase_multi_loc_scores.json", topn=100, include_ties=True)
+    worst_case_localizable, worst_case_unlocalizable = partition_bugs_by_localizability(multi_location_bugs_bears.union(multi_location_bugs_d4j).intersection(bugs_with_spectra),
+        "../localizability/worstcase_multi_loc_scores.json", topn= 100, include_ties=True)
+    print(len(best_case_localizable))
+    print(len(worst_case_localizable))
