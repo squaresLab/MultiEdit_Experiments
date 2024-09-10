@@ -1,7 +1,6 @@
 package util;
 
 import com.github.difflib.DiffUtils;
-import com.github.difflib.algorithm.DiffException;
 import com.github.difflib.patch.AbstractDelta;
 import com.github.difflib.patch.DeltaType;
 import com.github.difflib.patch.Patch;
@@ -77,7 +76,7 @@ public class PatchDiffUtils {
         return patchLines;
     }
 
-    public static CoverageSubset getPatchLineNumbersTarget(List<String> originalSource, List<String> patchedSource, String className) throws DiffException {
+    public static CoverageSubset getPatchLineNumbersTarget(List<String> originalSource, List<String> patchedSource, String className) {
         CoverageSubset patchLines = new CoverageSubset("Patch");
         Patch<String> patch = DiffUtils.diff(originalSource, patchedSource);
 
@@ -126,7 +125,7 @@ public class PatchDiffUtils {
     }
 
 
-    public static CoverageSubset getPatchLineNumbersSource(List<String> originalSource, List<String> patchedSource, String className) throws DiffException {
+    public static CoverageSubset getPatchLineNumbersSource(List<String> originalSource, List<String> patchedSource, String className) {
         CoverageSubset patchLines = new CoverageSubset("Patch");
         Patch<String> patch = DiffUtils.diff(originalSource, patchedSource);
 
