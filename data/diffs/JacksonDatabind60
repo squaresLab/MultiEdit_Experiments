@@ -1,0 +1,115 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind60/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java d4j_patched/JacksonDatabind60/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java
+8a9
+> import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+16a18
+> import com.fasterxml.jackson.databind.jsontype.TypeIdResolver;
+226c228,229
+<             ser.serializeWithType(value, gen, provider, typeSer0);
+---
+>             TypeSerializerRerouter rr = new TypeSerializerRerouter(typeSer0, bean);
+>             ser.serializeWithType(value, gen, provider, rr);
+362a366,370
+>     static class TypeSerializerRerouter
+>         extends TypeSerializer
+>     {
+>         protected final TypeSerializer _typeSerializer;
+>         protected final Object _forObject;
+363a372,375
+>         public TypeSerializerRerouter(TypeSerializer ts, Object ob) {
+>             _typeSerializer = ts;
+>             _forObject = ob;
+>         }
+364a377,380
+>         @Override
+>         public TypeSerializer forProperty(BeanProperty prop) { // should never get called
+>             throw new UnsupportedOperationException();
+>         }
+365a382,385
+>         @Override
+>         public As getTypeInclusion() {
+>             return _typeSerializer.getTypeInclusion();
+>         }
+366a387,390
+>         @Override
+>         public String getPropertyName() {
+>             return _typeSerializer.getPropertyName();
+>         }
+367a392,395
+>         @Override
+>         public TypeIdResolver getTypeIdResolver() {
+>             return _typeSerializer.getTypeIdResolver();
+>         }
+368a397,400
+>         @Override
+>         public void writeTypePrefixForScalar(Object value, JsonGenerator gen) throws IOException {
+>             _typeSerializer.writeTypePrefixForScalar(_forObject, gen);
+>         }
+369a402,405
+>         @Override
+>         public void writeTypePrefixForObject(Object value, JsonGenerator gen) throws IOException {
+>             _typeSerializer.writeTypePrefixForObject(_forObject, gen);
+>         }
+370a407,410
+>         @Override
+>         public void writeTypePrefixForArray(Object value, JsonGenerator gen) throws IOException {
+>             _typeSerializer.writeTypePrefixForArray(_forObject, gen);
+>         }
+371a412,415
+>         @Override
+>         public void writeTypeSuffixForScalar(Object value, JsonGenerator gen) throws IOException {
+>             _typeSerializer.writeTypeSuffixForScalar(_forObject, gen);
+>         }
+372a417,420
+>         @Override
+>         public void writeTypeSuffixForObject(Object value, JsonGenerator gen) throws IOException {
+>             _typeSerializer.writeTypeSuffixForObject(_forObject, gen);
+>         }
+373a422,425
+>         @Override
+>         public void writeTypeSuffixForArray(Object value, JsonGenerator gen) throws IOException {
+>             _typeSerializer.writeTypeSuffixForArray(_forObject, gen);
+>         }
+374a427,429
+>         public void writeTypePrefixForScalar(Object value, JsonGenerator gen, Class<?> type) throws IOException {
+>             _typeSerializer.writeTypePrefixForScalar(_forObject, gen, type);
+>         }
+375a431,433
+>         public void writeTypePrefixForObject(Object value, JsonGenerator gen, Class<?> type) throws IOException {
+>             _typeSerializer.writeTypePrefixForObject(_forObject, gen, type);
+>         }
+376a435,437
+>         public void writeTypePrefixForArray(Object value, JsonGenerator gen, Class<?> type) throws IOException {
+>             _typeSerializer.writeTypePrefixForArray(_forObject, gen, type);
+>         }
+377a439,443
+>         @Override
+>         public void writeCustomTypePrefixForScalar(Object value, JsonGenerator gen, String typeId)
+>                 throws IOException {
+>             _typeSerializer.writeCustomTypePrefixForScalar(_forObject, gen, typeId);
+>         }
+378a445,448
+>         @Override
+>         public void writeCustomTypePrefixForObject(Object value, JsonGenerator gen, String typeId) throws IOException {
+>             _typeSerializer.writeCustomTypePrefixForObject(_forObject, gen, typeId);
+>         }
+379a450,453
+>         @Override
+>         public void writeCustomTypePrefixForArray(Object value, JsonGenerator gen, String typeId) throws IOException {
+>             _typeSerializer.writeCustomTypePrefixForArray(_forObject, gen, typeId);
+>         }
+380a455,458
+>         @Override
+>         public void writeCustomTypeSuffixForScalar(Object value, JsonGenerator gen, String typeId) throws IOException {
+>             _typeSerializer.writeCustomTypeSuffixForScalar(_forObject, gen, typeId);
+>         }
+381a460,463
+>         @Override
+>         public void writeCustomTypeSuffixForObject(Object value, JsonGenerator gen, String typeId) throws IOException {
+>             _typeSerializer.writeCustomTypeSuffixForObject(_forObject, gen, typeId);
+>         }
+382a465,469
+>         @Override
+>         public void writeCustomTypeSuffixForArray(Object value, JsonGenerator gen, String typeId) throws IOException {
+>             _typeSerializer.writeCustomTypeSuffixForArray(_forObject, gen, typeId);
+>         }
+>     }

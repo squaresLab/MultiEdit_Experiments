@@ -1,0 +1,24 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart18/source/org/jfree/data/DefaultKeyedValues2D.java d4j_patched/Chart18/source/org/jfree/data/DefaultKeyedValues2D.java
+454a455,460
+>     	if (columnKey == null) {
+>     		throw new IllegalArgumentException("Null 'columnKey' argument.");
+>     	}
+>     	if (!this.columnKeys.contains(columnKey)) {
+>     		throw new UnknownKeyException("Unknown key: " + columnKey);
+>     	}
+457a464,465
+>             int index = rowData.getIndex(columnKey);
+>             if (index >= 0) {
+458a467
+>             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart18/source/org/jfree/data/DefaultKeyedValues.java d4j_patched/Chart18/source/org/jfree/data/DefaultKeyedValues.java
+318d317
+<         if (index < this.keys.size()) {
+320d318
+<         }
+335c333,334
+< 			return;
+---
+>             throw new UnknownKeyException("The key (" + key 
+>                     + ") is not recognised.");
+Binary files d4j_buggy/Chart18/.svn/wc.db and d4j_patched/Chart18/.svn/wc.db differ

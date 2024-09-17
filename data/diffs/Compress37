@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress37/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java d4j_patched/Compress37/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+462c462,464
+<                 if (ch == ' '){
+---
+>                 if (ch == '\n') { // blank line in header
+>                     break;
+>                 } else if (ch == ' '){ // End of length string

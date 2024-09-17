@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito14/src/org/mockito/internal/MockHandler.java d4j_patched/Mockito14/src/org/mockito/internal/MockHandler.java
+19a20
+> import org.mockito.internal.verification.MockAwareVerificationMode;
+75a77
+>             if (verificationMode instanceof MockAwareVerificationMode && ((MockAwareVerificationMode) verificationMode).getMock() == invocation.getMock()) {
+78a81
+>             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito14/src/org/mockito/internal/MockitoCore.java d4j_patched/Mockito14/src/org/mockito/internal/MockitoCore.java
+22a23
+> import org.mockito.internal.verification.MockAwareVerificationMode;
+73c74
+<         mockingProgress.verificationStarted(mode);
+---
+>         mockingProgress.verificationStarted(new MockAwareVerificationMode(mock, mode));

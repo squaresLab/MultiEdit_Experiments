@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore20/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java d4j_patched/JacksonCore20/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
+1330c1330,1339
+<         throw new JsonGenerationException("No native support for writing embedded objects",
+---
+>         if (object == null) {
+>             writeNull();
+>             return;
+>         }
+>         if (object instanceof byte[]) {
+>             writeBinary((byte[]) object);
+>             return;
+>         }
+>         throw new JsonGenerationException("No native support for writing embedded objects of type "
+>                 +object.getClass().getName(),

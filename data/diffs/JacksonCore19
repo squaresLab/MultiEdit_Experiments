@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore19/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java d4j_patched/JacksonCore19/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+1417a1418,1421
+>             if (outPtr >= outBuf.length) {
+>                 outBuf = _textBuffer.finishCurrentSegment();
+>                 outPtr = 0;
+>             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore19/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java d4j_patched/JacksonCore19/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+1543a1544,1547
+>             if (outPtr >= outBuf.length) {
+>                 outBuf = _textBuffer.finishCurrentSegment();
+>                 outPtr = 0;
+>             }

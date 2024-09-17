@@ -1,0 +1,28 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time12/src/main/java/org/joda/time/LocalDate.java d4j_patched/Time12/src/main/java/org/joda/time/LocalDate.java
+209a210
+>         int era = calendar.get(Calendar.ERA);
+212c213
+<             yearOfEra,
+---
+>             (era == GregorianCalendar.AD ? yearOfEra : 1 - yearOfEra),
+242a244
+>         if (date.getTime() < 0) {
+243a246,249
+>             GregorianCalendar cal = new GregorianCalendar();
+>             cal.setTime(date);
+>             return fromCalendarFields(cal);
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time12/src/main/java/org/joda/time/LocalDateTime.java d4j_patched/Time12/src/main/java/org/joda/time/LocalDateTime.java
+198a199
+>         int era = calendar.get(Calendar.ERA);
+201c202
+<             yearOfEra,
+---
+>             (era == GregorianCalendar.AD ? yearOfEra : 1 - yearOfEra),
+235a237
+>         if (date.getTime() < 0) {
+236a239,242
+>             GregorianCalendar cal = new GregorianCalendar();
+>             cal.setTime(date);
+>             return fromCalendarFields(cal);
+>         }

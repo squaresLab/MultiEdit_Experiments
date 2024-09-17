@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind105/src/main/java/com/fasterxml/jackson/databind/deser/std/JdkDeserializers.java d4j_patched/JacksonDatabind105/src/main/java/com/fasterxml/jackson/databind/deser/std/JdkDeserializers.java
+22c22,23
+<                 ByteBuffer.class
+---
+>                 ByteBuffer.class,
+>                 Void.class
+46a48,50
+>             }
+>             if (rawType == Void.class) {
+>                 return NullifyingDeserializer.instance;

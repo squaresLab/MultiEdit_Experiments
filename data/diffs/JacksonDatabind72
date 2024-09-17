@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind72/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java d4j_patched/JacksonDatabind72/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
+92a93,94
+>     @Override
+>     public int getCreatorIndex() { return _delegate.getCreatorIndex(); }
+167c169
+< }
+---
+> }
+\ No newline at end of file

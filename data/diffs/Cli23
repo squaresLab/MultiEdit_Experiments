@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli23/src/java/org/apache/commons/cli/HelpFormatter.java d4j_patched/Cli23/src/java/org/apache/commons/cli/HelpFormatter.java
+824d823
+<             int lastPos = pos;
+833,836c832,837
+<             } else
+<             if (pos == lastPos)
+<             {
+<                 throw new RuntimeException("Text too long for line - throwing exception to avoid infinite loop [CLI-162]: " + text);
+---
+>             }
+>             
+>             if ( (text.length() > width) && (pos == nextLineTabStop - 1) ) {
+>                 sb.append(text);
+> 
+>                 return sb;

@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure107/src/com/google/javascript/jscomp/CommandLineRunner.java d4j_patched/Closure107/src/com/google/javascript/jscomp/CommandLineRunner.java
+861a862
+>       options.setWarningLevel(JsMessageVisitor.MSG_CONVENTIONS, CheckLevel.OFF);

@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli14/src/java/org/apache/commons/cli2/option/GroupImpl.java d4j_patched/Cli14/src/java/org/apache/commons/cli2/option/GroupImpl.java
+250,252d249
+<             if (validate) {
+<                 option.validate(commandLine);
+<             }
+260a258,259
+>                 validate = true;
+>             }
+261a261
+>             if (validate) {

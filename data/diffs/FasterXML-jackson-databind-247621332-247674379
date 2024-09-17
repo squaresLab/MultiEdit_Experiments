@@ -1,0 +1,12 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java after/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
+209a210,216
+>             // 27-Jun-2017, tatu: [databind#1679] Need to avoid StackOverflowError...
+>             if (type == Object.class) {
+>                 // basically just need to call `toString()`, easiest way:
+>                 JsonSerializer<Object> ser = new Default(Default.TYPE_TO_STRING, type);
+>                 _dynamicSerializers = map.newWith(type, ser);
+>                 return ser;
+>             }
+Only in after/src/test/java/com/fasterxml/jackson/databind/ser: KeySerializers1679Test.java

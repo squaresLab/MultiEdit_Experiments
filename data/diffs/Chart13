@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart13/source/org/jfree/chart/block/BorderArrangement.java d4j_patched/Chart13/source/org/jfree/chart/block/BorderArrangement.java
+455c455
+<                     new Range(0.0, constraint.getWidth() - w[2]),
+---
+>                     new Range(0.0, Math.max(constraint.getWidth() - w[2], 0.0)),
+Binary files d4j_buggy/Chart13/.svn/wc.db and d4j_patched/Chart13/.svn/wc.db differ

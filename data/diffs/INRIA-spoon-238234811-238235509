@@ -1,0 +1,75 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java after/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
+34d33
+< import spoon.reflect.visitor.chain.CtFunction;
+35a35
+> import spoon.reflect.visitor.chain.CtFunction;
+231c231,233
+< 		return printer.toString() + errorMessage;
+---
+> 		// in line-preservation mode, newlines are added at the beginning to matches the lines
+> 		// removing them from the toString() representation
+> 		return printer.toString().replaceFirst("^\\s+", "") + errorMessage;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/prettyprinter/LinesTest.java after/src/test/java/spoon/test/prettyprinter/LinesTest.java
+3d2
+< import org.apache.commons.io.IOUtils;
+8,9d6
+< import spoon.reflect.code.CtThisAccess;
+< import spoon.reflect.code.CtTypeAccess;
+11d7
+< import spoon.reflect.declaration.CtNamedElement;
+14d9
+< import spoon.reflect.reference.CtTypeReference;
+16d10
+< import spoon.reflect.visitor.filter.NameFilter;
+18d11
+< import spoon.test.prettyprinter.testclasses.QualifiedThisRef;
+20,21d12
+< import java.io.File;
+< import java.io.FileReader;
+23a15
+> import java.util.regex.Pattern;
+25a18
+> import static org.junit.Assert.assertFalse;
+28d20
+< import static spoon.test.limits.StaticFieldAccesOnInstance.test;
+61a54,58
+> 
+> 		// contract: in line preserve mode, toString is not prefixed or suffixed by newlines
+> 		String meth = factory.Type().get("spoon.test.prettyprinter.Validation").getMethodsByName("isIdentifier").get(0).toString();
+> 		// the added linebreaks due to line preservation are removed
+> 		assertFalse(Pattern.compile("^\\s", Pattern.DOTALL).asPredicate().test(meth.toString()));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/trycatch/TryCatchTest.java after/src/test/java/spoon/test/trycatch/TryCatchTest.java
+3,14d2
+< import static org.junit.Assert.assertEquals;
+< import static org.junit.Assert.assertNotEquals;
+< import static org.junit.Assert.assertNotNull;
+< import static org.junit.Assert.assertTrue;
+< import static org.junit.Assert.fail;
+< import static spoon.testing.utils.ModelUtils.build;
+< import static spoon.testing.utils.ModelUtils.createFactory;
+< 
+< import java.io.File;
+< import java.util.List;
+< import java.util.Set;
+< 
+16d3
+< 
+30a18,29
+> import java.io.File;
+> import java.util.List;
+> import java.util.Set;
+> 
+> import static org.junit.Assert.assertEquals;
+> import static org.junit.Assert.assertNotEquals;
+> import static org.junit.Assert.assertNotNull;
+> import static org.junit.Assert.assertTrue;
+> import static org.junit.Assert.fail;
+> import static spoon.testing.utils.ModelUtils.build;
+> import static spoon.testing.utils.ModelUtils.createFactory;
+> 
+181c180
+< 		final String expected = " catch (spoon.test.trycatch.testclasses.internal.MyException | spoon.test.trycatch.testclasses.internal.MyException2 ignore) {" + System.lineSeparator() + "}";
+---
+> 		final String expected = "catch (spoon.test.trycatch.testclasses.internal.MyException | spoon.test.trycatch.testclasses.internal.MyException2 ignore) {" + System.lineSeparator() + "}";

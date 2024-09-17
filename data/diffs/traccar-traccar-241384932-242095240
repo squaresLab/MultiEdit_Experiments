@@ -1,0 +1,27 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Gps103ProtocolDecoder.java after/src/org/traccar/protocol/Gps103ProtocolDecoder.java
+93c93
+<             .number("(d+),")                     // hours
+---
+>             .number("(d+)?,")                    // hours
+96c96
+<             .number("(d+),")                     // temperature
+---
+>             .number("(?:([-+]?d+)|[-+]?),")      // temperature
+212c212
+<             position.set(Position.KEY_HOURS, parser.nextInt(0));
+---
+>             position.set(Position.KEY_HOURS, parser.nextInt());
+214c214
+<             position.set(Position.PREFIX_TEMP + 1, parser.nextInt(0));
+---
+>             position.set(Position.PREFIX_TEMP + 1, parser.nextInt());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Gps103ProtocolDecoderTest.java after/test/org/traccar/protocol/Gps103ProtocolDecoderTest.java
+12a13,18
+>         verifyAttributes(decoder, text(
+>                 "imei:862106025092216,OBD,170612165656,196043,,145803.9,,000,0.0%,+,0.0%,00000,12.6,,,,;"));
+> 
+>         verifyAttributes(decoder, text(
+>                 "imei:862106025092216,OBD,170605095949,195874,,370.8,808,066,30.0%,+87,13.0%,02444,14.3,,,,;"));
+> 

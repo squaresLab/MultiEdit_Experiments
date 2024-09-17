@@ -1,0 +1,37 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/org/cash/count/service/impl/TransferService.java after/src/main/java/org/cash/count/service/impl/TransferService.java
+43a44,47
+>         if (debitedAccount.isDisabled() || creditedAccount.isDisabled()){
+>             throw new IllegalStateException("Account disabled");
+>         }
+>         
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/org/cash/count/service/impl/TransferServiceTest.java after/src/test/java/org/cash/count/service/impl/TransferServiceTest.java
+15a16
+> import static org.junit.Assert.fail;
+212a214,238
+>     }
+>     
+>     /**
+>      * Should not make the transfer. An account is disabled
+>      */
+>     @Test
+>     public void shouldNotExecuteTransfer_accountDisabled(){
+>         Account cashAccount = new Account();
+>         cashAccount.setBalance(new BigDecimal("4000"));
+>         cashAccount.setIncreasedBy(AccountType.DEBIT);
+>         
+>         Account equipmentAccount = new Account();
+>         equipmentAccount.setBalance(new BigDecimal("1000"));
+>         equipmentAccount.setIncreasedBy(AccountType.DEBIT);
+>         equipmentAccount.setDisabled(true);
+>         
+>         when(accountRepository.findById(2)).thenReturn(Optional.of(equipmentAccount));
+>         when(accountRepository.findById(5)).thenReturn(Optional.of(cashAccount));
+>         
+>         try{
+>             transferService.transfer(2, 5, "100");
+>             fail();
+>         } catch(IllegalStateException e){
+>             assertThat(e.getMessage()).isEqualTo("Account disabled");
+>         }

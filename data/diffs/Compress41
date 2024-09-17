@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress41/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java d4j_patched/Compress41/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+246a247
+>             return null;
+249c250
+<             return null;
+---
+>             throw new ZipException(String.format("Unexpected record signature: 0X%X", sig.getValue()));

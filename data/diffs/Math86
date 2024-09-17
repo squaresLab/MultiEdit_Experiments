@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math86/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java d4j_patched/Math86/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java
+114,116d113
+<             if (lTData[i][i] < absolutePositivityThreshold) {
+<                 throw new NotPositiveDefiniteMatrixException();
+<             }
+136a134,136
+>             if (ltI[i] < absolutePositivityThreshold) {
+>                 throw new NotPositiveDefiniteMatrixException();
+>             }

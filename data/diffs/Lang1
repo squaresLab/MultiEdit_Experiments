@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang1/src/main/java/org/apache/commons/lang3/math/Fraction.java d4j_patched/Lang1/src/main/java/org/apache/commons/lang3/math/Fraction.java
+582a583,588
+>         if ((u == 0) || (v == 0)) {
+>             if ((u == Integer.MIN_VALUE) || (v == Integer.MIN_VALUE)) {
+>                 throw new ArithmeticException("overflow: gcd is 2^31");
+>             }
+>             return Math.abs(u) + Math.abs(v);
+>         }
+584c590
+<         if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+---
+>         if (Math.abs(u) == 1 || Math.abs(v) == 1) {

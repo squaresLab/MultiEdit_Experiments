@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec16/src/main/java/org/apache/commons/codec/binary/Base32.java d4j_patched/Codec16/src/main/java/org/apache/commons/codec/binary/Base32.java
+99c99
+<             25, 26, 27, 28, 29, 30, 31, 32,
+---
+>             25, 26, 27, 28, 29, 30, 31,                                     // 50-57 P-V

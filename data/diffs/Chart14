@@ -1,0 +1,19 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart14/source/org/jfree/chart/plot/CategoryPlot.java d4j_patched/Chart14/source/org/jfree/chart/plot/CategoryPlot.java
+2165a2166,2168
+>         if (markers == null) {
+>             return false;
+>         }
+2446a2450,2452
+>         }
+>         if (markers == null) {
+>             return false;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart14/source/org/jfree/chart/plot/XYPlot.java d4j_patched/Chart14/source/org/jfree/chart/plot/XYPlot.java
+2292a2293,2295
+>         if (markers == null) {
+>             return false;
+>         }
+2527a2531,2533
+>         }
+>         if (markers == null) {
+>             return false;
+Binary files d4j_buggy/Chart14/.svn/wc.db and d4j_patched/Chart14/.svn/wc.db differ

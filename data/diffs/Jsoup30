@@ -1,0 +1,48 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup30/src/main/java/org/jsoup/safety/Cleaner.java d4j_patched/Jsoup30/src/main/java/org/jsoup/safety/Cleaner.java
+5a6,7
+> import org.jsoup.select.NodeTraversor;
+> import org.jsoup.select.NodeVisitor;
+70,72c72,80
+<     private int copySafeNodes(Element root, Element destination) {
+<         List<Node> sourceChildren = root.childNodes();
+<         int numDiscarded = 0;
+---
+>     private final class CleaningVisitor implements NodeVisitor {
+>         private int numDiscarded = 0;
+>         private final Element root;
+>         private Element destination; // current element to append nodes to
+> 
+>         private CleaningVisitor(Element root, Element destination) {
+>             this.root = root;
+>             this.destination = destination;
+>         }
+74c82
+<         for (Node source : sourceChildren) {
+---
+>         public void head(Node source, int depth) {
+84,85c92,93
+<                     numDiscarded += copySafeNodes(sourceEl, destChild);
+<                 } else {
+---
+>                     destination = destChild;
+>                 } else if (source != root) { // not a safe tag, so don't add. don't count root against discarded.
+87d94
+<                     numDiscarded += copySafeNodes(sourceEl, destination);
+92a100,101
+>             } else { // else, we don't care about comments, xml proc instructions, etc
+>                 numDiscarded++;
+95d103
+<         return numDiscarded;
+96a105,110
+>         public void tail(Node source, int depth) {
+>             if (source instanceof Element && whitelist.isSafeTag(source.nodeName())) {
+>                 destination = destination.parent(); // would have descended, so pop destination stack
+>             }
+>         }
+>     }
+97a112,116
+>     private int copySafeNodes(Element source, Element dest) {
+>         CleaningVisitor cleaningVisitor = new CleaningVisitor(source, dest);
+>         NodeTraversor traversor = new NodeTraversor(cleaningVisitor);
+>         traversor.traverse(source);
+>         return cleaningVisitor.numDiscarded;

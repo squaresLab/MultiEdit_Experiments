@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind67/src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java d4j_patched/JacksonDatabind67/src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java
+1403c1403,1405
+<                 return _createEnumKeyDeserializer(ctxt, type);
+---
+>                 deser = _createEnumKeyDeserializer(ctxt, type);
+>             } else {
+>                 deser = StdKeyDeserializers.findStringBasedKeyDeserializer(config, type);
+1405d1406
+<             deser = StdKeyDeserializers.findStringBasedKeyDeserializer(config, type);

@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito4/src/org/mockito/exceptions/Reporter.java d4j_patched/Mockito4/src/org/mockito/exceptions/Reporter.java
+424c424
+<                 "But found this interaction on mock '" + undesired.getMock() + "':",
+---
+>                 "But found this interaction on mock '" + safelyGetMockName(undesired.getMock()) + "':",
+434c434
+<                 "But found this interaction on mock '" + undesired.getMock() + "':",
+---
+>                 "But found this interaction on mock '" + safelyGetMockName(undesired.getMock()) + "':",
+676a677,679
+>         if (details.getCause() == null) {
+>             return details.getMessage();
+>         }

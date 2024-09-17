@@ -1,0 +1,19 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson7/gson/src/main/java/com/google/gson/stream/JsonReader.java d4j_patched/Gson7/gson/src/main/java/com/google/gson/stream/JsonReader.java
+954c954,957
+<     } else if (p == PEEKED_SINGLE_QUOTED || p == PEEKED_DOUBLE_QUOTED) {
+---
+>     } else if (p == PEEKED_SINGLE_QUOTED || p == PEEKED_DOUBLE_QUOTED || p == PEEKED_UNQUOTED) {
+>       if (p == PEEKED_UNQUOTED) {
+>         peekedString = nextUnquotedValue();
+>       } else {
+955a959
+>       }
+1182c1186,1189
+<     } else if (p == PEEKED_SINGLE_QUOTED || p == PEEKED_DOUBLE_QUOTED) {
+---
+>     } else if (p == PEEKED_SINGLE_QUOTED || p == PEEKED_DOUBLE_QUOTED || p == PEEKED_UNQUOTED) {
+>       if (p == PEEKED_UNQUOTED) {
+>         peekedString = nextUnquotedValue();
+>       } else {
+1183a1191
+>       }

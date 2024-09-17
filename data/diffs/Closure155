@@ -1,0 +1,96 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure155/src/com/google/javascript/jscomp/InlineVariables.java d4j_patched/Closure155/src/com/google/javascript/jscomp/InlineVariables.java
+198a199,200
+>       boolean maybeModifiedArguments =
+>           maybeEscapedOrModifiedArguments(t.getScope(), referenceMap);
+220c222
+<           inlineNonConstants(v, referenceInfo);
+---
+>           inlineNonConstants(v, referenceInfo, maybeModifiedArguments);
+224a227,235
+>     private boolean maybeEscapedOrModifiedArguments(
+>         Scope scope, Map<Var, ReferenceCollection> referenceMap) {
+>       if (scope.isLocal()) {
+>         Var arguments = scope.getArgumentsVar();
+>         ReferenceCollection refs = referenceMap.get(arguments);
+>         if (refs != null && !refs.references.isEmpty()) {
+>           for (Reference ref : refs.references) {
+>             Node refNode = ref.getNameNode();
+>             Node refParent = ref.getParent();
+226a238,247
+>             if (!(NodeUtil.isGet(refParent)
+>                 && refNode == ref.getParent().getFirstChild()
+>                 && !isLValue(refParent))) {
+>               return true;
+>             }
+>           }
+>         }
+>       }
+>       return false;
+>     }
+227a249,255
+>     private boolean isLValue(Node n) {
+>       Node parent = n.getParent();
+>       return (parent.getType() == Token.INC
+>           || parent.getType() == Token.DEC
+>           || (NodeUtil.isAssignmentOp(parent)
+>           && parent.getFirstChild() == n));
+>     }
+230c258,259
+<         Var v, ReferenceCollection referenceInfo) {
+---
+>         Var v, ReferenceCollection referenceInfo,
+>         boolean maybeModifiedArguments) {
+275c304
+<       if (
+---
+>       if (!maybeModifiedArguments &&
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure155/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java d4j_patched/Closure155/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
+123c123,128
+<       Var v = t.getScope().getVar(n.getString());
+---
+>       Var v;
+>       if (n.getString().equals("arguments")) {
+>         v = t.getScope().getArgumentsVar();
+>       } else {
+>         v = t.getScope().getVar(n.getString());
+>       }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure155/src/com/google/javascript/jscomp/Scope.java d4j_patched/Closure155/src/com/google/javascript/jscomp/Scope.java
+62a63
+>   private Var arguments;
+289a291,296
+>   public static class Arguments extends Var {
+>     Arguments(Scope scope) {
+>       super(
+>         false, // no inferred
+>         "arguments", // always arguments
+>         null,  // no declaration node
+290a298,305
+>         null,  // no type info
+>         scope,
+>         -1,    // no variable index
+>         null,  // input,
+>         false, // not a define
+>         null   // no jsdoc
+>         );
+>     }
+291a307,310
+>     @Override public boolean equals(Object other) {
+>       if (!(other instanceof Arguments)) {
+>         return false;
+>       }
+292a312,314
+>       Arguments otherVar = (Arguments) other;
+>       return otherVar.scope.getRootNode() == scope.getRootNode();
+>     }
+293a316,319
+>     @Override public int hashCode() {
+>       return System.identityHashCode(this);
+>     }
+>   }
+458a485,490
+>   public Var getArgumentsVar() {
+>     if (arguments == null) {
+>       arguments = new Arguments(this);
+>     }
+>     return arguments;
+>   }

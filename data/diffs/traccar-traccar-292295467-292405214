@@ -1,0 +1,22 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/MeitrackProtocolDecoder.java after/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+222c222
+<                 int index = Integer.valueOf(temp.substring(0, 2), 16);
+---
+>                 int index = Integer.parseInt(temp.substring(0, 2), 16);
+224c224
+<                     double value = Short.valueOf(temp.substring(2), 16);
+---
+>                     double value = (short) Integer.parseInt(temp.substring(2), 16);
+227,228c227,228
+<                     double value = Byte.valueOf(temp.substring(2, 4), 16);
+<                     value += (value < 0 ? -0.01 : 0.01) * Integer.valueOf(temp.substring(4), 16);
+---
+>                     double value = Byte.parseByte(temp.substring(2, 4), 16);
+>                     value += (value < 0 ? -0.01 : 0.01) * Integer.parseInt(temp.substring(4), 16);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/MeitrackProtocolDecoderTest.java after/test/org/traccar/protocol/MeitrackProtocolDecoderTest.java
+14a15,17
+>                 "$$V177,863835026871173,AAA,35,34.516428,10.470160,170915154043,A,9,12,68,74,0.9,9,1988259,525882,605|2|008C|0007B5A6,0200,0003|0000|0000|01A6|0571,00000001,,3,0000,06FB2E,360,511*74"));
+> 
+>         verifyPosition(decoder, buffer(

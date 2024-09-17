@@ -1,0 +1,12 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Gl200TextProtocolDecoder.java after/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+68c68
+<             .expression("(?:[0-9F]{20})?,")      // iccid
+---
+>             .expression("(?:[0-9Ff]{20})?,")     // iccid
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Gl200TextProtocolDecoderTest.java after/test/org/traccar/protocol/Gl200TextProtocolDecoderTest.java
+13a14,16
+>                 "+RESP:GTINF,04040E,861074023747143,gv200,41,8959301000648637556f,24,0,1,0,1,4.4,0,1,0,0,20170912221854,0,00,01,-0500,1,20170912193448,1D5B$"));
+> 
+>         verifyAttributes(decoder, buffer(

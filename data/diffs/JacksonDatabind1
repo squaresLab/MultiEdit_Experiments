@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind1/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java d4j_patched/JacksonDatabind1/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
+591a592
+>             return;

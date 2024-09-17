@@ -1,0 +1,35 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure141/src/com/google/javascript/jscomp/NodeUtil.java d4j_patched/Closure141/src/com/google/javascript/jscomp/NodeUtil.java
+601a602
+>       case Token.FUNCTION:
+603a605,606
+>         Preconditions.checkState(NodeUtil.isAnonymousFunction(n));
+>         return false;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure141/src/com/google/javascript/jscomp/PureFunctionIdentifier.java d4j_patched/Closure141/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+176a177
+>     if (NodeUtil.isGetProp(name) || NodeUtil.isName(name)) {
+179,181d179
+<       if (!NodeUtil.isGetProp(name) && !NodeUtil.isName(name)) {
+<         return null;
+<       }
+197a196,216
+>     } else if (name.getType() == Token.OR || name.getType() == Token.HOOK) {
+>       Node firstVal;
+>       if (name.getType() == Token.HOOK) {
+>         firstVal = name.getFirstChild().getNext();
+>       } else {
+>         firstVal = name.getFirstChild();
+>       }
+> 
+>       Collection<Definition> defs1 = getCallableDefinitions(definitionProvider,
+>                                                             firstVal);
+>       Collection<Definition> defs2 = getCallableDefinitions(definitionProvider,
+>                                                             firstVal.getNext());
+>       if (defs1 != null && defs2 != null) {
+>         defs1.addAll(defs2);
+>         return defs1;
+>       } else {
+>         return null;
+>       }
+>     } else {
+>       return null;
+>     }

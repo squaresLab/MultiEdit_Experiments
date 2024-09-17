@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind54/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java d4j_patched/JacksonDatabind54/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
+134c134
+<             if (declaredType.isReferenceType()) {
+---
+>             if (actualType.isReferenceType()) {
+150c150
+<             if (declaredType.isContainerType()
+---
+>             if (actualType.isContainerType()

@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonXml3/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java d4j_patched/JacksonXml3/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java
+669d668
+<             _currText = _xmlTokens.getText();
+671c670
+<             break;
+---
+>             return (_currText = _xmlTokens.getText());

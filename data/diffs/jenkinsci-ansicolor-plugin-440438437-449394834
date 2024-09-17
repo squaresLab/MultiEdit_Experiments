@@ -1,0 +1,72 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java after/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java
+5a6
+> import java.io.ByteArrayOutputStream;
+9a11,12
+> import java.util.HashMap;
+> import java.util.Map;
+11a15
+> import jenkins.util.JenkinsJVM;
+22a27
+>     private final Map<String, byte[]> notes;
+26a32,60
+>         this.notes = new HashMap<>();
+>         // some cases of AnsiHtmlOutputStream.setForegroundColor:
+>         for (AnsiColorMap.Color color : AnsiColorMap.Color.values()) {
+>             pregenerateNote(new AnsiAttributeElement(AnsiAttributeElement.AnsiAttrType.FG, "span", "style=\"color: " + colorMap.getNormal(color.ordinal()) + ";\""));
+>         }
+>         // TODO other cases, and other methods
+>         LOG.log(Level.FINE, "Notes pregenerated for {0}", notes.keySet());
+>     }
+>     
+>     private void pregenerateNote(AnsiAttributeElement element) {
+>         element.emitOpen(html -> pregenerateNote(html));
+>         element.emitClose(html -> pregenerateNote(html));
+>     }
+>     
+>     private void pregenerateNote(String html) {
+>         if (!notes.containsKey(html)) {
+>             JenkinsJVM.checkJenkinsJVM();
+>             ByteArrayOutputStream baos = new ByteArrayOutputStream();
+>             try {
+>                 new SimpleHtmlNote(html).encodeTo(baos);
+>             } catch (IOException x) { // should be impossible
+>                 throw new RuntimeException(x);
+>             }
+>             notes.put(html, baos.toByteArray());
+>         }
+>     }
+> 
+>     private Object readResolve() { // handle old program.dat
+>         return notes == null ? new AnsiColorConsoleLogFilter(colorMap) : this;
+42c76,81
+<                         new SimpleHtmlNote(html).encodeTo(logger);
+---
+>                         byte[] pregenerated = notes.get(html);
+>                         if (pregenerated != null) {
+>                             logger.write(pregenerated);
+>                         } else {
+>                             new SimpleHtmlNote(html).encodeTo(logger);
+>                         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/hudson/plugins/ansicolor/AnsiColorBuildWrapperTest.java after/src/test/java/hudson/plugins/ansicolor/AnsiColorBuildWrapperTest.java
+3a4
+> import hudson.console.ConsoleNote;
+4a6
+> import java.util.logging.Level;
+8d9
+< import org.jenkinsci.plugins.workflow.job.WorkflowRun;
+15a17,18
+> import org.jvnet.hudson.test.Issue;
+> import org.jvnet.hudson.test.LoggerRule;
+44a48,49
+>     @Rule
+>     public LoggerRule logging = new LoggerRule().recordPackage(ConsoleNote.class, Level.FINE);
+45a51
+>     @Issue("JENKINS-54133")
+52a59
+>                 story.j.createSlave();
+55c62
+<                         "node {\n"
+---
+>                         "node('!master') {\n"

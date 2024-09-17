@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup29/src/main/java/org/jsoup/nodes/Document.java d4j_patched/Jsoup29/src/main/java/org/jsoup/nodes/Document.java
+2a3
+> import org.jsoup.helper.StringUtil;
+69c70
+<         return titleEl != null ? titleEl.text().trim() : "";
+---
+>         return titleEl != null ? StringUtil.normaliseWhitespace(titleEl.text()).trim() : "";

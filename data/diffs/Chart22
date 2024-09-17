@@ -1,0 +1,46 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart22/source/org/jfree/data/KeyedObjects2D.java d4j_patched/Chart22/source/org/jfree/data/KeyedObjects2D.java
+231d230
+<         if (row >= 0) {
+233c232,234
+<             return rowData.getObject(columnKey);
+---
+>         int index = rowData.getIndex(columnKey);
+>         if (index >= 0) {
+>             return rowData.getObject(index);
+317a319
+>         allNull = true;
+318a321,329
+>         for (int item = 0, itemCount = this.rows.size(); item < itemCount; 
+>              item++) {
+>             row = (KeyedObjects) this.rows.get(item);
+>             int columnIndex = row.getIndex(columnKey);
+>             if (columnIndex >= 0 && row.getObject(columnIndex) != null) {
+>                 allNull = false;
+>                 break;
+>             }
+>         }
+319a331,341
+>         if (allNull) {
+>             for (int item = 0, itemCount = this.rows.size(); item < itemCount; 
+>                  item++) {
+>                 row = (KeyedObjects) this.rows.get(item);
+>                 int columnIndex = row.getIndex(columnKey);
+>                 if (columnIndex >= 0) {
+>                     row.removeValue(columnIndex);
+>                 }
+>             }
+>             this.columnKeys.remove(columnKey);
+>         }
+344a367,370
+>         if (index < 0) {
+>             throw new UnknownKeyException("Row key (" + rowKey 
+>                     + ") not recognised.");
+>         }
+378c404,407
+<                 rowData.removeValue(columnKey);
+---
+>             int i = rowData.getIndex(columnKey);
+>             if (i >= 0) {
+>                 rowData.removeValue(i);
+>             }
+Binary files d4j_buggy/Chart22/.svn/wc.db and d4j_patched/Chart22/.svn/wc.db differ

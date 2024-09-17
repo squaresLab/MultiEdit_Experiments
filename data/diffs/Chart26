@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart26/source/org/jfree/chart/axis/Axis.java d4j_patched/Chart26/source/org/jfree/chart/axis/Axis.java
+1191a1192
+>             if (owner != null) {
+1196a1198
+>             }
+Binary files d4j_buggy/Chart26/.svn/wc.db and d4j_patched/Chart26/.svn/wc.db differ

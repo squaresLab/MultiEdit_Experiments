@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind86/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java d4j_patched/JacksonDatabind86/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
+28a29,35
+>     @Override
+>     public JavaType getSuperClass() {
+>     	if (_referencedType != null) {
+>     		return _referencedType.getSuperClass();
+>     	}
+>     	return super.getSuperClass();
+>     }

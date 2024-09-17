@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup25/src/main/java/org/jsoup/parser/Tag.java d4j_patched/Jsoup25/src/main/java/org/jsoup/parser/Tag.java
+218c218
+<     private static final String[] preserveWhitespaceTags = {"pre", "plaintext", "title"};
+---
+>     private static final String[] preserveWhitespaceTags = {"pre", "plaintext", "title", "textarea"};

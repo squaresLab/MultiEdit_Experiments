@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath12/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java d4j_patched/JxPath12/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+108c108,109
+<                 return equalStrings(namespaceURI, nodeNS);
+---
+>                 return equalStrings(namespaceURI, nodeNS) || nodeNS == null
+>                         && equalStrings(testPrefix, getPrefix(node));

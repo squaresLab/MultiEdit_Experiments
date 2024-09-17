@@ -1,0 +1,34 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java after/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+257a258,264
+> 		if (ref == null) {
+> 			return false;
+> 		}
+> 
+> 		if (targetType != null && targetType.getSimpleName().equals(ref.getSimpleName()) && !targetType.equals(ref)) {
+> 			return false;
+> 		}
+279a287
+> 
+344d351
+< 
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/ImportScannerTest.java after/src/test/java/spoon/test/imports/ImportScannerTest.java
+59a60,74
+> 	@Test
+> 	public void testComputeImportsInClassWithSameName() throws Exception {
+> 		String packageName = "spoon.test.imports.testclasses2";
+> 		String className = "ImportSameName";
+> 		String qualifiedName = packageName + "." + className;
+> 
+> 		Factory aFactory = build(packageName, className).getFactory();
+> 		CtType<?> theClass = aFactory.Type().get(qualifiedName);
+> 
+> 		ImportScanner importContext = new ImportScannerImpl();
+> 		Collection<CtTypeReference<?>> imports = importContext.computeImports(theClass);
+> 
+> 		assertEquals(0, imports.size());
+> 	}
+> 
+Only in after/src/test/java/spoon/test/imports/testclasses2: ImportSameName.java
+Only in after/src/test/java/spoon/test/imports/testclasses2: toto

@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure102/src/com/google/javascript/jscomp/Normalize.java d4j_patched/Closure102/src/com/google/javascript/jscomp/Normalize.java
+88a89
+>     removeDuplicateDeclarations(root);
+94d94
+<     removeDuplicateDeclarations(root);

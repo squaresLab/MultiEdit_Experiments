@@ -1,0 +1,33 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind78/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java d4j_patched/JacksonDatabind78/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+47a48,50
+>     protected final static Set<String> DEFAULT_NO_DESER_CLASS_NAMES;
+>     static {
+>         Set<String> s = new HashSet<>();
+49a53,62
+>         s.add("org.apache.commons.collections.functors.InvokerTransformer");
+>         s.add("org.apache.commons.collections.functors.InstantiateTransformer");
+>         s.add("org.apache.commons.collections4.functors.InvokerTransformer");
+>         s.add("org.apache.commons.collections4.functors.InstantiateTransformer");
+>         s.add("org.codehaus.groovy.runtime.ConvertedClosure");
+>         s.add("org.codehaus.groovy.runtime.MethodClosure");
+>         s.add("org.springframework.beans.factory.ObjectFactory");
+>         s.add("com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl");
+>         DEFAULT_NO_DESER_CLASS_NAMES = Collections.unmodifiableSet(s);
+>     }
+55a69
+>     protected Set<String> _cfgIllegalClassNames = DEFAULT_NO_DESER_CLASS_NAMES;
+155a170
+>         checkIllegalTypes(ctxt, type, beanDesc);
+877a893,896
+>     protected void checkIllegalTypes(DeserializationContext ctxt, JavaType type,
+>             BeanDescription beanDesc)
+>         throws JsonMappingException
+>     {
+879a899
+>         String full = type.getRawClass().getName();
+880a901,905
+>         if (_cfgIllegalClassNames.contains(full)) {
+>             ctxt.reportBadTypeDefinition(beanDesc,
+>                     "Illegal type (%s) to deserialize: prevented for security reasons", full);
+>         }
+>     }

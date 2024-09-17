@@ -1,0 +1,26 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java after/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+542a543,546
+> 		if (!res.toString().replace(", ?", ",?").endsWith(CharOperation.toString(ref.getParameterizedTypeName()))) {
+> 			// verify that we did not match a class that have the same name in a different package
+> 			return this.jdtTreeBuilder.getFactory().Type().createReference(CharOperation.toString(ref.getParameterizedTypeName()));
+> 		}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/reference/TypeReferenceTest.java after/src/test/java/spoon/test/reference/TypeReferenceTest.java
+283a284,299
+> 	public void testUnknownSuperClassWithSameNameInNoClasspath() throws Exception {
+> 		// contract: Gets the import of a type specified in the declaration of a class.
+> 		final Launcher launcher = new Launcher();
+> 		launcher.addInputResource("./src/test/resources/noclasspath/Attachment.java");
+> 		launcher.setSourceOutputDirectory("./target/class-declaration");
+> 		launcher.getEnvironment().setNoClasspath(true);
+> 		launcher.run();
+> 
+> 		CtClass<?> ctType = (CtClass<?>) launcher.getFactory().Class().getAll().get(0);
+> 		assertNotEquals(ctType.getSuperclass(), ctType.getReference());
+> 		assertEquals("it.feio.android.omninotes.commons.models.Attachment", ctType.getSuperclass().toString());
+> 		assertEquals("it.feio.android.omninotes.models.Attachment", ctType.getReference().toString());
+> 
+> 	}
+> 
+> 	@Test

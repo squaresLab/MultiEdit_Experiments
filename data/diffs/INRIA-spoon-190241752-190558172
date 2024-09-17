@@ -1,0 +1,123 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java after/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java
+19a20
+> import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
+22d22
+< import org.eclipse.jdt.internal.compiler.ast.MethodDeclaration;
+44a45,46
+> import spoon.reflect.declaration.CtConstructor;
+> import spoon.reflect.declaration.CtExecutable;
+46d47
+< import spoon.reflect.declaration.CtMethod;
+52a54
+> import spoon.reflect.factory.TypeFactory;
+163a166
+> 		final TypeFactory typeFactory = jdtTreeBuilder.getFactory().Type();
+189,196c192,200
+< 				// since the given parameter has not been declared in a lambda expression it must
+< 				// have been declared by a method!
+< 				final CtMethod method = (CtMethod) variable.getParent();
+< 
+< 				// create list of method's parameter types
+< 				final List<CtTypeReference<?>> parameterTypesOfMethod = new ArrayList<>();
+< 				final List<CtParameter<?>> parametersOfMethod = method.getParameters();
+< 				for (CtParameter<?> parameter : parametersOfMethod) {
+---
+> 				// Since the given parameter has not been declared in a lambda expression it must
+> 				// have been declared by a method/constructor.
+> 				final CtExecutable executable = (CtExecutable) variable.getParent();
+> 
+> 				// create list of executable's parameter types
+> 				final List<CtTypeReference<?>> parameterTypesOfExecutable = new ArrayList<>();
+> 				@SuppressWarnings("unchecked")
+> 				final List<CtParameter<?>> parametersOfExecutable = executable.getParameters();
+> 				for (CtParameter<?> parameter : parametersOfExecutable) {
+198c202,205
+< 						parameterTypesOfMethod.add(parameter.getType().clone());
+---
+> 						parameterTypesOfExecutable.add(parameter.getType().clone());
+> 					} else {
+> 						// it's the best match :(
+> 						parameterTypesOfExecutable.add(typeFactory.OBJECT);
+202,203c209,210
+< 				// find method's corresponding jdt element
+< 				MethodDeclaration methodJDT = null;
+---
+> 				// find executable's corresponding jdt element
+> 				AbstractMethodDeclaration executableJDT = null;
+205,207c212,213
+< 					if (astPair.element == method) {
+< 						methodJDT = (MethodDeclaration) astPair.node;
+< 						break;
+---
+> 					if (astPair.element == executable) {
+> 						executableJDT = (AbstractMethodDeclaration) astPair.node;
+210c216
+< 				assert methodJDT != null;
+---
+> 				assert executableJDT != null;
+212,213c218,219
+< 				// create a reference to method's declaring class
+< 				final CtTypeReference declaringReferenceOfMethod =
+---
+> 				// create a reference to executable's declaring class
+> 				final CtTypeReference declaringReferenceOfExecutable =
+216,217c222,246
+< 						methodJDT.binding == null ? coreFactory.createTypeReference()
+< 								: referenceBuilder.getTypeReference(methodJDT.binding.declaringClass);
+---
+> 						// available
+> 						executableJDT.binding == null ? coreFactory.createTypeReference()
+> 								: referenceBuilder.getTypeReference(
+> 										executableJDT.binding.declaringClass);
+> 
+> 				// If executable is a constructor, `executable.getType()` returns null since the
+> 				// parent is not available yet. Fortunately, however, the return type of a
+> 				// constructor is its declaring class which, in our case, is already available with
+> 				// declaringReferenceOfExecutable.
+> 				CtTypeReference executableTypeReference = executable instanceof CtConstructor
+> 						// IMPORTANT: Create a clone of the type reference (rt) if retrieved by
+> 						// other AST elements as `executableFactory.createReference` (see below)
+> 						// indirectly sets the parent of `rt` and, thus, may break the AST!
+> 						? declaringReferenceOfExecutable.clone()
+> 						: executable.getType().clone();
+> 
+> 				// create a reference to the executable of the currently processed parameter
+> 				// reference
+> 				@SuppressWarnings("unchecked")
+> 				final CtExecutableReference executableReference =
+> 						executableFactory.createReference(
+> 								declaringReferenceOfExecutable,
+> 								executableTypeReference,
+> 								executable.getSimpleName(),
+> 								parameterTypesOfExecutable);
+219,232c248,249
+< 				// create a reference to the method of the currently processed parameter reference
+< 				final CtExecutableReference methodReference =
+< 						executableFactory.createReference(declaringReferenceOfMethod,
+< 								// we need to clone method's return type (rt) before passing to
+< 								// `createReference` since this method (indirectly) sets the parent
+< 								// of the rt and, therefore, may break the AST
+< 								method.getType().clone(),
+< 								// no need to clone/copy as Strings are immutable
+< 								method.getSimpleName(),
+< 								// no need to clone/copy as we just created this object
+< 								parameterTypesOfMethod);
+< 
+< 				// finally, we can set the method reference...
+< 				parameterReference.setDeclaringExecutable(methodReference);
+---
+> 				// finally, we can set the executable reference...
+> 				parameterReference.setDeclaringExecutable(executableReference);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/reference/VariableAccessTest.java after/src/test/java/spoon/test/reference/VariableAccessTest.java
+66a67,75
+> 	public void testParameterReferenceInConstructorNoClasspath () {
+> 		final Launcher launcher = new Launcher();
+> 		// throws `NullPointerException` before PR #1098
+> 		launcher.addInputResource("./src/test/resources/noclasspath/org/elasticsearch/indices/analysis/HunspellService.java");
+> 		launcher.getEnvironment().setNoClasspath(true);
+> 		launcher.buildModel();
+> 	}
+> 
+> 	@Test

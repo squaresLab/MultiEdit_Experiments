@@ -1,0 +1,55 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind59/src/main/java/com/fasterxml/jackson/databind/JavaType.java d4j_patched/JacksonDatabind59/src/main/java/com/fasterxml/jackson/databind/JavaType.java
+139a140,151
+>     public JavaType withHandlersFrom(JavaType src) {
+>         JavaType type = this;
+>         Object h = src.getTypeHandler();
+>         if (h != _typeHandler) {
+>             type = type.withTypeHandler(h);
+>         }
+>         h = src.getValueHandler();
+>         if (h != _valueHandler) {
+>             type = type.withValueHandler(h);
+>         }
+>         return type;
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind59/src/main/java/com/fasterxml/jackson/databind/type/CollectionLikeType.java d4j_patched/JacksonDatabind59/src/main/java/com/fasterxml/jackson/databind/type/CollectionLikeType.java
+135a136,147
+>     @Override
+>     public JavaType withHandlersFrom(JavaType src) {
+>         JavaType type = super.withHandlersFrom(src);
+>         JavaType srcCt = src.getContentType();
+>         if (srcCt != null) {
+>             JavaType ct = _elementType.withHandlersFrom(srcCt);
+>             if (ct != _elementType) {
+>                 type = type.withContentType(ct);
+>             }
+>         }
+>         return type;
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind59/src/main/java/com/fasterxml/jackson/databind/type/MapLikeType.java d4j_patched/JacksonDatabind59/src/main/java/com/fasterxml/jackson/databind/type/MapLikeType.java
+147a148,151
+>     @Override
+>     public JavaType withHandlersFrom(JavaType src) {
+>         JavaType type = super.withHandlersFrom(src);
+>         JavaType srcKeyType = src.getKeyType();
+148a153,169
+>         if (type instanceof MapLikeType) {
+>             if (srcKeyType != null) {
+>                 JavaType ct = _keyType.withHandlersFrom(srcKeyType);
+>                 if (ct != _keyType) {
+>                     type = ((MapLikeType) type).withKeyType(ct);
+>                 }
+>             }
+>         }
+>         JavaType srcCt = src.getContentType();
+>         if (srcCt != null) {
+>             JavaType ct = _valueType.withHandlersFrom(srcCt);
+>             if (ct != _valueType) {
+>                 type = type.withContentType(ct);
+>             }
+>         }
+>         return type;
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind59/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java d4j_patched/JacksonDatabind59/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+427a428
+>         newType = newType.withHandlersFrom(baseType);

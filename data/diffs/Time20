@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Time20/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java d4j_patched/Time20/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+2541a2542
+>             String best = null;
+2544,2545c2545,2547
+<                     bucket.setZone(DateTimeZone.forID(id));
+<                     return position + id.length();
+---
+>                 	if (best == null || id.length() > best.length()) {
+>                 		best = id;
+>                 	}
+2546a2549,2552
+>             }
+>             if (best != null) {
+>                 bucket.setZone(DateTimeZone.forID(best));
+>                 return position + best.length();

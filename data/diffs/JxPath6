@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath6/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java d4j_patched/JxPath6/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
+57c57,61
+<         if (l instanceof InitialContext || l instanceof SelfContext) {
+---
+>         if (l instanceof InitialContext) {
+>             ((EvalContext) l).reset();
+>         }
+> 
+>         if (l instanceof SelfContext) {
+61c65,69
+<         if (r instanceof InitialContext || r instanceof SelfContext) {
+---
+>         if (r instanceof InitialContext) {
+>             ((EvalContext) r).reset();
+>         }
+> 
+>         if (r instanceof SelfContext) {

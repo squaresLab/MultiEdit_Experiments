@@ -1,0 +1,21 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure16/src/com/google/javascript/jscomp/ScopedAliases.java d4j_patched/Closure16/src/com/google/javascript/jscomp/ScopedAliases.java
+169a170
+>     private final Node aliasDefinition;
+172c173
+<     AliasedTypeNode(Node typeReference,
+---
+>     AliasedTypeNode(Node typeReference, Node aliasDefinition,
+174a176
+>       this.aliasDefinition = aliasDefinition;
+180c182,186
+<       typeReference.setString(aliasName);
+---
+>       String typeName = typeReference.getString();
+>       String aliasExpanded =
+>           Preconditions.checkNotNull(aliasDefinition.getQualifiedName());
+>       Preconditions.checkState(typeName.startsWith(aliasName));
+>       typeReference.setString(typeName.replaceFirst(aliasName, aliasExpanded));
+468c474
+<           aliasUsages.add(new AliasedTypeNode(typeNode, aliasedNode.getQualifiedName() + name.substring(endIndex)));
+---
+>           aliasUsages.add(new AliasedTypeNode(typeNode, aliasedNode, baseName));

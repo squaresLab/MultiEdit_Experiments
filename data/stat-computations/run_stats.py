@@ -19,6 +19,8 @@ DEPENDENCY_TUPLE_INDEX_OUTPUT=3
 DEPENDENCY_TUPLE_INDEX_DATA=4
 DEPENDENCY_TUPLE_INDEX_ANY=5
 
+INCLUDE_D4J_V2 = False
+
 bears_single_module_bugs = list(range(1,141+1)) + [143,184,185,188,189,190,191,192,194,198, \
     201,202,204,207,209,210,213,215,216,217,218,219,220,221,223,224,225,226,230, \
     231,232,234,235,238,239,243,244,245,246,247,249,250,251]
@@ -29,14 +31,29 @@ def percent(n_part: int, n_whole: int) -> str:
     p = round(p)
     return "{}%".format(p)
 
+
+def print_formatted_table(*rows):
+    col_widths = [0] * len(rows[0])
+    for r in rows:
+        for i, c in enumerate(r):
+            if len(str(c)) > col_widths[i]:
+                col_widths[i] = len(str(c))
+    for r in rows:
+        widths_for_row = zip(r, col_widths)
+        formatted_row_items = [f'{c}{" " * (w-len(str(c)))}' for c, w in widths_for_row]
+        print('\t'.join(formatted_row_items))
+
+
 def run_chi2(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
     contingency_table = [[len(r0set & c0set), len(r0set & c1set)],
                          [len(r1set & c0set), len(r1set & c1set)]]
 
     print(message)
-    print('\t{}\t{}'.format(c0, c1))
-    print('{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1]))
-    print('{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1]))
+    print_formatted_table(
+        ('', c0, c1),
+        (r0, contingency_table[0][0], contingency_table[0][1]),
+        (r1, contingency_table[1][0], contingency_table[1][1])
+    )
 
     chi2, pval, df = stats.chi2_contingency(contingency_table)[0:3]
     print('p-value:', pval)
@@ -47,9 +64,11 @@ def run_fisher_exact(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1):
                          [len(r1set & c0set), len(r1set & c1set)]]
 
     print(message)
-    print('\t{}\t{}'.format(c0, c1))
-    print('{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1]))
-    print('{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1]))
+    print_formatted_table(
+        ('', c0, c1),
+        (r0, contingency_table[0][0], contingency_table[0][1]),
+        (r1, contingency_table[1][0], contingency_table[1][1])
+    )
 
     oddsratio, pval = stats.fisher_exact(contingency_table)
     print('p-value:', pval)
@@ -76,10 +95,12 @@ def run_contingency_analysis(r0set, r1set, c0set, c1set, message, r0, r1, c0, c1
                          [r1c0, r1c1]]
 
     print(message)
-    print('\t{}\t{}\ttotal'.format(c0, c1))
-    print('{}\t{}\t{}\t{}'.format(r0, contingency_table[0][0], contingency_table[0][1], r0sum))
-    print('{}\t{}\t{}\t{}'.format(r1, contingency_table[1][0], contingency_table[1][1], r1sum))
-    print('total\t{}\t{}\t{}'.format(c0sum, c1sum, allsum))
+    print_formatted_table(
+        ('', c0, c1, 'total'),
+        (r0, contingency_table[0][0], contingency_table[0][1], r0sum),
+        (r1, contingency_table[1][0], contingency_table[1][1], r1sum),
+        ('total', c0sum, c1sum, allsum)
+    )
 
     if not is_table_analyzable(contingency_table):
         print("Not analyzable")
@@ -161,21 +182,24 @@ def get_proj(bugId: BugId) -> Project:
 def get_all_d4j_bugs() -> Set[BugId]:
     d4j_bugs = list()
     d4j_bugs += ['Chart{}'.format(n) for n in range(1, 26+1)]
-    d4j_bugs += ['Cli{}'.format(n) for n in range(1, 5+1)]
-    d4j_bugs += ['Cli{}'.format(n) for n in range(7, 40+1)]
+    if INCLUDE_D4J_V2:
+        d4j_bugs += ['Cli{}'.format(n) for n in range(1, 5+1)]
+        d4j_bugs += ['Cli{}'.format(n) for n in range(7, 40+1)]
     d4j_bugs += ['Closure{}'.format(n) for n in range(1, 62+1)]
     d4j_bugs += ['Closure{}'.format(n) for n in range(64, 92+1)]
-    d4j_bugs += ['Closure{}'.format(n) for n in range(94, 176+1)]
-    d4j_bugs += ['Codec{}'.format(n) for n in range(1, 18+1)]
-    d4j_bugs += ['Collections{}'.format(n) for n in range(25, 28+1)]
-    d4j_bugs += ['Compress{}'.format(n) for n in range(1, 47+1)]
-    d4j_bugs += ['Csv{}'.format(n) for n in range(1, 16+1)]
-    d4j_bugs += ['Gson{}'.format(n) for n in range(1, 18+1)]
-    d4j_bugs += ['Jacksoncore{}'.format(n) for n in range(1, 26+1)]
-    d4j_bugs += ['Jacksondatabind{}'.format(n) for n in range(1, 112+1)]
-    d4j_bugs += ['Jacksonxml{}'.format(n) for n in range(1, 6+1)]
-    d4j_bugs += ['Jsoup{}'.format(n) for n in range(1, 93+1)]
-    d4j_bugs += ['Jxpath{}'.format(n) for n in range(1, 22+1)]
+    d4j_bugs += ['Closure{}'.format(n) for n in range(94, 133+1)]
+    if INCLUDE_D4J_V2:
+        d4j_bugs += ['Closure{}'.format(n) for n in range(134, 176+1)]
+        d4j_bugs += ['Codec{}'.format(n) for n in range(1, 18+1)]
+        d4j_bugs += ['Collections{}'.format(n) for n in range(25, 28+1)]
+        d4j_bugs += ['Compress{}'.format(n) for n in range(1, 47+1)]
+        d4j_bugs += ['Csv{}'.format(n) for n in range(1, 16+1)]
+        d4j_bugs += ['Gson{}'.format(n) for n in range(1, 18+1)]
+        d4j_bugs += ['JacksonCore{}'.format(n) for n in range(1, 26+1)]
+        d4j_bugs += ['JacksonDatabind{}'.format(n) for n in range(1, 112+1)]
+        d4j_bugs += ['JacksonXml{}'.format(n) for n in range(1, 6+1)]
+        d4j_bugs += ['Jsoup{}'.format(n) for n in range(1, 93+1)]
+        d4j_bugs += ['JxPath{}'.format(n) for n in range(1, 22+1)]
     d4j_bugs += ['Lang{}'.format(n) for n in range(1, 1+1)]
     d4j_bugs += ['Lang{}'.format(n) for n in range(3, 65+1)]
     d4j_bugs += ['Math{}'.format(n) for n in range(1, 106+1)]
@@ -189,15 +213,13 @@ def get_all_bears_bugs() -> Set[BugId]: #all = all single-module bugs
 
 def is_evaluated_by_RepairThemAll(bugId: str) -> bool:
     """
-    False if the bug is newly added in D4J 2.0.0; True otherwise.
+    False if the bug is in Jsoup or not a Bears/D4J bug; True otherwise.
     """
-    if 'Bears' in bugId or 'Chart' in bugId or 'Lang' in bugId \
-        or 'Math' in bugId or 'Mockito' in bugId or 'Time' in bugId:
+    if 'Bears' in bugId or 'Chart' in bugId or 'Cli' in bugId or 'Closure' in bugId or \
+    'Codec' in bugId or 'Collections' in bugId or 'Compress' in bugId or 'Csv' in bugId or \
+    'Gson' in bugId or 'JacksonCore' in bugId or 'JacksonDatabind' in bugId or 'JacksonXml' in bugId or \
+    'JxPath' in bugId or 'Lang' in bugId or 'Math' in bugId or 'Mockito' in bugId or 'Time' in bugId:
         return True
-    elif 'Closure' in bugId:
-        if len(bugId) < 10: return True
-        elif len(bugId) == 10 and int(bugId[-3:]) <= 133: return True
-        else: return False
     else:
         return False
 
@@ -225,6 +247,14 @@ def normalize_bugId(not_normalized_bugId: str) -> BugId:
 
     if proj == 'Clojure':
         proj = 'Closure'
+    if proj == 'Jacksoncore':
+        proj = 'JacksonCore'
+    if proj == 'Jacksondatabind':
+        proj = 'JacksonDatabind'
+    if proj == 'Jacksonxml':
+        proj = 'JacksonXml'
+    if proj == 'Jxpath':
+        proj = 'JxPath'
 
     normalized_bugId = proj + str(bugnum)
     return normalized_bugId
@@ -311,18 +341,22 @@ def get_repairs_bears() -> Dict[APRTool, List[BugId]]:
 def get_repairs_d4j() -> Dict[APRTool, List[BugId]]:
     repairs = dict() #maps tool -> bugIds of bugs repaired by the tool
 
-    with open('repair-them-all/defects4j.csv') as f:
-        reader=csv.reader(f)
-        for row in reader:
-            tool = row[0]
-            proj = row[1]
-            bugnums = row[2:] #may be empty
-            bugIds = ['{}{}'.format(proj, bugnum) for bugnum in bugnums]
+    def read_repairs(fname):
+        with open(fname) as f:
+            reader=csv.reader(f)
+            for row in reader:
+                tool = row[0]
+                proj = row[1]
+                bugnums = row[2:] #may be empty
+                bugIds = ['{}{}'.format(proj, bugnum) for bugnum in bugnums]
 
-            if tool not in repairs:
-                repairs[tool] = list()
+                if tool not in repairs:
+                    repairs[tool] = list()
 
-            repairs[tool] += bugIds
+                repairs[tool] += bugIds
+    read_repairs('repair-them-all/defects4j.csv')
+    if INCLUDE_D4J_V2:
+        read_repairs('repair-them-all/defects4jv2.csv')
 
     return repairs
 
@@ -391,6 +425,8 @@ tool_to_repaired_bugs: Dict[APRTool, List[BugId]] = get_tool_to_repaired_bugs()
 all_repairable_bugs: Set[BugId] = set(chain.from_iterable(tool_to_repaired_bugs.values()))
 
 two_six_location_bugs = set(get_bug_list('../2_6_locs_bugs.data'))
+
+bugs_with_spectra = set(get_bug_list('../bugswithspectra.txt'))
 
 
 def print_dependency_stats():
@@ -512,6 +548,29 @@ def partition_bugs_by_dependency(bugs_to_partition, dependency_tuple_index) -> T
     nondependent_partition = bugs_to_partition_set - all_dependent_bugs
     return dependent_partition, nondependent_partition
 
+def partition_bugs_by_localizability(bugs_to_partition, data_json_fname, topn, include_ties=True) -> Tuple[Set[BugId], Set[BugId]]:
+    bugs_to_partition_set = set(bugs_to_partition)
+
+    with open(data_json_fname) as f:
+        localizability_data = json.load(f)
+
+    key = f'localized_top_{topn}'
+    if key not in localizability_data:
+        raise ValueError(f"{topn} not a valid value for `topn`, key {key} does not exist in {data_json_fname}")
+    topn_bugs = [normalize_bugId(s) for s in localizability_data[key]]
+
+    if include_ties:
+        tied_key = f'localized_tied_with_top_{topn}'
+        if tied_key not in localizability_data:
+            raise ValueError(f"{topn} not a valid value for `topn`, key {tied_key} does not exist in {data_json_fname}")
+        tied_topn_bugs = [normalize_bugId(s) for s in localizability_data[tied_key]]
+        topn_bugs = topn_bugs + tied_topn_bugs
+
+    localizable = set(topn_bugs) & bugs_to_partition_set
+    unlocalizable = bugs_to_partition_set - localizable
+
+    return localizable, unlocalizable
+
 def print_repairability_stats(all_bugs, multi_line_bugs, multi_location_bugs):
     single_line_bugs = all_bugs - multi_line_bugs
     single_location_bugs = all_bugs - multi_location_bugs
@@ -526,18 +585,21 @@ def print_repairability_stats(all_bugs, multi_line_bugs, multi_location_bugs):
         'repairable', 'nonrepairable', '1-chunk', 'multichunk')
 
 def test_dependency_and_repairability():
-    ctrl_dependent_d4j, ctrl_nondependent_d4j = partition_bugs_by_dependency(multi_line_bugs_d4j,
+    bugs_to_check = multi_location_bugs_d4j
+    ctrl_dependent_d4j, ctrl_nondependent_d4j = partition_bugs_by_dependency(bugs_to_check,
                                                                              DEPENDENCY_TUPLE_INDEX_CTRL)
-    data_dependent_d4j, data_nondependent_d4j = partition_bugs_by_dependency(multi_line_bugs_d4j,
+    data_dependent_d4j, data_nondependent_d4j = partition_bugs_by_dependency(bugs_to_check,
                                                                              DEPENDENCY_TUPLE_INDEX_DATA)
-    any_dependent_d4j, any_nondependent_d4j = partition_bugs_by_dependency(multi_line_bugs_d4j,
+    any_dependent_d4j, any_nondependent_d4j = partition_bugs_by_dependency(bugs_to_check,
                                                                            DEPENDENCY_TUPLE_INDEX_ANY)
-    repairable_d4j, nonrepairable_d4j, notevaluated_d4j = partition_bugs_by_repairability(multi_line_bugs_d4j)
+    repairable_d4j, nonrepairable_d4j, notevaluated_d4j = partition_bugs_by_repairability(bugs_to_check)
+    print(repairable_d4j)
 
-    print('D4J no evaluation:')
+    print('D4J, no RTA evaluation:')
     print(f'\t{len(notevaluated_d4j & any_dependent_d4j)} control|data dependents')
     print(f'\t{len(notevaluated_d4j & any_nondependent_d4j)} nondependents')
     print(f'\t{len(notevaluated_d4j)} total')
+    print()
     # run_contingency_analysis(repairable_d4j, nonrepairable_d4j, ctrl_dependent_d4j, ctrl_nondependent_d4j,
     # "D4J: control dependency and repairability",
     # 'repairable', 'nonrepairable', 'dependent', 'nondependent')
@@ -545,16 +607,17 @@ def test_dependency_and_repairability():
     # "D4J: data dependency and repairability",
     # 'repairable', 'nonrepairable', 'dependent', 'nondependent')
     run_contingency_analysis(repairable_d4j, nonrepairable_d4j, any_dependent_d4j, any_nondependent_d4j,
-    "D4J: control|data dependency and repairability",
+    "D4J: (control|data) dependency and repairability",
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
-    ctrl_dependent_bears, ctrl_nondependent_bears = partition_bugs_by_dependency(multi_line_bugs_bears,
+    bugs_to_check = multi_location_bugs_bears
+    ctrl_dependent_bears, ctrl_nondependent_bears = partition_bugs_by_dependency(bugs_to_check,
                                                                                  DEPENDENCY_TUPLE_INDEX_CTRL)
-    data_dependent_bears, data_nondependent_bears = partition_bugs_by_dependency(multi_line_bugs_bears,
+    data_dependent_bears, data_nondependent_bears = partition_bugs_by_dependency(bugs_to_check,
                                                                                  DEPENDENCY_TUPLE_INDEX_DATA)
-    any_dependent_bears, any_nondependent_bears = partition_bugs_by_dependency(multi_line_bugs_bears,
+    any_dependent_bears, any_nondependent_bears = partition_bugs_by_dependency(bugs_to_check,
                                                                                DEPENDENCY_TUPLE_INDEX_ANY)
-    repairable_bears, nonrepairable_bears, notevaluated_bears = partition_bugs_by_repairability(multi_line_bugs_bears)
+    repairable_bears, nonrepairable_bears, notevaluated_bears = partition_bugs_by_repairability(bugs_to_check)
 
     # run_contingency_analysis(repairable_bears, nonrepairable_bears, ctrl_dependent_bears, ctrl_nondependent_bears,
     # "Bears: between control dependency and repairability",
@@ -650,48 +713,115 @@ def test_dependency_size_and_repairability():
     "Combined D4J|Bears: control|data dependency and repairability, 4 lines",
     'repairable', 'nonrepairable', 'dependent', 'nondependent')
 
-def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs):
-    disj_d4j, inbtw_d4j, same_d4j = [partition & set(multi_chunk_bugs_d4j) for partition in coverage_partitions_d4j]
-    ndisj_d4j = inbtw_d4j | same_d4j
-    nsame_d4j = disj_d4j | inbtw_d4j
-    repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_chunk_bugs_d4j)
-    run_contingency_analysis(repairable_d4j, nonrepairable_d4j, disj_d4j, ndisj_d4j, \
-    "D4J: disjoint coverage and repairability", \
-    'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
-    run_contingency_analysis(repairable_d4j, nonrepairable_d4j, same_d4j, nsame_d4j, \
-    "D4J: same coverage and repairability", \
-    'repairable', 'nonrepairable', 'same', 'nonsame')
-    inbtw_repairable_d4j, inbtw_nonrepairable_d4j = len(inbtw_d4j & repairable_d4j), len(inbtw_d4j & nonrepairable_d4j)
-    print("Number of D4J in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_d4j, inbtw_nonrepairable_d4j))
-    print()
+# def test_coverage_and_repairability(multi_chunk_bugs_d4j, multi_chunk_bugs_bears, coverage_partitions_d4j, coverage_partitions_bears, tool_to_repaired_bugs):
+#     disj_d4j, inbtw_d4j, same_d4j = [partition & set(multi_chunk_bugs_d4j) for partition in coverage_partitions_d4j]
+#     ndisj_d4j = inbtw_d4j | same_d4j
+#     nsame_d4j = disj_d4j | inbtw_d4j
+#     repairable_d4j, nonrepairable_d4j = partition_bugs_by_repairability(multi_chunk_bugs_d4j)
+#     run_contingency_analysis(repairable_d4j, nonrepairable_d4j, disj_d4j, ndisj_d4j, \
+#     "D4J: disjoint coverage and repairability", \
+#     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
+#     run_contingency_analysis(repairable_d4j, nonrepairable_d4j, same_d4j, nsame_d4j, \
+#     "D4J: same coverage and repairability", \
+#     'repairable', 'nonrepairable', 'same', 'nonsame')
+#     inbtw_repairable_d4j, inbtw_nonrepairable_d4j = len(inbtw_d4j & repairable_d4j), len(inbtw_d4j & nonrepairable_d4j)
+#     print("Number of D4J in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_d4j, inbtw_nonrepairable_d4j))
+#     print()
 
-    disj_bears, inbtw_bears, same_bears = [partition & set(multi_chunk_bugs_bears) for partition in coverage_partitions_bears]
-    ndisj_bears = inbtw_bears | same_bears
-    nsame_bears = disj_bears | inbtw_bears
-    repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_chunk_bugs_bears)
-    run_contingency_analysis(repairable_bears, nonrepairable_bears, disj_bears, ndisj_bears, \
-    "Bears: between disjoint coverage and repairability", \
-    'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
-    run_contingency_analysis(repairable_bears, nonrepairable_bears, same_bears, nsame_bears, \
-    "Bears: between same coverage and repairability", \
-    'repairable', 'nonrepairable', 'same', 'nonsame')
-    inbtw_repairable_bears, inbtw_nonrepairable_bears = len(inbtw_bears & repairable_bears), len(inbtw_bears & nonrepairable_bears)
-    print("Number of Bears in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_bears, inbtw_nonrepairable_bears))
-    print()
+#     disj_bears, inbtw_bears, same_bears = [partition & set(multi_chunk_bugs_bears) for partition in coverage_partitions_bears]
+#     ndisj_bears = inbtw_bears | same_bears
+#     nsame_bears = disj_bears | inbtw_bears
+#     repairable_bears, nonrepairable_bears = partition_bugs_by_repairability(multi_chunk_bugs_bears)
+#     run_contingency_analysis(repairable_bears, nonrepairable_bears, disj_bears, ndisj_bears, \
+#     "Bears: between disjoint coverage and repairability", \
+#     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
+#     run_contingency_analysis(repairable_bears, nonrepairable_bears, same_bears, nsame_bears, \
+#     "Bears: between same coverage and repairability", \
+#     'repairable', 'nonrepairable', 'same', 'nonsame')
+#     inbtw_repairable_bears, inbtw_nonrepairable_bears = len(inbtw_bears & repairable_bears), len(inbtw_bears & nonrepairable_bears)
+#     print("Number of Bears in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_bears, inbtw_nonrepairable_bears))
+#     print()
 
-    disj_all, inbtw_all, same_all = disj_d4j | disj_bears, inbtw_d4j | inbtw_bears, same_d4j | same_bears
-    ndisj_all = ndisj_d4j | ndisj_bears
-    nsame_all = nsame_d4j | nsame_bears
-    repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
-    run_contingency_analysis(repairable_all, nonrepairable_all, disj_all, ndisj_all, \
-    "Combined D4J|Bears: disjoint coverage and repairability", \
-    'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
-    run_contingency_analysis(repairable_all, nonrepairable_all, same_all, nsame_all, \
-    "Combined D4J|Bears: same coverage and repairability", \
-    'repairable', 'nonrepairable', 'same', 'nonsame')
-    inbtw_repairable_all, inbtw_nonrepairable_all = len(inbtw_all & repairable_all), len(inbtw_all & nonrepairable_all)
-    print("Number of all in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_all, inbtw_nonrepairable_all))
-    print()
+#     disj_all, inbtw_all, same_all = disj_d4j | disj_bears, inbtw_d4j | inbtw_bears, same_d4j | same_bears
+#     ndisj_all = ndisj_d4j | ndisj_bears
+#     nsame_all = nsame_d4j | nsame_bears
+#     repairable_all, nonrepairable_all = repairable_d4j | repairable_bears, nonrepairable_d4j | nonrepairable_bears
+#     run_contingency_analysis(repairable_all, nonrepairable_all, disj_all, ndisj_all, \
+#     "Combined D4J|Bears: disjoint coverage and repairability", \
+#     'repairable', 'nonrepairable', 'disjoint', 'nondisjoint')
+#     run_contingency_analysis(repairable_all, nonrepairable_all, same_all, nsame_all, \
+#     "Combined D4J|Bears: same coverage and repairability", \
+#     'repairable', 'nonrepairable', 'same', 'nonsame')
+#     inbtw_repairable_all, inbtw_nonrepairable_all = len(inbtw_all & repairable_all), len(inbtw_all & nonrepairable_all)
+#     print("Number of all in-between bugs: {} repaired; {} not repaired".format(inbtw_repairable_all, inbtw_nonrepairable_all))
+#     print()
+
+def test_sbfl_efficacy_and_repairability():
+    print("bugs without spectra", all_bugs - bugs_with_spectra)
+
+    localized_dict = {
+        "worst_case" : {},
+        "best_case" : {},
+        "avg_case" : {}
+    }
+
+    bugs_to_check = set([bug for bug in multi_location_bugs_d4j ]) #if not bug.startswith("Jsoup")
+    repairable_d4j, nonrepairable_d4j, notevaluated_d4j = partition_bugs_by_repairability(bugs_to_check& bugs_with_spectra)
+    for topn in [100]:#[1, 5, 10, 50, 100, 200]:
+        best_case_localizable_d4j, best_case_unlocalizable_d4j = partition_bugs_by_localizability(bugs_to_check, "../localizability/bestcase_multi_loc_scores.json", topn=topn, include_ties=True)
+        worst_case_localizable_d4j, worst_case_unlocalizable_d4j = partition_bugs_by_localizability(bugs_to_check, "../localizability/worstcase_multi_loc_scores.json", topn=topn, include_ties=True)
+
+        localized_dict["best_case"][topn] = list(best_case_localizable_d4j)
+        localized_dict["worst_case"][topn] = list(worst_case_localizable_d4j)
+
+        run_contingency_analysis(repairable_d4j, nonrepairable_d4j, best_case_localizable_d4j, best_case_unlocalizable_d4j,
+            f"D4J multiloc: best case localizable within top {topn} (including ties) and repairability",
+            'repairable', 'nonrepairable', 'localizable', 'nonlocalizable_d4j')
+        run_contingency_analysis(repairable_d4j, nonrepairable_d4j, worst_case_localizable_d4j, worst_case_unlocalizable_d4j,
+            f"D4J multiloc: worst case localizable within top {topn} (including ties) and repairability",
+            'repairable', 'nonrepairable', 'localizable', 'nonlocalizable_d4j')
+        
+        run_contingency_analysis(repairable_d4j, nonrepairable_d4j, best_case_localizable_d4j, worst_case_localizable_d4j,
+                f"D4J multiloc: localizable within top {topn} (including ties) and repairability",
+                'repairable', 'nonrepairable', 'best_case', 'worst_case')
+        print("--------------------------------------------------------------------------------------------")
+        if (topn == 200):
+            print("non-localizable and repairable", repairable_d4j - best_case_localizable_d4j)
+            print()
+            print("localizable and non-repairable", nonrepairable_d4j & worst_case_localizable_d4j)
+
+    bugs_to_check = multi_location_bugs_bears & bugs_with_spectra
+    repairable_bears, nonrepairable_bears, notevaluated_bears = partition_bugs_by_repairability(bugs_to_check & bugs_with_spectra)
+    for topn in [100]:#[1, 5, 10, 50, 100, 200]:
+        best_case_localizable_bears, best_case_unlocalizable_bears = partition_bugs_by_localizability(bugs_to_check, "../localizability/bestcase_multi_loc_scores.json", topn=topn, include_ties=True)
+        worst_case_localizable_bears, worst_case_unlocalizable_bears = partition_bugs_by_localizability(bugs_to_check, "../localizability/worstcase_multi_loc_scores.json", topn=topn, include_ties=True)
+
+        localized_dict["best_case"][topn] += list(best_case_localizable_bears)
+        localized_dict["worst_case"][topn] += list(worst_case_localizable_bears)
+
+        run_contingency_analysis(repairable_bears, nonrepairable_bears, best_case_localizable_bears, best_case_unlocalizable_bears,
+            f"Bears multiloc: best case localizable within top {topn} (including ties) and repairability",
+            'repairable', 'nonrepairable', 'localizable', 'nonlocalizable_bears')
+        run_contingency_analysis(repairable_bears, nonrepairable_bears, worst_case_localizable_bears, worst_case_unlocalizable_bears,
+            f"Bears multiloc: worst case localizable within top {topn} (including ties) and repairability",
+            'repairable', 'nonrepairable', 'localizable', 'nonlocalizable_bears')
+        
+        run_contingency_analysis(repairable_bears, nonrepairable_bears, best_case_localizable_bears, worst_case_localizable_bears,
+                f"Bears multiloc: localizable within top {topn} (including ties) and repairability",
+                'repairable', 'nonrepairable', 'best_case', 'worst_case')
+        print("--------------------------------------------------------------------------------------------")
+
+    for topn in [100]: #[1, 5, 10, 50, 100, 200]:
+
+        localized_dict["best_case"][topn] += best_case_localizable_bears
+        localized_dict["worst_case"][topn] += worst_case_localizable_bears
+        
+        run_contingency_analysis(repairable_bears | repairable_d4j, nonrepairable_bears | nonrepairable_d4j, set(localized_dict["best_case"][topn]), set(localized_dict["worst_case"][topn]),
+                f"All multiloc: localizable within top {topn} (including ties) and repairability",
+                'repairable', 'nonrepairable', 'best_case', 'worst_case')
+        print("--------------------------------------------------------------------------------------------")
+
+    pass
 
 def test_neg_variant_and_same_coverage(bugs_d4j, bugs_bears,
                                        one_neg_var_d4j, one_neg_var_bears,
@@ -780,15 +910,15 @@ def get_table_1_stats():
     from tabulate import tabulate
     print(tabulate(table))
 
-    print('D4J MLoc', (x := sum(row[2] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
-    print('D4J MLocMTest', (x := sum(row[4] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
-    print('D4J 2-6Loc', (x := sum(row[6] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
-    print('D4J MLine', (x := sum(row[8] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
+    # print('D4J MLoc', (x := sum(row[2] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
+    # print('D4J MLocMTest', (x := sum(row[4] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
+    # print('D4J 2-6Loc', (x := sum(row[6] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
+    # print('D4J MLine', (x := sum(row[8] for row in table[1:-5])), percent(x, len(all_d4j_bugs)))
 
-    print('Bears MLoc', (x := sum(row[2] for row in table[-5:])), percent(x, len(all_bears_bugs)))
-    print('Bears MLocMTest', (x := sum(row[4] for row in table[-5:])), percent(x, len(all_bears_bugs)))
-    print('Bears 2-6Loc', (x := sum(row[6] for row in table[-5:])), percent(x, len(all_bears_bugs)))
-    print('Bears MLine', (x := sum(row[8] for row in table[-5:])), percent(x, len(all_bears_bugs)))
+    # print('Bears MLoc', (x := sum(row[2] for row in table[-5:])), percent(x, len(all_bears_bugs)))
+    # print('Bears MLocMTest', (x := sum(row[4] for row in table[-5:])), percent(x, len(all_bears_bugs)))
+    # print('Bears 2-6Loc', (x := sum(row[6] for row in table[-5:])), percent(x, len(all_bears_bugs)))
+    # print('Bears MLine', (x := sum(row[8] for row in table[-5:])), percent(x, len(all_bears_bugs)))
 
 def audit_clones_and_partial_repairs():
     clones_evaluated_bugs = set(get_bug_list('../Code Clones/all_evaluated_bugs.data'))
@@ -797,4 +927,15 @@ def audit_clones_and_partial_repairs():
     print(sorted(partialrepair_evaluated_bugs - clones_evaluated_bugs))
 
 if __name__=='__main__':
-    audit_clones_and_partial_repairs()
+    print_repairability_stats(all_bugs, multi_line_bugs, multi_location_bugs)
+    test_dependency_and_repairability()
+    test_sbfl_efficacy_and_repairability()
+    print(len(multi_location_bugs_bears.union(multi_location_bugs_d4j) &bugs_with_spectra))
+    print(len(multi_location_bugs_bears.union(multi_location_bugs_d4j).intersection(bugs_with_spectra) -all_repairable_bugs))
+    print(len(multi_location_bugs_bears.union(multi_location_bugs_d4j).intersection(bugs_with_spectra) &all_repairable_bugs))
+    best_case_localizable, best_case_unlocalizable = partition_bugs_by_localizability(multi_location_bugs_bears.union(multi_location_bugs_d4j).intersection(bugs_with_spectra),
+        "../localizability/bestcase_multi_loc_scores.json", topn=100, include_ties=True)
+    worst_case_localizable, worst_case_unlocalizable = partition_bugs_by_localizability(multi_location_bugs_bears.union(multi_location_bugs_d4j).intersection(bugs_with_spectra),
+        "../localizability/worstcase_multi_loc_scores.json", topn= 100, include_ties=True)
+    print(len(best_case_localizable))
+    print(len(worst_case_localizable))

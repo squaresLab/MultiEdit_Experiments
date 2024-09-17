@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure80/src/com/google/javascript/jscomp/NodeUtil.java d4j_patched/Closure80/src/com/google/javascript/jscomp/NodeUtil.java
+1261a1262
+>       case Token.DELPROP:
+2909a2911
+>       case Token.DELPROP:

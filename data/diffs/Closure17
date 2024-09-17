@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure17/src/com/google/javascript/jscomp/TypedScopeCreator.java d4j_patched/Closure17/src/com/google/javascript/jscomp/TypedScopeCreator.java
+1291c1291,1292
+<               if (rValue.getJSType() != null && !rValue.getJSType().isUnknownType()) {
+---
+>               JSDocInfo rValueInfo = rValue.getJSDocInfo();
+>               if (rValueInfo != null && rValueInfo.hasType()) {
+1292a1294,1296
+>                 return rValueInfo.getType().evaluate(scope, typeRegistry);
+>               } else if (rValue.getJSType() != null
+>                   && !rValue.getJSType().isUnknownType()) {

@@ -1,0 +1,39 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/edu/harvard/h2ms/domain/core/User.java after/src/main/java/edu/harvard/h2ms/domain/core/User.java
+97c97
+<         this.email = email;
+---
+>         setEmail(email);
+150c150,151
+<         this.email = email;
+---
+>     	if(email != null)
+>     		this.email = email.toLowerCase();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java after/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java
+19c19
+<         User user = userRepository.findOneByEmail(username);
+---
+>         User user = userRepository.findOneByEmail(username.toLowerCase());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/edu/harvard/h2ms/domain/core/UserTest.java after/src/test/java/edu/harvard/h2ms/domain/core/UserTest.java
+50c50,56
+< 
+---
+>     
+>     @Test
+>     public void testEmailIsLowerCase() {
+>         User user = new User("John", "Quincy", null, "JqAdAmS@h2Ms.OrG", "password", "Other");
+>         assertThat(user.getEmail(), is("jqadams@h2ms.org"));
+>     }
+>     
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/edu/harvard/h2ms/service/UserDetailsServiceTest.java after/src/test/java/edu/harvard/h2ms/service/UserDetailsServiceTest.java
+55a56,64
+> 	@Test
+> 	@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+> 	public void testLoadUserByUsernameIsCaseInsensitive() {
+> 		assertThat(
+> 				userDetailsService.loadUserByUsername("JqAdAmS@h2Ms.oRg"),
+> 				is(user)
+> 				);
+> 	}
+> 	

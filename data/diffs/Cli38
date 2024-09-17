@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli38/src/main/java/org/apache/commons/cli/DefaultParser.java d4j_patched/Cli38/src/main/java/org/apache/commons/cli/DefaultParser.java
+310c310,313
+<         return options.hasShortOption(optName);
+---
+>         if (options.hasShortOption(optName))
+>         {
+>             return true;
+>         }
+311a315
+>         return optName.length() > 0 && options.hasShortOption(String.valueOf(optName.charAt(0)));

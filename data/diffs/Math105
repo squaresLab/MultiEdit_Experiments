@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math105/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java d4j_patched/Math105/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java
+264c264
+<         return sumYY - sumXY * sumXY / sumXX;
+---
+>         return Math.max(0d, sumYY - sumXY * sumXY / sumXX);

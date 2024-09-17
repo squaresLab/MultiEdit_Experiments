@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress44/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java d4j_patched/Compress44/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
+34a35,37
+>         if ( checksum == null ){
+>             throw new NullPointerException("Parameter checksum must not be null");
+>         }
+35a39,41
+>         if ( in == null ){
+>             throw new NullPointerException("Parameter in must not be null");
+>         }

@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup81/src/main/java/org/jsoup/helper/DataUtil.java d4j_patched/Jsoup81/src/main/java/org/jsoup/helper/DataUtil.java
+4a5
+> import org.jsoup.nodes.Comment;
+135a137,141
+>                 else if (first instanceof Comment) {
+>                     Comment comment = (Comment) first;
+>                     if (comment.isXmlDeclaration())
+>                         decl = comment.asXmlDeclaration();
+>                 }

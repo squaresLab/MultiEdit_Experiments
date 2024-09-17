@@ -1,0 +1,47 @@
+Only in after/: bears.json
+Only in after/zipkin2: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/zipkin2/src/main/java/zipkin2/Span.java after/zipkin2/src/main/java/zipkin2/Span.java
+469c469
+<       if (debug != null) return debug(debug);
+---
+>       if (debug != null) return debug((boolean) debug);
+487c487
+<       if (shared != null) return shared(shared);
+---
+>       if (shared != null) return shared((boolean) shared);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/zipkin2/src/test/java/zipkin2/SpanTest.java after/zipkin2/src/test/java/zipkin2/SpanTest.java
+108a109,142
+>   @Test public void canUsePrimitiveOverloads() {
+>     Span primitives = base.toBuilder()
+>       .timestamp(1L)
+>       .duration(1L)
+>       .shared(true)
+>       .debug(true)
+>       .build();
+> 
+>     Span objects =  base.toBuilder()
+>       .timestamp(Long.valueOf(1L))
+>       .duration(Long.valueOf(1L))
+>       .shared(Boolean.TRUE)
+>       .debug(Boolean.TRUE)
+>       .build();
+> 
+>     assertThat(primitives)
+>       .isEqualToComparingFieldByField(objects);
+>   }
+> 
+>   @Test public void nullToZeroOrFalse() {
+>     Span nulls = base.toBuilder()
+>       .timestamp(null)
+>       .duration(null)
+>       .build();
+> 
+>     Span zeros =  base.toBuilder()
+>       .timestamp(0L)
+>       .duration(0L)
+>       .build();
+> 
+>     assertThat(nulls)
+>       .isEqualToComparingFieldByField(zeros);
+>   }
+> 

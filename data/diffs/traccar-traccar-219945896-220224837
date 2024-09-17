@@ -1,0 +1,27 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/CguardProtocolDecoder.java after/src/org/traccar/protocol/CguardProtocolDecoder.java
+38,44c38,44
+<             .number("(dd)(dd)(dd):")             // time (hhmmss)
+<             .number("(-?d+.d+):")                // longitude
+<             .number("(-?d+.d+):")                // latitude
+<             .number("(d+.?d*):")                 // speed
+<             .number("(?:NAN|(d+.?d*)):")         // accuracy
+<             .number("(?:NAN|(d+.?d*)):")         // course
+<             .number("(?:NAN|(d+.?d*))")          // altitude
+---
+>             .number("(dd)(dd)(dd)")              // time (hhmmss)
+>             .number(":(-?d+.d+)")                // longitude
+>             .number(":(-?d+.d+)")                // latitude
+>             .number(":(d+.?d*)")                 // speed
+>             .number(":(?:NAN|(d+.?d*))")         // accuracy
+>             .number(":(?:NAN|(d+.?d*))")         // course
+>             .number(":(?:NAN|(d+.?d*))").optional() // altitude
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/CguardProtocolDecoderTest.java after/test/org/traccar/protocol/CguardProtocolDecoderTest.java
+16a17,22
+>                 "NV:170409 031456:56.808553:60.595476:0:NAN:0"));
+> 
+>         verifyAttributes(decoder, text(
+>                 "BC:170409 031456:CSQ1:64:NSQ1:17:PWR1:0"));
+> 
+>         verifyPosition(decoder, text(

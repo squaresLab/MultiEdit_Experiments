@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind61/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder.java d4j_patched/JacksonDatabind61/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder.java
+73a74,76
+>         if (baseType.isPrimitive()) {
+>             return null;
+>         }
+103a107,109
+>         if (baseType.isPrimitive()) {
+>             return null;
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind61/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java d4j_patched/JacksonDatabind61/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java
+231a232,234
+>             if (t.isPrimitive()) {
+>                 return false;
+>             }

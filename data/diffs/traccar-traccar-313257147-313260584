@@ -1,0 +1,26 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/TotemFrameDecoder.java after/src/org/traccar/protocol/TotemFrameDecoder.java
+45,46c45,46
+<         int flagIndex = buf.indexOf(buf.readerIndex(), buf.writerIndex(), new StringFinder("AA"));
+<         if (flagIndex != -1 && flagIndex - beginIndex == 6) {
+---
+>         int separatorIndex = buf.indexOf(buf.readerIndex(), buf.writerIndex(), (byte) '|');
+>         if (separatorIndex > 0 && separatorIndex - beginIndex > 19) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/TotemFrameDecoderTest.java after/test/org/traccar/protocol/TotemFrameDecoderTest.java
+14c14,18
+<         Assert.assertEquals(
+---
+>         verifyFrame(
+>                 binary("24243030363545363836313137323033353932363639357c3137303931323135333235372c2d37392e3337333835332c34332e3736353631392c302c302c7c3441"),
+>                 decoder.decode(null, null, binary("24243030363545363836313137323033353932363639357c3137303931323135333235372c2d37392e3337333835332c34332e3736353631392c302c302c7c3441")));
+> 
+>         verifyFrame(
+18c22
+<         Assert.assertEquals(
+---
+>         verifyFrame(
+22c26
+<         Assert.assertEquals(
+---
+>         verifyFrame(

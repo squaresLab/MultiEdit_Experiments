@@ -1,0 +1,34 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang46/src/java/org/apache/commons/lang/StringEscapeUtils.java d4j_patched/Lang46/src/java/org/apache/commons/lang/StringEscapeUtils.java
+86c86
+<         return escapeJavaStyleString(str, false);
+---
+>         return escapeJavaStyleString(str, false, false);
+102c102
+<         escapeJavaStyleString(out, str, false);
+---
+>         escapeJavaStyleString(out, str, false, false);
+127c127
+<         return escapeJavaStyleString(str, true);
+---
+>         return escapeJavaStyleString(str, true, true);
+143c143
+<         escapeJavaStyleString(out, str, true);
+---
+>         escapeJavaStyleString(out, str, true, true);
+154c154
+<     private static String escapeJavaStyleString(String str, boolean escapeSingleQuotes) {
+---
+>     private static String escapeJavaStyleString(String str, boolean escapeSingleQuotes, boolean escapeForwardSlash) {
+160c160
+<             escapeJavaStyleString(writer, str, escapeSingleQuotes);
+---
+>             escapeJavaStyleString(writer, str, escapeSingleQuotes, escapeForwardSlash);
+178c178,179
+<     private static void escapeJavaStyleString(Writer out, String str, boolean escapeSingleQuote) throws IOException {
+---
+>     private static void escapeJavaStyleString(Writer out, String str, boolean escapeSingleQuote,
+>             boolean escapeForwardSlash) throws IOException {
+243a245
+>                         if (escapeForwardSlash) {
+244a247
+>                         }

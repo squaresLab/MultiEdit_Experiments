@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli13/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java d4j_patched/Cli13/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
+131a132
+>     public List getUndefaultedValues(Option option) {
+132a134
+>       List valueList = (List) values.get(option);
+134a137,142
+>       if (valueList == null) {
+>         valueList = Collections.EMPTY_LIST;
+>       }
+> 
+>       return valueList;
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli13/src/java/org/apache/commons/cli2/option/ArgumentImpl.java d4j_patched/Cli13/src/java/org/apache/commons/cli2/option/ArgumentImpl.java
+144c144
+<         int argumentCount = 0;
+---
+>         int argumentCount = commandLine.getUndefaultedValues(option).size();
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli13/src/java/org/apache/commons/cli2/WriteableCommandLine.java d4j_patched/Cli13/src/java/org/apache/commons/cli2/WriteableCommandLine.java
+46a47
+>     List getUndefaultedValues(final Option option);

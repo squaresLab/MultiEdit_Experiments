@@ -1,0 +1,36 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/Jt600FrameDecoder.java after/src/org/traccar/protocol/Jt600FrameDecoder.java
+2c2
+<  * Copyright 2012 - 2016 Anton Tananaev (anton@traccar.org)
+---
+>  * Copyright 2012 - 2017 Anton Tananaev (anton@traccar.org)
+40c40
+<             if (length >= buf.readableBytes()) {
+---
+>             if (length <= buf.readableBytes()) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/Jt600FrameDecoderTest.java after/test/org/traccar/protocol/Jt600FrameDecoderTest.java
+14c14,18
+<         Assert.assertEquals(
+---
+>         verifyFrame(
+>                 binary("24315011626912001b21111718095900000000000000000e0000005c000000000000000000"),
+>                 decoder.decode(null, null, binary("24315011626912001b21111718095900000000000000000e0000005c00000000000000000024315011626912001b22111708130400000000000000000e0000005a00000000000000000024315011626912001b22111708140400000000000000000e0000005a000000723e18a61b01")));
+> 
+>         verifyFrame(
+18c22
+<         Assert.assertEquals(
+---
+>         verifyFrame(
+22c26
+<         Assert.assertEquals(
+---
+>         verifyFrame(
+26c30
+<         Assert.assertEquals(
+---
+>         verifyFrame(
+30c34
+<         Assert.assertEquals(
+---
+>         verifyFrame(

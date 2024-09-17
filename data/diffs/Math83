@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math83/src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java d4j_patched/Math83/src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java
+292c292
+<         int start = getNumObjectiveFunctions();
+---
+>         int start = ignoreObjectiveRows ? getNumObjectiveFunctions() : 0;
+341c341
+<       Integer negativeVarBasicRow = getBasicRow(getNegativeDecisionVariableOffset());
+---
+>       Integer negativeVarBasicRow = getBasicRowForSolution(getNegativeDecisionVariableOffset());
+345c345
+<           Integer basicRow = getBasicRow(getNumObjectiveFunctions() + i);
+---
+>           Integer basicRow = getBasicRowForSolution(getNumObjectiveFunctions() + i);

@@ -1,0 +1,18 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath2/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java d4j_patched/JxPath2/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java
+18a19
+> import org.apache.commons.jxpath.NodeSet;
+76a78,80
+>         if (result instanceof NodeSet) {
+>             return new ValueIterator(((NodeSet) result).getPointers().iterator());
+>         }
+87a92,96
+>         if (result instanceof NodeSet) {
+>             return new PointerIterator(((NodeSet) result).getPointers().iterator(),
+>                     new QName(null, "value"),
+>                     context.getRootContext().getCurrentNodePointer().getLocale());
+>         }
+145c154
+< }
+---
+> }
+\ No newline at end of file

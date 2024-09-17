@@ -9,6 +9,9 @@ import java.io.*;
 import java.util.function.Consumer;
 
 public class CommandLineRunner {
+    // TODO: config file
+    public static String java8path = "/usr/lib/jvm/java-8-openjdk-amd64/bin/java";
+
     public static void runCommand(CommandLine commandLine) {
         String workingDirectory = System.getProperty("user.dir");
         System.out.println(commandLine);

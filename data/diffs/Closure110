@@ -1,0 +1,46 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure110/src/com/google/javascript/jscomp/ScopedAliases.java d4j_patched/Closure110/src/com/google/javascript/jscomp/ScopedAliases.java
+357a358
+>         boolean isFunctionDecl = NodeUtil.isFunctionDeclaration(parent);
+366c367,368
+<         } else if (isVar) {
+---
+>         } else if (isVar || isFunctionDecl) {
+>           boolean isHoisted = NodeUtil.isHoistedFunctionDeclaration(parent);
+368,369c370,371
+<           Node value = n.hasChildren() ?
+<               v.getInitialValue().detachFromParent() :
+---
+>           Node value = v.getInitialValue() != null ?
+>               v.getInitialValue() :
+371c373
+<           Node varNode = parent;
+---
+>           Node varNode = null;
+382a385
+>           if (isFunctionDecl) {
+383a387
+>             Node existingName = v.getNameNode();
+391a396,397
+>             Node newName = IR.name("").useSourceInfoFrom(existingName);
+>             value.replaceChild(existingName, newName);
+392a399,402
+>             varNode = IR.var(existingName).useSourceInfoFrom(existingName);
+>             grandparent.replaceChild(parent, varNode);
+>           } else {
+>             if (value != null) {
+394a405,408
+>               value.detachFromParent();
+>             }
+>             varNode = parent;
+>           }
+407a422,424
+>             if (isHoisted) {
+>               grandparent.addChildToFront(newDecl);
+>             } else {
+408a426
+>             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure110/src/com/google/javascript/rhino/Node.java d4j_patched/Closure110/src/com/google/javascript/rhino/Node.java
+553a554,556
+>     if (n == null) {
+>       throw new RuntimeException("node is not a child");
+>     }

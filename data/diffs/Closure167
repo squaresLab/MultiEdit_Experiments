@@ -1,0 +1,46 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure167/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java d4j_patched/Closure167/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+301,302c301,302
+<           left, leftIsRefineable, merged.typeA,
+<           right, rightIsRefineable, merged.typeB);
+---
+>           left, leftType, leftIsRefineable ? merged.typeA : null,
+>           right, rightType, rightIsRefineable ? merged.typeB : null);
+348,349c348,349
+<           left, leftIsRefineable, restrictedLeftType,
+<           right, rightIsRefineable, restrictedRightType);
+---
+>           left, leftType, leftIsRefineable ? restrictedLeftType : null,
+>           right, rightType, rightIsRefineable ? restrictedRightType : null);
+394c394
+<     if (restrictedType != null && !restrictedType.equals(originalType)) {
+---
+>     if (restrictedType != null && restrictedType != originalType) {
+407,408c407,408
+<       Node left, boolean leftIsRefineable, JSType restrictedLeftType,
+<       Node right, boolean rightIsRefineable, JSType restrictedRightType) {
+---
+>       Node left, JSType originalLeftType, JSType restrictedLeftType,
+>       Node right, JSType originalRightType, JSType restrictedRightType) {
+410c410
+<         leftIsRefineable && restrictedLeftType != null;
+---
+>         restrictedLeftType != null && restrictedLeftType != originalLeftType;
+412c412
+<         rightIsRefineable && restrictedRightType != null;
+---
+>         restrictedRightType != null && restrictedRightType != originalRightType;
+430,434c430,432
+<       JSType restrictedType =
+<           type.getRestrictedTypeGivenToBooleanOutcome(outcome);
+<       FlowScope informed = blindScope.createChildFlowScope();
+<       declareNameInScope(informed, name, restrictedType);
+<       return informed;
+---
+>       return maybeRestrictName(
+>           blindScope, name, type,
+>           type.getRestrictedTypeGivenToBooleanOutcome(outcome));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure167/src/com/google/javascript/rhino/jstype/JSType.java d4j_patched/Closure167/src/com/google/javascript/rhino/jstype/JSType.java
+882a883,885
+>     if (outcome && this == getNativeType(JSTypeNative.UNKNOWN_TYPE)) {
+>       return getNativeType(JSTypeNative.CHECKED_UNKNOWN_TYPE);
+>     }

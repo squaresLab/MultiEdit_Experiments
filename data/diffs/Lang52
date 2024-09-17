@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang52/src/java/org/apache/commons/lang/StringEscapeUtils.java d4j_patched/Lang52/src/java/org/apache/commons/lang/StringEscapeUtils.java
+235a236,239
+>                     case '/':
+>                         out.write('\\');
+>                         out.write('/');
+>                         break;

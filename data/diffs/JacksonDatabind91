@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind91/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java d4j_patched/JacksonDatabind91/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
+541c541,544
+<                 return (ct.getValueHandler() != null) || (ct.getTypeHandler() != null);
+---
+>                 if ((ct.getValueHandler() != null) || (ct.getTypeHandler() != null)) {
+>                     return true;
+>                 }
+>             }
+542a546,550
+>             if (t.isMapLikeType()) {
+>                 JavaType kt = t.getKeyType();
+>                 if (kt.getValueHandler() != null) {
+>                     return true;
+>                 }

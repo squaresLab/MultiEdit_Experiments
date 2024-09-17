@@ -1,0 +1,29 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilder.java after/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilder.java
+58a59
+> import org.eclipse.jdt.internal.compiler.ast.ImportReference;
+150a152
+> import spoon.reflect.declaration.CtPackageDeclaration;
+789a792,799
+> 		CtPackageDeclaration packageDeclaration = context.compilationUnitSpoon.getPackageDeclaration();
+> 		if (packageDeclaration != null) {
+> 			ImportReference packageRef = compilationUnitDeclaration.currentPackage;
+> 			if (packageRef != null) {
+> 				packageDeclaration.setPosition(factory.Core().createCompoundSourcePosition(
+> 						context.compilationUnitSpoon, packageRef.sourceStart(), packageRef.sourceEnd(), packageRef.declarationSourceStart, packageRef.declarationEnd, context.compilationUnitSpoon.getLineSeparatorPositions()));
+> 			}
+> 		}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/position/PositionTest.java after/src/test/java/spoon/test/position/PositionTest.java
+49a50
+> import spoon.reflect.declaration.CtPackageDeclaration;
+1197a1199,1207
+> 	}
+> 	@Test
+> 	public void testPackageDeclaration() throws Exception {
+> 		//contract: check position of package declaration
+> 		final Factory build = build(FooLabel.class);
+> 		final CtType<FooLabel> foo = build.Type().get(FooLabel.class);
+> 		String classContent = getClassContent(foo);
+> 		CtPackageDeclaration packDecl = foo.getPosition().getCompilationUnit().getPackageDeclaration();
+> 		assertEquals("package spoon.test.position.testclasses;", contentAtPosition(classContent, packDecl.getPosition()));

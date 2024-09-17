@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup17/src/main/java/org/jsoup/parser/TreeBuilderState.java d4j_patched/Jsoup17/src/main/java/org/jsoup/parser/TreeBuilderState.java
+1451c1451
+<     private static String nullString = String.valueOf(0x0000);
+---
+>     private static String nullString = String.valueOf('\u0000');

@@ -1,0 +1,58 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito19/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java d4j_patched/Mockito19/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java
+12a13
+> import java.util.List;
+23c24
+<     public OngoingInjecter filterCandidate(final Collection<Object> mocks, final Field field, final Object fieldInstance) {
+---
+>     public OngoingInjecter filterCandidate(final Collection<Object> mocks, final Field field, List<Field> fields, final Object fieldInstance) {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito19/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java d4j_patched/Mockito19/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java
+8a9
+> import java.util.List;
+15c16
+<             Object fieldInstance
+---
+>             List<Field> fields, Object instance
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito19/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java d4j_patched/Mockito19/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java
+23c23
+< 			Field field, Object fieldInstance) {
+---
+> 			Field field, List<Field> fields, Object fieldInstance) {
+31c31
+< 			return next.filterCandidate(mockNameMatches, field,
+---
+> 			return next.filterCandidate(mockNameMatches, field, fields,
+41a42,57
+> 		} else if (mocks.size() == 1) {
+> 			String mockName = mockUtil.getMockName(mocks.iterator().next())
+> 					.toString();
+> 
+> 			for (Field otherField : fields) {
+> 				if (!otherField.equals(field)
+> 						&& otherField.getType().equals(field.getType())
+> 						&& otherField.getName().equals(mockName)) {
+> 
+> 					return new OngoingInjecter() {
+> 						public Object thenInject() {
+> 							return null;
+> 						}
+> 					};
+> 				}
+> 			}
+43c59
+< 		return next.filterCandidate(mocks, field, fieldInstance);
+---
+> 		return next.filterCandidate(mocks, field, fields, fieldInstance);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito19/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java d4j_patched/Mockito19/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java
+20c20
+<     public OngoingInjecter filterCandidate(Collection<Object> mocks, Field field, Object fieldInstance) {
+---
+>     public OngoingInjecter filterCandidate(Collection<Object> mocks, Field field, List<Field> fields, Object fieldInstance) {
+28c28
+<         return next.filterCandidate(mockTypeMatches, field, fieldInstance);
+---
+>         return next.filterCandidate(mockTypeMatches, field, fields, fieldInstance);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito19/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java d4j_patched/Mockito19/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+114c114
+<             Object injected = mockCandidateFilter.filterCandidate(mocks, field, instance).thenInject();
+---
+>             Object injected = mockCandidateFilter.filterCandidate(mocks, field, orderedInstanceFields, instance).thenInject();

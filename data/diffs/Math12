@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math12/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java d4j_patched/Math12/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java
+18a19
+> import java.io.Serializable;
+29c30,31
+<     implements RandomGenerator {
+---
+>     implements RandomGenerator,
+>                Serializable {
+30a33
+>     private static final long serialVersionUID = 20130104L;

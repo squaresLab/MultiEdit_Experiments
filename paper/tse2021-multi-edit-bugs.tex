@@ -2,6 +2,7 @@
 \documentclass[10pt,journal,compsoc]{IEEEtran}
 
 
+
 \ifCLASSOPTIONcompsoc
   % IEEE Computer Society needs nocompress option
   % requires cite.sty v4.0 or later (November 2003)
@@ -374,7 +375,7 @@ Traccar & 42 & 47.9 & 8.6 & 24 & 57\% & 2 & 5\% & 24 & 57\% & 33 & 79\% \\
 \midrule
 All (\bears) & 184 & $>$240.6 & $>$109.4 & 116 & 63\% & 35 & 19\% & 92 & 50\% & 151 & 82\% \\
 \midrule
-Combined (Defects4J \& \bears) & 1018 & $>$1054.5 & $>$627.5 & 571 & 56\% & 232 & 23\% & 470 & 46\% & 810 & 80\%\\
+Combined (Defects4J \& \bears) & 1019 & $>$1054.5 & $>$627.5 & 571 & 56\% & 232 & 23\% & 470 & 46\% & 810 & 80\%\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -481,7 +482,7 @@ patches difficult, and identify properties of these bugs and their associated
 patches that can be exploited by future APR tools.  
 %We define this problem precisely and characterize our datasets next.
 
-\subsection{Multi-Location Patches and Dataset}
+\subsection{Dataset}
 \label{sec:bugs}
 
 Our study requires a dataset of indicative, real-world,
@@ -508,8 +509,16 @@ supported by Maven that allows developers to group multiple projects together. M
 projects are more complex to build and are not currently compatible with our automation tools.
 We thus limit our analysis of \bears to 184 bugs from 34 single-module projects.
 
-We focus in this study on the properties of \emph{multi-location} patches. There are
-several plausible definitions of multi- vs. single-location patches, with
+\subsubsection{Multi-Location Patches}
+
+Not all the bugs in Defects4J and Bears have multi-location patches. 
+Therefore, we need to identify which bugs in these datasets should be included in our experiments.
+Since our experiments are isolating different parts of the repair process and are measuring different things, 
+each experiment has slightly different criteria for the bugs that are included.
+The goal of this section is to give our definition of a multi-location bug, and to give a high level overview 
+of how each experiment applied further constraints to that definition.
+
+There are several plausible definitions of multi- vs. single-location patches, with
 implications for how they are studied. For the purpose of this study, we define
 a \emph{patch location} as a contiguous sequence of edited lines of code.  We
 combine two locations if there is code at the two locations that construct a syntactic 
@@ -522,8 +531,8 @@ block. That is, conceptually:
 <@\textcolor{dkgreen}{+ \}}@>
 <@\textcolor{dkgreen}{+ More new code}@>
 \end{lstlisting}
-is treated as a single-location edit in our study. We ignore changes to
-comments, whitespace, or \texttt{import} statements.
+is treated as a single-location edit in our study. Locations consisting only of changes to
+comments, whitespace, or \texttt{import} statements were not counted.
 We still consider a patch location valid if a contiguous sequence of edited lines contains 
 only refactorings, variable/field declarations, or annotations. We do not perform any 
 additional minimization or changes to the program beyond those the dataset authors may 
@@ -533,12 +542,23 @@ paradigm.
 %As a shorthand, we refer to bugs with multi-location human-written
 %patches as \emph{multi-location bugs}.
 
-In addition, some experiments will have further restrictions on what bugs can be
-used. For example, we consider bugs that have multiple failing tests, bugs with up to six patch 
-locations (for scalability), and bugs with multiple patch lines (a superset of multi-location 
-patches). In addition to providing the size of these sets in 
-Table~\ref{tab:dataset-characteristics}, each experiment will clearly indicate
-which bugs are considered. 
+Below, we list further constraints based on the needs of each experiment:
+
+\begin{itemize}
+  \item For fault localization experiments (Section \ref{secFL}), we include bugs based on the above definition, 
+  with the exception of one of the experiments which adds a constraint of bug with two or more failing test cases.
+  \item For mutation operators and fix code (Section \ref{sec:mutops}), we have two experiments with two different data sets. 
+  The first, looking into the presence of dependencies in patches, uses all multi-location patches 
+  (though we report results on dependencies between patch lines rather than dependencies between locations). 
+  The second experiment, looking into the presence of code clones, uses the definition we provided previously, 
+  but adds the constraint of using bugs with 6 or fewer locations for scalability reasons.
+  \item For test case based validation (Section \ref{sec:tests}), we further constrained the definition of a 
+  multi-location bug to ignore changes that introduced new helper methods or variable declarations to reduce 
+  syntactically invalid location combinations.
+  After applying this rule (which may reduce the number of patch locations for a given patch, 
+  if one of the locations consists entirely of helper methods or variable declarations), we included all bugs with 2-6 patch locations
+\end{itemize}
+
 
 We start our analysis of multi-location patches by asking:
 
@@ -550,7 +570,7 @@ We find that multi-location patches comprise 63\% of \bears and 54\% of
 Defects4J.
 %\footnote{There are 11 bugs that should be considered multi-location but were left 
 %out of all analyses. We were unable to correct this before the deadline but will add them 
-%post review. This version of the paper treats these bugs as single location.}.
+%post review. This version of the paper treats these bugs as single-location.}.
 % CLG: I don't think this is a critical detail, and fails to honestly advocate
 % for our work.  All it does is annoy reviewers without adding much...we can fix it in post. 
 Although a multi-location human patch for a bug does not imply the 
@@ -595,227 +615,346 @@ coverage of a line.
 %Ochiai~\cite{ochiai} and DStar~\cite{wong2013dstar}; in general, though more
 %recent approaches are typically more effective, such approaches tend to localize similar
 %faults~\cite{zou2019empirical}.
-These techniques are often evaluated by asking: how often does a given technique assign a high 
-score for a buggy line of code? This is straightforward for single location repairs, but for 
+
+We want to study two aspects of SBFL in relation to multi-location bugs. 
+
+%% failing test ---------------------------------------------
+
+The first aspect concerns the bugs with multiple failing tests.
+If the bug has only one faulty location and multiple failing tests,
+we can take for granted that multiple failing tests will 
+directly execute the the one faulty location or eventual patched code. 
+However, with multiple faulty locations and multiple failing tests,
+it is possible that the different failing tests will execute different portions of the faulty or patched code. 
+One straightforward scenario where this occurs could be situations where the same fix is copied 
+across the codebase and multiple independent tests are written for each instance of the fix.
+
+There are a few implications of this. Although the case where multiple failing tests are executing
+independent fault locations does not necessarily indicate that SBFL will be less effective
+(since SBFL also takes into account code coverage of passing tests), it still may lead to misleading results;
+for example, situations in which multiple faulty locations are ranked similarly or lower than non-faulty code
+executed by all failing tests. It can also lead to insights on new techniques for localizing multi-location 
+bugs, such as the one previously used to identify regions of code that are syntactically similar to a 
+previously identified faulty region of code~\cite{saha2019harnessing}.
+
+Thus, we ask, 
+
+\rqorinsight{2}{
+How often are all the faulty locations in a multi-location bug executed by all the failing tests,
+rather than each failing test executing a different or independent subset of faulty locations?}
+
+%%%%% First three can be replicated by the previous data
+%%%%% Last one has a possible heuristic that probably gets it right most of the time, but may identify some patches where different faulty locations are run by different tests when in fact the faulty locations were all run by the same tests.
+%%%%% Number of bugs where any faulty location is executed by any failing test 699
+%%%%% Number of bugs where all faulty locations are executed by any combination of failing tests 327
+%%%%% Number of bugs where all faulty locations are executed by all failing tests 305
+%%%%% Number of bugs where faulty locations are executed by different sets of failing tests 394 # may also want to check if we want to exclude the case where a location is not executed by any failing test
+%%%%% Total number of bugs 952
+
+
+
+% - separate from faulty locations -- the general case, do the failing tests cover the same code? (I already did this, for the most part)
+% - faulty locations -- are they executed by separate tests?
+% - Dig into the multiple failing locations executed independently -- there's a possibility that this might mislead APR
+% - SBFL on each failing test individually -- does this get significantly different results than doing them together?
+
+
+The second aspect we study concerns the ability of SBFL to localize some or all faulty locations, and whether this impacts APR performance.
+New SBFL techniques are often evaluated by asking: how often does a given technique assigwithin the top 100 linesn a high 
+score for a buggy line of code? This is straightforward for single-location repairs, but for 
 multi-location repairs, evaluations
 typically consider a technique ``successful'' if it highly ranks or scores \emph{any} line in a
 set of buggy lines~\cite{zou2019empirical,pearson2017evaluating,golagha2020can}.
 While appropriate for the question being asked in such evaluations, this does not address
-suitability for multi-location program repair.%  Identifying one of several buggy
-%locations is generally inadequate in a context where multiple locations must be
-%modified. 
+suitability for multi-location program repair. Identifying one of several buggy
+locations is inadequate in a context where multiple locations must be modified -- 
+either we need be able to identify all the faulty locations through SBFL
+or infer where other faulty locations must be based on the location of one.
 
-We therefore start by assessing the 
-relationship of multi-location repairs to the assumptions underlying SBFL. 
-%Fundamentally, the core assumption underlying SBFL is that \emph{failing tests
-%execute buggy portions of the code relatively more often than passing tests.} 
-%Relatedly, we can 
-%often assume that \emph{code executed by all failing tests are more likely to be buggy.} 
-%Though this second assumption is not 
-%always true, we derive it in order to explore the relationship of failing test executions with 
-%each other.
-One such assumption associated with SBFL is that 
-\emph{code executed by all failing tests are more likely to be buggy.}
-This is clearly true for single-location bugs, but less so for 
-multi-location bugs, e.g., consider a 2-location bug, each covered by a
-different failing test. Although conforming to or contradicting this assumption does
-not guarantee SBFL success or failure, 
-it is a key factor in SBFL success unique to multi-location bugs.  We ask:
+Accordingly, we want to look more broadly at how SBFL interacts with 
+multi-location bugs.
+Previous work has introduced debugging scenarios specific to localizing faults with multiple 
+locations~\cite{pearson2017evaluating}:
+
+\begin{enumerate}
+  \item Best case: only one defective statement needs to be localized to fix the bug.
+  \item Worst case: all defective statements need to be localized to fix the bug.
+  % \item Average case: half of the defective statements need to be localized to fix the bug.
+\end{enumerate}
+
+In that previous work, these debugging scenarios were used to evaluate fault localization techniques.
+However, to our knowledge, there are no studies on the impact of the debugging scenario on repairability.
+From here, we ask two questions: 
+
+\rqorinsight{3}{How often are bugs localizizable in the worst case compared to the best case? }
+
+and 
+
+\rqorinsight{4}{Are bugs that are localizable in the worst case more likely to be repaired by APR tools?}
+
+%% some potential question framing brainstorming -------
+
+% - Since, (I presume) most APR techniques are using the best case debugging scenario, how many bugs that were
+% localizable in a best case, worst case, and average case scenarios were able to be repaired?
+% Note: Worst case $\subseteq$ Average case $\subseteq$ Best case.
+% - What APR techniques even account for localization that is not best case?
+% - We want to see if SBFL effectiveness when measured on a single-location (of many) vs. all the 
+% locations corresponds to higher likelihood of repairs
+% - We want to compare the SBFL effectiveness to single-location bugs -- are multi-location bugs 
+% harder to localize?
+
+% There has already been some work on this -- the paper on predicting the quality of SBFL showed there was no 
+% change in effectiveness
+
+%% end brainstorming -----
+
+At this time, we present the results we have, but much of the data is missing or inaccurate for this section. 
+For more information on missing data and experiments, please see the Appendix.
 
 
-% One of
-% the oldest and commonly studied SBFL technique is Tarantula~\cite{tarantula}. In
-% Tarantula, the suspiciousness score for a line $s$ is calculated by:
-
-% $$\mathit{susp(s)} 
-% =\frac{\mathit{\%F(s)}}{\mathit{\%F(s)} + \mathit{\%P(s)}}$$
-
-% where  $\mathit{\%F(s)}$ and $\mathit{\%P(s)}$ are, respectively, the percentage of failing 
-% tests and passing tests that execute $s$. There are newer, more effective 
-% SBFL techniques that calculate this score differently, such as Ochiai~\cite{ochiai} and 
-%DStar~\cite{wong2013dstar}. 
-
-
-\rqorinsight{2}{Do failing tests for a multi-location bug execute the same patch locations?}
-
-We focus especially on bugs that are associated with multiple failing tests: a bug
-with only a single failing test trivially and equally implicates all the lines
-that test executes. 
-
-%If multiple tests cover the modified locations well, then multi-location repair can expect to 
-%effectively
-%make use of the off-the-shelf ranking these techniques currently provide
-%(indeed, this has been tried~\cite{angelix}). If not---that is, if multiple
-%tests exercise \emph{different} portions of the buggy code---SBFL off-the-shelf
-%will by definition be less effective in guiding APR to correctly modifying
-%multiple buggy locations at once.
-%Fundamentally, we ask whether multiple failing tests cover exactly the same
-%patch locations, exactly different patch locations, or some combination.
-
-In addition, RQ2 determines which multi-location bugs may be more suited for SBFL 
-based on how well the failing tests cover different patch locations. However, to pragmatically 
-make use of this classification and be able to dynamically choose fault localization and program 
-repair techniques, we want to determine which bugs are well suited for SBFL before knowing 
-the patch locations. Since our proxy for suitability is based on whether failing tests execute 
-the same patch locations, we ask:
-
-\rqorinsight{3}{Do failing tests that cover different (resp. same) fault locations also cover 
-different 
-(resp. same) code locations?}
 
 \subsection{Methodology}
 
 \looseness-1
-Between both datasets, there are 232 total bugs that both require multi-location
-patches and contain multiple failing tests. However, we were not able to classify
-two of the bugs in \bears through coverage analysis or inspection,
-leaving 230 total bugs: 197 in Defects4J and 33 in \bears. 
-We used JaCoCo~\cite{jacoco}
+Throughout these experiments, we used JaCoCo~\cite{jacoco}
 to determine which lines of code in both the buggy and patched versions were executed
 by each failing test.
+% Repair tools generally use Gzoltar~\cite{gzoltar} to perform SBFL. 
+% Gzoltar uses JaCoCo to measure the spectra, so our usage of JaCoCo 
 
-To answer RQ2, we used the patch lines that were executed by the tests to categorize 
-each bug into three \emph{localization categories}: \emph{holds}, \emph{contradicts}, and 
-\emph{partially holds}. These three localization categories refer to the relationship each bug has 
-with 
-the assumption that code executed by all failing tests are more likely to be buggy: 
+RQ2 concerns the behavior of different failing tests, so we narrow our dataset to bugs
+with at least two failing tests. 
+Between both datasets, there are 232 total bugs that both require multi-location
+patches and contain multiple failing tests. 
 
-\begin{itemize}
-\item \emph{holds}:  all failing tests execute the exact same patch lines.
-\item \emph{contradicts}: no patch line is covered by all failing tests.
-\item \emph{partially holds}: some, but not all, patch lines are covered by all failing tests
-\end{itemize}
+We look for two kinds of patterns, corresponding to two opposing ways failing tests can behave.
+The first is the case where the tests are executing completely 
+separate parts of the faulty code. That is, for the set of failing tests $T_f$ and function $\text{exec}_f$ 
+that gives a set of faulty lines executed by that failing test: 
 
-In our experiments, we classify bugs using coverage of the patch lines, as opposed to 
-coverage of patch locations (where a patch location is considered covered if any line 
-at that patch location is 
-executed). For the purposes of fault localization, coverage of patch locations is more valuable 
-than coverage of patch lines, and we separately identified whether categorization 
-based on patch line coverage matched categorization based on patch location coverage.
+\begin{equation}
+\begin{aligned}
+    \text{Independent}&(T_f) := \\
+    \forall{t_{f_1}, t_{f_2}} &\in T_f : \text{exec}_f(t_{f_1}) \ne \text{exec}_f(t_{f_2}) \longrightarrow \\
+    &\text{exec}_f(t_{f_1}) \cap\text{exec}_f(t_{f_2}) = \emptyset 
+\end{aligned}
+\end{equation}
+% \begin{equation}
+%     \exists{t_f} \in T_f : \text{exec}_f(t_f) \cap \text{exec}_f(T_f - t_f) = \emptyset
+% \end{equation}
 
-To answer RQ3, we took all code locations executed by tests in the buggy version and
-calculated the percentage of lines that were executed by all failing tests. 
-A lower percentage indicates that the failing tests execute different portions of the buggy 
-code, whereas a higher percentage indicates that the failing tests all execute a similar
-set of code, corresponding to bugs we expect to be in \emph{contradicts} and \emph{holds},
-respectively.
+The second is the case where all failing tests execute the same faulty locations. That is:
 
-After calculating the percentages, we split the bugs based on whether we categorized the bug 
-as \emph{contradicts}, \emph{holds}, or \emph{partially holds} in the previous experiment.
-We qualitatively and quantitatively observed the degree to which the percentage corresponded 
-to localization category.
+\begin{equation}
+\begin{aligned}
+    \text{Same}(T_f) :=& \\
+    \forall{t_{f_1}, t_{f_2}} &\in T_f : \text{exec}_f(t_{f_1}) = \text{exec}_f(t_{f_2})
+    \end{aligned}
+\end{equation}
 
+We also see if these patterns extend to non-faulty code -- that is, if failing tests are executing 
+separate faulty locations, do they also execute separate parts of the broader codebase?
+Are failing tests that execute all the same parts of the codebase also executing the same code generally?
+We use the formulas as above, but instead of using the function $\text{exec}_f$ to get the set of executed faulty locations,
+we use $\text{exec}_a$ to get the set of all executed lines.
+
+To answer RQ3, we performed SBFL on all multi-location bugs. Specifically, we use JaCoCo to generate the spectra
+and calculate the suspiciousness score for each line using the Ochiai formula~\cite{ochiai}.
+From the ranked list of lines, we determined how many locations were localized.
+Since a fault location can consist of multiple consecutive lines, we consider a 
+fault location to be localized if any of the faulty lines that comprise the location are highly ranked with SBFL.
+We also consider all lines that tied with the lowest rank line, as different implementations of SBFL may 
+order these tied lines differently.
+
+To calculate the best, worst, and average case, we take the top 100 most suspicious lines (including ties)
+and calculate what proportion of faulty locations are covered within these lines, best meaning at least one location,
+worst meaning all locations, and average meaning at least half the locations. Some locations may be unlocalizable
+(e.x., a patch may insert a new method, but since the line in which it was inserted was originally whitespace, JaCoCo cannot 
+identify that particular line as being executed by any tests). We make no adjustment for this.
+
+For these previous two methods, we use JaCoCo to generate the execution coverage of the failing tests. 
+However, for certain bugs in \bears{}, JaCoCo was not able to generate coverage. 
+In particular, several bugs in Bears were unable to be executed due to various engineering or reproduction difficulties.
+In addition several bugs were able to be executed 
+in previous environments but not current ones. 
+We had previously gathered execution coverage some of those bugs for different experiment, but stored the results in
+a highly abstracted manner that resulted in information loss; nevertheless, we extrapolate from those data where possible, particularly in
+the first research question.
+Because of the information loss, some of the results for the first RQ may be unsound; 
+there may be a slight overestimate on the number of bugs considered "independent."
+However, this is expected to be a very small number.
+Table \ref{tab:runnable_jacoco} shows the number of bugs used in each case, and the paper artifact includes the full list of bugs that were included or excluded.
+
+\begin{table*}
+\begin{center}
+\begin{tabular}{l | rr | rr | rr | rr }
+\toprule
+\multirow{3}{*}{Project}  
+& \multicolumn{2}{c}{Multi-Location}      
+& \multicolumn{2}{c}{Executable} 
+& \multicolumn{2}{c}{Previously Executable}
+& \multicolumn{2}{c}{Unexecutable} \\
+& \multicolumn{2}{c}{}   
+& \multicolumn{2}{c}{October 2021}             
+& \multicolumn{2}{c}{Feb 2021}  
+& \multicolumn{2}{c}{with Jacoco}
+\\
+\cmidrule{2-9}
+& Total
+& (2+ Failed Tests)
+& Total
+& (2+ Failed)
+& Total
+& (2+ Failed)
+& Total
+& (2+ Failed)
+\\
+\midrule
+Defects4J & 455 & (197) & 455 & (197) & 0 & (0) & 0 & (0) \\
+\midrule
+\bears (single-module) & 116 & (35) &  67 & (14) & 18 & (18) & 31 & (3)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{\label{tab:runnable_jacoco} \small The proportion of bugs we were able to reproduce and get results using Jacoco. }
+\end{table*}
+
+Finally, we evaluate whether being localizable in the best case or worst case makes a bug more repairable. 
+We use the results of RepairThemAll~\cite{durieux-repair-them-all} to evaluate the repairability. 
+RepairThemAll is an experiment that ran many different repair techniques across multiple bug benchmarks, including Defects4J and Bears.
+For each category (best case, worst case, and average case), we calculate the ratio of bugs in that category that were repaired by at least one APR tool in RepairThemAll. 
+
+The original RepairThemAll study provided APR results for Defects4J v1 and Bears. 
+However, there were no results for the bugs added in Defects4J v2, so we ran their experiments on the missing bugs. 
+We ran into some challenges in replication; specifically, we ran the replicated tool on some of the older Defects4J bugs and found that some of our results were inconsistent with the results from the paper. 
+In addition, some entire projects were incompatible with the tool.
+We hypothesize that these problems were due to dependency issues, particularly since RepairThemAll was built for Java 7 (used in Defects4J v1) and the bugs in Defects4J v2 use Java 8.
+We were unable to resolve all of these problems; thus, the results for the bugs added in Defects4J v2 are likely to be inconclusive. 
+We will show the results for Defects4Jv2, but focus our analysis on bugs included in Defects4Jv1 and Bears.
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{img/coverage_hist_all.pdf}
-  \caption{\small Localization categories for multi-location bugs with multiple failing
-      tests. The categories are relatively 
-      evenly populated, with a slightly higher proportion of bugs in
-      \emph{partially holds}. The datasets demonstrate different distributions.}
+  \includegraphics[width=\linewidth]{img/coverage_faulty.pdf}
+  \caption{\small How the failing tests of different patches behave with respect to the faulty locations. With the vast majority of bugs, the failing tests execute the same faulty locations.}
+  \label{fig:coverage-faulty}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{img/coverage-all.pdf}
+  \caption{\small How the failing tests of different patches behave with respect to all lines of code in the program. We expect that if the failing tests execute the same faulty locations, they will also execute the same lines of code, faulty or not. Here we see that this largely holds.}
   \label{fig:coverage-all}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{img/debugging_scenarios.pdf}
+  \caption{\small Percentage of bugs that SBFL can localize given each debugging scenario. \todo{Need to add avg case, also there might be a bug in calculating worst/best case, I'll get back to this.}}
+  \label{fig:debug_scenarios}
 \end{figure}
 
 \subsection{Results}
  \label{sec:cov_patterns}
-
-\subsubsection{Distribution of Localization Categories}
-The first group of bars in Figure~\ref{fig:coverage-all} shows results for the overall distribution 
-of localization categories, 
-answering RQ2. 
-For 25\% of bugs, none of the patch lines were executed by all failing tests as they were 
-categorized as \emph{contradicts}.  A slightly larger proportion of bugs, 36\%, were classified 
-as 
-\emph{holds}, indicating that all failing tests executed the same patch lines.
-In addition, another 39\% were classified as \emph{partially holds}.
-
-Note, however, that the behavior varies considerably by dataset, as shown in the second and 
-third groups of bars in Figure \ref{fig:coverage-all}. In particular, \bears has fewer bugs in 
-\emph{contradicts} and more bugs in \emph{partially holds}.
-This difference is statistically significant, with $p = 0.0335$ (Fisher's exact test).
-We hypothesize that this may be due to differences in how the two  
-datasets were selected and constructed:
-The Defects4J dataset specifically enforces a requirement that the patches in the 
-dataset be isolated, i.e., not containing any refactorings or new features.
-The authors both sought bugs that met this requirement, in manually isolated others~\cite{defects4j}. By contrast, the 
-bugs in 
-\bears bugs are scraped directly from continuous integration systems, and the 
-only requirements for inclusion is that the bug must be reproducible and that
-the patch must be written by a human~\cite{bears}. 
-%In addition, Bears was designed to be evolvable 
-%and relatively easily expanded as a dataset, which is at odds with manual inspection and isolation of 
-%bugs~\cite{bears}.
-%Given that these two datasets were designed with different values and demonstrate very 
-%different behavior, 
-These findings highlight the importance of diverse datasets
-in APR evaluations. 
-
-We also found that 22 bugs had differing localization categories when 
-classified based on coverage of patch lines vs. coverage of patch locations. All of these 
-bugs 
-were classified as \emph{partially holds} when classified by line coverage, but were classified as 
-\emph{holds} when classifying by patch coverage, indicating that the failing tests were 
-executing different paths within the same patch locations. 
-This analysis indicates that localization category based on patch line coverage can approximate
-localization category based on patch location coverage.
-
-Overall, we cannot assume that the failing tests in multi-location repairs will execute all 
-faulty locations -- in fact our results suggests that assumption only holds 36\% of the time. 
-This suggests that off-the-shelf SBFL techniques may not be
-well-suited to guiding APR techniques when addressing more than half of
-real-world multi-location bugs.
-
-\begin{figure}
-  \includegraphics[width=\linewidth,left]{img/coverage-buggy.pdf}
-  \caption{\small \label{fig:coverage-buggy} Distribution of bugs based percentage of lines 
-  executed by all failing tests, measuring the degree to which failing tests execute the same 
-  code. The coverage distributions for the \emph{contradicts} and \emph{partially holds} are more or 
-  less uniformly distributed. The coverage
-  distribution for the \emph{holds} category skews measurable higher. 
-      } %Thus, there seems to be little correlation between 
-% localization categories and whether failing tests all execute the same code in the buggy 
-% program.}
-% CLG sez: I know I asked for takeaways in captions but (1) I'm not sure what
-% this last one means and (2) I think it contradicts what we say in text, so I
-% just cut it for space, it's fine. 
-\end{figure}
-
-\subsubsection{Generalization of localization categories}
-Figure \ref{fig:coverage-buggy} plots localization category based on the
-percentage of lines executed by all failing tests. 
-%
-The distributions of bugs in \emph{contradicts} (and to a lesser extent, bugs in \emph{partially 
-holds}) are 
-distributed apparently uniformly across 0\% to 100\% line coverage. This indicates that \emph{contradicts} 
-bugs are 
-not more/less likely to have failing tests that cover the same or different parts of the code 
-base.
-% JL: I agree that this is too confusing, cutting for now.
-%% \footnote{Note that a bug categorized as \emph{contradicts} can be scored 100\% as the 
-%% patch can introduce if statements that change the control flow and cause all failing tests to 
-%% eventaully execute all different parts of the patch.\todo{I think this point may
-%%   be too pedantic/confusing to be necessary, but let's try it in a footnote.}}
-%
-We qualitatively observe that bugs in \emph{holds} are more likely to have 
-failing tests that execute the same lines of code, as we might expect. However, this is not 
-definitive, as the failing tests in \emph{holds} bugs covered anywhere between 
-5\% to 100\% of the same lines.
-
-These observations are confirmed quantitatively: There were no statistically significant 
-differences between the distribution for \emph{contradicts} and \emph{partially holds}. 
-However, the distribution for \emph{holds} showed statistically significant differences with 
-\emph{partially holds} ($p = 0.006$)  and \emph{contradicts} ($p < 0.001$) with 
-one-tailed Mann-Whitney U tests.
-
-In conclusion, 
-we are not able to solely rely on degree to which failing tests cover the buggy 
-code to always accurately classify bugs to their localization category.
-However, \emph{holds} bugs tend to have failing tests that cover more of the 
-same code than the failing tests of other bugs, indicating 
-there may be ways we can augment this statistic to determine whether bugs would eventually 
-be classified as \emph{holds}, which is 
-especially notable since these bugs uphold our assumption and are accordingly more likely to 
-succeed with SBFL.
  
+ \subsubsection{Multiple failing tests.}
+ Figure \ref{fig:coverage-faulty} shows the distribution of bugs in our dataset that have 
+ failing tests executing the same fault locations, independent fault locations, or follow neither
+ of these patterns.
+ We can see that the vast majority of bugs have failing tests executing the same fault locations.
+
+ 
+ We also investigated whether failing tests execute the same or completely independent lines of code (faulty or not).
+ Figure \ref{fig:coverage-all} shows the results, divided by whether the failing tests had executed the same or independent fault locations.
+ We can see that many of the bugs whose failing tests execute the same faulty locations also 
+ execute the same faulty and non-faulty lines of code.
+ However, there is much more variability in bugs where the failing tests execute different fault locations.
+ 
+ \subsubsection{SBFL debugging scenarios.}
+ Figure \ref{fig:debug_scenarios} shows the results for the number of bugs localized under each debugging scenario.
+ As expected, far more bugs are localizable in the best case than the worst case.
+ 
+ \subsubsection{Repairability.}
+ 
+ \begin{table}
+  \begin{center}
+  \begin{tabular}{l | r r }
+  \toprule
+  Defects4J project & Repaired bugs & total bugs \\
+  \midrule
+  Cli	& 15 & 39 \\
+  Closure (134-176)	&	7 & 43 \\
+  Codec	& 8	& 18 \\
+  Collections	& 1	& 4 \\
+  Compress	& 7	& 47 \\
+  Csv	& 3	& 16 \\
+  Gson	& 4	& 18 \\
+  JacksonCore	& 2	& 26 \\
+  JacksonDatabind & 0 & 112 \\
+  JacksonXml & 0 & 6 \\
+  Jsoup	& 2	& 93 \\
+  JxPath & 5 & 22 \\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  \caption{\label{tab:rta_v2} \small The results for our RepairThemAll extension for Defects4Jv2. }
+  \end{table}
+
+\begin{table*}
+  \begin{center}
+  \begin{tabular}{l | r r r | r r r}
+  \toprule
+   & \multicolumn{3}{c|}{Original RepairThemAll experiments} & \multicolumn{3}{c}{RepairThemAll experiments with extension} \\
+   \midrule
+   & Best case & Worst case & Total (including unlocalized) & Best case & Worst case & Total (including unlocalized) \\
+  \midrule
+  Repairable & 59  & 17  &	93 & 77  & 21  &	122 \\
+  Non-repairable & 126 & 29 & 174 & 234 & 47 & 400  \\
+  \midrule
+  Percent Repairable & 32\% & 37\% & 35\% & 22\% & 27\% & 23\% \\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  \caption{\label{tab:repairability_all} \small Number of bugs localized with the given scenario within the top 100 (including ties) rankings of SBFL vs whether a repair tool was able to repair it. 
+  While bugs that are localizable in the worst case are a bit more likely to be repairable, the improvement seems fairly minor.
+  }
+  \end{table*}
+
+
+
+%  \begin{table*}
+% \begin{center}
+% \begin{tabular}{l | r r r r}
+% \toprule
+%  & Best case localized & Worst case localized & Average case localized & Total \\
+% \midrule
+% Repairable & 62  & 16  & (TBD) &	78 \\
+% Non-repairable & 171 & 30 & (TBD) & 201  \\
+% \midrule
+% total & 233 & 46 & & 279 \\
+% \bottomrule
+% \end{tabular}
+% \end{center}
+% \caption{\label{tab:repairability} \small Number of bugs localized with the given scenario within the top 50 (including ties) rankings of SBFL vs whether a repair tool was able to repair it. \todo{filter out v2} }
+% \end{table*}
+
+
+Since we ran the RepairThemAll experiment for the new bugs introduced, we first show those results in Table \ref{tab:rta_v2}.
+Note that for the RepairThemAll extension, we do not filter out any bugs, including single-location bugs.
+
+We then calculated the repairability of bugs that are localizable in the best case and worst case. 
+Table~\ref{tab:repairability_all} shows the results, 
+with the left half including only bugs from the original RepairThemAll experiments,
+and the right half including both the original experiments and our extension.
+In both cases, the bugs that are localizable in the worst case are slightly more likely to be repaired,
+though the improvement is fairly minor.
+This suggests to us that while APR tools benefit from having all the locations identified, 
+they are not equipped to utilize that information in productive ways.
+
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.5\textwidth,angle=270]{img/fl-outline.jpg}
+%     \caption{}
+%     \label{fig:outline}
+% \end{figure}
+
 \section{Mutation Operators and Fix Code}
 \label{sec:mutops}
 
@@ -855,19 +994,21 @@ in multi-location repair.
 One relationship between edits is
 \emph{dependency}. Selecting and applying edits can
 and should be informed by any dependencies between them.  Specifically, we ask:
-\rqorinsight{4}{How prevalent and hard to construct are
+\rqorinsight{5}{How prevalent and hard to construct are
 patches with intra-patch dependencies?}
 
 
 \subsubsection{Methodology}
 We consider a patch to contain \emph{dependent edits} if there exist 
 control or data dependencies between added, deleted, or modified statements.
-Since we analyze dependent statements, we broaden the scope of multi-location patches to 
-include all patches containing at least two added, removed, or modified lines, 
-again ignoring edits to comments, whitespace, or imports.
-We denote such patches as \emph{multi-line patches}.
-This expanded dataset contains 659 Defects4J v2 and 151 \bears 
-multi-line patches.
+Note that this is different than dependencies within locations, 
+as a patch location may contain multiple statements.
+%Why line as opposed to location? is it just engineering difficulty?
+
+- finer grained analysis on dependencies
+
+% This expanded dataset contains 659 Defects4J v2 and 151 \bears 
+% multi-line patches.
 % We explicitly got rid of Table 1 stats on multi-line 
 % patches for ESEC/FSE. We did so since we didn't wish to divert attention 
 % from multi-location patches during our discussion of the datasets in Sec 2.
@@ -951,7 +1092,7 @@ Previous techniques have targeted exactly these types of
 bugs~\cite{wang2018,saha2019harnessing}.  We evaluate how often this relationship applies to
 multi-location bugs, and thus the usefulness of techniques that assume it:
 
-\rqorinsight{5}{How often do clones occur in multi-location patches?}
+\rqorinsight{6}{How often do clones occur in multi-location patches?}
 
 %Possible intuition: if we can find some kind of correlation between fault localization results
 %and code clones, then if some APR research decided to follow Wang et al's suggestion and
@@ -1043,7 +1184,7 @@ similar fix code is applied at multiple separately tested locations. If
 true, this suggests that fault localization information can help 
 predict the utility of code clone-based APR mutation a priori. We ask:
 
-\rqorinsight{6}{Does the existence of code clones in human patches correlate with specific 
+\rqorinsight{7}{Does the existence of code clones in human patches correlate with specific 
 localization patterns?}
 
 % CLG sez: nice and clear, but derivable from first principles, and we have a
@@ -1137,7 +1278,7 @@ tests can support multi-location patch construction.  That is, if we apply only 
 several of the edits in this patch to the buggy program, is the result
 identifiable as ``closer'' to the full repair? Alternatively:
 
-\rqorinsight{7}{How well do test case based validation methods identify partial repairs?}
+\rqorinsight{8}{How well do test case based validation methods identify partial repairs?}
 
 If tests can in general identify partial repairs, this suggests the feasibility
 of techniques that construct multi-location repairs by identifying/composing
@@ -1217,7 +1358,7 @@ significant, $p < 0.001$, via a
 $\chi^2$ test).
 
 \looseness-1
-We compute results for RQ7 using the 1-minimal set of human edits
+We compute results for RQ8 using the 1-minimal set of human edits
 with respect to the unit tests as the ``full'' patch.
 We do this for parsimony: including
 unminimized edits introduces noise without materially changing
@@ -1228,7 +1369,7 @@ minimized to a single edit, leaving
 948 Defects4J and 240 \bears partial repairs, from
 168 Defects4J and 46 \bears bugs.  
 
-% We therefore present our results for RQ7 in two ways:
+% We therefore present our results for RQ8 in two ways:
 % treating the provided human patch as the full repair
 % (Unminimized), and considering only the 1-minimal set of edits in the
 % human patch with respect to the unit tests (Minimized).
@@ -1435,7 +1576,7 @@ However, research has shown that multiple fault localization techniques can be
 combined to localize different kinds of faults~\cite{zou2019empirical}. Most
 empirical studies on fault localization evaluate techniques by determining
 whether a technique can localize any faulty line. This usefully evaluates single
-line or single location faults, but not necessarily multi-location faults.
+line or single-location faults, but not necessarily multi-location faults.
 
 Golagha et. al~\cite{golagha2020can} analyzed the impact of 70 code metrics on
 SBFL, including multi-location patches.  They found that the number of locations
@@ -1619,7 +1760,143 @@ findings and insights inspire future work to advance the state of the art of APR
 and take on difficult multi-location bugs.  Our data/code package is
 available at \url{https://github.com/squaresLab/MultiEdit_Experiments}.
 
+\appendix[Missing experiments and data]
 
+The experiments in this paper, specifically those in the fault localization section (Section~\ref{secFL}), 
+are currently incomplete.
+As parts of this paper alluded, there are several reproduction challenges we encountered.
+There are also experiments that were intended, but were not completed as the primary 
+author continued onto other pursuits.
+
+In this appendix, we will outline some of the incomplete work.
+
+\section*{Reproducibility problems: \bears}
+
+At the start of our experiments, in 2019, almost all single-module multi-location \bears bugs were instrumentable, 
+save for two.
+By 2021, this was no longer the case. 
+As we note in Table~\ref{tab:runnable_jacoco}, we had to rely on older, abstracted coverage data 
+for some of the multi-test and multi-location bugs we had previously gathered.
+Since we did not previously record data on single-location bugs (or bugs we believed to be single-location),
+several of the single-location bugs were excluded in our experiments due to these 
+reproducibility issues.
+
+Several bugs in the \texttt{INRIA-spoon} project became unreproducible, 
+due to a broken dependency.
+Specifically, it called for a certain version of the \texttt{commons.io} library.
+Although the jar was present locally and remotely, 
+and the version was correctly specified in the pom file 
+(Maven's project level configuration file),
+Maven would not fetch the proper version.
+This problem affected approximately 50 bugs 
+(note, \bears has 184 total single-module bugs).
+We were unable to address this problem, and had to either exclude these bugs from our later coverage analyses
+or rely on older, abstracted data.
+
+Other projects began to have problems as well -- for example, bugs from the \texttt{cassandra-reaper} project
+and \texttt{spring-data-jpa}. 
+These bugs were able to be instrumented in 2019, but we were not able to by late 2021, 
+despite running the exact same instrumentation code.
+
+We mentioned above that we had to rely on older, abstracted data for some of the bugs.
+This data was gathered for a slightly modified version of RQ2; as such, we stored two lists of line numbers for each bug: 
+\begin{enumerate}
+  \item the line numbers executed by every failing test.
+  \item the line numbers executed by any failing test (without record of which test executed a given line).
+\end{enumerate}
+For RQ2, we try to determine whether a bug fits one of two patterns: 
+\textit{same} (characterized by every failing test executing the same set of faulty locations)
+and \textit{independent} (characterized by each failing test executing completely separate sets of faulty locations).
+Since our previous data format preserved the list of line numbers executed by all the failing tests, 
+we can easily extract the bugs that fit the \textit{same} pattern.
+However, from this data we cannot calculate whether each failing test executes a completely independent set of faulty locations,
+as we did not record which lines each failing test executed, only the lines in which \textit{any} failing test executed.
+Thus, there may be an overestimate in the number of bugs considered \textit{independent}.
+
+Our hypothesis is that the later coverage collection problems stem from \bears{}' usage of Maven to fetch dependencies and build projects.
+Over time, libraries and Java versions become deprecated, causing missing dependencies or unintended behavior from using 
+a different version of a dependency.
+In contrast, Defects4J hosted all required dependencies on their own server and created their own build files/build systems.
+This separated Defects4J bugs from the larger, evolving software ecosystem, and ensured that all the bugs will remain reproducible.
+
+We speculate that the bugs in \bears will require more engineering and configuration effort as time passes 
+due to the deprecation of older versions of libraries.
+If this happens, a large source of real-world bugs 
+will be nearly unusable in the future.
+Future authors of these bug datasets should take care that all dependencies and build configurations are snapshotted
+completely and throughly. 
+
+Unfortunately, this will substantially raise the effort required to put together datasets of real world bugs.
+Given the concern that APR tools are overfitting to Defects4J~\cite{durieux-repair-them-all},
+it may be wise to look for other ways to avoid overfitting without searching for more bugs.
+
+\section*{RepairThemAll extension}
+
+As noted in the methodology of the fault localization experiments, we had to extend the RepairThemAll experiments for our analysis.
+RepairThemAll was a project that aimed to run a diverse suite of APR tools against a diverse set of bugs benchmarks,
+including Defects4J and Bears.
+At the time of the experiments, only Defects4Jv1 had been released, so our extension aimed to run the suite of APR tools 
+against the bugs that were introduced in Defects4Jv2.
+
+We ran into numerous problems, and the extension is still incomplete.
+
+First is the reproduction of previous results. 
+Though we only ran projects that were newly introduced for the sake of time, 
+the Closure project was unique in that bugs from the project were included in Defect4Jv1,
+but several more bugs from the project were later added.
+In running RepairThemAll on all the bugs in Closure, new and old (for the sake of engineering effort), 
+we discovered that only a small fraction of the previously repairable Closure bugs (according to the original authors' findings)
+were repairable in our replication of the experiments.
+This indicated to us that many bugs would be falsely labeled as unrepairable
+due to potential bugs in the repair tools or framework.
+
+In addition, there were problems in running RepairThemAll that seemed to affect entire projects.
+For example, in running JacksonDatabind projects, the repair tools could not run the tests due to 
+repeated instances of \texttt{NoSuchMethodError}.
+Jsoup bugs also have a documented problem with git that flakily appears when they are checked out and built.
+While there are workarounds for this problem (which involves resetting the git environment variables),
+we were not able to implement the fixes in our particular setup of checking out the project with RepairThemAll in 
+a highly specific Docker configuration.
+Thus, many Jsoup bugs are missing from our extension as well.
+
+One likely reason for the non-Jsoup problems is the Java version. 
+Defects4Jv2 upgraded all the bugs to Java 8, while the original RepairThemAll experiments 
+(and thus, many of the repair tools used) were conducted with Java 7.
+This would explain why we were unable to reproduce results on older Closure bugs.
+
+\section*{Average case experiment}
+
+For RQ3, we performed our analysis with respect to \textit{best case} 
+(only one defective statement needs to be localized in order to generate a fix) 
+and \textit{worst case} (all defective statements need to be localized to generate a fix) debugging scenarios.
+However, the work that introduced these debugging scenarios included a third scenario~\cite{pearson2017evaluating}.
+The \textit{average case} debugging scenario applies when 50\% of the faulty statements are needed to generate a fix.
+Our heuristic for when an average case debugging scenario would apply is if at least 50\% of the faulty locations were 
+localized within the top $n$ (in our case, top 100) lines.
+
+We are not sure if this average case debugging scenario (or our heuristic for measuring its relevancy) 
+would, by itself, have practical APR implications. 
+However, given that the large difference in repairability between bugs localizable in the best case vs. the worst case,
+it would be very interesting to see if there is an inflection point where a certain percentage of localizable locations 
+cause a vastly greater chance at being repairable.
+
+\section*{Potential error in calculating best and worst case}
+
+In contrast to the proposed experiment above, we calculated bugs that were localizable in the best and worst cases.
+We wrote algorithms for classifying a bug as localizable for the worst case and best case scenarios, 
+and we ran them for both the multi-location and single location bugs.
+
+We would expect that the number of single location bugs that are localizable in the best and worst case to be the same;
+since there is one location, if it that location is localized, it would have found 
+one faulty location (best case) and all faulty locations (worst case).
+However, our scripts generate different numbers for the number of single location bugs localized in the best and worst cases.
+For example, within the top 100 lines, 
+224 single location bugs were localized in the best case and 222 single location bugs were localized in the worst case.
+This indicates that there is a bug in either our best/worst calculation, 
+location calculation (since fault localization operates at line level, but we are working at location level),
+or something else.
+We have yet to fix the problem, and so we consider the current results for the debugging scenarios to be close, 
+but not completely accurate, to the truth.
 
 % Can use something like this to put references on a page
 % by themselves when using endfloat and the captionsoff option.
@@ -1666,7 +1943,7 @@ available at \url{https://github.com/squaresLab/MultiEdit_Experiments}.
 \end{IEEEbiography}
 
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{img/bio-photos/yiwei}}]{Yiwei Lyu}
-    is currently a fourth year undergraduate student at Carnegie Mellon University, majoring in computer science.
+    received the BS \todo{and MS?} degree\todo{s} in computer science from Carnegie Mellon University.
     His main research interests include multimodal machine learning and automated program repair.
 \end{IEEEbiography}
 
@@ -1707,4 +1984,7 @@ high-quality software systems.
 
 
 % that's all folks
+
+
+
 \end{document}

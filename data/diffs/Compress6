@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress6/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java d4j_patched/Compress6/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
+63a64
+>         setName(name);
+462,463c463,466
+<         if (name == null) {
+<             if (other.name != null) {
+---
+>         String myName = getName();
+>         String otherName = other.getName();
+>         if (myName == null) {
+>             if (otherName != null) {
+466c469
+<         } else if (!name.equals(other.name)) {
+---
+>         } else if (!myName.equals(otherName)) {

@@ -1,0 +1,22 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind52/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java d4j_patched/JacksonDatabind52/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
+612c612
+<             _externalTypeIdHandler = extTypes.build();
+---
+>             _externalTypeIdHandler = extTypes.build(_beanProperties);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind52/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java d4j_patched/JacksonDatabind52/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
+309a310
+>         public ExternalTypeHandler build(BeanPropertyMap otherProps) {
+310a312,324
+>             final int len = _properties.size();
+>             ExtTypedProperty[] extProps = new ExtTypedProperty[len];
+>             for (int i = 0; i < len; ++i) {
+>                 ExtTypedProperty extProp = _properties.get(i);
+>                 String typePropId = extProp.getTypePropertyName();
+>                 SettableBeanProperty typeProp = otherProps.find(typePropId);
+>                 if (typeProp != null) {
+>                     extProp.linkTypeProperty(typeProp);
+>                 }
+>                 extProps[i] = extProp;
+>             }
+>             return new ExternalTypeHandler(extProps, _nameToPropertyIndex, null, null);
+>         }

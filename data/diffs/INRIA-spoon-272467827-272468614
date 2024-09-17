@@ -1,0 +1,272 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+789a790,792
+> 						if (field == null) {
+> 							throw new SpoonException("The reference to field named \"" + f.getVariable().getSimpleName() + "\" is invalid, because there is no field with such name on path:" + getPath(f));
+> 						}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/template/SubstitutionVisitor.java after/src/main/java/spoon/support/template/SubstitutionVisitor.java
+245a246,280
+> 					} else if (fieldAccess == toReplace && value instanceof String) {
+> 						/*
+> 						 * If the value is type String, then it is ambiguous request, because:
+> 						 * A) sometime client wants to replace parameter field access by String literal
+> 						 *
+> 						 * @Parameter
+> 						 * String field = "x"
+> 						 *
+> 						 * System.printLn(field) //is substitutes as: System.printLn("x")
+> 						 *
+> 						 * but in the case of local variables it already behaves like this
+> 						 * {
+> 						 * 		int field;
+> 						 * 		System.printLn(field) //is substitutes as: System.printLn(x)
+> 						 * }
+> 						 *
+> 						 * B) sometime client wants to keep field access and just substitute field name
+> 						 *
+> 						 * @Parameter("field")
+> 						 * String fieldName = "x"
+> 						 *
+> 						 * System.printLn(field) //is substitutes as: System.printLn(x)
+> 						 *
+> 						 * ----------------------
+> 						 *
+> 						 * The case B is more clear and is compatible with substitution of name of local variable, method name, etc.
+> 						 * And case A can be easily modeled using this clear code
+> 						 *
+> 						 * @Parameter
+> 						 * String field = "x"
+> 						 * System.printLn("field") //is substitutes as: System.printLn("x")
+> 						 * System.printLn(field) //is substitutes as: System.printLn("x") because the parameter `field` is constructed with literal value
+> 						 */
+> 						//New implementation always replaces the name of the accessed field
+> 						//so do nothing here. The string substitution is handled by #scanCtReference
+250c285
+< 					throw context.replace(toReplace, toReplace.clone());
+---
+> 					throw context.replace(toReplace, (CtElement) value);
+504c539
+< 	private static <T> List<T> getParameterValueAsListOfClones(Class<T> itemClass, Object parameterValue) {
+---
+> 	private <T> List<T> getParameterValueAsListOfClones(Class<T> itemClass, Object parameterValue) {
+511c546
+< 	private static List<Object> getParameterValueAsNewList(Object parameterValue) {
+---
+> 	private List<Object> getParameterValueAsNewList(Object parameterValue) {
+539c574
+< 	private static <T> T getParameterValueAsClass(Class<T> itemClass, Object parameterValue) {
+---
+> 	private <T> T getParameterValueAsClass(Class<T> itemClass, Object parameterValue) {
+559c594,598
+< 				return (T) tr.getFactory().Code().createClassAccess(tr);
+---
+> 				return (T) factory.Code().createClassAccess(tr);
+> 			}
+> 			if (parameterValue instanceof String) {
+> 				//convert String to code element as Literal
+> 				return (T) factory.Code().createLiteral((String) parameterValue);
+568c607
+< 	private static String getParameterValueAsString(Object parameterValue) {
+---
+> 	private String getParameterValueAsString(Object parameterValue) {
+637c676
+< 	private static <T> T getParameterValueAtIndex(Class<T> itemClass, Object parameterValue, Integer index) {
+---
+> 	private <T> T getParameterValueAtIndex(Class<T> itemClass, Object parameterValue, Integer index) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/template/Template.java after/src/main/java/spoon/template/Template.java
+29c29,30
+<  * When the template parameter is a String or a primitive type (or a boxing
+---
+>  * When the template parameter is a String it is used to rename element of the code such as fields or methods.
+>  * When it is another primitive type (or a boxing
+31c32
+<  * directly accessed.
+---
+>  * directly accessed. To use a standard parameter containing a String type, use a CtLiteral&lt;String&gt;
+40a42,44
+>  *            \@Parameter CtLiteral&lt;String&gt; _anotherParameter;
+>  *
+>  *
+43c47
+<  *           public SimpleTemplate(String parameter) {
+---
+>  *           public SimpleTemplate(String parameter, CtLiteral&lt;String&gt; anotherParameter) {
+44a49
+>  *               _anotherParameter = anotherParameter;
+48,49c53,54
+<  *           public void simpleTemplateMethod() {
+<  *               System.out.println(_parameter_);
+---
+>  *           public void methodwith_parameter_() {
+>  *               System.out.println(_anotherParameter);
+63c68,71
+<  *       Template template=new SimpleTemplate(&quot;hello templated world&quot;);
+---
+>  *       CtLiteral&lt;String&gt; anotherParameter = factory.createLiteral();
+>  *       anotherParameter.setValue(&quot;hello templated world&quot;);
+>  *
+>  *       Template template=new SimpleTemplate(&quot;ParameterizedName&quot;, anotherParameter);
+73c81
+<  * 	public void insertedMethod() {
+---
+>  * 	public void methodwithParameterizedName() {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/prettyprinter/PrinterTest.java after/src/test/java/spoon/test/prettyprinter/PrinterTest.java
+160d159
+< 			assertTrue(e.getCause() instanceof NullPointerException);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/template/TemplateTest.java after/src/test/java/spoon/test/template/TemplateTest.java
+32a33
+> import spoon.test.template.testclasses.AnotherFieldAccessTemplate;
+33a35,36
+> import spoon.test.template.testclasses.FieldAccessOfInnerClassTemplate;
+> import spoon.test.template.testclasses.FieldAccessTemplate;
+50a54
+> import spoon.test.template.testclasses.constructors.TemplateWithFieldsAndMethods_Wrong;
+192a197,215
+> 		// contract: local variable write are replaced by local variable write with modified local variable name
+> 		assertEquals("newVarName = o", methodWithTemplatedParameters.getBody().getStatement(12).toString());
+> 
+> 		// contract: local variable read are replaced by local variable read with modified local variable name
+> 		assertEquals("l = ((java.util.LinkedList) (newVarName))", methodWithTemplatedParameters.getBody().getStatement(13).toString());
+> 		
+> 		// contract; field access is handled same like local variable access
+> 		CtMethod<?> methodWithFieldAccess = subc.getElements(
+> 				new NameFilter<CtMethod<?>>("methodWithFieldAccess")).get(0);
+> 		elementToGeneratedByMember.put(methodWithFieldAccess, "#methodWithFieldAccess");
+> 		elementToGeneratedByMember.put(subc.getField("newVarName"), "#var");
+> 
+> 		// contract: field write are replaced by field write with modified field name
+> 		assertEquals("newVarName = o", methodWithFieldAccess.getBody().getStatement(2).toString());
+> 
+> 		// contract: field read are replaced by field read with modified field name
+> 		assertEquals("l = ((java.util.LinkedList) (newVarName))", methodWithFieldAccess.getBody().getStatement(3).toString());
+> 		
+> 
+320a344,362
+> 	}
+> 
+> 	@Test
+> 	public void testTemplateWithWrongUsedStringParam() throws Exception {
+> 		Launcher spoon = new Launcher();
+> 		Factory factory = spoon.createFactory();
+> 		spoon.createCompiler(
+> 				factory,
+> 				SpoonResourceHelper
+> 						.resources("./src/test/java/spoon/test/template/testclasses/constructors/C1.java"),
+> 				SpoonResourceHelper
+> 						.resources(
+> 								"./src/test/java/spoon/test/template/testclasses/constructors/TemplateWithFieldsAndMethods_Wrong.java"))
+> 				.build();
+> 
+> 		CtClass<?> c1 = factory.Class().get(C1.class);
+> 
+> 		new TemplateWithFieldsAndMethods_Wrong(
+> 				"testparam").apply(c1);
+321a364,371
+> 		CtMethod<?> m = c1.getMethod("methodToBeInserted");
+> 		assertNotNull(m);
+> 		//contract: printing of code which contains invalid field reference, fails with nice exception
+> 		try {
+> 			m.getBody().getStatement(0).toString();
+> 		} catch (SpoonException e) {
+> 			assertTrue("The error description doesn't contain name of invalid field. There is:\n" + e.getMessage(), e.getMessage().indexOf("testparam") >= 0);
+> 		}
+508,509c558,559
+< 		params.put("_classname_", aTargetType.getSimpleName()) ;
+< 		params.put("_methodName_", toBeLoggedMethod.getSimpleName());
+---
+> 		params.put("_classname_", factory.Code().createLiteral(aTargetType.getSimpleName()));
+> 		params.put("_methodName_", factory.Code().createLiteral(toBeLoggedMethod.getSimpleName()));
+909a960,1015
+> 	}
+> 
+> 	@Test
+> 	public void testFieldAccessNameSubstitution() throws Exception {
+> 		//contract: the substitution of name of whole field is possible
+> 		Launcher spoon = new Launcher();
+> 		spoon.addTemplateResource(new FileSystemFile("./src/test/java/spoon/test/template/testclasses/FieldAccessTemplate.java"));
+> 
+> 		spoon.buildModel();
+> 		Factory factory = spoon.getFactory();
+> 
+> 		{
+> 			//contract: String value is substituted in String literal
+> 			final CtClass<?> result = (CtClass<?>) new FieldAccessTemplate("value").apply(factory.Class().create("x.X"));
+> 			assertEquals("int value;", result.getField("value").toString());
+> 			
+> 			assertEquals("value = 7", result.getMethodsByName("m").get(0).getBody().getStatement(0).toString());
+> 		}
+> 	}
+> 
+> 	@Test
+> 	public void testFieldAccessNameSubstitutionInInnerClass() throws Exception {
+> 		//contract: the substitution of name of whole field is possible in inner class too
+> 		Launcher spoon = new Launcher();
+> 		spoon.addTemplateResource(new FileSystemFile("./src/test/java/spoon/test/template/testclasses/FieldAccessOfInnerClassTemplate.java"));
+> 
+> 		spoon.buildModel();
+> 		Factory factory = spoon.getFactory();
+> 
+> 		{
+> 			//contract: String value is substituted in String literal
+> 			final CtClass<?> result = (CtClass<?>) new FieldAccessOfInnerClassTemplate("value").apply(factory.Class().create("x.X"));
+> 			final CtClass<?> innerClass = result.getNestedType("Inner");
+> 			assertEquals("int value;", innerClass.getField("value").toString());
+> 			
+> 			assertEquals("value = 7", innerClass.getMethodsByName("m").get(0).getBody().getStatement(0).toString());
+> 		}
+> 	}
+> 
+> 	@Test
+> 	public void testAnotherFieldAccessNameSubstitution() throws Exception {
+> 		//contract: the substitution of name of whole field is possible
+> 		Launcher spoon = new Launcher();
+> 		spoon.addTemplateResource(new FileSystemFile("./src/test/java/spoon/test/template/testclasses/AnotherFieldAccessTemplate.java"));
+> 
+> 		spoon.buildModel();
+> 		Factory factory = spoon.getFactory();
+> 
+> 		{
+> 			//contract: String value is substituted in String literal
+> 			final CtClass<?> result = (CtClass<?>) new AnotherFieldAccessTemplate().apply(factory.Class().create("x.X"));
+> 			assertEquals("int x;", result.getField("x").toString());
+> 			assertEquals("int m_x;", result.getField("m_x").toString());
+> 
+> 			assertEquals("java.lang.System.out.println(((x) + (m_x)))", result.getAnonymousExecutables().get(0).getBody().getStatement(0).toString());
+> 		}
+Only in after/src/test/java/spoon/test/template/testclasses: AnotherFieldAccessTemplate.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/template/testclasses/constructors/TemplateWithFieldsAndMethods.java after/src/test/java/spoon/test/template/testclasses/constructors/TemplateWithFieldsAndMethods.java
+23c23
+< 		return PARAM;
+---
+> 		return "PARAM";
+Only in after/src/test/java/spoon/test/template/testclasses/constructors: TemplateWithFieldsAndMethods_Wrong.java
+Only in after/src/test/java/spoon/test/template/testclasses: FieldAccessOfInnerClassTemplate.java
+Only in after/src/test/java/spoon/test/template/testclasses: FieldAccessTemplate.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/template/testclasses/inheritance/SubTemplate.java after/src/test/java/spoon/test/template/testclasses/inheritance/SubTemplate.java
+41a42,51
+> 		var = o;	//will be replaced by newVarName = o
+> 		l = (ArrayList) var;	//will be replaced by l = (LinkedList) newVarName
+> 	}
+> 	
+> 	List var = null;
+> 	public void methodWithFieldAccess() {
+> 		List o = (ArrayList) new ArrayList(); // will be replaced by List o = (LinkedList) new LinkedList();
+> 		ArrayList l = null; // will be replaced by LinkedList l = null;
+> 		var = o;
+> 		l = (ArrayList) var;	//will be replaced by l = (LinkedList) newVarName
+58,59c68,69
+< 	@Parameter
+< 	public String var = "newVarName";
+---
+> 	@Parameter("var")
+> 	public String param_var = "newVarName";
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/template/testclasses/logger/LoggerTemplate.java after/src/test/java/spoon/test/template/testclasses/logger/LoggerTemplate.java
+43c43
+< 			Logger.enter(_classname_, _methodName_);
+---
+> 			Logger.enter("_classname_", "_methodName_");
+46c46
+< 			Logger.exit(_methodName_);
+---
+> 			Logger.exit("_methodName_");

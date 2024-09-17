@@ -1,0 +1,75 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java after/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+18a19
+> import spoon.SpoonException;
+69a71
+> import spoon.reflect.code.CtVariableAccess;
+295c297,308
+< 			e.accept(this);
+---
+> 			try {
+> 				e.accept(this);
+> 			} catch (SpoonException ex) {
+> 				throw ex;
+> 			} catch (Exception ex) {
+> 				String elementInfo = e.getClass().getName();
+> 				elementInfo += " on path " + getPath(e) + "\n";
+> 				if (e.getPosition() != null) {
+> 					elementInfo += "at position " + e.getPosition().toString() + " ";
+> 				}
+> 				throw new SpoonException("Printing of " + elementInfo + "failed", ex);
+> 			}
+298a312,334
+> 	}
+> 
+> 	private static String getPath(CtElement ele) {
+> 		StringBuilder sb = new StringBuilder();
+> 		addParentPath(sb, ele);
+> 		if (ele instanceof CtVariableAccess) {
+> 			sb.append(':').append(((CtVariableAccess) ele).getVariable().getSimpleName());
+> 		}
+> 		return sb.toString();
+> 	}
+> 	private static void addParentPath(StringBuilder sb, CtElement ele) {
+> 		if (ele == null || (ele instanceof CtPackage && ((CtPackage) ele).isUnnamedPackage())) {
+> 			return;
+> 		}
+> 		if (ele.isParentInitialized()) {
+> 			addParentPath(sb, ele.getParent());
+> 		}
+> 		sb.append("\n\t").append(ele.getClass().getSimpleName());
+> 		if (ele instanceof CtNamedElement) {
+> 			sb.append(":").append(((CtNamedElement) ele).getSimpleName());
+> 		} else if (ele instanceof CtReference) {
+> 			sb.append(":").append(((CtReference) ele).getSimpleName());
+> 		}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/prettyprinter/PrinterTest.java after/src/test/java/spoon/test/prettyprinter/PrinterTest.java
+4a5
+> import static org.junit.Assert.fail;
+9a11
+> import spoon.SpoonException;
+13a16,17
+> import spoon.test.prettyprinter.testclasses.MissingVariableDeclaration;
+> import spoon.testing.utils.ModelUtils;
+142a147,165
+> 	@Test
+> 	public void testPrintingOfOrphanFieldReference() throws Exception {
+> 		CtType<?> type = ModelUtils.buildClass(MissingVariableDeclaration.class);
+> 		//delete the field, so the model is broken.
+> 		//It may happen during substitution operations and then it is helpful to display descriptive error message
+> 		type.getField("testedField").delete();
+> 		//contract: printer fails with descriptive exception and not with NPE
+> 		try {
+> 			type.getMethodsByName("failingMethod").get(0).getBody().getStatement(0).toString();
+> 			fail();
+> 		} catch (SpoonException e) {
+> 			//the name of the missing field declaration is part of exception
+> 			assertTrue(e.getMessage().indexOf("testedField")>=0);
+> 			//the name of the method where field declaration is missing is part of exception
+> 			assertTrue(e.getMessage().indexOf("failingMethod")>=0);
+> 			//the name of the class where field is missing is part of exception
+> 			assertTrue(e.getMessage().indexOf("MissingVariableDeclaration")>=0);
+> 		} //other exceptions are not OK
+> 	}
+Only in after/src/test/java/spoon/test/prettyprinter/testclasses: MissingVariableDeclaration.java

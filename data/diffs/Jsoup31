@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup31/src/main/java/org/jsoup/parser/TokeniserState.java d4j_patched/Jsoup31/src/main/java/org/jsoup/parser/TokeniserState.java
+1093a1094
+>             comment.bogus = true;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup31/src/main/java/org/jsoup/parser/Token.java d4j_patched/Jsoup31/src/main/java/org/jsoup/parser/Token.java
+170a171
+>         boolean bogus = false;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup31/src/main/java/org/jsoup/parser/XmlTreeBuilder.java d4j_patched/Jsoup31/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+66a67,73
+>         if (commentToken.bogus) { // xml declarations are emitted as bogus comments (which is right for html, but not xml)
+>             String data = comment.getData();
+>             if (data.length() > 1 && (data.startsWith("!") || data.startsWith("?"))) {
+>                 String declaration = data.substring(1);
+>                 insert = new XmlDeclaration(declaration, comment.baseUri(), data.startsWith("!"));
+>             }
+>         }

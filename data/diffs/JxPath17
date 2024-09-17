@@ -1,0 +1,41 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath17/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java d4j_patched/JxPath17/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
+84c84
+<             if (equalStrings(testPrefix, nodePrefix)) {
+---
+>             if (testPrefix == null || equalStrings(testPrefix, nodePrefix)) {
+87,89c87,88
+<             String testNS = null;
+<             if (testPrefix != null) {
+<                 testNS = parent.getNamespaceURI(testPrefix);
+---
+>             if (nodePrefix == null) {
+>                 return false;
+91,95c90,91
+<             String nodeNS = null;
+<             if (nodePrefix != null) {
+<                 nodeNS = parent.getNamespaceURI(nodePrefix);
+<             }
+<             return equalStrings(testNS, nodeNS);
+---
+>             return equalStrings(parent.getNamespaceURI(testPrefix), parent
+>                     .getNamespaceURI(nodePrefix));
+155c151
+< }
+---
+> }
+\ No newline at end of file
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath17/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java d4j_patched/JxPath17/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
+70d69
+<                 if (ns != null) {
+74d72
+<                     }
+82c80,81
+<                     if (attr.getNamespace().equals(ns)) {
+---
+>                     if (ns == Namespace.NO_NAMESPACE
+>                             || attr.getNamespace().equals(ns)) {
+117c116
+< }
+---
+> }
+\ No newline at end of file

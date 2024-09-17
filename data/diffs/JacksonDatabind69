@@ -1,0 +1,33 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind69/src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java d4j_patched/JacksonDatabind69/src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java
+165c165
+<             verifyNonDup(creator, C_ARRAY_DELEGATE, explicit);
+---
+>             if (verifyNonDup(creator, C_ARRAY_DELEGATE, explicit)) {
+166a167
+>             }
+168c169
+<             verifyNonDup(creator, C_DELEGATE, explicit);
+---
+>             if (verifyNonDup(creator, C_DELEGATE, explicit)) {
+169a171
+>             }
+176c178
+<         verifyNonDup(creator, C_PROPS, explicit);
+---
+>         if (verifyNonDup(creator, C_PROPS, explicit)) {
+194a197
+>         }
+299c302
+<     protected void verifyNonDup(AnnotatedWithParams newOne, int typeIndex, boolean explicit)
+---
+>     protected boolean verifyNonDup(AnnotatedWithParams newOne, int typeIndex, boolean explicit)
+310c313
+<                     return;
+---
+>                     return false;
+332c335
+<                     return;
+---
+>                     return false;
+340a344
+>         return true;

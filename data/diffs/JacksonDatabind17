@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind17/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java d4j_patched/JacksonDatabind17/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java
+180c180
+<                         || TreeNode.class.isAssignableFrom(t.getRawClass()));
+---
+>                                 && !TreeNode.class.isAssignableFrom(t.getRawClass()));

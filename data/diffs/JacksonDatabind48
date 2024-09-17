@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind48/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java d4j_patched/JacksonDatabind48/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java
+779a780,785
+>         if (!isEnabled(MapperFeature.AUTO_DETECT_GETTERS)) {
+>             vchecker = vchecker.withGetterVisibility(Visibility.NONE);
+>         }
+>         if (!isEnabled(MapperFeature.AUTO_DETECT_IS_GETTERS)) {
+>             vchecker = vchecker.withIsGetterVisibility(Visibility.NONE);
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind48/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java d4j_patched/JacksonDatabind48/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
+864a865,870
+>         if (!isEnabled(MapperFeature.AUTO_DETECT_SETTERS)) {
+>             vchecker = vchecker.withSetterVisibility(Visibility.NONE);
+>         }
+>         if (!isEnabled(MapperFeature.AUTO_DETECT_CREATORS)) {
+>             vchecker = vchecker.withCreatorVisibility(Visibility.NONE);
+>         }

@@ -1,0 +1,55 @@
+Only in after/: bears.json
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java after/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
+230a231,234
+> 			if (columnIdx.containsKey(header))
+> 			{
+> 				throw new MolgenisDataException(format("Duplicate column header '%s' not allowed", header));
+> 			}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-csv/src/test/java/org/molgenis/data/csv/CsvIteratorTest.java after/molgenis-data-csv/src/test/java/org/molgenis/data/csv/CsvIteratorTest.java
+151a152,166
+> 	@Test(expectedExceptions = MolgenisDataException.class, expectedExceptionsMessageRegExp = "Duplicate column header 'col1' not allowed")
+> 	public void testCsvIteratorDuplicateColumnHeader() throws IOException
+> 	{
+> 		File tmpFile = createTmpFileForResource("duplicate-sheet-header.csv");
+> 		try
+> 		{
+> 			new CsvIterator(tmpFile, "duplicate-sheet-header", null, ',', entityType);
+> 		}
+> 		finally
+> 		{
+> 			//noinspection ResultOfMethodCallIgnored
+> 			tmpFile.delete();
+> 		}
+> 	}
+> 
+Only in after/molgenis-data-excel: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java after/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java
+194c194,203
+< 				if (null != header) columnIdx.put(header, i++);
+---
+> 				if (header != null)
+> 				{
+> 					if (columnIdx.containsKey(header))
+> 					{
+> 						throw new MolgenisDataException(
+> 								format("Duplicate column header '%s' in sheet '%s' not allowed", header,
+> 										headerRow.getSheet().getSheetName()));
+> 					}
+> 					columnIdx.put(header, i++);
+> 				}
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-data-excel/src/test/java/org/molgenis/data/excel/ExcelRepositoryTest.java after/molgenis-data-excel/src/test/java/org/molgenis/data/excel/ExcelRepositoryTest.java
+191a192,205
+> 	@SuppressWarnings("deprecation")
+> 	@Test(expectedExceptions = MolgenisDataException.class, expectedExceptionsMessageRegExp = "Duplicate column header 'entity' in sheet 'attributes' not allowed")
+> 	public void iteratorDuplicateSheetHeader() throws IOException, InvalidFormatException
+> 	{
+> 		String fileName = "/duplicate-sheet-header.xlsx";
+> 		try (InputStream inputStream = getClass().getResourceAsStream(fileName))
+> 		{
+> 			Workbook workbook = WorkbookFactory.create(inputStream);
+> 			ExcelRepository excelRepository = new ExcelRepository(fileName, workbook.getSheet("attributes"),
+> 					entityTypeFactory, attrMetaFactory);
+> 			excelRepository.iterator();
+> 		}
+> 	}
+> 

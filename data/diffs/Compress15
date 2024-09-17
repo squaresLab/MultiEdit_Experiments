@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress15/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java d4j_patched/Compress15/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
+669,673c669,672
+<             if (otherComment != null) {
+<                 return false;
+<             }
+<         } else if (!myComment.equals(otherComment)) {
+<             return false;
+---
+>             myComment = "";
+>         }
+>         if (otherComment == null) {
+>             otherComment = "";
+675a675
+>             && myComment.equals(otherComment)

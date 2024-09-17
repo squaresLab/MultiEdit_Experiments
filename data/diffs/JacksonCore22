@@ -1,0 +1,33 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore22/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java d4j_patched/JacksonCore22/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+417c417
+<                     if (_includePath) {
+---
+>                     if (_verifyAllowedMatches() && _includePath) {
+439a440
+>                     if (_verifyAllowedMatches()) {
+440a442
+>                     }
+575c577
+<                         if (_includePath) {
+---
+>                         if (_verifyAllowedMatches() && _includePath) {
+599a602
+>                         if (_verifyAllowedMatches()) {
+600a604
+>                         }
+717c721
+<                     if (f == TokenFilter.INCLUDE_ALL) {
+---
+>                     if (f == TokenFilter.INCLUDE_ALL && _verifyAllowedMatches()) {
+731a736
+>                         if (_verifyAllowedMatches()) {
+732a738
+>                         }
+770a777,783
+>     private final boolean _verifyAllowedMatches() throws IOException {
+>         if (_matchCount == 0 || _allowMultipleMatches) {
+>             ++_matchCount;
+>             return true;
+>         }
+>         return false;
+>     }

@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress46/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java d4j_patched/Compress46/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
+529,530c529
+<         final long TWO_TO_32 = 0x100000000L;
+<         if (l >= TWO_TO_32) {
+---
+>         if (l < Integer.MIN_VALUE || l > Integer.MAX_VALUE) {

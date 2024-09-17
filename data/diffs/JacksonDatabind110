@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind110/src/main/java/com/fasterxml/jackson/databind/deser/impl/JavaUtilCollectionsDeserializers.java d4j_patched/JacksonDatabind110/src/main/java/com/fasterxml/jackson/databind/deser/impl/JavaUtilCollectionsDeserializers.java
+46a47
+>     private final static Class<?> CLASS_UNMODIFIABLE_LIST_ALIAS;
+57a59
+>         CLASS_UNMODIFIABLE_LIST_ALIAS = Collections.unmodifiableList(new LinkedList<Object>()).getClass();
+78c80
+<         } else if (type.hasRawClass(CLASS_UNMODIFIABLE_LIST)) {
+---
+>         } else if (type.hasRawClass(CLASS_UNMODIFIABLE_LIST) || type.hasRawClass(CLASS_UNMODIFIABLE_LIST_ALIAS)) {

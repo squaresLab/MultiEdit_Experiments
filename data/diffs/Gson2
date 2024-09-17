@@ -1,0 +1,18 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson2/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java d4j_patched/Gson2/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
+833c833,836
+<         return (TypeAdapter<T2>) typeAdapter;
+---
+>         return (TypeAdapter<T2>) new TypeAdapter<T1>() {
+>           @Override public void write(JsonWriter out, T1 value) throws IOException {
+>             typeAdapter.write(out, value);
+>           }
+834a838,846
+>           @Override public T1 read(JsonReader in) throws IOException {
+>             T1 result = typeAdapter.read(in);
+>             if (result != null && !requestedType.isInstance(result)) {
+>               throw new JsonSyntaxException("Expected a " + requestedType.getName()
+>                   + " but was " + result.getClass().getName());
+>             }
+>             return result;
+>           }
+>         };

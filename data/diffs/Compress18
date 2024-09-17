@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress18/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java d4j_patched/Compress18/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+456a457
+>         while (name.endsWith("/")) {
+458a460,461
+>             name = name.substring(0, name.length() - 1);
+>         }

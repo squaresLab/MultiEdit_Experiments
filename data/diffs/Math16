@@ -1,0 +1,37 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math16/src/main/java/org/apache/commons/math3/util/FastMath.java d4j_patched/Math16/src/main/java/org/apache/commons/math3/util/FastMath.java
+81a82
+>     private static final double LOG_MAX_VALUE = StrictMath.log(Double.MAX_VALUE);
+393a395
+>           if (x >= LOG_MAX_VALUE) {
+394a397,399
+>               final double t = exp(0.5 * x);
+>               return (0.5 * t) * t;
+>           } else {
+397c402,403
+<       if (x < -20) {
+---
+>       } else if (x < -20) {
+>           if (x <= -LOG_MAX_VALUE) {
+398a405,407
+>               final double t = exp(-0.5 * x);
+>               return (0.5 * t) * t;
+>           } else {
+399a409
+>           }
+454a465
+>           if (x >= LOG_MAX_VALUE) {
+455a467,469
+>               final double t = exp(0.5 * x);
+>               return (0.5 * t) * t;
+>           } else {
+458c472,473
+<       if (x < -20) {
+---
+>       } else if (x < -20) {
+>           if (x <= -LOG_MAX_VALUE) {
+459a475,477
+>               final double t = exp(-0.5 * x);
+>               return (-0.5 * t) * t;
+>           } else {
+460a479
+>           }

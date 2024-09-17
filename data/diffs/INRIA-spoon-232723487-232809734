@@ -1,0 +1,39 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java after/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+916c916,917
+< 			ref.setPackage(jdtTreeBuilder.getFactory().Package().topLevel());
+---
+> 			// in that case we consider the package should be the same as the current one. Fix #1293
+> 			ref.setPackage(jdtTreeBuilder.getContextBuilder().compilationUnitSpoon.getDeclaredPackage().getReference());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/ctClass/CtClassTest.java after/src/test/java/spoon/test/ctClass/CtClassTest.java
+2a3
+> import static org.hamcrest.core.Is.is;
+5a7
+> import static org.junit.Assert.assertThat;
+18a21
+> import spoon.reflect.declaration.CtField;
+135a139,154
+> 	}
+> 
+> 	@Test
+> 	public void testSpoonShouldInferImplicitPackageInNoClasspath() throws Exception {
+>     	// contract: in noClasspath, when a type is used and no import is specified, then Spoon
+> 		// should infer that this type is in the same package as the current class.
+> 		final Launcher launcher2 = new Launcher();
+> 		launcher2.addInputResource("./src/test/resources/noclasspath/issue1293/com/cristal/ircica/applicationcolis/userinterface/fragments/TransporteurFragment.java");
+> 		launcher2.getEnvironment().setNoClasspath(true);
+> 		launcher2.buildModel();
+> 
+> 		final CtClass<Object> aClass2 = launcher2.getFactory().Class().get("com.cristal.ircica.applicationcolis.userinterface.fragments.TransporteurFragment");
+> 		final String type2 = aClass2.getSuperclass().getQualifiedName();
+> 
+> 		CtField field = aClass2.getField("transporteurRadioGroup");
+> 		assertThat(field.getType().getQualifiedName(), is("android.widget.RadioGroup"));
+136a156
+> 		assertThat(type2, is("com.cristal.ircica.applicationcolis.userinterface.fragments.CompletableFragment"));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/filters/CUFilterTest.java after/src/test/java/spoon/test/filters/CUFilterTest.java
+68c68
+<         assertEquals("B", ctConstructorCall.getType().getQualifiedName());
+---
+>         assertEquals("spoon.test.same.B", ctConstructorCall.getType().getQualifiedName());

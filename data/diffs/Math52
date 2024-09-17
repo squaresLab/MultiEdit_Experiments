@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math52/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java d4j_patched/Math52/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
+344c344,345
+<   if (c == 0) {
+---
+>   final double inPlaneThreshold = 0.001;
+>   if (c <= inPlaneThreshold * k.getNorm() * u3.getNorm()) {
+353c354
+<     if (c == 0) {
+---
+>     if (c <= inPlaneThreshold * k.getNorm() * u2Prime.getNorm()) {
+359c360
+<       if (c == 0) {
+---
+>       if (c <= 0) {

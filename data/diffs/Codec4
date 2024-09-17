@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec4/src/java/org/apache/commons/codec/binary/Base64.java d4j_patched/Codec4/src/java/org/apache/commons/codec/binary/Base64.java
+225c225
+<         this(false);
+---
+>         this(0);

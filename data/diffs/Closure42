@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure42/src/com/google/javascript/jscomp/parsing/IRFactory.java d4j_patched/Closure42/src/com/google/javascript/jscomp/parsing/IRFactory.java
+567a568,572
+>       if (loopNode.isForEach()) {
+>         errorReporter.error(
+>             "unsupported language extension: for each",
+>             sourceName,
+>             loopNode.getLineno(), "", 0);
+569a575,576
+>         return newNode(Token.EXPR_RESULT, Node.newNumber(0));
+>       }

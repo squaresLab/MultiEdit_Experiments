@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec8/src/java/org/apache/commons/codec/binary/Base64InputStream.java d4j_patched/Codec8/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+169,171d168
+<                     if (c > 0 && b.length == len) {
+<                         base64.setInitialBuffer(b, offset, len);
+<                     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec8/src/java/org/apache/commons/codec/binary/Base64.java d4j_patched/Codec8/src/java/org/apache/commons/codec/binary/Base64.java
+419,425d418
+<     void setInitialBuffer(byte[] out, int outPos, int outAvail) {
+<         if (out != null && out.length == outAvail) {
+<             buffer = out;
+<             pos = outPos;
+<             readPos = outPos;
+<         }
+<     }

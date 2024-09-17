@@ -1,0 +1,50 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure165/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java d4j_patched/Closure165/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+697a698,701
+>           RecordType maybeRecordType = greatestSubtype.toMaybeRecordType();
+>           if (maybeRecordType != null && maybeRecordType.isSynthetic()) {
+>             continue;
+>           }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure165/src/com/google/javascript/rhino/jstype/ObjectType.java d4j_patched/Closure165/src/com/google/javascript/rhino/jstype/ObjectType.java
+289a290,293
+>   public final boolean defineSynthesizedProperty(String propertyName,
+>       JSType type, Node propertyNode) {
+>     return defineProperty(propertyName, type, false, propertyNode);
+>   }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure165/src/com/google/javascript/rhino/jstype/RecordTypeBuilder.java d4j_patched/Closure165/src/com/google/javascript/rhino/jstype/RecordTypeBuilder.java
+53a54
+>   private boolean isDeclared = true;
+61a63,65
+>   void setSynthesized(boolean synthesized) {
+>     isDeclared = !synthesized;
+>   }
+92c96
+<         registry, Collections.unmodifiableMap(properties));
+---
+>         registry, Collections.unmodifiableMap(properties), isDeclared);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure165/src/com/google/javascript/rhino/jstype/RecordType.java d4j_patched/Closure165/src/com/google/javascript/rhino/jstype/RecordType.java
+67a68
+>   private final boolean declared;
+69a71,73
+>   RecordType(JSTypeRegistry registry, Map<String, RecordProperty> properties) {
+>     this(registry, properties, true);
+>   }
+83c87,88
+<   RecordType(JSTypeRegistry registry, Map<String, RecordProperty> properties) {
+---
+>   RecordType(JSTypeRegistry registry, Map<String, RecordProperty> properties,
+>       boolean declared) {
+85a91
+>     this.declared = declared;
+92a99
+>       if (declared) {
+94a102,105
+>       } else {
+>         defineSynthesizedProperty(
+>             property, prop.getType(), prop.getPropertyNode());
+>       }
+101a113,115
+>   boolean isSynthetic() {
+>     return !declared;
+>   }
+151a166
+>       builder.setSynthesized(true);

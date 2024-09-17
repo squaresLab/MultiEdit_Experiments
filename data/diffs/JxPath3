@@ -1,0 +1,23 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath3/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java d4j_patched/JxPath3/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java
+18a19,20
+> import org.apache.commons.jxpath.AbstractFactory;
+> import org.apache.commons.jxpath.JXPathAbstractFactoryException;
+108a111,113
+>             if (parent instanceof NullPointer && parent.equals(newParent)) {
+>                 throw createBadFactoryException(context.getFactory());
+>             }
+137a143,145
+>             if (parent instanceof NullPointer && parent.equals(newParent)) {
+>                 throw createBadFactoryException(context.getFactory());
+>             }
+224c232,238
+< }
+---
+> 
+>     private JXPathAbstractFactoryException createBadFactoryException(AbstractFactory factory) {
+>         return new JXPathAbstractFactoryException("Factory " + factory
+>                 + " reported success creating object for path: " + asPath()
+>                 + " but object was null.  Terminating to avoid stack recursion.");
+>     }
+> }
+\ No newline at end of file

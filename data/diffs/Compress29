@@ -1,0 +1,43 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress29/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java d4j_patched/Compress29/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
+296a297,299
+>             if (entryEncoding != null) {
+>                 return new JarArchiveOutputStream(out, entryEncoding);
+>             } else {
+297a301
+>             }
+359a364,366
+>                 if (entryEncoding != null) {
+>                     return new ArjArchiveInputStream(in, entryEncoding);
+>                 } else {
+360a368
+>                 }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress29/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java d4j_patched/Compress29/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java
+96a97
+>     final String encoding;
+154a156
+>         this.encoding = encoding;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress29/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java d4j_patched/Compress29/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
+97a98
+>     final String encoding;
+161a163
+>         this.encoding = encoding;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress29/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java d4j_patched/Compress29/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java
+79a80
+>     final String encoding;
+103a105
+>         this.encoding = encoding;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress29/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java d4j_patched/Compress29/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+78a79
+>     final String encoding;
+141a143
+>         this.encoding = encoding;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress29/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java d4j_patched/Compress29/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+89a90
+>     final String encoding;
+154a156
+>         this.encoding = encoding;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress29/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java d4j_patched/Compress29/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+64a65
+>     final String encoding;
+183a185
+>         this.encoding = encoding;

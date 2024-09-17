@@ -1,0 +1,127 @@
+Only in after/: bears.json
+Only in after/cbor: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/cbor/src/main/java/com/fasterxml/jackson/dataformat/cbor/CBORFactory.java after/cbor/src/main/java/com/fasterxml/jackson/dataformat/cbor/CBORFactory.java
+277c277,278
+<         return _createParser(new FileInputStream(f), _createContext(f, true));
+---
+>         IOContext ctxt = _createContext(f, true);
+>         return _createParser(_decorate(new FileInputStream(f), ctxt), ctxt);
+282c283,284
+<         return _createParser(_optimizedStreamFromURL(url), _createContext(url, true));
+---
+>         IOContext ctxt = _createContext(url, true);
+>         return _createParser(_decorate(_optimizedStreamFromURL(url), ctxt), ctxt);
+287c289,290
+<         return _createParser(in, _createContext(in, false));
+---
+>         IOContext ctxt = _createContext(in, false);
+>         return _createParser(_decorate(in, ctxt), ctxt);
+292c295
+<         return _createParser(data, 0, data.length, _createContext(data, true));
+---
+>         return createParser(data, 0, data.length);
+294a298
+>     @SuppressWarnings("resource")
+297c301,308
+<         return _createParser(data, offset, len, _createContext(data, true));
+---
+>         IOContext ctxt = _createContext(data, true);
+>         if (_inputDecorator != null) {
+>             InputStream in = _inputDecorator.decorate(ctxt, data, 0, data.length);
+>             if (in != null) {
+>                 return _createParser(in, ctxt);
+>             }
+>         }
+>         return _createParser(data, offset, len, ctxt);
+315,316c326,329
+<         return _createCBORGenerator(_createContext(out, false),
+<                 _generatorFeatures, _formatGeneratorFeatures, _objectCodec, out);
+---
+>         final IOContext ctxt = _createContext(out, false);
+>         return _createCBORGenerator(ctxt,
+>                 _generatorFeatures, _formatGeneratorFeatures, _objectCodec,
+>                 _decorate(out, ctxt));
+328,329c341,344
+<         return _createCBORGenerator(_createContext(out, false),
+<                 _generatorFeatures, _formatGeneratorFeatures, _objectCodec, out);
+---
+>         final IOContext ctxt = _createContext(out, false);
+>         return _createCBORGenerator(ctxt,
+>                 _generatorFeatures, _formatGeneratorFeatures, _objectCodec,
+>                 _decorate(out, ctxt));
+Only in after/cbor/src/test/java/com/fasterxml/jackson/dataformat/cbor: filter
+Only in after/cbor/src/test/java/com/fasterxml/jackson/dataformat/cbor/util: PrefixInputDecorator.java
+Only in after/cbor/src/test/java/com/fasterxml/jackson/dataformat/cbor/util: PrefixOutputDecorator.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/smile/src/main/java/com/fasterxml/jackson/dataformat/smile/SmileFactory.java after/smile/src/main/java/com/fasterxml/jackson/dataformat/smile/SmileFactory.java
+322c322
+<     
+---
+> 
+330c330
+<                 return _createParser(_decorate(in, ctxt), ctxt);
+---
+>                 return _createParser(in, ctxt);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/smile/src/test/java/com/fasterxml/jackson/dataformat/smile/filter/StreamingDecoratorsTest.java after/smile/src/test/java/com/fasterxml/jackson/dataformat/smile/filter/StreamingDecoratorsTest.java
+3c3
+< import java.io.ByteArrayOutputStream;
+---
+> import java.io.*;
+6d5
+< 
+15c14
+<         final byte[] DOC = _smileDoc("[ 42 ]");
+---
+>         final byte[] DOC = _smileDoc("42   37");
+18,19c17
+<         JsonParser p = streamF.createParser(new byte[0]);
+<         assertToken(JsonToken.START_ARRAY, p.nextToken());
+---
+>         JsonParser p = streamF.createParser(new byte[0], 0, 0);
+22c20,22
+<         assertToken(JsonToken.END_ARRAY, p.nextToken());
+---
+>         assertToken(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+>         assertEquals(37, p.getIntValue());
+>         assertNull(p.nextToken());
+42a43
+>         assertNull(p.nextToken());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/smile/src/test/java/com/fasterxml/jackson/dataformat/smile/testutil/PrefixInputDecorator.java after/smile/src/test/java/com/fasterxml/jackson/dataformat/smile/testutil/PrefixInputDecorator.java
+25c25,28
+<         return new SequenceInputStream(new ByteArrayInputStream(_prefix), in);
+---
+>         if (in instanceof MySequenceInputStream) {
+>             throw new IllegalStateException("Trying to decorate MySequenceInputStream (double-decoration!)");
+>         }
+>         return new MySequenceInputStream(new ByteArrayInputStream(_prefix), in);
+34a38,40
+>         if (r instanceof SequenceReader) {
+>             throw new IllegalStateException("Trying to decorate SequenceReader (double-decoration!)");
+>         }
+39c45,52
+<     private static class SequenceReader extends Reader {
+---
+>     // sub-class only so we can check for "double decoration"
+>     static class MySequenceInputStream extends SequenceInputStream {
+>         public MySequenceInputStream(InputStream in1, InputStream in2) {
+>             super(in1, in2);
+>         }
+>     }
+> 
+>     static class SequenceReader extends Reader {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/smile/src/test/java/com/fasterxml/jackson/dataformat/smile/testutil/PrefixOutputDecorator.java after/smile/src/test/java/com/fasterxml/jackson/dataformat/smile/testutil/PrefixOutputDecorator.java
+24,25c24,27
+<         out.write(_prefix);
+<         return out;
+---
+>         if (out instanceof BufferedOut) {
+>             throw new IllegalStateException("Trying to decorate `Buffered` (double-decoration!)");
+>         }
+>         return new BufferedOut(out, _prefix);
+36c38
+<     static class Buffered extends FilterOutputStream {
+---
+>     static class BufferedOut extends FilterOutputStream {
+39c41
+<         public Buffered(OutputStream b, byte[] prefix) {
+---
+>         public BufferedOut(OutputStream b, byte[] prefix) {

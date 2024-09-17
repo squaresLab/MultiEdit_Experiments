@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec2/src/java/org/apache/commons/codec/binary/Base64.java d4j_patched/Codec2/src/java/org/apache/commons/codec/binary/Base64.java
+446c446
+<             if (lineLength > 0) {
+---
+>             if (lineLength > 0 && pos > 0) {

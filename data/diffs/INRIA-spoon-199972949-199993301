@@ -1,0 +1,30 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/code/CtLambdaImpl.java after/src/main/java/spoon/support/reflect/code/CtLambdaImpl.java
+112c112
+< 				if (method.isDefaultMethod() || method.hasModifier(ModifierKind.PRIVATE)) {
+---
+> 				if (method.isDefaultMethod() || method.hasModifier(ModifierKind.PRIVATE) || method.hasModifier(ModifierKind.STATIC)) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/lambda/LambdaTest.java after/src/test/java/spoon/test/lambda/LambdaTest.java
+25a26
+> import spoon.test.lambda.testclasses.LambdaRxJava;
+31a33
+> import java.util.Set;
+32a35
+> import java.util.function.Function;
+49a53
+> 	private CtType<LambdaRxJava> lambdaRxJava;
+66a71
+> 		lambdaRxJava = factory.Type().get(LambdaRxJava.class);
+369a375,384
+> 	}
+> 
+> 	@Test
+> 	public void testGetOverriddenMethodWithFunction() throws Exception {
+> 		List<CtLambda<?>> allLambdas = lambdaRxJava.getElements(new TypeFilter<CtLambda<?>>(CtLambda.class));
+> 		assertEquals(1, allLambdas.size());
+> 		CtLambda<?> lambda = allLambdas.get(0);
+> 		CtMethod<?> method = lambda.getOverriddenMethod();
+> 		CtTypeReference<?> iface = lambda.getType();
+> 		assertEquals(LambdaRxJava.NbpOperator.class.getName(), iface.getQualifiedName());
+Only in after/src/test/java/spoon/test/lambda/testclasses: LambdaRxJava.java

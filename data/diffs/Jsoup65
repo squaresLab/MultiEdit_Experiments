@@ -1,0 +1,22 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup65/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java d4j_patched/Jsoup65/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+360c360
+<         clearStackToContext("tbody", "tfoot", "thead");
+---
+>         clearStackToContext("tbody", "tfoot", "thead", "template");
+364c364
+<         clearStackToContext("tr");
+---
+>         clearStackToContext("tr", "template");
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup65/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java d4j_patched/Jsoup65/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+1036c1036,1038
+<                     if (name.equals("tr")) {
+---
+>                     if (name.equals("template")) {
+>                         tb.insert(startTag);
+>                     } else if (name.equals("tr")) {
+1096c1098,1100
+<                 if (StringUtil.in(name, "th", "td")) {
+---
+>                 if (name.equals("template")) {
+>                     tb.insert(startTag);
+>                 } else if (StringUtil.in(name, "th", "td")) {

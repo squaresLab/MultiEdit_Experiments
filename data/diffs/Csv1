@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv1/src/main/java/org/apache/commons/csv/ExtendedBufferedReader.java d4j_patched/Csv1/src/main/java/org/apache/commons/csv/ExtendedBufferedReader.java
+58c58
+<         if (current == '\n') {
+---
+>         if (current == '\r' || (current == '\n' && lastChar != '\r')) {

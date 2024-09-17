@@ -1,0 +1,30 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore16/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java d4j_patched/JacksonCore16/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
+34a35
+>     protected boolean _suppressNextToken;
+44a46
+>         _suppressNextToken = delegate.hasCurrentToken();
+104c106
+<     public JsonToken nextToken() throws IOException, JsonParseException
+---
+>     public JsonToken nextToken() throws IOException
+105a108,114
+>         if (delegate == null) {
+>             return null;
+>         }
+>         if (_suppressNextToken) {
+>             _suppressNextToken = false;
+>             return delegate.currentToken();
+>         }
+107,110c116,118
+<         if (t != null) return t;
+<         while (switchToNext()) {
+<             t = delegate.nextToken();
+<             if (t != null) return t;
+---
+>         while ((t == null) && switchToNext()) {
+>             t = delegate.hasCurrentToken()
+>                     ? delegate.currentToken() : delegate.nextToken();
+112c120
+<         return null;
+---
+>         return t;

@@ -1,0 +1,23 @@
+Only in after/: bears.json
+Only in after/modules/swagger-codegen: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java after/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
+87a88,90
+>             if (!interfaceOnly) {
+>                 additionalProperties.remove(INTERFACE_ONLY);
+>             }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/modules/swagger-codegen/src/test/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegenTest.java after/modules/swagger-codegen/src/test/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegenTest.java
+76a77,90
+> 
+>     @Test
+>     public void verify_that_interfaceOnly_is_removed_from_additional_properties_if_false() {
+>         generator.additionalProperties().put(JavaJAXRSSpecServerCodegen.INTERFACE_ONLY, Boolean.FALSE.toString());
+>         generator.processOpts();
+>         Assert.assertFalse(generator.additionalProperties().containsKey(JavaJAXRSSpecServerCodegen.INTERFACE_ONLY));
+>     }
+> 
+>     @Test
+>     public void verify_that_interfaceOnly_is_preserved_in_additional_properties_if_true() {
+>         generator.additionalProperties().put(JavaJAXRSSpecServerCodegen.INTERFACE_ONLY, Boolean.TRUE.toString());
+>         generator.processOpts();
+>         Assert.assertTrue(generator.additionalProperties().containsKey(JavaJAXRSSpecServerCodegen.INTERFACE_ONLY));
+>     }

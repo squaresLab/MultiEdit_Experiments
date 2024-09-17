@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath8/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java d4j_patched/JxPath8/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+75a76,78
+>         if (Double.isNaN(ld)) {
+>             return false;
+>         }
+76a80,82
+>         if (Double.isNaN(rd)) {
+>             return false;
+>         }

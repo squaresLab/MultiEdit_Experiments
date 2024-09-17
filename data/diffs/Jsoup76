@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup76/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java d4j_patched/Jsoup76/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+381a382
+>                         tb.reader.matchConsume("\n"); // ignore LF if next token

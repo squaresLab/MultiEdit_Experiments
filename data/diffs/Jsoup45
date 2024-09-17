@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup45/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java d4j_patched/Jsoup45/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+394c394
+<             } else if (("td".equals(name) || "td".equals(name) && !last)) {
+---
+>             } else if (("td".equals(name) || "th".equals(name) && !last)) {

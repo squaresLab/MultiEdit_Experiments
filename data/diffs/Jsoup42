@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup42/src/main/java/org/jsoup/nodes/FormElement.java d4j_patched/Jsoup42/src/main/java/org/jsoup/nodes/FormElement.java
+79a80
+>             if (el.hasAttr("disabled")) continue; // skip disabled form inputs
+99c100
+<                     final String val = el.val();
+---
+>                     final String val = el.val().length() >  0 ? el.val() : "on";

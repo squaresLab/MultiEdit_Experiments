@@ -1,0 +1,26 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson9/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java d4j_patched/Gson9/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java
+161a162,168
+>   @Override public JsonWriter value(Boolean value) throws IOException {
+>     if (value == null) {
+>       return nullValue();
+>     }
+>     put(new JsonPrimitive(value));
+>     return this;
+>   }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson9/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java d4j_patched/Gson9/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
+165,168d164
+<       if (value == null) {
+<         out.nullValue();
+<         return;
+<       }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson9/gson/src/main/java/com/google/gson/stream/JsonWriter.java d4j_patched/Gson9/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+475a476,484
+>   public JsonWriter value(Boolean value) throws IOException {
+>     if (value == null) {
+>       return nullValue();
+>     }
+>     writeDeferredName();
+>     beforeValue();
+>     out.write(value ? "true" : "false");
+>     return this;
+>   }

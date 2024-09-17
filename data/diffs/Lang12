@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang12/src/main/java/org/apache/commons/lang3/RandomStringUtils.java d4j_patched/Lang12/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+229a230,232
+>         if (chars != null && chars.length == 0) {
+>             throw new IllegalArgumentException("The chars array must not be empty");
+>         }
+231a235,237
+>             if (chars != null) {
+>                 end = chars.length;
+>             } else {
+237a244
+>             }

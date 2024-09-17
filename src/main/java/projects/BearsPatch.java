@@ -103,10 +103,10 @@ public class BearsPatch implements Patch {
             throw new RuntimeException(e);
         }
         if (unconventionalBugs.contains(this.bugNumber)) {
-            System.out.println("Bears Bug " + bugNumber);
-            System.out.print("Path to classes (Move jacoco file over): ");
-            System.out.flush();
-            return pathToBears + sysin.nextLine() + "/target/classes";
+//            System.out.println("Bears Bug " + bugNumber);
+//            System.out.print("Path to classes (Move jacoco file over): ");
+//            System.out.flush();
+//            return pathToBears + sysin.nextLine() + "/target/classes";
         }
         return pathToBears + "/target/classes";
     }
@@ -118,12 +118,12 @@ public class BearsPatch implements Patch {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        if (unconventionalBugs.contains(this.bugNumber)) {
-            System.out.println("Bears Bug " + bugNumber);
-            System.out.print("Path to classes (Move jacoco file over): ");
-            System.out.flush();
-            return pathToBears + sysin.nextLine() + "/target/classes";
-        }
+//        if (unconventionalBugs.contains(this.bugNumber)) {
+//            System.out.println("Bears Bug " + bugNumber);
+//            System.out.print("Path to classes (Move jacoco file over): ");
+//            System.out.flush();
+//            return pathToBears + sysin.nextLine() + "/target/classes";
+//        }
         return pathToBears + "/target/classes";
     }
 

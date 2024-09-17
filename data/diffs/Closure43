@@ -1,0 +1,22 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure43/src/com/google/javascript/jscomp/TypedScopeCreator.java d4j_patched/Closure43/src/com/google/javascript/jscomp/TypedScopeCreator.java
+419a420
+>     private List<Node> lentObjectLiterals = null;
+546a548,554
+>       if (n.getParent() != null && NodeUtil.isStatement(n) &&
+>           lentObjectLiterals != null) {
+>         for (Node objLit : lentObjectLiterals) {
+>           defineObjectLiteral(objLit);
+>         }
+>         lentObjectLiterals.clear();
+>       }
+579a588,595
+>           JSDocInfo info = n.getJSDocInfo();
+>           if (info != null &&
+>               info.getLendsName() != null) {
+>             if (lentObjectLiterals == null) {
+>               lentObjectLiterals = Lists.newArrayList();
+>             }
+>             lentObjectLiterals.add(n);
+>           } else {
+580a597
+>           }

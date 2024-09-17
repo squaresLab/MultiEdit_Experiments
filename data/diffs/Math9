@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math9/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java d4j_patched/Math9/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java
+87c87,88
+<         final Line reverted = new Line(zero, zero.subtract(direction));
+---
+>         final Line reverted = new Line(this);
+>         reverted.direction = reverted.direction.negate();

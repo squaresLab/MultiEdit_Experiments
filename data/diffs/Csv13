@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv13/src/main/java/org/apache/commons/csv/CSVFormat.java d4j_patched/Csv13/src/main/java/org/apache/commons/csv/CSVFormat.java
+319c319
+<             .withQuote(null).withRecordSeparator(LF);
+---
+>             .withQuote(null).withRecordSeparator(LF).withNullString("\\N");
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv13/src/main/java/org/apache/commons/csv/CSVPrinter.java d4j_patched/Csv13/src/main/java/org/apache/commons/csv/CSVPrinter.java
+139c139,141
+<         if (format.isQuoteCharacterSet()) {
+---
+>         if (object == null) {
+>             out.append(value);
+>         } else if (format.isQuoteCharacterSet()) {

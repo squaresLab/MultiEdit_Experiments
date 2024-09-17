@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind92/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java d4j_patched/JacksonDatabind92/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+63a64,65
+>         s.add("java.util.logging.FileHandler");
+>         s.add("java.rmi.server.UnicastRemoteObject");
+64a67,70
+>         s.add("org.springframework.aop.support.AbstractBeanFactoryPointcutAdvisor");
+>         s.add("org.springframework.beans.factory.config.PropertyPathFactoryBean");
+>         s.add("com.mchange.v2.c3p0.JndiRefForwardingDataSource");
+>         s.add("com.mchange.v2.c3p0.WrapperConnectionPoolDataSource");

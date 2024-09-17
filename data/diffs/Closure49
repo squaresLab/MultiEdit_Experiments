@@ -1,0 +1,31 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure49/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java d4j_patched/Closure49/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+91,98d90
+<     if (declarationRoot.getType() == Token.FUNCTION) {
+<       for (Node c = declarationRoot.getFirstChild().getNext().getFirstChild(); c != null; c = c.getNext()) {
+<         String name = c.getString();
+<         renamer.addDeclaredName(name);
+<       }
+<       Node functionBody = declarationRoot.getLastChild();
+<       findDeclaredNames(functionBody, null, renamer);
+<     }  else 
+129a122,124
+>           nameStack.push(renamer);
+>         }
+>         break;
+130a126,127
+>       case Token.LP: {
+>           Renamer renamer = nameStack.peek().forChildScope();
+132a130,133
+>           for (Node c = n.getFirstChild(); c != null; c = c.getNext()) {
+>             String name = c.getString();
+>             renamer.addDeclaredName(name);
+>           }
+134a136,137
+>           Node functionBody = n.getNext();
+>           findDeclaredNames(functionBody, null, renamer);
+172a176
+>         nameStack.pop();
+176a181
+>       case Token.LP:
+179a185
+>         break;

@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math50/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java d4j_patched/Math50/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
+187,190d186
+<                     if (x == x1) {
+<                         x0 = 0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1), atol));
+<                         f0 = computeObjectiveValue(x0);
+<                     }

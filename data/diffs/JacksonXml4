@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonXml4/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java d4j_patched/JacksonXml4/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java
+203a204,207
+>         QName rootName = _rootNameFromConfig();
+>         if (rootName == null) {
+>             rootName = ROOT_NAME_FOR_NULL;
+>         }
+205c209
+<             _initWithRootName((ToXmlGenerator) jgen, ROOT_NAME_FOR_NULL);
+---
+>             _initWithRootName((ToXmlGenerator) jgen, rootName);

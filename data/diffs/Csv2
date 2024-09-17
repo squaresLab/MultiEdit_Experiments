@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv2/src/main/java/org/apache/commons/csv/CSVRecord.java d4j_patched/Csv2/src/main/java/org/apache/commons/csv/CSVRecord.java
+84a85
+>         try {
+85a87,92
+>         } catch (ArrayIndexOutOfBoundsException e) {
+>             throw new IllegalArgumentException(
+>                     String.format(
+>                             "Index for header '%s' is %d but CSVRecord only has %d values!",
+>                             name, index.intValue(), values.length));
+>         }

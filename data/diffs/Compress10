@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress10/src/main/java/org/apache/commons/compress/archivers/zip/ZipFile.java d4j_patched/Compress10/src/main/java/org/apache/commons/compress/archivers/zip/ZipFile.java
+808,809c808,812
+<         for (ZipArchiveEntry ze : entries.keySet()) {
+<             OffsetEntry offsetEntry = entries.get(ze);
+---
+>         Map<ZipArchiveEntry, OffsetEntry> origMap =
+>             new LinkedHashMap<ZipArchiveEntry, OffsetEntry>(entries);
+>         entries.clear();
+>         for (ZipArchiveEntry ze : origMap.keySet()) {
+>             OffsetEntry offsetEntry = origMap.get(ze);
+841a845
+>             entries.put(ze, offsetEntry);

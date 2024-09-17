@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli34/src/main/java/org/apache/commons/cli/OptionBuilder.java d4j_patched/Cli34/src/main/java/org/apache/commons/cli/OptionBuilder.java
+84c84
+<         type = null;
+---
+>         type = String.class;
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli34/src/main/java/org/apache/commons/cli/Option.java d4j_patched/Cli34/src/main/java/org/apache/commons/cli/Option.java
+72c72
+<     private Class type;
+---
+>     private Class type = String.class;

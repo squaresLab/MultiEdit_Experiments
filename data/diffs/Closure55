@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure55/src/com/google/javascript/jscomp/FunctionRewriter.java d4j_patched/Closure55/src/com/google/javascript/jscomp/FunctionRewriter.java
+117c117,118
+<     return NodeUtil.isFunctionExpression(n);
+---
+>     return NodeUtil.isFunctionExpression(n)
+>         && !NodeUtil.isGetOrSetKey(n.getParent());

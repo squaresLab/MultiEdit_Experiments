@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Codec5/src/java/org/apache/commons/codec/binary/Base64.java d4j_patched/Codec5/src/java/org/apache/commons/codec/binary/Base64.java
+585a586,588
+>             if (buffer == null || buffer.length - pos < decodeSize) {
+>                 resizeBuffer();
+>             }

@@ -1,0 +1,22 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson3/gson/src/main/java/com/google/gson/internal/ConstructorConstructor.java d4j_patched/Gson3/gson/src/main/java/com/google/gson/internal/ConstructorConstructor.java
+35a36,39
+> import java.util.concurrent.ConcurrentHashMap;
+> import java.util.concurrent.ConcurrentMap;
+> import java.util.concurrent.ConcurrentNavigableMap;
+> import java.util.concurrent.ConcurrentSkipListMap;
+175c179,191
+<       if (SortedMap.class.isAssignableFrom(rawType)) {
+---
+>       if (ConcurrentNavigableMap.class.isAssignableFrom(rawType)) {
+>         return new ObjectConstructor<T>() {
+>           @Override public T construct() {
+>             return (T) new ConcurrentSkipListMap<Object, Object>();
+>           }
+>         };
+>       } else if (ConcurrentMap.class.isAssignableFrom(rawType)) {
+>         return new ObjectConstructor<T>() {
+>           @Override public T construct() {
+>             return (T) new ConcurrentHashMap<Object, Object>();
+>           }
+>         };
+>       } else if (SortedMap.class.isAssignableFrom(rawType)) {

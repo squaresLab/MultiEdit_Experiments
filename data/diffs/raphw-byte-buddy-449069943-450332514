@@ -1,0 +1,43 @@
+Only in after/: bears.json
+Only in after/byte-buddy-dep: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/FieldAccessor.java after/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/FieldAccessor.java
+208c208
+<                 if (!instrumentedType.isAssignableTo(fieldDescription.getDeclaringType().asErasure())) {
+---
+>                 if (!fieldDescription.isStatic() && !instrumentedType.isAssignableTo(fieldDescription.getDeclaringType().asErasure())) {
+865,869c865
+<                 if (!instrumentedType.isAssignableTo(fieldDescription.getDeclaringType().asErasure())) {
+<                     throw new IllegalStateException(fieldDescription + " is not declared in the hierarchy of " + instrumentedType);
+<                 } else if (!fieldDescription.isAccessibleTo(instrumentedType)) {
+<                     throw new IllegalStateException("Cannot access " + fieldDescription + " from " + instrumentedType);
+<                 } else if (!fieldDescription.isStatic() && instrumentedMethod.isStatic()) {
+---
+>                 if (!fieldDescription.isStatic() && instrumentedMethod.isStatic()) {
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/test/java/net/bytebuddy/implementation/FieldAccessorOtherTest.java after/byte-buddy-dep/src/test/java/net/bytebuddy/implementation/FieldAccessorOtherTest.java
+18a19
+> import java.util.concurrent.Callable;
+160a162,174
+>     @Test
+>     public void testStaticFieldOfOtherClass() throws Exception {
+>         DynamicType.Loaded<Callable> loaded = new ByteBuddy()
+>                 .subclass(Callable.class)
+>                 .method(named("call"))
+>                 .intercept(FieldAccessor.of(StaticFieldHolder.class.getField(FOO.toUpperCase())))
+>                 .make()
+>                 .load(StaticFieldHolder.class.getClassLoader(), ClassLoadingStrategy.Default.WRAPPER);
+>         assertThat(loaded.getLoaded().getDeclaredFields().length, is(0));
+>         Callable<?> instance = loaded.getLoaded().getDeclaredConstructor().newInstance();
+>         assertThat(instance.call(), is((Object) FOO));
+>     }
+> 
+253,256d266
+<     public static class BarSub extends Bar {
+<         /* empty */
+<     }
+< 
+319a330,334
+>     }
+> 
+>     public static class StaticFieldHolder {
+> 
+>         public static final String FOO = "foo";

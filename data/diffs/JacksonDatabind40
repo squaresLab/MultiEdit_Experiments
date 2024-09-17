@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind40/src/main/java/com/fasterxml/jackson/databind/deser/std/NumberDeserializers.java d4j_patched/JacksonDatabind40/src/main/java/com/fasterxml/jackson/databind/deser/std/NumberDeserializers.java
+147a148,149
+>         @Override
+>         public T getEmptyValue(DeserializationContext ctxt) throws JsonMappingException {
+149a152,158
+>             if (_primitive && ctxt.isEnabled(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)) {
+>                 throw ctxt.mappingException(
+>                         "Can not map Empty String as null into type %s (set DeserializationConfig.DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES to 'false' to allow)",
+>                         handledType().toString());
+>             }
+>             return _nullValue;
+>         }

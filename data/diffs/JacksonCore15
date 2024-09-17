@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore15/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java d4j_patched/JacksonCore15/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+226a227
+>     	if(!_allowMultipleMatches && _currToken != null && _exposedContext == null){
+227a229,231
+>     		if((_currToken.isStructEnd()  && _headContext.isStartHandled()) ){
+>     			return (_currToken = null);
+>     		}
+229a234,238
+>     		else if(_currToken.isScalarValue() && !_headContext.isStartHandled() && !_includePath 
+>     				&& _itemFilter == TokenFilter.INCLUDE_ALL) {
+>     			return (_currToken = null);
+>     		}
+>     	}

@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure2/src/com/google/javascript/jscomp/TypeCheck.java d4j_patched/Closure2/src/com/google/javascript/jscomp/TypeCheck.java
+1571a1572
+>     if (implicitProto == null) {
+1573a1575,1576
+>       currentPropertyNames = ImmutableSet.of();
+>     } else {
+1574a1578
+>     }

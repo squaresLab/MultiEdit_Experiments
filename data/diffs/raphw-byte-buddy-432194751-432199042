@@ -1,0 +1,40 @@
+Only in after/: bears.json
+Only in after/byte-buddy-dep: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/main/java/net/bytebuddy/dynamic/scaffold/TypeWriter.java after/byte-buddy-dep/src/main/java/net/bytebuddy/dynamic/scaffold/TypeWriter.java
+4349,4352c4349
+<                             TypeDescription enclosingType = instrumentedType.getEnclosingType();
+<                             if (enclosingType != null) { // The Scala compiler sometimes generates illegal combinations.
+<                                 cv.visitOuterClass(enclosingType.getInternalName(), NO_REFERENCE, NO_REFERENCE);
+<                             }
+---
+>                             cv.visitOuterClass(instrumentedType.getEnclosingType().getInternalName(), NO_REFERENCE, NO_REFERENCE);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/main/java/net/bytebuddy/pool/TypePool.java after/byte-buddy-dep/src/main/java/net/bytebuddy/pool/TypePool.java
+7570,7573d7569
+<                     this.modifiers = modifiers & REAL_MODIFIER_MASK;
+<                     if (innerName == null) {
+<                         anonymousType = true;
+<                     }
+7579a7576,7579
+>                     if (innerName == null && !typeContainment.isSelfContained()) { // Some compilers define this property inconsistently.
+>                         anonymousType = true;
+>                     }
+>                     this.modifiers = modifiers & REAL_MODIFIER_MASK;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/byte-buddy-dep/src/test/java/net/bytebuddy/description/type/AbstractTypeDescriptionTest.java after/byte-buddy-dep/src/test/java/net/bytebuddy/description/type/AbstractTypeDescriptionTest.java
+729a730,746
+>     @Test
+>     public void testNonEnclosedAnonymousType() throws Exception {
+>         ClassWriter classWriter = new ClassWriter(0);
+>         classWriter.visit(Opcodes.V1_6, Opcodes.ACC_PUBLIC, "foo/Bar", null, "java/lang/Object", null);
+>         classWriter.visitInnerClass("foo/Bar", null, null, Opcodes.ACC_PUBLIC);
+>         classWriter.visitEnd();
+> 
+>         ClassLoader classLoader = new ByteArrayClassLoader(null,
+>                 Collections.singletonMap("foo.Bar", classWriter.toByteArray()),
+>                 ByteArrayClassLoader.PersistenceHandler.MANIFEST);
+>         Class<?> type = classLoader.loadClass("foo.Bar");
+> 
+>         assertThat(describe(type).isAnonymousType(), is(type.isAnonymousClass()));
+>         assertThat(describe(type).isLocalType(), is(type.isLocalClass()));
+>         assertThat(describe(type).isMemberType(), is(type.isMemberClass()));
+>     }
+> 

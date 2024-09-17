@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind64/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java d4j_patched/JacksonDatabind64/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
+151a152
+>             Object defaultBean;
+157c158
+<             if (_useRealPropertyDefaults) {
+---
+>             if (_useRealPropertyDefaults && (defaultBean = getDefaultBean()) != null) {
+162c163,167
+<                 valueToSuppress = getPropertyDefaultValue(propDef.getName(), am, actualType);
+---
+>                 try {
+>                     valueToSuppress = am.getValue(defaultBean);
+>                 } catch (Exception e) {
+>                     _throwWrapped(e, propDef.getName(), defaultBean);
+>                 }

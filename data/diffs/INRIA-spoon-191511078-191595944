@@ -1,0 +1,66 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java after/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
+622c622
+< 				return type.getTopLevelType().getQualifiedName().equals(this.getQualifiedName());
+---
+> 				return type.getTopLevelType().getQualifiedName().equals(this.getTopLevelType().getQualifiedName());
+675a676,678
+> 		}
+> 		if (declType == null) {
+> 			throw new SpoonException("Cannot compute access path to type: " + this.getQualifiedName() + " in context of type: " + contextType.getQualifiedName());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/ImportTest.java after/src/test/java/spoon/test/imports/ImportTest.java
+406,407c406,410
+< 		assertTrue(mmwli.toString().indexOf("AbstractMapBasedMultimap<K, V>.WrappedList.WrappedIterator")>=0);
+< 		assertTrue(mm.toString().indexOf("AbstractMapBasedMultimap<K, V>.WrappedList.WrappedIterator")>=0);
+---
+> 		assertEquals("private class WrappedListIterator extends spoon.test.imports.testclasses2.AbstractMapBasedMultimap<K, V>.WrappedCollection.WrappedIterator {}",mmwli.toString());
+> 		assertTrue(mm.toString().indexOf("AbstractMapBasedMultimap<K, V>.WrappedCollection.WrappedIterator")>=0);
+> 
+> 		CtClass<?> mmwliother = launcher.getFactory().Class().get("spoon.test.imports.testclasses2.AbstractMapBasedMultimap$OtherWrappedList$WrappedListIterator");
+> 		assertEquals("private class WrappedListIterator extends spoon.test.imports.testclasses2.AbstractMapBasedMultimap<K, V>.OtherWrappedList.WrappedIterator {}",mmwliother.toString());
+427,429c430,435
+< 		assertTrue(mmwli.toString().indexOf("AbstractMapBasedMultimap<K, V>.WrappedList.WrappedIterator")>=0);
+< 		assertTrue(mm.toString().indexOf("AbstractMapBasedMultimap<K, V>.WrappedList.WrappedIterator")>=0);
+< 		 								  
+---
+> 		assertEquals("private class WrappedListIterator extends AbstractMapBasedMultimap<K, V>.WrappedCollection.WrappedIterator {}",mmwli.toString());
+> 		assertTrue(mm.toString().indexOf("AbstractMapBasedMultimap<K, V>.WrappedCollection.WrappedIterator")>=0);
+> 
+> 		CtClass<?> mmwliother = launcher.getFactory().Class().get("spoon.test.imports.testclasses2.AbstractMapBasedMultimap$OtherWrappedList$WrappedListIterator");
+> 		assertEquals("private class WrappedListIterator extends AbstractMapBasedMultimap<K, V>.OtherWrappedList.WrappedIterator {}",mmwliother.toString());
+> 
+605a612,632
+> 	
+> 	@Test
+> 	public void testAccessPath() {
+> 		final Launcher launcher = new Launcher();
+> 		launcher.addInputResource("./src/test/java/spoon/test/imports/testclasses/TransportIndicesShardStoresAction.java");
+> 		String outputDir = "./target/spooned-accessPath";
+> 		launcher.setSourceOutputDirectory(outputDir);
+> 		launcher.run();
+> 		CtType element = launcher.getFactory().Class().getAll().get(0);
+> 		
+> 		PrettyPrinter prettyPrinter = launcher.createPrettyPrinter();
+> 
+> 		List<CtType<?>> toPrint = new ArrayList<>();
+> 		toPrint.add(element);
+> 
+> 		prettyPrinter.calculate(element.getPosition().getCompilationUnit(), toPrint);
+> 		String output = prettyPrinter.getResult();
+> 
+> 		canBeBuilt(outputDir, 7);
+> 	}
+> 	
+Only in after/src/test/java/spoon/test/imports/testclasses: TransportIndicesShardStoresAction.java
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/testclasses2/AbstractMapBasedMultimap.java after/src/test/java/spoon/test/imports/testclasses2/AbstractMapBasedMultimap.java
+11a12,20
+> 
+> 	private class OtherWrappedList extends WrappedCollection {
+> 		private class WrappedListIterator extends WrappedIterator {
+> 		}
+> 
+> 		class WrappedIterator {
+> 
+> 		}
+> 	}

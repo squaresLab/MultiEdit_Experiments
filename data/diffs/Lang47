@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang47/src/java/org/apache/commons/lang/text/StrBuilder.java d4j_patched/Lang47/src/java/org/apache/commons/lang/text/StrBuilder.java
+1185a1186,1188
+>             if (str == null) {
+>                 str = "";
+>             }
+1229a1233,1235
+>             if (str == null) {
+>                 str = "";
+>             }

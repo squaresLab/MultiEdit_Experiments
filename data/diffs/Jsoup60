@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup60/src/main/java/org/jsoup/parser/TokenQueue.java d4j_patched/Jsoup60/src/main/java/org/jsoup/parser/TokenQueue.java
+288a289,291
+>         if (depth > 0) {// ran out of queue before seeing enough )
+>             Validate.fail("Did not find balanced maker at " + out);
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup60/src/main/java/org/jsoup/select/QueryParser.java d4j_patched/Jsoup60/src/main/java/org/jsoup/select/QueryParser.java
+37a38
+>         try {
+39a41,43
+>         } catch (IllegalArgumentException e) {
+>             throw new Selector.SelectorParseException(e.getMessage());
+>         }

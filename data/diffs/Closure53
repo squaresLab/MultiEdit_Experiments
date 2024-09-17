@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure53/src/com/google/javascript/jscomp/InlineObjectLiterals.java d4j_patched/Closure53/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+330a331,333
+>       if (nodes.isEmpty()) {
+>         replacement = new Node(Token.TRUE);
+>       } else {
+349a353
+>       }

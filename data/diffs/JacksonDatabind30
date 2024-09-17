@@ -1,0 +1,27 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind30/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java d4j_patched/JacksonDatabind30/src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java
+2509a2510,2512
+>         if (isEnabled(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS)) {
+>             buf = buf.forceUseOfBigDecimal(true);
+>         }
+3425a3429,3431
+>         if (isEnabled(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS)) {
+>             buf = buf.forceUseOfBigDecimal(true);
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind30/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java d4j_patched/JacksonDatabind30/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
+79a80
+>     protected boolean _forceBigDecimal;
+187a189,190
+>         _forceBigDecimal = (ctxt == null) ? false
+>                 : ctxt.isEnabled(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
+192a196,199
+>     public TokenBuffer forceUseOfBigDecimal(boolean b) {
+>         _forceBigDecimal = b;
+>         return this;
+>     }
+958a966
+>             if (_forceBigDecimal) {
+963a972,973
+>                 writeNumber(p.getDecimalValue());
+>             } else {
+972a983
+>                 }

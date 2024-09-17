@@ -1,0 +1,59 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java after/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
+418,422c418,428
+< 			final String unitPath = new String(unit.getFileName());
+< 			for (final CompilationUnitFilter cuf : compilationUnitFilters) {
+< 				if (cuf.exclude(unitPath)) {
+< 					// do not traverse this unit
+< 					continue unitLoop;
+---
+> 			if (!unit.isEmpty()) {
+> 				final String unitPath = new String(unit.getFileName());
+> 				for (final CompilationUnitFilter cuf : compilationUnitFilters) {
+> 					if (cuf.exclude(unitPath)) {
+> 						// do not traverse this unit
+> 						continue unitLoop;
+> 					}
+> 				}
+> 				unit.traverse(builder, unit.scope);
+> 				if (getFactory().getEnvironment().isCommentsEnabled()) {
+> 					new JDTCommentBuilder(unit, factory).build();
+424,427d429
+< 			}
+< 			unit.traverse(builder, unit.scope);
+< 			if (getFactory().getEnvironment().isCommentsEnabled()) {
+< 				new JDTCommentBuilder(unit, factory).build();
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/api/APITest.java after/src/test/java/spoon/test/api/APITest.java
+57c57
+< 		spoon.setArgs(new String[] {"--output-type", "nooutput" });
+---
+> 		spoon.setArgs(new String[] {"--compile", "--output-type", "compilationunits" });
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/support/ResourceTest.java after/src/test/java/spoon/test/support/ResourceTest.java
+2a3
+> import static org.hamcrest.CoreMatchers.is;
+3a5
+> import static org.junit.Assert.assertThat;
+33,34c35,36
+< 		assertEquals(1, fileSystemFolder.getAllFiles().size());
+< 		assertEquals(1, fileSystemFolder.getAllJavaFiles().size());
+---
+> 		assertEquals(2, fileSystemFolder.getAllFiles().size());
+> 		assertEquals(2, fileSystemFolder.getAllJavaFiles().size());
+39,40c41,45
+< 		// this file in Foo.java
+< 		assertEquals(file, fileSystemFolder.getAllFiles().get(0));
+---
+> 		String entry1 = "src/test/resources/spoon/test/api/CommentedClass.java";
+> 		FileSystemFile file1 = new FileSystemFile(new File(entry1));
+> 
+> 		assertThat(fileSystemFolder.getAllFiles().contains(file), is(true));
+> 		assertThat(fileSystemFolder.getAllFiles().contains(file1), is(true));
+55c60
+< 		assertEquals(3, folder.getAllFiles().size());
+---
+> 		assertEquals(4, folder.getAllFiles().size());
+58c63
+< 		assertEquals(2, folder.getAllJavaFiles().size());
+---
+> 		assertEquals(3, folder.getAllJavaFiles().size());

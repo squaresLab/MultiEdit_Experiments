@@ -1,0 +1,47 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math64/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java d4j_patched/Math64/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
+257a258,259
+>         double[] oldObj  = new double[rows];
+>         double[] qtf     = new double[rows];
+269a272,274
+>             for (int i=0;i<rows;i++) {
+>                 qtf[i]=residuals[i];
+>             }
+278c283
+<             qTy(residuals);
+---
+>             qTy(qtf);
+316c321
+<                             sum += jacobian[i][pj] * residuals[i];
+---
+>                             sum += jacobian[i][pj] * qtf[i];
+323a329,330
+>             	updateResidualsAndCost();
+>             	current = new VectorialPointValuePair(point, objective);
+343a351,353
+>                 tmpVec    = objective;
+>                 objective = oldObj;
+>                 oldObj    = tmpVec;
+346c356
+<                 determineLMParameter(oldRes, delta, diag, work1, work2, work3);
+---
+>                 determineLMParameter(qtf, delta, diag, work1, work2, work3);
+365d374
+<                 current = new VectorialPointValuePair(point, objective);
+420a430
+>                     current = new VectorialPointValuePair(point, objective);
+422a433
+>                     if (checker != null) {
+423a435,438
+>                     	if (checker.converged(getIterations(), previous, current)) {
+>                     		return current;
+>                     	}
+>                     }
+433a449,451
+>                     tmpVec    = objective;
+>                     objective = oldObj;
+>                     oldObj    = tmpVec;
+442,445d459
+<                 } else {
+<                     if (checker.converged(getIterations(), previous, current)) {
+<                         return current;
+<                     }

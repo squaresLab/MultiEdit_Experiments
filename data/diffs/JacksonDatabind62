@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind62/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java d4j_patched/JacksonDatabind62/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java
+183a184,191
+>             } else if (_valueInstantiator.canCreateUsingArrayDelegate()) {
+>                 JavaType delegateType = _valueInstantiator.getArrayDelegateType(ctxt.getConfig());
+>                 if (delegateType == null) {
+>                     throw new IllegalArgumentException("Invalid array-delegate-creator definition for "+_collectionType
+>                             +": value instantiator ("+_valueInstantiator.getClass().getName()
+>                             +") returned true for 'canCreateUsingArrayDelegate()', but null for 'getArrayDelegateType()'");
+>                 }
+>                 delegateDeser = findDeserializer(ctxt, delegateType, property);

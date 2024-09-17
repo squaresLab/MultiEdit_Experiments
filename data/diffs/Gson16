@@ -1,0 +1,8 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson16/gson/src/main/java/com/google/gson/internal/$Gson$Types.java d4j_patched/Gson16/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+341a342
+>         if (visitedTypeVariables.contains(typeVariable)) {
+342a344,347
+>           return toResolve;
+>         } else {
+>           visitedTypeVariables.add(typeVariable);
+>         }

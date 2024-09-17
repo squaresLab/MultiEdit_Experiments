@@ -1,0 +1,16 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math77/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java d4j_patched/Math77/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
+721c721
+<             max += Math.max(max, Math.abs(a));
+---
+>             max = Math.max(max, Math.abs(a));
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math77/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java d4j_patched/Math77/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
+498,506d497
+<     public double getLInfNorm() {
+<         double max = 0;
+<         Iterator iter = entries.iterator();
+<         while (iter.hasNext()) {
+<             iter.advance();
+<             max += iter.value();
+<         }
+<         return max;
+<     }

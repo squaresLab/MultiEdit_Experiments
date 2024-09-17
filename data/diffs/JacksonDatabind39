@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind39/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java d4j_patched/JacksonDatabind39/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java
+34a35,43
+>         if (p.hasToken(JsonToken.FIELD_NAME)) {
+>             while (true) {
+>                 JsonToken t = p.nextToken();
+>                 if ((t == null) || (t == JsonToken.END_OBJECT)) {
+>                     break;
+>                 }
+>                 p.skipChildren();
+>             }
+>         } else {
+35a45
+>         }

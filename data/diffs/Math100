@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math100/src/java/org/apache/commons/math/estimation/AbstractEstimator.java d4j_patched/Math100/src/java/org/apache/commons/math/estimation/AbstractEstimator.java
+166c166
+<         final int cols = problem.getAllParameters().length;
+---
+>         final int cols = problem.getUnboundParameters().length;
+202c202
+<         int p = problem.getAllParameters().length;
+---
+>         int p = problem.getUnboundParameters().length;
+207c207
+<         double[] errors = new double[problem.getAllParameters().length];
+---
+>         double[] errors = new double[problem.getUnboundParameters().length];

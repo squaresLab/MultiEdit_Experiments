@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math18/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java d4j_patched/Math18/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+932c932
+<                 res[i] = (x[i] - boundaries[0][i]) / diff;
+---
+>                 res[i] = x[i] / diff;
+958c958
+<                 res[i] = diff * x[i] + boundaries[0][i];
+---
+>                 res[i] = diff * x[i];
+989a990,991
+>             final double[] bLoEnc = encode(boundaries[0]);
+>             final double[] bHiEnc = encode(boundaries[1]);
+992c994
+<                 if (x[i] < 0) {
+---
+>                 if (x[i] < bLoEnc[i]) {
+995c997
+<                 if (x[i] > 1.0) {
+---
+>                 if (x[i] > bHiEnc[i]) {

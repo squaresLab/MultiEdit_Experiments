@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress32/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java d4j_patched/Compress32/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+501c501
+<                 currEntry.setGroupId(Integer.parseInt(val));
+---
+>                 currEntry.setGroupId(Long.parseLong(val));
+505c505
+<                 currEntry.setUserId(Integer.parseInt(val));
+---
+>                 currEntry.setUserId(Long.parseLong(val));

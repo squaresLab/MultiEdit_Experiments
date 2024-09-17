@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Chart4/source/org/jfree/chart/plot/XYPlot.java d4j_patched/Chart4/source/org/jfree/chart/plot/XYPlot.java
+4492a4493
+>                 if (r != null) {
+4500a4502
+>                 }
+Binary files d4j_buggy/Chart4/.svn/wc.db and d4j_patched/Chart4/.svn/wc.db differ

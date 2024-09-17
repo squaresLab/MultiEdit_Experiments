@@ -1,0 +1,95 @@
+Only in after/: bears.json
+Only in after/molgenis-semantic-mapper: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java after/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java
+12a13
+> import org.molgenis.script.core.ScriptException;
+107,108c108
+< 		return stream(sourceEntities.spliterator(), false).map(entity ->
+< 		{
+---
+> 		return stream(sourceEntities.spliterator(), false).map(entity -> {
+114a115,122
+> 
+> 				// jsMagmaScriptEvaluator.eval() catches and returns the error instead of throwing it
+> 				// so check instance of result object here
+> 				if (result instanceof ScriptException)
+> 				{
+> 					return algorithmResult.errorMessage(((ScriptException) result).getMessage());
+> 				}
+> 
+138,139c146,155
+< 		Object value = jsMagmaScriptEvaluator.eval(algorithm, sourceEntity);
+< 		return convert(value, attributeMapping.getTargetAttribute());
+---
+> 		Object result = jsMagmaScriptEvaluator.eval(algorithm, sourceEntity);
+> 
+> 		// jsMagmaScriptEvaluator.eval() catches and returns the error instead of throwing it
+> 		// so check instance of result object here
+> 		if (result instanceof ScriptException)
+> 		{
+> 			throw new ScriptException(((ScriptException) result).getMessage(), ((ScriptException) result).getCause());
+> 		}
+> 
+> 		return convert(result, attributeMapping.getTargetAttribute());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/molgenis-semantic-mapper/src/test/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImplTest.java after/molgenis-semantic-mapper/src/test/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImplTest.java
+5d4
+< import org.mockito.Mockito;
+10a10
+> import org.molgenis.script.core.ScriptException;
+16d15
+< import org.testng.Assert;
+20a20
+> import static org.mockito.Mockito.when;
+21a22
+> import static org.testng.Assert.assertEquals;
+94c95
+< 		Mockito.when(jsMagmaScriptEvaluator.eval(algorithm, entity)).thenThrow(new NullPointerException());
+---
+> 		when(jsMagmaScriptEvaluator.eval(algorithm, entity)).thenThrow(new NullPointerException());
+100c101
+< 		Assert.assertEquals(eval.getErrorMessage(),
+---
+> 		assertEquals(eval.getErrorMessage(),
+103a105,132
+> 	@Test
+> 	public void testApplyAlgorithmWitInvalidScript()
+> 	{
+> 		Attribute attribute = mock(Attribute.class);
+> 		String algorithm = "algorithm";
+> 		Entity entity = mock(Entity.class);
+> 
+> 		when(jsMagmaScriptEvaluator.eval(algorithm, entity)).thenReturn(
+> 				new ScriptException("algorithm is not defined"));
+> 		Iterable<AlgorithmEvaluation> result = algorithmServiceImpl.applyAlgorithm(attribute, algorithm,
+> 				Lists.newArrayList(entity));
+> 		AlgorithmEvaluation eval = result.iterator().next();
+> 		assertEquals(eval.getErrorMessage(), "algorithm is not defined");
+> 	}
+> 
+> 	@Test(expectedExceptions = ScriptException.class, expectedExceptionsMessageRegExp = "algorithm is not defined")
+> 	public void testApplyWithInvalidScript()
+> 	{
+> 		AttributeMapping attributeMapping = mock(AttributeMapping.class);
+> 		String algorithm = "algorithm";
+> 		when(attributeMapping.getAlgorithm()).thenReturn(algorithm);
+> 
+> 		Entity sourceEntity = mock(Entity.class);
+> 		when(jsMagmaScriptEvaluator.eval(algorithm, sourceEntity)).thenReturn(
+> 				new ScriptException("algorithm is not defined"));
+> 		algorithmServiceImpl.apply(attributeMapping, sourceEntity, null);
+> 	}
+> 
+108,112c137,139
+< 		Mockito.when(attributeMapping.getAlgorithm()).thenReturn(algorithm);
+< 		Attribute targetAttribute = Mockito.when(mock(Attribute.class).getDataType())
+< 										   .thenReturn(attributeType)
+< 										   .getMock();
+< 		Mockito.when(attributeMapping.getTargetAttribute()).thenReturn(targetAttribute);
+---
+> 		when(attributeMapping.getAlgorithm()).thenReturn(algorithm);
+> 		Attribute targetAttribute = when(mock(Attribute.class).getDataType()).thenReturn(attributeType).getMock();
+> 		when(attributeMapping.getTargetAttribute()).thenReturn(targetAttribute);
+115c142
+< 		Mockito.when(jsMagmaScriptEvaluator.eval(algorithm, sourceEntity)).thenReturn(algorithmResult);
+---
+> 		when(jsMagmaScriptEvaluator.eval(algorithm, sourceEntity)).thenReturn(algorithmResult);

@@ -1,0 +1,64 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java after/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+444,445d443
+<         final SettableBeanProperty[] creatorProps =
+<                 builder.getValueInstantiator().getFromObjectArguments(ctxt.getConfig());
+446a445,448
+>         final SettableBeanProperty[] creatorProps = isConcrete
+>                 ? builder.getValueInstantiator().getFromObjectArguments(ctxt.getConfig())
+>                 : null;
+>         final boolean hasCreatorProps = (creatorProps != null);
+493,494c495,496
+<         final boolean useGettersAsSetters = (ctxt.isEnabled(MapperFeature.USE_GETTERS_AS_SETTERS)
+<                 && ctxt.isEnabled(MapperFeature.AUTO_DETECT_GETTERS));
+---
+>         final boolean useGettersAsSetters = ctxt.isEnabled(MapperFeature.USE_GETTERS_AS_SETTERS)
+>                 && ctxt.isEnabled(MapperFeature.AUTO_DETECT_GETTERS);
+534c536
+<             if (isConcrete && propDef.hasConstructorParameter()) {
+---
+>             if (hasCreatorProps && propDef.hasConstructorParameter()) {
+551,552c553,559
+<                     ctxt.reportMappingException("Could not find creator property with name '%s' (in class %s)",
+<                             name, beanDesc.getBeanClass().getName());
+---
+>                     List<String> n = new ArrayList<>();
+>                     for (SettableBeanProperty cp : creatorProps) {
+>                         n.add(cp.getName());
+>                     }
+>                     ctxt.reportBadPropertyDefinition(beanDesc, propDef,
+>                             "Could not find creator property with name '%s' (known Creator properties: %s)",
+>                             name, n);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/com/fasterxml/jackson/databind/deser/ReadOrWriteOnlyTest.java after/src/test/java/com/fasterxml/jackson/databind/deser/ReadOrWriteOnlyTest.java
+2a3,4
+> import java.beans.ConstructorProperties;
+> 
+50c52,67
+<     }    
+---
+>     }
+> 
+>     // for [databind#1345], emulate way Lombok embellishes classes
+>     static class Foo1345 {
+>         @JsonProperty(access=JsonProperty.Access.READ_ONLY)
+>         public String id;
+>         public String name;
+> 
+>         @ConstructorProperties({ "id", "name" })
+>         public Foo1345(String id, String name) {
+>             this.id = id;
+>             this.name = name;
+>         }
+> 
+>         protected Foo1345() { }
+>     }
+76a94,101
+>     }
+> 
+>     public void testReadOnly1345() throws Exception
+>     {
+>         Foo1345 result = MAPPER.readValue("{\"name\":\"test\"}", Foo1345.class);
+>         assertNotNull(result);
+>         assertEquals("test", result.name);
+>         assertNull(result.id);

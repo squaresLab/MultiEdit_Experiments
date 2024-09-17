@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang56/src/java/org/apache/commons/lang/time/FastDateFormat.java d4j_patched/Lang56/src/java/org/apache/commons/lang/time/FastDateFormat.java
+140c140
+<     private Rule[] mRules;
+---
+>     private transient Rule[] mRules;
+144c144
+<     private int mMaxLengthEstimate;
+---
+>     private transient int mMaxLengthEstimate;
+1021a1022,1025
+>     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+>         in.defaultReadObject();
+>         init();
+>     }

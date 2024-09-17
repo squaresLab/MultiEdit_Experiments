@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind35/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsWrapperTypeDeserializer.java d4j_patched/JacksonDatabind35/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsWrapperTypeDeserializer.java
+89,92c89,90
+<         if (p.getCurrentToken() != JsonToken.START_OBJECT) {
+<             throw ctxt.wrongTokenException(p, JsonToken.START_OBJECT,
+<                     "need JSON Object to contain As.WRAPPER_OBJECT type information for class "+baseTypeName());
+<         }
+---
+>         JsonToken t = p.getCurrentToken();
+>         if (t == JsonToken.START_OBJECT) {
+97a96,99
+>         } else if (t != JsonToken.FIELD_NAME) {
+>             throw ctxt.wrongTokenException(p, JsonToken.START_OBJECT,
+>                     "need JSON Object to contain As.WRAPPER_OBJECT type information for class "+baseTypeName());
+>         }

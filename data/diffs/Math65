@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math65/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java d4j_patched/Math65/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
+240,245c240
+<         double criterion = 0;
+<         for (int i = 0; i < rows; ++i) {
+<             final double residual = residuals[i];
+<             criterion += residual * residual * residualsWeights[i];
+<         }
+<         return Math.sqrt(criterion / rows);
+---
+>         return Math.sqrt(getChiSquare() / rows);
+258c253
+<             chiSquare += residual * residual / residualsWeights[i];
+---
+>             chiSquare += residual * residual * residualsWeights[i];

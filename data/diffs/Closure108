@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure108/src/com/google/javascript/jscomp/ScopedAliases.java d4j_patched/Closure108/src/com/google/javascript/jscomp/ScopedAliases.java
+258a259
+>     private final Set<Node> injectedDecls = Sets.newHashSet();
+315a317
+>         injectedDecls.clear();
+431a434
+>             injectedDecls.add(newDecl.getFirstChild());
+581c584
+<         if (info != null) {
+---
+>         if (info != null && !injectedDecls.contains(n)) {

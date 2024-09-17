@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang42/src/java/org/apache/commons/lang/Entities.java d4j_patched/Lang42/src/java/org/apache/commons/lang/Entities.java
+828c828
+<             char c = str.charAt(i);
+---
+>             int c = Character.codePointAt(str, i); 
+831c831,836
+<                 if (c > 0x7F) {
+---
+>                 if (c >= 0x010000 && i < len - 1) {
+>                     writer.write("&#");
+>                     writer.write(Integer.toString(c, 10));
+>                     writer.write(';');
+>                     i++;
+>                 } else if (c > 0x7F) { 

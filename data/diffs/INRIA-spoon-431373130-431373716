@@ -1,0 +1,105 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java after/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+61a62,63
+> import java.util.regex.Matcher;
+> import java.util.regex.Pattern;
+156c158
+< 			stringBuilder.append(ctJavaDocTag.getContent());
+---
+> 			stringBuilder.append("\n").append(ctJavaDocTag.getType()).append(" ").append(ctJavaDocTag.getContent());
+163,164c165,169
+< 					if (javadoc.contains(ctImport.getReference().getSimpleName())) {
+< 						this.setImportUsed(ctImport);
+---
+> 					if (javadoc.contains(ctImport.getReference().getSimpleName()) && ctImport.getReference() instanceof CtTypeReference) {
+> 						//assure that it is not just any occurrence of same substring, but it is real javadoc link to the same type
+> 						if (matchesTypeName(javadoc, (CtTypeReference<?>) ctImport.getReference())) {
+> 							this.setImportUsed(ctImport);
+> 						}
+168a174,211
+> 	}
+> 
+> 	private static Set<String> mainTags = new HashSet<>(Arrays.asList("see", "throws", "exception"));
+> 	private static Set<String> inlineTags = new HashSet<>(Arrays.asList("link", "linkplain", "value"));
+> 	private static Pattern tagRE = Pattern.compile("(\\{)?@(\\w+)\\s+([\\w\\.\\$]+)(?:#(\\w+)(?:\\(([^\\)]*)\\)))?");
+> 
+> 	private boolean matchesTypeName(String javadoc, CtTypeReference<?> typeRef) {
+> 		Matcher m = tagRE.matcher(javadoc);
+> 		while (m.find()) {
+> 			String bracket = m.group(1);
+> 			String tag = m.group(2);
+> 			if ("{".equals(bracket)) {
+> 				if (inlineTags.contains(tag) == false) {
+> 					continue;
+> 				}
+> 			} else {
+> 				if (mainTags.contains(tag) == false) {
+> 					continue;
+> 				}
+> 			}
+> 			String type = m.group(3);
+> //			String methodName = m.group(4);
+> 			String params = m.group(5);
+> 
+> 			if (isTypeMatching(type, typeRef)) {
+> 				return true;
+> 			}
+> 			if (params != null) {
+> 				String[] paramTypes = params.split("\\s*,\\s*");
+> 				for (String paramType : paramTypes) {
+> 					if (isTypeMatching(paramType, typeRef)) {
+> 						return true;
+> 					}
+> 				}
+> 			}
+> 		}
+> 		return false;
+> 	}
+169a213,222
+> 	private boolean isTypeMatching(String typeName, CtTypeReference<?> typeRef) {
+> 		if (typeName != null) {
+> 			if (typeName.equals(typeRef.getQualifiedName())) {
+> 				return true;
+> 			}
+> 			if (typeName.equals(typeRef.getSimpleName())) {
+> 				return true;
+> 			}
+> 		}
+> 		return false;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/imports/ImportScannerTest.java after/src/test/java/spoon/test/imports/ImportScannerTest.java
+19a20,21
+> import spoon.test.imports.testclasses.ToBeModified;
+> import spoon.testing.utils.ModelUtils;
+25a28
+> import java.util.Arrays;
+33a37
+> import static org.junit.Assert.assertFalse;
+299a304,329
+> 	}
+> 
+> 	@Test
+> 	public void testImportByJavaDoc() throws Exception {
+> 		//contract imports are included only if type name is used in javadoc link, etc. Their occurrence in comment is not enough
+> 		CtType<?> type = ModelUtils.buildClass(launcher -> {
+> 			launcher.getEnvironment().setCommentEnabled(true);
+> 			launcher.getEnvironment().setAutoImports(true);
+> 		}, ToBeModified.class);
+> 
+> 		{
+> 			DefaultJavaPrettyPrinter printer = new DefaultJavaPrettyPrinter(type.getFactory().getEnvironment());
+> 			printer.calculate(type.getPosition().getCompilationUnit(), Arrays.asList(type));
+> 			assertTrue(printer.getResult().contains("import java.util.List;"));
+> 		}
+> 			
+> 		//delete first statement of method m
+> 		type.getMethodsByName("m").get(0).getBody().getStatement(0).delete();
+> 		//check that there is still javadoc comment which contains "List"
+> 		assertTrue(type.getMethodsByName("m").get(0).getComments().toString().indexOf("List")>=0);
+> 		
+> 		{
+> 			DefaultJavaPrettyPrinter printer = new DefaultJavaPrettyPrinter(type.getFactory().getEnvironment());
+> 			printer.calculate(type.getPosition().getCompilationUnit(), Arrays.asList(type));
+> 			assertFalse(printer.getResult().contains("import java.util.List;"));
+> 		}
+Only in after/src/test/java/spoon/test/imports/testclasses: ToBeModified.java

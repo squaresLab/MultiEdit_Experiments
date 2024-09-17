@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Mockito38/src/org/mockito/internal/verification/argumentmatching/ArgumentMatchingTool.java d4j_patched/Mockito38/src/org/mockito/internal/verification/argumentmatching/ArgumentMatchingTool.java
+48c48
+<         return StringDescription.toString(m).equals(arg.toString());
+---
+>         return StringDescription.toString(m).equals(arg == null? "null" : arg.toString());

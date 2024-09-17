@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math53/src/main/java/org/apache/commons/math/complex/Complex.java d4j_patched/Math53/src/main/java/org/apache/commons/math/complex/Complex.java
+152a153,155
+>         if (isNaN || rhs.isNaN) {
+>             return NaN;
+>         }

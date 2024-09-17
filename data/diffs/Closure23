@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure23/src/com/google/javascript/jscomp/PeepholeFoldConstants.java d4j_patched/Closure23/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+1451c1451,1456
+<     for (int i = 0; current != null && i < intIndex; i++) {
+---
+>     for (int i = 0; current != null; i++) {
+>       if (i != intIndex) {
+>         if (mayHaveSideEffects(current)) {
+>           return n;
+>         }
+>       } else {
+1452a1458
+>       }

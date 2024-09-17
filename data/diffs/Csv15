@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Csv15/src/main/java/org/apache/commons/csv/CSVFormat.java d4j_patched/Csv15/src/main/java/org/apache/commons/csv/CSVFormat.java
+1189,1191c1189
+<                 if (newRecord && (c < 0x20 || c > 0x21 && c < 0x23 || c > 0x2B && c < 0x2D || c > 0x7E)) {
+<                     quote = true;
+<                 } else if (c <= COMMENT) {
+---
+>                 if (c <= COMMENT) {

@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind88/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/ClassNameIdResolver.java d4j_patched/JacksonDatabind88/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/ClassNameIdResolver.java
+57a58
+>             if (!t.isTypeOrSubTypeOf(_baseType.getRawClass())) {
+58a60,62
+>                 throw new IllegalArgumentException(String.format(
+>                         "Class %s not subtype of %s", t.getRawClass().getName(), _baseType));
+>             }

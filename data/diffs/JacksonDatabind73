@@ -1,0 +1,17 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind73/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java d4j_patched/JacksonDatabind73/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java
+6a7
+> import com.fasterxml.jackson.annotation.JsonProperty.Access;
+731c732,735
+<             prop.removeNonVisible(inferMutators);
+---
+>             Access acc = prop.removeNonVisible(inferMutators);
+>             if (!_forSerialization && (acc == Access.READ_ONLY)) {
+>                 _collectIgnorals(prop.getName());
+>             }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind73/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java d4j_patched/JacksonDatabind73/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java
+644c644
+<     public void removeNonVisible(boolean inferMutators)
+---
+>     public JsonProperty.Access removeNonVisible(boolean inferMutators)
+682a683
+>         return acc;

@@ -1,0 +1,26 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore1/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java d4j_patched/JacksonCore1/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
+294a295
+>         try {
+295a297,299
+>         } catch (NumberFormatException e) {
+>             throw _badBigDecimal(numStr);
+>         }
+304a309
+>         try {
+305a311,313
+>         } catch (NumberFormatException e) {
+>             throw _badBigDecimal(new String(buffer, offset, len));
+>         }
+307a316,318
+>     private static NumberFormatException _badBigDecimal(String str) {
+>         return new NumberFormatException("Value \""+str+"\" can not be represented as BigDecimal");
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonCore1/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java d4j_patched/JacksonCore1/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+390c390
+<         if (_inputStart >= 0) {
+---
+>         if ((_inputStart >= 0) && (_inputBuffer != null)) {
+394c394
+<         if (_segmentSize == 0) {
+---
+>         if ((_segmentSize == 0) && (_currentSegment != null)) {

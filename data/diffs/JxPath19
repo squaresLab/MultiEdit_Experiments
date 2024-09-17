@@ -1,0 +1,33 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath19/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java d4j_patched/JxPath19/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+560,562c560
+<             if (n.getNodeType() == Node.ELEMENT_NODE) {
+<                 String nm = n.getNodeName();
+<                 if (nm.equals(node.getNodeName())) {
+---
+>             if (n.getNodeType() == Node.ELEMENT_NODE && matchesQName(n)) {
+564d561
+<                 }
+570a568,574
+>     private boolean matchesQName(Node n) {
+>         if (getNamespaceURI() != null) {
+>             return equalStrings(getNamespaceURI(n), getNamespaceURI())
+>                     && equalStrings(node.getLocalName(), n.getLocalName());
+>         }
+>         return equalStrings(node.getNodeName(), n.getNodeName());
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath19/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java d4j_patched/JxPath19/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+696,697c696
+<                 if ((child instanceof Element)
+<                     && ((Element) child).getQualifiedName().equals(name)) {
+---
+>                 if (child instanceof Element && matchesQName(((Element) child))) {
+708a708,716
+>     private boolean matchesQName(Element element) {
+>         if (getNamespaceURI() != null) {
+>             String ns = getNamespaceURI(element);
+>             if (ns == null || !ns.equals(getNamespaceURI())) {
+>                 return false;
+>             }
+>         }
+>         return element.getName().equals(((Element) node).getName());
+>     }

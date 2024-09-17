@@ -1,0 +1,3 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Gson5/gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java d4j_patched/Gson5/gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java
+213a214
+>                 timezoneOffset = timezoneOffset.length() >= 5 ? timezoneOffset : timezoneOffset + "00";

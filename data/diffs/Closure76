@@ -1,0 +1,55 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure76/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java d4j_patched/Closure76/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+299a300,307
+>           if (n.getNext() != null) {
+>             state = isVariableReadBeforeKill(
+>                 n.getNext(), variable);
+>             if (state == VariableLiveness.KILL) {
+>               state = VariableLiveness.MAYBE_LIVE;
+>             }
+>           }
+>           break;
+304a313,317
+>           if (n.getNext() != null && n.getNext().getNext() != null) {
+>             state = checkHookBranchReadBeforeKill(
+>                 n.getNext(), n.getNext().getNext(), variable);
+>           }
+>           break;
+309d321
+<             if (!ControlFlowGraph.isEnteringNewCfgNode(sibling)) {
+310a323,327
+>             if (state != VariableLiveness.MAYBE_LIVE) {
+>               break;
+>             }
+>           }
+>       }
+317,319d333
+<             }
+<           }
+<       }
+339a354,356
+>     if (ControlFlowGraph.isEnteringNewCfgNode(n)) { // Not a FUNCTION
+>       return VariableLiveness.MAYBE_LIVE;
+>     }
+361a379,382
+>         VariableLiveness v1 = isVariableReadBeforeKill(
+>           n.getFirstChild(), variable);
+>         VariableLiveness v2 = isVariableReadBeforeKill(
+>           n.getLastChild(), variable);
+363a385,391
+>         if (v1 != VariableLiveness.MAYBE_LIVE) {
+>           return v1;
+>         } else if (v2 == VariableLiveness.READ) {
+>           return VariableLiveness.READ;
+>         } else {
+>           return VariableLiveness.MAYBE_LIVE;
+>         }
+364a393,397
+>         VariableLiveness first = isVariableReadBeforeKill(
+>             n.getFirstChild(), variable);
+>         if (first != VariableLiveness.MAYBE_LIVE) {
+>           return first;
+>         }
+372d404
+<           if (!ControlFlowGraph.isEnteringNewCfgNode(child)) { // Not a FUNCTION
+378d409
+<       }

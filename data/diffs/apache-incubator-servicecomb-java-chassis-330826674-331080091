@@ -1,0 +1,97 @@
+Only in after/: bears.json
+Only in after/service-registry: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java after/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java
+59c59
+<     microservice.setDescription(configuration.getString(CONFIG_QUALIFIED_MICROSERVICE_DESCRIPTION_KEY, ""));
+---
+>     setDescription(configuration, microservice);
+78a79,96
+>   }
+> 
+>   /**
+>    * {@code service_description.description} is split by {@code ,},
+>    * need to combine the description array to raw description.
+>    */
+>   private void setDescription(Configuration configuration, Microservice microservice) {
+>     String[] descriptionArray = configuration.getStringArray(CONFIG_QUALIFIED_MICROSERVICE_DESCRIPTION_KEY);
+>     if (null == descriptionArray || descriptionArray.length < 1) {
+>       return;
+>     }
+> 
+>     StringBuilder rawDescriptionBuilder = new StringBuilder();
+>     for (String desc : descriptionArray) {
+>       rawDescriptionBuilder.append(desc).append(",");
+>     }
+> 
+>     microservice.setDescription(rawDescriptionBuilder.substring(0, rawDescriptionBuilder.length() - 1));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/service-registry/src/test/java/org/apache/servicecomb/serviceregistry/api/registry/TestMicroserviceFactory.java after/service-registry/src/test/java/org/apache/servicecomb/serviceregistry/api/registry/TestMicroserviceFactory.java
+19a20
+> import static org.apache.servicecomb.foundation.common.base.ServiceCombConstants.CONFIG_QUALIFIED_MICROSERVICE_DESCRIPTION_KEY;
+24a26
+> import org.apache.commons.configuration.Configuration;
+28a31
+> import org.mockito.Mockito;
+60a64,126
+>   }
+> 
+>   @Test
+>   public void testSetDescription() {
+>     Microservice microservice = new Microservice();
+>     MicroserviceFactory factory = new MicroserviceFactory();
+>     Configuration configuration = Mockito.mock(Configuration.class);
+> 
+>     Mockito.when(configuration.getStringArray(CONFIG_QUALIFIED_MICROSERVICE_DESCRIPTION_KEY))
+>         .thenReturn(new String[] {"test1", "test2"});
+> 
+>     Deencapsulation.invoke(factory, "setDescription", configuration, microservice);
+> 
+>     Assert.assertEquals("test1,test2", microservice.getDescription());
+>   }
+> 
+>   @Test
+>   public void testSetDescriptionOnNullDescription() {
+>     Microservice microservice = new Microservice();
+>     MicroserviceFactory factory = new MicroserviceFactory();
+>     Configuration configuration = Mockito.mock(Configuration.class);
+> 
+>     Mockito.when(configuration.getStringArray(CONFIG_QUALIFIED_MICROSERVICE_DESCRIPTION_KEY))
+>         .thenReturn(null);
+> 
+>     Deencapsulation.invoke(factory, "setDescription", configuration, microservice);
+> 
+>     Assert.assertNull(microservice.getDescription());
+> 
+>     Mockito.when(configuration.getStringArray(CONFIG_QUALIFIED_MICROSERVICE_DESCRIPTION_KEY))
+>         .thenReturn(new String[] {});
+> 
+>     Deencapsulation.invoke(factory, "setDescription", configuration, microservice);
+> 
+>     Assert.assertNull(microservice.getDescription());
+>   }
+> 
+>   @Test
+>   public void testSetDescriptionOnEmptyDescription() {
+>     Microservice microservice = new Microservice();
+>     MicroserviceFactory factory = new MicroserviceFactory();
+>     Configuration configuration = Mockito.mock(Configuration.class);
+> 
+>     Mockito.when(configuration.getStringArray(CONFIG_QUALIFIED_MICROSERVICE_DESCRIPTION_KEY))
+>         .thenReturn(new String[] {"", ""});
+> 
+>     Deencapsulation.invoke(factory, "setDescription", configuration, microservice);
+> 
+>     Assert.assertEquals(",", microservice.getDescription());
+>   }
+> 
+>   @Test
+>   public void testSetDescriptionOnBlankDescription() {
+>     Microservice microservice = new Microservice();
+>     MicroserviceFactory factory = new MicroserviceFactory();
+>     Configuration configuration = Mockito.mock(Configuration.class);
+> 
+>     Mockito.when(configuration.getStringArray(CONFIG_QUALIFIED_MICROSERVICE_DESCRIPTION_KEY))
+>         .thenReturn(new String[] {" ", " "});
+> 
+>     Deencapsulation.invoke(factory, "setDescription", configuration, microservice);
+> 
+>     Assert.assertEquals(" , ", microservice.getDescription());

@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math14/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/AbstractLeastSquaresOptimizer.java d4j_patched/Math14/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/AbstractLeastSquaresOptimizer.java
+266a267,274
+>         if (m instanceof DiagonalMatrix) {
+>             final int dim = m.getRowDimension();
+>             final RealMatrix sqrtM = new DiagonalMatrix(dim);
+>             for (int i = 0; i < dim; i++) {
+>                 sqrtM.setEntry(i, i, FastMath.sqrt(m.getEntry(i, i)));
+>             }
+>             return sqrtM;
+>         } else {
+268a277
+>         }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math14/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/Weight.java d4j_patched/Math14/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/Weight.java
+43,46c43
+<         weightMatrix = org.apache.commons.math3.linear.MatrixUtils.createRealMatrix(dim, dim);
+<         for (int i = 0; i < dim; i++) {
+<             weightMatrix.setEntry(i, i, weight[i]);
+<         }
+---
+>         weightMatrix = new DiagonalMatrix(weight);

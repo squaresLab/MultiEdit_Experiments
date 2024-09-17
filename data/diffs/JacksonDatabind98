@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind98/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java d4j_patched/JacksonDatabind98/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
+298c298,307
+<                     buffer.assignParameter(typeProp, typeId);
+---
+>                     final Object v;
+>                     if (typeProp.getType().hasRawClass(String.class)) {
+>                         v = typeId;
+>                     } else {
+>                         TokenBuffer tb = new TokenBuffer(p, ctxt);
+>                         tb.writeString(typeId);
+>                         v = typeProp.getValueDeserializer().deserialize(tb.asParserOnFirstToken(), ctxt);
+>                         tb.close();
+>                     }
+>                     buffer.assignParameter(typeProp, v);

@@ -1,0 +1,31 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/H02ProtocolDecoder.java after/src/org/traccar/protocol/H02ProtocolDecoder.java
+380,387c380,392
+<                 String type = sentence.substring(typeStart, sentence.indexOf(',', typeStart));
+<                 switch (type) {
+<                     case "NBR":
+<                         return decodeLbs(sentence, channel, remoteAddress);
+<                     case "LINK":
+<                         return decodeLink(sentence, channel, remoteAddress);
+<                     default:
+<                         return decodeText(sentence, channel, remoteAddress);
+---
+>                 int typeEnd = sentence.indexOf(',', typeStart);
+>                 if (typeEnd > 0) {
+>                     String type = sentence.substring(typeStart, typeEnd);
+>                     switch (type) {
+>                         case "NBR":
+>                             return decodeLbs(sentence, channel, remoteAddress);
+>                         case "LINK":
+>                             return decodeLink(sentence, channel, remoteAddress);
+>                         default:
+>                             return decodeText(sentence, channel, remoteAddress);
+>                     }
+>                 } else {
+>                     return null;
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/H02ProtocolDecoderTest.java after/test/org/traccar/protocol/H02ProtocolDecoderTest.java
+13a14,16
+>         verifyNull(decoder, buffer(
+>                 "*HQ,4109198974,#"));
+> 

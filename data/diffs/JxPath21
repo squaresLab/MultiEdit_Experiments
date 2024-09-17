@@ -1,0 +1,6 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JxPath21/src/java/org/apache/commons/jxpath/ri/model/beans/PropertyPointer.java d4j_patched/JxPath21/src/java/org/apache/commons/jxpath/ri/model/beans/PropertyPointer.java
+152c152,153
+<         return ValueUtils.getLength(getBaseValue());
+---
+>         Object baseValue = getBaseValue();
+>         return baseValue == null ? 1 : ValueUtils.getLength(baseValue);

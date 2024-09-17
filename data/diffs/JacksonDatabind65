@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind65/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java d4j_patched/JacksonDatabind65/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
+128c128,129
+<             return ctxt.handleWeirdKey(_keyClass, key, "not a valid representation, problem: %s", re.getMessage());
+---
+>             return ctxt.handleWeirdKey(_keyClass, key, "not a valid representation, problem: (%s) %s",
+>                     re.getClass().getName(), re.getMessage());
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind65/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java d4j_patched/JacksonDatabind65/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java
+525c525
+<             if (isFactoryMethod(am)) {
+---
+>             if (isFactoryMethod(am) && am.getParameterCount() == 1) {
+557a558
+>             if (am.getParameterCount() == 1) {
+558a560
+>             }

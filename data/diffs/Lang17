@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang17/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java d4j_patched/Lang17/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java
+83c83
+<         int len = Character.codePointCount(input, 0, input.length());
+---
+>         int len = input.length();
+88a89,90
+>                 pos+= c.length;
+>                 continue;
+90d91
+<             else {
+94d94
+<                     if (pos < len - 2) {
+96,100d95
+<                     } else {
+<                         pos++;
+<                     }
+<                 }
+<                 pos--;
+102d96
+<             pos++;

@@ -1,0 +1,39 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/SpoonPom.java after/src/main/java/spoon/support/compiler/SpoonPom.java
+259c259
+< 			return Integer.parseInt(extractVariable(javaVersion).substring(2));
+---
+> 			return correctJavaVersion(javaVersion);
+267c267
+< 			return Integer.parseInt(extractVariable(javaVersion).substring(2));
+---
+> 			return correctJavaVersion(javaVersion);
+271c271
+< 			return Integer.parseInt(extractVariable(javaVersion).substring(2));
+---
+> 			return correctJavaVersion(javaVersion);
+275c275
+< 			return Integer.parseInt(extractVariable(javaVersion).substring(2));
+---
+> 			return correctJavaVersion(javaVersion);
+279c279
+< 			return Integer.parseInt(extractVariable(javaVersion).substring(2));
+---
+> 			return correctJavaVersion(javaVersion);
+283c283
+< 			return Integer.parseInt(extractVariable(javaVersion).substring(2));
+---
+> 			return correctJavaVersion(javaVersion);
+286a287,291
+> 	}
+> 
+> 	private int correctJavaVersion(String javaVersion) {
+> 		String version = extractVariable(javaVersion);
+> 		return Integer.parseInt((version.contains(".") ? version.substring(2) : version));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/MavenLauncherTest.java after/src/test/java/spoon/MavenLauncherTest.java
+109a110,113
+> 		// specify the pom.xml
+> 		launcher = new MavenLauncher("./src/test/resources/maven-launcher/java-11/pom.xml", MavenLauncher.SOURCE_TYPE.APP_SOURCE);
+> 		assertEquals(11, launcher.getEnvironment().getComplianceLevel());
+> 

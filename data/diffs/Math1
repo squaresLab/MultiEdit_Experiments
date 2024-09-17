@@ -1,0 +1,10 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math1/src/main/java/org/apache/commons/math3/fraction/BigFraction.java d4j_patched/Math1/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
+305a306,308
+>                 if (epsilon == 0.0 && FastMath.abs(q1) < maxDenominator) {
+>                     break;
+>                 }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math1/src/main/java/org/apache/commons/math3/fraction/Fraction.java d4j_patched/Math1/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+214a215,217
+>                 if (epsilon == 0.0 && FastMath.abs(q1) < maxDenominator) {
+>                     break;
+>                 }

@@ -1,0 +1,19 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/TelicProtocolDecoder.java after/src/org/traccar/protocol/TelicProtocolDecoder.java
+56,57d55
+<             .expression("[^,]*,")
+<             .number("(d+)?")                     // external
+133,136d130
+< 
+<         if (parser.hasNext()) {
+<             position.set(Position.KEY_POWER, parser.nextInt());
+<         }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/TelicProtocolDecoderTest.java after/test/org/traccar/protocol/TelicProtocolDecoderTest.java
+13a14,19
+>                 "442045993198,290317131935,0,290317131935,269158,465748,3,26,183,,,,184,85316567,226,01,00,68,218"));
+> 
+>         verifyPosition(decoder, text(
+>                 "673091036017,290317131801,0,290317131801,262214,450536,3,40,199,8,,,154,19969553,,0011,00,59,240,0,0406"));
+> 
+>         verifyPosition(decoder, text(

@@ -1,0 +1,34 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang41/src/java/org/apache/commons/lang/ClassUtils.java d4j_patched/Lang41/src/java/org/apache/commons/lang/ClassUtils.java
+190a191
+>         StringBuffer arrayPrefix = new StringBuffer();
+192a194,198
+>         if (className.startsWith("[")) {
+>             while (className.charAt(0) == '[') {
+>                 className = className.substring(1);
+>                 arrayPrefix.append("[]");
+>             }
+193a200,203
+>             if (className.charAt(0) == 'L' && className.charAt(className.length() - 1) == ';') {
+>                 className = className.substring(1, className.length() - 1);
+>             }
+>         }
+194a205,207
+>         if (reverseAbbreviationMap.containsKey(className)) {
+>             className = reverseAbbreviationMap.get(className);
+>         }
+203c216
+<         return out;
+---
+>         return out + arrayPrefix;
+245c258
+<         if (className == null) {
+---
+>         if (className == null || className.length() == 0) {
+249a263,265
+>         while (className.charAt(0) == '[') {
+>             className = className.substring(1);
+>         }
+250a267,269
+>         if (className.charAt(0) == 'L' && className.charAt(className.length() - 1) == ';') {
+>             className = className.substring(1);
+>         }

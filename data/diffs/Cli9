@@ -1,0 +1,7 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli9/src/java/org/apache/commons/cli/Parser.java d4j_patched/Cli9/src/java/org/apache/commons/cli/Parser.java
+319a320
+>                 buff.append(", ");
+322c323
+<             throw new MissingOptionException(buff.toString());
+---
+>             throw new MissingOptionException(buff.substring(0, buff.length() - 2));

@@ -1,0 +1,105 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure157/src/com/google/javascript/jscomp/CodeGenerator.java d4j_patched/Closure157/src/com/google/javascript/jscomp/CodeGenerator.java
+343c343,344
+<         if (TokenStream.isJSIdentifier(name) &&
+---
+>         if (!n.isQuotedString() &&
+>             TokenStream.isJSIdentifier(name) &&
+350c351,356
+<           add(jsString(n.getString(), outputCharsetEncoder));
+---
+>           double d = getSimpleNumber(name);
+>           if (!Double.isNaN(d)) {
+>             cc.addNumber(d);
+>           } else {
+>             add(jsString(n.getString(), outputCharsetEncoder));
+>           }
+653a660,661
+>             Preconditions.checkState(c.getType() == Token.STRING);
+>             String key = c.getString();
+656,659c664,666
+<             if (c.getType() == Token.STRING &&
+<                 !c.isQuotedString() &&
+<                 !TokenStream.isKeyword(c.getString()) &&
+<                 TokenStream.isJSIdentifier(c.getString()) &&
+---
+>             if (!c.isQuotedString() &&
+>                 !TokenStream.isKeyword(key) &&
+>                 TokenStream.isJSIdentifier(key) &&
+662,663c669,670
+<                 NodeUtil.isLatin(c.getString())) {
+<               add(c.getString());
+---
+>                 NodeUtil.isLatin(key)) {
+>               add(key);
+666c673,678
+<               addExpr(c, 1);
+---
+>               double d = getSimpleNumber(key);
+>               if (!Double.isNaN(d)) {
+>                 cc.addNumber(d);
+>               } else {
+>                 addExpr(c, 1);
+>               }
+723a736,745
+>   static boolean isSimpleNumber(String s) {
+>     int len = s.length();
+>     for (int index = 0; index < len; index++) {
+>       char c = s.charAt(index);
+>       if (c < '0' || c > '9') {
+>         return false;
+>       }
+>     }
+>     return len > 0;
+>   }
+724a747,755
+>   static double getSimpleNumber(String s) {
+>     if (isSimpleNumber(s)) {
+>       long l = Long.parseLong(s);
+>       if (l < NodeUtil.MAX_POSITIVE_INTEGER_NUMBER) {
+>         return l;
+>       }
+>     }
+>     return Double.NaN;
+>   }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure157/src/com/google/javascript/jscomp/parsing/IRFactory.java d4j_patched/Closure157/src/com/google/javascript/jscomp/parsing/IRFactory.java
+254a255,263
+>   private Node transformNumberAsString(NumberLiteral literalNode) {
+>     JSDocInfo jsDocInfo = handleJsDoc(literalNode);
+>     Node irNode = newStringNode(getStringValue(literalNode.getNumber()));
+>     if (jsDocInfo != null) {
+>       irNode.setJSDocInfo(jsDocInfo);
+>     }
+>     setSourceInfo(irNode, literalNode);
+>     return irNode;
+>   }
+255a265,266
+>   private static String getStringValue(double value) {
+>     long longValue = (long) value;
+257a269,274
+>     if (longValue == value) {
+>       return Long.toString(longValue);
+>     } else {
+>       return Double.toString(value);
+>     }
+>   }
+346a364,366
+>       } else if (n instanceof NumberLiteral) {
+>         ret = transformNumberAsString((NumberLiteral)n);
+>         ret.putBooleanProp(Node.QUOTED_PROP, true);
+349,351d368
+<         Preconditions.checkState(ret.getType() == Token.NUMBER
+<             || ret.getType() == Token.STRING);
+<         if (ret.getType() == Token.STRING) {
+353d369
+<         }
+354a371
+>       Preconditions.checkState(ret.getType() == Token.STRING);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure157/src/com/google/javascript/jscomp/RenamePrototypes.java d4j_patched/Closure157/src/com/google/javascript/jscomp/RenamePrototypes.java
+336c336
+<               if (child.getType() != Token.NUMBER) {
+---
+>               if (TokenStream.isJSIdentifier(child.getString())) {
+377c377
+<               if (key.getType() != Token.NUMBER) {
+---
+>               if (TokenStream.isJSIdentifier(key.getString())) {

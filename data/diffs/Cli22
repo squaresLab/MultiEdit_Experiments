@@ -1,0 +1,38 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Cli22/src/java/org/apache/commons/cli/PosixParser.java d4j_patched/Cli22/src/java/org/apache/commons/cli/PosixParser.java
+40a41
+>     private Option currentOption;
+116c117
+<                     processNonOptionToken(token);
+---
+>                     processNonOptionToken(token, stopAtNonOption);
+119a121
+>                     currentOption = options.getOption(opt);
+146,149d147
+<             else if (stopAtNonOption)
+<             {
+<                 processNonOptionToken(token);
+<             }
+152c150
+<                 tokens.add(token);
+---
+>                 processNonOptionToken(token, stopAtNonOption);
+184c182
+<     private void processNonOptionToken(String value)
+---
+>     private void processNonOptionToken(String value, boolean stopAtNonOption)
+185a184,185
+>         if (stopAtNonOption && (currentOption == null || !currentOption.hasArg()))
+>         {
+187a188
+>         }
+210a212,215
+>         if (options.hasOption(token))
+>         {
+>             currentOption = options.getOption(token);
+>         }
+243d247
+<         Option currentOption;
+262c266
+<                 processNonOptionToken(token.substring(i));
+---
+>                 processNonOptionToken(token.substring(i), true);

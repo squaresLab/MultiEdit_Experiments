@@ -1,0 +1,69 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/JavaType.java d4j_patched/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/JavaType.java
+301a302
+>     public final boolean isJavaLangObject() { return _class == Object.class; }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java d4j_patched/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+163c163
+<         if (ser == null) {
+---
+>         if (ser == null && !delegateType.isJavaLangObject()) {
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java d4j_patched/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
+370c370,371
+<                     JsonSerializer<?> ser = provider.findValueSerializer(delegateType, prop);
+---
+>                     JsonSerializer<?> ser = delegateType.isJavaLangObject() ? null
+>                             : provider.findValueSerializer(delegateType, prop);
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java d4j_patched/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java
+120a121
+>             if (!delegateType.isJavaLangObject()) {
+121a123
+>             }
+126,127c128,131
+<         return (delSer == _delegateSerializer) ? this
+<                 : withDelegate(_converter, delegateType, delSer);
+---
+>         if (delSer == _delegateSerializer && delegateType == _delegateType) {
+>             return this;
+>         }
+>         return withDelegate(_converter, delegateType, delSer);
+161c165,169
+<         _delegateSerializer.serialize(delegateValue, gen, provider);
+---
+>         JsonSerializer<Object> ser = _delegateSerializer;
+>         if (ser == null) {
+>             ser = _findSerializer(delegateValue, provider);
+>         }
+>         ser.serialize(delegateValue, gen, provider);
+172c180,184
+<         _delegateSerializer.serializeWithType(delegateValue, gen, provider, typeSer);
+---
+>         JsonSerializer<Object> ser = _delegateSerializer;
+>         if (ser == null) {
+>             ser = _findSerializer(value, provider);
+>         }
+>         ser.serializeWithType(delegateValue, gen, provider, typeSer);
+179a192,194
+>         if (_delegateSerializer == null) { // best we can do for now, too costly to look up
+>             return (value == null);
+>         }
+186a202,204
+>         if (_delegateSerializer == null) { // best we can do for now, too costly to look up
+>             return (value == null);
+>         }
+224c242,244
+<         _delegateSerializer.acceptJsonFormatVisitor(visitor, typeHint);
+---
+>         if (_delegateSerializer != null) {
+>             _delegateSerializer.acceptJsonFormatVisitor(visitor, typeHint);
+>         }
+255a276,278
+>     protected JsonSerializer<Object> _findSerializer(Object value, SerializerProvider serializers)
+>         throws JsonMappingException
+>     {
+256a280,281
+>         return serializers.findValueSerializer(value.getClass());
+>     }
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java d4j_patched/JacksonDatabind15/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java
+262c262
+<                     if (existingSerializer == null) {
+---
+>                     if (existingSerializer == null && !delegateType.hasRawClass(Object.class)) {

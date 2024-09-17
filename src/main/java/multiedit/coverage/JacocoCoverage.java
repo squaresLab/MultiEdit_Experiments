@@ -53,6 +53,7 @@ public class JacocoCoverage {
             File jacocoFile = new File("jacoco.exec");
             coverageInfo = getCoverageInfo(jacocoFile, patch, whichVersion);
             jacocoFile.delete();
+            System.out.println("Jacoco file exists: " + jacocoFile.exists());
         } catch (IOException e) {
             throw new RuntimeException("Could not get coverage for " + tc, e);
         }

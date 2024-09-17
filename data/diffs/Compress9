@@ -1,0 +1,14 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Compress9/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java d4j_patched/Compress9/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+107a108,112
+>     @Deprecated
+>     @Override
+>     public int getCount() {
+>         return (int) getBytesWritten();
+>     }
+108a114,117
+>     @Override
+>     public long getBytesWritten() {
+>         return ((CountingOutputStream) out).getBytesWritten();
+>     }
+330d338
+<         count(numToWrite);

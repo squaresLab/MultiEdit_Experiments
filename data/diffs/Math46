@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math46/src/main/java/org/apache/commons/math/complex/Complex.java d4j_patched/Math46/src/main/java/org/apache/commons/math/complex/Complex.java
+260c260
+<             return isZero ? NaN : INF;
+---
+>             return NaN;
+297c297
+<             return isZero ? NaN : INF;
+---
+>             return NaN;

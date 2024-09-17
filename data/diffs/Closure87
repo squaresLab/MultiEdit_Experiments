@@ -1,0 +1,20 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure87/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java d4j_patched/Closure87/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+522a523
+>         if (maybeExpr.getType() == Token.EXPR_RESULT) {
+528a530,531
+>           if (maybeExpr.getFirstChild().getType() == Token.CALL) {
+>             Node calledFn = maybeExpr.getFirstChild().getFirstChild();
+531a535,541
+>             if (calledFn.getType() == Token.GETELEM) {
+>               return false;
+>             } else if (calledFn.getType() == Token.GETPROP &&
+>                        calledFn.getLastChild().getString().startsWith("on")) {
+>               return false;
+>             }
+>           }
+533c543,545
+<           return NodeUtil.isExpressionNode(maybeExpr);
+---
+>           return true;
+>         }
+>         return false;

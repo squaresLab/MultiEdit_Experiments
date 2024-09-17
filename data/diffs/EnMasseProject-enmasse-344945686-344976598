@@ -1,0 +1,72 @@
+Only in after/address-controller: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java after/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java
+11a12
+> import javax.ws.rs.BadRequestException;
+21a23
+> 
+70a73
+>         Set<Address> existingAddresses = addressSpaceApi.withAddressSpace(addressSpace).listAddresses();
+72a76,86
+>             for (Address existing : existingAddresses) {
+>                 if (address.getAddress().equals(existing.getAddress()) && !address.getName().equals(existing.getName())) {
+>                     throw new BadRequestException("Address '" + address.getAddress() + "' already exists with resource name '" + existing.getName() + "'");
+>                 }
+>             }
+> 
+>             for (Address b : addressList) {
+>                 if (address.getAddress().equals(b.getAddress()) && !address.getName().equals(b.getName())) {
+>                     throw new BadRequestException("Address '" + address.getAddress() + "' defined in resource names '" + address.getName() + "' and '" + b.getName() + "'");
+>                 }
+>             }
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/address-controller/src/test/java/io/enmasse/controller/api/v1/AddressApiHelperTest.java after/address-controller/src/test/java/io/enmasse/controller/api/v1/AddressApiHelperTest.java
+7a8,10
+> import static org.hamcrest.CoreMatchers.is;
+> import static org.junit.Assert.assertThat;
+> import static org.junit.Assert.fail;
+28a32
+> import org.mockito.internal.util.collections.Sets;
+29a34
+> import javax.ws.rs.BadRequestException;
+63c68,102
+<     private Address createAddress(final String name)
+---
+>     @Test
+>     public void testDuplicateAddresses() throws Exception {
+>         when(addressApi.listAddresses()).thenReturn(Sets.newSet(createAddress("q1"), createAddress("q2")));
+> 
+>         AddressList newAddresses = new AddressList();
+>         newAddresses.add(createAddress("q3", "q1"));
+>         try {
+>             helper.putAddresses(securityContext, "test", newAddresses);
+>             fail("Expected exception for duplicate address");
+>         } catch (BadRequestException e) {
+>             assertThat(e.getMessage(), is("Address 'q1' already exists with resource name 'q1'"));
+>         }
+>     }
+> 
+>     @Test
+>     public void testDuplicateAddressesInRequest() throws Exception {
+>         when(addressApi.listAddresses()).thenReturn(Collections.emptySet());
+> 
+>         AddressList newAddresses = new AddressList();
+>         newAddresses.add(createAddress("q1", "q1"));
+>         newAddresses.add(createAddress("q2", "q1"));
+>         try {
+>             helper.putAddresses(securityContext, "test", newAddresses);
+>             fail("Expected exception for duplicate address");
+>         } catch (BadRequestException e) {
+>             assertThat(e.getMessage(), is("Address 'q1' defined in resource names 'q1' and 'q2'"));
+>         }
+>     }
+> 
+>     private Address createAddress(String name, String address)
+>     {
+>         return new Address.Builder().setName(name).setAddress(address).setAddressSpace("test").setType("queue").setPlan("plan1").build();
+>     }
+> 
+>     private Address createAddress(String address)
+65c104
+<         return new Address.Builder().setAddress(name).setAddressSpace("test").setType("queue").setPlan("plan1").build();
+---
+>         return createAddress(address, address);
+Only in after/: bears.json

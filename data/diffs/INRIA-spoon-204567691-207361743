@@ -1,0 +1,53 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java after/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+86a87
+> import spoon.reflect.factory.PackageFactory;
+535,538c536,540
+< 		CtPackageReference packageReference = index >= 0
+< 				? this.jdtTreeBuilder.getFactory().Package().getOrCreate(concatSubArray(namesParameterized, index)).getReference()
+< 				: this.jdtTreeBuilder.getFactory().Package().topLevel();
+< 		inner.setPackage(packageReference);
+---
+> 		if (inner.getPackage() == null) {
+> 			PackageFactory packageFactory = this.jdtTreeBuilder.getFactory().Package();
+> 			CtPackageReference packageReference = index >= 0 ? packageFactory.getOrCreate(concatSubArray(namesParameterized, index)).getReference() : packageFactory.topLevel();
+> 			inner.setPackage(packageReference);
+> 		}
+574a577,578
+> 			final CtReference declaring = this.getDeclaringReferenceFromImports(name.toCharArray());
+> 			setPackageOrDeclaringType(main, declaring);
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/arrays/ArraysTest.java after/src/test/java/spoon/test/arrays/ArraysTest.java
+63c63
+< 		assertEquals("new Type[list.size()]", local.toString());
+---
+> 		assertEquals("new com.example.Type[list.size()]", local.toString());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/constructorcallnewclass/NewClassTest.java after/src/test/java/spoon/test/constructorcallnewclass/NewClassTest.java
+165c165
+< 		assertEquals("Lock$With", anonymousClass.getSuperclass().getQualifiedName());
+---
+> 		assertEquals("org.apache.lucene.store.Lock$With", anonymousClass.getSuperclass().getQualifiedName());
+167c167
+< 		assertEquals("Lock.With", anonymousClass.getSuperclass().toString());
+---
+> 		assertEquals("org.apache.lucene.store.Lock.With", anonymousClass.getSuperclass().toString());
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/type/TypeTest.java after/src/test/java/spoon/test/type/TypeTest.java
+28a29
+> import spoon.reflect.code.CtNewClass;
+156a158,173
+> 	}
+> 
+> 	@Test
+> 	public void test() throws Exception {
+> 		final Launcher launcher = new Launcher();
+> 		launcher.addInputResource("./src/test/resources/noclasspath/TorIntegration.java");
+> 		launcher.getEnvironment().setNoClasspath(true);
+> 		launcher.buildModel();
+> 
+> 		CtType<?> ctType = launcher.getFactory().Class().getAll().get(0);
+> 		List<CtNewClass> elements = ctType.getElements(new TypeFilter<>(CtNewClass.class));
+> 		assertEquals(4, elements.size());
+> 		for (int i = 0; i < elements.size(); i++) {
+> 			CtNewClass ctNewClass = elements.get(i);
+> 			assertEquals("android.content.DialogInterface$OnClickListener", ctNewClass.getAnonymousClass().getSuperclass().getQualifiedName());
+> 		}

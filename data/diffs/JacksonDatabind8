@@ -1,0 +1,24 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind8/src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java d4j_patched/JacksonDatabind8/src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java
+282a283
+>             boolean verify;
+289a291,292
+>                 verify = true;
+>             } else {
+290a294
+>                 verify = !explicit;
+294c298
+<             if (oldOne.getClass() == newOne.getClass()) {
+---
+>             if (verify && (oldOne.getClass() == newOne.getClass())) {
+295a300,301
+>                 Class<?> oldType = oldOne.getRawParameterType(0);
+>                 Class<?> newType = newOne.getRawParameterType(0);
+296a303
+>                 if (oldType == newType) {
+298a306
+>                 }
+299a308
+>                 if (newType.isAssignableFrom(oldType)) {
+300a310,311
+>                     return;
+>                 }

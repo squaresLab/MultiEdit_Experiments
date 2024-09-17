@@ -1,0 +1,13 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Jsoup16/src/main/java/org/jsoup/nodes/DocumentType.java d4j_patched/Jsoup16/src/main/java/org/jsoup/nodes/DocumentType.java
+3a4
+> import org.jsoup.helper.Validate;
+20a22
+>         Validate.notEmpty(name);
+33c35
+<         accum.append("<!DOCTYPE html");
+---
+>         accum.append("<!DOCTYPE ").append(attr("name"));
+37c39
+<             accum.append(' ').append(attr("systemId")).append("\"");
+---
+>             accum.append(" \"").append(attr("systemId")).append("\"");

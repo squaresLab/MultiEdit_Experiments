@@ -1,0 +1,12 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math13/src/main/java/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizer.java d4j_patched/Math13/src/main/java/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizer.java
+561a562,569
+>         if (m instanceof DiagonalMatrix) {
+>             final int dim = m.getRowDimension();
+>             final RealMatrix sqrtM = new DiagonalMatrix(dim);
+>             for (int i = 0; i < dim; i++) {
+>                sqrtM.setEntry(i, i, FastMath.sqrt(m.getEntry(i, i)));
+>             }
+>             return sqrtM;
+>         } else {
+563a572
+>         }

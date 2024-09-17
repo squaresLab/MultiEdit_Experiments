@@ -1,0 +1,41 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind23/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java d4j_patched/JacksonDatabind23/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
+53a54
+>         protected final static Integer EMPTY_INTEGER = Integer.valueOf(0);
+119a121
+>         private final static Short EMPTY = (short) 0;
+123a126,129
+>         @Override
+>         public boolean isEmpty(SerializerProvider prov, Short value) {
+>             return EMPTY.equals(value);
+>         }
+158a165,168
+>         @Override
+>         public boolean isEmpty(SerializerProvider prov, Object value) {
+>             return EMPTY_INTEGER.equals(value);
+>         }
+174a185,188
+>         @Override
+>         public boolean isEmpty(SerializerProvider prov, Number value) {
+>             return value.intValue() == 0;
+>         }
+184a199
+>         private final static Long EMPTY = 0L;
+189a205,208
+>         @Override
+>         public boolean isEmpty(SerializerProvider prov, Object value) {
+>             return EMPTY.equals(value);
+>         }
+199a219
+>         private final static Float EMPTY = 0f;
+204a225,228
+>         @Override
+>         public boolean isEmpty(SerializerProvider prov, Object value) {
+>             return EMPTY.equals(value);
+>         }
+221a246
+>         private final static Double EMPTY = 0d;
+226a252,255
+>         @Override
+>         public boolean isEmpty(SerializerProvider prov, Object value) {
+>             return EMPTY.equals(value);
+>         }

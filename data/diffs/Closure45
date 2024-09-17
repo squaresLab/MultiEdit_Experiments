@@ -1,0 +1,15 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Closure45/src/com/google/javascript/jscomp/RemoveUnusedVars.java d4j_patched/Closure45/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+731a732
+>           boolean maybeEscaped = false;
+738a740,742
+>             if (assign.maybeAliased) {
+>               maybeEscaped = true;
+>             }
+741c745
+<           if (assignedToUnknownValue && hasPropertyAssign) {
+---
+>           if ((assignedToUnknownValue || maybeEscaped) && hasPropertyAssign) {
+904c908
+<       this.maybeAliased = !assignNode.getParent().isExprResult();
+---
+>       this.maybeAliased = NodeUtil.isExpressionResultUsed(assignNode);

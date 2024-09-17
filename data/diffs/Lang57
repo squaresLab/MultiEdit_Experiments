@@ -1,0 +1,5 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Lang57/src/java/org/apache/commons/lang/LocaleUtils.java d4j_patched/Lang57/src/java/org/apache/commons/lang/LocaleUtils.java
+223c223
+<         return cAvailableLocaleSet.contains(locale);
+---
+>         return availableLocaleList().contains(locale);

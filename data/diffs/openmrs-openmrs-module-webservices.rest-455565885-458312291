@@ -1,0 +1,47 @@
+Only in after/: bears.json
+Only in after/omod-1.9: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/omod-1.9/src/main/java/org/openmrs/module/webservices/rest/web/v1_0/resource/openmrs1_9/ObsResource1_9.java after/omod-1.9/src/main/java/org/openmrs/module/webservices/rest/web/v1_0/resource/openmrs1_9/ObsResource1_9.java
+11a12,14
+> import java.util.Map;
+> 
+> import org.openmrs.Concept;
+12a16
+> import org.openmrs.module.webservices.rest.web.ConversionUtil;
+34c38,50
+< 		obs.setConcept(new ConceptResource1_9().getByUniqueId((String) value));
+---
+> 		Object identifier = null;
+> 		if (value instanceof Map) {
+> 			Object uuid = ((Map) value).get(RestConstants.PROPERTY_UUID);
+> 			if (uuid != null) {
+> 				identifier = uuid;
+> 			}
+> 		}
+> 		
+> 		if (identifier == null) {
+> 			identifier = value;
+> 		}
+> 		
+> 		obs.setConcept(ConversionUtil.getConverter(Concept.class).getByUniqueId((String) identifier));
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/omod-1.9/src/test/java/org/openmrs/module/webservices/rest/web/v1_0/controller/openmrs1_9/ObsController1_9Test.java after/omod-1.9/src/test/java/org/openmrs/module/webservices/rest/web/v1_0/controller/openmrs1_9/ObsController1_9Test.java
+11a12
+> import com.fasterxml.jackson.databind.ObjectMapper;
+24d24
+< import org.openmrs.module.webservices.rest.test.Util;
+199a200,215
+> 	}
+> 	
+> 	@Test
+> 	public void getObs_shouldCreateAnObsWhenTheQuestionConceptIsSetAsAMapContainingTheUuid() throws Exception {
+> 		long originalCount = getAllCount();
+> 		SimpleObject obs = new SimpleObject();
+> 		obs.add("person", "da7f524f-27ce-4bb2-86d6-6d1d05312bd5");
+> 		SimpleObject concept = new SimpleObject();
+> 		concept.add("uuid", "c607c80f-1ea9-4da3-bb88-6276ce8868dd");
+> 		concept.add("name", new SimpleObject());
+> 		obs.add("concept", concept);
+> 		obs.add("obsDatetime", "2018-11-13T00:00:00.000-0500");
+> 		obs.add("value", 180.0);
+> 		String json = new ObjectMapper().writeValueAsString(obs);
+> 		handle(newPostRequest(getURI(), json));
+> 		assertEquals(++originalCount, getAllCount());

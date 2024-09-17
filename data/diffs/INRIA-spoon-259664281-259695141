@@ -1,0 +1,27 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/main/java/spoon/support/template/Parameters.java after/src/main/java/spoon/support/template/Parameters.java
+271,272c271,272
+< 		if (getTemplateParameterType(ref.getFactory()).isSubtypeOf(ref.getType())) {
+< 			//the type of template field is or extends from class TemplateParameter.
+---
+> 		if (TemplateParameter.class.getName().equals(ref.getType().getQualifiedName())) {
+> 			//the type of template field is TemplateParameter.
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/test/java/spoon/test/template/TemplateTest.java after/src/test/java/spoon/test/template/TemplateTest.java
+37a38
+> import spoon.test.template.testclasses.ObjectIsNotParamTemplate;
+895a897,909
+> 	}
+> 
+> 	@Test
+> 	public void testObjectIsNotParamTemplate() throws Exception {
+> 		Launcher spoon = new Launcher();
+> 		spoon.addTemplateResource(new FileSystemFile("./src/test/java/spoon/test/template/testclasses/ObjectIsNotParamTemplate.java"));
+> 
+> 		spoon.buildModel();
+> 		Factory factory = spoon.getFactory();
+> 		//contract: String value is substituted in substring of literal, named element and reference
+> 		final CtClass<?> result = (CtClass<?>) new ObjectIsNotParamTemplate().apply(factory.createClass());
+> 		assertEquals(0, result.getMethodsByName("methXXXd").size());
+> 		assertEquals(1, result.getMethodsByName("method").size());
+Only in after/src/test/java/spoon/test/template/testclasses: ObjectIsNotParamTemplate.java

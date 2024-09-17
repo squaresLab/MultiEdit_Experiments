@@ -1,0 +1,9 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/JacksonDatabind74/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsPropertyTypeDeserializer.java d4j_patched/JacksonDatabind74/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsPropertyTypeDeserializer.java
+155a156,162
+>         } else if (p.getCurrentToken() == JsonToken.VALUE_STRING) {
+>             if (ctxt.isEnabled(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT)) {
+>                 String str = p.getText().trim();
+>                 if (str.isEmpty()) {
+>                     return null;
+>                 }
+>             }

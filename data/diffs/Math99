@@ -1,0 +1,11 @@
+diff -r -x '*.config' -x '*git*' -x '*.md' -x '*.xml' d4j_buggy/Math99/src/java/org/apache/commons/math/util/MathUtils.java d4j_patched/Math99/src/java/org/apache/commons/math/util/MathUtils.java
+542a543,547
+>             if ((u == Integer.MIN_VALUE) || (v == Integer.MIN_VALUE)) {
+>                 throw MathRuntimeException.createArithmeticException(
+>                         "overflow: gcd({0}, {1}) is 2^31",
+>                         new Object[] { p, q });
+>             }
+713a719,721
+>         if (lcm == Integer.MIN_VALUE){
+>             throw new ArithmeticException("overflow: lcm is 2^31");
+>         }

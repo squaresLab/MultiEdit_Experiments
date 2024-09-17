@@ -1,0 +1,12 @@
+Only in after/: bears.json
+Only in after/: classpath.info
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/src/org/traccar/protocol/MeitrackProtocolDecoder.java after/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+72c72
+<             .number("(x+),")                     // power
+---
+>             .number("(x+)?,")                    // power
+diff -r -x '*.log' -x '*.config' -x '*git*' -x '*.md' -x '*.xml' before/test/org/traccar/protocol/MeitrackProtocolDecoderTest.java after/test/org/traccar/protocol/MeitrackProtocolDecoderTest.java
+13a14,16
+>         verifyPosition(decoder, buffer(
+>                 "$$B136,011691002364761,AAA,29,47.055220,28.893193,170914144240,V,0,7,0,0,0,132,129754946,129793197,259|2|02F8|413F,0000,000D|000C||028C|,*9E"));
+> 
